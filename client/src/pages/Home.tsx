@@ -28,6 +28,7 @@ export default function Home() {
       company: "GSM - Xanh SM",
       location: "Jakarta",
       period: "07/2025 - Present",
+      icon: "/images/icon-xanh-sm.png",
       description:
         "Lead end-to-end product strategy and execution for Xanh SM Indonesia, ensuring digital ecosystem supports business growth, operational scalability, and service quality.",
       highlights: [
@@ -48,6 +49,7 @@ export default function Home() {
       company: "INA Digital Edu - Ministry of Primary and Secondary Education",
       location: "Jakarta",
       period: "08/2024 - 08/2025",
+      icon: "/images/icon-ina-digital-edu.png",
       description:
         "Led development of performance management tools and national-scale data integration systems for the education sector.",
       highlights: [
@@ -68,6 +70,7 @@ export default function Home() {
       company: "Shopee",
       location: "Jakarta",
       period: "03/2024 - 07/2024",
+      icon: "/images/icon-shopee.png",
       description:
         "Led team responsible for Fleet Management System across First Mile, Middle Mile, and Last Mile operations.",
       highlights: [
@@ -88,6 +91,7 @@ export default function Home() {
       company: "Tokopedia & GoTo Logistics",
       location: "Jakarta",
       period: "02/2022 - 03/2024",
+      icon: "/images/icon-tokopedia.png",
       description:
         "Directed Fulfillment team to operate with higher efficiency by reducing turnaround time and improving service levels.",
       highlights: [
@@ -339,12 +343,21 @@ export default function Home() {
                   }`}
                 >
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-foreground mb-2">
-                        {exp.title}
-                      </h3>
-                      <p className="text-lg text-accent font-medium mb-1">{exp.company}</p>
-                      <p className="text-muted-foreground">{exp.location}</p>
+                    <div className="flex items-start gap-4">
+                      {exp.icon && (
+                        <img
+                          src={exp.icon}
+                          alt={exp.company}
+                          className="w-16 h-16 object-contain flex-shrink-0"
+                        />
+                      )}
+                      <div>
+                        <h3 className="text-2xl font-semibold text-foreground mb-2">
+                          {exp.title}
+                        </h3>
+                        <p className="text-lg text-accent font-medium mb-1">{exp.company}</p>
+                        <p className="text-muted-foreground">{exp.location}</p>
+                      </div>
                     </div>
                     <p className="text-sm font-medium text-muted-foreground mt-4 md:mt-0 whitespace-nowrap">
                       {exp.period}
