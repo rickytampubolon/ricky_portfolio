@@ -231,10 +231,10 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-8">
           <div>
             <p className="text-base leading-relaxed mb-3">
-              Senior Product Manager with experience across electric mobility, logistics, fulfillment, and education technology. I lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale.
+              Senior Product Manager with 8+ years of experience driving product strategy and execution across electric mobility, logistics, fulfillment, and education technology sectors. I specialize in translating complex operational challenges into scalable digital solutions that impact millions of users.
             </p>
             <p className="text-base leading-relaxed">
-              My background in software engineering and quality assurance strengthens my ability to translate operational challenges into practical product outcomes. I have managed high impact platforms, led coordinated execution across regional and global teams, and improved service quality through structured analysis and continuous refinement.
+              My foundation in software engineering enables me to collaborate effectively with technical teams, understand system constraints, and make data-driven product decisions. I have consistently delivered high-impact platforms, led cross-functional teams across regional and global markets, and improved service quality through rigorous analysis and continuous optimization.
             </p>
           </div>
           <div>
@@ -330,7 +330,36 @@ export default function Home() {
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{internship.period}</span>
               </div>
-              <p className="text-sm text-muted-foreground">{internship.description}</p>
+              <p className="text-sm text-muted-foreground mb-2">Jakarta, Indonesia</p>
+              <p className="text-base mb-3">{internship.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Part-time Work Section */}
+      <section className="container py-10 md:py-12">
+        <h2 className="section-title">Side Projects</h2>
+        <div>
+          {partTimeJobs.map((job) => (
+            <div key={job.id} className="job-item">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h3 className="job-title">{job.title}</h3>
+                  <p className="job-company">{job.company}</p>
+                </div>
+                <span className="job-period whitespace-nowrap ml-4">{job.period}</span>
+              </div>
+              <p className="text-sm text-muted-foreground mb-2">{job.location}</p>
+              <p className="text-base mb-3">{job.description}</p>
+              <ul className="text-sm text-muted-foreground space-y-1">
+                {job.highlights.map((highlight, idx) => (
+                  <li key={idx} className="flex gap-3">
+                    <span className="text-foreground">•</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
