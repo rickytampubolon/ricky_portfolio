@@ -121,6 +121,44 @@ export default function Home() {
     }
   ];
 
+  const partTimeJobs = [
+    {
+      id: 1,
+      title: "QA Engineer Part-time",
+      company: "SehatQ",
+      location: "Jakarta, Indonesia",
+      period: "Feb 2022 - Feb 2023",
+      description: "SehatQ is a health tech startup offering a full suite of health-related services in Indonesia on its digital platform.",
+      highlights: [
+        "Worked on the eCommerce and Merchant squad",
+        "Performed tests on Android, iOS, Web, and mobile web",
+        "Collaborated closely with Software Engineers, Product Managers, and Designers",
+        "Participated in sprint planning, grooming, retrospectives, daily standups, and sprint reviews",
+        "Monitored quality and active bugs of product features",
+        "Created test cases in Xray",
+        "Ran manual tests based on test cases"
+      ]
+    },
+    {
+      id: 2,
+      title: "QA Engineer Part-time",
+      company: "SiCepat",
+      location: "Jakarta, Indonesia",
+      period: "Aug 2021 - Feb 2022",
+      description: "PT SiCepat Ekspres is an expedition company offering 15-hour delivery for Jabodetabek and Bandung areas and 1-day delivery for major cities throughout Indonesia.",
+      highlights: [
+        "Worked on the CMS and Integration team",
+        "Performed tests on Android, API, and Web",
+        "Collaborated closely with Software Engineers, Product Managers, and Designers",
+        "Participated in sprint planning, grooming, retrospectives, daily standups, and sprint reviews",
+        "Monitored quality and active bugs of product features",
+        "Created test cases in TestRail",
+        "Ran manual tests based on test cases",
+        "Performed API testing using Postman"
+      ]
+    }
+  ];
+
   const internships = [
     {
       title: "QA Engineer Intern",
@@ -240,6 +278,34 @@ export default function Home() {
               <p className="text-base mb-3">{exp.description}</p>
               <ul className="text-sm text-muted-foreground space-y-1">
                 {exp.highlights.map((highlight, idx) => (
+                  <li key={idx} className="flex gap-3">
+                    <span className="text-foreground">•</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Part-time Work Section */}
+      <section className="container py-10 md:py-12">
+        <h2 className="section-title">Side Projects</h2>
+        <div>
+          {partTimeJobs.map((job) => (
+            <div key={job.id} className="job-item">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h3 className="job-title">{job.title}</h3>
+                  <p className="job-company">{job.company}</p>
+                </div>
+                <span className="job-period whitespace-nowrap ml-4">{job.period}</span>
+              </div>
+              <p className="text-sm text-muted-foreground mb-2">{job.location}</p>
+              <p className="text-base mb-3">{job.description}</p>
+              <ul className="text-sm text-muted-foreground space-y-1">
+                {job.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex gap-3">
                     <span className="text-foreground">•</span>
                     <span>{highlight}</span>
