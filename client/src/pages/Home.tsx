@@ -297,13 +297,13 @@ export default function Home() {
             <div key={exp.id} className="job-item">
               <div className="flex items-start justify-between mb-2">
                 <div>
+                  <h3 className="job-title">{exp.title}</h3>
                   <div className="flex items-center gap-2 mb-1">
                     {exp.companyImage && (
-                      <img src={exp.companyImage} alt={exp.company} className="w-6 h-6 object-contain" />
+                      <img src={exp.companyImage} alt={exp.company} className="w-5 h-5 object-contain" />
                     )}
-                    <h3 className="job-title">{exp.title}</h3>
+                    <p className="job-company">{exp.company}</p>
                   </div>
-                  <p className="job-company">{exp.company}</p>
                   {exp.companyProfile && (
                     <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{exp.companyProfile}</p>
                   )}
@@ -332,13 +332,13 @@ export default function Home() {
             <div key={job.id} className="job-item">
               <div className="flex items-start justify-between mb-2">
                 <div>
+                  <h3 className="job-title">{job.title}</h3>
                   <div className="flex items-center gap-2 mb-1">
                     {job.companyImage && (
-                      <img src={job.companyImage} alt={job.company} className="w-6 h-6 object-contain" />
+                      <img src={job.companyImage} alt={job.company} className="w-5 h-5 object-contain" />
                     )}
-                    <h3 className="job-title">{job.title}</h3>
+                    <p className="job-company">{job.company}</p>
                   </div>
-                  <p className="job-company">{job.company}</p>
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{job.period}</span>
               </div>
@@ -365,13 +365,13 @@ export default function Home() {
             <div key={idx} className="job-item">
               <div className="flex items-start justify-between mb-2">
                 <div>
+                  <h3 className="job-title">{internship.title}</h3>
                   <div className="flex items-center gap-2 mb-1">
                     {internship.companyImage && (
-                      <img src={internship.companyImage} alt={internship.company} className="w-6 h-6 object-contain" />
+                      <img src={internship.companyImage} alt={internship.company} className="w-5 h-5 object-contain" />
                     )}
-                    <h3 className="job-title">{internship.title}</h3>
+                    <p className="job-company">{internship.company}</p>
                   </div>
-                  <p className="job-company">{internship.company}</p>
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{internship.period}</span>
               </div>
