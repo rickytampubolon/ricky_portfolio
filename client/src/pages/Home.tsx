@@ -158,7 +158,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="container py-12 md:py-16">
+      <section className="container py-10 md:py-12">
         <div className="max-w-2xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Ricky Halomoan T.</h1>
           <p className="text-xl text-muted-foreground mb-2">Senior Product Manager</p>
@@ -188,7 +188,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="container py-12 md:py-16">
+      <section id="about" className="container py-10 md:py-12">
         <h2 className="section-title">About Me</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div>
@@ -224,7 +224,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="container py-12 md:py-16">
+      <section id="experience" className="container py-10 md:py-12">
         <h2 className="section-title">Experience</h2>
         <div>
           {experiences.map((exp) => (
@@ -252,7 +252,7 @@ export default function Home() {
       </section>
 
       {/* Internships Section */}
-      <section className="container py-12 md:py-16">
+      <section className="container py-10 md:py-12">
         <h2 className="section-title">Internships</h2>
         <div>
           {internships.map((internship, idx) => (
@@ -271,7 +271,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="container py-12 md:py-16">
+      <section id="skills" className="container py-10 md:py-12">
         <h2 className="section-title">Skills</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {Object.entries(skills).map(([category, items]) => (
@@ -288,7 +288,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="container py-12 md:py-16">
+      <section id="contact" className="container py-10 md:py-12">
         <h2 className="section-title">Contact</h2>
         <div className="max-w-2xl">
           <p className="text-base mb-8">
@@ -318,7 +318,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-6 mt-12">
+      <footer className="border-t border-border py-4 mt-8">
         <div className="container text-center text-sm text-muted-foreground">
           <p>© 2025 Ricky Halomoan. All rights reserved.</p>
         </div>
