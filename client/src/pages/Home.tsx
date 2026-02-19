@@ -225,7 +225,7 @@ export default function Home() {
         <div className="max-w-2xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Ricky Halomoan T.</h1>
           <p className="text-xl text-muted-foreground mb-2">Senior Product Manager</p>
-          <p className="text-lg text-muted-foreground mb-8">Experience across electric mobility, logistics, fulfillment, and education technology. Proven ability to lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale. Background in software engineering and quality assurance enables strong capacity to translate operational challenges into practical product outcomes.</p>
+          <p className="text-lg text-muted-foreground mb-8">Building digital products that move businesses forward.</p>
           
           <div className="flex gap-4 mb-8">
             <a href="mailto:rickytampubolon97@gmail.com">
