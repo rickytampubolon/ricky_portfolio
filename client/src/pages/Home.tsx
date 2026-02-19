@@ -275,20 +275,20 @@ export default function Home() {
           {experiences.map((exp) => (
             <div key={exp.id} className="job-item">
               <div className="flex items-start justify-between mb-2">
-                <div>
+                <div className="flex-1">
                   <h3 className="job-title">{exp.title}</h3>
-                  <p className="job-company">{exp.company}</p>
+                  <div className="flex items-center gap-2 mb-2">
+                    {exp.companyImage && (
+                      <img src={exp.companyImage} alt={exp.company} className="w-6 h-6 object-contain" />
+                    )}
+                    <p className="job-company">{exp.company}</p>
+                  </div>
                   {exp.companyProfile && (
                     <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{exp.companyProfile}</p>
                   )}
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{exp.period}</span>
               </div>
-              {exp.companyImage && (
-                <div className="mb-3 rounded overflow-hidden max-w-xs">
-                  <img src={exp.companyImage} alt={exp.company} className="w-full h-auto" />
-                </div>
-              )}
               <p className="text-sm text-muted-foreground mb-2">{exp.location}</p>
               <p className="text-base mb-3">{exp.description}</p>
               <ul className="text-sm text-muted-foreground space-y-1">
