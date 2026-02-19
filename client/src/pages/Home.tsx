@@ -310,7 +310,7 @@ export default function Home() {
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{exp.period}</span>
               </div>
-              <p className="text-sm text-muted-foreground mb-2">{exp.location}</p>
+
               <ul className="text-sm text-muted-foreground space-y-1">
                 {exp.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex gap-3">
@@ -342,7 +342,7 @@ export default function Home() {
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{job.period}</span>
               </div>
-              <p className="text-sm text-muted-foreground mb-2">{job.location}</p>
+
               <p className="text-base mb-3">{job.description}</p>
               <ul className="text-sm text-muted-foreground space-y-1">
                 {job.highlights.map((highlight, idx) => (
@@ -375,7 +375,7 @@ export default function Home() {
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{internship.period}</span>
               </div>
-              <p className="text-base mb-3">{internship.description}</p>
+              <p className="text-sm text-muted-foreground mb-3">{internship.description}</p>
             </div>
           ))}
         </div>
