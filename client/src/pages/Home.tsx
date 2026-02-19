@@ -257,7 +257,7 @@ export default function Home() {
         <h2 className="section-title">About Me</h2>
         <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <p className="text-base leading-relaxed mb-3">
+            <p className="text-base leading-relaxed mb-4">
               Senior Product Manager with experience across electric mobility, logistics, fulfillment, and education technology. Proven ability to lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale.
             </p>
             <p className="text-base leading-relaxed">

@@ -168,15 +168,15 @@
   }
 
   .section-title {
-    @apply text-3xl font-bold mb-4 pb-2 border-b border-border;
+    @apply text-3xl font-bold mb-6 pb-3 border-b border-border;
   }
 
   .job-item {
-    @apply mb-4 pb-4 border-b border-border last:border-b-0 last:pb-0;
+    @apply mb-6 pb-6 border-b border-border last:border-b-0 last:pb-0 last:mb-0;
   }
 
   .job-title {
-    @apply text-xl font-semibold text-foreground;
+    @apply text-lg font-semibold text-foreground;
   }
 
   .job-company {
@@ -184,7 +184,7 @@
   }
 
   .job-period {
-    @apply text-sm text-muted-foreground;
+    @apply text-sm text-muted-foreground font-medium;
   }
 
   .skill-badge {
