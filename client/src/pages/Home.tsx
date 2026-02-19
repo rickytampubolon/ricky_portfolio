@@ -7,6 +7,8 @@ export default function Home() {
       id: 1,
       title: "Lead Country Product Manager",
       company: "GSM - Xanh SM",
+      companyProfile: "Xanh SM is Southeast Asia's leading electric mobility platform, revolutionizing urban transportation through sustainable electric vehicle solutions. Operating across multiple countries, Xanh SM connects riders with eco-friendly transportation options while supporting driver livelihoods.",
+      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/dngARpMXnjYqXwFG.png",
       location: "Jakarta, Indonesia",
       period: "Jul 2025 - Present",
       description: "Lead end-to-end product strategy and execution for Xanh SM Indonesia, ensuring the digital ecosystem supports business growth, operational scalability, and service quality.",
@@ -23,6 +25,7 @@ export default function Home() {
       id: 2,
       title: "Senior Product Manager - Performance Evaluation & Data",
       company: "INA Digital Edu - Ministry of Primary and Secondary Education",
+      companyProfile: "INA Digital Edu is a government-backed digital education platform designed to modernize Indonesia's education system. It provides comprehensive tools for performance evaluation, data management, and institutional accountability across the nation's primary and secondary schools.",
       location: "Jakarta, Indonesia",
       period: "Aug 2024 - Aug 2025",
       description: "Led the development of performance management tools and national-scale data integration systems aimed at improving accountability and efficiency across the education sector.",
@@ -39,6 +42,7 @@ export default function Home() {
       id: 3,
       title: "OPEX Product Lead - Logistic",
       company: "Shopee",
+      companyProfile: "Shopee is Southeast Asia's leading e-commerce platform, connecting millions of buyers and sellers across the region. With integrated logistics solutions, Shopee operates one of the largest fulfillment networks in Southeast Asia, enabling fast and reliable delivery services.",
       location: "Jakarta, Indonesia",
       period: "Mar 2024 - Jul 2024",
       description: "Led team responsible for maintaining and improving the Fleet Management System used across First Mile, Middle Mile, and Last Mile operations.",
@@ -55,6 +59,7 @@ export default function Home() {
       id: 4,
       title: "Product Manager - Fulfillment",
       company: "Tokopedia & GoTo Logistics",
+      companyProfile: "Tokopedia is Indonesia's largest e-commerce marketplace, serving millions of transactions daily. GoTo Logistics, part of the GoTo ecosystem, provides integrated fulfillment and logistics solutions supporting Tokopedia's rapid growth and operational excellence.",
       location: "Jakarta, Indonesia",
       period: "Feb 2022 - Mar 2024",
       description: "Directed the Fulfillment team to operate with higher efficiency by reducing turnaround time and improving service levels.",
@@ -71,6 +76,7 @@ export default function Home() {
       id: 5,
       title: "Quality Engineer - Accommodation",
       company: "Traveloka",
+      companyProfile: "Traveloka is Southeast Asia's leading online travel platform, offering flights, hotels, and travel experiences to millions of users. Known for its user-friendly interface and extensive inventory, Traveloka has become the go-to platform for travel bookings across the region.",
       location: "Jakarta, Indonesia",
       period: "Nov 2019 - Feb 2022",
       description: "Conducted comprehensive testing across Android, iOS, Web, and mobile web platforms to ensure high-quality delivery for the Accommodation product team.",
@@ -87,6 +93,7 @@ export default function Home() {
       id: 6,
       title: "QA Engineer - Taxi Group",
       company: "Ice House",
+      companyProfile: "Ice House operates MyBluebird, Indonesia's leading ride-hailing application. As part of the Bluebird Group, Ice House combines traditional taxi expertise with modern technology to provide safe, reliable, and professional transportation services across major Indonesian cities.",
       location: "Jakarta, Indonesia",
       period: "Nov 2019 - Nov 2020",
       description: "Contributed to the MyBluebird application by conducting extensive functional and integration testing across Android, Web, and API components.",
@@ -271,9 +278,17 @@ export default function Home() {
                 <div>
                   <h3 className="job-title">{exp.title}</h3>
                   <p className="job-company">{exp.company}</p>
+                  {exp.companyProfile && (
+                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{exp.companyProfile}</p>
+                  )}
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{exp.period}</span>
               </div>
+              {exp.companyImage && (
+                <div className="mb-3 rounded overflow-hidden max-w-xs">
+                  <img src={exp.companyImage} alt={exp.company} className="w-full h-auto" />
+                </div>
+              )}
               <p className="text-sm text-muted-foreground mb-2">{exp.location}</p>
               <p className="text-base mb-3">{exp.description}</p>
               <ul className="text-sm text-muted-foreground space-y-1">
