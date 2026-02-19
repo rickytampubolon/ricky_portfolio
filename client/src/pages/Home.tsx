@@ -367,34 +367,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Part-time Work Section */}
-      <section className="container py-10 md:py-12">
-        <h2 className="section-title">Side Projects</h2>
-        <div>
-          {partTimeJobs.map((job) => (
-            <div key={job.id} className="job-item">
-              <div className="flex items-start justify-between mb-2">
-                <div>
-                  <h3 className="job-title">{job.title}</h3>
-                  <p className="job-company">{job.company}</p>
-                </div>
-                <span className="job-period whitespace-nowrap ml-4">{job.period}</span>
-              </div>
-              <p className="text-sm text-muted-foreground mb-2">{job.location}</p>
-              <p className="text-base mb-3">{job.description}</p>
-              <ul className="text-sm text-muted-foreground space-y-1">
-                {job.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex gap-3">
-                    <span className="text-foreground">•</span>
-                    <span>{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Skills Section */}
       <section id="skills" className="container py-10 md:py-12">
         <h2 className="section-title">Skills</h2>
