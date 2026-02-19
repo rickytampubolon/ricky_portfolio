@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, Github, ExternalLink } from "lucide-react";
+import { Mail, Linkedin, Instagram } from "lucide-react";
 
 export default function Home() {
   const experiences = [
@@ -147,7 +147,7 @@ export default function Home() {
       {/* Header Navigation */}
       <header className="sticky top-0 bg-background border-b border-border z-50">
         <nav className="container py-4 flex items-center justify-between">
-          <h1 className="text-xl font-bold">RH</h1>
+          <h1 className="text-xl font-bold">Ricky Halomoan</h1>
           <div className="flex gap-6 text-sm">
             <a href="#about" className="hover:text-muted-foreground transition">About</a>
             <a href="#experience" className="hover:text-muted-foreground transition">Experience</a>
@@ -180,8 +180,8 @@ export default function Home() {
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
               <Linkedin size={20} />
             </a>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
-              <Github size={20} />
+            <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
+              <Instagram size={20} />
             </a>
           </div>
         </div>
@@ -215,7 +215,6 @@ export default function Home() {
             <div>
               <h3 className="font-semibold text-foreground mb-2">Contact</h3>
               <div className="text-sm space-y-1 text-muted-foreground">
-                <p>+6281375205386</p>
                 <p>rickytampubolon97@gmail.com</p>
                 <p>Jakarta, Indonesia</p>
               </div>
@@ -309,8 +308,10 @@ export default function Home() {
               </a>
             </div>
             <div className="flex items-center gap-3">
-              <Github size={20} className="text-muted-foreground" />
-              <span className="text-muted-foreground">+6281375205386</span>
+              <Instagram size={20} className="text-muted-foreground" />
+              <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition">
+                instagram.com/rickyhlmn
+              </a>
             </div>
           </div>
         </div>
