@@ -6,16 +6,17 @@ export default function Home() {
     {
       id: 1,
       title: "Lead Country Product Manager",
-      company: "Xanh SM (GSM)",
+      company: "GSM - Xanh SM",
       location: "Jakarta, Indonesia",
       period: "Jul 2025 - Present",
-      description: "Lead end-to-end product strategy and execution for Xanh SM Indonesia's digital ecosystem. Responsible for defining national roadmap, cross-functional alignment, and ensuring scalable solutions that support business growth.",
+      description: "Lead end-to-end product strategy and execution for Xanh SM Indonesia, ensuring the digital ecosystem supports business growth, operational scalability, and service quality.",
       highlights: [
-        "Define and execute national product roadmap aligned with regional and global priorities",
-        "Lead cross-functional teams across product, engineering, operations, and business",
-        "Drive digital transformation initiatives for electric mobility platform",
-        "Improved driver retention by 25% through product enhancements",
-        "Reduced onboarding time from 48 hours to 12 hours"
+        "Define national roadmap aligned with regional and global priorities while considering local operational needs",
+        "Oversee development of driver-facing platforms, rider flows, corporate solutions, and internal operational systems",
+        "Collaborate with engineering, design, operations, finance, and data teams to ensure smooth feature delivery",
+        "Drive market localization by refining pricing logic, payment flows, loyalty programs, and fleet-management processes",
+        "Use operational and behavioral data to identify performance gaps and strengthen service reliability",
+        "Lead pilot programs and coordinate market rollout plans before national scaling"
       ]
     },
     {
@@ -24,28 +25,30 @@ export default function Home() {
       company: "INA Digital Edu - Ministry of Primary and Secondary Education",
       location: "Jakarta, Indonesia",
       period: "Aug 2024 - Aug 2025",
-      description: "Led development of performance management tools and national-scale data integration systems for Indonesia's education sector.",
+      description: "Led the development of performance management tools and national-scale data integration systems aimed at improving accountability and efficiency across the education sector.",
       highlights: [
-        "Defined product vision and roadmap aligned with ministry priorities",
-        "Managed end-to-end product development from discovery to launch",
-        "Processed 2M+ performance evaluations annually",
-        "Achieved 85% user adoption rate across institutions",
-        "Integrated data from 500+ schools nationwide"
+        "Defined product vision and roadmap aligned with ministry priorities and strategic goals",
+        "Collaborated with internal teams, regional education offices, and external partners to integrate feedback",
+        "Managed full delivery cycle from research and ideation to user testing and release",
+        "Strengthened adoption by organizing training sessions and providing continuous support to educational institutions",
+        "Analyzed usage data and user behavior to refine product decisions and improve engagement",
+        "Developed measurement strategies to assess impact and guide continuous enhancements"
       ]
     },
     {
       id: 3,
-      title: "OPEX Product Lead - Logistics",
+      title: "OPEX Product Lead - Logistic",
       company: "Shopee",
       location: "Jakarta, Indonesia",
       period: "Mar 2024 - Jul 2024",
-      description: "Led Fleet Management System across First Mile, Middle Mile, and Last Mile logistics operations for Shopee Xpress.",
+      description: "Led team responsible for maintaining and improving the Fleet Management System used across First Mile, Middle Mile, and Last Mile operations.",
       highlights: [
-        "Managed system enhancement planning and delivery",
-        "Coordinated with 10+ teams across logistics and operations",
-        "Reduced delivery time by 15% through process optimization",
-        "Saved $2M+ annually through operational efficiency improvements",
-        "Improved fleet utilization by 20%"
+        "Collaborated with Business, Finance, Project and Strategy, Business Intelligence, and Operations teams",
+        "Managed system enhancement planning, tracking, and delivery to strengthen process sustainability",
+        "Handled system troubleshooting and coordinated cross-team responses to ensure timely resolutions",
+        "Prepared Functional Requirement Specifications and Business Requirement Documents",
+        "Improved operational efficiency by developing new system features supporting workflow consistency",
+        "Analyzed operational data and performance metrics to identify inefficiencies and guide decisions"
       ]
     },
     {
@@ -54,35 +57,88 @@ export default function Home() {
       company: "Tokopedia & GoTo Logistics",
       location: "Jakarta, Indonesia",
       period: "Feb 2022 - Mar 2024",
-      description: "Directed Fulfillment team to operate with higher efficiency by reducing turnaround time and improving service levels.",
+      description: "Directed the Fulfillment team to operate with higher efficiency by reducing turnaround time and improving service levels.",
       highlights: [
-        "Led enhancements to Warehouse Management System",
-        "Managed 50+ fulfillment centers across Indonesia",
-        "Improved order fulfillment speed by 30%",
-        "Reduced operational costs by $1.5M annually",
-        "Achieved 99.2% order accuracy rate"
+        "Led enhancements to Warehouse Management System, improving productivity and data accuracy",
+        "Oversaw integration between Tokopedia Seller Platform and WMS for seamless data flow",
+        "Managed both Inbound and Integration teams, strengthening collaboration and operational handovers",
+        "Used data analytics to inform product decisions and monitor performance trends",
+        "Managed complete product development lifecycle from concept to launch",
+        "Continuously refined product features by incorporating user feedback and collaborating with operational leaders"
+      ]
+    },
+    {
+      id: 5,
+      title: "Quality Engineer - Accommodation",
+      company: "Traveloka",
+      location: "Jakarta, Indonesia",
+      period: "Nov 2019 - Feb 2022",
+      description: "Conducted comprehensive testing across Android, iOS, Web, and mobile web platforms to ensure high-quality delivery for the Accommodation product team.",
+      highlights: [
+        "Coordinated closely with software engineers, product managers, and designers to improve feature reliability",
+        "Participated actively in sprint planning, grooming, retrospectives, and daily standups",
+        "Led weekly Web release processes to ensure smooth deployments and high stability",
+        "Prepared and maintained structured test cases, improving coverage and predictability",
+        "Executed detailed manual tests and maintained automation using Selenium, Java, and TestNG",
+        "Performed API testing using Postman to ensure backend correctness and data consistency"
+      ]
+    },
+    {
+      id: 6,
+      title: "QA Engineer - Taxi Group",
+      company: "Ice House",
+      location: "Jakarta, Indonesia",
+      period: "Nov 2019 - Nov 2020",
+      description: "Contributed to the MyBluebird application by conducting extensive functional and integration testing across Android, Web, and API components.",
+      highlights: [
+        "Validated end-to-end flows and ensured consistency between platforms",
+        "Monitored feature behavior throughout multiple release cycles",
+        "Collaborated with business analysts, product owners, engineers, and designers to clarify requirements",
+        "Actively supported sprint ceremonies and addressed defects and performance gaps",
+        "Created detailed and structured test cases in TestRail",
+        "Maintained automation scripts using Postman and Katalon Studio"
       ]
     }
   ];
 
   const skills = {
-    "Product Management": ["Product Strategy", "Roadmapping", "User Research", "Analytics", "OKRs", "Agile"],
-    "Leadership": ["Cross-functional Leadership", "Stakeholder Management", "Team Building", "Mentoring"],
-    "Technical": ["SQL", "Data Analysis", "API Integration", "Product Analytics", "A/B Testing"],
-    "Industries": ["E-commerce", "Logistics", "Education Tech", "Electric Mobility", "FinTech"],
-    "Tools": ["Jira", "Figma", "Tableau", "Mixpanel", "Amplitude", "Looker"]
+    "Product Management": ["Product Strategy", "Product Management", "Change Management", "Backlog Prioritization", "User-Centered Design", "Risk Management"],
+    "Leadership": ["Cross-Functional Team Leadership", "Stakeholder Management and Alignment", "Project Management", "Negotiation"],
+    "Technical": ["SDLC", "Software Testing", "Data Analysis", "API Testing", "Automation Testing", "Process Improvement"],
+    "Methodologies": ["Agile Methodologies", "Scrum", "Kanban", "Sprint Planning", "Continuous Refinement"]
   };
 
-  const certifications = [
+  const education = [
     {
-      title: "Certified Scrum Product Owner",
-      issuer: "Scrum Alliance",
-      date: "2023"
+      degree: "Master of Business Administration",
+      school: "Bandung Institute of Technology",
+      date: "Expected 05/2026"
     },
     {
-      title: "Product Management Certification",
-      issuer: "General Assembly",
-      date: "2021"
+      degree: "Bachelor of Computer Science",
+      school: "Del Institute of Technology",
+      date: "09/2019"
+    }
+  ];
+
+  const internships = [
+    {
+      title: "QA Engineer Intern",
+      company: "Moka (GoTo Financial)",
+      period: "Sep 2019 - Nov 2019",
+      description: "Supported the Moka POS Backoffice Inventory team, ensuring smooth operations and high-quality deliverables."
+    },
+    {
+      title: "QA Engineer Intern",
+      company: "Grab Indonesia",
+      period: "Jun 2019 - Sep 2019",
+      description: "Automated API testing for payment systems using Postman and created robust UI automation using Robot Framework and Appium."
+    },
+    {
+      title: "QA Engineer Intern",
+      company: "DANA Indonesia",
+      period: "Jun 2018 - Sep 2018",
+      description: "Played a key role in the BukaDANA project and KYC processes, ensuring seamless functionality."
     }
   ];
 
@@ -104,9 +160,9 @@ export default function Home() {
       {/* Hero Section */}
       <section className="container py-16 md:py-24">
         <div className="max-w-2xl">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Ricky Halomoan</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">Ricky Halomoan T.</h1>
           <p className="text-xl text-muted-foreground mb-2">Senior Product Manager</p>
-          <p className="text-lg text-muted-foreground mb-8">Strategic leader driving digital innovation across e-commerce, logistics, and education technology</p>
+          <p className="text-lg text-muted-foreground mb-8">Experience across electric mobility, logistics, fulfillment, and education technology. I lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale.</p>
           
           <div className="flex gap-4 mb-8">
             <Button className="bg-foreground text-background hover:bg-muted-foreground">
@@ -118,7 +174,7 @@ export default function Home() {
           </div>
 
           <div className="flex gap-4">
-            <a href="mailto:ricky@example.com" className="text-muted-foreground hover:text-foreground transition">
+            <a href="mailto:rickytampubolon97@gmail.com" className="text-muted-foreground hover:text-foreground transition">
               <Mail size={20} />
             </a>
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
@@ -137,28 +193,32 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <p className="text-base leading-relaxed mb-4">
-              I'm a Senior Product Manager with 8+ years of experience building and scaling digital products across Southeast Asia. My expertise spans e-commerce, logistics, fulfillment, and education technology—industries where I've led teams to deliver products impacting millions of users.
+              Senior Product Manager with experience across electric mobility, logistics, fulfillment, and education technology. I lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale.
             </p>
             <p className="text-base leading-relaxed">
-              I'm passionate about solving complex operational challenges through thoughtful product design and data-driven decision making. I thrive in fast-paced environments where I can collaborate across functions to translate business needs into scalable digital solutions.
+              My background in software engineering and quality assurance strengthens my ability to translate operational challenges into practical product outcomes. I have managed high impact platforms, led coordinated execution across regional and global teams, and improved service quality through structured analysis and continuous refinement.
             </p>
           </div>
           <div>
             <div className="mb-8">
-              <h3 className="font-semibold text-foreground mb-3">Education</h3>
-              <div className="text-sm">
-                <p className="font-medium">Bachelor of Science in Information Systems</p>
-                <p className="text-muted-foreground">Bina Nusantara University, Jakarta</p>
+              <h3 className="font-semibold text-foreground mb-4">Education</h3>
+              <div className="space-y-4">
+                {education.map((edu, idx) => (
+                  <div key={idx} className="text-sm">
+                    <p className="font-medium">{edu.degree}</p>
+                    <p className="text-muted-foreground">{edu.school}</p>
+                    <p className="text-muted-foreground text-xs">{edu.date}</p>
+                  </div>
+                ))}
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-foreground mb-3">Career Highlights</h3>
-              <ul className="text-sm space-y-2 text-muted-foreground">
-                <li>• Led 50+ fulfillment centers across Indonesia</li>
-                <li>• Managed 2M+ annual performance evaluations</li>
-                <li>• Delivered $3.5M+ in annual cost savings</li>
-                <li>• Built products serving 10M+ users</li>
-              </ul>
+              <h3 className="font-semibold text-foreground mb-3">Contact</h3>
+              <div className="text-sm space-y-2 text-muted-foreground">
+                <p>+6281375205386</p>
+                <p>rickytampubolon97@gmail.com</p>
+                <p>Jakarta, Indonesia</p>
+              </div>
             </div>
           </div>
         </div>
@@ -192,6 +252,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Internships Section */}
+      <section className="container py-16 md:py-24">
+        <h2 className="section-title">Internships</h2>
+        <div>
+          {internships.map((internship, idx) => (
+            <div key={idx} className="job-item">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h3 className="job-title">{internship.title}</h3>
+                  <p className="job-company">{internship.company}</p>
+                </div>
+                <span className="job-period whitespace-nowrap ml-4">{internship.period}</span>
+              </div>
+              <p className="text-base">{internship.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Skills Section */}
       <section id="skills" className="container py-16 md:py-24">
         <h2 className="section-title">Skills</h2>
@@ -209,20 +288,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Certifications Section */}
-      <section className="container py-16 md:py-24">
-        <h2 className="section-title">Certifications</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {certifications.map((cert, idx) => (
-            <div key={idx} className="p-6 border border-border rounded">
-              <h3 className="font-semibold text-foreground mb-2">{cert.title}</h3>
-              <p className="text-sm text-muted-foreground mb-1">{cert.issuer}</p>
-              <p className="text-sm text-muted-foreground">{cert.date}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section id="contact" className="container py-16 md:py-24">
         <h2 className="section-title">Contact</h2>
@@ -233,21 +298,19 @@ export default function Home() {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <Mail size={20} className="text-muted-foreground" />
-              <a href="mailto:ricky@example.com" className="text-foreground hover:text-muted-foreground transition">
-                ricky@example.com
+              <a href="mailto:rickytampubolon97@gmail.com" className="text-foreground hover:text-muted-foreground transition">
+                rickytampubolon97@gmail.com
               </a>
             </div>
             <div className="flex items-center gap-3">
               <Linkedin size={20} className="text-muted-foreground" />
-              <a href="https://linkedin.com/in/ricky" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition">
-                linkedin.com/in/ricky
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition">
+                linkedin.com/in/rickytampubolon
               </a>
             </div>
             <div className="flex items-center gap-3">
               <Github size={20} className="text-muted-foreground" />
-              <a href="https://github.com/ricky" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition">
-                github.com/ricky
-              </a>
+              <span className="text-muted-foreground">+6281375205386</span>
             </div>
           </div>
         </div>
