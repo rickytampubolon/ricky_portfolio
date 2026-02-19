@@ -304,9 +304,7 @@ export default function Home() {
                     )}
                     <p className="job-company">{exp.company}</p>
                   </div>
-                  {exp.companyProfile && (
-                    <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{exp.companyProfile}</p>
-                  )}
+
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{exp.period}</span>
               </div>
