@@ -408,22 +408,16 @@ export default function Home() {
           <p className="text-base text-muted-foreground mb-6">
             I'm always interested in hearing about new opportunities and connecting with people in the product and tech space. Feel free to reach out.
           </p>
-          <div className="space-y-3">
-            <p className="text-base">
-              <a href="mailto:rickytampubolon97@gmail.com" className="text-foreground hover:text-muted-foreground transition">
-                rickytampubolon97@gmail.com
-              </a>
-            </p>
-            <p className="text-base">
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition">
-                LinkedIn
-              </a>
-            </p>
-            <p className="text-base">
-              <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition">
-                Instagram
-              </a>
-            </p>
+          <div className="flex gap-6">
+            <a href="mailto:rickytampubolon97@gmail.com" className="text-foreground hover:text-muted-foreground transition" title="Email">
+              <Mail size={24} />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition" title="LinkedIn">
+              <Linkedin size={24} />
+            </a>
+            <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition" title="Instagram">
+              <Instagram size={24} />
+            </a>
           </div>
         </div>
       </section>
