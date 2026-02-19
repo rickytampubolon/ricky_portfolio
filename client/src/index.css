@@ -168,11 +168,11 @@
   }
 
   .section-title {
-    @apply text-3xl font-bold mb-8 pb-4 border-b border-border;
+    @apply text-3xl font-bold mb-6 pb-3 border-b border-border;
   }
 
   .job-item {
-    @apply mb-8 pb-8 border-b border-border last:border-b-0 last:pb-0;
+    @apply mb-6 pb-6 border-b border-border last:border-b-0 last:pb-0;
   }
 
   .job-title {
@@ -192,11 +192,11 @@
   }
 
   .skill-category {
-    @apply mb-6;
+    @apply mb-4;
   }
 
   .skill-category-title {
-    @apply font-semibold text-foreground mb-3;
+    @apply font-semibold text-foreground mb-2;
   }
 
   @media (min-width: 640px) {

@@ -158,7 +158,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="container py-16 md:py-24">
+      <section className="container py-12 md:py-16">
         <div className="max-w-2xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-4">Ricky Halomoan T.</h1>
           <p className="text-xl text-muted-foreground mb-2">Senior Product Manager</p>
@@ -188,11 +188,11 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="container py-16 md:py-24">
+      <section id="about" className="container py-12 md:py-16">
         <h2 className="section-title">About Me</h2>
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8">
           <div>
-            <p className="text-base leading-relaxed mb-4">
+            <p className="text-base leading-relaxed mb-3">
               Senior Product Manager with experience across electric mobility, logistics, fulfillment, and education technology. I lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale.
             </p>
             <p className="text-base leading-relaxed">
@@ -200,9 +200,9 @@ export default function Home() {
             </p>
           </div>
           <div>
-            <div className="mb-8">
-              <h3 className="font-semibold text-foreground mb-4">Education</h3>
-              <div className="space-y-4">
+            <div className="mb-6">
+              <h3 className="font-semibold text-foreground mb-3">Education</h3>
+              <div className="space-y-3">
                 {education.map((edu, idx) => (
                   <div key={idx} className="text-sm">
                     <p className="font-medium">{edu.degree}</p>
@@ -213,8 +213,8 @@ export default function Home() {
               </div>
             </div>
             <div>
-              <h3 className="font-semibold text-foreground mb-3">Contact</h3>
-              <div className="text-sm space-y-2 text-muted-foreground">
+              <h3 className="font-semibold text-foreground mb-2">Contact</h3>
+              <div className="text-sm space-y-1 text-muted-foreground">
                 <p>+6281375205386</p>
                 <p>rickytampubolon97@gmail.com</p>
                 <p>Jakarta, Indonesia</p>
@@ -225,7 +225,7 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="container py-16 md:py-24">
+      <section id="experience" className="container py-12 md:py-16">
         <h2 className="section-title">Experience</h2>
         <div>
           {experiences.map((exp) => (
@@ -237,9 +237,9 @@ export default function Home() {
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{exp.period}</span>
               </div>
-              <p className="text-sm text-muted-foreground mb-4">{exp.location}</p>
-              <p className="text-base mb-4">{exp.description}</p>
-              <ul className="text-sm text-muted-foreground space-y-2">
+              <p className="text-sm text-muted-foreground mb-2">{exp.location}</p>
+              <p className="text-base mb-3">{exp.description}</p>
+              <ul className="text-sm text-muted-foreground space-y-1">
                 {exp.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex gap-3">
                     <span className="text-foreground">•</span>
@@ -253,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* Internships Section */}
-      <section className="container py-16 md:py-24">
+      <section className="container py-12 md:py-16">
         <h2 className="section-title">Internships</h2>
         <div>
           {internships.map((internship, idx) => (
@@ -265,16 +265,16 @@ export default function Home() {
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{internship.period}</span>
               </div>
-              <p className="text-base">{internship.description}</p>
+              <p className="text-sm text-muted-foreground">{internship.description}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="container py-16 md:py-24">
+      <section id="skills" className="container py-12 md:py-16">
         <h2 className="section-title">Skills</h2>
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8">
           {Object.entries(skills).map(([category, items]) => (
             <div key={category} className="skill-category">
               <h3 className="skill-category-title">{category}</h3>
@@ -289,7 +289,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="container py-16 md:py-24">
+      <section id="contact" className="container py-12 md:py-16">
         <h2 className="section-title">Contact</h2>
         <div className="max-w-2xl">
           <p className="text-base mb-8">
@@ -317,7 +317,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-8 mt-16">
+      <footer className="border-t border-border py-6 mt-12">
         <div className="container text-center text-sm text-muted-foreground">
           <p>© 2025 Ricky Halomoan. All rights reserved.</p>
         </div>
