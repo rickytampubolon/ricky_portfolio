@@ -11,8 +11,9 @@ export default function Home() {
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/dngARpMXnjYqXwFG.png",
       location: "Jakarta, Indonesia",
       period: "Jul 2025 - Present",
-      description: "Lead end-to-end product strategy and execution for Xanh SM Indonesia, ensuring the digital ecosystem supports business growth, operational scalability, and service quality.",
+      description: "",
       highlights: [
+        "Lead end-to-end product strategy and execution for Xanh SM Indonesia, ensuring the digital ecosystem supports business growth, operational scalability, and service quality",
         "Define national roadmap aligned with regional and global priorities while considering local operational needs",
         "Oversee development of driver-facing platforms, rider flows, corporate solutions, and internal operational systems",
         "Collaborate with engineering, design, operations, finance, and data teams to ensure smooth feature delivery",
@@ -28,8 +29,9 @@ export default function Home() {
       companyProfile: "INA Digital Edu is a government-backed digital education platform designed to modernize Indonesia's education system. It provides comprehensive tools for performance evaluation, data management, and institutional accountability across the nation's primary and secondary schools.",
       location: "Jakarta, Indonesia",
       period: "Aug 2024 - Aug 2025",
-      description: "Led the development of performance management tools and national-scale data integration systems aimed at improving accountability and efficiency across the education sector.",
+      description: "",
       highlights: [
+        "Led the development of performance management tools and national-scale data integration systems aimed at improving accountability and efficiency across the education sector",
         "Defined product vision and roadmap aligned with ministry priorities and strategic goals",
         "Collaborated with internal teams, regional education offices, and external partners to integrate feedback",
         "Managed full delivery cycle from research and ideation to user testing and release",
@@ -43,10 +45,12 @@ export default function Home() {
       title: "OPEX Product Lead - Logistic",
       company: "Shopee",
       companyProfile: "Shopee is Southeast Asia's leading e-commerce platform, connecting millions of buyers and sellers across the region. With integrated logistics solutions, Shopee operates one of the largest fulfillment networks in Southeast Asia, enabling fast and reliable delivery services.",
+      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/WJdaVPwONitSWSMl.jpg",
       location: "Jakarta, Indonesia",
       period: "Mar 2024 - Jul 2024",
-      description: "Led team responsible for maintaining and improving the Fleet Management System used across First Mile, Middle Mile, and Last Mile operations.",
+      description: "",
       highlights: [
+        "Led team responsible for maintaining and improving the Fleet Management System used across First Mile, Middle Mile, and Last Mile operations",
         "Collaborated with Business, Finance, Project and Strategy, Business Intelligence, and Operations teams",
         "Managed system enhancement planning, tracking, and delivery to strengthen process sustainability",
         "Handled system troubleshooting and coordinated cross-team responses to ensure timely resolutions",
@@ -60,10 +64,12 @@ export default function Home() {
       title: "Product Manager - Fulfillment",
       company: "Tokopedia & GoTo Logistics",
       companyProfile: "Tokopedia is Indonesia's largest e-commerce marketplace, serving millions of transactions daily. GoTo Logistics, part of the GoTo ecosystem, provides integrated fulfillment and logistics solutions supporting Tokopedia's rapid growth and operational excellence.",
+      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/VXwnDDHlGbGvNhly.png",
       location: "Jakarta, Indonesia",
       period: "Feb 2022 - Mar 2024",
-      description: "Directed the Fulfillment team to operate with higher efficiency by reducing turnaround time and improving service levels.",
+      description: "",
       highlights: [
+        "Directed the Fulfillment team to operate with higher efficiency by reducing turnaround time and improving service levels",
         "Led enhancements to Warehouse Management System, improving productivity and data accuracy",
         "Oversaw integration between Tokopedia Seller Platform and WMS for seamless data flow",
         "Managed both Inbound and Integration teams, strengthening collaboration and operational handovers",
@@ -77,10 +83,12 @@ export default function Home() {
       title: "Quality Engineer - Accommodation",
       company: "Traveloka",
       companyProfile: "Traveloka is Southeast Asia's leading online travel platform, offering flights, hotels, and travel experiences to millions of users. Known for its user-friendly interface and extensive inventory, Traveloka has become the go-to platform for travel bookings across the region.",
+      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/dpbKRECqayWILCid.jpeg",
       location: "Jakarta, Indonesia",
       period: "Nov 2019 - Feb 2022",
-      description: "Conducted comprehensive testing across Android, iOS, Web, and mobile web platforms to ensure high-quality delivery for the Accommodation product team.",
+      description: "",
       highlights: [
+        "Conducted comprehensive testing across Android, iOS, Web, and mobile web platforms to ensure high-quality delivery for the Accommodation product team",
         "Coordinated closely with software engineers, product managers, and designers to improve feature reliability",
         "Participated actively in sprint planning, grooming, retrospectives, and daily standups",
         "Led weekly Web release processes to ensure smooth deployments and high stability",
@@ -96,8 +104,9 @@ export default function Home() {
       companyProfile: "Ice House operates MyBluebird, Indonesia's leading ride-hailing application. As part of the Bluebird Group, Ice House combines traditional taxi expertise with modern technology to provide safe, reliable, and professional transportation services across major Indonesian cities.",
       location: "Jakarta, Indonesia",
       period: "Nov 2019 - Nov 2020",
-      description: "Contributed to the MyBluebird application by conducting extensive functional and integration testing across Android, Web, and API components.",
+      description: "",
       highlights: [
+        "Contributed to the MyBluebird application by conducting extensive functional and integration testing across Android, Web, and API components",
         "Validated end-to-end flows and ensured consistency between platforms",
         "Monitored feature behavior throughout multiple release cycles",
         "Collaborated with business analysts, product owners, engineers, and designers to clarify requirements",
@@ -290,7 +299,6 @@ export default function Home() {
                 <span className="job-period whitespace-nowrap ml-4">{exp.period}</span>
               </div>
               <p className="text-sm text-muted-foreground mb-2">{exp.location}</p>
-              <p className="text-base mb-3">{exp.description}</p>
               <ul className="text-sm text-muted-foreground space-y-1">
                 {exp.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex gap-3">
