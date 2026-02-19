@@ -207,7 +207,10 @@ export default function Home() {
       {/* Header Navigation */}
       <header className="sticky top-0 bg-background border-b border-border z-50">
         <nav className="container py-4 flex items-center justify-between">
-          <h1 className="text-xl font-bold">Ricky Halomoan</h1>
+          <div className="flex items-center gap-3">
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-8 h-8 rounded-full object-cover" />
+            <h1 className="text-xl font-bold">Ricky Halomoan</h1>
+          </div>
           <div className="flex gap-6 text-sm">
             <a href="#about" className="hover:text-muted-foreground transition">About</a>
             <a href="#experience" className="hover:text-muted-foreground transition">Experience</a>
