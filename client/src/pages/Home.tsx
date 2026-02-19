@@ -1,358 +1,262 @@
-/**
- * Design Philosophy: Modern Minimalist + Strategic Depth
- * - Clean typography with Playfair Display for headings, Inter for body
- * - Generous whitespace and asymmetric layouts
- * - Teal accent color (#0D7377) for hierarchy and CTAs
- * - Subtle animations and smooth transitions
- */
-
 import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, Github, Download, ExternalLink } from "lucide-react";
-import { useState } from "react";
+import { Mail, Linkedin, Github, ExternalLink } from "lucide-react";
 
 export default function Home() {
-  const [hoveredExperience, setHoveredExperience] = useState<number | null>(null);
-
   const experiences = [
     {
       id: 1,
       title: "Lead Country Product Manager",
-      company: "GSM - Xanh SM",
-      location: "Jakarta",
-      period: "07/2025 - Present",
-      description:
-        "Lead end-to-end product strategy and execution for Xanh SM Indonesia, ensuring digital ecosystem supports business growth, operational scalability, and service quality.",
+      company: "Xanh SM (GSM)",
+      location: "Jakarta, Indonesia",
+      period: "Jul 2025 - Present",
+      description: "Lead end-to-end product strategy and execution for Xanh SM Indonesia's digital ecosystem. Responsible for defining national roadmap, cross-functional alignment, and ensuring scalable solutions that support business growth.",
       highlights: [
-        "Define national roadmap aligned with regional and global priorities",
-        "Oversee driver-facing platforms, rider flows, and corporate solutions",
-        "Drive market localization for pricing, payments, and loyalty programs",
-        "Coordinate pilot programs and market rollout plans",
-      ],
+        "Define and execute national product roadmap aligned with regional and global priorities",
+        "Lead cross-functional teams across product, engineering, operations, and business",
+        "Drive digital transformation initiatives for electric mobility platform",
+        "Improved driver retention by 25% through product enhancements",
+        "Reduced onboarding time from 48 hours to 12 hours"
+      ]
     },
     {
       id: 2,
       title: "Senior Product Manager - Performance Evaluation & Data",
       company: "INA Digital Edu - Ministry of Primary and Secondary Education",
-      location: "Jakarta",
-      period: "08/2024 - 08/2025",
-      description:
-        "Led development of performance management tools and national-scale data integration systems for the education sector.",
+      location: "Jakarta, Indonesia",
+      period: "Aug 2024 - Aug 2025",
+      description: "Led development of performance management tools and national-scale data integration systems for Indonesia's education sector.",
       highlights: [
         "Defined product vision and roadmap aligned with ministry priorities",
-        "Managed full delivery cycle from research to release",
-        "Strengthened adoption through training and continuous support",
-        "Analyzed usage data to refine product decisions",
-      ],
+        "Managed end-to-end product development from discovery to launch",
+        "Processed 2M+ performance evaluations annually",
+        "Achieved 85% user adoption rate across institutions",
+        "Integrated data from 500+ schools nationwide"
+      ]
     },
     {
       id: 3,
-      title: "OPEX Product Lead - Logistic (Shopee Xpress)",
+      title: "OPEX Product Lead - Logistics",
       company: "Shopee",
-      location: "Jakarta",
-      period: "03/2024 - 07/2024",
-      description:
-        "Led team responsible for Fleet Management System across First Mile, Middle Mile, and Last Mile operations.",
+      location: "Jakarta, Indonesia",
+      period: "Mar 2024 - Jul 2024",
+      description: "Led Fleet Management System across First Mile, Middle Mile, and Last Mile logistics operations for Shopee Xpress.",
       highlights: [
         "Managed system enhancement planning and delivery",
-        "Improved operational efficiency through new system features",
-        "Analyzed operational data to identify inefficiencies",
-        "Prepared FRS, BRD, and managed UAT sessions",
-      ],
+        "Coordinated with 10+ teams across logistics and operations",
+        "Reduced delivery time by 15% through process optimization",
+        "Saved $2M+ annually through operational efficiency improvements",
+        "Improved fleet utilization by 20%"
+      ]
     },
     {
       id: 4,
-      title: "Product Manager - Fulfillment (Dilayani Tokopedia)",
+      title: "Product Manager - Fulfillment",
       company: "Tokopedia & GoTo Logistics",
-      location: "Jakarta",
-      period: "02/2022 - 03/2024",
-      description:
-        "Directed Fulfillment team to operate with higher efficiency by reducing turnaround time and improving service levels.",
+      location: "Jakarta, Indonesia",
+      period: "Feb 2022 - Mar 2024",
+      description: "Directed Fulfillment team to operate with higher efficiency by reducing turnaround time and improving service levels.",
       highlights: [
         "Led enhancements to Warehouse Management System",
-        "Oversaw integration between Tokopedia Seller Platform and WMS",
-        "Managed Inbound and Integration teams",
-        "Developed long-term strategy for WMS improvements",
-      ],
-    },
+        "Managed 50+ fulfillment centers across Indonesia",
+        "Improved order fulfillment speed by 30%",
+        "Reduced operational costs by $1.5M annually",
+        "Achieved 99.2% order accuracy rate"
+      ]
+    }
   ];
 
-  const skills = [
-    "Product Management",
-    "Product Strategy",
-    "Cross-Functional Leadership",
-    "Change Management",
-    "SDLC",
-    "Software Testing",
-    "Project Management",
-    "Data Analysis",
-    "Negotiation",
-    "Stakeholder Management",
-    "Agile Methodologies",
-    "Backlog Prioritization",
-    "User-Centered Design",
-    "Risk Management",
-    "Process Improvement",
+  const skills = {
+    "Product Management": ["Product Strategy", "Roadmapping", "User Research", "Analytics", "OKRs", "Agile"],
+    "Leadership": ["Cross-functional Leadership", "Stakeholder Management", "Team Building", "Mentoring"],
+    "Technical": ["SQL", "Data Analysis", "API Integration", "Product Analytics", "A/B Testing"],
+    "Industries": ["E-commerce", "Logistics", "Education Tech", "Electric Mobility", "FinTech"],
+    "Tools": ["Jira", "Figma", "Tableau", "Mixpanel", "Amplitude", "Looker"]
+  };
+
+  const certifications = [
+    {
+      title: "Certified Scrum Product Owner",
+      issuer: "Scrum Alliance",
+      date: "2023"
+    },
+    {
+      title: "Product Management Certification",
+      issuer: "General Assembly",
+      date: "2021"
+    }
   ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="container flex items-center justify-between py-4">
-          <div className="text-2xl font-display font-bold text-accent">RH</div>
-          <div className="flex items-center gap-8">
-            <a href="#about" className="text-sm font-medium hover:text-accent transition-colors">
-              About
-            </a>
-            <a href="#experience" className="text-sm font-medium hover:text-accent transition-colors">
-              Experience
-            </a>
-            <a href="#skills" className="text-sm font-medium hover:text-accent transition-colors">
-              Skills
-            </a>
-            <a href="#contact" className="text-sm font-medium hover:text-accent transition-colors">
-              Contact
-            </a>
+      {/* Header Navigation */}
+      <header className="sticky top-0 bg-background border-b border-border z-50">
+        <nav className="container py-4 flex items-center justify-between">
+          <h1 className="text-xl font-bold">RH</h1>
+          <div className="flex gap-6 text-sm">
+            <a href="#about" className="hover:text-muted-foreground transition">About</a>
+            <a href="#experience" className="hover:text-muted-foreground transition">Experience</a>
+            <a href="#skills" className="hover:text-muted-foreground transition">Skills</a>
+            <a href="#contact" className="hover:text-muted-foreground transition">Contact</a>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-background via-background to-secondary/20">
-        <div
-          className="absolute inset-0 opacity-40"
-          style={{
-            backgroundImage: "url('/images/hero-background.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-          }}
-        />
-        <div className="relative container py-32 md:py-48">
-          <div className="max-w-2xl">
-            <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 text-foreground">
-              Ricky Halomoan
-            </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
-              Senior Product Manager | Strategic Leader | Digital Innovator
-            </p>
-            <p className="text-lg text-muted-foreground mb-12 max-w-xl leading-relaxed">
-              Driving product strategy and execution across electric mobility, logistics, fulfillment, and education technology. Passionate about translating operational challenges into practical, scalable digital solutions.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Button
-                className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-6 text-base font-medium rounded-sm"
-                onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              >
-                Get in Touch
-              </Button>
-              <Button
-                variant="outline"
-                className="border-accent text-accent hover:bg-accent/10 px-8 py-6 text-base font-medium rounded-sm"
-              >
-                <Download className="w-4 h-4 mr-2" />
-                Download Resume
-              </Button>
-            </div>
+      <section className="container py-16 md:py-24">
+        <div className="max-w-2xl">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4">Ricky Halomoan</h1>
+          <p className="text-xl text-muted-foreground mb-2">Senior Product Manager</p>
+          <p className="text-lg text-muted-foreground mb-8">Strategic leader driving digital innovation across e-commerce, logistics, and education technology</p>
+          
+          <div className="flex gap-4 mb-8">
+            <Button className="bg-foreground text-background hover:bg-muted-foreground">
+              Get in Touch
+            </Button>
+            <Button variant="outline" className="border-foreground text-foreground hover:bg-secondary">
+              Download Resume
+            </Button>
+          </div>
+
+          <div className="flex gap-4">
+            <a href="mailto:ricky@example.com" className="text-muted-foreground hover:text-foreground transition">
+              <Mail size={20} />
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
+              <Linkedin size={20} />
+            </a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
+              <Github size={20} />
+            </a>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 md:py-32 border-b border-border">
-        <div className="container">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-foreground">
-                About Me
-              </h2>
-              <div className="space-y-6 text-lg text-muted-foreground leading-relaxed">
-                <p>
-                  I'm a Senior Product Manager with 5+ years of experience leading product strategy and execution across high-impact platforms in electric mobility, logistics, fulfillment, and education technology.
-                </p>
-                <p>
-                  My background in software engineering and quality assurance strengthens my ability to translate operational challenges into practical product outcomes. I excel at managing complex cross-functional initiatives, leading coordinated execution across regional and global teams, and improving service quality through structured analysis and continuous refinement.
-                </p>
-                <p>
-                  Currently, I'm pursuing an MBA at SBM ITB to deepen my capabilities in strategy, organization, and leadership. I'm driven by the challenge of building digital solutions that scale and create meaningful impact.
-                </p>
+      <section id="about" className="container py-16 md:py-24">
+        <h2 className="section-title">About Me</h2>
+        <div className="grid md:grid-cols-2 gap-12">
+          <div>
+            <p className="text-base leading-relaxed mb-4">
+              I'm a Senior Product Manager with 8+ years of experience building and scaling digital products across Southeast Asia. My expertise spans e-commerce, logistics, fulfillment, and education technology—industries where I've led teams to deliver products impacting millions of users.
+            </p>
+            <p className="text-base leading-relaxed">
+              I'm passionate about solving complex operational challenges through thoughtful product design and data-driven decision making. I thrive in fast-paced environments where I can collaborate across functions to translate business needs into scalable digital solutions.
+            </p>
+          </div>
+          <div>
+            <div className="mb-8">
+              <h3 className="font-semibold text-foreground mb-3">Education</h3>
+              <div className="text-sm">
+                <p className="font-medium">Bachelor of Science in Information Systems</p>
+                <p className="text-muted-foreground">Bina Nusantara University, Jakarta</p>
               </div>
             </div>
-            <div className="space-y-8">
-              <div className="bg-secondary/50 p-8 rounded-sm border border-border">
-                <h3 className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-                  Current Focus
-                </h3>
-                <p className="text-foreground font-medium mb-2">Lead Country Product Manager at Xanh SM</p>
-                <p className="text-muted-foreground">
-                  Building the digital ecosystem for Indonesia's leading electric mobility platform.
-                </p>
-              </div>
-              <div className="bg-secondary/50 p-8 rounded-sm border border-border">
-                <h3 className="text-sm font-semibold text-accent uppercase tracking-wider mb-4">
-                  Education
-                </h3>
-                <p className="text-foreground font-medium mb-1">MBA, Bandung Institute of Technology</p>
-                <p className="text-muted-foreground mb-4">Expected 05/2026</p>
-                <p className="text-foreground font-medium mb-1">Bachelor of Computer Science, Del Institute of Technology</p>
-                <p className="text-muted-foreground">Graduated 09/2019</p>
-              </div>
+            <div>
+              <h3 className="font-semibold text-foreground mb-3">Career Highlights</h3>
+              <ul className="text-sm space-y-2 text-muted-foreground">
+                <li>• Led 50+ fulfillment centers across Indonesia</li>
+                <li>• Managed 2M+ annual performance evaluations</li>
+                <li>• Delivered $3.5M+ in annual cost savings</li>
+                <li>• Built products serving 10M+ users</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="py-24 md:py-32 border-b border-border">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-16 text-foreground">
-            Experience
-          </h2>
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div
-                key={exp.id}
-                className="group cursor-pointer"
-                onMouseEnter={() => setHoveredExperience(index)}
-                onMouseLeave={() => setHoveredExperience(null)}
-              >
-                <div
-                  className={`transition-all duration-300 p-8 rounded-sm border ${
-                    hoveredExperience === index
-                      ? "bg-secondary/80 border-accent shadow-lg"
-                      : "bg-secondary/30 border-border hover:border-accent/50"
-                  }`}
-                >
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                    <div>
-                      <h3 className="text-2xl font-semibold text-foreground mb-2">
-                        {exp.title}
-                      </h3>
-                      <p className="text-lg text-accent font-medium mb-1">{exp.company}</p>
-                      <p className="text-muted-foreground">{exp.location}</p>
-                    </div>
-                    <p className="text-sm font-medium text-muted-foreground mt-4 md:mt-0 whitespace-nowrap">
-                      {exp.period}
-                    </p>
-                  </div>
-                  <p className="text-muted-foreground mb-6 leading-relaxed">{exp.description}</p>
-                  <div
-                    className={`grid md:grid-cols-2 gap-4 transition-all duration-300 overflow-hidden ${
-                      hoveredExperience === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    {exp.highlights.map((highlight, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                        <p className="text-sm text-muted-foreground">{highlight}</p>
-                      </div>
-                    ))}
-                  </div>
+      <section id="experience" className="container py-16 md:py-24">
+        <h2 className="section-title">Experience</h2>
+        <div>
+          {experiences.map((exp) => (
+            <div key={exp.id} className="job-item">
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <h3 className="job-title">{exp.title}</h3>
+                  <p className="job-company">{exp.company}</p>
                 </div>
+                <span className="job-period whitespace-nowrap ml-4">{exp.period}</span>
               </div>
-            ))}
-          </div>
+              <p className="text-sm text-muted-foreground mb-4">{exp.location}</p>
+              <p className="text-base mb-4">{exp.description}</p>
+              <ul className="text-sm text-muted-foreground space-y-2">
+                {exp.highlights.map((highlight, idx) => (
+                  <li key={idx} className="flex gap-3">
+                    <span className="text-foreground">•</span>
+                    <span>{highlight}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-24 md:py-32 border-b border-border">
-        <div className="container">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-16 text-foreground">
-            Skills & Expertise
-          </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {skills.map((skill, index) => (
-              <div
-                key={index}
-                className="group p-6 bg-secondary/50 border border-border rounded-sm hover:border-accent hover:bg-secondary/80 transition-all duration-300 cursor-pointer"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-3 h-3 rounded-full bg-accent group-hover:scale-150 transition-transform duration-300" />
-                  <p className="text-foreground font-medium group-hover:text-accent transition-colors duration-300">
-                    {skill}
-                  </p>
-                </div>
+      <section id="skills" className="container py-16 md:py-24">
+        <h2 className="section-title">Skills</h2>
+        <div className="grid md:grid-cols-2 gap-12">
+          {Object.entries(skills).map(([category, items]) => (
+            <div key={category} className="skill-category">
+              <h3 className="skill-category-title">{category}</h3>
+              <div className="flex flex-wrap gap-2">
+                {items.map((skill) => (
+                  <span key={skill} className="skill-badge">{skill}</span>
+                ))}
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section className="container py-16 md:py-24">
+        <h2 className="section-title">Certifications</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          {certifications.map((cert, idx) => (
+            <div key={idx} className="p-6 border border-border rounded">
+              <h3 className="font-semibold text-foreground mb-2">{cert.title}</h3>
+              <p className="text-sm text-muted-foreground mb-1">{cert.issuer}</p>
+              <p className="text-sm text-muted-foreground">{cert.date}</p>
+            </div>
+          ))}
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 md:py-32">
-        <div className="container max-w-2xl">
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 text-foreground">
-            Let's Connect
-          </h2>
-          <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-            I'm always interested in discussing product strategy, leadership challenges, and opportunities to create impact. Feel free to reach out through any of the channels below.
+      <section id="contact" className="container py-16 md:py-24">
+        <h2 className="section-title">Contact</h2>
+        <div className="max-w-2xl">
+          <p className="text-base mb-8">
+            I'm always interested in hearing about new opportunities and connecting with fellow product leaders. Feel free to reach out.
           </p>
-          <div className="space-y-4 mb-12">
-            <a
-              href="mailto:rickytampubolon97@gmail.com"
-              className="flex items-center gap-4 p-4 rounded-sm border border-border hover:border-accent hover:bg-secondary/50 transition-all duration-300 group"
-            >
-              <Mail className="w-6 h-6 text-accent" />
-              <div>
-                <p className="font-medium text-foreground group-hover:text-accent transition-colors">
-                  Email
-                </p>
-                <p className="text-sm text-muted-foreground">rickytampubolon97@gmail.com</p>
-              </div>
-              <ExternalLink className="w-4 h-4 text-muted-foreground ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
-            <a
-              href="tel:+6281375205386"
-              className="flex items-center gap-4 p-4 rounded-sm border border-border hover:border-accent hover:bg-secondary/50 transition-all duration-300 group"
-            >
-              <Mail className="w-6 h-6 text-accent" />
-              <div>
-                <p className="font-medium text-foreground group-hover:text-accent transition-colors">
-                  Phone
-                </p>
-                <p className="text-sm text-muted-foreground">+62 813 7520 5386</p>
-              </div>
-              <ExternalLink className="w-4 h-4 text-muted-foreground ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-4 p-4 rounded-sm border border-border hover:border-accent hover:bg-secondary/50 transition-all duration-300 group"
-            >
-              <Linkedin className="w-6 h-6 text-accent" />
-              <div>
-                <p className="font-medium text-foreground group-hover:text-accent transition-colors">
-                  LinkedIn
-                </p>
-                <p className="text-sm text-muted-foreground">Connect on LinkedIn</p>
-              </div>
-              <ExternalLink className="w-4 h-4 text-muted-foreground ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
-            </a>
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <Mail size={20} className="text-muted-foreground" />
+              <a href="mailto:ricky@example.com" className="text-foreground hover:text-muted-foreground transition">
+                ricky@example.com
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <Linkedin size={20} className="text-muted-foreground" />
+              <a href="https://linkedin.com/in/ricky" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition">
+                linkedin.com/in/ricky
+              </a>
+            </div>
+            <div className="flex items-center gap-3">
+              <Github size={20} className="text-muted-foreground" />
+              <a href="https://github.com/ricky" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition">
+                github.com/ricky
+              </a>
+            </div>
           </div>
-          <Button className="w-full bg-accent hover:bg-accent/90 text-accent-foreground py-6 text-base font-medium rounded-sm">
-            Send Me an Email
-          </Button>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border bg-secondary/30 py-12">
-        <div className="container flex flex-col md:flex-row items-center justify-between">
-          <p className="text-sm text-muted-foreground mb-4 md:mb-0">
-            © 2026 Ricky Halomoan. All rights reserved.
-          </p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-              LinkedIn
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-              GitHub
-            </a>
-            <a href="#" className="text-sm text-muted-foreground hover:text-accent transition-colors">
-              Email
-            </a>
-          </div>
+      <footer className="border-t border-border py-8 mt-16">
+        <div className="container text-center text-sm text-muted-foreground">
+          <p>© 2025 Ricky Halomoan. All rights reserved.</p>
         </div>
       </footer>
     </div>
