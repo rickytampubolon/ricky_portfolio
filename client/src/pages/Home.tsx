@@ -87,7 +87,7 @@ export default function Home() {
       title: "Quality Engineer - Accommodation",
       company: "Traveloka",
       companyProfile: "Southeast Asia's leading travel and lifestyle super-app, offering flights, hotels, attractions, and financial products to millions of users across the region.",
-      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/JlXCSsTrCXQVouBa.png",
+      companyImage: "https://play-lh.googleusercontent.com/lKtRN8o3qMtR5sUslCyIKYtmvn39b8qxfEL7eBcvzgh9FlHdtvsVbHX-y7UwO0OT_NZP=s188-rw",
       location: "Jakarta, Indonesia",
       period: "Nov 2019 - Feb 2022",
       description: "",
@@ -209,7 +209,7 @@ export default function Home() {
         <nav className="container py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-8 h-8 rounded-full object-cover" />
-            <h1 className="text-xl font-bold">Ricky Halomoan</h1>
+            <span className="text-xl font-bold">Ricky Halomoan</span>
           </div>
           <div className="flex gap-6 text-sm">
             <a href="#about" className="hover:text-muted-foreground transition">About</a>
@@ -233,16 +233,18 @@ export default function Home() {
                 Get in Touch
               </button>
             </a>
-            <button className="border border-foreground text-foreground hover:bg-secondary px-6 py-2 rounded transition">
-              Download Resume
-            </button>
+            <a href="/resume.pdf" download>
+              <button className="border border-foreground text-foreground hover:bg-secondary px-6 py-2 rounded transition">
+                Download Resume
+              </button>
+            </a>
           </div>
 
           <div className="flex gap-4">
             <a href="mailto:rickytampubolon97@gmail.com" className="text-muted-foreground hover:text-foreground transition">
               <Mail size={20} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
+            <a href="https://www.linkedin.com/in/rickyhalomoan" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
               <Linkedin size={20} />
             </a>
             <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
@@ -283,7 +285,7 @@ export default function Home() {
                 <p>rickytampubolon97@gmail.com</p>
                 <p>Jakarta, Indonesia</p>
                 <div className="flex gap-3 pt-2">
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition">LinkedIn</a>
+                  <a href="https://www.linkedin.com/in/rickyhalomoan" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition">LinkedIn</a>
                   <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition">Instagram</a>
                 </div>
               </div>
@@ -307,10 +309,13 @@ export default function Home() {
                     )}
                     <p className="job-company">{exp.company}</p>
                   </div>
-
                 </div>
                 <span className="job-period whitespace-nowrap ml-4">{exp.period}</span>
               </div>
+
+              {exp.companyProfile && (
+                <p className="text-sm text-muted-foreground italic mb-3">{exp.companyProfile}</p>
+              )}
 
               <ul className="text-sm text-muted-foreground space-y-1">
                 {exp.highlights.map((highlight, idx) => (
@@ -327,7 +332,7 @@ export default function Home() {
 
       {/* Part-time Work Section */}
       <section className="container py-10 md:py-12">
-        <h2 className="section-title">Side Projects</h2>
+        <h2 className="section-title">Part-Time Roles</h2>
         <div>
           {partTimeJobs.map((job) => (
             <div key={job.id} className="job-item">
@@ -377,6 +382,9 @@ export default function Home() {
                 <span className="job-period whitespace-nowrap ml-4">{internship.period}</span>
               </div>
 
+              {internship.description && (
+                <p className="text-sm text-muted-foreground italic">{internship.description}</p>
+              )}
             </div>
           ))}
         </div>
@@ -412,7 +420,7 @@ export default function Home() {
             <a href="mailto:rickytampubolon97@gmail.com" className="text-foreground hover:text-muted-foreground transition" title="Email">
               <Mail size={24} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/rickyhalomoan" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition" title="LinkedIn">
               <Linkedin size={24} />
             </a>
             <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition" title="Instagram">
