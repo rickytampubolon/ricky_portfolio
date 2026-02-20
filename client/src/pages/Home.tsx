@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Instagram } from "lucide-react";
+import { Mail, Linkedin, Instagram, MapPin } from "lucide-react";
 
 export default function Home() {
   const experiences = [
@@ -193,7 +193,11 @@ export default function Home() {
       {/* Hero Section */}
       <section className="container pt-12 pb-8">
         <p className="text-xs tracking-widest uppercase text-muted-foreground mb-3">Senior Product Manager</p>
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-3">Ricky Halomoan T.</h1>
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-2">Ricky Halomoan T.</h1>
+        <div className="flex items-center gap-1 text-xs text-muted-foreground mb-5">
+          <MapPin size={12} />
+          <span>Jakarta, Indonesia</span>
+        </div>
         <p className="text-2xl md:text-3xl font-light text-muted-foreground mb-7 tracking-tight">
           Building digital products that<br className="hidden md:block" /> move businesses forward.
         </p>
@@ -213,7 +217,7 @@ export default function Home() {
             <a href="mailto:rickytampubolon97@gmail.com" className="text-muted-foreground hover:text-foreground transition">
               <Mail size={18} />
             </a>
-            <a href="https://www.linkedin.com/in/rickyhalomoan" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
+            <a href="https://www.linkedin.com/in/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
               <Linkedin size={18} />
             </a>
             <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
@@ -260,11 +264,11 @@ export default function Home() {
         <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Experience</h2>
         <div>
           {experiences.map((exp) => (
-            <div key={exp.id} className="mb-7 pb-7 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
-              <div className="flex items-start justify-between mb-1.5">
+            <div key={exp.id} className="mb-4 pb-4 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
+              <div className="flex items-start justify-between mb-1">
                 <div>
                   <h3 className="text-base font-semibold text-foreground leading-snug">{exp.title}</h3>
-                  <div className="flex items-center gap-1.5 mt-1">
+                  <div className="flex items-center gap-1.5 mt-0.5">
                     {exp.companyImage && (
                       <img src={exp.companyImage} alt={exp.company} className="w-4 h-4 object-contain" />
                     )}
@@ -275,12 +279,12 @@ export default function Home() {
               </div>
 
               {exp.companyProfile && (
-                <p className="text-xs text-muted-foreground italic mb-3 mt-2">{exp.companyProfile}</p>
+                <p className="text-xs text-muted-foreground italic mb-1.5 mt-1">{exp.companyProfile}</p>
               )}
 
-              <ul className="text-sm text-muted-foreground space-y-1.5">
+              <ul className="text-sm text-muted-foreground space-y-1">
                 {exp.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex gap-2.5">
+                  <li key={idx} className="flex gap-2">
                     <span className="text-foreground mt-0.5 shrink-0">·</span>
                     <span className="leading-snug">{highlight}</span>
                   </li>
@@ -296,11 +300,11 @@ export default function Home() {
         <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Part-Time Roles</h2>
         <div>
           {partTimeJobs.map((job) => (
-            <div key={job.id} className="mb-7 pb-7 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
-              <div className="flex items-start justify-between mb-1.5">
+            <div key={job.id} className="mb-4 pb-4 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
+              <div className="flex items-start justify-between mb-1">
                 <div>
                   <h3 className="text-base font-semibold text-foreground leading-snug">{job.title}</h3>
-                  <div className="flex items-center gap-1.5 mt-1">
+                  <div className="flex items-center gap-1.5 mt-0.5">
                     {job.companyImage && (
                       <img src={job.companyImage} alt={job.company} className="w-4 h-4 object-contain" />
                     )}
@@ -311,12 +315,12 @@ export default function Home() {
               </div>
 
               {job.description && (
-                <p className="text-xs text-muted-foreground italic mb-3 mt-2">{job.description}</p>
+                <p className="text-xs text-muted-foreground italic mb-1.5 mt-1">{job.description}</p>
               )}
 
-              <ul className="text-sm text-muted-foreground space-y-1.5">
+              <ul className="text-sm text-muted-foreground space-y-1">
                 {job.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex gap-2.5">
+                  <li key={idx} className="flex gap-2">
                     <span className="text-foreground mt-0.5 shrink-0">·</span>
                     <span className="leading-snug">{highlight}</span>
                   </li>
@@ -381,8 +385,7 @@ export default function Home() {
       <footer className="container py-6 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
         <p>Ricky Halomoan T. © 2026</p>
         <div className="flex gap-4">
-          <a href="mailto:rickytampubolon97@gmail.com" className="hover:text-foreground transition">rickytampubolon97@gmail.com</a>
-          <a href="https://www.linkedin.com/in/rickyhalomoan" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition">LinkedIn</a>
         </div>
       </footer>
     </div>
