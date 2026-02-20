@@ -233,7 +233,7 @@ export default function Home() {
                 Get in Touch
               </button>
             </a>
-            <a href="/resume.pdf" download>
+            <a href="https://drive.google.com/uc?export=download&id=17Nb74FFTxtJOh-lMQcZCONSWQP0KJ_de" target="_blank" rel="noopener noreferrer">
               <button className="border border-foreground text-foreground hover:bg-secondary px-6 py-2 rounded transition">
                 Download Resume
               </button>
