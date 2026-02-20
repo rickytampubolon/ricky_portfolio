@@ -349,6 +349,9 @@ export default function Home() {
                 <span className="job-period whitespace-nowrap ml-4">{job.period}</span>
               </div>
 
+              {job.description && (
+                <p className="text-sm text-muted-foreground italic mb-3">{job.description}</p>
+              )}
 
               <ul className="text-sm text-muted-foreground space-y-1">
                 {job.highlights.map((highlight, idx) => (
