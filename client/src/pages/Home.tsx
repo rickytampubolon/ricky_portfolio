@@ -25,7 +25,7 @@ export default function Home() {
     },
     {
       id: 2,
-      title: "Senior Product Manager - Performance Evaluation & Data",
+      title: "Product Manager - Performance Evaluation & Data Integration",
       company: "INA Digital Edu - Ministry of Primary and Secondary Education",
       companyProfile: "Government digital initiative building national-scale platforms to improve accountability and data-driven decision-making across Indonesia's education sector.",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/cJhNVtPdbOHZIgCZ.png",
@@ -45,7 +45,7 @@ export default function Home() {
     },
     {
       id: 3,
-      title: "OPEX Product Lead - Logistics",
+      title: "Senior Associate, System Product Lead",
       company: "Shopee",
       companyProfile: "One of Southeast Asia's largest e-commerce platforms, operating an integrated logistics arm (Shopee Xpress) covering first, middle, and last mile delivery across the region.",
       companyImage: "https://media.licdn.com/dms/image/v2/C560BAQE0iX_dgdH7nA/company-logo_200_200/company-logo_200_200/0/1672279162763/shopee_logo?e=1773273600&v=beta&t=jlKIMPDqPZbW-4BSR5HmYJVM6SlcapRqyMCtSCGl768",
@@ -184,21 +184,31 @@ export default function Home() {
       company: "Moka (GoTo Financial)",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/fMzZvBYHbNOGcXlH.png",
       period: "Sep 2019 - Nov 2019",
-      description: "Cloud-based POS and business management platform acquired by GoTo Financial. Supported the Moka POS Backoffice Inventory team in ensuring smooth operations and high-quality product deliverables throughout the internship period."
+      companyProfile: "Cloud-based POS and business management platform acquired by GoTo Financial.",
+      highlights: [
+        "Supported the Moka POS Backoffice Inventory team in ensuring smooth operations and high-quality product deliverables throughout the internship period."
+      ]
     },
     {
       title: "QA Engineer Intern",
       company: "Grab Indonesia",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/bUAqVpvhsLeEvRro.png",
       period: "Jun 2019 - Sep 2019",
-      description: "Southeast Asia's leading superapp for ride-hailing, deliveries, and financial services. Automated API testing for payment systems using Postman and developed robust UI automation using Robot Framework and Appium."
+      companyProfile: "Southeast Asia's leading superapp for ride-hailing, deliveries, and financial services.",
+      highlights: [
+        "Automated API testing for payment systems using Postman.",
+        "Developed robust UI automation using Robot Framework and Appium."
+      ]
     },
     {
       title: "QA Engineer Intern",
       company: "DANA Indonesia",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/JlXCSsTrCXQVouBa.png",
       period: "Jun 2018 - Sep 2018",
-      description: "Indonesia's leading digital wallet platform. Played an active role in the BukaDANA project and KYC processes, ensuring seamless functionality and consistent product quality."
+      companyProfile: "Indonesia's leading digital wallet platform.",
+      highlights: [
+        "Played an active role in the BukaDANA project and KYC processes, ensuring seamless functionality and consistent product quality."
+      ]
     }
   ];
 
@@ -206,122 +216,107 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Header Navigation */}
       <header className="sticky top-0 bg-background border-b border-border z-50">
-        <nav className="container py-4 flex items-center justify-between">
+        <nav className="container py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-8 h-8 rounded-full object-cover" />
-            <span className="text-xl font-bold">Ricky Halomoan</span>
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-7 h-7 rounded-full object-cover" />
+            <span className="text-base font-semibold tracking-tight">Ricky Halomoan</span>
           </div>
-          <div className="flex gap-6 text-sm">
-            <a href="#about" className="hover:text-muted-foreground transition">About</a>
-            <a href="#experience" className="hover:text-muted-foreground transition">Experience</a>
-            <a href="#skills" className="hover:text-muted-foreground transition">Skills</a>
-            <a href="#contact" className="hover:text-muted-foreground transition">Contact</a>
+          <div className="flex gap-5 text-sm text-muted-foreground">
+            <a href="#about" className="hover:text-foreground transition">About</a>
+            <a href="#experience" className="hover:text-foreground transition">Experience</a>
+            <a href="#skills" className="hover:text-foreground transition">Skills</a>
           </div>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="container py-10 md:py-12">
-        <div className="max-w-2xl">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Ricky Halomoan T.</h1>
-          <p className="text-xl text-muted-foreground mb-2">Senior Product Manager</p>
-          <p className="text-lg text-muted-foreground mb-8">Building digital products that move businesses forward.</p>
-          
-          <div className="flex gap-4 mb-8">
-            <a href="mailto:rickytampubolon97@gmail.com">
-              <button className="bg-foreground text-background hover:bg-muted-foreground px-6 py-2 rounded transition">
-                Get in Touch
-              </button>
-            </a>
-            <a href="https://drive.google.com/uc?export=download&id=17Nb74FFTxtJOh-lMQcZCONSWQP0KJ_de" target="_blank" rel="noopener noreferrer">
-              <button className="border border-foreground text-foreground hover:bg-secondary px-6 py-2 rounded transition">
-                Download Resume
-              </button>
-            </a>
-          </div>
+      <section className="container pt-12 pb-8">
+        <p className="text-xs tracking-widest uppercase text-muted-foreground mb-3">Senior Product Manager</p>
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-3">Ricky Halomoan T.</h1>
+        <p className="text-2xl md:text-3xl font-light text-muted-foreground mb-7 tracking-tight">
+          Building digital products that<br className="hidden md:block" /> move businesses forward.
+        </p>
 
-          <div className="flex gap-4">
+        <div className="flex items-center gap-4">
+          <a href="mailto:rickytampubolon97@gmail.com">
+            <button className="bg-foreground text-background hover:opacity-80 px-5 py-2 text-sm rounded transition">
+              Get in Touch
+            </button>
+          </a>
+          <a href="https://drive.google.com/uc?export=download&id=17Nb74FFTxtJOh-lMQcZCONSWQP0KJ_de" target="_blank" rel="noopener noreferrer">
+            <button className="border border-border text-foreground hover:bg-secondary px-5 py-2 text-sm rounded transition">
+              Download Resume
+            </button>
+          </a>
+          <div className="flex gap-3 ml-1">
             <a href="mailto:rickytampubolon97@gmail.com" className="text-muted-foreground hover:text-foreground transition">
-              <Mail size={20} />
+              <Mail size={18} />
             </a>
             <a href="https://www.linkedin.com/in/rickyhalomoan" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
-              <Linkedin size={20} />
+              <Linkedin size={18} />
             </a>
             <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
-              <Instagram size={20} />
+              <Instagram size={18} />
             </a>
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="container py-10 md:py-12">
-        <h2 className="section-title">About Me</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          <div>
-            <p className="text-base leading-relaxed mb-4">
+      <section id="about" className="container py-8 border-t border-border">
+        <div className="grid md:grid-cols-3 gap-8">
+          <div className="md:col-span-2">
+            <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-4">About</h2>
+            <p className="text-sm leading-relaxed mb-3">
               Senior Product Manager with experience across electric mobility, logistics, fulfillment, and education technology. Proven ability to lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale.
             </p>
-            <p className="text-base leading-relaxed">
+            <p className="text-sm leading-relaxed">
               A background in software engineering and quality assurance enables a strong capacity to translate operational challenges into practical product outcomes. Experienced in managing high-impact platforms, driving coordinated execution across regional and global teams, and improving service quality through structured analysis and continuous refinement. Currently pursuing an MBA at SBM ITB to deepen capabilities in strategy, organization, and leadership.
             </p>
           </div>
           <div>
-            <div className="mb-6">
-              <h3 className="font-semibold text-foreground mb-3">Education</h3>
-              <div className="space-y-3">
-                {education.map((edu, idx) => (
-                  <div key={idx} className="text-sm">
-                    <p className="font-medium">{edu.degree}</p>
-                    <p className="text-muted-foreground">{edu.school}</p>
-                    <p className="text-muted-foreground text-xs">{edu.date}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h3 className="font-semibold text-foreground mb-2">Contact</h3>
-              <div className="text-sm space-y-1 text-muted-foreground">
-                <p>rickytampubolon97@gmail.com</p>
-                <p>Jakarta, Indonesia</p>
-                <div className="flex gap-3 pt-2">
-                  <a href="https://www.linkedin.com/in/rickyhalomoan" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition">LinkedIn</a>
-                  <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition">Instagram</a>
+            <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Education</h2>
+            <div className="space-y-4">
+              {education.map((edu, idx) => (
+                <div key={idx}>
+                  <p className="text-sm font-medium leading-snug">{edu.degree}</p>
+                  <p className="text-xs text-muted-foreground mt-0.5">{edu.school}</p>
+                  <p className="text-xs text-muted-foreground">{edu.date}</p>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="container py-10 md:py-12">
-        <h2 className="section-title">Experience</h2>
+      <section id="experience" className="container py-8 border-t border-border">
+        <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Experience</h2>
         <div>
           {experiences.map((exp) => (
-            <div key={exp.id} className="job-item">
-              <div className="flex items-start justify-between mb-2">
+            <div key={exp.id} className="mb-7 pb-7 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
+              <div className="flex items-start justify-between mb-1.5">
                 <div>
-                  <h3 className="job-title">{exp.title}</h3>
-                  <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-base font-semibold text-foreground leading-snug">{exp.title}</h3>
+                  <div className="flex items-center gap-1.5 mt-1">
                     {exp.companyImage && (
-                      <img src={exp.companyImage} alt={exp.company} className="w-5 h-5 object-contain" />
+                      <img src={exp.companyImage} alt={exp.company} className="w-4 h-4 object-contain" />
                     )}
-                    <p className="job-company">{exp.company}</p>
+                    <p className="text-sm text-muted-foreground font-medium">{exp.company}</p>
                   </div>
                 </div>
-                <span className="job-period whitespace-nowrap ml-4">{exp.period}</span>
+                <span className="text-xs text-muted-foreground whitespace-nowrap ml-4 mt-0.5">{exp.period}</span>
               </div>
 
               {exp.companyProfile && (
-                <p className="text-sm text-muted-foreground italic mb-3">{exp.companyProfile}</p>
+                <p className="text-xs text-muted-foreground italic mb-3 mt-2">{exp.companyProfile}</p>
               )}
 
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <ul className="text-sm text-muted-foreground space-y-1.5">
                 {exp.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex gap-3">
-                    <span className="text-foreground">•</span>
-                    <span>{highlight}</span>
+                  <li key={idx} className="flex gap-2.5">
+                    <span className="text-foreground mt-0.5 shrink-0">·</span>
+                    <span className="leading-snug">{highlight}</span>
                   </li>
                 ))}
               </ul>
@@ -331,33 +326,33 @@ export default function Home() {
       </section>
 
       {/* Part-time Work Section */}
-      <section className="container py-10 md:py-12">
-        <h2 className="section-title">Part-Time Roles</h2>
+      <section className="container py-8 border-t border-border">
+        <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Part-Time Roles</h2>
         <div>
           {partTimeJobs.map((job) => (
-            <div key={job.id} className="job-item">
-              <div className="flex items-start justify-between mb-2">
+            <div key={job.id} className="mb-7 pb-7 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
+              <div className="flex items-start justify-between mb-1.5">
                 <div>
-                  <h3 className="job-title">{job.title}</h3>
-                  <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-base font-semibold text-foreground leading-snug">{job.title}</h3>
+                  <div className="flex items-center gap-1.5 mt-1">
                     {job.companyImage && (
-                      <img src={job.companyImage} alt={job.company} className="w-5 h-5 object-contain" />
+                      <img src={job.companyImage} alt={job.company} className="w-4 h-4 object-contain" />
                     )}
-                    <p className="job-company">{job.company}</p>
+                    <p className="text-sm text-muted-foreground font-medium">{job.company}</p>
                   </div>
                 </div>
-                <span className="job-period whitespace-nowrap ml-4">{job.period}</span>
+                <span className="text-xs text-muted-foreground whitespace-nowrap ml-4 mt-0.5">{job.period}</span>
               </div>
 
               {job.description && (
-                <p className="text-sm text-muted-foreground italic mb-3">{job.description}</p>
+                <p className="text-xs text-muted-foreground italic mb-3 mt-2">{job.description}</p>
               )}
 
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <ul className="text-sm text-muted-foreground space-y-1.5">
                 {job.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex gap-3">
-                    <span className="text-foreground">•</span>
-                    <span>{highlight}</span>
+                  <li key={idx} className="flex gap-2.5">
+                    <span className="text-foreground mt-0.5 shrink-0">·</span>
+                    <span className="leading-snug">{highlight}</span>
                   </li>
                 ))}
               </ul>
@@ -367,26 +362,37 @@ export default function Home() {
       </section>
 
       {/* Internships Section */}
-      <section className="container py-10 md:py-12">
-        <h2 className="section-title">Internships</h2>
+      <section className="container py-8 border-t border-border">
+        <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Internships</h2>
         <div>
           {internships.map((internship, idx) => (
-            <div key={idx} className="job-item">
-              <div className="flex items-start justify-between mb-2">
+            <div key={idx} className="mb-7 pb-7 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
+              <div className="flex items-start justify-between mb-1.5">
                 <div>
-                  <h3 className="job-title">{internship.title}</h3>
-                  <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-base font-semibold text-foreground leading-snug">{internship.title}</h3>
+                  <div className="flex items-center gap-1.5 mt-1">
                     {internship.companyImage && (
-                      <img src={internship.companyImage} alt={internship.company} className="w-5 h-5 object-contain" />
+                      <img src={internship.companyImage} alt={internship.company} className="w-4 h-4 object-contain" />
                     )}
-                    <p className="job-company">{internship.company}</p>
+                    <p className="text-sm text-muted-foreground font-medium">{internship.company}</p>
                   </div>
                 </div>
-                <span className="job-period whitespace-nowrap ml-4">{internship.period}</span>
+                <span className="text-xs text-muted-foreground whitespace-nowrap ml-4 mt-0.5">{internship.period}</span>
               </div>
 
-              {internship.description && (
-                <p className="text-sm text-muted-foreground italic">{internship.description}</p>
+              {internship.companyProfile && (
+                <p className="text-xs text-muted-foreground italic mb-3 mt-2">{internship.companyProfile}</p>
+              )}
+
+              {internship.highlights && internship.highlights.length > 0 && (
+                <ul className="text-sm text-muted-foreground space-y-1.5">
+                  {internship.highlights.map((highlight, hIdx) => (
+                    <li key={hIdx} className="flex gap-2.5">
+                      <span className="text-foreground mt-0.5 shrink-0">·</span>
+                      <span className="leading-snug">{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
               )}
             </div>
           ))}
@@ -394,15 +400,15 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="container py-10 md:py-12">
-        <h2 className="section-title">Skills</h2>
-        <div className="grid md:grid-cols-2 gap-8">
+      <section id="skills" className="container py-8 border-t border-border">
+        <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Skills</h2>
+        <div className="grid md:grid-cols-2 gap-6">
           {Object.entries(skills).map(([category, items]) => (
             <div key={category}>
-              <h3 className="font-semibold text-foreground mb-3">{category}</h3>
-              <div className="flex flex-wrap gap-2">
+              <h3 className="text-sm font-semibold text-foreground mb-2">{category}</h3>
+              <div className="flex flex-wrap gap-1.5">
                 {items.map((skill, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-secondary text-foreground text-sm rounded">
+                  <span key={idx} className="px-2.5 py-1 bg-secondary text-foreground text-xs rounded">
                     {skill}
                   </span>
                 ))}
@@ -412,30 +418,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="container py-10 md:py-12">
-        <h2 className="section-title">Contact</h2>
-        <div className="max-w-2xl">
-          <p className="text-base text-muted-foreground mb-6">
-            I'm always interested in hearing about new opportunities and connecting with people in the product and tech space. Feel free to reach out.
-          </p>
-          <div className="flex gap-6">
-            <a href="mailto:rickytampubolon97@gmail.com" className="text-foreground hover:text-muted-foreground transition" title="Email">
-              <Mail size={24} />
-            </a>
-            <a href="https://www.linkedin.com/in/rickyhalomoan" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition" title="LinkedIn">
-              <Linkedin size={24} />
-            </a>
-            <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-foreground hover:text-muted-foreground transition" title="Instagram">
-              <Instagram size={24} />
-            </a>
-          </div>
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="container py-8 md:py-12 border-t border-border text-center text-sm text-muted-foreground">
-        <p>Ricky Halomoan © 2026. All rights reserved.</p>
+      <footer className="container py-6 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+        <p>Ricky Halomoan © 2026</p>
+        <div className="flex gap-4">
+          <a href="mailto:rickytampubolon97@gmail.com" className="hover:text-foreground transition">rickytampubolon97@gmail.com</a>
+          <a href="https://www.linkedin.com/in/rickyhalomoan" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition">LinkedIn</a>
+        </div>
       </footer>
     </div>
   );
