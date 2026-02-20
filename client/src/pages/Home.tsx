@@ -4,7 +4,7 @@ export default function Home() {
   const experiences = [
     {
       id: 1,
-      title: "Lead Country Product Manager",
+      title: "Lead Country Product Manager - ID Market",
       company: "GSM - Xanh SM",
       companyProfile: "Vietnamese-founded electric ride-hailing company committed to sustainable urban mobility across Southeast Asia. Backed by VinGroup, Xanh SM operates a fully electric fleet and is expanding rapidly across key markets, with Indonesia positioned as a critical growth frontier alongside Vietnam, Thailand, and the Philippines.",
       companyImage: "https://media.licdn.com/dms/image/v2/D560BAQG5Xqveq4buhg/company-logo_200_200/company-logo_200_200/0/1731636708850/greensmartmobility_logo?e=1773273600&v=beta&t=Q6qJwyL1Q3ofHqnlzuetOUmPcP83yX7TJbxOh5apik4",
@@ -180,7 +180,7 @@ export default function Home() {
         <nav className="container py-3 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-7 h-7 rounded-full object-cover" />
-            <span className="text-base font-semibold tracking-tight">Ricky Halomoan</span>
+            <span className="text-base font-semibold tracking-tight">Ricky Halomoan T.</span>
           </div>
           <div className="flex gap-5 text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition">About</a>
@@ -379,7 +379,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="container py-6 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
-        <p>Ricky Halomoan © 2026</p>
+        <p>Ricky Halomoan T. © 2026</p>
         <div className="flex gap-4">
           <a href="mailto:rickytampubolon97@gmail.com" className="hover:text-foreground transition">rickytampubolon97@gmail.com</a>
           <a href="https://www.linkedin.com/in/rickyhalomoan" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition">LinkedIn</a>
