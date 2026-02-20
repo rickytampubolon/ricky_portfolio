@@ -384,9 +384,6 @@ export default function Home() {
       {/* Footer */}
       <footer className="container py-6 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
         <p>Ricky Halomoan T. © 2026</p>
-        <div className="flex gap-4">
-          <a href="https://www.linkedin.com/in/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition">LinkedIn</a>
-        </div>
       </footer>
     </div>
   );
