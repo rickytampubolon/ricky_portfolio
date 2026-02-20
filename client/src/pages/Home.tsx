@@ -48,7 +48,7 @@ export default function Home() {
       title: "OPEX Product Lead - Logistics",
       company: "Shopee",
       companyProfile: "One of Southeast Asia's largest e-commerce platforms, operating an integrated logistics arm (Shopee Xpress) covering first, middle, and last mile delivery across the region.",
-      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/bUAqVpvhsLeEvRro.png",
+      companyImage: "https://media.licdn.com/dms/image/v2/C560BAQE0iX_dgdH7nA/company-logo_200_200/company-logo_200_200/0/1672279162763/shopee_logo?e=1773273600&v=beta&t=jlKIMPDqPZbW-4BSR5HmYJVM6SlcapRqyMCtSCGl768",
       location: "Jakarta, Indonesia",
       period: "Mar 2024 - Jul 2024",
       description: "",
@@ -67,7 +67,7 @@ export default function Home() {
       title: "Product Manager - Fulfillment",
       company: "Tokopedia & GoTo Logistics",
       companyProfile: "Tokopedia is Indonesia's largest homegrown e-commerce marketplace; GoTo Logistics is the group's integrated logistics arm powering fulfilment services for sellers and buyers at scale.",
-      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/fMzZvBYHbNOGcXlH.png",
+      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png",
       location: "Jakarta, Indonesia",
       period: "Feb 2022 - Mar 2024",
       description: "",
@@ -87,7 +87,7 @@ export default function Home() {
       title: "Quality Engineer - Accommodation",
       company: "Traveloka",
       companyProfile: "Southeast Asia's leading travel and lifestyle super-app, offering flights, hotels, attractions, and financial products to millions of users across the region.",
-      companyImage: "https://play-lh.googleusercontent.com/lKtRN8o3qMtR5sUslCyIKYtmvn39b8qxfEL7eBcvzgh9FlHdtvsVbHX-y7UwO0OT_NZP=s188-rw",
+      companyImage: "https://media.licdn.com/dms/image/v2/D560BAQGe_izwxvj_SQ/company-logo_200_200/company-logo_200_200/0/1700635813325/traveloka_logo?e=1773273600&v=beta&t=bOObxNgTa_cE27Qpaljq9RoLoVxqtvAUdWwgbjbQdiU",
       location: "Jakarta, Indonesia",
       period: "Nov 2019 - Feb 2022",
       description: "",
@@ -106,7 +106,7 @@ export default function Home() {
       title: "QA Engineer - Taxi Group",
       company: "Ice House",
       companyProfile: "Indonesia's leading mobile app development agency and the first Google Certified Developer in Southeast Asia, building and maintaining apps and backends for leading companies across financial services, logistics, transportation, e-commerce, entertainment, and more.",
-      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/vtUAAIQhTvYAhdQP.png",
+      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/hLmBFNBFYNwCqgOT.png",
       location: "Jakarta, Indonesia",
       period: "Nov 2019 - Nov 2020",
       description: "",
@@ -182,7 +182,7 @@ export default function Home() {
     {
       title: "QA Engineer Intern",
       company: "Moka (GoTo Financial)",
-      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/hLmBFNBFYNwCqgOT.png",
+      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/fMzZvBYHbNOGcXlH.png",
       period: "Sep 2019 - Nov 2019",
       description: "Cloud-based POS and business management platform acquired by GoTo Financial. Supported the Moka POS Backoffice Inventory team in ensuring smooth operations and high-quality product deliverables throughout the internship period."
     },
@@ -196,7 +196,7 @@ export default function Home() {
     {
       title: "QA Engineer Intern",
       company: "DANA Indonesia",
-      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png",
+      companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/JlXCSsTrCXQVouBa.png",
       period: "Jun 2018 - Sep 2018",
       description: "Indonesia's leading digital wallet platform. Played an active role in the BukaDANA project and KYC processes, ensuring seamless functionality and consistent product quality."
     }
