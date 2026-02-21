@@ -1,6 +1,14 @@
-import { Mail, Linkedin, Instagram, MapPin } from "lucide-react";
+import { Mail, Linkedin, Instagram, MapPin, ChevronUp } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Home() {
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowBackToTop(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const experiences = [
     {
       id: 1,
@@ -186,18 +194,22 @@ export default function Home() {
             <a href="#about" className="hover:text-foreground transition">About</a>
             <a href="#experience" className="hover:text-foreground transition">Experience</a>
             <a href="#skills" className="hover:text-foreground transition">Skills</a>
+            <a href="#contact" className="hover:text-foreground transition">Contact</a>
           </div>
         </nav>
       </header>
 
       {/* Hero Section */}
       <section className="container pt-12 pb-8">
-        <p className="text-xs tracking-widest uppercase text-muted-foreground mb-3">Senior Product Manager</p>
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-2">Ricky Halomoan T.</h1>
-        <div className="flex items-center gap-1 text-xs text-muted-foreground mb-5">
-          <MapPin size={12} />
-          <span>Jakarta, Indonesia</span>
+        <div className="flex items-center gap-3 mb-3">
+          <p className="text-xs tracking-widest uppercase text-muted-foreground">Senior Product Manager</p>
+          <span className="text-muted-foreground/40 text-xs">·</span>
+          <div className="flex items-center gap-1 text-xs text-muted-foreground">
+            <MapPin size={11} />
+            <span>Jakarta, Indonesia</span>
+          </div>
         </div>
+        <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-3">Ricky Halomoan T.</h1>
         <p className="text-2xl md:text-3xl font-light text-muted-foreground mb-7 tracking-tight">
           Building digital products that<br className="hidden md:block" /> move businesses forward.
         </p>
@@ -213,7 +225,7 @@ export default function Home() {
               Download Resume
             </button>
           </a>
-          <div className="flex gap-3 ml-1">
+          <div id="contact" className="flex gap-3 ml-1">
             <a href="mailto:rickytampubolon97@gmail.com" className="text-muted-foreground hover:text-foreground transition">
               <Mail size={18} />
             </a>
@@ -228,32 +240,34 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="container py-8 border-t border-border">
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="md:col-span-2">
-            <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-4">About</h2>
-            <p className="text-sm leading-relaxed mb-3">
-              Senior Product Manager with experience across electric mobility, logistics, fulfillment, and education technology. Proven ability to lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale.
-            </p>
-            <p className="text-sm leading-relaxed">
-              A background in software engineering and quality assurance enables a strong capacity to translate operational challenges into practical product outcomes. Experienced in managing high-impact platforms, driving coordinated execution across regional and global teams, and improving service quality through structured analysis and continuous refinement. Currently pursuing an MBA at SBM ITB to deepen capabilities in strategy, organization, and leadership.
-            </p>
-          </div>
-          <div>
-            <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Education</h2>
-            <div className="space-y-4">
-              {education.map((edu, idx) => (
-                <div key={idx}>
-                  <p className="text-sm font-medium leading-snug">{edu.degree}</p>
-                  <div className="flex items-center gap-1.5 mt-1">
-                    {edu.schoolImage && (
-                      <img src={edu.schoolImage} alt={edu.school} className="w-4 h-4 object-contain" />
-                    )}
-                    <p className="text-xs text-muted-foreground">{edu.school}</p>
+      <section id="about" className="bg-secondary border-t border-border">
+        <div className="container py-8">
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="md:col-span-2">
+              <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-4">About</h2>
+              <p className="text-sm leading-relaxed mb-3">
+                Senior Product Manager with experience across electric mobility, logistics, fulfillment, and education technology. Proven ability to lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale.
+              </p>
+              <p className="text-sm leading-relaxed">
+                A background in software engineering and quality assurance enables a strong capacity to translate operational challenges into practical product outcomes. Experienced in managing high-impact platforms, driving coordinated execution across regional and global teams, and improving service quality through structured analysis and continuous refinement. Currently pursuing an MBA at SBM ITB to deepen capabilities in strategy, organization, and leadership.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Education</h2>
+              <div className="space-y-4">
+                {education.map((edu, idx) => (
+                  <div key={idx}>
+                    <p className="text-sm font-medium leading-snug">{edu.degree}</p>
+                    <div className="flex items-center gap-1.5 mt-1">
+                      {edu.schoolImage && (
+                        <img src={edu.schoolImage} alt={edu.school} className="w-5 h-5 object-contain" />
+                      )}
+                      <p className="text-xs text-muted-foreground">{edu.school}</p>
+                    </div>
+                    <p className="text-xs text-muted-foreground">{edu.date}</p>
                   </div>
-                  <p className="text-xs text-muted-foreground">{edu.date}</p>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -270,7 +284,7 @@ export default function Home() {
                   <h3 className="text-base font-semibold text-foreground leading-snug">{exp.title}</h3>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     {exp.companyImage && (
-                      <img src={exp.companyImage} alt={exp.company} className="w-4 h-4 object-contain" />
+                      <img src={exp.companyImage} alt={exp.company} className="w-5 h-5 object-contain" />
                     )}
                     <p className="text-sm text-muted-foreground font-medium">{exp.company}</p>
                   </div>
@@ -296,7 +310,8 @@ export default function Home() {
       </section>
 
       {/* Part-time Work Section */}
-      <section className="container py-8 border-t border-border">
+      <section className="bg-secondary border-t border-border">
+        <div className="container py-8">
         <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Part-Time Roles</h2>
         <div>
           {partTimeJobs.map((job) => (
@@ -306,7 +321,7 @@ export default function Home() {
                   <h3 className="text-base font-semibold text-foreground leading-snug">{job.title}</h3>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     {job.companyImage && (
-                      <img src={job.companyImage} alt={job.company} className="w-4 h-4 object-contain" />
+                      <img src={job.companyImage} alt={job.company} className="w-5 h-5 object-contain" />
                     )}
                     <p className="text-sm text-muted-foreground font-medium">{job.company}</p>
                   </div>
@@ -329,6 +344,7 @@ export default function Home() {
             </div>
           ))}
         </div>
+        </div>
       </section>
 
       {/* Internships Section */}
@@ -342,7 +358,7 @@ export default function Home() {
                   <h3 className="text-base font-semibold text-foreground leading-snug">{internship.title}</h3>
                   <div className="flex items-center gap-1.5 mt-1">
                     {internship.companyImage && (
-                      <img src={internship.companyImage} alt={internship.company} className="w-4 h-4 object-contain" />
+                      <img src={internship.companyImage} alt={internship.company} className="w-5 h-5 object-contain" />
                     )}
                     <p className="text-sm text-muted-foreground font-medium">{internship.company}</p>
                   </div>
@@ -363,21 +379,23 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="container py-8 border-t border-border">
-        <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Skills</h2>
-        <div className="grid md:grid-cols-2 gap-6">
-          {Object.entries(skills).map(([category, items]) => (
-            <div key={category}>
-              <h3 className="text-sm font-semibold text-foreground mb-2">{category}</h3>
-              <div className="flex flex-wrap gap-1.5">
-                {items.map((skill, idx) => (
-                  <span key={idx} className="px-2.5 py-1 bg-secondary text-foreground text-xs rounded">
-                    {skill}
-                  </span>
-                ))}
+      <section id="skills" className="bg-secondary border-t border-border">
+        <div className="container py-8">
+          <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Skills</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {Object.entries(skills).map(([category, items]) => (
+              <div key={category}>
+                <h3 className="text-sm font-semibold text-foreground mb-2">{category}</h3>
+                <div className="flex flex-wrap gap-1.5">
+                  {items.map((skill, idx) => (
+                    <span key={idx} className="px-2.5 py-1 bg-background text-foreground text-xs rounded">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
@@ -385,6 +403,17 @@ export default function Home() {
       <footer className="container py-6 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
         <p>Ricky Halomoan T. © 2026</p>
       </footer>
+
+      {/* Back to Top */}
+      {showBackToTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="fixed bottom-6 right-6 bg-foreground text-background p-2 rounded-full shadow-md hover:opacity-80 transition z-50"
+          aria-label="Back to top"
+        >
+          <ChevronUp size={18} />
+        </button>
+      )}
     </div>
   );
 }
