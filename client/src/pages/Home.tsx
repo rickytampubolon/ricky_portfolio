@@ -196,45 +196,56 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Header Navigation */}
-      <header className="sticky top-0 bg-background border-b border-border z-50">
-        <nav className="container py-3 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2 shrink-0">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-6 h-6 md:w-7 md:h-7 rounded-full object-cover" />
-            <span className="text-sm md:text-base font-semibold tracking-tight">Ricky Halomoan</span>
+      <header className="sticky top-0 bg-background/95 backdrop-blur-sm border-b border-border z-50">
+        <nav className="container py-3.5 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2.5 shrink-0">
+            <img
+              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
+              alt="Ricky Halomoan"
+              className="w-7 h-7 rounded-full object-cover ring-1 ring-border"
+            />
+            <span className="text-sm font-semibold tracking-tight">Ricky Halomoan</span>
           </div>
-          <div className="flex gap-3 md:gap-5 text-xs md:text-sm text-muted-foreground">
-            <a href="#about" className="hover:text-foreground transition">About</a>
-            <a href="#experience" className="hover:text-foreground transition">Experience</a>
-            <a href="#skills" className="hover:text-foreground transition">Skills</a>
-            <a href="#contact" className="hover:text-foreground transition">Contact</a>
+          <div className="flex gap-5 md:gap-7 text-xs md:text-sm text-muted-foreground">
+            <a href="#about" className="hover:text-foreground transition-colors duration-200 font-medium">About</a>
+            <a href="#experience" className="hover:text-foreground transition-colors duration-200 font-medium">Experience</a>
+            <a href="#skills" className="hover:text-foreground transition-colors duration-200 font-medium">Skills</a>
+            <a href="#contact" className="hover:text-foreground transition-colors duration-200 font-medium">Contact</a>
           </div>
         </nav>
       </header>
 
       {/* Hero Section */}
-      <section className="container pt-10 md:pt-12 pb-8">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
-          <p className="text-xs tracking-widest uppercase text-muted-foreground">Senior Product Manager</p>
-          <span className="text-muted-foreground/40 text-xs">·</span>
+      <section className="container pt-14 md:pt-20 pb-14 md:pb-20">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mb-6">
+          <p className="flex items-center gap-2 text-xs tracking-widest uppercase text-muted-foreground font-semibold">
+            <span className="w-5 h-px bg-accent inline-block"></span>
+            Senior Product Manager
+          </p>
+          <span className="text-muted-foreground/30">·</span>
           <div className="flex items-center gap-1 text-xs text-muted-foreground">
             <MapPin size={11} />
             <span>Jakarta, Indonesia</span>
             <span className="ml-0.5">🇮🇩</span>
           </div>
         </div>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-3">Ricky Halomoan</h1>
-        <p className="text-xl sm:text-2xl md:text-3xl font-light text-muted-foreground mb-7 tracking-tight">
+
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-5 leading-[1.05] text-foreground">
+          Ricky<br />Halomoan
+        </h1>
+
+        <p className="text-lg sm:text-xl md:text-2xl font-light text-muted-foreground mb-10 max-w-lg leading-relaxed">
           Building digital products that<br className="hidden md:block" /> move businesses forward.
         </p>
 
         <div className="flex flex-wrap items-center gap-3">
           <a href="#experience">
-            <button className="bg-foreground text-background hover:opacity-80 px-5 py-2 text-sm rounded transition">
+            <button className="bg-foreground text-background hover:bg-foreground/85 px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
               View My Work
             </button>
           </a>
           <a href="https://drive.google.com/uc?export=download&id=17Nb74FFTxtJOh-lMQcZCONSWQP0KJ_de" target="_blank" rel="noopener noreferrer">
-            <button className="border border-border text-foreground hover:bg-secondary px-5 py-2 text-sm rounded transition">
+            <button className="border border-border text-foreground hover:bg-secondary hover:border-muted px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200">
               Download Resume
             </button>
           </a>
@@ -243,30 +254,34 @@ export default function Home() {
 
       {/* About Section */}
       <section id="about" className="bg-secondary border-t border-border">
-        <div className="container py-8">
-          <div className="grid md:grid-cols-3 gap-8">
+        <div className="container py-12 md:py-16">
+          <div className="grid md:grid-cols-3 gap-10 md:gap-14">
             <div className="md:col-span-2">
-              <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-4">About</h2>
-              <p className="text-sm leading-relaxed mb-3">
+              <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-5 font-bold">
+                <span className="w-4 h-px bg-accent"></span>About
+              </h2>
+              <p className="text-sm leading-relaxed mb-4 text-foreground/80">
                 Senior Product Manager with experience across electric mobility, logistics, fulfillment, and education technology. Proven ability to lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale.
               </p>
-              <p className="text-sm leading-relaxed">
+              <p className="text-sm leading-relaxed text-foreground/80">
                 A background in software engineering and quality assurance enables a strong capacity to translate operational challenges into practical product outcomes. Experienced in managing high-impact platforms, driving coordinated execution across regional and global teams, and improving service quality through structured analysis and continuous refinement. Currently pursuing an MBA at SBM ITB to deepen capabilities in strategy, organization, and leadership.
               </p>
             </div>
             <div>
-              <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Education</h2>
-              <div className="space-y-4">
+              <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-5 font-bold">
+                <span className="w-4 h-px bg-accent"></span>Education
+              </h2>
+              <div className="space-y-5">
                 {education.map((edu, idx) => (
-                  <div key={idx}>
-                    <p className="text-sm font-medium leading-snug">{edu.degree}</p>
-                    <div className="flex items-center gap-1.5 mt-1">
-                      {edu.schoolImage && (
-                        <img src={edu.schoolImage} alt={edu.school} className="w-5 h-5 object-contain" />
-                      )}
-                      <p className="text-xs text-muted-foreground">{edu.school}</p>
+                  <div key={idx} className="flex gap-3">
+                    {edu.schoolImage && (
+                      <img src={edu.schoolImage} alt={edu.school} className="w-9 h-9 object-contain rounded-md shrink-0 mt-0.5 bg-white p-0.5 border border-border" />
+                    )}
+                    <div>
+                      <p className="text-sm font-semibold leading-snug text-foreground">{edu.degree}</p>
+                      <p className="text-xs text-muted-foreground mt-0.5">{edu.school}</p>
+                      <p className="text-xs text-muted-foreground">{edu.date}</p>
                     </div>
-                    <p className="text-xs text-muted-foreground">{edu.date}</p>
                   </div>
                 ))}
               </div>
@@ -276,33 +291,42 @@ export default function Home() {
       </section>
 
       {/* Experience Section */}
-      <section id="experience" className="container py-8 border-t border-border">
-        <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Experience</h2>
+      <section id="experience" className="container py-12 md:py-16 border-t border-border">
+        <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-9 font-bold">
+          <span className="w-4 h-px bg-accent"></span>Experience
+        </h2>
         <div>
           {experiences.map((exp) => (
-            <div key={exp.id} className="mb-4 pb-4 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-1 gap-0.5">
-                <div>
-                  <h3 className="text-base font-semibold text-foreground leading-snug">{exp.title}</h3>
-                  <div className="flex items-center gap-1.5 mt-0.5">
-                    {exp.companyImage && (
-                      <img src={exp.companyImage} alt={exp.company} className="w-5 h-5 object-contain" />
-                    )}
-                    <p className="text-sm text-muted-foreground font-medium">{exp.company}</p>
+            <div key={exp.id} className="mb-7 pb-7 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2.5 gap-1">
+                <div className="flex gap-3">
+                  {exp.companyImage && (
+                    <img src={exp.companyImage} alt={exp.company} className="w-9 h-9 object-contain rounded-md shrink-0 mt-0.5 bg-white p-0.5 border border-border" />
+                  )}
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground leading-snug">{exp.title}</h3>
+                    <p className="text-xs text-muted-foreground font-medium mt-0.5">{exp.company}</p>
                   </div>
                 </div>
-                <span className="text-xs text-muted-foreground whitespace-nowrap sm:ml-4 mt-0.5">{exp.period}</span>
+                <div className="flex items-center gap-2 sm:ml-4 shrink-0 pl-12 sm:pl-0">
+                  {exp.id === 1 && (
+                    <span className="inline-flex items-center px-1.5 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded uppercase">
+                      Current
+                    </span>
+                  )}
+                  <span className="text-xs text-muted-foreground whitespace-nowrap">{exp.period}</span>
+                </div>
               </div>
 
               {exp.companyProfile && (
-                <p className="text-xs text-muted-foreground italic mb-1.5 mt-1">{exp.companyProfile}</p>
+                <p className="text-xs text-muted-foreground italic mb-2.5 mt-1 leading-relaxed pl-12">{exp.companyProfile}</p>
               )}
 
-              <ul className="text-sm text-muted-foreground space-y-1">
+              <ul className="text-xs text-muted-foreground space-y-1.5 pl-12">
                 {exp.highlights.map((highlight, idx) => (
                   <li key={idx} className="flex gap-2">
-                    <span className="text-foreground mt-0.5 shrink-0">·</span>
-                    <span className="leading-snug">{highlight}</span>
+                    <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
+                    <span className="leading-relaxed">{highlight}</span>
                   </li>
                 ))}
               </ul>
@@ -313,33 +337,35 @@ export default function Home() {
 
       {/* Part-time Work Section */}
       <section className="bg-secondary border-t border-border">
-        <div className="container py-8">
-          <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Part-Time Roles</h2>
+        <div className="container py-12 md:py-16">
+          <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-9 font-bold">
+            <span className="w-4 h-px bg-accent"></span>Part-Time Roles
+          </h2>
           <div>
             {partTimeJobs.map((job) => (
-              <div key={job.id} className="mb-4 pb-4 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-1 gap-0.5">
-                  <div>
-                    <h3 className="text-base font-semibold text-foreground leading-snug">{job.title}</h3>
-                    <div className="flex items-center gap-1.5 mt-0.5">
-                      {job.companyImage && (
-                        <img src={job.companyImage} alt={job.company} className="w-5 h-5 object-contain" />
-                      )}
-                      <p className="text-sm text-muted-foreground font-medium">{job.company}</p>
+              <div key={job.id} className="mb-7 pb-7 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2.5 gap-1">
+                  <div className="flex gap-3">
+                    {job.companyImage && (
+                      <img src={job.companyImage} alt={job.company} className="w-9 h-9 object-contain rounded-md shrink-0 mt-0.5 bg-white p-0.5 border border-border" />
+                    )}
+                    <div>
+                      <h3 className="text-sm font-semibold text-foreground leading-snug">{job.title}</h3>
+                      <p className="text-xs text-muted-foreground font-medium mt-0.5">{job.company}</p>
                     </div>
                   </div>
-                  <span className="text-xs text-muted-foreground whitespace-nowrap sm:ml-4 mt-0.5">{job.period}</span>
+                  <span className="text-xs text-muted-foreground whitespace-nowrap sm:ml-4 pl-12 sm:pl-0">{job.period}</span>
                 </div>
 
                 {job.description && (
-                  <p className="text-xs text-muted-foreground italic mb-1.5 mt-1">{job.description}</p>
+                  <p className="text-xs text-muted-foreground italic mb-2.5 mt-1 leading-relaxed pl-12">{job.description}</p>
                 )}
 
-                <ul className="text-sm text-muted-foreground space-y-1">
+                <ul className="text-xs text-muted-foreground space-y-1.5 pl-12">
                   {job.highlights.map((highlight, idx) => (
                     <li key={idx} className="flex gap-2">
-                      <span className="text-foreground mt-0.5 shrink-0">·</span>
-                      <span className="leading-snug">{highlight}</span>
+                      <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
+                      <span className="leading-relaxed">{highlight}</span>
                     </li>
                   ))}
                 </ul>
@@ -350,30 +376,32 @@ export default function Home() {
       </section>
 
       {/* Internships Section */}
-      <section className="container py-8 border-t border-border">
-        <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Internships</h2>
+      <section className="container py-12 md:py-16 border-t border-border">
+        <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-9 font-bold">
+          <span className="w-4 h-px bg-accent"></span>Internships
+        </h2>
         <div>
           {internships.map((internship, idx) => (
-            <div key={idx} className="mb-5 pb-5 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-1.5 gap-0.5">
-                <div>
-                  <h3 className="text-base font-semibold text-foreground leading-snug">{internship.title}</h3>
-                  <div className="flex items-center gap-1.5 mt-1">
-                    {internship.companyImage && (
-                      <img src={internship.companyImage} alt={internship.company} className="w-5 h-5 object-contain" />
-                    )}
-                    <p className="text-sm text-muted-foreground font-medium">{internship.company}</p>
+            <div key={idx} className="mb-6 pb-6 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2 gap-1">
+                <div className="flex gap-3">
+                  {internship.companyImage && (
+                    <img src={internship.companyImage} alt={internship.company} className="w-9 h-9 object-contain rounded-md shrink-0 mt-0.5 bg-white p-0.5 border border-border" />
+                  )}
+                  <div>
+                    <h3 className="text-sm font-semibold text-foreground leading-snug">{internship.title}</h3>
+                    <p className="text-xs text-muted-foreground font-medium mt-0.5">{internship.company}</p>
                   </div>
                 </div>
-                <span className="text-xs text-muted-foreground whitespace-nowrap sm:ml-4 mt-0.5">{internship.period}</span>
+                <span className="text-xs text-muted-foreground whitespace-nowrap sm:ml-4 pl-12 sm:pl-0">{internship.period}</span>
               </div>
 
               {internship.companyProfile && (
-                <p className="text-xs text-muted-foreground italic mt-2">{internship.companyProfile}</p>
+                <p className="text-xs text-muted-foreground italic mt-1.5 leading-relaxed pl-12">{internship.companyProfile}</p>
               )}
 
               {internship.responsibility && (
-                <p className="text-sm text-muted-foreground mt-1.5">{internship.responsibility}</p>
+                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed pl-12">{internship.responsibility}</p>
               )}
             </div>
           ))}
@@ -382,15 +410,20 @@ export default function Home() {
 
       {/* Skills Section */}
       <section id="skills" className="bg-secondary border-t border-border">
-        <div className="container py-8">
-          <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Skills</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="container py-12 md:py-16">
+          <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-9 font-bold">
+            <span className="w-4 h-px bg-accent"></span>Skills
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {Object.entries(skills).map(([category, items]) => (
               <div key={category}>
-                <h3 className="text-sm font-semibold text-foreground mb-2">{category}</h3>
+                <h3 className="text-xs font-bold text-foreground mb-3 tracking-wide uppercase">{category}</h3>
                 <div className="flex flex-wrap gap-1.5">
                   {items.map((skill, idx) => (
-                    <span key={idx} className="px-2.5 py-1 bg-background text-foreground text-xs rounded">
+                    <span
+                      key={idx}
+                      className="px-2.5 py-1 bg-background text-foreground/75 text-xs rounded-md border border-border hover:border-accent/40 hover:text-foreground transition-colors duration-150 font-medium"
+                    >
                       {skill}
                     </span>
                   ))}
@@ -403,41 +436,62 @@ export default function Home() {
 
       {/* Contact Section */}
       <section id="contact" className="border-t border-border">
-        <div className="container py-10 md:py-14">
-          <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Contact</h2>
-          <p className="text-sm text-muted-foreground mb-6 max-w-md">
+        <div className="container py-14 md:py-20">
+          <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-4 font-bold">
+            <span className="w-4 h-px bg-accent"></span>Contact
+          </h2>
+          <p className="text-sm text-muted-foreground mb-9 max-w-md leading-relaxed">
             Open to new opportunities and collaborations. Feel free to reach out via email or connect on social media.
           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
-            <a href="mailto:rickytampubolon97@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition">
-              <Mail size={16} />
-              <span>rickytampubolon97@gmail.com</span>
+          <div className="flex flex-col gap-3">
+            <a
+              href="mailto:rickytampubolon97@gmail.com"
+              className="inline-flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 group w-fit"
+            >
+              <span className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
+                <Mail size={15} />
+              </span>
+              rickytampubolon97@gmail.com
             </a>
-            <a href="https://www.linkedin.com/in/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition">
-              <Linkedin size={16} />
-              <span>linkedin.com/in/rickyhlmn</span>
+            <a
+              href="https://www.linkedin.com/in/rickyhlmn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 group w-fit"
+            >
+              <span className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
+                <Linkedin size={15} />
+              </span>
+              linkedin.com/in/rickyhlmn
             </a>
-            <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition">
-              <Instagram size={16} />
-              <span>@rickyhlmn</span>
+            <a
+              href="https://www.instagram.com/rickyhlmn/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 group w-fit"
+            >
+              <span className="w-9 h-9 rounded-lg bg-secondary border border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
+                <Instagram size={15} />
+              </span>
+              @rickyhlmn
             </a>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="container py-5 border-t border-border text-xs text-muted-foreground">
-        <p>Ricky Halomoan © 2026</p>
+      <footer className="container py-6 border-t border-border">
+        <p className="text-xs text-muted-foreground">Ricky Halomoan © 2026</p>
       </footer>
 
       {/* Back to Top */}
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 bg-foreground text-background p-2 rounded-full shadow-md hover:opacity-80 transition z-50"
+          className="fixed bottom-6 right-6 bg-foreground text-background p-2.5 rounded-full shadow-lg hover:bg-foreground/85 transition-all duration-200 z-50"
           aria-label="Back to top"
         >
-          <ChevronUp size={18} />
+          <ChevronUp size={16} />
         </button>
       )}
     </div>
