@@ -337,17 +337,17 @@ export default function Home() {
 
       {/* ── Floating Glassmorphism Nav ─────────────────────── */}
       <header
-        className={`fixed left-0 right-0 z-50 flex justify-center px-4 transition-all duration-300 ${
-          scrolled ? "top-3" : "top-5"
+        className={`fixed left-0 right-0 z-50 flex justify-center px-3 sm:px-4 transition-all duration-300 ${
+          scrolled ? "top-2 sm:top-3" : "top-3 sm:top-5"
         }`}
       >
         <nav
-          className={`flex items-center gap-3 rounded-full border border-border shadow-[0_2px_20px_rgba(0,0,0,0.07)] backdrop-blur-xl bg-card/85 transition-all duration-300 ${
-            scrolled ? "px-4 py-2" : "px-6 py-3"
+          className={`flex items-center gap-2 sm:gap-3 rounded-full border border-border shadow-[0_2px_20px_rgba(0,0,0,0.07)] backdrop-blur-[8px] bg-white/80 dark:bg-card/85 transition-all duration-300 ${
+            scrolled ? "px-3 sm:px-4 py-1.5 sm:py-2" : "px-4 sm:px-6 py-2 sm:py-3"
           }`}
         >
           {/* Brand */}
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
               alt="Ricky Halomoan T."
@@ -356,7 +356,7 @@ export default function Home() {
               }`}
             />
             <span
-              className={`font-semibold text-foreground tracking-[-0.02em] transition-all duration-300 ${
+              className={`hidden sm:block font-semibold text-foreground tracking-[-0.02em] transition-all duration-300 ${
                 scrolled ? "text-xs" : "text-sm"
               }`}
             >
@@ -364,7 +364,7 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="w-px h-4 bg-border mx-0.5" />
+          <div className="hidden sm:block w-px h-4 bg-border mx-0.5" />
 
           {/* Links */}
           <div className="flex items-center gap-0.5">
@@ -377,8 +377,10 @@ export default function Home() {
               <a
                 key={id}
                 href={`#${id}`}
-                className={`text-muted-foreground hover:text-foreground rounded-full transition-all duration-200 font-medium hover:bg-secondary ${
-                  scrolled ? "text-[11px] px-2.5 py-1" : "text-xs px-3 py-1.5"
+                className={`text-foreground/70 hover:text-foreground rounded-full transition-all duration-200 font-semibold hover:bg-secondary ${
+                  scrolled
+                    ? "text-[10px] px-2 py-1"
+                    : "text-[11px] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5"
                 }`}
               >
                 {label}
@@ -388,55 +390,66 @@ export default function Home() {
         </nav>
       </header>
 
-      {/* ── Hero ──────────────────────────────────────────────── */}
-      <section className="container pt-44 md:pt-52 pb-20 text-center">
-        <div className={heroRevealed ? "is-revealed" : ""}>
-          {/* Location badge */}
-          <div className="reveal-item" style={stagger(0)}>
-            <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-muted-foreground bg-secondary border border-border rounded-full px-3 py-1 mb-8 tracking-wide">
-              <MapPin size={10} />
-              <span>Jakarta, Indonesia</span>
-              <span>🇮🇩</span>
+      {/* ── Hero — full-screen ─────────────────────────────── */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6">
+        <div className="w-full max-w-[800px] mx-auto">
+          <div className={heroRevealed ? "is-revealed" : ""}>
+            {/* Location badge */}
+            <div className="reveal-item" style={stagger(0)}>
+              <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-muted-foreground bg-secondary border border-border rounded-full px-3 py-1 mb-8 tracking-wide">
+                <MapPin size={10} />
+                <span>Jakarta, Indonesia</span>
+                <span>🇮🇩</span>
+              </div>
+            </div>
+
+            {/* Name */}
+            <h1
+              className="reveal-item text-4xl sm:text-6xl md:text-7xl font-bold leading-[1.04] text-foreground mb-3"
+              style={{ ...stagger(1), letterSpacing: "-0.03em" }}
+            >
+              Ricky Halomoan T.
+            </h1>
+
+            {/* Sub-headline */}
+            <p
+              className="reveal-item text-base sm:text-lg text-muted-foreground font-medium leading-relaxed mb-3"
+              style={stagger(2)}
+            >
+              Senior Product Manager · Building digital products that move businesses forward.
+            </p>
+
+            {/* Domain tags */}
+            <p
+              className="reveal-item text-[10px] sm:text-[11px] text-muted-foreground/50 tracking-[0.14em] uppercase font-medium mb-10"
+              style={stagger(3)}
+            >
+              Logistics · Fulfillment · Electric Mobility · Digital Transformation
+            </p>
+
+            {/* CTAs */}
+            <div
+              className="reveal-item flex flex-wrap justify-center items-center gap-3 sm:gap-4"
+              style={stagger(4)}
+            >
+              <a href="#contact">
+                <button className="h-11 bg-accent text-white hover:bg-[#4338CA] px-7 sm:px-8 text-sm font-semibold rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(79,70,229,0.35)] hover:shadow-[0_6px_24px_rgba(79,70,229,0.45)] hover:-translate-y-px tracking-[-0.01em]">
+                  Let's Work Together
+                </button>
+              </a>
+              <a href="#experience">
+                <button className="h-11 border border-[rgba(0,0,0,0.1)] text-foreground bg-card hover:bg-secondary px-7 sm:px-8 text-sm font-medium rounded-full transition-all duration-200 tracking-[-0.01em] dark:border-border">
+                  View My Work
+                </button>
+              </a>
             </div>
           </div>
+        </div>
 
-          {/* Name */}
-          <h1
-            className="reveal-item text-5xl sm:text-6xl md:text-7xl font-bold leading-[1.04] text-foreground mb-5"
-            style={{ ...stagger(1), letterSpacing: "-0.03em" }}
-          >
-            Ricky Halomoan T.
-          </h1>
-
-          {/* Sub-headline */}
-          <p
-            className="reveal-item text-base sm:text-lg text-muted-foreground font-normal leading-relaxed mb-3"
-            style={stagger(2)}
-          >
-            Senior Product Manager · Building digital products that move businesses forward.
-          </p>
-
-          {/* Domain tags */}
-          <p
-            className="reveal-item text-[11px] text-muted-foreground/50 tracking-[0.14em] uppercase font-medium mb-10"
-            style={stagger(3)}
-          >
-            Logistics · Fulfillment · Electric Mobility · Digital Transformation
-          </p>
-
-          {/* CTAs */}
-          <div className="reveal-item flex flex-wrap justify-center items-center gap-4" style={stagger(4)}>
-            <a href="#contact">
-              <button className="bg-accent text-white hover:bg-[#4338CA] px-8 py-3 text-sm font-semibold rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(79,70,229,0.35)] hover:shadow-[0_6px_24px_rgba(79,70,229,0.45)] hover:-translate-y-px tracking-[-0.01em]">
-                Let's Work Together
-              </button>
-            </a>
-            <a href="#experience">
-              <button className="border border-border text-foreground bg-card hover:bg-secondary px-8 py-3 text-sm font-medium rounded-full transition-all duration-200 tracking-[-0.01em]">
-                View My Work
-              </button>
-            </a>
-          </div>
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-muted-foreground/40 select-none pointer-events-none">
+          <span className="text-[9px] tracking-[0.18em] uppercase font-medium">Scroll</span>
+          <ChevronDown size={16} className="animate-bounce" />
         </div>
       </section>
 
@@ -444,7 +457,7 @@ export default function Home() {
       <section id="about" className="border-t border-border">
         <div className="container py-20" ref={aboutReveal.ref}>
           <div
-            className={`grid md:grid-cols-3 gap-12 md:gap-16 ${
+            className={`grid md:grid-cols-3 gap-10 md:gap-16 ${
               aboutReveal.revealed ? "is-revealed" : ""
             }`}
           >
@@ -537,7 +550,7 @@ export default function Home() {
               return (
                 <div
                   key={exp.id}
-                  className="reveal-item relative flex gap-5 mb-8 last:mb-0"
+                  className="reveal-item relative flex gap-4 sm:gap-5 mb-8 last:mb-0"
                   style={stagger(index)}
                 >
                   {/* Timeline node: logo */}
@@ -554,10 +567,10 @@ export default function Home() {
                   </div>
 
                   {/* Experience card */}
-                  <div className="flex-1 bg-card border border-border rounded-xl p-5 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-200 cursor-default">
+                  <div className="flex-1 min-w-0 bg-card border border-border rounded-xl p-4 sm:p-5 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-200 cursor-default">
                     {/* Header row */}
-                    <div className="flex items-start justify-between gap-3 mb-2.5">
-                      <div>
+                    <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2.5">
+                      <div className="min-w-0 flex-1">
                         <h3 className="text-sm font-semibold text-foreground leading-snug">
                           {exp.title}
                         </h3>
@@ -565,7 +578,7 @@ export default function Home() {
                           {exp.company}
                         </p>
                       </div>
-                      <div className="flex items-center gap-2 shrink-0">
+                      <div className="flex flex-col items-end gap-1 shrink-0">
                         {exp.id === 1 && (
                           <span className="inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase">
                             Current
@@ -633,7 +646,7 @@ export default function Home() {
             {partTimeJobs.map((job, idx) => (
               <div
                 key={job.id}
-                className="reveal-item border border-border rounded-xl p-5 bg-card flex flex-col h-full hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-200 cursor-default"
+                className="reveal-item border border-border rounded-xl p-4 sm:p-5 bg-card flex flex-col h-full hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-200 cursor-default"
                 style={stagger(idx)}
               >
                 <div className="flex items-start gap-3 mb-3">
@@ -644,7 +657,7 @@ export default function Home() {
                       className="w-9 h-9 object-contain rounded-xl shrink-0 bg-white p-0.5 border border-border"
                     />
                   )}
-                  <div>
+                  <div className="min-w-0">
                     <h3 className="text-sm font-semibold text-foreground leading-snug">
                       {job.title}
                     </h3>
@@ -705,7 +718,7 @@ export default function Home() {
               .map((internship, idx) => (
                 <div
                   key={idx}
-                  className="reveal-item border border-border rounded-xl p-5 bg-card flex flex-col h-full hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-200 cursor-default"
+                  className="reveal-item border border-border rounded-xl p-4 sm:p-5 bg-card flex flex-col h-full hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-200 cursor-default"
                   style={stagger(idx)}
                 >
                   <div className="flex gap-3 mb-3">
@@ -824,7 +837,7 @@ export default function Home() {
                   <span className="w-9 h-9 rounded-xl bg-secondary border border-border flex items-center justify-center group-hover:border-accent/30 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
                     {icon}
                   </span>
-                  {label}
+                  <span className="truncate">{label}</span>
                 </a>
               ))}
             </div>
@@ -834,7 +847,7 @@ export default function Home() {
 
       {/* ── Footer ────────────────────────────────────────────── */}
       <footer className="border-t border-border">
-        <div className="container py-8 flex items-center justify-between">
+        <div className="container py-8 flex flex-col sm:flex-row items-center sm:justify-between gap-1 text-center sm:text-left">
           <p className="text-xs text-muted-foreground">Ricky Halomoan T. © 2026</p>
           <p className="text-xs text-muted-foreground/50">Senior Product Manager · Jakarta</p>
         </div>
@@ -844,7 +857,7 @@ export default function Home() {
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-6 bg-card text-foreground border border-border p-3 rounded-full shadow-lg hover:bg-secondary transition-all duration-200 z-50"
+          className="fixed bottom-6 right-4 sm:right-6 bg-card text-foreground border border-border p-3 rounded-full shadow-lg hover:bg-secondary transition-all duration-200 z-50"
           aria-label="Back to top"
         >
           <ChevronUp size={16} />
