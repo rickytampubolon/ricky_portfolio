@@ -217,8 +217,8 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="container pt-14 md:pt-20 pb-14 md:pb-20">
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mb-6">
+      <section className="container pt-14 md:pt-20 pb-14 md:pb-20 text-center">
+        <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 mb-6">
           <p className="flex items-center gap-2 text-xs tracking-widest uppercase text-muted-foreground font-semibold">
             <span className="w-5 h-px bg-accent inline-block"></span>
             Senior Product Manager
@@ -235,11 +235,11 @@ export default function Home() {
           Ricky<br />Halomoan
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl font-light text-muted-foreground mb-10 max-w-lg leading-relaxed">
-          Building digital products that<br className="hidden md:block" /> move businesses forward.
+        <p className="text-lg sm:text-xl md:text-2xl font-light text-muted-foreground mb-10 leading-relaxed">
+          Building digital products that move businesses forward.
         </p>
 
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap justify-center items-center gap-3">
           <a href="#experience">
             <button className="bg-foreground text-background hover:bg-foreground/85 px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
               View My Work
