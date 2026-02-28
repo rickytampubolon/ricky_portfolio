@@ -9,6 +9,7 @@ export default function Home() {
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   const experiences = [
     {
       id: 1,
@@ -22,7 +23,8 @@ export default function Home() {
         "Own end-to-end product strategy and execution for Xanh SM Indonesia, ensuring the digital ecosystem supports business growth, operational scalability, and service quality.",
         "Define the national product roadmap and align it with regional and global priorities, balancing local operational needs, market behaviour, and regulatory requirements.",
         "Drive cross-functional collaboration with engineering, design, operations, finance, and data teams to ensure consistent and high-quality feature delivery at every stage.",
-        "Serve as the primary liaison between Indonesia leadership and the global product organization, maintaining alignment on priorities, timelines, and long-term direction."
+        "Serve as the primary liaison between Indonesia leadership and the global product organization, maintaining alignment on priorities, timelines, and long-term direction.",
+        "Monitor key product metrics and platform performance indicators, translating data-driven insights into prioritised improvements that sustain business momentum and service reliability."
       ]
     },
     {
@@ -37,7 +39,8 @@ export default function Home() {
         "Led the development of performance management tools and national-scale data integration systems to improve accountability and operational efficiency across the education sector.",
         "Defined the product vision and roadmap, ensuring platform development remained aligned with ministry priorities and strategic goals.",
         "Coordinated closely with engineering, data, and UX teams to uphold development stability and regulatory compliance throughout each release cycle.",
-        "Established measurement frameworks to assess the effectiveness of performance management tools and drove continuous improvements grounded in data-driven insights."
+        "Established measurement frameworks to assess the effectiveness of performance management tools and drove continuous improvements grounded in data-driven insights.",
+        "Facilitated discovery sessions and requirements workshops with ministry officials, school administrators, and educators to capture nuanced needs and ensure platform relevance across diverse stakeholder groups."
       ]
     },
     {
@@ -52,7 +55,8 @@ export default function Home() {
         "Directed a team responsible for maintaining and enhancing the Fleet Management System across First Mile, Middle Mile, and Last Mile operations.",
         "Partnered with Business, Finance, Strategy, BI, and Operations teams to keep system capabilities aligned with daily operational demands.",
         "Managed end-to-end planning and delivery of system enhancements to strengthen process sustainability and improve operational throughput.",
-        "Analysed operational data and performance metrics to surface inefficiencies and inform decision-making with actionable insights."
+        "Analysed operational data and performance metrics to surface inefficiencies and inform decision-making with actionable insights.",
+        "Maintained system documentation and internal knowledge bases to ensure consistent understanding of platform capabilities and support effective onboarding across teams."
       ]
     },
     {
@@ -67,7 +71,8 @@ export default function Home() {
         "Drove Fulfillment team performance by reducing turnaround time and elevating service levels through targeted operational and product improvements.",
         "Led enhancements to the Warehouse Management System, resulting in measurable gains in productivity, data accuracy, and process standardization.",
         "Managed the integration between the Tokopedia Seller Platform and WMS to ensure seamless, accurate, and real-time data synchronization.",
-        "Applied data analytics to inform product decisions, monitor performance trends, and implement improvements that raised overall service quality."
+        "Applied data analytics to inform product decisions, monitor performance trends, and implement improvements that raised overall service quality.",
+        "Collaborated with operations and account management teams to identify recurring seller pain points and translate them into scalable product improvements."
       ]
     },
     {
@@ -82,7 +87,8 @@ export default function Home() {
         "Conducted comprehensive testing across Android, iOS, Web, and mobile web platforms to uphold high-quality standards for the Accommodation product team.",
         "Led the weekly Web release process, ensuring stable deployments and consistent platform performance across each cycle.",
         "Executed detailed manual tests and sustained automation coverage using Selenium, Java, and TestNG to strengthen release reliability.",
-        "Conducted API testing via Postman to validate backend correctness and ensure data consistency across services."
+        "Conducted API testing via Postman to validate backend correctness and ensure data consistency across services.",
+        "Worked closely with product managers, developers, and designers throughout the development lifecycle to surface quality risks early and foster a shared culture of product reliability."
       ]
     },
     {
@@ -96,7 +102,9 @@ export default function Home() {
       highlights: [
         "Contributed to the MyBluebird application through extensive functional and integration testing across Android, Web, and API components.",
         "Collaborated with Business Analysts, Product Owners, Engineers, and Designers to clarify requirements and resolve issues identified during testing.",
-        "Built detailed test cases in TestRail and maintained automation scripts using Postman and Katalon Studio to improve long-term testing efficiency and release stability."
+        "Built detailed test cases in TestRail and maintained automation scripts using Postman and Katalon Studio to improve long-term testing efficiency and release stability.",
+        "Performed regression testing across each release cycle to validate that existing features remained stable following new development and system updates.",
+        "Participated in sprint ceremonies including grooming, planning, and retrospectives, providing quality-focused input to help shape testable and deliverable user stories."
       ]
     }
   ];
@@ -135,7 +143,9 @@ export default function Home() {
       highlights: [
         "Contributed to the eCommerce and Merchant squad, conducting tests across Android, iOS, Web, and mobile web to maintain consistent product quality.",
         "Built structured test cases in Xray and executed manual tests, while monitoring active bugs and communicating quality status with product management throughout each sprint.",
-        "Managed sprint tracking and test progress visibility through JIRA throughout the development cycle."
+        "Managed sprint tracking and test progress visibility through JIRA throughout the development cycle.",
+        "Performed regression and exploratory testing each sprint to identify edge cases and maintain consistent quality across all supported platforms and user flows.",
+        "Collaborated closely with developers and product owners to clarify acceptance criteria and align on expected outcomes before and during testing cycles."
       ]
     },
     {
@@ -149,7 +159,9 @@ export default function Home() {
       highlights: [
         "Contributed to the CMS and Integration team, executing tests across Android, API, and Web platforms to support consistent release quality.",
         "Developed structured test cases in TestRail and performed API testing using Postman to verify backend correctness and data consistency.",
-        "Managed sprint progress and test visibility through JIRA to support transparency across the team."
+        "Managed sprint progress and test visibility through JIRA to support transparency across the team.",
+        "Conducted integration and regression testing to validate system stability across cross-platform workflows and interdependent service components.",
+        "Worked alongside developers and product owners to define test scope, align on acceptance criteria, and ensure all release requirements were thoroughly validated."
       ]
     }
   ];
@@ -185,12 +197,12 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Header Navigation */}
       <header className="sticky top-0 bg-background border-b border-border z-50">
-        <nav className="container py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-7 h-7 rounded-full object-cover" />
-            <span className="text-base font-semibold tracking-tight">Ricky Halomoan T.</span>
+        <nav className="container py-3 flex items-center justify-between gap-4">
+          <div className="flex items-center gap-2 shrink-0">
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-6 h-6 md:w-7 md:h-7 rounded-full object-cover" />
+            <span className="text-sm md:text-base font-semibold tracking-tight">Ricky Halomoan</span>
           </div>
-          <div className="flex gap-5 text-sm text-muted-foreground">
+          <div className="flex gap-3 md:gap-5 text-xs md:text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition">About</a>
             <a href="#experience" className="hover:text-foreground transition">Experience</a>
             <a href="#skills" className="hover:text-foreground transition">Skills</a>
@@ -200,21 +212,22 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="container pt-12 pb-8">
-        <div className="flex items-center gap-3 mb-3">
+      <section className="container pt-10 md:pt-12 pb-8">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-3">
           <p className="text-xs tracking-widest uppercase text-muted-foreground">Senior Product Manager</p>
           <span className="text-muted-foreground/40 text-xs">·</span>
           <div className="flex items-center gap-1 text-xs text-muted-foreground">
             <MapPin size={11} />
             <span>Jakarta, Indonesia</span>
+            <span className="ml-0.5">🇮🇩</span>
           </div>
         </div>
-        <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-3">Ricky Halomoan T.</h1>
-        <p className="text-2xl md:text-3xl font-light text-muted-foreground mb-7 tracking-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-3">Ricky Halomoan</h1>
+        <p className="text-xl sm:text-2xl md:text-3xl font-light text-muted-foreground mb-7 tracking-tight">
           Building digital products that<br className="hidden md:block" /> move businesses forward.
         </p>
 
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-3">
           <a href="#experience">
             <button className="bg-foreground text-background hover:opacity-80 px-5 py-2 text-sm rounded transition">
               View My Work
@@ -225,17 +238,6 @@ export default function Home() {
               Download Resume
             </button>
           </a>
-          <div id="contact" className="flex gap-3 ml-1">
-            <a href="mailto:rickytampubolon97@gmail.com" className="text-muted-foreground hover:text-foreground transition">
-              <Mail size={18} />
-            </a>
-            <a href="https://www.linkedin.com/in/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
-              <Linkedin size={18} />
-            </a>
-            <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground transition">
-              <Instagram size={18} />
-            </a>
-          </div>
         </div>
       </section>
 
@@ -279,7 +281,7 @@ export default function Home() {
         <div>
           {experiences.map((exp) => (
             <div key={exp.id} className="mb-4 pb-4 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
-              <div className="flex items-start justify-between mb-1">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-1 gap-0.5">
                 <div>
                   <h3 className="text-base font-semibold text-foreground leading-snug">{exp.title}</h3>
                   <div className="flex items-center gap-1.5 mt-0.5">
@@ -289,7 +291,7 @@ export default function Home() {
                     <p className="text-sm text-muted-foreground font-medium">{exp.company}</p>
                   </div>
                 </div>
-                <span className="text-xs text-muted-foreground whitespace-nowrap ml-4 mt-0.5">{exp.period}</span>
+                <span className="text-xs text-muted-foreground whitespace-nowrap sm:ml-4 mt-0.5">{exp.period}</span>
               </div>
 
               {exp.companyProfile && (
@@ -312,38 +314,38 @@ export default function Home() {
       {/* Part-time Work Section */}
       <section className="bg-secondary border-t border-border">
         <div className="container py-8">
-        <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Part-Time Roles</h2>
-        <div>
-          {partTimeJobs.map((job) => (
-            <div key={job.id} className="mb-4 pb-4 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
-              <div className="flex items-start justify-between mb-1">
-                <div>
-                  <h3 className="text-base font-semibold text-foreground leading-snug">{job.title}</h3>
-                  <div className="flex items-center gap-1.5 mt-0.5">
-                    {job.companyImage && (
-                      <img src={job.companyImage} alt={job.company} className="w-5 h-5 object-contain" />
-                    )}
-                    <p className="text-sm text-muted-foreground font-medium">{job.company}</p>
+          <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Part-Time Roles</h2>
+          <div>
+            {partTimeJobs.map((job) => (
+              <div key={job.id} className="mb-4 pb-4 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-1 gap-0.5">
+                  <div>
+                    <h3 className="text-base font-semibold text-foreground leading-snug">{job.title}</h3>
+                    <div className="flex items-center gap-1.5 mt-0.5">
+                      {job.companyImage && (
+                        <img src={job.companyImage} alt={job.company} className="w-5 h-5 object-contain" />
+                      )}
+                      <p className="text-sm text-muted-foreground font-medium">{job.company}</p>
+                    </div>
                   </div>
+                  <span className="text-xs text-muted-foreground whitespace-nowrap sm:ml-4 mt-0.5">{job.period}</span>
                 </div>
-                <span className="text-xs text-muted-foreground whitespace-nowrap ml-4 mt-0.5">{job.period}</span>
+
+                {job.description && (
+                  <p className="text-xs text-muted-foreground italic mb-1.5 mt-1">{job.description}</p>
+                )}
+
+                <ul className="text-sm text-muted-foreground space-y-1">
+                  {job.highlights.map((highlight, idx) => (
+                    <li key={idx} className="flex gap-2">
+                      <span className="text-foreground mt-0.5 shrink-0">·</span>
+                      <span className="leading-snug">{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              {job.description && (
-                <p className="text-xs text-muted-foreground italic mb-1.5 mt-1">{job.description}</p>
-              )}
-
-              <ul className="text-sm text-muted-foreground space-y-1">
-                {job.highlights.map((highlight, idx) => (
-                  <li key={idx} className="flex gap-2">
-                    <span className="text-foreground mt-0.5 shrink-0">·</span>
-                    <span className="leading-snug">{highlight}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -353,7 +355,7 @@ export default function Home() {
         <div>
           {internships.map((internship, idx) => (
             <div key={idx} className="mb-5 pb-5 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
-              <div className="flex items-start justify-between mb-1.5">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-1.5 gap-0.5">
                 <div>
                   <h3 className="text-base font-semibold text-foreground leading-snug">{internship.title}</h3>
                   <div className="flex items-center gap-1.5 mt-1">
@@ -363,7 +365,7 @@ export default function Home() {
                     <p className="text-sm text-muted-foreground font-medium">{internship.company}</p>
                   </div>
                 </div>
-                <span className="text-xs text-muted-foreground whitespace-nowrap ml-4 mt-0.5">{internship.period}</span>
+                <span className="text-xs text-muted-foreground whitespace-nowrap sm:ml-4 mt-0.5">{internship.period}</span>
               </div>
 
               {internship.companyProfile && (
@@ -382,7 +384,7 @@ export default function Home() {
       <section id="skills" className="bg-secondary border-t border-border">
         <div className="container py-8">
           <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-6">Skills</h2>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {Object.entries(skills).map(([category, items]) => (
               <div key={category}>
                 <h3 className="text-sm font-semibold text-foreground mb-2">{category}</h3>
@@ -399,9 +401,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Contact Section */}
+      <section id="contact" className="border-t border-border">
+        <div className="container py-10 md:py-14">
+          <h2 className="text-xs tracking-widest uppercase text-muted-foreground mb-4">Contact</h2>
+          <p className="text-sm text-muted-foreground mb-6 max-w-md">
+            Open to new opportunities and collaborations. Feel free to reach out via email or connect on social media.
+          </p>
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <a href="mailto:rickytampubolon97@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition">
+              <Mail size={16} />
+              <span>rickytampubolon97@gmail.com</span>
+            </a>
+            <a href="https://www.linkedin.com/in/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition">
+              <Linkedin size={16} />
+              <span>linkedin.com/in/rickyhlmn</span>
+            </a>
+            <a href="https://www.instagram.com/rickyhlmn/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition">
+              <Instagram size={16} />
+              <span>@rickyhlmn</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer className="container py-6 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
-        <p>Ricky Halomoan T. © 2026</p>
+      <footer className="container py-5 border-t border-border text-xs text-muted-foreground">
+        <p>Ricky Halomoan © 2026</p>
       </footer>
 
       {/* Back to Top */}
