@@ -452,7 +452,7 @@ export default function Home() {
             <span className="w-4 h-px bg-accent"></span>Contact
           </h2>
           <p className="text-sm text-muted-foreground mb-9 leading-relaxed">
-            Open to new opportunities and collaborations — feel free to reach out via email or connect on social media.
+            Open to new opportunities and collaborations, feel free to reach out via email or connect on social media.
           </p>
           <div className="flex flex-col gap-3">
             <a
