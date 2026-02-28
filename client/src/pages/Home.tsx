@@ -115,7 +115,7 @@ export default function Home() {
       degree: "Master of Business Administration",
       school: "Bandung Institute of Technology",
       schoolImage: "https://media.licdn.com/dms/image/v2/C560BAQGJoYkUiQpUKA/company-logo_200_200/company-logo_200_200/0/1630672186443/itb_logo?e=1773273600&v=beta&t=ofyRWEblbh2qjZR2HYOofN8zQ-M_gy2yhiVMyS5J334",
-      date: "Expected 09/2026"
+      date: "09/2026"
     },
     {
       degree: "Bachelor of Computer Science",
@@ -149,7 +149,7 @@ export default function Home() {
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/vtUAAIQhTvYAhdQP.png",
       location: "Jakarta, Indonesia",
       period: "2021 – 2022",
-      description: "Indonesian express courier company founded in 2014, specialising in 15-hour delivery for Jabodetabek and Bandung areas and same-day delivery across major cities throughout Indonesia.",
+      description: "Indonesian express courier founded in 2014, specialising in same-day delivery across major cities throughout Indonesia.",
       highlights: [
         "Contributed to the CMS and Integration team, executing tests across Android, API, and Web platforms to support consistent release quality.",
         "Developed structured test cases in TestRail and performed API testing using Postman to verify backend correctness and data consistency.",
@@ -228,7 +228,7 @@ export default function Home() {
           </div>
         </div>
 
-        <p className="text-lg sm:text-xl md:text-2xl font-light text-muted-foreground mb-3 leading-relaxed">
+        <p className="text-lg sm:text-xl md:text-2xl font-normal text-muted-foreground mb-3 leading-relaxed">
           Building digital products that move businesses forward.
         </p>
 
@@ -236,14 +236,14 @@ export default function Home() {
           Logistics · Fulfillment · Electric Mobility · Digital Transformation
         </p>
 
-        <div className="flex flex-wrap justify-center items-center gap-3">
+        <div className="flex flex-wrap justify-center items-center gap-5">
           <a href="#contact">
-            <button className="bg-foreground text-background hover:bg-foreground/85 px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
+            <button className="bg-foreground text-background hover:bg-foreground/85 px-7 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
               Let's Work Together
             </button>
           </a>
           <a href="#experience">
-            <button className="border border-border text-foreground hover:bg-secondary hover:border-muted px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200">
+            <button className="border border-foreground/25 text-foreground bg-transparent hover:bg-secondary hover:border-foreground/40 px-7 py-2.5 text-sm font-medium rounded-lg transition-all duration-200">
               View My Work
             </button>
           </a>
@@ -258,9 +258,9 @@ export default function Home() {
               <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-5 font-bold">
                 <span className="w-4 h-px bg-accent"></span>About
               </h2>
-              <p className="text-sm leading-relaxed mb-4 text-foreground/80">
+              <p className="text-sm leading-relaxed mb-4 text-foreground">
                 Product Manager with experience across electric mobility, logistics, fulfillment, and education technology, skilled in leading product strategy and cross-functional initiatives to deliver scalable solutions. A background in software engineering supports a strong ability to translate operational challenges into practical product outcomes, including managing high-impact platforms, coordinating regional and global teams, and improving service quality through structured analysis.              </p>
-              <p className="text-sm leading-relaxed text-foreground/60 italic border-l-2 border-accent/40 pl-3">
+              <p className="text-sm leading-relaxed text-foreground/75 italic border-l-2 border-accent/40 pl-3">
                 I believe great products are built where user empathy, operational depth, and data clarity meet. My approach is to understand the full ecosystem, from the ground-level workflow to the executive dashboard, and turn complexity into focused, scalable solutions that teams can actually execute.
               </p>
             </div>
@@ -340,7 +340,7 @@ export default function Home() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {partTimeJobs.map((job) => (
-              <div key={job.id} className="border border-border rounded-lg p-5 bg-background">
+              <div key={job.id} className="border border-border rounded-lg p-5 bg-background flex flex-col h-full hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex gap-3">
                     {job.companyImage && (
@@ -356,7 +356,7 @@ export default function Home() {
                 {job.description && (
                   <p className="text-xs text-muted-foreground italic mb-2.5 leading-relaxed">{job.description}</p>
                 )}
-                <p className="text-xs text-muted-foreground leading-relaxed">{job.highlights[0]}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed flex-1">{job.highlights[0]}</p>
               </div>
             ))}
           </div>
@@ -388,7 +388,7 @@ export default function Home() {
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {internships.slice(internshipSlide * 2, internshipSlide * 2 + 2).map((internship, idx) => (
-            <div key={idx} className="border border-border rounded-lg p-5 bg-background">
+            <div key={idx} className="border border-border rounded-lg p-5 bg-background flex flex-col h-full hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
               <div className="flex gap-3 mb-3">
                 {internship.companyImage && (
                   <img src={internship.companyImage} alt={internship.company} className="w-9 h-9 object-contain rounded-md shrink-0 bg-white p-0.5 border border-border" />
@@ -403,7 +403,7 @@ export default function Home() {
                 <p className="text-xs text-muted-foreground italic mb-2 leading-relaxed">{internship.companyProfile}</p>
               )}
               {internship.responsibility && (
-                <p className="text-xs text-muted-foreground leading-relaxed">{internship.responsibility}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed flex-1">{internship.responsibility}</p>
               )}
             </div>
           ))}
@@ -433,7 +433,7 @@ export default function Home() {
                   {items.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-1 bg-background text-foreground/75 text-xs rounded-md border border-border hover:border-accent/40 hover:text-foreground transition-colors duration-150 font-medium"
+                      className="px-3 py-1 text-foreground/70 text-xs rounded-full border border-border/60 hover:border-accent/40 hover:bg-accent/5 hover:text-foreground transition-colors duration-150 font-medium"
                     >
                       {skill}
                     </span>
@@ -452,7 +452,7 @@ export default function Home() {
             <span className="w-4 h-px bg-accent"></span>Contact
           </h2>
           <p className="text-sm text-muted-foreground mb-9 leading-relaxed">
-            Open to new opportunities and collaborations — feel free to reach out via email or connect on social media.
+            Open to new opportunities and collaborations, feel free to reach out via email or connect on social media.
           </p>
           <div className="flex flex-col gap-3">
             <a
