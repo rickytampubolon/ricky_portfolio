@@ -114,7 +114,7 @@ export default function Home() {
       degree: "Master of Business Administration",
       school: "Bandung Institute of Technology",
       schoolImage: "https://media.licdn.com/dms/image/v2/C560BAQGJoYkUiQpUKA/company-logo_200_200/company-logo_200_200/0/1630672186443/itb_logo?e=1773273600&v=beta&t=ofyRWEblbh2qjZR2HYOofN8zQ-M_gy2yhiVMyS5J334",
-      date: "Expected 05/2026"
+      date: "Expected 09/2026"
     },
     {
       degree: "Bachelor of Computer Science",
@@ -162,15 +162,15 @@ export default function Home() {
   const internships = [
     {
       title: "QA Engineer Intern",
-      company: "Moka (GoTo Financial)",
+      company: "GoTo Group (Moka)",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/fMzZvBYHbNOGcXlH.png",
       period: "2019",
-      companyProfile: "Cloud-based POS and business management platform acquired by GoTo Financial.",
+      companyProfile: "Cloud-based POS and business management platform, part of GoTo Financial.",
       responsibility: "Supported the Moka POS Backoffice Inventory team in ensuring smooth operations and high-quality product deliverables throughout the internship period."
     },
     {
       title: "QA Engineer Intern",
-      company: "Grab Indonesia",
+      company: "Grab",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/bUAqVpvhsLeEvRro.png",
       period: "2019",
       companyProfile: "Southeast Asia's leading superapp for ride-hailing, deliveries, and financial services.",
@@ -257,8 +257,7 @@ export default function Home() {
                 <span className="w-4 h-px bg-accent"></span>About
               </h2>
               <p className="text-sm leading-relaxed mb-4 text-foreground/80">
-                Product Manager with experience across electric mobility, logistics, fulfillment, and education technology, skilled in leading product strategy and cross-functional initiatives to deliver scalable solutions. A background in software engineering supports a strong ability to translate operational challenges into practical product outcomes, including managing high-impact platforms, coordinating regional and global teams, and improving service quality through structured analysis. Currently pursuing an MBA at SBM ITB to strengthen capabilities in strategy, organization, and leadership.
-              </p>
+                Product Manager with experience across electric mobility, logistics, fulfillment, and education technology, skilled in leading product strategy and cross-functional initiatives to deliver scalable solutions. A background in software engineering supports a strong ability to translate operational challenges into practical product outcomes, including managing high-impact platforms, coordinating regional and global teams, and improving service quality through structured analysis.              </p>
               <p className="text-sm leading-relaxed text-foreground/60 italic border-l-2 border-accent/40 pl-3">
                 I believe great products are built where user empathy, operational depth, and data clarity meet. My approach is to understand the full ecosystem, from the ground-level workflow to the executive dashboard, and turn complexity into focused, scalable solutions that teams can actually execute.
               </p>
@@ -355,14 +354,11 @@ export default function Home() {
                 {job.description && (
                   <p className="text-xs text-muted-foreground italic mb-2.5 leading-relaxed">{job.description}</p>
                 )}
-                <ul className="text-xs text-muted-foreground space-y-1.5">
+                <div className="text-xs text-muted-foreground space-y-1.5">
                   {job.highlights.slice(0, 2).map((highlight, idx) => (
-                    <li key={idx} className="flex gap-2">
-                      <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
-                      <span className="leading-relaxed">{highlight}</span>
-                    </li>
+                    <p key={idx} className="leading-relaxed">{highlight}</p>
                   ))}
-                </ul>
+                </div>
               </div>
             ))}
           </div>
