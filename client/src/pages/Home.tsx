@@ -197,8 +197,9 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground">
       {/* Header Navigation */}
       <header className="sticky top-0 bg-background/95 backdrop-blur-sm border-b border-border z-50">
-        <nav className="container py-3.5 flex items-center justify-between gap-4">
-          <div className="flex items-center gap-2.5 shrink-0">
+        <nav className="container py-3.5 flex items-center gap-4">
+          <div className="flex-1" />
+          <div className="flex items-center gap-2.5">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
               alt="Ricky Halomoan"
@@ -206,7 +207,7 @@ export default function Home() {
             />
             <span className="text-sm font-semibold tracking-tight">Ricky Halomoan</span>
           </div>
-          <div className="flex gap-5 md:gap-7 text-xs md:text-sm text-muted-foreground">
+          <div className="flex-1 flex justify-end gap-5 md:gap-7 text-xs md:text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition-colors duration-200 font-medium">About</a>
             <a href="#experience" className="hover:text-foreground transition-colors duration-200 font-medium">Experience</a>
             <a href="#skills" className="hover:text-foreground transition-colors duration-200 font-medium">Skills</a>
