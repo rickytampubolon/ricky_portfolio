@@ -197,9 +197,9 @@ export default function Home() {
               alt="Ricky Halomoan"
               className="w-7 h-7 rounded-full object-cover ring-1 ring-border"
             />
-            <span className="text-sm font-semibold tracking-tight">Ricky Halomoan</span>
+            <span className="hidden sm:inline text-sm font-semibold tracking-tight">Ricky Halomoan</span>
           </div>
-          <div className="flex-1 flex justify-end gap-5 md:gap-7 text-xs md:text-sm text-muted-foreground">
+          <div className="flex-1 flex justify-end gap-3 sm:gap-5 md:gap-7 text-xs md:text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition-colors duration-200 font-medium">About</a>
             <a href="#experience" className="hover:text-foreground transition-colors duration-200 font-medium">Experience</a>
             <a href="#skills" className="hover:text-foreground transition-colors duration-200 font-medium">Skills</a>
