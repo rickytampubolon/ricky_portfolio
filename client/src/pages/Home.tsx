@@ -115,7 +115,7 @@ export default function Home() {
       degree: "Master of Business Administration",
       school: "Bandung Institute of Technology",
       schoolImage: "https://media.licdn.com/dms/image/v2/C560BAQGJoYkUiQpUKA/company-logo_200_200/company-logo_200_200/0/1630672186443/itb_logo?e=1773273600&v=beta&t=ofyRWEblbh2qjZR2HYOofN8zQ-M_gy2yhiVMyS5J334",
-      date: "Expected 09/2026"
+      date: "09/2026"
     },
     {
       degree: "Bachelor of Computer Science",
@@ -149,7 +149,7 @@ export default function Home() {
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/vtUAAIQhTvYAhdQP.png",
       location: "Jakarta, Indonesia",
       period: "2021 – 2022",
-      description: "Indonesian express courier company founded in 2014, specialising in 15-hour delivery for Jabodetabek and Bandung areas and same-day delivery across major cities throughout Indonesia.",
+      description: "Indonesian express courier founded in 2014, specialising in same-day delivery across major cities throughout Indonesia.",
       highlights: [
         "Contributed to the CMS and Integration team, executing tests across Android, API, and Web platforms to support consistent release quality.",
         "Developed structured test cases in TestRail and performed API testing using Postman to verify backend correctness and data consistency.",
