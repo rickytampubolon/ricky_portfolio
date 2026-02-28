@@ -18,7 +18,7 @@ export default function Home() {
       companyProfile: "Vietnamese-founded electric ride-hailing company committed to sustainable urban mobility across Southeast Asia. Backed by VinGroup, Xanh SM operates a fully electric fleet and is expanding rapidly across key markets, with Indonesia positioned as a critical growth frontier alongside Vietnam, Thailand, and the Philippines.",
       companyImage: "https://media.licdn.com/dms/image/v2/D560BAQG5Xqveq4buhg/company-logo_200_200/company-logo_200_200/0/1731636708850/greensmartmobility_logo?e=1773273600&v=beta&t=Q6qJwyL1Q3ofHqnlzuetOUmPcP83yX7TJbxOh5apik4",
       location: "Jakarta, Indonesia",
-      period: "Jul 2025 - Present",
+      period: "2025 – Present",
       highlights: [
         "Own end-to-end product strategy and execution for Xanh SM Indonesia, ensuring the digital ecosystem supports business growth, operational scalability, and service quality.",
         "Define the national product roadmap and align it with regional and global priorities, balancing local operational needs, market behaviour, and regulatory requirements.",
@@ -34,7 +34,7 @@ export default function Home() {
       companyProfile: "A government-led digital transformation initiative under Indonesia's Ministry of Primary and Secondary Education, focused on building national-scale platforms for teacher performance evaluation, institutional accountability, and data-driven decision-making across more than 500,000 schools and millions of educators nationwide.",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/cJhNVtPdbOHZIgCZ.png",
       location: "Jakarta, Indonesia",
-      period: "Aug 2024 - Aug 2025",
+      period: "2024 – 2025",
       highlights: [
         "Led the development of performance management tools and national-scale data integration systems, improving accountability across 500,000+ schools.",
         "Defined the product vision and roadmap aligned with ministry priorities, ensuring regulatory compliance at every release cycle.",
@@ -49,7 +49,7 @@ export default function Home() {
       companyProfile: "One of Southeast Asia's largest e-commerce platforms, with a dedicated logistics arm, SPX Express (formerly Shopee Xpress), managing end-to-end delivery operations across first, middle, and last mile in multiple countries. SPX Express processes millions of parcels daily, serving a growing network of sellers, hubs, and delivery partners across the region.",
       companyImage: "https://media.licdn.com/dms/image/v2/C560BAQE0iX_dgdH7nA/company-logo_200_200/company-logo_200_200/0/1672279162763/shopee_logo?e=1773273600&v=beta&t=jlKIMPDqPZbW-4BSR5HmYJVM6SlcapRqyMCtSCGl768",
       location: "Jakarta, Indonesia",
-      period: "Mar 2024 - Jul 2024",
+      period: "2024",
       highlights: [
         "Directed a team maintaining and enhancing the Fleet Management System across First, Middle, and Last Mile operations for millions of daily parcels.",
         "Managed end-to-end delivery of system enhancements that improved operational throughput and process sustainability.",
@@ -64,7 +64,7 @@ export default function Home() {
       companyProfile: "Tokopedia is Indonesia's largest homegrown e-commerce marketplace, merged with Gojek to form the GoTo Group. GoTo Logistics serves as the group's integrated logistics arm, powering warehousing, fulfilment, and last-mile delivery for millions of sellers and buyers across the country, operating at a scale that positions it as one of Indonesia's leading logistics infrastructure providers.",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png",
       location: "Jakarta, Indonesia",
-      period: "Feb 2022 - Mar 2024",
+      period: "2022 – 2024",
       highlights: [
         "Reduced fulfillment turnaround time and elevated service levels through targeted operational and product improvements.",
         "Led WMS enhancements that delivered measurable gains in warehouse productivity, data accuracy, and process standardisation.",
@@ -79,7 +79,7 @@ export default function Home() {
       companyProfile: "Southeast Asia's leading travel and lifestyle super-app, serving millions of users across six countries. Traveloka's platform spans flights, hotels, car rentals, activities, and financial products, supported by a technology infrastructure built to handle high-volume transactions and complex travel experiences across a diverse and fast-growing regional market.",
       companyImage: "https://media.licdn.com/dms/image/v2/D560BAQGe_izwxvj_SQ/company-logo_200_200/company-logo_200_200/0/1700635813325/traveloka_logo?e=1773273600&v=beta&t=bOObxNgTa_cE27Qpaljq9RoLoVxqtvAUdWwgbjbQdiU",
       location: "Jakarta, Indonesia",
-      period: "Nov 2019 - Feb 2022",
+      period: "2020 – 2022",
       highlights: [
         "Owned quality across Android, iOS, Web, and mobile web for the Accommodation team, maintaining high-quality standards across all release cycles.",
         "Led the weekly Web release process, ensuring stable deployments and consistent platform performance.",
@@ -90,10 +90,10 @@ export default function Home() {
       id: 6,
       title: "QA Engineer - Taxi Group",
       company: "Ice House",
-      companyProfile: "Indonesia's leading mobile app development agency and the first Google Certified Developer in Southeast Asia. Ice House builds and maintains high-performance applications and backends for enterprise clients across financial services, logistics, transportation, e-commerce, and entertainment, with a team of 500+ engineers serving major brands across the region.",
+      companyProfile: "Indonesia's leading mobile app development agency and the first Google Certified Developer in Southeast Asia. Ice House builds and maintains high-performance applications and backends for enterprise clients across financial services, logistics, transportation, e-commerce, and entertainment.",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/hLmBFNBFYNwCqgOT.png",
       location: "Jakarta, Indonesia",
-      period: "Nov 2019 - Nov 2020",
+      period: "2019 – 2020",
       highlights: [
         "Tested the MyBluebird application across Android, Web, and API to maintain functional and integration quality.",
         "Built test cases in TestRail and maintained automation scripts using Postman and Katalon Studio, improving testing efficiency and release stability.",
@@ -105,7 +105,7 @@ export default function Home() {
   const skills = {
     "Product Management": ["Product Management", "Product Strategy", "Change Management", "Backlog Prioritization", "User-Centered Design", "Risk Management"],
     "Leadership": ["Cross-Functional Team Leadership", "Stakeholder Management and Alignment", "Project Management", "Negotiation"],
-    "Technical": ["SDLC", "Software Testing", "Data Analysis", "API Testing", "Automation Testing", "Process Improvement"],
+    "Technical": ["SDLC", "Software Testing", "Data Analysis", "API Testing", "Automation Testing", "SQL", "Process Improvement"],
     "Methodologies": ["Agile Methodologies", "Scrum", "Kanban", "Sprint Planning", "Continuous Refinement"]
   };
 
@@ -131,7 +131,7 @@ export default function Home() {
       company: "SehatQ",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/iWSWOgSUpfIhugUD.png",
       location: "Jakarta, Indonesia",
-      period: "Feb 2022 - Feb 2023",
+      period: "2022 – 2023",
       description: "Indonesian health tech startup offering a full suite of health-related services through its digital platform, covering teleconsultation, medicine delivery, and e-commerce.",
       highlights: [
         "Contributed to the eCommerce and Merchant squad, conducting tests across Android, iOS, Web, and mobile web to maintain consistent product quality.",
@@ -147,7 +147,7 @@ export default function Home() {
       company: "SiCepat",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/vtUAAIQhTvYAhdQP.png",
       location: "Jakarta, Indonesia",
-      period: "Aug 2021 - Feb 2022",
+      period: "2021 – 2022",
       description: "Indonesian express courier company founded in 2014, specialising in 15-hour delivery for Jabodetabek and Bandung areas and same-day delivery across major cities throughout Indonesia.",
       highlights: [
         "Contributed to the CMS and Integration team, executing tests across Android, API, and Web platforms to support consistent release quality.",
@@ -164,7 +164,7 @@ export default function Home() {
       title: "QA Engineer Intern",
       company: "Moka (GoTo Financial)",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/fMzZvBYHbNOGcXlH.png",
-      period: "Sep 2019 - Nov 2019",
+      period: "2019",
       companyProfile: "Cloud-based POS and business management platform acquired by GoTo Financial.",
       responsibility: "Supported the Moka POS Backoffice Inventory team in ensuring smooth operations and high-quality product deliverables throughout the internship period."
     },
@@ -172,7 +172,7 @@ export default function Home() {
       title: "QA Engineer Intern",
       company: "Grab Indonesia",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/bUAqVpvhsLeEvRro.png",
-      period: "Jun 2019 - Sep 2019",
+      period: "2019",
       companyProfile: "Southeast Asia's leading superapp for ride-hailing, deliveries, and financial services.",
       responsibility: "Automated API testing for payment systems using Postman and developed robust UI automation using Robot Framework and Appium."
     },
@@ -180,7 +180,7 @@ export default function Home() {
       title: "QA Engineer Intern",
       company: "DANA Indonesia",
       companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/JlXCSsTrCXQVouBa.png",
-      period: "Jun 2018 - Sep 2018",
+      period: "2018",
       companyProfile: "Indonesia's leading digital wallet platform.",
       responsibility: "Played an active role in the BukaDANA project and KYC processes, ensuring seamless functionality and consistent product quality."
     }
