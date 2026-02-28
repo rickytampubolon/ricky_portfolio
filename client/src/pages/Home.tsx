@@ -191,7 +191,6 @@ export default function Home() {
       {/* Header Navigation */}
       <header className="sticky top-0 bg-background/95 backdrop-blur-sm border-b border-border z-50">
         <nav className="container py-3.5 flex items-center gap-4">
-          <div className="flex-1" />
           <div className="flex items-center gap-2.5">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
@@ -225,7 +224,7 @@ export default function Home() {
         </div>
 
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-5 leading-[1.05] text-foreground">
-          Ricky<br />Halomoan
+          Ricky Halomoan
         </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl font-light text-muted-foreground mb-3 leading-relaxed">
@@ -246,9 +245,6 @@ export default function Home() {
             <button className="border border-border text-foreground hover:bg-secondary hover:border-muted px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200">
               View My Work
             </button>
-          </a>
-          <a href="https://drive.google.com/uc?export=download&id=17Nb74FFTxtJOh-lMQcZCONSWQP0KJ_de" target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200 underline underline-offset-4">
-            Download Resume
           </a>
         </div>
       </section>
