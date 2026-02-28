@@ -15,7 +15,7 @@ export default function Home() {
       id: 1,
       title: "Lead Country Product Manager - ID Market",
       company: "GSM - Xanh SM",
-      companyProfile: "Vietnamese-founded electric ride-hailing company committed to sustainable urban mobility across Southeast Asia. Backed by VinGroup, Xanh SM operates a fully electric fleet and is expanding rapidly across key markets, with Indonesia positioned as a critical growth frontier alongside Vietnam, Thailand, and the Philippines.",
+      companyProfile: "Vietnamese-founded electric ride-hailing company committed to sustainable urban mobility across Southeast Asia. Backed by VinGroup, Xanh SM operates a fully electric fleet and is expanding rapidly across key markets, with Indonesia positioned as a critical growth frontier alongside Vietnam, Laos, Thailand, and the Philippines.",
       companyImage: "https://media.licdn.com/dms/image/v2/D560BAQG5Xqveq4buhg/company-logo_200_200/company-logo_200_200/0/1731636708850/greensmartmobility_logo?e=1773273600&v=beta&t=Q6qJwyL1Q3ofHqnlzuetOUmPcP83yX7TJbxOh5apik4",
       location: "Jakarta, Indonesia",
       period: "2025 – Present",
@@ -194,10 +194,10 @@ export default function Home() {
           <div className="flex items-center gap-2.5">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-              alt="Ricky Halomoan"
+              alt="Ricky Halomoan T."
               className="w-7 h-7 rounded-full object-cover ring-1 ring-border"
             />
-            <span className="hidden sm:inline text-sm font-semibold tracking-tight">Ricky Halomoan</span>
+            <span className="hidden sm:inline text-sm font-semibold tracking-tight">Ricky Halomoan T.</span>
           </div>
           <div className="flex-1 flex justify-end gap-3 sm:gap-5 md:gap-7 text-xs md:text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition-colors duration-200 font-medium">About</a>
@@ -211,7 +211,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="container pt-14 md:pt-20 pb-14 md:pb-20 text-center">
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-3 leading-[1.05] text-foreground">
-          Ricky Halomoan
+          Ricky Halomoan T.
         </h1>
 
         <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 mb-6">
@@ -430,8 +430,8 @@ export default function Home() {
           <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-4 font-bold">
             <span className="w-4 h-px bg-accent"></span>Contact
           </h2>
-          <p className="text-sm text-muted-foreground mb-9 max-w-md leading-relaxed">
-            Open to new opportunities and collaborations. Feel free to reach out via email or connect on social media.
+          <p className="text-sm text-muted-foreground mb-9 leading-relaxed">
+            Open to new opportunities and collaborations — feel free to reach out via email or connect on social media.
           </p>
           <div className="flex flex-col gap-3">
             <a
@@ -471,7 +471,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="container py-6 border-t border-border">
-        <p className="text-xs text-muted-foreground">Ricky Halomoan © 2026</p>
+        <p className="text-xs text-muted-foreground">Ricky Halomoan T. © 2026</p>
       </footer>
 
       {/* Back to Top */}
