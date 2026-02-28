@@ -257,8 +257,7 @@ export default function Home() {
                 <span className="w-4 h-px bg-accent"></span>About
               </h2>
               <p className="text-sm leading-relaxed mb-4 text-foreground/80">
-                Product Manager with experience across electric mobility, logistics, fulfillment, and education technology, skilled in leading product strategy and cross-functional initiatives to deliver scalable solutions. A background in software engineering supports a strong ability to translate operational challenges into practical product outcomes, including managing high-impact platforms, coordinating regional and global teams, and improving service quality through structured analysis. Currently pursuing an MBA at SBM ITB to strengthen capabilities in strategy, organization, and leadership.
-              </p>
+                Product Manager with experience across electric mobility, logistics, fulfillment, and education technology, skilled in leading product strategy and cross-functional initiatives to deliver scalable solutions. A background in software engineering supports a strong ability to translate operational challenges into practical product outcomes, including managing high-impact platforms, coordinating regional and global teams, and improving service quality through structured analysis.              </p>
               <p className="text-sm leading-relaxed text-foreground/60 italic border-l-2 border-accent/40 pl-3">
                 I believe great products are built where user empathy, operational depth, and data clarity meet. My approach is to understand the full ecosystem, from the ground-level workflow to the executive dashboard, and turn complexity into focused, scalable solutions that teams can actually execute.
               </p>
