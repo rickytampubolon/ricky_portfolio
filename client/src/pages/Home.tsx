@@ -1,8 +1,9 @@
-import { Mail, Linkedin, Instagram, MapPin, ChevronUp } from "lucide-react";
+import { Mail, Linkedin, Instagram, MapPin, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [showBackToTop, setShowBackToTop] = useState(false);
+  const [internshipSlide, setInternshipSlide] = useState(0);
 
   useEffect(() => {
     const onScroll = () => setShowBackToTop(window.scrollY > 400);
@@ -185,6 +186,7 @@ export default function Home() {
       responsibility: "Played an active role in the BukaDANA project and KYC processes, ensuring seamless functionality and consistent product quality."
     }
   ];
+  const totalInternshipSlides = Math.ceil(internships.length / 2);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -354,11 +356,7 @@ export default function Home() {
                 {job.description && (
                   <p className="text-xs text-muted-foreground italic mb-2.5 leading-relaxed">{job.description}</p>
                 )}
-                <div className="text-xs text-muted-foreground space-y-1.5">
-                  {job.highlights.slice(0, 2).map((highlight, idx) => (
-                    <p key={idx} className="leading-relaxed">{highlight}</p>
-                  ))}
-                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">{job.highlights[0]}</p>
               </div>
             ))}
           </div>
@@ -367,12 +365,30 @@ export default function Home() {
 
       {/* Internships Section */}
       <section className="container py-12 md:py-16 border-t border-border">
-        <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-9 font-bold">
-          <span className="w-4 h-px bg-accent"></span>Internships
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-          {internships.map((internship, idx) => (
-            <div key={idx} className="border border-border rounded-lg p-5">
+        <div className="flex items-center justify-between mb-9">
+          <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground font-bold">
+            <span className="w-4 h-px bg-accent"></span>Internships
+          </h2>
+          <div className="flex items-center gap-2">
+            <button
+              onClick={() => setInternshipSlide(s => Math.max(0, s - 1))}
+              disabled={internshipSlide === 0}
+              className="w-7 h-7 rounded-md border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-muted disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            >
+              <ChevronLeft size={14} />
+            </button>
+            <button
+              onClick={() => setInternshipSlide(s => Math.min(totalInternshipSlides - 1, s + 1))}
+              disabled={internshipSlide === totalInternshipSlides - 1}
+              className="w-7 h-7 rounded-md border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-muted disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            >
+              <ChevronRight size={14} />
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {internships.slice(internshipSlide * 2, internshipSlide * 2 + 2).map((internship, idx) => (
+            <div key={idx} className="border border-border rounded-lg p-5 bg-background">
               <div className="flex gap-3 mb-3">
                 {internship.companyImage && (
                   <img src={internship.companyImage} alt={internship.company} className="w-9 h-9 object-contain rounded-md shrink-0 bg-white p-0.5 border border-border" />
@@ -390,6 +406,15 @@ export default function Home() {
                 <p className="text-xs text-muted-foreground leading-relaxed">{internship.responsibility}</p>
               )}
             </div>
+          ))}
+        </div>
+        <div className="flex justify-center gap-1.5 mt-5">
+          {Array.from({ length: totalInternshipSlides }).map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setInternshipSlide(i)}
+              className={`w-1.5 h-1.5 rounded-full transition-colors ${i === internshipSlide ? 'bg-foreground' : 'bg-border'}`}
+            />
           ))}
         </div>
       </section>
