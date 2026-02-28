@@ -210,9 +210,12 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className="container pt-14 md:pt-20 pb-14 md:pb-20 text-center">
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-3 leading-[1.05] text-foreground">
+          Ricky Halomoan
+        </h1>
+
         <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-1.5 mb-6">
-          <p className="flex items-center gap-2 text-xs tracking-widest uppercase text-muted-foreground font-semibold">
-            <span className="w-5 h-px bg-accent inline-block"></span>
+          <p className="text-xs tracking-widest uppercase text-muted-foreground font-semibold">
             Senior Product Manager
           </p>
           <span className="text-muted-foreground/30">·</span>
@@ -222,10 +225,6 @@ export default function Home() {
             <span className="ml-0.5">🇮🇩</span>
           </div>
         </div>
-
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-5 leading-[1.05] text-foreground">
-          Ricky Halomoan
-        </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl font-light text-muted-foreground mb-3 leading-relaxed">
           Building digital products that move businesses forward.
