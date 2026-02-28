@@ -36,11 +36,10 @@ export default function Home() {
       location: "Jakarta, Indonesia",
       period: "Aug 2024 - Aug 2025",
       highlights: [
-        "Led the development of performance management tools and national-scale data integration systems to improve accountability and operational efficiency across the education sector.",
-        "Defined the product vision and roadmap, ensuring platform development remained aligned with ministry priorities and strategic goals.",
-        "Coordinated closely with engineering, data, and UX teams to uphold development stability and regulatory compliance throughout each release cycle.",
-        "Established measurement frameworks to assess the effectiveness of performance management tools and drove continuous improvements grounded in data-driven insights.",
-        "Facilitated discovery sessions and requirements workshops with ministry officials, school administrators, and educators to capture nuanced needs and ensure platform relevance across diverse stakeholder groups."
+        "Led the development of performance management tools and national-scale data integration systems, improving accountability across 500,000+ schools.",
+        "Defined the product vision and roadmap aligned with ministry priorities, ensuring regulatory compliance at every release cycle.",
+        "Established measurement frameworks to assess tool effectiveness and drove continuous, data-grounded improvements.",
+        "Facilitated discovery sessions with ministry officials and educators to capture nuanced needs and ensure platform relevance across stakeholder groups."
       ]
     },
     {
@@ -52,11 +51,10 @@ export default function Home() {
       location: "Jakarta, Indonesia",
       period: "Mar 2024 - Jul 2024",
       highlights: [
-        "Directed a team responsible for maintaining and enhancing the Fleet Management System across First Mile, Middle Mile, and Last Mile operations.",
-        "Partnered with Business, Finance, Strategy, BI, and Operations teams to keep system capabilities aligned with daily operational demands.",
-        "Managed end-to-end planning and delivery of system enhancements to strengthen process sustainability and improve operational throughput.",
-        "Analysed operational data and performance metrics to surface inefficiencies and inform decision-making with actionable insights.",
-        "Maintained system documentation and internal knowledge bases to ensure consistent understanding of platform capabilities and support effective onboarding across teams."
+        "Directed a team maintaining and enhancing the Fleet Management System across First, Middle, and Last Mile operations for millions of daily parcels.",
+        "Managed end-to-end delivery of system enhancements that improved operational throughput and process sustainability.",
+        "Analysed operational data to surface inefficiencies and translate findings into prioritised, actionable improvements.",
+        "Partnered with Business, Finance, Strategy, BI, and Operations to keep system capabilities aligned with daily demand."
       ]
     },
     {
@@ -68,11 +66,10 @@ export default function Home() {
       location: "Jakarta, Indonesia",
       period: "Feb 2022 - Mar 2024",
       highlights: [
-        "Drove Fulfillment team performance by reducing turnaround time and elevating service levels through targeted operational and product improvements.",
-        "Led enhancements to the Warehouse Management System, resulting in measurable gains in productivity, data accuracy, and process standardization.",
-        "Managed the integration between the Tokopedia Seller Platform and WMS to ensure seamless, accurate, and real-time data synchronization.",
-        "Applied data analytics to inform product decisions, monitor performance trends, and implement improvements that raised overall service quality.",
-        "Collaborated with operations and account management teams to identify recurring seller pain points and translate them into scalable product improvements."
+        "Reduced fulfillment turnaround time and elevated service levels through targeted operational and product improvements.",
+        "Led WMS enhancements that delivered measurable gains in warehouse productivity, data accuracy, and process standardisation.",
+        "Managed Tokopedia Seller Platform–WMS integration, ensuring seamless and real-time data synchronisation at scale.",
+        "Applied data analytics to monitor performance trends and implement improvements that raised overall service quality."
       ]
     },
     {
@@ -84,11 +81,9 @@ export default function Home() {
       location: "Jakarta, Indonesia",
       period: "Nov 2019 - Feb 2022",
       highlights: [
-        "Conducted comprehensive testing across Android, iOS, Web, and mobile web platforms to uphold high-quality standards for the Accommodation product team.",
-        "Led the weekly Web release process, ensuring stable deployments and consistent platform performance across each cycle.",
-        "Executed detailed manual tests and sustained automation coverage using Selenium, Java, and TestNG to strengthen release reliability.",
-        "Conducted API testing via Postman to validate backend correctness and ensure data consistency across services.",
-        "Worked closely with product managers, developers, and designers throughout the development lifecycle to surface quality risks early and foster a shared culture of product reliability."
+        "Owned quality across Android, iOS, Web, and mobile web for the Accommodation team, maintaining high-quality standards across all release cycles.",
+        "Led the weekly Web release process, ensuring stable deployments and consistent platform performance.",
+        "Sustained automation coverage using Selenium, Java, and TestNG and validated backend correctness through Postman API testing."
       ]
     },
     {
@@ -100,11 +95,9 @@ export default function Home() {
       location: "Jakarta, Indonesia",
       period: "Nov 2019 - Nov 2020",
       highlights: [
-        "Contributed to the MyBluebird application through extensive functional and integration testing across Android, Web, and API components.",
-        "Collaborated with Business Analysts, Product Owners, Engineers, and Designers to clarify requirements and resolve issues identified during testing.",
-        "Built detailed test cases in TestRail and maintained automation scripts using Postman and Katalon Studio to improve long-term testing efficiency and release stability.",
-        "Performed regression testing across each release cycle to validate that existing features remained stable following new development and system updates.",
-        "Participated in sprint ceremonies including grooming, planning, and retrospectives, providing quality-focused input to help shape testable and deliverable user stories."
+        "Tested the MyBluebird application across Android, Web, and API to maintain functional and integration quality.",
+        "Built test cases in TestRail and maintained automation scripts using Postman and Katalon Studio, improving testing efficiency and release stability.",
+        "Collaborated with BAs, POs, engineers, and designers to clarify requirements and resolve issues throughout each sprint."
       ]
     }
   ];
@@ -235,20 +228,27 @@ export default function Home() {
           Ricky<br />Halomoan
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl font-light text-muted-foreground mb-10 leading-relaxed">
+        <p className="text-lg sm:text-xl md:text-2xl font-light text-muted-foreground mb-3 leading-relaxed">
           Building digital products that move businesses forward.
         </p>
 
+        <p className="text-sm text-muted-foreground/70 mb-10 tracking-wide">
+          Logistics · Fulfillment · Electric Mobility · Digital Transformation
+        </p>
+
         <div className="flex flex-wrap justify-center items-center gap-3">
-          <a href="#experience">
+          <a href="#contact">
             <button className="bg-foreground text-background hover:bg-foreground/85 px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md">
+              Let's Work Together
+            </button>
+          </a>
+          <a href="#experience">
+            <button className="border border-border text-foreground hover:bg-secondary hover:border-muted px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200">
               View My Work
             </button>
           </a>
-          <a href="https://drive.google.com/uc?export=download&id=17Nb74FFTxtJOh-lMQcZCONSWQP0KJ_de" target="_blank" rel="noopener noreferrer">
-            <button className="border border-border text-foreground hover:bg-secondary hover:border-muted px-6 py-2.5 text-sm font-medium rounded-lg transition-all duration-200">
-              Download Resume
-            </button>
+          <a href="https://drive.google.com/uc?export=download&id=17Nb74FFTxtJOh-lMQcZCONSWQP0KJ_de" target="_blank" rel="noopener noreferrer" className="text-xs text-muted-foreground hover:text-foreground transition-colors duration-200 underline underline-offset-4">
+            Download Resume
           </a>
         </div>
       </section>
@@ -264,8 +264,11 @@ export default function Home() {
               <p className="text-sm leading-relaxed mb-4 text-foreground/80">
                 Senior Product Manager with experience across electric mobility, logistics, fulfillment, and education technology. Proven ability to lead product strategy, manage complex cross-functional initiatives, and deliver digital solutions that support business scale.
               </p>
-              <p className="text-sm leading-relaxed text-foreground/80">
+              <p className="text-sm leading-relaxed mb-4 text-foreground/80">
                 A background in software engineering and quality assurance enables a strong capacity to translate operational challenges into practical product outcomes. Experienced in managing high-impact platforms, driving coordinated execution across regional and global teams, and improving service quality through structured analysis and continuous refinement. Currently pursuing an MBA at SBM ITB to deepen capabilities in strategy, organization, and leadership.
+              </p>
+              <p className="text-sm leading-relaxed text-foreground/60 italic border-l-2 border-accent/40 pl-3">
+                I believe great products are built where user empathy, operational depth, and data clarity meet. My approach is to understand the full ecosystem — from the ground-level workflow to the executive dashboard — and turn complexity into focused, scalable solutions that teams can actually execute.
               </p>
             </div>
             <div>
