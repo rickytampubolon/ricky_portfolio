@@ -337,28 +337,26 @@ export default function Home() {
           <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-9 font-bold">
             <span className="w-4 h-px bg-accent"></span>Part-Time Roles
           </h2>
-          <div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
             {partTimeJobs.map((job) => (
-              <div key={job.id} className="mb-7 pb-7 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2.5 gap-1">
+              <div key={job.id} className="border border-border rounded-lg p-5 bg-background">
+                <div className="flex items-start justify-between mb-3">
                   <div className="flex gap-3">
                     {job.companyImage && (
-                      <img src={job.companyImage} alt={job.company} className="w-9 h-9 object-contain rounded-md shrink-0 mt-0.5 bg-white p-0.5 border border-border" />
+                      <img src={job.companyImage} alt={job.company} className="w-9 h-9 object-contain rounded-md shrink-0 bg-white p-0.5 border border-border" />
                     )}
                     <div>
                       <h3 className="text-sm font-semibold text-foreground leading-snug">{job.title}</h3>
                       <p className="text-xs text-muted-foreground font-medium mt-0.5">{job.company}</p>
+                      <p className="text-xs text-muted-foreground">{job.period}</p>
                     </div>
                   </div>
-                  <span className="text-xs text-muted-foreground whitespace-nowrap sm:ml-4 pl-12 sm:pl-0">{job.period}</span>
                 </div>
-
                 {job.description && (
-                  <p className="text-xs text-muted-foreground italic mb-2.5 mt-1 leading-relaxed pl-12">{job.description}</p>
+                  <p className="text-xs text-muted-foreground italic mb-2.5 leading-relaxed">{job.description}</p>
                 )}
-
-                <ul className="text-xs text-muted-foreground space-y-1.5 pl-12">
-                  {job.highlights.map((highlight, idx) => (
+                <ul className="text-xs text-muted-foreground space-y-1.5">
+                  {job.highlights.slice(0, 2).map((highlight, idx) => (
                     <li key={idx} className="flex gap-2">
                       <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
                       <span className="leading-relaxed">{highlight}</span>
@@ -376,28 +374,24 @@ export default function Home() {
         <h2 className="flex items-center gap-2.5 text-[10px] tracking-widest uppercase text-muted-foreground mb-9 font-bold">
           <span className="w-4 h-px bg-accent"></span>Internships
         </h2>
-        <div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {internships.map((internship, idx) => (
-            <div key={idx} className="mb-6 pb-6 border-b border-border last:border-b-0 last:pb-0 last:mb-0">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2 gap-1">
-                <div className="flex gap-3">
-                  {internship.companyImage && (
-                    <img src={internship.companyImage} alt={internship.company} className="w-9 h-9 object-contain rounded-md shrink-0 mt-0.5 bg-white p-0.5 border border-border" />
-                  )}
-                  <div>
-                    <h3 className="text-sm font-semibold text-foreground leading-snug">{internship.title}</h3>
-                    <p className="text-xs text-muted-foreground font-medium mt-0.5">{internship.company}</p>
-                  </div>
+            <div key={idx} className="border border-border rounded-lg p-5">
+              <div className="flex gap-3 mb-3">
+                {internship.companyImage && (
+                  <img src={internship.companyImage} alt={internship.company} className="w-9 h-9 object-contain rounded-md shrink-0 bg-white p-0.5 border border-border" />
+                )}
+                <div>
+                  <h3 className="text-sm font-semibold text-foreground leading-snug">{internship.title}</h3>
+                  <p className="text-xs text-muted-foreground font-medium mt-0.5">{internship.company}</p>
+                  <p className="text-xs text-muted-foreground">{internship.period}</p>
                 </div>
-                <span className="text-xs text-muted-foreground whitespace-nowrap sm:ml-4 pl-12 sm:pl-0">{internship.period}</span>
               </div>
-
               {internship.companyProfile && (
-                <p className="text-xs text-muted-foreground italic mt-1.5 leading-relaxed pl-12">{internship.companyProfile}</p>
+                <p className="text-xs text-muted-foreground italic mb-2 leading-relaxed">{internship.companyProfile}</p>
               )}
-
               {internship.responsibility && (
-                <p className="text-xs text-muted-foreground mt-1.5 leading-relaxed pl-12">{internship.responsibility}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed">{internship.responsibility}</p>
               )}
             </div>
           ))}
