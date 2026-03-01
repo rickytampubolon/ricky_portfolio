@@ -37,13 +37,23 @@ function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
 }
 
+/* ── Shared section heading style ───────────────────────────── */
+const sectionH2 = "text-[2rem] font-bold tracking-[-0.02em] text-foreground mb-12";
+
+/* ── Shared refined card style ──────────────────────────────── */
+const refinedCard =
+  "flex-1 min-w-0 bg-white dark:bg-card border border-[rgba(0,0,0,0.08)] dark:border-border rounded-xl hover:border-accent/40 dark:hover:border-accent/40 transition-colors duration-200";
+const refinedCardShadow = { boxShadow: "0 1px 2px 0 rgba(0,0,0,0.03)" };
+
 export default function Home() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  /* Expanded state for full-time experience bullets */
   const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
+  /* Expanded state for part-time bullets (separate to avoid ID collision) */
+  const [expandedPT, setExpandedPT] = useState<Set<number>>(new Set());
   const [heroRevealed, setHeroRevealed] = useState(false);
 
-  /* Hero animates in on mount */
   useEffect(() => {
     const t = setTimeout(() => setHeroRevealed(true), 80);
     return () => clearTimeout(t);
@@ -58,14 +68,21 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const toggleExpanded = (id: number) => {
+  const toggleExpanded = (id: number) =>
     setExpandedIds((prev) => {
       const next = new Set(prev);
       if (next.has(id)) next.delete(id);
       else next.add(id);
       return next;
     });
-  };
+
+  const toggleExpandedPT = (id: number) =>
+    setExpandedPT((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
 
   /* Reveal hooks per section */
   const aboutReveal = useReveal();
@@ -182,34 +199,35 @@ export default function Home() {
 
   const skills = {
     "Product Management": [
-      "Product Management",
       "Product Strategy",
-      "Change Management",
-      "Backlog Prioritization",
-      "User-Centered Design",
-      "Risk Management",
+      "Roadmapping",
+      "Backlog Management",
+      "User Research",
+      "Product Lifecycle",
+      "Product Metrics",
     ],
     Leadership: [
-      "Cross-Functional Team Leadership",
-      "Stakeholder Management and Alignment",
-      "Project Management",
+      "Cross Functional Leadership",
+      "Stakeholder Management",
+      "Executive Communication",
+      "Decision Making",
       "Negotiation",
+      "Change Management",
     ],
     Technical: [
       "SDLC",
-      "Software Testing",
       "Data Analysis",
-      "API Testing",
-      "Automation Testing",
-      "SQL",
+      "API Knowledge",
+      "A/B Testing",
+      "Release Management",
       "Process Improvement",
     ],
     Methodologies: [
-      "Agile Methodologies",
+      "Agile",
       "Scrum",
       "Kanban",
       "Sprint Planning",
-      "Continuous Refinement",
+      "Continuous Improvement",
     ],
   };
 
@@ -337,7 +355,7 @@ export default function Home() {
         }`}
       >
         <nav
-          className={`flex items-center gap-2 sm:gap-3 rounded-full border border-border shadow-[0_2px_20px_rgba(0,0,0,0.07)] backdrop-blur-[8px] bg-white/80 dark:bg-card/85 transition-all duration-300 ${
+          className={`max-w-[640px] w-full flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-border shadow-[0_2px_20px_rgba(0,0,0,0.07)] backdrop-blur-[12px] bg-white/70 dark:bg-card/85 transition-all duration-300 ${
             scrolled ? "px-3 sm:px-4 py-1.5 sm:py-2" : "px-4 sm:px-6 py-2 sm:py-3"
           }`}
         >
@@ -451,72 +469,67 @@ export default function Home() {
       {/* ── About ─────────────────────────────────────────────── */}
       <section id="about" className="border-t border-border">
         <div className="container py-20" ref={aboutReveal.ref}>
-          <div
-            className={`grid md:grid-cols-3 gap-10 md:gap-16 ${
-              aboutReveal.revealed ? "is-revealed" : ""
-            }`}
-          >
-            {/* Bio */}
-            <div className="md:col-span-2">
-              <p
-                className="reveal-item text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-6 font-semibold"
-                style={stagger(0)}
-              >
-                About
-              </p>
-              <p
-                className="reveal-item text-sm leading-relaxed mb-5 text-foreground"
-                style={stagger(1)}
-              >
-                Product Manager with experience across electric mobility, logistics, fulfillment,
-                and education technology, skilled in leading product strategy and cross-functional
-                initiatives to deliver scalable solutions. A background in software engineering
-                supports a strong ability to translate operational challenges into practical product
-                outcomes, including managing high-impact platforms, coordinating regional and global
-                teams, and improving service quality through structured analysis.
-              </p>
-              <blockquote
-                className="reveal-item text-sm leading-relaxed text-foreground/70 italic border-l-2 border-accent/30 pl-4"
-                style={stagger(2)}
-              >
-                I believe great products are built where user empathy, operational depth, and data
-                clarity meet. My approach is to understand the full ecosystem, from the ground-level
-                workflow to the executive dashboard, and turn complexity into focused, scalable
-                solutions that teams can actually execute.
-              </blockquote>
-            </div>
+          <div className={aboutReveal.revealed ? "is-revealed" : ""}>
+            <h2 className={`reveal-item ${sectionH2}`} style={stagger(0)}>
+              About
+            </h2>
+            <div className="grid md:grid-cols-3 gap-10 md:gap-16">
+              {/* Bio */}
+              <div className="md:col-span-2">
+                <p
+                  className="reveal-item text-sm leading-relaxed mb-5 text-foreground"
+                  style={stagger(1)}
+                >
+                  Product Manager with experience across electric mobility, logistics, fulfillment,
+                  and education technology, skilled in leading product strategy and cross-functional
+                  initiatives to deliver scalable solutions. A background in software engineering
+                  supports a strong ability to translate operational challenges into practical product
+                  outcomes, including managing high-impact platforms, coordinating regional and global
+                  teams, and improving service quality through structured analysis.
+                </p>
+                <blockquote
+                  className="reveal-item text-sm leading-relaxed text-foreground/70 italic border-l-2 border-accent/30 pl-4"
+                  style={stagger(2)}
+                >
+                  I believe great products are built where user empathy, operational depth, and data
+                  clarity meet. My approach is to understand the full ecosystem, from the ground-level
+                  workflow to the executive dashboard, and turn complexity into focused, scalable
+                  solutions that teams can actually execute.
+                </blockquote>
+              </div>
 
-            {/* Education */}
-            <div>
-              <p
-                className="reveal-item text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-6 font-semibold"
-                style={stagger(0)}
-              >
-                Education
-              </p>
-              <div className="space-y-5">
-                {education.map((edu, idx) => (
-                  <div
-                    key={idx}
-                    className="reveal-item flex gap-3"
-                    style={stagger(idx + 1)}
-                  >
-                    {edu.schoolImage && (
-                      <img
-                        src={edu.schoolImage}
-                        alt={edu.school}
-                        className="w-9 h-9 object-contain rounded shrink-0 mt-0.5 bg-white p-0.5 border border-border"
-                      />
-                    )}
-                    <div>
-                      <p className="text-sm font-semibold leading-snug text-foreground">
-                        {edu.degree}
-                      </p>
-                      <p className="text-xs text-muted-foreground mt-0.5">{edu.school}</p>
-                      <p className="text-xs text-muted-foreground">{edu.date}</p>
+              {/* Education */}
+              <div>
+                <p
+                  className="reveal-item text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-6 font-semibold"
+                  style={stagger(1)}
+                >
+                  Education
+                </p>
+                <div className="space-y-5">
+                  {education.map((edu, idx) => (
+                    <div
+                      key={idx}
+                      className="reveal-item flex gap-3"
+                      style={stagger(idx + 2)}
+                    >
+                      {edu.schoolImage && (
+                        <img
+                          src={edu.schoolImage}
+                          alt={edu.school}
+                          className="w-9 h-9 object-contain rounded shrink-0 mt-0.5 bg-white p-0.5 border border-border"
+                        />
+                      )}
+                      <div>
+                        <p className="text-sm font-semibold leading-snug text-foreground">
+                          {edu.degree}
+                        </p>
+                        <p className="text-xs text-muted-foreground mt-0.5">{edu.school}</p>
+                        <p className="text-xs text-muted-foreground">{edu.date}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -526,9 +539,7 @@ export default function Home() {
       {/* ── Experience (Timeline) ─────────────────────────────── */}
       <section id="experience" className="border-t border-border">
         <div className="container py-20" ref={expReveal.ref}>
-          <p className="text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-12 font-semibold">
-            Experience
-          </p>
+          <h2 className={sectionH2}>Experience</h2>
 
           <div className={`relative ${expReveal.revealed ? "is-revealed" : ""}`}>
             {/* Timeline thread */}
@@ -536,9 +547,6 @@ export default function Home() {
 
             {experiences.map((exp, index) => {
               const isExpanded = expandedIds.has(exp.id);
-              const visibleHighlights = isExpanded
-                ? exp.highlights
-                : exp.highlights.slice(0, 3);
               const extraCount = exp.highlights.length - 3;
               const hasMore = extraCount > 0;
 
@@ -562,27 +570,25 @@ export default function Home() {
                   </div>
 
                   {/* Experience card */}
-                  <div className="flex-1 min-w-0 bg-card border border-border rounded-xl p-4 sm:p-5 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-200 cursor-default">
+                  <div
+                    className={`${refinedCard} p-4 sm:p-5`}
+                    style={refinedCardShadow}
+                  >
                     {/* Header row */}
                     <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2.5">
                       <div className="min-w-0 flex-1">
-                        <h3 className="text-sm font-semibold text-foreground leading-snug">
+                        <h3 className="text-[1.15rem] font-semibold text-foreground leading-snug">
                           {exp.title}
                         </h3>
-                        <p className="text-xs text-muted-foreground font-medium mt-0.5">
-                          {exp.company}
+                        <p className="text-[0.95rem] text-[#666] dark:text-muted-foreground mt-0.5">
+                          {exp.company} · {exp.period}
                         </p>
                       </div>
-                      <div className="flex flex-col items-end gap-1 shrink-0">
-                        {exp.id === 1 && (
-                          <span className="inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase">
-                            Current
-                          </span>
-                        )}
-                        <span className="text-xs text-muted-foreground whitespace-nowrap">
-                          {exp.period}
+                      {exp.id === 1 && (
+                        <span className="shrink-0 inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase mt-1">
+                          Current
                         </span>
-                      </div>
+                      )}
                     </div>
 
                     {/* Company profile */}
@@ -592,28 +598,46 @@ export default function Home() {
                       </p>
                     )}
 
-                    {/* Highlights */}
+                    {/* First 3 bullets — always visible */}
                     <ul className="space-y-1.5">
-                      {visibleHighlights.map((highlight, idx) => (
+                      {exp.highlights.slice(0, 3).map((highlight, idx) => (
                         <li key={idx} className="flex gap-2 text-xs text-muted-foreground">
                           <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
-                          <span className="leading-relaxed">{highlight}</span>
+                          <span className="leading-[1.6]">{highlight}</span>
                         </li>
                       ))}
                     </ul>
 
-                    {/* Show More toggle */}
+                    {/* Extra bullets — animated slide-down */}
+                    {hasMore && (
+                      <div
+                        style={{
+                          maxHeight: isExpanded ? `${extraCount * 80}px` : "0px",
+                          overflow: "hidden",
+                          transition: "max-height 0.3s ease-in-out",
+                        }}
+                      >
+                        <ul className="space-y-1.5 mt-1.5">
+                          {exp.highlights.slice(3).map((highlight, idx) => (
+                            <li key={idx + 3} className="flex gap-2 text-xs text-muted-foreground">
+                              <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
+                              <span className="leading-[1.6]">{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Show More / Show Less toggle */}
                     {hasMore && (
                       <button
                         onClick={() => toggleExpanded(exp.id)}
-                        className="flex items-center gap-1 mt-3 text-xs text-muted-foreground hover:text-accent transition-colors duration-150 font-medium"
+                        className="flex items-center gap-1 mt-3 text-xs text-[#666] dark:text-muted-foreground hover:text-accent transition-colors duration-150 font-medium"
                       >
-                        {isExpanded
-                          ? "Show Less"
-                          : `${extraCount} more bullet${extraCount > 1 ? "s" : ""}`}
+                        {isExpanded ? "Show Less" : "Show More"}
                         <ChevronDown
                           size={12}
-                          className={`transition-transform duration-200 ${
+                          className={`transition-transform duration-300 ${
                             isExpanded ? "rotate-180" : ""
                           }`}
                         />
@@ -630,76 +654,117 @@ export default function Home() {
       {/* ── Part-Time Roles ───────────────────────────────────── */}
       <section className="border-t border-border">
         <div className="container py-20" ref={partTimeReveal.ref}>
-          <p className="text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-12 font-semibold">
-            Part-Time Roles
-          </p>
+          <h2 className={sectionH2}>Part-Time Roles</h2>
 
           <div className={`relative ${partTimeReveal.revealed ? "is-revealed" : ""}`}>
             {/* Timeline connector line */}
             <div className="absolute left-[17px] top-[50px] bottom-[50px] w-[2px] bg-[#E5E7EB] dark:bg-border pointer-events-none" />
 
-            {partTimeJobs.map((job, idx) => (
-              <div
-                key={job.id}
-                className="reveal-item relative flex gap-5 mb-14 last:mb-0"
-                style={stagger(idx)}
-              >
-                {/* Timeline icon node */}
-                <div className="relative z-10 shrink-0 mt-8">
-                  <div className="w-9 h-9 rounded bg-white border border-[#E5E7EB] overflow-hidden flex items-center justify-center shadow-sm">
-                    {job.companyImage && (
-                      <img
-                        src={job.companyImage}
-                        alt={job.company}
-                        className="w-7 h-7 object-contain"
-                      />
+            {partTimeJobs.map((job, idx) => {
+              const isExpanded = expandedPT.has(job.id);
+              const extraCount = job.highlights.length - 3;
+              const hasMore = extraCount > 0;
+
+              return (
+                <div
+                  key={job.id}
+                  className="reveal-item relative flex gap-5 mb-14 last:mb-0"
+                  style={stagger(idx)}
+                >
+                  {/* Timeline icon node */}
+                  <div className="relative z-10 shrink-0 mt-8">
+                    <div className="w-9 h-9 rounded bg-white border border-[#E5E7EB] overflow-hidden flex items-center justify-center shadow-sm">
+                      {job.companyImage && (
+                        <img
+                          src={job.companyImage}
+                          alt={job.company}
+                          className="w-7 h-7 object-contain"
+                        />
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Refined card */}
+                  <div className={`${refinedCard} p-8`} style={refinedCardShadow}>
+                    {/* Header row */}
+                    <div className="flex items-start justify-between gap-3 mb-3">
+                      <div className="min-w-0">
+                        <h3 className="text-[1.15rem] font-semibold text-foreground leading-snug">
+                          {job.title}
+                        </h3>
+                        <p className="text-[0.95rem] text-[#666] dark:text-muted-foreground mt-1">
+                          {job.company} · {job.period}
+                        </p>
+                      </div>
+                      <span className="shrink-0 text-[9px] font-semibold tracking-[0.05em] uppercase text-muted-foreground/60 bg-secondary border border-border rounded px-2 py-0.5">
+                        Part-Time
+                      </span>
+                    </div>
+
+                    {/* Company description */}
+                    {job.description && (
+                      <p className="text-xs text-muted-foreground/70 italic mb-4 leading-relaxed">
+                        {job.description}
+                      </p>
+                    )}
+
+                    {/* First 3 bullets — always visible */}
+                    <ul className="space-y-2">
+                      {job.highlights.slice(0, 3).map((h, i) => (
+                        <li
+                          key={i}
+                          className="flex gap-2.5 text-xs text-muted-foreground"
+                          style={{ lineHeight: "1.6" }}
+                        >
+                          <span className="mt-[5px] w-1 h-1 rounded-full bg-muted-foreground/35 shrink-0 flex-none" />
+                          {h}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Extra bullets — animated slide-down */}
+                    {hasMore && (
+                      <div
+                        style={{
+                          maxHeight: isExpanded ? `${extraCount * 80}px` : "0px",
+                          overflow: "hidden",
+                          transition: "max-height 0.3s ease-in-out",
+                        }}
+                      >
+                        <ul className="space-y-2 mt-2">
+                          {job.highlights.slice(3).map((h, i) => (
+                            <li
+                              key={i + 3}
+                              className="flex gap-2.5 text-xs text-muted-foreground"
+                              style={{ lineHeight: "1.6" }}
+                            >
+                              <span className="mt-[5px] w-1 h-1 rounded-full bg-muted-foreground/35 shrink-0 flex-none" />
+                              {h}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {/* Show More / Show Less toggle */}
+                    {hasMore && (
+                      <button
+                        onClick={() => toggleExpandedPT(job.id)}
+                        className="flex items-center gap-1 mt-3 text-xs text-[#666] dark:text-muted-foreground hover:text-accent transition-colors duration-150 font-medium"
+                      >
+                        {isExpanded ? "Show Less" : "Show More"}
+                        <ChevronDown
+                          size={12}
+                          className={`transition-transform duration-300 ${
+                            isExpanded ? "rotate-180" : ""
+                          }`}
+                        />
+                      </button>
                     )}
                   </div>
                 </div>
-
-                {/* Refined card */}
-                <div
-                  className="flex-1 min-w-0 bg-white dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-8 hover:border-accent/40 dark:hover:border-accent/40 transition-colors duration-200"
-                  style={{ boxShadow: "0 1px 3px 0 rgba(0,0,0,0.05)" }}
-                >
-                  {/* Header row */}
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <div className="min-w-0">
-                      <h3 className="text-sm font-bold text-foreground leading-snug">
-                        {job.title}
-                      </h3>
-                      <p className="text-xs text-muted-foreground mt-1">
-                        {job.company} · {job.period}
-                      </p>
-                    </div>
-                    <span className="shrink-0 text-[9px] font-semibold tracking-[0.05em] uppercase text-muted-foreground/60 bg-secondary border border-border rounded px-2 py-0.5">
-                      Part-Time
-                    </span>
-                  </div>
-
-                  {/* Company description */}
-                  {job.description && (
-                    <p className="text-xs text-muted-foreground/70 italic mb-4 leading-relaxed">
-                      {job.description}
-                    </p>
-                  )}
-
-                  {/* Bullet highlights */}
-                  <ul className="space-y-2">
-                    {job.highlights.map((h, i) => (
-                      <li
-                        key={i}
-                        className="flex gap-2.5 text-xs text-muted-foreground"
-                        style={{ lineHeight: "1.6" }}
-                      >
-                        <span className="mt-[5px] w-1 h-1 rounded-full bg-muted-foreground/35 shrink-0 flex-none" />
-                        {h}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -707,9 +772,7 @@ export default function Home() {
       {/* ── Internships ───────────────────────────────────────── */}
       <section className="border-t border-border">
         <div className="container py-20" ref={internReveal.ref}>
-          <p className="text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-12 font-semibold">
-            Internships
-          </p>
+          <h2 className={sectionH2}>Internships</h2>
 
           <div className={`relative ${internReveal.revealed ? "is-revealed" : ""}`}>
             {/* Timeline connector line */}
@@ -735,17 +798,14 @@ export default function Home() {
                 </div>
 
                 {/* Refined card */}
-                <div
-                  className="flex-1 min-w-0 bg-white dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-8 hover:border-accent/40 dark:hover:border-accent/40 transition-colors duration-200"
-                  style={{ boxShadow: "0 1px 3px 0 rgba(0,0,0,0.05)" }}
-                >
+                <div className={`${refinedCard} p-8`} style={refinedCardShadow}>
                   {/* Header row */}
                   <div className="flex items-start justify-between gap-3 mb-3">
                     <div className="min-w-0">
-                      <h3 className="text-sm font-bold text-foreground leading-snug">
+                      <h3 className="text-[1.15rem] font-semibold text-foreground leading-snug">
                         {internship.title}
                       </h3>
-                      <p className="text-xs text-muted-foreground mt-1">
+                      <p className="text-[0.95rem] text-[#666] dark:text-muted-foreground mt-1">
                         {internship.company} · {internship.period}
                       </p>
                     </div>
@@ -763,10 +823,7 @@ export default function Home() {
 
                   {/* Responsibility */}
                   {internship.responsibility && (
-                    <p
-                      className="text-xs text-muted-foreground"
-                      style={{ lineHeight: "1.6" }}
-                    >
+                    <p className="text-xs text-muted-foreground" style={{ lineHeight: "1.6" }}>
                       {internship.responsibility}
                     </p>
                   )}
@@ -777,23 +834,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Skills ────────────────────────────────────────────── */}
+      {/* ── Skills (Bento) ────────────────────────────────────── */}
       <section id="skills" className="border-t border-border">
         <div className="container py-20" ref={skillsReveal.ref}>
-          <p className="text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-9 font-semibold">
-            Skills
-          </p>
+          <h2 className={sectionH2}>Skills</h2>
           <div
-            className={`grid grid-cols-1 sm:grid-cols-2 gap-8 ${
+            className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${
               skillsReveal.revealed ? "is-revealed" : ""
             }`}
           >
             {Object.entries(skills).map(([category, items], catIdx) => (
-              <div key={category} className="reveal-item" style={stagger(catIdx)}>
-                <h3 className="text-xs font-semibold text-foreground/60 mb-3 tracking-[0.08em] uppercase">
+              <div
+                key={category}
+                className="reveal-item bg-white dark:bg-card border border-[rgba(0,0,0,0.08)] dark:border-border rounded-xl p-6"
+                style={{ boxShadow: "0 1px 2px 0 rgba(0,0,0,0.03)", ...stagger(catIdx) }}
+              >
+                <h3 className="text-xs font-semibold text-foreground/60 mb-4 tracking-[0.08em] uppercase">
                   {category}
                 </h3>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex flex-wrap gap-2">
                   {items.map((skill, idx) => (
                     <span
                       key={idx}
@@ -832,13 +891,13 @@ export default function Home() {
               Open to new opportunities and collaborations. Feel free to reach out via email or
               connect on social media.
             </p>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-4">
               {contactLinks.map(({ href, icon, label, staggerIdx, external }) => (
                 <a
                   key={href}
                   href={href}
                   {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="reveal-item inline-flex items-center gap-3 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200 group w-fit"
+                  className="reveal-item inline-flex items-center gap-3 text-[1.1rem] text-muted-foreground hover:text-foreground hover:underline underline-offset-4 transition-colors duration-200 group w-fit"
                   style={stagger(staggerIdx)}
                 >
                   <span className="w-9 h-9 rounded-xl bg-secondary border border-border flex items-center justify-center group-hover:border-accent/30 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
