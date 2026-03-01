@@ -543,34 +543,48 @@ export default function Home() {
                 </blockquote>
               </div>
 
-              {/* Education */}
+              {/* Education — Credential Sidebar */}
               <div>
                 <p
-                  className="reveal-item text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-6 font-semibold"
+                  className="reveal-item text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-4 font-semibold"
                   style={stagger(1)}
                 >
                   Education
                 </p>
-                <div className="space-y-5">
+                <div className="space-y-4">
                   {education.map((edu, idx) => (
                     <div
                       key={idx}
-                      className="reveal-item flex gap-3"
+                      className="reveal-item flex items-center gap-3 bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-4"
                       style={stagger(idx + 2)}
                     >
+                      {/* University logo — vertically centred via items-center on parent */}
                       {edu.schoolImage && (
                         <img
                           src={edu.schoolImage}
                           alt={edu.school}
-                          className="w-9 h-9 object-contain rounded shrink-0 mt-0.5 bg-white p-0.5 border border-border"
+                          className="w-10 h-10 object-contain rounded shrink-0 bg-white p-0.5 border border-[#E5E7EB] dark:border-border"
                         />
                       )}
-                      <div>
-                        <p className="text-sm font-semibold leading-snug text-foreground">
+                      <div className="min-w-0">
+                        <p
+                          className="font-bold leading-snug text-[#111827] dark:text-foreground"
+                          style={{ fontSize: "1.05rem" }}
+                        >
                           {edu.degree}
                         </p>
-                        <p className="text-xs text-muted-foreground mt-0.5">{edu.school}</p>
-                        <p className="text-xs text-muted-foreground">{edu.date}</p>
+                        <p
+                          className="font-medium text-[#4B5563] dark:text-muted-foreground mt-0.5 truncate"
+                          style={{ fontSize: "0.9rem" }}
+                        >
+                          {edu.school}
+                        </p>
+                        <p
+                          className="text-[#6B7280] dark:text-muted-foreground mt-0.5"
+                          style={{ fontSize: "0.85rem" }}
+                        >
+                          {edu.date}
+                        </p>
                       </div>
                     </div>
                   ))}
