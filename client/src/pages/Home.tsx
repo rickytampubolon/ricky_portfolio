@@ -251,7 +251,7 @@ export default function Home() {
       school: "Bandung Institute of Technology",
       schoolImage:
         "https://media.licdn.com/dms/image/v2/C560BAQGJoYkUiQpUKA/company-logo_200_200/company-logo_200_200/0/1630672186443/itb_logo?e=1773273600&v=beta&t=ofyRWEblbh2qjZR2HYOofN8zQ-M_gy2yhiVMyS5J334",
-      date: "09/2026",
+      date: "Expected 09/2026",
     },
     {
       degree: "Bachelor of Computer Science",
@@ -546,7 +546,7 @@ export default function Home() {
               {/* Education — Credential Sidebar */}
               <div>
                 <p
-                  className="reveal-item text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-4 font-semibold"
+                  className="reveal-item text-[11px] tracking-[0.12em] uppercase text-foreground/70 mb-4 font-bold"
                   style={stagger(1)}
                 >
                   Education
