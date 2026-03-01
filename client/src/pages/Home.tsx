@@ -5,8 +5,11 @@ import {
   MapPin,
   ChevronUp,
   ChevronDown,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
+import { useTheme } from "../contexts/ThemeContext";
 
 /* ── Intersection-observer reveal hook ─────────────────────── */
 function useReveal(threshold = 0.12) {
@@ -46,6 +49,7 @@ const refinedCard =
 const refinedCardShadow = { boxShadow: "0 1px 2px 0 rgba(0,0,0,0.03)" };
 
 export default function Home() {
+  const { theme, toggleTheme } = useTheme();
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   /* Expanded state for full-time experience bullets */
@@ -53,6 +57,16 @@ export default function Home() {
   /* Expanded state for part-time bullets (separate to avoid ID collision) */
   const [expandedPT, setExpandedPT] = useState<Set<number>>(new Set());
   const [heroRevealed, setHeroRevealed] = useState(false);
+
+  /* Briefly add theme-transitioning class so all colours animate smoothly,
+     then remove it so normal hover transitions are unaffected. */
+  const handleThemeToggle = () => {
+    document.documentElement.classList.add("theme-transitioning");
+    toggleTheme?.();
+    setTimeout(() => {
+      document.documentElement.classList.remove("theme-transitioning");
+    }, 450);
+  };
 
   useEffect(() => {
     const t = setTimeout(() => setHeroRevealed(true), 80);
@@ -379,7 +393,7 @@ export default function Home() {
 
           <div className="hidden sm:block w-px h-4 bg-border mx-0.5" />
 
-          {/* Links */}
+          {/* Links + theme toggle */}
           <div className="flex items-center gap-0.5">
             {[
               ["About", "about"],
@@ -399,6 +413,37 @@ export default function Home() {
                 {label}
               </a>
             ))}
+
+            {/* Divider */}
+            <div className="w-px h-4 bg-border mx-1.5 shrink-0" />
+
+            {/* Dark / Light toggle */}
+            <button
+              onClick={handleThemeToggle}
+              aria-label="Toggle dark mode"
+              className={`relative rounded-full border border-border bg-secondary hover:bg-muted flex items-center justify-center transition-colors duration-200 shrink-0 ${
+                scrolled ? "w-6 h-6" : "w-7 h-7"
+              }`}
+            >
+              {/* Sun — visible in light mode */}
+              <Sun
+                size={scrolled ? 11 : 13}
+                className={`absolute transition-all duration-300 ${
+                  theme === "dark"
+                    ? "opacity-0 rotate-90 scale-50"
+                    : "opacity-100 rotate-0 scale-100"
+                }`}
+              />
+              {/* Moon — visible in dark mode */}
+              <Moon
+                size={scrolled ? 11 : 13}
+                className={`absolute transition-all duration-300 ${
+                  theme === "dark"
+                    ? "opacity-100 rotate-0 scale-100"
+                    : "opacity-0 -rotate-90 scale-50"
+                }`}
+              />
+            </button>
           </div>
         </nav>
       </header>
