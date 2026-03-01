@@ -115,6 +115,20 @@
   --sidebar-ring: #6366F1;
 }
 
+/* ── Smooth dark-mode colour transition ───────────────────────
+   Applied only while the toggle animates, then removed so that
+   hover transitions work normally at all other times.          */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition:
+    background-color 0.4s ease,
+    border-color 0.4s ease,
+    color 0.35s ease,
+    box-shadow 0.4s ease !important;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
