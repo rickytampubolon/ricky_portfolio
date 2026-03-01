@@ -4,8 +4,6 @@ import {
   Instagram,
   MapPin,
   ChevronUp,
-  ChevronLeft,
-  ChevronRight,
   ChevronDown,
 } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
@@ -42,7 +40,6 @@ function stagger(n: number) {
 export default function Home() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [internshipSlide, setInternshipSlide] = useState(0);
   const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
   const [heroRevealed, setHeroRevealed] = useState(false);
 
@@ -306,8 +303,6 @@ export default function Home() {
     },
   ];
 
-  const totalInternshipSlides = Math.ceil(internships.length / 2);
-
   const contactLinks = [
     {
       href: "mailto:rickytampubolon97@gmail.com",
@@ -510,7 +505,7 @@ export default function Home() {
                       <img
                         src={edu.schoolImage}
                         alt={edu.school}
-                        className="w-9 h-9 object-contain rounded-xl shrink-0 mt-0.5 bg-white p-0.5 border border-border"
+                        className="w-9 h-9 object-contain rounded shrink-0 mt-0.5 bg-white p-0.5 border border-border"
                       />
                     )}
                     <div>
@@ -555,7 +550,7 @@ export default function Home() {
                 >
                   {/* Timeline node: logo */}
                   <div className="relative z-10 shrink-0 mt-1.5">
-                    <div className="w-9 h-9 rounded-xl bg-white border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                    <div className="w-9 h-9 rounded bg-white border border-border overflow-hidden flex items-center justify-center shadow-sm">
                       {exp.companyImage && (
                         <img
                           src={exp.companyImage}
@@ -635,46 +630,74 @@ export default function Home() {
       {/* ── Part-Time Roles ───────────────────────────────────── */}
       <section className="border-t border-border">
         <div className="container py-20" ref={partTimeReveal.ref}>
-          <p className="text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-9 font-semibold">
+          <p className="text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-12 font-semibold">
             Part-Time Roles
           </p>
-          <div
-            className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${
-              partTimeReveal.revealed ? "is-revealed" : ""
-            }`}
-          >
+
+          <div className={`relative ${partTimeReveal.revealed ? "is-revealed" : ""}`}>
+            {/* Timeline connector line */}
+            <div className="absolute left-[17px] top-[50px] bottom-[50px] w-[2px] bg-[#E5E7EB] dark:bg-border pointer-events-none" />
+
             {partTimeJobs.map((job, idx) => (
               <div
                 key={job.id}
-                className="reveal-item border border-border rounded-xl p-4 sm:p-5 bg-card flex flex-col h-full hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-200 cursor-default"
+                className="reveal-item relative flex gap-5 mb-14 last:mb-0"
                 style={stagger(idx)}
               >
-                <div className="flex items-start gap-3 mb-3">
-                  {job.companyImage && (
-                    <img
-                      src={job.companyImage}
-                      alt={job.company}
-                      className="w-9 h-9 object-contain rounded-xl shrink-0 bg-white p-0.5 border border-border"
-                    />
-                  )}
-                  <div className="min-w-0">
-                    <h3 className="text-sm font-semibold text-foreground leading-snug">
-                      {job.title}
-                    </h3>
-                    <p className="text-xs text-muted-foreground font-medium mt-0.5">
-                      {job.company}
-                    </p>
-                    <p className="text-xs text-muted-foreground">{job.period}</p>
+                {/* Timeline icon node */}
+                <div className="relative z-10 shrink-0 mt-8">
+                  <div className="w-9 h-9 rounded bg-white border border-[#E5E7EB] overflow-hidden flex items-center justify-center shadow-sm">
+                    {job.companyImage && (
+                      <img
+                        src={job.companyImage}
+                        alt={job.company}
+                        className="w-7 h-7 object-contain"
+                      />
+                    )}
                   </div>
                 </div>
-                {job.description && (
-                  <p className="text-xs text-muted-foreground/75 italic mb-2.5 leading-relaxed">
-                    {job.description}
-                  </p>
-                )}
-                <p className="text-xs text-muted-foreground leading-relaxed flex-1">
-                  {job.highlights[0]}
-                </p>
+
+                {/* Refined card */}
+                <div
+                  className="flex-1 min-w-0 bg-white dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-8 hover:border-accent/40 dark:hover:border-accent/40 transition-colors duration-200"
+                  style={{ boxShadow: "0 1px 3px 0 rgba(0,0,0,0.05)" }}
+                >
+                  {/* Header row */}
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="min-w-0">
+                      <h3 className="text-sm font-bold text-foreground leading-snug">
+                        {job.title}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {job.company} · {job.period}
+                      </p>
+                    </div>
+                    <span className="shrink-0 text-[9px] font-semibold tracking-[0.05em] uppercase text-muted-foreground/60 bg-secondary border border-border rounded px-2 py-0.5">
+                      Part-Time
+                    </span>
+                  </div>
+
+                  {/* Company description */}
+                  {job.description && (
+                    <p className="text-xs text-muted-foreground/70 italic mb-4 leading-relaxed">
+                      {job.description}
+                    </p>
+                  )}
+
+                  {/* Bullet highlights */}
+                  <ul className="space-y-2">
+                    {job.highlights.map((h, i) => (
+                      <li
+                        key={i}
+                        className="flex gap-2.5 text-xs text-muted-foreground"
+                        style={{ lineHeight: "1.6" }}
+                      >
+                        <span className="mt-[5px] w-1 h-1 rounded-full bg-muted-foreground/35 shrink-0 flex-none" />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             ))}
           </div>
@@ -684,87 +707,71 @@ export default function Home() {
       {/* ── Internships ───────────────────────────────────────── */}
       <section className="border-t border-border">
         <div className="container py-20" ref={internReveal.ref}>
-          <div className="flex items-center justify-between mb-9">
-            <p className="text-[10px] tracking-[0.14em] uppercase text-muted-foreground font-semibold">
-              Internships
-            </p>
-            <div className="flex items-center gap-2">
-              <button
-                onClick={() => setInternshipSlide((s) => Math.max(0, s - 1))}
-                disabled={internshipSlide === 0}
-                className="w-7 h-7 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-muted-foreground/30 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-              >
-                <ChevronLeft size={14} />
-              </button>
-              <button
-                onClick={() =>
-                  setInternshipSlide((s) => Math.min(totalInternshipSlides - 1, s + 1))
-                }
-                disabled={internshipSlide === totalInternshipSlides - 1}
-                className="w-7 h-7 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-muted-foreground/30 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-              >
-                <ChevronRight size={14} />
-              </button>
-            </div>
-          </div>
+          <p className="text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-12 font-semibold">
+            Internships
+          </p>
 
-          <div
-            className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${
-              internReveal.revealed ? "is-revealed" : ""
-            }`}
-          >
-            {internships
-              .slice(internshipSlide * 2, internshipSlide * 2 + 2)
-              .map((internship, idx) => (
-                <div
-                  key={idx}
-                  className="reveal-item border border-border rounded-xl p-4 sm:p-5 bg-card flex flex-col h-full hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:hover:shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-200 cursor-default"
-                  style={stagger(idx)}
-                >
-                  <div className="flex gap-3 mb-3">
+          <div className={`relative ${internReveal.revealed ? "is-revealed" : ""}`}>
+            {/* Timeline connector line */}
+            <div className="absolute left-[17px] top-[50px] bottom-[50px] w-[2px] bg-[#E5E7EB] dark:bg-border pointer-events-none" />
+
+            {internships.map((internship, idx) => (
+              <div
+                key={idx}
+                className="reveal-item relative flex gap-5 mb-14 last:mb-0"
+                style={stagger(idx)}
+              >
+                {/* Timeline icon node */}
+                <div className="relative z-10 shrink-0 mt-8">
+                  <div className="w-9 h-9 rounded bg-white border border-[#E5E7EB] overflow-hidden flex items-center justify-center shadow-sm">
                     {internship.companyImage && (
                       <img
                         src={internship.companyImage}
                         alt={internship.company}
-                        className="w-9 h-9 object-contain rounded-xl shrink-0 bg-white p-0.5 border border-border"
+                        className="w-7 h-7 object-contain"
                       />
                     )}
-                    <div>
-                      <h3 className="text-sm font-semibold text-foreground leading-snug">
+                  </div>
+                </div>
+
+                {/* Refined card */}
+                <div
+                  className="flex-1 min-w-0 bg-white dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-8 hover:border-accent/40 dark:hover:border-accent/40 transition-colors duration-200"
+                  style={{ boxShadow: "0 1px 3px 0 rgba(0,0,0,0.05)" }}
+                >
+                  {/* Header row */}
+                  <div className="flex items-start justify-between gap-3 mb-3">
+                    <div className="min-w-0">
+                      <h3 className="text-sm font-bold text-foreground leading-snug">
                         {internship.title}
                       </h3>
-                      <p className="text-xs text-muted-foreground font-medium mt-0.5">
-                        {internship.company}
+                      <p className="text-xs text-muted-foreground mt-1">
+                        {internship.company} · {internship.period}
                       </p>
-                      <p className="text-xs text-muted-foreground">{internship.period}</p>
                     </div>
+                    <span className="shrink-0 text-[9px] font-semibold tracking-[0.05em] uppercase text-muted-foreground/60 bg-secondary border border-border rounded px-2 py-0.5">
+                      Internship
+                    </span>
                   </div>
+
+                  {/* Company profile */}
                   {internship.companyProfile && (
-                    <p className="text-xs text-muted-foreground/75 italic mb-2 leading-relaxed">
+                    <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
                       {internship.companyProfile}
                     </p>
                   )}
+
+                  {/* Responsibility */}
                   {internship.responsibility && (
-                    <p className="text-xs text-muted-foreground leading-relaxed flex-1">
+                    <p
+                      className="text-xs text-muted-foreground"
+                      style={{ lineHeight: "1.6" }}
+                    >
                       {internship.responsibility}
                     </p>
                   )}
                 </div>
-              ))}
-          </div>
-
-          {/* Pill pagination dots */}
-          <div className="flex justify-center gap-1.5 mt-6">
-            {Array.from({ length: totalInternshipSlides }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setInternshipSlide(i)}
-                className={`transition-all duration-200 rounded-full ${
-                  i === internshipSlide
-                    ? "w-4 h-1.5 bg-accent"
-                    : "w-1.5 h-1.5 bg-border hover:bg-muted-foreground/30"
-                }`}
-              />
+              </div>
             ))}
           </div>
         </div>
