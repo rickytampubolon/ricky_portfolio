@@ -236,12 +236,19 @@ export default function Home() {
       "Release Management",
       "Process Improvement",
     ],
-    Methodologies: [
+    "Methodologies & Tools": [
       "Agile",
       "Scrum",
       "Kanban",
       "Sprint Planning",
       "Continuous Improvement",
+      "Jira",
+      "Confluence",
+      "Figma",
+      "Miro",
+      "Google Analytics",
+      "SQL",
+      "Postman",
     ],
   };
 
