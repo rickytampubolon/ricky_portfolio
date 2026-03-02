@@ -610,7 +610,10 @@ export default function Home() {
             >
               Full-time Roles
             </h3>
-            <div className="space-y-4">
+            <div className="relative">
+              {/* Timeline thread */}
+              <div className="absolute left-[17px] top-[46px] bottom-[46px] w-[2px] bg-gradient-to-b from-border via-border/60 to-transparent pointer-events-none" />
+
               {experiences.map((exp, index) => {
                 const isExpanded = expandedIds.has(exp.id);
                 const extraCount = exp.highlights.length - 3;
@@ -619,92 +622,87 @@ export default function Home() {
                 return (
                   <div
                     key={exp.id}
-                    className="reveal-item rounded-lg"
-                    style={{
-                      ...stagger(index),
-                      backgroundColor: "#F9FAFB",
-                      border: "1px solid #E5E7EB",
-                      padding: "16px",
-                    }}
+                    className="reveal-item relative flex gap-4 sm:gap-5 mb-4 last:mb-0"
+                    style={stagger(index)}
                   >
-                    {/* Logo + title/company row */}
-                    <div className="flex items-center gap-3 mb-2.5">
-                      {exp.companyImage && (
-                        <img
-                          src={exp.companyImage}
-                          alt={exp.company}
-                          className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5"
-                          style={{ border: "1px solid #E5E7EB" }}
-                        />
-                      )}
-                      <div className="min-w-0 flex-1">
-                        <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
-                          {exp.title}
-                        </p>
-                        <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px" }}>
-                          {exp.company} · {exp.period}
-                        </p>
+                    {/* Timeline node: logo */}
+                    <div className="relative z-10 shrink-0 mt-1.5">
+                      <div className="w-9 h-9 rounded bg-white border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                        {exp.companyImage && (
+                          <img src={exp.companyImage} alt={exp.company} className="w-7 h-7 object-contain" />
+                        )}
                       </div>
-                      {exp.id === 1 && (
-                        <span className="shrink-0 inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase">
-                          Current
-                        </span>
-                      )}
                     </div>
 
-                    {/* Company profile */}
-                    {exp.companyProfile && (
-                      <p className="text-xs text-muted-foreground/75 italic mb-3 leading-relaxed">
-                        {exp.companyProfile}
-                      </p>
-                    )}
-
-                    {/* First 3 bullets */}
-                    <ul className="space-y-1.5">
-                      {exp.highlights.slice(0, 3).map((highlight, idx) => (
-                        <li key={idx} className="flex gap-2" style={{ fontSize: "0.85rem", color: "#6B7280" }}>
-                          <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
-                          <span className="leading-[1.6]">{highlight}</span>
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Extra bullets — animated slide-down */}
-                    {hasMore && (
-                      <div
-                        style={{
-                          maxHeight: isExpanded ? `${extraCount * 80}px` : "0px",
-                          overflow: "hidden",
-                          transition: "max-height 0.3s ease-in-out",
-                        }}
-                      >
-                        <ul className="space-y-1.5 mt-1.5">
-                          {exp.highlights.slice(3).map((highlight, idx) => (
-                            <li key={idx + 3} className="flex gap-2" style={{ fontSize: "0.85rem", color: "#6B7280" }}>
-                              <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
-                              <span className="leading-[1.6]">{highlight}</span>
-                            </li>
-                          ))}
-                        </ul>
+                    {/* Card */}
+                    <div
+                      className="flex-1 min-w-0 rounded-lg p-4"
+                      style={{ backgroundColor: "#F9FAFB", border: "1px solid #E5E7EB" }}
+                    >
+                      <div className="flex items-start justify-between gap-2 mb-2.5">
+                        <div className="min-w-0 flex-1">
+                          <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
+                            {exp.title}
+                          </p>
+                          <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px" }}>
+                            {exp.company} · {exp.period}
+                          </p>
+                        </div>
+                        {exp.id === 1 && (
+                          <span className="shrink-0 inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase mt-0.5">
+                            Current
+                          </span>
+                        )}
                       </div>
-                    )}
 
-                    {/* Show More / Show Less */}
-                    {hasMore && (
-                      <button
-                        onClick={() => toggleExpanded(exp.id)}
-                        className="flex items-center gap-1 mt-3 text-xs hover:text-accent transition-colors duration-150 font-medium"
-                        style={{ color: "#6B7280" }}
-                      >
-                        {isExpanded ? "Show Less" : "Show More"}
-                        <ChevronDown
-                          size={12}
-                          className={`transition-transform duration-300 ${
-                            isExpanded ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                    )}
+                      {exp.companyProfile && (
+                        <p className="text-xs text-muted-foreground/75 italic mb-3 leading-relaxed">
+                          {exp.companyProfile}
+                        </p>
+                      )}
+
+                      <ul className="space-y-1.5">
+                        {exp.highlights.slice(0, 3).map((highlight, idx) => (
+                          <li key={idx} className="flex gap-2" style={{ fontSize: "0.85rem", color: "#6B7280" }}>
+                            <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
+                            <span className="leading-[1.6]">{highlight}</span>
+                          </li>
+                        ))}
+                      </ul>
+
+                      {hasMore && (
+                        <div
+                          style={{
+                            maxHeight: isExpanded ? `${extraCount * 80}px` : "0px",
+                            overflow: "hidden",
+                            transition: "max-height 0.3s ease-in-out",
+                          }}
+                        >
+                          <ul className="space-y-1.5 mt-1.5">
+                            {exp.highlights.slice(3).map((highlight, idx) => (
+                              <li key={idx + 3} className="flex gap-2" style={{ fontSize: "0.85rem", color: "#6B7280" }}>
+                                <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
+                                <span className="leading-[1.6]">{highlight}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+
+                      {hasMore && (
+                        <button
+                          onClick={() => toggleExpanded(exp.id)}
+                          className="flex items-center gap-1 mt-3 text-xs hover:text-accent transition-colors duration-150 font-medium"
+                          style={{ color: "#6B7280" }}
+                        >
+                          {isExpanded ? "Show Less" : "Show More"}
+                          <ChevronDown
+                            size={12}
+                            className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
+                          />
+                        </button>
+                      )}
+                    </div>
                   </div>
                 );
               })}
@@ -722,46 +720,44 @@ export default function Home() {
             >
               Part-Time Roles
             </h3>
-            <div className="space-y-4">
+            <div className="relative">
+              <div className="absolute left-[17px] top-[46px] bottom-[46px] w-[2px] bg-gradient-to-b from-border via-border/60 to-transparent pointer-events-none" />
+
               {partTimeJobs.map((job, idx) => (
                 <div
                   key={job.id}
-                  className="reveal-item rounded-lg"
-                  style={{
-                    ...stagger(idx),
-                    backgroundColor: "#F9FAFB",
-                    border: "1px solid #E5E7EB",
-                    padding: "16px",
-                  }}
+                  className="reveal-item relative flex gap-4 sm:gap-5 mb-4 last:mb-0"
+                  style={stagger(idx)}
                 >
-                  <div className="flex items-center gap-3 mb-2.5">
-                    {job.companyImage && (
-                      <img
-                        src={job.companyImage}
-                        alt={job.company}
-                        className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5"
-                        style={{ border: "1px solid #E5E7EB" }}
-                      />
-                    )}
-                    <div className="min-w-0 flex-1">
-                      <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
-                        {job.title}
-                      </p>
-                      <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px" }}>
-                        {job.company} · {job.period}
-                      </p>
+                  <div className="relative z-10 shrink-0 mt-1.5">
+                    <div className="w-9 h-9 rounded bg-white border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                      {job.companyImage && (
+                        <img src={job.companyImage} alt={job.company} className="w-7 h-7 object-contain" />
+                      )}
                     </div>
                   </div>
 
-                  {job.description && (
-                    <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
-                      {job.description}
+                  <div
+                    className="flex-1 min-w-0 rounded-lg p-4"
+                    style={{ backgroundColor: "#F9FAFB", border: "1px solid #E5E7EB" }}
+                  >
+                    <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
+                      {job.title}
                     </p>
-                  )}
+                    <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px", marginBottom: "10px" }}>
+                      {job.company} · {job.period}
+                    </p>
 
-                  <p style={{ fontSize: "0.85rem", color: "#6B7280", lineHeight: 1.6 }}>
-                    {job.summary}
-                  </p>
+                    {job.description && (
+                      <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
+                        {job.description}
+                      </p>
+                    )}
+
+                    <p style={{ fontSize: "0.85rem", color: "#6B7280", lineHeight: 1.6 }}>
+                      {job.summary}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -778,48 +774,46 @@ export default function Home() {
             >
               Internships
             </h3>
-            <div className="space-y-4">
+            <div className="relative">
+              <div className="absolute left-[17px] top-[46px] bottom-[46px] w-[2px] bg-gradient-to-b from-border via-border/60 to-transparent pointer-events-none" />
+
               {internships.map((internship, idx) => (
                 <div
                   key={idx}
-                  className="reveal-item rounded-lg"
-                  style={{
-                    ...stagger(idx),
-                    backgroundColor: "#F9FAFB",
-                    border: "1px solid #E5E7EB",
-                    padding: "16px",
-                  }}
+                  className="reveal-item relative flex gap-4 sm:gap-5 mb-4 last:mb-0"
+                  style={stagger(idx)}
                 >
-                  <div className="flex items-center gap-3 mb-2.5">
-                    {internship.companyImage && (
-                      <img
-                        src={internship.companyImage}
-                        alt={internship.company}
-                        className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5"
-                        style={{ border: "1px solid #E5E7EB" }}
-                      />
-                    )}
-                    <div className="min-w-0 flex-1">
-                      <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
-                        {internship.title}
-                      </p>
-                      <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px" }}>
-                        {internship.company} · {internship.period}
-                      </p>
+                  <div className="relative z-10 shrink-0 mt-1.5">
+                    <div className="w-9 h-9 rounded bg-white border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                      {internship.companyImage && (
+                        <img src={internship.companyImage} alt={internship.company} className="w-7 h-7 object-contain" />
+                      )}
                     </div>
                   </div>
 
-                  {internship.companyProfile && (
-                    <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
-                      {internship.companyProfile}
+                  <div
+                    className="flex-1 min-w-0 rounded-lg p-4"
+                    style={{ backgroundColor: "#F9FAFB", border: "1px solid #E5E7EB" }}
+                  >
+                    <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
+                      {internship.title}
                     </p>
-                  )}
+                    <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px", marginBottom: "10px" }}>
+                      {internship.company} · {internship.period}
+                    </p>
 
-                  {internship.responsibility && (
-                    <p style={{ fontSize: "0.85rem", color: "#6B7280", lineHeight: 1.6 }}>
-                      {internship.responsibility}
-                    </p>
-                  )}
+                    {internship.companyProfile && (
+                      <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
+                        {internship.companyProfile}
+                      </p>
+                    )}
+
+                    {internship.responsibility && (
+                      <p style={{ fontSize: "0.85rem", color: "#6B7280", lineHeight: 1.6 }}>
+                        {internship.responsibility}
+                      </p>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
