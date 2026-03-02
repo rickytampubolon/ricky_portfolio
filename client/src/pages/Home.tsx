@@ -49,6 +49,14 @@ const expCard = "flex-1 min-w-0 rounded-3xl p-6 bg-white dark:bg-card shadow-[0_
 const timelineNode = "w-9 h-9 rounded-2xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none";
 const subsectionH3 = "text-[1.5rem] font-medium tracking-[-0.01em] text-foreground mb-4";
 
+/* ── Skill category tag tints ────────────────────────────── */
+const categoryTagColors: Record<string, string> = {
+  "Product Management":   "bg-[rgba(0,122,255,0.08)] hover:bg-[rgba(0,122,255,0.13)] dark:bg-blue-500/10 dark:hover:bg-blue-500/15",
+  "Leadership":           "bg-[rgba(52,199,89,0.08)] hover:bg-[rgba(52,199,89,0.13)] dark:bg-green-500/10 dark:hover:bg-green-500/15",
+  "Technical":            "bg-[rgba(255,149,0,0.08)] hover:bg-[rgba(255,149,0,0.13)] dark:bg-orange-500/10 dark:hover:bg-orange-500/15",
+  "Methodologies & Tools":"bg-[rgba(88,86,214,0.08)] hover:bg-[rgba(88,86,214,0.13)] dark:bg-purple-500/10 dark:hover:bg-purple-500/15",
+};
+
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -363,7 +371,7 @@ export default function Home() {
           <div className="flex items-center gap-2">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-              alt="Ricky Halomoan T."
+              alt="Ricky Halomoan"
               className={`rounded-full object-cover ring-1 ring-border transition-all duration-300 ${
                 scrolled ? "w-5 h-5" : "w-6 h-6"
               }`}
@@ -373,7 +381,7 @@ export default function Home() {
                 scrolled ? "text-xs" : "text-sm"
               }`}
             >
-              Ricky Halomoan T.
+              Ricky Halomoan
             </span>
           </div>
 
@@ -456,7 +464,7 @@ export default function Home() {
               className="reveal-item text-[3rem] sm:text-[4rem] md:text-[4.5rem] font-bold leading-[1.1] text-foreground mb-4"
               style={{ ...stagger(1), letterSpacing: "-0.03em" }}
             >
-              Ricky Halomoan T.
+              Ricky Halomoan
             </h1>
 
             {/* Sub-headline */}
@@ -512,7 +520,7 @@ export default function Home() {
 
             <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-stretch">
               {/* Bio */}
-              <div className="flex-[1.8] min-w-0 space-y-5">
+              <div className="flex-[1.8] min-w-0 space-y-5 max-w-[65ch]">
                 <p
                   className="reveal-item text-base leading-[1.6] text-foreground"
                   style={stagger(1)}
@@ -798,7 +806,7 @@ export default function Home() {
                   {items.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-4 py-1.5 text-[0.9rem] rounded-[8px] font-normal bg-[#EEEEEE] dark:bg-secondary text-[#1D1D1F] dark:text-foreground hover:bg-[#E0E0E0] dark:hover:bg-muted transition-all duration-200"
+                      className={`px-4 py-1.5 text-[0.9rem] rounded-[8px] font-normal text-[#1D1D1F] dark:text-foreground transition-all duration-200 ${categoryTagColors[category] ?? "bg-[#EEEEEE] hover:bg-[#E0E0E0] dark:bg-secondary dark:hover:bg-muted"}`}
                     >
                       {skill}
                     </span>
@@ -838,7 +846,7 @@ export default function Home() {
                   key={href}
                   href={href}
                   {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="reveal-item inline-flex items-center gap-3 text-[1rem] text-muted-foreground hover:text-foreground transition-all duration-200 group w-fit"
+                  className="reveal-item inline-flex items-center gap-3 text-[1rem] text-muted-foreground hover:text-foreground hover:-translate-y-0.5 transition-all duration-200 group w-fit"
                   style={stagger(staggerIdx)}
                 >
                   <span className="w-9 h-9 rounded-2xl bg-white dark:bg-secondary shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-[#E5E5EA] dark:border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
@@ -856,7 +864,7 @@ export default function Home() {
       <footer className="border-t border-[#d2d2d7] dark:border-border">
         <div className="container py-8 text-center">
           <p className="text-[0.875rem] text-[#86868b] dark:text-muted-foreground">
-            Ricky Halomoan T. © 2026 · Senior Product Manager · Jakarta
+            Ricky Halomoan © 2026 · Senior Product Manager · Jakarta
           </p>
         </div>
       </footer>
