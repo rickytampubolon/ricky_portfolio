@@ -536,16 +536,16 @@ export default function Home() {
               {/* Education — single unified card */}
               <div className="reveal-item" style={stagger(2)}>
                 <div className="bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-5">
-                  <p className="text-[11px] tracking-[0.12em] uppercase text-foreground/60 font-bold mb-4">
+                  <h3 className="text-2xl font-semibold text-foreground mb-4">
                     Education
-                  </p>
+                  </h3>
                   <div>
                     {education.map((edu, idx) => (
                       <div key={idx}>
                         {idx > 0 && (
                           <div className="border-t border-[#E5E7EB] dark:border-border my-4" />
                         )}
-                        <div className="flex items-center gap-3">
+                        <div className="flex items-start gap-3">
                           {edu.schoolImage && (
                             <img
                               src={edu.schoolImage}
@@ -785,8 +785,8 @@ export default function Home() {
             {Object.entries(skills).map(([category, items], catIdx) => (
               <div
                 key={category}
-                className="reveal-item bg-white dark:bg-card border border-[rgba(0,0,0,0.08)] dark:border-border rounded-xl p-6"
-                style={{ boxShadow: "0 1px 2px 0 rgba(0,0,0,0.03)", ...stagger(catIdx) }}
+                className="reveal-item bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-6"
+                style={stagger(catIdx)}
               >
                 <h3 className="text-xs font-semibold text-foreground/60 mb-4 tracking-[0.08em] uppercase">
                   {category}
@@ -811,24 +811,23 @@ export default function Home() {
       <section id="contact" className="border-t border-border">
         <div className="container py-20" ref={contactReveal.ref}>
           <div className={contactReveal.revealed ? "is-revealed" : ""}>
-            <p
-              className="reveal-item text-[10px] tracking-[0.14em] uppercase text-muted-foreground mb-5 font-semibold"
+            <h2
+              className={`reveal-item ${sectionH2}`}
               style={stagger(0)}
             >
               Contact
-            </p>
-            <h2
-              className="reveal-item text-3xl sm:text-4xl font-bold text-foreground mb-3"
+            </h2>
+            <p
+              className="reveal-item text-xl font-semibold text-foreground mb-2"
               style={stagger(1)}
             >
               Let's build something great.
-            </h2>
+            </p>
             <p
-              className="reveal-item text-sm text-muted-foreground mb-10 max-w-sm leading-relaxed"
+              className="reveal-item text-sm text-muted-foreground mb-10 whitespace-nowrap"
               style={stagger(2)}
             >
-              Open to new opportunities and collaborations. Feel free to reach out via email or
-              connect on social media.
+              Open to new opportunities and collaborations. Feel free to reach out via email or connect on social media.
             </p>
             <div className="flex flex-col gap-4">
               {contactLinks.map(({ href, icon, label, staggerIdx, external }) => (
