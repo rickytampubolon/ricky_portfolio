@@ -537,7 +537,6 @@ export default function Home() {
 
               {/* Education — single unified card */}
               <div className="reveal-item flex-1 min-w-0" style={stagger(3)}>
-                <h3 className={subsectionH3}>Education</h3>
                 <div className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-8 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
                   {education.map((edu, idx) => (
                     <div
