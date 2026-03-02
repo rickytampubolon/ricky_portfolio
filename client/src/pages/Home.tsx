@@ -41,13 +41,13 @@ function stagger(n: number) {
 }
 
 /* ── Shared section heading style ───────────────────────────── */
-const sectionH2Base = "text-[2rem] font-bold tracking-[-0.02em] text-foreground";
+const sectionH2Base = "text-[2.5rem] font-semibold tracking-[-0.02em] text-foreground";
 const sectionH2 = `${sectionH2Base} mb-12`;
 
 /* ── Shared component styles ─────────────────────────────── */
-const expCard = "flex-1 min-w-0 rounded-lg p-4 bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border";
-const timelineNode = "w-9 h-9 rounded bg-white dark:bg-card border border-border overflow-hidden flex items-center justify-center shadow-sm";
-const subsectionH3 = "text-2xl font-semibold text-foreground mb-4";
+const expCard = "flex-1 min-w-0 rounded-2xl p-6 bg-white dark:bg-card shadow-[0px_2px_10px_rgba(0,0,0,0.05)] dark:shadow-none border border-transparent dark:border-border";
+const timelineNode = "w-9 h-9 rounded-xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shadow-[0px_1px_4px_rgba(0,0,0,0.06)] dark:shadow-none";
+const subsectionH3 = "text-[1.5rem] font-medium tracking-[-0.01em] text-foreground mb-4";
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
@@ -355,7 +355,7 @@ export default function Home() {
         }`}
       >
         <nav
-          className={`max-w-[640px] w-full flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-border shadow-[0_2px_20px_rgba(0,0,0,0.07)] backdrop-blur-[12px] bg-white/70 dark:bg-card/85 transition-all duration-300 ${
+          className={`max-w-[640px] w-full flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-border shadow-[0_2px_24px_rgba(0,0,0,0.08)] backdrop-blur-[20px] bg-white/80 dark:bg-card/90 transition-all duration-300 ${
             scrolled ? "px-3 sm:px-4 py-1.5 sm:py-2" : "px-4 sm:px-6 py-2 sm:py-3"
           }`}
         >
@@ -390,10 +390,14 @@ export default function Home() {
               <a
                 key={id}
                 href={`#${id}`}
-                className={`text-foreground/70 hover:text-foreground rounded-full transition-all duration-200 font-semibold hover:bg-secondary ${
-                  scrolled
-                    ? "text-[10px] px-2 py-1"
-                    : "text-[11px] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5"
+                className={`transition-all duration-200 font-medium ${
+                  id === "contact"
+                    ? `border border-[#CCCCCC] dark:border-border text-foreground bg-transparent hover:bg-secondary rounded-full ${
+                        scrolled ? "text-[10px] px-2.5 py-0.5" : "text-[11px] sm:text-xs px-3 sm:px-4 py-1 sm:py-1.5"
+                      }`
+                    : `text-foreground/70 hover:text-foreground rounded-full hover:bg-secondary ${
+                        scrolled ? "text-[10px] px-2 py-1" : "text-[11px] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5"
+                      }`
                 }`}
               >
                 {label}
@@ -440,8 +444,8 @@ export default function Home() {
           <div className={heroRevealed ? "is-revealed" : ""}>
             {/* Location badge */}
             <div className="reveal-item" style={stagger(0)}>
-              <div className="inline-flex items-center gap-1.5 text-[11px] font-medium text-muted-foreground bg-secondary border border-border rounded-full px-3 py-1 mb-8 tracking-wide">
-                <MapPin size={10} />
+              <div className="inline-flex items-center gap-1.5 text-[0.85rem] font-light text-muted-foreground bg-secondary rounded-full px-4 py-1.5 mb-8 tracking-[0.01em]">
+                <MapPin size={11} />
                 <span>Jakarta, Indonesia</span>
                 <span>🇮🇩</span>
               </div>
@@ -449,7 +453,7 @@ export default function Home() {
 
             {/* Name */}
             <h1
-              className="reveal-item text-4xl sm:text-6xl md:text-7xl font-bold leading-[1.04] text-foreground mb-3"
+              className="reveal-item text-[3rem] sm:text-[4rem] md:text-[4.5rem] font-bold leading-[1.1] text-foreground mb-4"
               style={{ ...stagger(1), letterSpacing: "-0.03em" }}
             >
               Ricky Halomoan T.
@@ -457,7 +461,7 @@ export default function Home() {
 
             {/* Sub-headline */}
             <p
-              className="reveal-item text-base sm:text-lg text-muted-foreground font-medium leading-relaxed mb-3"
+              className="reveal-item text-[1.1rem] text-muted-foreground font-normal leading-relaxed mb-3 tracking-[0.005em]"
               style={stagger(2)}
             >
               Senior Product Manager · Building digital products that move businesses forward.
@@ -465,7 +469,7 @@ export default function Home() {
 
             {/* Domain tags */}
             <p
-              className="reveal-item text-[10px] sm:text-[11px] text-muted-foreground/50 tracking-[0.14em] uppercase font-medium mb-10"
+              className="reveal-item text-[0.9rem] text-muted-foreground/60 tracking-[0.12em] uppercase font-light mb-10"
               style={stagger(3)}
             >
               Logistics · Fulfillment · Electric Mobility · Digital Transformation
@@ -477,12 +481,12 @@ export default function Home() {
               style={stagger(4)}
             >
               <a href="#contact">
-                <button className="h-11 bg-accent text-white hover:bg-[#4338CA] px-7 sm:px-8 text-sm font-semibold rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(79,70,229,0.35)] hover:shadow-[0_6px_24px_rgba(79,70,229,0.45)] hover:-translate-y-px tracking-[-0.01em]">
+                <button className="bg-accent text-white hover:bg-[#0056CC] px-6 py-3 text-sm font-medium rounded-xl transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px">
                   Let's Work Together
                 </button>
               </a>
               <a href="#experience">
-                <button className="h-11 border border-[rgba(0,0,0,0.1)] text-foreground bg-card hover:bg-secondary px-7 sm:px-8 text-sm font-medium rounded-full transition-all duration-200 tracking-[-0.01em] dark:border-border">
+                <button className="border border-[#CCCCCC] dark:border-border text-foreground bg-transparent hover:bg-secondary px-6 py-3 text-sm font-medium rounded-xl transition-all duration-200">
                   View My Work
                 </button>
               </a>
@@ -492,8 +496,8 @@ export default function Home() {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-muted-foreground/40 select-none pointer-events-none">
-          <span className="text-[9px] tracking-[0.18em] uppercase font-medium">Scroll</span>
-          <ChevronDown size={16} className="animate-bounce" />
+          <span className="text-[0.7rem] tracking-[0.2em] uppercase font-light">Scroll</span>
+          <ChevronDown size={15} className="animate-scroll-pulse" />
         </div>
       </section>
 
@@ -534,19 +538,19 @@ export default function Home() {
               {/* Education — single unified card */}
               <div className="reveal-item" style={stagger(3)}>
                 <h3 className={subsectionH3}>Education</h3>
-                <div className="bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-5">
+                <div className="bg-white dark:bg-card shadow-[0px_2px_10px_rgba(0,0,0,0.05)] dark:shadow-none border border-transparent dark:border-border rounded-2xl p-5">
                   <div>
                     {education.map((edu, idx) => (
                       <div key={idx}>
                         {idx > 0 && (
-                          <div className="border-t border-[#E5E7EB] dark:border-border my-4" />
+                          <div className="border-t border-[#E5E5EA] dark:border-border my-4" />
                         )}
                         <div className="flex items-start gap-3">
                           {edu.schoolImage && (
                             <img
                               src={edu.schoolImage}
                               alt={edu.school}
-                              className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5 border border-[#E5E7EB] dark:border-border"
+                              className="w-8 h-8 object-contain rounded-lg shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border"
                             />
                           )}
                           <div className="min-w-0">
@@ -624,14 +628,14 @@ export default function Home() {
                       </div>
 
                       {exp.companyProfile && (
-                        <p className="text-xs text-muted-foreground/75 italic mb-3 leading-relaxed">
+                        <p className="text-[0.85rem] text-muted-foreground/70 italic mb-3 leading-relaxed">
                           {exp.companyProfile}
                         </p>
                       )}
 
                       <ul className="space-y-1.5">
                         {exp.highlights.slice(0, 3).map((highlight, idx) => (
-                          <li key={idx} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.85rem" }}>
+                          <li key={idx} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.9rem" }}>
                             <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
                             <span className="leading-[1.6]">{highlight}</span>
                           </li>
@@ -648,7 +652,7 @@ export default function Home() {
                         >
                           <ul className="space-y-1.5 mt-1.5">
                             {exp.highlights.slice(3).map((highlight, idx) => (
-                              <li key={idx + 3} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.85rem" }}>
+                              <li key={idx + 3} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.9rem" }}>
                                 <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
                                 <span className="leading-[1.6]">{highlight}</span>
                               </li>
@@ -710,7 +714,7 @@ export default function Home() {
                       </p>
                     )}
 
-                    <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "0.85rem" }}>
+                    <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "0.9rem" }}>
                       {job.summary}
                     </p>
                   </div>
@@ -754,7 +758,7 @@ export default function Home() {
                     )}
 
                     {internship.responsibility && (
-                      <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "0.85rem" }}>
+                      <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "0.9rem" }}>
                         {internship.responsibility}
                       </p>
                     )}
@@ -778,7 +782,7 @@ export default function Home() {
             {Object.entries(skills).map(([category, items], catIdx) => (
               <div
                 key={category}
-                className="reveal-item bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-6"
+                className="reveal-item bg-white dark:bg-card shadow-[0px_2px_10px_rgba(0,0,0,0.05)] dark:shadow-none border border-transparent dark:border-border rounded-2xl p-6"
                 style={stagger(catIdx)}
               >
                 <h3 className="text-xs font-semibold text-foreground/60 mb-4 tracking-[0.08em] uppercase">
@@ -788,7 +792,7 @@ export default function Home() {
                   {items.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1 text-xs rounded-full font-medium bg-secondary text-foreground/65 hover:bg-muted hover:text-foreground transition-colors duration-150"
+                      className="px-4 py-1.5 text-[0.9rem] rounded-[8px] font-normal bg-[#EEEEEE] dark:bg-secondary text-[#1D1D1F] dark:text-foreground hover:bg-[#E0E0E0] dark:hover:bg-muted transition-all duration-200"
                     >
                       {skill}
                     </span>
@@ -811,13 +815,13 @@ export default function Home() {
               Contact
             </h2>
             <p
-              className="reveal-item text-xl font-semibold text-foreground mb-2"
+              className="reveal-item text-[1.5rem] font-medium text-foreground mb-2 tracking-[-0.01em]"
               style={stagger(1)}
             >
               Let's build something great.
             </p>
             <p
-              className="reveal-item text-sm text-muted-foreground mb-10"
+              className="reveal-item text-[0.9rem] font-light text-muted-foreground mb-10 tracking-[0.005em]"
               style={stagger(2)}
             >
               Open to new opportunities and collaborations. Feel free to reach out via email or connect on social media.
@@ -828,13 +832,13 @@ export default function Home() {
                   key={href}
                   href={href}
                   {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="reveal-item inline-flex items-center gap-3 text-[1.1rem] text-muted-foreground hover:text-foreground hover:underline underline-offset-4 transition-colors duration-200 group w-fit"
+                  className="reveal-item inline-flex items-center gap-3 text-[1rem] text-muted-foreground hover:text-foreground transition-all duration-200 group w-fit"
                   style={stagger(staggerIdx)}
                 >
-                  <span className="w-9 h-9 rounded-xl bg-secondary border border-border flex items-center justify-center group-hover:border-accent/30 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
+                  <span className="w-9 h-9 rounded-xl bg-white dark:bg-secondary shadow-[0px_1px_4px_rgba(0,0,0,0.06)] dark:shadow-none border border-[#E5E5EA] dark:border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
                     {icon}
                   </span>
-                  <span className="truncate">{label}</span>
+                  <span className="truncate group-hover:underline underline-offset-4">{label}</span>
                 </a>
               ))}
             </div>
@@ -845,8 +849,8 @@ export default function Home() {
       {/* ── Footer ────────────────────────────────────────────── */}
       <footer className="border-t border-border">
         <div className="container py-8 flex flex-col sm:flex-row items-center sm:justify-between gap-1 text-center sm:text-left">
-          <p className="text-xs text-muted-foreground">Ricky Halomoan T. © 2026</p>
-          <p className="text-xs text-muted-foreground/50">Senior Product Manager · Jakarta</p>
+          <p className="text-[0.9rem] font-light text-muted-foreground">Ricky Halomoan T. © 2026</p>
+          <p className="text-[0.9rem] font-light text-muted-foreground/50">Senior Product Manager · Jakarta</p>
         </div>
       </footer>
 
@@ -854,7 +858,7 @@ export default function Home() {
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-4 sm:right-6 bg-card text-foreground border border-border p-3 rounded-full shadow-lg hover:bg-secondary transition-all duration-200 z-50"
+          className="fixed bottom-6 right-4 sm:right-6 bg-white dark:bg-card text-foreground border border-[#E5E5EA] dark:border-border p-3 rounded-xl shadow-[0px_2px_10px_rgba(0,0,0,0.08)] hover:bg-secondary transition-all duration-200 z-50"
           aria-label="Back to top"
         >
           <ChevronUp size={16} />
