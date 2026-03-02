@@ -244,14 +244,14 @@ export default function Home() {
 
   const education = [
     {
-      degree: "MBA",
+      degree: "Master of Business Administration",
       school: "Bandung Institute of Technology",
       schoolImage:
         "https://media.licdn.com/dms/image/v2/C560BAQGJoYkUiQpUKA/company-logo_200_200/company-logo_200_200/0/1630672186443/itb_logo?e=1773273600&v=beta&t=ofyRWEblbh2qjZR2HYOofN8zQ-M_gy2yhiVMyS5J334",
       date: "Expected 09/2026",
     },
     {
-      degree: "B.Sc. Computer Science",
+      degree: "Informatics Engineering",
       school: "Del Institute of Technology",
       schoolImage:
         "https://media.licdn.com/dms/image/v2/C560BAQESCZFZZqVyng/company-logo_200_200/company-logo_200_200/0/1631389462084?e=1773273600&v=beta&t=jNYjv_W6atTEERBs7tTk78Yhl1xnfkRZGPXuT4rcyLY",
@@ -553,7 +553,7 @@ export default function Home() {
                         <img
                           src={edu.schoolImage}
                           alt={edu.school}
-                          className="w-10 h-10 object-contain rounded shrink-0 bg-white p-0.5 border border-[#E5E7EB] dark:border-border"
+                          className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5 border border-[#E5E7EB] dark:border-border"
                         />
                       )}
                       <div className="min-w-0">
