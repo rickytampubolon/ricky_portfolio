@@ -91,8 +91,6 @@ export default function Home() {
   /* Reveal hooks per section */
   const aboutReveal = useReveal();
   const expReveal = useReveal();
-  const partTimeReveal = useReveal();
-  const internReveal = useReveal();
   const skillsReveal = useReveal();
   const contactReveal = useReveal();
 
@@ -585,56 +583,70 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Experience (Timeline) ─────────────────────────────── */}
+      {/* ── Experience ────────────────────────────────────────── */}
       <section id="experience" className="border-t border-border">
         <div className="container py-20" ref={expReveal.ref}>
-          <h2 className={sectionH2}>Experience</h2>
+          {/* Main heading */}
+          <h2
+            style={{
+              fontSize: "2.25rem",
+              fontWeight: 700,
+              color: "#111827",
+              marginBottom: "1.5rem",
+            }}
+          >
+            Experience
+          </h2>
 
-          <div className={`relative ${expReveal.revealed ? "is-revealed" : ""}`}>
-            {/* Timeline thread */}
-            <div className="absolute left-[17px] top-[46px] bottom-[46px] w-[2px] bg-gradient-to-b from-border via-border/60 to-transparent pointer-events-none" />
+          <div className={expReveal.revealed ? "is-revealed" : ""}>
+            {/* ── Full-time Roles ── */}
+            <h3
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: 600,
+                color: "#111827",
+                marginBottom: "1rem",
+              }}
+            >
+              Full-time Roles
+            </h3>
+            <div className="space-y-4">
+              {experiences.map((exp, index) => {
+                const isExpanded = expandedIds.has(exp.id);
+                const extraCount = exp.highlights.length - 3;
+                const hasMore = extraCount > 0;
 
-            {experiences.map((exp, index) => {
-              const isExpanded = expandedIds.has(exp.id);
-              const extraCount = exp.highlights.length - 3;
-              const hasMore = extraCount > 0;
-
-              return (
-                <div
-                  key={exp.id}
-                  className="reveal-item relative flex gap-4 sm:gap-5 mb-8 last:mb-0"
-                  style={stagger(index)}
-                >
-                  {/* Timeline node: logo */}
-                  <div className="relative z-10 shrink-0 mt-1.5">
-                    <div className="w-9 h-9 rounded bg-white border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                return (
+                  <div
+                    key={exp.id}
+                    className="reveal-item rounded-lg"
+                    style={{
+                      ...stagger(index),
+                      backgroundColor: "#F9FAFB",
+                      border: "1px solid #E5E7EB",
+                      padding: "16px",
+                    }}
+                  >
+                    {/* Logo + title/company row */}
+                    <div className="flex items-center gap-3 mb-2.5">
                       {exp.companyImage && (
                         <img
                           src={exp.companyImage}
                           alt={exp.company}
-                          className="w-7 h-7 object-contain"
+                          className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5"
+                          style={{ border: "1px solid #E5E7EB" }}
                         />
                       )}
-                    </div>
-                  </div>
-
-                  {/* Experience card */}
-                  <div
-                    className={`${refinedCard} p-4 sm:p-5`}
-                    style={refinedCardShadow}
-                  >
-                    {/* Header row */}
-                    <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2.5">
                       <div className="min-w-0 flex-1">
-                        <h3 className="text-[1.15rem] font-semibold text-foreground leading-snug">
+                        <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
                           {exp.title}
-                        </h3>
-                        <p className="text-[0.95rem] text-[#666] dark:text-muted-foreground mt-0.5">
+                        </p>
+                        <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px" }}>
                           {exp.company} · {exp.period}
                         </p>
                       </div>
                       {exp.id === 1 && (
-                        <span className="shrink-0 inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase mt-1">
+                        <span className="shrink-0 inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase">
                           Current
                         </span>
                       )}
@@ -647,10 +659,10 @@ export default function Home() {
                       </p>
                     )}
 
-                    {/* First 3 bullets — always visible */}
+                    {/* First 3 bullets */}
                     <ul className="space-y-1.5">
                       {exp.highlights.slice(0, 3).map((highlight, idx) => (
-                        <li key={idx} className="flex gap-2 text-xs text-muted-foreground">
+                        <li key={idx} className="flex gap-2" style={{ fontSize: "0.85rem", color: "#6B7280" }}>
                           <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
                           <span className="leading-[1.6]">{highlight}</span>
                         </li>
@@ -668,7 +680,7 @@ export default function Home() {
                       >
                         <ul className="space-y-1.5 mt-1.5">
                           {exp.highlights.slice(3).map((highlight, idx) => (
-                            <li key={idx + 3} className="flex gap-2 text-xs text-muted-foreground">
+                            <li key={idx + 3} className="flex gap-2" style={{ fontSize: "0.85rem", color: "#6B7280" }}>
                               <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
                               <span className="leading-[1.6]">{highlight}</span>
                             </li>
@@ -677,11 +689,12 @@ export default function Home() {
                       </div>
                     )}
 
-                    {/* Show More / Show Less toggle */}
+                    {/* Show More / Show Less */}
                     {hasMore && (
                       <button
                         onClick={() => toggleExpanded(exp.id)}
-                        className="flex items-center gap-1 mt-3 text-xs text-[#666] dark:text-muted-foreground hover:text-accent transition-colors duration-150 font-medium"
+                        className="flex items-center gap-1 mt-3 text-xs hover:text-accent transition-colors duration-150 font-medium"
+                        style={{ color: "#6B7280" }}
                       >
                         {isExpanded ? "Show Less" : "Show More"}
                         <ChevronDown
@@ -693,129 +706,123 @@ export default function Home() {
                       </button>
                     )}
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+                );
+              })}
+            </div>
 
-      {/* ── Part-Time Roles ───────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container py-20" ref={partTimeReveal.ref}>
-          <h2 className={sectionH2}>Part-Time Roles</h2>
-
-          <div
-            className={`grid sm:grid-cols-2 gap-6 ${
-              partTimeReveal.revealed ? "is-revealed" : ""
-            }`}
-          >
-            {partTimeJobs.map((job, idx) => (
-              <div
-                key={job.id}
-                className={`reveal-item ${refinedCard} p-6`}
-                style={{ ...refinedCardShadow, ...stagger(idx) }}
-              >
-                {/* Card header: logo + title/company/period */}
-                <div className="flex items-start gap-3 mb-4">
-                  <div className="w-9 h-9 rounded bg-white border border-[#E5E7EB] overflow-hidden flex items-center justify-center shadow-sm shrink-0">
+            {/* ── Part-Time Roles ── */}
+            <h3
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: 600,
+                color: "#111827",
+                marginTop: "2.5rem",
+                marginBottom: "1rem",
+              }}
+            >
+              Part-Time Roles
+            </h3>
+            <div className="space-y-4">
+              {partTimeJobs.map((job, idx) => (
+                <div
+                  key={job.id}
+                  className="reveal-item rounded-lg"
+                  style={{
+                    ...stagger(idx),
+                    backgroundColor: "#F9FAFB",
+                    border: "1px solid #E5E7EB",
+                    padding: "16px",
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-2.5">
                     {job.companyImage && (
                       <img
                         src={job.companyImage}
                         alt={job.company}
-                        className="w-7 h-7 object-contain"
+                        className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5"
+                        style={{ border: "1px solid #E5E7EB" }}
                       />
                     )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-start justify-between gap-2">
-                      <h3 className="text-[1.05rem] font-semibold text-foreground leading-snug">
+                    <div className="min-w-0 flex-1">
+                      <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
                         {job.title}
-                      </h3>
-                      <span className="shrink-0 text-[9px] font-semibold tracking-[0.05em] uppercase text-muted-foreground/60 bg-secondary border border-border rounded px-2 py-0.5">
-                        Part-Time
-                      </span>
+                      </p>
+                      <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px" }}>
+                        {job.company} · {job.period}
+                      </p>
                     </div>
-                    <p className="text-[0.9rem] text-[#666] dark:text-muted-foreground mt-0.5">
-                      {job.company} · {job.period}
-                    </p>
                   </div>
-                </div>
 
-                {/* Company description */}
-                {job.description && (
-                  <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
-                    {job.description}
+                  {job.description && (
+                    <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
+                      {job.description}
+                    </p>
+                  )}
+
+                  <p style={{ fontSize: "0.85rem", color: "#6B7280", lineHeight: 1.6 }}>
+                    {job.summary}
                   </p>
-                )}
+                </div>
+              ))}
+            </div>
 
-                {/* Summary paragraph */}
-                <p className="text-xs text-muted-foreground leading-relaxed">
-                  {job.summary}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── Internships ───────────────────────────────────────── */}
-      <section className="border-t border-border">
-        <div className="container py-20" ref={internReveal.ref}>
-          <h2 className={sectionH2}>Internships</h2>
-
-          <div
-            className={`grid sm:grid-cols-2 gap-6 ${
-              internReveal.revealed ? "is-revealed" : ""
-            }`}
-          >
-            {internships.map((internship, idx) => (
-              <div
-                key={idx}
-                className={`reveal-item ${refinedCard} p-6`}
-                style={{ ...refinedCardShadow, ...stagger(idx) }}
-              >
-                {/* Card header: logo + title/company/period */}
-                <div className="flex items-start gap-3 mb-4">
-                  <div className="w-9 h-9 rounded bg-white border border-[#E5E7EB] overflow-hidden flex items-center justify-center shadow-sm shrink-0">
+            {/* ── Internships ── */}
+            <h3
+              style={{
+                fontSize: "1.5rem",
+                fontWeight: 600,
+                color: "#111827",
+                marginTop: "2.5rem",
+                marginBottom: "1rem",
+              }}
+            >
+              Internships
+            </h3>
+            <div className="space-y-4">
+              {internships.map((internship, idx) => (
+                <div
+                  key={idx}
+                  className="reveal-item rounded-lg"
+                  style={{
+                    ...stagger(idx),
+                    backgroundColor: "#F9FAFB",
+                    border: "1px solid #E5E7EB",
+                    padding: "16px",
+                  }}
+                >
+                  <div className="flex items-center gap-3 mb-2.5">
                     {internship.companyImage && (
                       <img
                         src={internship.companyImage}
                         alt={internship.company}
-                        className="w-7 h-7 object-contain"
+                        className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5"
+                        style={{ border: "1px solid #E5E7EB" }}
                       />
                     )}
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-start justify-between gap-2">
-                      <h3 className="text-[1.05rem] font-semibold text-foreground leading-snug">
+                    <div className="min-w-0 flex-1">
+                      <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
                         {internship.title}
-                      </h3>
-                      <span className="shrink-0 text-[9px] font-semibold tracking-[0.05em] uppercase text-muted-foreground/60 bg-secondary border border-border rounded px-2 py-0.5">
-                        Intern
-                      </span>
+                      </p>
+                      <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px" }}>
+                        {internship.company} · {internship.period}
+                      </p>
                     </div>
-                    <p className="text-[0.9rem] text-[#666] dark:text-muted-foreground mt-0.5">
-                      {internship.company} · {internship.period}
-                    </p>
                   </div>
+
+                  {internship.companyProfile && (
+                    <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
+                      {internship.companyProfile}
+                    </p>
+                  )}
+
+                  {internship.responsibility && (
+                    <p style={{ fontSize: "0.85rem", color: "#6B7280", lineHeight: 1.6 }}>
+                      {internship.responsibility}
+                    </p>
+                  )}
                 </div>
-
-                {/* Company profile */}
-                {internship.companyProfile && (
-                  <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
-                    {internship.companyProfile}
-                  </p>
-                )}
-
-                {/* Responsibility */}
-                {internship.responsibility && (
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {internship.responsibility}
-                  </p>
-                )}
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
