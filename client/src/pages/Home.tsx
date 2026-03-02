@@ -500,19 +500,19 @@ export default function Home() {
       <section id="about" className="border-t border-border">
         <div className="container py-20" ref={aboutReveal.ref}>
           <div className={aboutReveal.revealed ? "is-revealed" : ""}>
-            {/* Section heading — matches Experience / Skills */}
+            {/* Section heading */}
             <h2
               className="reveal-item text-[2rem] font-bold tracking-[-0.02em] text-foreground mb-8"
               style={stagger(0)}
             >
-              About
+              About Me
             </h2>
 
             <div className="grid md:grid-cols-3 gap-10 md:gap-16">
               {/* Bio */}
-              <div className="md:col-span-2">
+              <div className="md:col-span-2 space-y-5">
                 <p
-                  className="reveal-item text-base leading-relaxed mb-6 text-foreground"
+                  className="reveal-item text-base leading-relaxed text-foreground"
                   style={stagger(1)}
                 >
                   Product Manager with experience across electric mobility, logistics, fulfillment,
@@ -522,62 +522,52 @@ export default function Home() {
                   outcomes, including managing high-impact platforms, coordinating regional and global
                   teams, and improving service quality through structured analysis.
                 </p>
-                <blockquote
-                  className="reveal-item text-sm leading-relaxed text-muted-foreground italic border-l-2 border-accent/50 pl-4"
+                <p
+                  className="reveal-item text-base leading-relaxed text-foreground"
                   style={stagger(2)}
                 >
                   I believe great products are built where user empathy, operational depth, and data
                   clarity meet. My approach is to understand the full ecosystem, from the ground-level
                   workflow to the executive dashboard, and turn complexity into focused, scalable
                   solutions that teams can actually execute.
-                </blockquote>
+                </p>
               </div>
 
-              {/* Education — Credential Sidebar */}
-              <div>
-                <p
-                  className="reveal-item text-[11px] tracking-[0.12em] uppercase text-foreground/60 mb-4 font-bold"
-                  style={stagger(2)}
-                >
-                  Education
-                </p>
-                <div className="space-y-4">
-                  {education.map((edu, idx) => (
-                    <div
-                      key={idx}
-                      className="reveal-item flex items-center gap-3 bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-4"
-                      style={stagger(idx + 2)}
-                    >
-                      {/* University logo — vertically centred via items-center on parent */}
-                      {edu.schoolImage && (
-                        <img
-                          src={edu.schoolImage}
-                          alt={edu.school}
-                          className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5 border border-[#E5E7EB] dark:border-border"
-                        />
-                      )}
-                      <div className="min-w-0">
-                        <p
-                          className="font-bold leading-snug text-[#111827] dark:text-foreground"
-                          style={{ fontSize: "1.05rem" }}
-                        >
-                          {edu.degree}
-                        </p>
-                        <p
-                          className="font-medium text-[#4B5563] dark:text-muted-foreground mt-0.5 truncate"
-                          style={{ fontSize: "0.9rem" }}
-                        >
-                          {edu.school}
-                        </p>
-                        <p
-                          className="text-[#6B7280] dark:text-muted-foreground mt-0.5"
-                          style={{ fontSize: "0.85rem" }}
-                        >
-                          {edu.date}
-                        </p>
+              {/* Education — single unified card */}
+              <div className="reveal-item" style={stagger(2)}>
+                <div className="bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-5">
+                  <p className="text-[11px] tracking-[0.12em] uppercase text-foreground/60 font-bold mb-4">
+                    Education
+                  </p>
+                  <div>
+                    {education.map((edu, idx) => (
+                      <div key={idx}>
+                        {idx > 0 && (
+                          <div className="border-t border-[#E5E7EB] dark:border-border my-4" />
+                        )}
+                        <div className="flex items-center gap-3">
+                          {edu.schoolImage && (
+                            <img
+                              src={edu.schoolImage}
+                              alt={edu.school}
+                              className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5 border border-[#E5E7EB] dark:border-border"
+                            />
+                          )}
+                          <div className="min-w-0">
+                            <p className="font-bold text-foreground leading-snug" style={{ fontSize: "0.95rem" }}>
+                              {edu.degree}
+                            </p>
+                            <p className="text-muted-foreground mt-0.5" style={{ fontSize: "0.82rem" }}>
+                              {edu.school}
+                            </p>
+                            <p className="text-muted-foreground/70 mt-0.5" style={{ fontSize: "0.8rem" }}>
+                              {edu.date}
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
