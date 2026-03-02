@@ -533,10 +533,8 @@ export default function Home() {
 
               {/* Education — single unified card */}
               <div className="reveal-item" style={stagger(3)}>
+                <h3 className={subsectionH3}>Education</h3>
                 <div className="bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-5">
-                  <h3 className={subsectionH3}>
-                    Education
-                  </h3>
                   <div>
                     {education.map((edu, idx) => (
                       <div key={idx}>
