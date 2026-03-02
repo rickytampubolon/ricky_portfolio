@@ -54,8 +54,6 @@ export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   /* Expanded state for full-time experience bullets */
   const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
-  /* Expanded state for part-time bullets (separate to avoid ID collision) */
-  const [expandedPT, setExpandedPT] = useState<Set<number>>(new Set());
   const [heroRevealed, setHeroRevealed] = useState(false);
 
   /* Briefly add theme-transitioning class so all colours animate smoothly,
@@ -84,14 +82,6 @@ export default function Home() {
 
   const toggleExpanded = (id: number) =>
     setExpandedIds((prev) => {
-      const next = new Set(prev);
-      if (next.has(id)) next.delete(id);
-      else next.add(id);
-      return next;
-    });
-
-  const toggleExpandedPT = (id: number) =>
-    setExpandedPT((prev) => {
       const next = new Set(prev);
       if (next.has(id)) next.delete(id);
       else next.add(id);
@@ -254,14 +244,14 @@ export default function Home() {
 
   const education = [
     {
-      degree: "Master of Business Administration",
+      degree: "MBA",
       school: "Bandung Institute of Technology",
       schoolImage:
         "https://media.licdn.com/dms/image/v2/C560BAQGJoYkUiQpUKA/company-logo_200_200/company-logo_200_200/0/1630672186443/itb_logo?e=1773273600&v=beta&t=ofyRWEblbh2qjZR2HYOofN8zQ-M_gy2yhiVMyS5J334",
       date: "Expected 09/2026",
     },
     {
-      degree: "Bachelor of Computer Science",
+      degree: "B.Sc. Computer Science",
       school: "Del Institute of Technology",
       schoolImage:
         "https://media.licdn.com/dms/image/v2/C560BAQESCZFZZqVyng/company-logo_200_200/company-logo_200_200/0/1631389462084?e=1773273600&v=beta&t=jNYjv_W6atTEERBs7tTk78Yhl1xnfkRZGPXuT4rcyLY",
@@ -280,13 +270,8 @@ export default function Home() {
       period: "2022 – 2023",
       description:
         "Indonesian health tech startup offering a full suite of health-related services through its digital platform, covering teleconsultation, medicine delivery, and e-commerce.",
-      highlights: [
-        "Contributed to the eCommerce and Merchant squad, conducting tests across Android, iOS, Web, and mobile web to maintain consistent product quality.",
-        "Built structured test cases in Xray and executed manual tests, while monitoring active bugs and communicating quality status with product management throughout each sprint.",
-        "Managed sprint tracking and test progress visibility through JIRA throughout the development cycle.",
-        "Performed regression and exploratory testing each sprint to identify edge cases and maintain consistent quality across all supported platforms and user flows.",
-        "Collaborated closely with developers and product owners to clarify acceptance criteria and align on expected outcomes before and during testing cycles.",
-      ],
+      summary:
+        "Contributed to the eCommerce and Merchant squad by executing structured manual, regression, and exploratory testing across Android, iOS, web, and mobile web, managing test cases and sprint tracking in Xray and JIRA, monitoring and communicating bug status, and collaborating closely with developers and product owners to align on acceptance criteria and ensure consistent product quality across all user flows.",
     },
     {
       id: 2,
@@ -298,13 +283,8 @@ export default function Home() {
       period: "2021 – 2022",
       description:
         "Indonesian express courier founded in 2014, specialising in same-day delivery across major cities throughout Indonesia.",
-      highlights: [
-        "Contributed to the CMS and Integration team, executing tests across Android, API, and Web platforms to support consistent release quality.",
-        "Developed structured test cases in TestRail and performed API testing using Postman to verify backend correctness and data consistency.",
-        "Managed sprint progress and test visibility through JIRA to support transparency across the team.",
-        "Conducted integration and regression testing to validate system stability across cross-platform workflows and interdependent service components.",
-        "Worked alongside developers and product owners to define test scope, align on acceptance criteria, and ensure all release requirements were thoroughly validated.",
-      ],
+      summary:
+        "Contributed to the CMS and Integration team by executing integration, regression, and API testing across Android and web platforms, developing structured test cases in TestRail, validating backend functionality with Postman, managing sprint visibility in JIRA, and collaborating with developers and product owners to align on test scope and acceptance criteria to ensure stable and reliable releases.",
     },
   ];
 
@@ -522,12 +502,15 @@ export default function Home() {
       <section id="about" className="border-t border-border">
         <div className="container py-20" ref={aboutReveal.ref}>
           <div className={aboutReveal.revealed ? "is-revealed" : ""}>
-            <h2 className={`reveal-item ${sectionH2}`} style={stagger(0)}>
-              About
-            </h2>
             <div className="grid md:grid-cols-3 gap-10 md:gap-16">
               {/* Bio */}
               <div className="md:col-span-2">
+                <p
+                  className="reveal-item text-[11px] tracking-[0.12em] uppercase text-foreground/70 mb-4 font-bold"
+                  style={stagger(0)}
+                >
+                  About
+                </p>
                 <p
                   className="reveal-item text-sm leading-relaxed mb-5 text-foreground"
                   style={stagger(1)}
@@ -722,115 +705,56 @@ export default function Home() {
         <div className="container py-20" ref={partTimeReveal.ref}>
           <h2 className={sectionH2}>Part-Time Roles</h2>
 
-          <div className={`relative ${partTimeReveal.revealed ? "is-revealed" : ""}`}>
-            {/* Timeline connector line */}
-            <div className="absolute left-[17px] top-[50px] bottom-[50px] w-[2px] bg-[#E5E7EB] dark:bg-border pointer-events-none" />
-
-            {partTimeJobs.map((job, idx) => {
-              const isExpanded = expandedPT.has(job.id);
-              const extraCount = job.highlights.length - 3;
-              const hasMore = extraCount > 0;
-
-              return (
-                <div
-                  key={job.id}
-                  className="reveal-item relative flex gap-5 mb-14 last:mb-0"
-                  style={stagger(idx)}
-                >
-                  {/* Timeline icon node */}
-                  <div className="relative z-10 shrink-0 mt-8">
-                    <div className="w-9 h-9 rounded bg-white border border-[#E5E7EB] overflow-hidden flex items-center justify-center shadow-sm">
-                      {job.companyImage && (
-                        <img
-                          src={job.companyImage}
-                          alt={job.company}
-                          className="w-7 h-7 object-contain"
-                        />
-                      )}
-                    </div>
+          <div
+            className={`grid sm:grid-cols-2 gap-6 ${
+              partTimeReveal.revealed ? "is-revealed" : ""
+            }`}
+          >
+            {partTimeJobs.map((job, idx) => (
+              <div
+                key={job.id}
+                className={`reveal-item ${refinedCard} p-6`}
+                style={{ ...refinedCardShadow, ...stagger(idx) }}
+              >
+                {/* Card header: logo + title/company/period */}
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-9 h-9 rounded bg-white border border-[#E5E7EB] overflow-hidden flex items-center justify-center shadow-sm shrink-0">
+                    {job.companyImage && (
+                      <img
+                        src={job.companyImage}
+                        alt={job.company}
+                        className="w-7 h-7 object-contain"
+                      />
+                    )}
                   </div>
-
-                  {/* Refined card */}
-                  <div className={`${refinedCard} p-8`} style={refinedCardShadow}>
-                    {/* Header row */}
-                    <div className="flex items-start justify-between gap-3 mb-3">
-                      <div className="min-w-0">
-                        <h3 className="text-[1.15rem] font-semibold text-foreground leading-snug">
-                          {job.title}
-                        </h3>
-                        <p className="text-[0.95rem] text-[#666] dark:text-muted-foreground mt-1">
-                          {job.company} · {job.period}
-                        </p>
-                      </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-[1.05rem] font-semibold text-foreground leading-snug">
+                        {job.title}
+                      </h3>
                       <span className="shrink-0 text-[9px] font-semibold tracking-[0.05em] uppercase text-muted-foreground/60 bg-secondary border border-border rounded px-2 py-0.5">
                         Part-Time
                       </span>
                     </div>
-
-                    {/* Company description */}
-                    {job.description && (
-                      <p className="text-xs text-muted-foreground/70 italic mb-4 leading-relaxed">
-                        {job.description}
-                      </p>
-                    )}
-
-                    {/* First 3 bullets — always visible */}
-                    <ul className="space-y-2">
-                      {job.highlights.slice(0, 3).map((h, i) => (
-                        <li
-                          key={i}
-                          className="flex gap-2.5 text-xs text-muted-foreground"
-                          style={{ lineHeight: "1.6" }}
-                        >
-                          <span className="mt-[5px] w-1 h-1 rounded-full bg-muted-foreground/35 shrink-0 flex-none" />
-                          {h}
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Extra bullets — animated slide-down */}
-                    {hasMore && (
-                      <div
-                        style={{
-                          maxHeight: isExpanded ? `${extraCount * 80}px` : "0px",
-                          overflow: "hidden",
-                          transition: "max-height 0.3s ease-in-out",
-                        }}
-                      >
-                        <ul className="space-y-2 mt-2">
-                          {job.highlights.slice(3).map((h, i) => (
-                            <li
-                              key={i + 3}
-                              className="flex gap-2.5 text-xs text-muted-foreground"
-                              style={{ lineHeight: "1.6" }}
-                            >
-                              <span className="mt-[5px] w-1 h-1 rounded-full bg-muted-foreground/35 shrink-0 flex-none" />
-                              {h}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-
-                    {/* Show More / Show Less toggle */}
-                    {hasMore && (
-                      <button
-                        onClick={() => toggleExpandedPT(job.id)}
-                        className="flex items-center gap-1 mt-3 text-xs text-[#666] dark:text-muted-foreground hover:text-accent transition-colors duration-150 font-medium"
-                      >
-                        {isExpanded ? "Show Less" : "Show More"}
-                        <ChevronDown
-                          size={12}
-                          className={`transition-transform duration-300 ${
-                            isExpanded ? "rotate-180" : ""
-                          }`}
-                        />
-                      </button>
-                    )}
+                    <p className="text-[0.9rem] text-[#666] dark:text-muted-foreground mt-0.5">
+                      {job.company} · {job.period}
+                    </p>
                   </div>
                 </div>
-              );
-            })}
+
+                {/* Company description */}
+                {job.description && (
+                  <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
+                    {job.description}
+                  </p>
+                )}
+
+                {/* Summary paragraph */}
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {job.summary}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -840,19 +764,20 @@ export default function Home() {
         <div className="container py-20" ref={internReveal.ref}>
           <h2 className={sectionH2}>Internships</h2>
 
-          <div className={`relative ${internReveal.revealed ? "is-revealed" : ""}`}>
-            {/* Timeline connector line */}
-            <div className="absolute left-[17px] top-[50px] bottom-[50px] w-[2px] bg-[#E5E7EB] dark:bg-border pointer-events-none" />
-
+          <div
+            className={`grid sm:grid-cols-2 gap-6 ${
+              internReveal.revealed ? "is-revealed" : ""
+            }`}
+          >
             {internships.map((internship, idx) => (
               <div
                 key={idx}
-                className="reveal-item relative flex gap-5 mb-14 last:mb-0"
-                style={stagger(idx)}
+                className={`reveal-item ${refinedCard} p-6`}
+                style={{ ...refinedCardShadow, ...stagger(idx) }}
               >
-                {/* Timeline icon node */}
-                <div className="relative z-10 shrink-0 mt-8">
-                  <div className="w-9 h-9 rounded bg-white border border-[#E5E7EB] overflow-hidden flex items-center justify-center shadow-sm">
+                {/* Card header: logo + title/company/period */}
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="w-9 h-9 rounded bg-white border border-[#E5E7EB] overflow-hidden flex items-center justify-center shadow-sm shrink-0">
                     {internship.companyImage && (
                       <img
                         src={internship.companyImage}
@@ -861,39 +786,34 @@ export default function Home() {
                       />
                     )}
                   </div>
-                </div>
-
-                {/* Refined card */}
-                <div className={`${refinedCard} p-8`} style={refinedCardShadow}>
-                  {/* Header row */}
-                  <div className="flex items-start justify-between gap-3 mb-3">
-                    <div className="min-w-0">
-                      <h3 className="text-[1.15rem] font-semibold text-foreground leading-snug">
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-[1.05rem] font-semibold text-foreground leading-snug">
                         {internship.title}
                       </h3>
-                      <p className="text-[0.95rem] text-[#666] dark:text-muted-foreground mt-1">
-                        {internship.company} · {internship.period}
-                      </p>
+                      <span className="shrink-0 text-[9px] font-semibold tracking-[0.05em] uppercase text-muted-foreground/60 bg-secondary border border-border rounded px-2 py-0.5">
+                        Intern
+                      </span>
                     </div>
-                    <span className="shrink-0 text-[9px] font-semibold tracking-[0.05em] uppercase text-muted-foreground/60 bg-secondary border border-border rounded px-2 py-0.5">
-                      Internship
-                    </span>
+                    <p className="text-[0.9rem] text-[#666] dark:text-muted-foreground mt-0.5">
+                      {internship.company} · {internship.period}
+                    </p>
                   </div>
-
-                  {/* Company profile */}
-                  {internship.companyProfile && (
-                    <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
-                      {internship.companyProfile}
-                    </p>
-                  )}
-
-                  {/* Responsibility */}
-                  {internship.responsibility && (
-                    <p className="text-xs text-muted-foreground" style={{ lineHeight: "1.6" }}>
-                      {internship.responsibility}
-                    </p>
-                  )}
                 </div>
+
+                {/* Company profile */}
+                {internship.companyProfile && (
+                  <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
+                    {internship.companyProfile}
+                  </p>
+                )}
+
+                {/* Responsibility */}
+                {internship.responsibility && (
+                  <p className="text-xs text-muted-foreground leading-relaxed">
+                    {internship.responsibility}
+                  </p>
+                )}
               </div>
             ))}
           </div>
