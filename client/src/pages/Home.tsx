@@ -864,7 +864,7 @@ export default function Home() {
       <footer className="border-t border-[#d2d2d7] dark:border-border">
         <div className="container py-8 text-center">
           <p className="text-[0.875rem] text-[#86868b] dark:text-muted-foreground">
-            Ricky Halomoan © 2026 · Senior Product Manager · Jakarta
+            Ricky Halomoan © 2026
           </p>
         </div>
       </footer>
