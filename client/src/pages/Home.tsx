@@ -41,13 +41,13 @@ function stagger(n: number) {
 }
 
 /* ── Shared section heading style ───────────────────────────── */
-const sectionH2Base = "text-[2.5rem] font-semibold tracking-[-0.02em] text-foreground";
+const sectionH2Base = "fluid-h2 font-semibold tracking-[-0.02em] text-foreground";
 const sectionH2 = `${sectionH2Base} mb-12`;
 
 /* ── Shared component styles ─────────────────────────────── */
 const expCard = "flex-1 min-w-0 rounded-3xl p-6 bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1";
 const timelineNode = "w-9 h-9 rounded-2xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none";
-const subsectionH3 = "text-[1.5rem] font-medium tracking-[-0.01em] text-foreground mb-4";
+const subsectionH3 = "fluid-h3 font-medium tracking-[-0.01em] text-foreground mb-4";
 
 /* ── Skill category tag tints ────────────────────────────── */
 const categoryTagColors: Record<string, string> = {
@@ -461,8 +461,8 @@ export default function Home() {
 
             {/* Name */}
             <h1
-              className="reveal-item text-[3rem] sm:text-[4rem] md:text-[4.5rem] font-bold leading-[1.1] text-foreground mb-4"
-              style={{ ...stagger(1), letterSpacing: "-0.03em" }}
+              className="reveal-item font-bold leading-[1.1] text-foreground mb-4"
+              style={{ ...stagger(1), letterSpacing: "-0.03em", fontSize: "var(--font-size-h1)" }}
             >
               Ricky Halomoan
             </h1>
@@ -485,16 +485,16 @@ export default function Home() {
 
             {/* CTAs */}
             <div
-              className="reveal-item flex flex-wrap justify-center items-center gap-3 sm:gap-4"
+              className="reveal-item flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 w-full"
               style={stagger(4)}
             >
-              <a href="#contact">
-                <button className="bg-accent text-white hover:bg-[#0056CC] px-6 py-3 text-sm font-medium rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px active:scale-[0.97]">
+              <a href="#contact" className="w-full sm:w-auto">
+                <button className="bg-accent text-white hover:bg-[#0056CC] px-6 py-3 min-h-[44px] w-full sm:w-auto text-sm font-medium rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px active:scale-[0.97]">
                   Let's Work Together
                 </button>
               </a>
-              <a href="#experience">
-                <button className="border border-[#CCCCCC] dark:border-border text-foreground bg-transparent hover:bg-secondary px-6 py-3 text-sm font-medium rounded-full transition-all duration-200 active:scale-[0.97]">
+              <a href="#experience" className="w-full sm:w-auto">
+                <button className="border border-[#CCCCCC] dark:border-border text-foreground bg-transparent hover:bg-secondary px-6 py-3 min-h-[44px] w-full sm:w-auto text-sm font-medium rounded-full transition-all duration-200 active:scale-[0.97]">
                   View My Work
                 </button>
               </a>
