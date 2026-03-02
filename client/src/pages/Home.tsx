@@ -510,11 +510,11 @@ export default function Home() {
               About Me
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-10 md:gap-16">
+            <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-start">
               {/* Bio */}
-              <div className="md:col-span-2 space-y-5">
+              <div className="flex-[1.8] min-w-0 space-y-5">
                 <p
-                  className="reveal-item text-base leading-relaxed text-foreground"
+                  className="reveal-item text-base leading-[1.6] text-foreground"
                   style={stagger(1)}
                 >
                   Product Manager with experience across electric mobility, logistics, fulfillment,
@@ -525,7 +525,7 @@ export default function Home() {
                   teams, and improving service quality through structured analysis.
                 </p>
                 <p
-                  className="reveal-item text-base leading-relaxed text-foreground"
+                  className="reveal-item text-base leading-[1.6] text-foreground"
                   style={stagger(2)}
                 >
                   I believe great products are built where user empathy, operational depth, and data
@@ -536,38 +536,36 @@ export default function Home() {
               </div>
 
               {/* Education — single unified card */}
-              <div className="reveal-item" style={stagger(3)}>
+              <div className="reveal-item flex-1 min-w-0" style={stagger(3)}>
                 <h3 className={subsectionH3}>Education</h3>
-                <div className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-5 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
-                  <div>
-                    {education.map((edu, idx) => (
-                      <div key={idx}>
-                        {idx > 0 && (
-                          <div className="border-t border-[#E5E5EA] dark:border-border my-4" />
+                <div className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-8 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
+                  {education.map((edu, idx) => (
+                    <div
+                      key={idx}
+                      className={idx < education.length - 1 ? "border-b border-[#F0F0F0] dark:border-border pb-6 mb-6" : ""}
+                    >
+                      <div className="flex items-start gap-3">
+                        {edu.schoolImage && (
+                          <img
+                            src={edu.schoolImage}
+                            alt={edu.school}
+                            className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border mt-0.5"
+                          />
                         )}
-                        <div className="flex items-start gap-3">
-                          {edu.schoolImage && (
-                            <img
-                              src={edu.schoolImage}
-                              alt={edu.school}
-                              className="w-8 h-8 object-contain rounded-lg shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border"
-                            />
-                          )}
-                          <div className="min-w-0">
-                            <p className="font-bold text-foreground leading-snug" style={{ fontSize: "0.95rem" }}>
-                              {edu.degree}
-                            </p>
-                            <p className="text-muted-foreground mt-0.5" style={{ fontSize: "0.82rem" }}>
-                              {edu.school}
-                            </p>
-                            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground mt-0.5">
-                              {edu.date}
-                            </p>
-                          </div>
+                        <div className="min-w-0">
+                          <p className="font-semibold text-[#1D1D1F] dark:text-foreground leading-snug mb-1" style={{ fontSize: "1.1rem" }}>
+                            {edu.degree}
+                          </p>
+                          <p className="font-normal text-[#86868b] dark:text-muted-foreground" style={{ fontSize: "0.9rem" }}>
+                            {edu.school}
+                          </p>
+                          <p className="font-normal text-[#86868b] dark:text-muted-foreground mt-0.5" style={{ fontSize: "0.9rem" }}>
+                            {edu.date}
+                          </p>
                         </div>
                       </div>
-                    ))}
-                  </div>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
