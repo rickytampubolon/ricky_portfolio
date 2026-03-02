@@ -41,12 +41,13 @@ function stagger(n: number) {
 }
 
 /* ── Shared section heading style ───────────────────────────── */
-const sectionH2 = "text-[2rem] font-bold tracking-[-0.02em] text-foreground mb-12";
+const sectionH2Base = "text-[2rem] font-bold tracking-[-0.02em] text-foreground";
+const sectionH2 = `${sectionH2Base} mb-12`;
 
-/* ── Shared refined card style ──────────────────────────────── */
-const refinedCard =
-  "flex-1 min-w-0 bg-white dark:bg-card border border-[rgba(0,0,0,0.08)] dark:border-border rounded-xl hover:border-accent/40 dark:hover:border-accent/40 transition-colors duration-200";
-const refinedCardShadow = { boxShadow: "0 1px 2px 0 rgba(0,0,0,0.03)" };
+/* ── Shared component styles ─────────────────────────────── */
+const expCard = "flex-1 min-w-0 rounded-lg p-4 bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border";
+const timelineNode = "w-9 h-9 rounded bg-white dark:bg-card border border-border overflow-hidden flex items-center justify-center shadow-sm";
+const subsectionH3 = "text-2xl font-semibold text-foreground mb-4";
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
@@ -501,10 +502,7 @@ export default function Home() {
         <div className="container py-20" ref={aboutReveal.ref}>
           <div className={aboutReveal.revealed ? "is-revealed" : ""}>
             {/* Section heading */}
-            <h2
-              className="reveal-item text-[2rem] font-bold tracking-[-0.02em] text-foreground mb-8"
-              style={stagger(0)}
-            >
+            <h2 className={`reveal-item ${sectionH2Base} mb-8`} style={stagger(0)}>
               About Me
             </h2>
 
@@ -534,9 +532,9 @@ export default function Home() {
               </div>
 
               {/* Education — single unified card */}
-              <div className="reveal-item" style={stagger(2)}>
+              <div className="reveal-item" style={stagger(3)}>
                 <div className="bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border rounded-xl p-5">
-                  <h3 className="text-2xl font-semibold text-foreground mb-4">
+                  <h3 className={subsectionH3}>
                     Education
                   </h3>
                   <div>
@@ -578,14 +576,11 @@ export default function Home() {
       {/* ── Experience ────────────────────────────────────────── */}
       <section id="experience" className="border-t border-border">
         <div className="container py-20" ref={expReveal.ref}>
-          {/* Main heading */}
-          <h2 className="text-[2rem] font-bold tracking-[-0.02em] text-foreground mb-6">
-            Experience
-          </h2>
+          <h2 className={`${sectionH2Base} mb-6`}>Experience</h2>
 
           <div className={expReveal.revealed ? "is-revealed" : ""}>
             {/* ── Full-time Roles ── */}
-            <h3 className="text-2xl font-semibold text-foreground mb-4">
+            <h3 className={subsectionH3}>
               Full-time Roles
             </h3>
             <div className="relative">
@@ -605,7 +600,7 @@ export default function Home() {
                   >
                     {/* Timeline node: logo */}
                     <div className="relative z-10 shrink-0 mt-1.5">
-                      <div className="w-9 h-9 rounded bg-white dark:bg-card border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                      <div className={timelineNode}>
                         {exp.companyImage && (
                           <img src={exp.companyImage} alt={exp.company} className="w-7 h-7 object-contain" />
                         )}
@@ -613,7 +608,7 @@ export default function Home() {
                     </div>
 
                     {/* Card */}
-                    <div className="flex-1 min-w-0 rounded-lg p-4 bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border">
+                    <div className={expCard}>
                       <div className="flex items-start justify-between gap-2 mb-2.5">
                         <div className="min-w-0 flex-1">
                           <p className="font-bold text-foreground leading-snug" style={{ fontSize: "1.05rem" }}>
@@ -648,7 +643,7 @@ export default function Home() {
                       {hasMore && (
                         <div
                           style={{
-                            maxHeight: isExpanded ? `${extraCount * 80}px` : "0px",
+                            maxHeight: isExpanded ? `${extraCount * 100}px` : "0px",
                             overflow: "hidden",
                             transition: "max-height 0.3s ease-in-out",
                           }}
@@ -683,7 +678,7 @@ export default function Home() {
             </div>
 
             {/* ── Part-Time Roles ── */}
-            <h3 className="text-2xl font-semibold text-foreground mt-10 mb-4">
+            <h3 className={`${subsectionH3} mt-10`}>
               Part-Time Roles
             </h3>
             <div className="relative">
@@ -696,14 +691,14 @@ export default function Home() {
                   style={stagger(idx)}
                 >
                   <div className="relative z-10 shrink-0 mt-1.5">
-                    <div className="w-9 h-9 rounded bg-white dark:bg-card border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                    <div className={timelineNode}>
                       {job.companyImage && (
                         <img src={job.companyImage} alt={job.company} className="w-7 h-7 object-contain" />
                       )}
                     </div>
                   </div>
 
-                  <div className="flex-1 min-w-0 rounded-lg p-4 bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border">
+                  <div className={expCard}>
                     <p className="font-bold text-foreground leading-snug mb-0.5" style={{ fontSize: "1.05rem" }}>
                       {job.title}
                     </p>
@@ -726,7 +721,7 @@ export default function Home() {
             </div>
 
             {/* ── Internships ── */}
-            <h3 className="text-2xl font-semibold text-foreground mt-10 mb-4">
+            <h3 className={`${subsectionH3} mt-10`}>
               Internships
             </h3>
             <div className="relative">
@@ -739,14 +734,14 @@ export default function Home() {
                   style={stagger(idx)}
                 >
                   <div className="relative z-10 shrink-0 mt-1.5">
-                    <div className="w-9 h-9 rounded bg-white dark:bg-card border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                    <div className={timelineNode}>
                       {internship.companyImage && (
                         <img src={internship.companyImage} alt={internship.company} className="w-7 h-7 object-contain" />
                       )}
                     </div>
                   </div>
 
-                  <div className="flex-1 min-w-0 rounded-lg p-4 bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border">
+                  <div className={expCard}>
                     <p className="font-bold text-foreground leading-snug mb-0.5" style={{ fontSize: "1.05rem" }}>
                       {internship.title}
                     </p>
@@ -824,7 +819,7 @@ export default function Home() {
               Let's build something great.
             </p>
             <p
-              className="reveal-item text-sm text-muted-foreground mb-10 whitespace-nowrap"
+              className="reveal-item text-sm text-muted-foreground mb-10"
               style={stagger(2)}
             >
               Open to new opportunities and collaborations. Feel free to reach out via email or connect on social media.
