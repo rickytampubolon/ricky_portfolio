@@ -47,22 +47,22 @@
 
   /* ── Apple-Inspired Light Mode ─────────────────────────── */
   --background: #F5F5F7;
-  --foreground: #1D1D1F;
+  --foreground: #424245;
   --card: #FFFFFF;
-  --card-foreground: #1D1D1F;
+  --card-foreground: #424245;
   --popover: #FFFFFF;
-  --popover-foreground: #1D1D1F;
+  --popover-foreground: #424245;
   --primary: #1D1D1F;
   --primary-foreground: #FFFFFF;
   --secondary: #EEEEEE;
-  --secondary-foreground: #1D1D1F;
+  --secondary-foreground: #424245;
   --muted: #EEEEEE;
-  --muted-foreground: #888888;
+  --muted-foreground: #86868b;
   --accent: #007AFF;
   --accent-foreground: #FFFFFF;
   --destructive: #FF3B30;
   --destructive-foreground: #FFFFFF;
-  --border: #D1D1D6;
+  --border: #d2d2d7;
   --input: #EEEEEE;
   --ring: #007AFF;
   --chart-1: #1D1D1F;
