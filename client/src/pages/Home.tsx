@@ -500,17 +500,19 @@ export default function Home() {
       <section id="about" className="border-t border-border">
         <div className="container py-20" ref={aboutReveal.ref}>
           <div className={aboutReveal.revealed ? "is-revealed" : ""}>
+            {/* Section heading — matches Experience / Skills */}
+            <h2
+              className="reveal-item text-[2rem] font-bold tracking-[-0.02em] text-foreground mb-8"
+              style={stagger(0)}
+            >
+              About
+            </h2>
+
             <div className="grid md:grid-cols-3 gap-10 md:gap-16">
               {/* Bio */}
               <div className="md:col-span-2">
                 <p
-                  className="reveal-item text-[11px] tracking-[0.12em] uppercase text-foreground/70 mb-4 font-bold"
-                  style={stagger(0)}
-                >
-                  About
-                </p>
-                <p
-                  className="reveal-item text-sm leading-relaxed mb-5 text-foreground"
+                  className="reveal-item text-base leading-relaxed mb-6 text-foreground"
                   style={stagger(1)}
                 >
                   Product Manager with experience across electric mobility, logistics, fulfillment,
@@ -521,7 +523,7 @@ export default function Home() {
                   teams, and improving service quality through structured analysis.
                 </p>
                 <blockquote
-                  className="reveal-item text-sm leading-relaxed text-foreground/70 italic border-l-2 border-accent/30 pl-4"
+                  className="reveal-item text-sm leading-relaxed text-muted-foreground italic border-l-2 border-accent/50 pl-4"
                   style={stagger(2)}
                 >
                   I believe great products are built where user empathy, operational depth, and data
@@ -534,8 +536,8 @@ export default function Home() {
               {/* Education — Credential Sidebar */}
               <div>
                 <p
-                  className="reveal-item text-[11px] tracking-[0.12em] uppercase text-foreground/70 mb-4 font-bold"
-                  style={stagger(1)}
+                  className="reveal-item text-[11px] tracking-[0.12em] uppercase text-foreground/60 mb-4 font-bold"
+                  style={stagger(2)}
                 >
                   Education
                 </p>
@@ -587,27 +589,13 @@ export default function Home() {
       <section id="experience" className="border-t border-border">
         <div className="container py-20" ref={expReveal.ref}>
           {/* Main heading */}
-          <h2
-            style={{
-              fontSize: "2.25rem",
-              fontWeight: 700,
-              color: "#111827",
-              marginBottom: "1.5rem",
-            }}
-          >
+          <h2 className="text-[2rem] font-bold tracking-[-0.02em] text-foreground mb-6">
             Experience
           </h2>
 
           <div className={expReveal.revealed ? "is-revealed" : ""}>
             {/* ── Full-time Roles ── */}
-            <h3
-              style={{
-                fontSize: "1.5rem",
-                fontWeight: 600,
-                color: "#111827",
-                marginBottom: "1rem",
-              }}
-            >
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
               Full-time Roles
             </h3>
             <div className="relative">
@@ -627,7 +615,7 @@ export default function Home() {
                   >
                     {/* Timeline node: logo */}
                     <div className="relative z-10 shrink-0 mt-1.5">
-                      <div className="w-9 h-9 rounded bg-white border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                      <div className="w-9 h-9 rounded bg-white dark:bg-card border border-border overflow-hidden flex items-center justify-center shadow-sm">
                         {exp.companyImage && (
                           <img src={exp.companyImage} alt={exp.company} className="w-7 h-7 object-contain" />
                         )}
@@ -635,16 +623,13 @@ export default function Home() {
                     </div>
 
                     {/* Card */}
-                    <div
-                      className="flex-1 min-w-0 rounded-lg p-4"
-                      style={{ backgroundColor: "#F9FAFB", border: "1px solid #E5E7EB" }}
-                    >
+                    <div className="flex-1 min-w-0 rounded-lg p-4 bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border">
                       <div className="flex items-start justify-between gap-2 mb-2.5">
                         <div className="min-w-0 flex-1">
-                          <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
+                          <p className="font-bold text-foreground leading-snug" style={{ fontSize: "1.05rem" }}>
                             {exp.title}
                           </p>
-                          <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px" }}>
+                          <p className="font-medium text-muted-foreground mt-0.5" style={{ fontSize: "0.9rem" }}>
                             {exp.company} · {exp.period}
                           </p>
                         </div>
@@ -663,7 +648,7 @@ export default function Home() {
 
                       <ul className="space-y-1.5">
                         {exp.highlights.slice(0, 3).map((highlight, idx) => (
-                          <li key={idx} className="flex gap-2" style={{ fontSize: "0.85rem", color: "#6B7280" }}>
+                          <li key={idx} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.85rem" }}>
                             <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
                             <span className="leading-[1.6]">{highlight}</span>
                           </li>
@@ -680,7 +665,7 @@ export default function Home() {
                         >
                           <ul className="space-y-1.5 mt-1.5">
                             {exp.highlights.slice(3).map((highlight, idx) => (
-                              <li key={idx + 3} className="flex gap-2" style={{ fontSize: "0.85rem", color: "#6B7280" }}>
+                              <li key={idx + 3} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.85rem" }}>
                                 <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
                                 <span className="leading-[1.6]">{highlight}</span>
                               </li>
@@ -692,8 +677,7 @@ export default function Home() {
                       {hasMore && (
                         <button
                           onClick={() => toggleExpanded(exp.id)}
-                          className="flex items-center gap-1 mt-3 text-xs hover:text-accent transition-colors duration-150 font-medium"
-                          style={{ color: "#6B7280" }}
+                          className="flex items-center gap-1 mt-3 text-xs text-muted-foreground hover:text-accent transition-colors duration-150 font-medium"
                         >
                           {isExpanded ? "Show Less" : "Show More"}
                           <ChevronDown
@@ -709,15 +693,7 @@ export default function Home() {
             </div>
 
             {/* ── Part-Time Roles ── */}
-            <h3
-              style={{
-                fontSize: "1.5rem",
-                fontWeight: 600,
-                color: "#111827",
-                marginTop: "2.5rem",
-                marginBottom: "1rem",
-              }}
-            >
+            <h3 className="text-2xl font-semibold text-foreground mt-10 mb-4">
               Part-Time Roles
             </h3>
             <div className="relative">
@@ -730,21 +706,18 @@ export default function Home() {
                   style={stagger(idx)}
                 >
                   <div className="relative z-10 shrink-0 mt-1.5">
-                    <div className="w-9 h-9 rounded bg-white border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                    <div className="w-9 h-9 rounded bg-white dark:bg-card border border-border overflow-hidden flex items-center justify-center shadow-sm">
                       {job.companyImage && (
                         <img src={job.companyImage} alt={job.company} className="w-7 h-7 object-contain" />
                       )}
                     </div>
                   </div>
 
-                  <div
-                    className="flex-1 min-w-0 rounded-lg p-4"
-                    style={{ backgroundColor: "#F9FAFB", border: "1px solid #E5E7EB" }}
-                  >
-                    <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
+                  <div className="flex-1 min-w-0 rounded-lg p-4 bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border">
+                    <p className="font-bold text-foreground leading-snug mb-0.5" style={{ fontSize: "1.05rem" }}>
                       {job.title}
                     </p>
-                    <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px", marginBottom: "10px" }}>
+                    <p className="font-medium text-muted-foreground mb-2.5" style={{ fontSize: "0.9rem" }}>
                       {job.company} · {job.period}
                     </p>
 
@@ -754,7 +727,7 @@ export default function Home() {
                       </p>
                     )}
 
-                    <p style={{ fontSize: "0.85rem", color: "#6B7280", lineHeight: 1.6 }}>
+                    <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "0.85rem" }}>
                       {job.summary}
                     </p>
                   </div>
@@ -763,15 +736,7 @@ export default function Home() {
             </div>
 
             {/* ── Internships ── */}
-            <h3
-              style={{
-                fontSize: "1.5rem",
-                fontWeight: 600,
-                color: "#111827",
-                marginTop: "2.5rem",
-                marginBottom: "1rem",
-              }}
-            >
+            <h3 className="text-2xl font-semibold text-foreground mt-10 mb-4">
               Internships
             </h3>
             <div className="relative">
@@ -784,21 +749,18 @@ export default function Home() {
                   style={stagger(idx)}
                 >
                   <div className="relative z-10 shrink-0 mt-1.5">
-                    <div className="w-9 h-9 rounded bg-white border border-border overflow-hidden flex items-center justify-center shadow-sm">
+                    <div className="w-9 h-9 rounded bg-white dark:bg-card border border-border overflow-hidden flex items-center justify-center shadow-sm">
                       {internship.companyImage && (
                         <img src={internship.companyImage} alt={internship.company} className="w-7 h-7 object-contain" />
                       )}
                     </div>
                   </div>
 
-                  <div
-                    className="flex-1 min-w-0 rounded-lg p-4"
-                    style={{ backgroundColor: "#F9FAFB", border: "1px solid #E5E7EB" }}
-                  >
-                    <p style={{ fontWeight: 700, fontSize: "1.05rem", color: "#111827", lineHeight: 1.3 }}>
+                  <div className="flex-1 min-w-0 rounded-lg p-4 bg-[#F9FAFB] dark:bg-card border border-[#E5E7EB] dark:border-border">
+                    <p className="font-bold text-foreground leading-snug mb-0.5" style={{ fontSize: "1.05rem" }}>
                       {internship.title}
                     </p>
-                    <p style={{ fontWeight: 500, fontSize: "0.9rem", color: "#4B5563", marginTop: "2px", marginBottom: "10px" }}>
+                    <p className="font-medium text-muted-foreground mb-2.5" style={{ fontSize: "0.9rem" }}>
                       {internship.company} · {internship.period}
                     </p>
 
@@ -809,7 +771,7 @@ export default function Home() {
                     )}
 
                     {internship.responsibility && (
-                      <p style={{ fontSize: "0.85rem", color: "#6B7280", lineHeight: 1.6 }}>
+                      <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "0.85rem" }}>
                         {internship.responsibility}
                       </p>
                     )}
