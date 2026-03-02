@@ -151,7 +151,7 @@ export default function Home() {
     },
     {
       id: 4,
-      title: "Product Manager - Fulfillment",
+      title: "Product Manager II - Fulfillment",
       company: "Tokopedia & GoTo Logistics",
       companyProfile:
         "Tokopedia is Indonesia's largest homegrown e-commerce marketplace, merged with Gojek to form the GoTo Group. GoTo Logistics serves as the group's integrated logistics arm, powering warehousing, fulfilment, and last-mile delivery for millions of sellers and buyers across the country, operating at a scale that positions it as one of Indonesia's leading logistics infrastructure providers.",
@@ -338,7 +338,7 @@ export default function Home() {
     {
       href: "https://www.instagram.com/rickyhlmn/",
       icon: <Instagram size={15} />,
-      label: "@rickyhlmn",
+      label: "instagram.com/rickyhlmn",
       staggerIdx: 5,
       external: true,
     },
