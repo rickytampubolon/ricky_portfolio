@@ -45,7 +45,7 @@ const sectionH2Base = "fluid-h2 font-semibold tracking-[-0.02em] text-foreground
 const sectionH2 = `${sectionH2Base} mb-12`;
 
 /* ── Shared component styles ─────────────────────────────── */
-const expCard = "flex-1 min-w-0 rounded-3xl p-6 bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1";
+const expCard = "flex-1 min-w-0 rounded-3xl p-4 sm:p-6 bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1";
 const timelineNode = "w-9 h-9 rounded-2xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none";
 const subsectionH3 = "fluid-h3 font-medium tracking-[-0.01em] text-foreground mb-4";
 
@@ -518,7 +518,7 @@ export default function Home() {
               About Me
             </h2>
 
-            <div className="flex flex-col md:flex-row gap-8 md:gap-16 items-stretch">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-16 items-stretch">
               {/* Bio */}
               <div className="flex-[1.8] min-w-0 space-y-5 max-w-[65ch]">
                 <p
@@ -545,7 +545,7 @@ export default function Home() {
 
               {/* Education — single unified card */}
               <div className="reveal-item flex-1 min-w-0 flex flex-col" style={stagger(3)}>
-                <div className="h-full bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-8 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
+                <div className="h-full bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-5 sm:p-8 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
                   {education.map((edu, idx) => (
                     <div
                       key={idx}
@@ -846,10 +846,10 @@ export default function Home() {
                   key={href}
                   href={href}
                   {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="reveal-item inline-flex items-center gap-3 text-[1rem] text-muted-foreground hover:text-foreground hover:-translate-y-0.5 transition-all duration-200 group w-fit"
+                  className="reveal-item inline-flex items-center gap-4 text-[1rem] text-muted-foreground hover:text-foreground hover:-translate-y-0.5 transition-all duration-200 group w-fit"
                   style={stagger(staggerIdx)}
                 >
-                  <span className="w-9 h-9 rounded-2xl bg-white dark:bg-secondary shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-[#E5E5EA] dark:border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
+                  <span className="w-11 h-11 rounded-2xl bg-white dark:bg-secondary shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-[#E5E5EA] dark:border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
                     {icon}
                   </span>
                   <span className="truncate group-hover:underline underline-offset-4">{label}</span>
@@ -873,7 +873,7 @@ export default function Home() {
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-4 sm:right-6 bg-white dark:bg-card text-foreground border border-[#E5E5EA] dark:border-border p-3 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] hover:bg-secondary transition-all duration-200 active:scale-[0.97] z-50"
+          className="fixed bottom-6 right-4 sm:right-6 bg-white dark:bg-card text-foreground border border-[#E5E5EA] dark:border-border p-[14px] rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] hover:bg-secondary transition-all duration-200 active:scale-[0.97] z-50"
           aria-label="Back to top"
         >
           <ChevronUp size={16} />
