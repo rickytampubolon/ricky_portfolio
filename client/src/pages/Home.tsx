@@ -45,8 +45,8 @@ const sectionH2Base = "text-[2.5rem] font-semibold tracking-[-0.02em] text-foreg
 const sectionH2 = `${sectionH2Base} mb-12`;
 
 /* ── Shared component styles ─────────────────────────────── */
-const expCard = "flex-1 min-w-0 rounded-2xl p-6 bg-white dark:bg-card shadow-[0px_2px_10px_rgba(0,0,0,0.05)] dark:shadow-none border border-transparent dark:border-border";
-const timelineNode = "w-9 h-9 rounded-xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shadow-[0px_1px_4px_rgba(0,0,0,0.06)] dark:shadow-none";
+const expCard = "flex-1 min-w-0 rounded-3xl p-6 bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1";
+const timelineNode = "w-9 h-9 rounded-2xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none";
 const subsectionH3 = "text-[1.5rem] font-medium tracking-[-0.01em] text-foreground mb-4";
 
 export default function Home() {
@@ -355,7 +355,7 @@ export default function Home() {
         }`}
       >
         <nav
-          className={`max-w-[640px] w-full flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-border shadow-[0_2px_24px_rgba(0,0,0,0.08)] backdrop-blur-[20px] bg-white/80 dark:bg-card/90 transition-all duration-300 ${
+          className={`max-w-[640px] w-full flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-border shadow-[0_2px_24px_rgba(0,0,0,0.08)] backdrop-blur-[30px] backdrop-saturate-[180%] bg-white/80 dark:bg-card/90 transition-all duration-300 ${
             scrolled ? "px-3 sm:px-4 py-1.5 sm:py-2" : "px-4 sm:px-6 py-2 sm:py-3"
           }`}
         >
@@ -481,12 +481,12 @@ export default function Home() {
               style={stagger(4)}
             >
               <a href="#contact">
-                <button className="bg-accent text-white hover:bg-[#0056CC] px-6 py-3 text-sm font-medium rounded-xl transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px">
+                <button className="bg-accent text-white hover:bg-[#0056CC] px-6 py-3 text-sm font-medium rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px active:scale-[0.97]">
                   Let's Work Together
                 </button>
               </a>
               <a href="#experience">
-                <button className="border border-[#CCCCCC] dark:border-border text-foreground bg-transparent hover:bg-secondary px-6 py-3 text-sm font-medium rounded-xl transition-all duration-200">
+                <button className="border border-[#CCCCCC] dark:border-border text-foreground bg-transparent hover:bg-secondary px-6 py-3 text-sm font-medium rounded-full transition-all duration-200 active:scale-[0.97]">
                   View My Work
                 </button>
               </a>
@@ -538,7 +538,7 @@ export default function Home() {
               {/* Education — single unified card */}
               <div className="reveal-item" style={stagger(3)}>
                 <h3 className={subsectionH3}>Education</h3>
-                <div className="bg-white dark:bg-card shadow-[0px_2px_10px_rgba(0,0,0,0.05)] dark:shadow-none border border-transparent dark:border-border rounded-2xl p-5">
+                <div className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-5 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
                   <div>
                     {education.map((edu, idx) => (
                       <div key={idx}>
@@ -560,7 +560,7 @@ export default function Home() {
                             <p className="text-muted-foreground mt-0.5" style={{ fontSize: "0.82rem" }}>
                               {edu.school}
                             </p>
-                            <p className="text-muted-foreground/70 mt-0.5" style={{ fontSize: "0.8rem" }}>
+                            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground mt-0.5">
                               {edu.date}
                             </p>
                           </div>
@@ -617,7 +617,10 @@ export default function Home() {
                             {exp.title}
                           </p>
                           <p className="font-medium text-muted-foreground mt-0.5" style={{ fontSize: "0.9rem" }}>
-                            {exp.company} · {exp.period}
+                            {exp.company}
+                          </p>
+                          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground mt-0.5">
+                            {exp.period}
                           </p>
                         </div>
                         {exp.id === 1 && (
@@ -704,8 +707,11 @@ export default function Home() {
                     <p className="font-bold text-foreground leading-snug mb-0.5" style={{ fontSize: "1.05rem" }}>
                       {job.title}
                     </p>
-                    <p className="font-medium text-muted-foreground mb-2.5" style={{ fontSize: "0.9rem" }}>
-                      {job.company} · {job.period}
+                    <p className="font-medium text-muted-foreground" style={{ fontSize: "0.9rem" }}>
+                      {job.company}
+                    </p>
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground mt-0.5 mb-2.5">
+                      {job.period}
                     </p>
 
                     {job.description && (
@@ -747,8 +753,11 @@ export default function Home() {
                     <p className="font-bold text-foreground leading-snug mb-0.5" style={{ fontSize: "1.05rem" }}>
                       {internship.title}
                     </p>
-                    <p className="font-medium text-muted-foreground mb-2.5" style={{ fontSize: "0.9rem" }}>
-                      {internship.company} · {internship.period}
+                    <p className="font-medium text-muted-foreground" style={{ fontSize: "0.9rem" }}>
+                      {internship.company}
+                    </p>
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground mt-0.5 mb-2.5">
+                      {internship.period}
                     </p>
 
                     {internship.companyProfile && (
@@ -782,7 +791,7 @@ export default function Home() {
             {Object.entries(skills).map(([category, items], catIdx) => (
               <div
                 key={category}
-                className="reveal-item bg-white dark:bg-card shadow-[0px_2px_10px_rgba(0,0,0,0.05)] dark:shadow-none border border-transparent dark:border-border rounded-2xl p-6"
+                className="reveal-item bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-6 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
                 style={stagger(catIdx)}
               >
                 <h3 className="text-xs font-semibold text-foreground/60 mb-4 tracking-[0.08em] uppercase">
@@ -835,7 +844,7 @@ export default function Home() {
                   className="reveal-item inline-flex items-center gap-3 text-[1rem] text-muted-foreground hover:text-foreground transition-all duration-200 group w-fit"
                   style={stagger(staggerIdx)}
                 >
-                  <span className="w-9 h-9 rounded-xl bg-white dark:bg-secondary shadow-[0px_1px_4px_rgba(0,0,0,0.06)] dark:shadow-none border border-[#E5E5EA] dark:border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
+                  <span className="w-9 h-9 rounded-2xl bg-white dark:bg-secondary shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-[#E5E5EA] dark:border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
                     {icon}
                   </span>
                   <span className="truncate group-hover:underline underline-offset-4">{label}</span>
@@ -847,10 +856,11 @@ export default function Home() {
       </section>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="border-t border-border">
-        <div className="container py-8 flex flex-col sm:flex-row items-center sm:justify-between gap-1 text-center sm:text-left">
-          <p className="text-[0.9rem] font-light text-muted-foreground">Ricky Halomoan T. © 2026</p>
-          <p className="text-[0.9rem] font-light text-muted-foreground/50">Senior Product Manager · Jakarta</p>
+      <footer className="border-t border-[#d2d2d7] dark:border-border">
+        <div className="container py-8 text-center">
+          <p className="text-[0.875rem] text-[#86868b] dark:text-muted-foreground">
+            Ricky Halomoan T. © 2026 · Senior Product Manager · Jakarta
+          </p>
         </div>
       </footer>
 
@@ -858,7 +868,7 @@ export default function Home() {
       {showBackToTop && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          className="fixed bottom-6 right-4 sm:right-6 bg-white dark:bg-card text-foreground border border-[#E5E5EA] dark:border-border p-3 rounded-xl shadow-[0px_2px_10px_rgba(0,0,0,0.08)] hover:bg-secondary transition-all duration-200 z-50"
+          className="fixed bottom-6 right-4 sm:right-6 bg-white dark:bg-card text-foreground border border-[#E5E5EA] dark:border-border p-3 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] hover:bg-secondary transition-all duration-200 active:scale-[0.97] z-50"
           aria-label="Back to top"
         >
           <ChevronUp size={16} />
