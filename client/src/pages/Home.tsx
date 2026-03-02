@@ -553,7 +553,7 @@ export default function Home() {
                         <img
                           src={edu.schoolImage}
                           alt={edu.school}
-                          className="w-10 h-10 object-contain rounded shrink-0 bg-white p-0.5 border border-[#E5E7EB] dark:border-border"
+                          className="w-8 h-8 object-contain rounded shrink-0 bg-white p-0.5 border border-[#E5E7EB] dark:border-border"
                         />
                       )}
                       <div className="min-w-0">
