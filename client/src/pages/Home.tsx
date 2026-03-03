@@ -298,7 +298,7 @@ export default function Home() {
       period: "2019",
       companyProfile: "Cloud-based point of sale and business management platform under GoTo Group, empowering merchants with digital tools to manage transactions, inventory, and operations. As part of Indonesia's largest digital ecosystem, Moka supports the growth of SMEs across the country.",
       responsibility:
-        "Supported the Moka POS Backoffice Inventory team in ensuring smooth operations and high-quality product deliverables throughout the internship period.",
+        "Contributed to the Moka POS Backoffice Inventory team by supporting end-to-end testing and quality assurance activities to ensure stable system performance and reliable product releases. Executed structured test scenarios, validated critical inventory workflows, and collaborated closely with engineers to maintain consistent product quality across backoffice operations.",
     },
     {
       title: "QA Engineer Intern",
@@ -309,7 +309,7 @@ export default function Home() {
       companyProfile:
         "Southeast Asian technology platform driving digital adoption across mobility, deliveries, and financial services. Operating across multiple countries, Grab connects millions of users, drivers, and merchants through a unified superapp ecosystem.",
       responsibility:
-        "Automated API testing for payment systems using Postman and developed robust UI automation using Robot Framework and Appium.",
+        "Automated API testing for payment systems using Postman and developed UI automation frameworks with Robot Framework and Appium to strengthen regression coverage and improve release confidence. Identified defects early through systematic validation of payment flows and worked with developers to ensure secure and seamless transaction experiences.",
     },
     {
       title: "QA Engineer Intern",
@@ -319,7 +319,7 @@ export default function Home() {
       period: "2018",
       companyProfile: "Indonesian digital wallet platform accelerating the transition to a cashless society. By providing secure payments, transfers, and financial services, DANA supports financial inclusion for individuals and businesses nationwide.",
       responsibility:
-        "Played an active role in the BukaDANA project and KYC processes, ensuring seamless functionality and consistent product quality.",
+        "Supported the BukaDANA integration and KYC initiatives by validating key user journeys, monitoring system behavior, and ensuring compliance with verification requirements. Partnered with cross-functional teams to resolve issues efficiently and maintain consistent functionality across payment and identity verification processes.",
     },
   ];
 
