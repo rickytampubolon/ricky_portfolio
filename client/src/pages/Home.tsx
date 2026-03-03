@@ -536,9 +536,6 @@ export default function Home() {
 
               {/* Education — labelled, two separate cards */}
               <div className="reveal-item flex-1 min-w-0 flex flex-col" style={stagger(3)}>
-                <p className="text-xs font-semibold tracking-widest text-gray-500 dark:text-muted-foreground uppercase mb-6">
-                  Education
-                </p>
                 <div className="flex flex-col gap-6">
                   {education.map((edu, idx) => (
                     <div
