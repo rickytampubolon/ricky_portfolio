@@ -471,7 +471,7 @@ export default function Home() {
 
             {/* Domain tags */}
             <p
-              className="reveal-item text-[0.9rem] text-muted-foreground/60 tracking-[0.12em] uppercase font-light mb-16"
+              className="reveal-item text-[0.9rem] text-muted-foreground/60 tracking-[0.12em] uppercase font-light mb-10"
               style={stagger(3)}
             >
               Logistics · Fulfillment · Electric Mobility · Digital Transformation
@@ -507,67 +507,65 @@ export default function Home() {
               About Me
             </h2>
 
-            {/* Bio — single column, constrained and centered */}
-            <div className="max-w-3xl mx-auto space-y-5 mb-12">
-              <p
-                className="reveal-item text-base leading-[1.6] text-foreground"
-                style={stagger(1)}
-              >
-                I became a Product Manager because I wanted great engineering effort to solve the
-                right problems. With a foundation in Informatics and hands-on experience
-                delivering software, I earned a seat at the technical table. What drives me,
-                however, is ensuring that the work truly serves real user needs. The space between
-                what is technically possible and what is genuinely useful is where I do my best
-                work.
-              </p>
-              <p
-                className="reveal-item text-base leading-[1.6] text-foreground"
-                style={stagger(2)}
-              >
-                Across electric mobility, logistics, and fulfillment, I have learned that the
-                most impactful products are not the most complex. They are the ones grounded in a
-                deep understanding of how people actually work. I begin every challenge by getting
-                close to the operation, speaking with drivers, operations teams, and engineers
-                before shaping any roadmap. I translate complexity into clarity so cross-functional
-                teams can move with alignment and purpose.
-              </p>
-            </div>
-
-            {/* Education — two-column grid */}
-            <h3 className={`reveal-item ${subsectionH3}`} style={stagger(3)}>
-              Education
-            </h3>
-            <div
-              className="reveal-item grid grid-cols-1 md:grid-cols-2 gap-4"
-              style={stagger(4)}
-            >
-              {education.map((edu, idx) => (
-                <div
-                  key={idx}
-                  className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-5 sm:p-6 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
+            <div className="flex flex-col md:flex-row gap-6 md:gap-16 items-stretch">
+              {/* Bio */}
+              <div className="flex-[1.8] min-w-0 space-y-5 max-w-[65ch]">
+                <p
+                  className="reveal-item text-base leading-[1.6] text-foreground"
+                  style={stagger(1)}
                 >
-                  <div className="flex items-start gap-3">
-                    {edu.schoolImage && (
-                      <img
-                        src={edu.schoolImage}
-                        alt={edu.school}
-                        className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border mt-0.5"
-                      />
-                    )}
-                    <div className="min-w-0">
-                      <p className="font-semibold text-[#1D1D1F] dark:text-foreground leading-snug mb-1" style={{ fontSize: "1.1rem" }}>
-                        {edu.degree}
-                      </p>
-                      <p className="font-normal text-[#86868b] dark:text-muted-foreground" style={{ fontSize: "0.9rem" }}>
-                        {edu.school}
-                      </p>
-                      <p className="font-normal text-[#86868b] dark:text-muted-foreground mt-0.5" style={{ fontSize: "0.9rem" }}>
-                        {edu.date}
-                      </p>
+                  I became a Product Manager because I wanted great engineering effort to solve the
+                  right problems. With a foundation in Informatics and hands-on experience
+                  delivering software, I earned a seat at the technical table. What drives me,
+                  however, is ensuring that the work truly serves real user needs. The space between
+                  what is technically possible and what is genuinely useful is where I do my best
+                  work.
+                </p>
+                <p
+                  className="reveal-item text-base leading-[1.6] text-foreground"
+                  style={stagger(2)}
+                >
+                  Across electric mobility, logistics, and fulfillment, I have learned that the
+                  most impactful products are not the most complex. They are the ones grounded in a
+                  deep understanding of how people actually work. I begin every challenge by getting
+                  close to the operation, speaking with drivers, operations teams, and engineers
+                  before shaping any roadmap. I translate complexity into clarity so cross-functional
+                  teams can move with alignment and purpose.
+                </p>
+              </div>
+
+              {/* Education — single unified card */}
+              <div className="reveal-item flex-1 min-w-0 flex flex-col" style={stagger(3)}>
+                <div className="h-full bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-5 sm:p-8 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
+                  {education.map((edu, idx) => (
+                    <div
+                      key={idx}
+                      className={idx < education.length - 1 ? "border-b border-[#F0F0F0] dark:border-border pb-6 mb-6" : ""}
+                    >
+                      <div className="flex items-start gap-3">
+                        {edu.schoolImage && (
+                          <img
+                            src={edu.schoolImage}
+                            alt={edu.school}
+                            className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border mt-0.5"
+                          />
+                        )}
+                        <div className="min-w-0">
+                          <p className="font-semibold text-[#1D1D1F] dark:text-foreground leading-snug mb-1" style={{ fontSize: "1.1rem" }}>
+                            {edu.degree}
+                          </p>
+                          <p className="font-normal text-[#86868b] dark:text-muted-foreground" style={{ fontSize: "0.9rem" }}>
+                            {edu.school}
+                          </p>
+                          <p className="font-normal text-[#86868b] dark:text-muted-foreground mt-0.5" style={{ fontSize: "0.9rem" }}>
+                            {edu.date}
+                          </p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
@@ -576,7 +574,6 @@ export default function Home() {
       {/* ── Experience ────────────────────────────────────────── */}
       <section id="experience" className="border-t border-border">
         <div className="container py-20" ref={expReveal.ref}>
-          <div className="max-w-4xl mx-auto">
           <h2 className={`${sectionH2Base} mb-6`}>Experience</h2>
 
           <div className={expReveal.revealed ? "is-revealed" : ""}>
@@ -774,7 +771,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
           </div>
         </div>
       </section>
