@@ -45,7 +45,7 @@ const sectionH2Base = "fluid-h2 font-semibold tracking-[-0.02em] text-foreground
 const sectionH2 = `${sectionH2Base} mb-12`;
 
 /* ── Shared component styles ─────────────────────────────── */
-const expCard = "flex-1 min-w-0 rounded-3xl p-4 sm:p-6 bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1";
+const expCard = "flex-1 min-w-0 rounded-3xl p-5 sm:p-6 bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1";
 const timelineNode = "w-9 h-9 rounded-2xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none";
 const subsectionH3 = "fluid-h3 font-medium tracking-[-0.01em] text-foreground mb-4";
 
@@ -483,19 +483,14 @@ export default function Home() {
               Logistics · Fulfillment · Electric Mobility · Digital Transformation
             </p>
 
-            {/* CTAs */}
+            {/* CTA */}
             <div
-              className="reveal-item flex flex-col sm:flex-row justify-center items-center gap-3 sm:gap-4 w-full"
+              className="reveal-item flex justify-center items-center w-full"
               style={stagger(4)}
             >
-              <a href="#contact" className="w-full sm:w-auto">
-                <button className="bg-accent text-white hover:bg-[#0056CC] px-6 py-3 min-h-[44px] w-full sm:w-auto text-sm font-medium rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px active:scale-[0.97]">
+              <a href="#contact">
+                <button className="bg-accent text-white hover:bg-[#0056CC] px-8 py-3 min-h-[44px] text-sm font-medium rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px active:scale-[0.97]">
                   Let's Work Together
-                </button>
-              </a>
-              <a href="#experience" className="w-full sm:w-auto">
-                <button className="border border-[#CCCCCC] dark:border-border text-foreground bg-transparent hover:bg-secondary px-6 py-3 min-h-[44px] w-full sm:w-auto text-sm font-medium rounded-full transition-all duration-200 active:scale-[0.97]">
-                  View My Work
                 </button>
               </a>
             </div>
@@ -525,21 +520,23 @@ export default function Home() {
                   className="reveal-item text-base leading-[1.6] text-foreground"
                   style={stagger(1)}
                 >
-                  Product Manager with experience across electric mobility, logistics, fulfillment,
-                  and education technology, skilled in leading product strategy and cross-functional
-                  initiatives to deliver scalable solutions. A background in software engineering
-                  supports a strong ability to translate operational challenges into practical product
-                  outcomes, including managing high-impact platforms, coordinating regional and global
-                  teams, and improving service quality through structured analysis.
+                  I became a Product Manager because I was tired of watching great engineering go
+                  to waste on the wrong problems. My background in software gave me a seat at the
+                  technical table — but what I really wanted was to make sure that table was pointed
+                  at something users actually needed. That tension, between what's technically
+                  possible and what's genuinely useful, is where I do my best work.
                 </p>
                 <p
                   className="reveal-item text-base leading-[1.6] text-foreground"
                   style={stagger(2)}
                 >
-                  I believe great products are built where user empathy, operational depth, and data
-                  clarity meet. My approach is to understand the full ecosystem, from the ground-level
-                  workflow to the executive dashboard, and turn complexity into focused, scalable
-                  solutions that teams can actually execute.
+                  Across electric mobility, logistics, and fulfillment, I've learned that the most
+                  impactful products aren't the most sophisticated ones — they're the ones built on
+                  a deep understanding of how people actually work. I start every problem by getting
+                  close to the operation: talking to drivers, ops teams, and engineers before I
+                  ever open a roadmap doc. That ground-level empathy, combined with the ability to
+                  translate complexity into something a cross-functional team can rally around, is
+                  what I bring to every product I touch.
                 </p>
               </div>
 
