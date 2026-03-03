@@ -507,7 +507,7 @@ export default function Home() {
               About Me
             </h2>
 
-            <div className="flex flex-col md:flex-row gap-6 md:gap-16 items-stretch">
+            <div className="flex flex-col md:flex-row gap-6 md:gap-16 items-start">
               {/* Bio */}
               <div className="flex-[1.8] min-w-0 space-y-5 max-w-[65ch]">
                 <p
@@ -534,13 +534,16 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Education — single unified card */}
+              {/* Education — labelled, two separate cards */}
               <div className="reveal-item flex-1 min-w-0 flex flex-col" style={stagger(3)}>
-                <div className="h-full bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-5 sm:p-8 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1">
+                <p className="text-xs font-semibold tracking-widest text-gray-500 dark:text-muted-foreground uppercase mb-6">
+                  Education
+                </p>
+                <div className="flex flex-col gap-6">
                   {education.map((edu, idx) => (
                     <div
                       key={idx}
-                      className={idx < education.length - 1 ? "border-b border-[#F0F0F0] dark:border-border pb-6 mb-6" : ""}
+                      className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-8 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
                     >
                       <div className="flex items-start gap-3">
                         {edu.schoolImage && (
