@@ -244,6 +244,15 @@ html.theme-transitioning *::after {
     transform: translateY(0);
   }
 
+  /* Skip reveal animation when OS reduce-motion is on */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal-item {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
   @media (min-width: 640px) {
     .container {
       padding-left: 2rem;

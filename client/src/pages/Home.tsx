@@ -12,7 +12,7 @@ import { useState, useEffect, useRef } from "react";
 import { useTheme } from "../contexts/ThemeContext";
 
 /* ── Intersection-observer reveal hook ─────────────────────── */
-function useReveal(threshold = 0.12) {
+function useReveal(threshold = 0) {
   const ref = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
 
