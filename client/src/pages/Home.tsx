@@ -270,7 +270,7 @@ export default function Home() {
       location: "Jakarta, Indonesia",
       period: "2022 – 2023",
       description:
-        "Indonesian health tech startup offering a full suite of health-related services through its digital platform, covering teleconsultation, medicine delivery, and e-commerce.",
+        "Indonesian health technology company building an integrated digital healthcare ecosystem. Through teleconsultation, medicine delivery, and health commerce services, SehatQ aims to improve access to trusted and affordable healthcare across Indonesia.",
       summary:
         "Contributed to the eCommerce and Merchant squad by executing structured manual, regression, and exploratory testing across Android, iOS, web, and mobile web, managing test cases and sprint tracking in Xray and JIRA, monitoring and communicating bug status, and collaborating closely with developers and product owners to align on acceptance criteria and ensure consistent product quality across all user flows.",
     },
@@ -283,7 +283,7 @@ export default function Home() {
       location: "Jakarta, Indonesia",
       period: "2021 – 2022",
       description:
-        "Indonesian express courier founded in 2014, specialising in same-day delivery across major cities throughout Indonesia.",
+        "Indonesian express logistics company focused on fast and reliable delivery services nationwide. With strong same-day capabilities and extensive city coverage, SiCepat plays a key role in supporting Indonesia's growing e-commerce ecosystem.",
       summary:
         "Contributed to the CMS and Integration team by executing integration, regression, and API testing across Android and web platforms, developing structured test cases in TestRail, validating backend functionality with Postman, managing sprint visibility in JIRA, and collaborating with developers and product owners to align on test scope and acceptance criteria to ensure stable and reliable releases.",
     },
@@ -296,7 +296,7 @@ export default function Home() {
       companyImage:
         "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/fMzZvBYHbNOGcXlH.png",
       period: "2019",
-      companyProfile: "Cloud-based POS and business management platform, part of GoTo Financial.",
+      companyProfile: "Cloud-based point of sale and business management platform under GoTo Group, empowering merchants with digital tools to manage transactions, inventory, and operations. As part of Indonesia's largest digital ecosystem, Moka supports the growth of SMEs across the country.",
       responsibility:
         "Supported the Moka POS Backoffice Inventory team in ensuring smooth operations and high-quality product deliverables throughout the internship period.",
     },
@@ -307,7 +307,7 @@ export default function Home() {
         "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/bUAqVpvhsLeEvRro.png",
       period: "2019",
       companyProfile:
-        "Southeast Asia's leading superapp for ride-hailing, deliveries, and financial services.",
+        "Southeast Asian technology platform driving digital adoption across mobility, deliveries, and financial services. Operating across multiple countries, Grab connects millions of users, drivers, and merchants through a unified superapp ecosystem.",
       responsibility:
         "Automated API testing for payment systems using Postman and developed robust UI automation using Robot Framework and Appium.",
     },
@@ -317,7 +317,7 @@ export default function Home() {
       companyImage:
         "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/JlXCSsTrCXQVouBa.png",
       period: "2018",
-      companyProfile: "Indonesia's leading digital wallet platform.",
+      companyProfile: "Indonesian digital wallet platform accelerating the transition to a cashless society. By providing secure payments, transfers, and financial services, DANA supports financial inclusion for individuals and businesses nationwide.",
       responsibility:
         "Played an active role in the BukaDANA project and KYC processes, ensuring seamless functionality and consistent product quality.",
     },
