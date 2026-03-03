@@ -514,23 +514,23 @@ export default function Home() {
                   className="reveal-item text-base leading-[1.6] text-foreground"
                   style={stagger(1)}
                 >
-                  I became a Product Manager because I was tired of watching great engineering go
-                  to waste on the wrong problems. My background in software gave me a seat at the
-                  technical table — but what I really wanted was to make sure that table was pointed
-                  at something users actually needed. That tension, between what's technically
-                  possible and what's genuinely useful, is where I do my best work.
+                  I became a Product Manager because I wanted great engineering effort to solve the
+                  right problems. With a foundation in Informatics and hands-on experience
+                  delivering software, I earned a seat at the technical table. What drives me,
+                  however, is ensuring that the work truly serves real user needs. The space between
+                  what is technically possible and what is genuinely useful is where I do my best
+                  work.
                 </p>
                 <p
                   className="reveal-item text-base leading-[1.6] text-foreground"
                   style={stagger(2)}
                 >
-                  Across electric mobility, logistics, and fulfillment, I've learned that the most
-                  impactful products aren't the most sophisticated ones — they're the ones built on
-                  a deep understanding of how people actually work. I start every problem by getting
-                  close to the operation: talking to drivers, ops teams, and engineers before I
-                  ever open a roadmap doc. That ground-level empathy, combined with the ability to
-                  translate complexity into something a cross-functional team can rally around, is
-                  what I bring to every product I touch.
+                  Across electric mobility, logistics, and fulfillment, I have learned that the
+                  most impactful products are not the most complex. They are the ones grounded in a
+                  deep understanding of how people actually work. I begin every challenge by getting
+                  close to the operation, speaking with drivers, operations teams, and engineers
+                  before shaping any roadmap. I translate complexity into clarity so cross-functional
+                  teams can move with alignment and purpose.
                 </p>
               </div>
 
