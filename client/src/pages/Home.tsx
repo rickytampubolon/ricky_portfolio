@@ -48,6 +48,8 @@ const sectionH2 = `${sectionH2Base} mb-12`;
 const expCard = "flex-1 min-w-0 rounded-3xl p-5 sm:p-6 bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.09),_0_4px_14px_rgba(0,0,0,0.05)] dark:shadow-none border border-transparent dark:border-border transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1";
 const timelineNode = "w-9 h-9 rounded-2xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none";
 const subsectionH3 = "fluid-h3 font-semibold tracking-[-0.01em] text-foreground mb-4";
+const partTimeCard = "flex-1 min-w-0 rounded-3xl p-4 sm:p-5 bg-[#FAFAFA] dark:bg-card/80 shadow-[0_4px_16px_rgba(0,0,0,0.02),_0_1px_4px_rgba(0,0,0,0.015)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06),_0_2px_8px_rgba(0,0,0,0.03)] dark:shadow-none border border-[#EBEBEB] dark:border-border/70 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-0.5";
+const internCard = "min-w-0 rounded-2xl p-4 bg-[#FAFAFA] dark:bg-card/80 shadow-[0_4px_16px_rgba(0,0,0,0.02),_0_1px_4px_rgba(0,0,0,0.015)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06),_0_2px_8px_rgba(0,0,0,0.03)] dark:shadow-none border border-[#EBEBEB] dark:border-border/70 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-0.5";
 
 /* ── Skill category tag tints ────────────────────────────── */
 const categoryTagColors: Record<string, string> = {
@@ -718,24 +720,24 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className={expCard}>
-                    <p className="font-bold text-foreground leading-snug mb-0.5" style={{ fontSize: "1.05rem" }}>
+                  <div className={partTimeCard}>
+                    <p className="font-semibold text-foreground leading-snug mb-0.5" style={{ fontSize: "0.95rem" }}>
                       {job.title}
                     </p>
-                    <p className="font-medium text-muted-foreground" style={{ fontSize: "0.9rem" }}>
+                    <p className="font-medium text-muted-foreground" style={{ fontSize: "0.85rem" }}>
                       {job.company}
                     </p>
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground mt-0.5 mb-2.5">
+                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground mt-0.5 mb-2">
                       {job.period}
                     </p>
 
                     {job.description && (
-                      <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
+                      <p className="text-[0.78rem] text-muted-foreground/60 italic mb-2 leading-relaxed line-clamp-2">
                         {job.description}
                       </p>
                     )}
 
-                    <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "0.9rem" }}>
+                    <p className="text-muted-foreground leading-relaxed line-clamp-3" style={{ fontSize: "0.85rem" }}>
                       {job.summary}
                     </p>
                   </div>
@@ -747,46 +749,48 @@ export default function Home() {
             <h3 className={`${subsectionH3} mt-10`}>
               Internships
             </h3>
-            <div className="relative">
-              <div className="absolute left-[17px] top-[46px] bottom-[46px] w-[2px] bg-gradient-to-b from-border via-border/60 to-transparent pointer-events-none" />
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {internships.map((internship, idx) => (
                 <div
                   key={idx}
-                  className="reveal-item relative flex gap-4 sm:gap-5 mb-4 last:mb-0"
+                  className={`reveal-item ${internCard}`}
                   style={stagger(idx)}
                 >
-                  <div className="relative z-10 shrink-0 mt-1.5">
-                    <div className={timelineNode}>
+                  {/* Logo + company + period */}
+                  <div className="flex items-center gap-2.5 mb-2.5">
+                    <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shrink-0">
                       {internship.companyImage && (
-                        <img src={internship.companyImage} alt={internship.company} className="w-7 h-7 object-contain" />
+                        <img src={internship.companyImage} alt={internship.company} className="w-5 h-5 object-contain" />
                       )}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="font-semibold text-foreground leading-snug truncate" style={{ fontSize: "0.9rem" }}>
+                        {internship.company}
+                      </p>
+                      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground">
+                        {internship.period}
+                      </p>
                     </div>
                   </div>
 
-                  <div className={expCard}>
-                    <p className="font-bold text-foreground leading-snug mb-0.5" style={{ fontSize: "1.05rem" }}>
-                      {internship.title}
-                    </p>
-                    <p className="font-medium text-muted-foreground" style={{ fontSize: "0.9rem" }}>
-                      {internship.company}
-                    </p>
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground mt-0.5 mb-2.5">
-                      {internship.period}
-                    </p>
+                  {/* Role title */}
+                  <p className="font-medium text-foreground/80 mb-2 leading-snug" style={{ fontSize: "0.82rem" }}>
+                    {internship.title}
+                  </p>
 
-                    {internship.companyProfile && (
-                      <p className="text-xs text-muted-foreground/70 italic mb-3 leading-relaxed">
-                        {internship.companyProfile}
-                      </p>
-                    )}
+                  {/* Company profile — capped at 2 lines */}
+                  {internship.companyProfile && (
+                    <p className="text-[0.78rem] text-muted-foreground/60 italic mb-2 leading-relaxed line-clamp-2">
+                      {internship.companyProfile}
+                    </p>
+                  )}
 
-                    {internship.responsibility && (
-                      <p className="text-muted-foreground leading-relaxed" style={{ fontSize: "0.9rem" }}>
-                        {internship.responsibility}
-                      </p>
-                    )}
-                  </div>
+                  {/* Responsibility — capped at 3 lines */}
+                  {internship.responsibility && (
+                    <p className="text-muted-foreground leading-relaxed line-clamp-3" style={{ fontSize: "0.82rem" }}>
+                      {internship.responsibility}
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
