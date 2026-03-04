@@ -41,13 +41,13 @@ function stagger(n: number) {
 }
 
 /* ── Shared section heading style ───────────────────────────── */
-const sectionH2Base = "fluid-h2 font-semibold tracking-[-0.02em] text-foreground";
+const sectionH2Base = "fluid-h2 font-bold tracking-[-0.02em] text-foreground";
 const sectionH2 = `${sectionH2Base} mb-12`;
 
 /* ── Shared component styles ─────────────────────────────── */
-const expCard = "flex-1 min-w-0 rounded-3xl p-5 sm:p-6 bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1";
+const expCard = "flex-1 min-w-0 rounded-3xl p-5 sm:p-6 bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.09),_0_4px_14px_rgba(0,0,0,0.05)] dark:shadow-none border border-transparent dark:border-border transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1";
 const timelineNode = "w-9 h-9 rounded-2xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none";
-const subsectionH3 = "fluid-h3 font-medium tracking-[-0.01em] text-foreground mb-4";
+const subsectionH3 = "fluid-h3 font-semibold tracking-[-0.01em] text-foreground mb-4";
 
 /* ── Skill category tag tints ────────────────────────────── */
 const categoryTagColors: Record<string, string> = {
@@ -62,7 +62,7 @@ export default function Home() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   /* Expanded state for full-time experience bullets */
-  const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set());
+  const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set([1, 2, 3, 4]));
   const [heroRevealed, setHeroRevealed] = useState(false);
 
   /* Briefly add theme-transitioning class so all colours animate smoothly,
@@ -468,7 +468,7 @@ export default function Home() {
 
             {/* Name */}
             <h1
-              className="reveal-item font-bold leading-[1.1] text-foreground mb-4"
+              className="reveal-item font-bold leading-[1.1] text-foreground mb-2"
               style={{ ...stagger(1), letterSpacing: "-0.03em", fontSize: "var(--font-size-h1)" }}
             >
               Ricky Halomoan
@@ -476,7 +476,7 @@ export default function Home() {
 
             {/* Sub-headline */}
             <p
-              className="reveal-item text-[1.1rem] text-muted-foreground font-normal leading-relaxed mb-3 tracking-[0.005em]"
+              className="reveal-item text-[1.1rem] text-muted-foreground font-normal leading-relaxed mb-2 tracking-[0.005em]"
               style={stagger(2)}
             >
               Senior Product Manager · Building digital products that move businesses forward.
@@ -484,7 +484,7 @@ export default function Home() {
 
             {/* Domain tags */}
             <p
-              className="reveal-item text-[0.9rem] text-muted-foreground/60 tracking-[0.12em] uppercase font-light mb-10"
+              className="reveal-item text-[0.9rem] text-muted-foreground/60 tracking-[0.12em] uppercase font-light mb-8"
               style={stagger(3)}
             >
               Logistics · Fulfillment · Electric Mobility · Digital Transformation
@@ -513,7 +513,7 @@ export default function Home() {
 
       {/* ── About ─────────────────────────────────────────────── */}
       <section id="about" className="border-t border-border">
-        <div className="container py-20" ref={aboutReveal.ref}>
+        <div className="container py-24" ref={aboutReveal.ref}>
           <div className={aboutReveal.revealed ? "is-revealed" : ""}>
             {/* Section heading */}
             <h2 className={`reveal-item ${sectionH2Base} mb-8`} style={stagger(0)}>
@@ -586,7 +586,7 @@ export default function Home() {
 
       {/* ── Experience ────────────────────────────────────────── */}
       <section id="experience" className="border-t border-border">
-        <div className="container py-20" ref={expReveal.ref}>
+        <div className="container py-24" ref={expReveal.ref}>
           <h2 className={`${sectionH2Base} mb-6`}>Experience</h2>
 
           <div className={expReveal.revealed ? "is-revealed" : ""}>
@@ -620,71 +620,77 @@ export default function Home() {
 
                     {/* Card */}
                     <div className={expCard}>
-                      <div className="flex items-start justify-between gap-2 mb-2.5">
-                        <div className="min-w-0 flex-1">
+                      <div className="flex flex-col md:flex-row md:gap-8">
+                        {/* Left column: role info */}
+                        <div className="md:w-52 shrink-0 mb-3 md:mb-0">
                           <p className="font-bold text-foreground leading-snug" style={{ fontSize: "1.05rem" }}>
                             {exp.title}
                           </p>
                           <p className="font-medium text-muted-foreground mt-0.5" style={{ fontSize: "0.9rem" }}>
                             {exp.company}
                           </p>
-                          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground mt-0.5">
-                            {exp.period}
-                          </p>
+                          <div className="flex items-center gap-2 flex-wrap mt-0.5">
+                            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#6e6e73] dark:text-muted-foreground">
+                              {exp.period}
+                            </p>
+                            {exp.id === 1 && (
+                              <span className="inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase">
+                                Current
+                              </span>
+                            )}
+                          </div>
                         </div>
-                        {exp.id === 1 && (
-                          <span className="shrink-0 inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase mt-0.5">
-                            Current
-                          </span>
-                        )}
-                      </div>
 
-                      {exp.companyProfile && (
-                        <p className="text-[0.85rem] text-muted-foreground/70 italic mb-3 leading-relaxed">
-                          {exp.companyProfile}
-                        </p>
-                      )}
+                        {/* Right column: company profile + highlights */}
+                        <div className="flex-1 min-w-0">
+                          {exp.companyProfile && (
+                            <p className="text-[0.85rem] text-muted-foreground/70 italic mb-3 leading-relaxed">
+                              {exp.companyProfile}
+                            </p>
+                          )}
 
-                      <ul className="space-y-1.5">
-                        {exp.highlights.slice(0, 3).map((highlight, idx) => (
-                          <li key={idx} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.9rem" }}>
-                            <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
-                            <span className="leading-[1.6]">{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {hasMore && (
-                        <div
-                          style={{
-                            maxHeight: isExpanded ? `${extraCount * 100}px` : "0px",
-                            overflow: "hidden",
-                            transition: "max-height 0.3s ease-in-out",
-                          }}
-                        >
-                          <ul className="space-y-1.5 mt-1.5">
-                            {exp.highlights.slice(3).map((highlight, idx) => (
-                              <li key={idx + 3} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.9rem" }}>
+                          <ul className="space-y-1.5">
+                            {exp.highlights.slice(0, 3).map((highlight, idx) => (
+                              <li key={idx} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.9rem" }}>
                                 <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
                                 <span className="leading-[1.6]">{highlight}</span>
                               </li>
                             ))}
                           </ul>
-                        </div>
-                      )}
 
-                      {hasMore && (
-                        <button
-                          onClick={() => toggleExpanded(exp.id)}
-                          className="flex items-center gap-1 mt-3 text-xs text-muted-foreground hover:text-accent transition-colors duration-150 font-medium"
-                        >
-                          {isExpanded ? "Show Less" : "Show More"}
-                          <ChevronDown
-                            size={12}
-                            className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
-                          />
-                        </button>
-                      )}
+                          {hasMore && (
+                            <div
+                              style={{
+                                maxHeight: isExpanded ? `${extraCount * 150}px` : "0px",
+                                overflow: "hidden",
+                                transition: "max-height 0.35s ease-in-out",
+                              }}
+                            >
+                              <ul className="space-y-1.5 mt-1.5">
+                                {exp.highlights.slice(3).map((highlight, idx) => (
+                                  <li key={idx + 3} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.9rem" }}>
+                                    <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
+                                    <span className="leading-[1.6]">{highlight}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {hasMore && (
+                            <button
+                              onClick={() => toggleExpanded(exp.id)}
+                              className="flex items-center gap-1 mt-3 text-xs text-muted-foreground hover:text-accent transition-colors duration-150 font-medium"
+                            >
+                              {isExpanded ? "Show Less" : "Show More"}
+                              <ChevronDown
+                                size={12}
+                                className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
+                              />
+                            </button>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 );
@@ -790,7 +796,7 @@ export default function Home() {
 
       {/* ── Skills (Bento) ────────────────────────────────────── */}
       <section id="skills" className="border-t border-border">
-        <div className="container py-20" ref={skillsReveal.ref}>
+        <div className="container py-24" ref={skillsReveal.ref}>
           <h2 className={sectionH2}>Skills</h2>
           <div
             className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${
@@ -824,7 +830,7 @@ export default function Home() {
 
       {/* ── Contact ───────────────────────────────────────────── */}
       <section id="contact" className="border-t border-border">
-        <div className="container py-20" ref={contactReveal.ref}>
+        <div className="container py-24" ref={contactReveal.ref}>
           <div className={contactReveal.revealed ? "is-revealed" : ""}>
             <h2
               className={`reveal-item ${sectionH2}`}
@@ -866,10 +872,16 @@ export default function Home() {
 
       {/* ── Footer ────────────────────────────────────────────── */}
       <footer className="border-t border-[#d2d2d7] dark:border-border">
-        <div className="container py-8 text-center">
+        <div className="container py-8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-[0.875rem] text-[#86868b] dark:text-muted-foreground">
             Ricky Halomoan © 2026
           </p>
+          <a
+            href="#contact"
+            className="text-[0.8rem] font-medium text-accent hover:text-accent/70 transition-colors duration-200"
+          >
+            Let's Work Together →
+          </a>
         </div>
       </footer>
 
