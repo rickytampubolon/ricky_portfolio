@@ -51,13 +51,6 @@ const subsectionH3 = "fluid-h3 font-semibold tracking-[-0.01em] text-foreground 
 const partTimeCard = "flex-1 min-w-0 rounded-3xl p-4 sm:p-5 bg-[#FAFAFA] dark:bg-card/80 shadow-[0_4px_16px_rgba(0,0,0,0.02),_0_1px_4px_rgba(0,0,0,0.015)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06),_0_2px_8px_rgba(0,0,0,0.03)] dark:shadow-none border border-[#EBEBEB] dark:border-border/70 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-0.5";
 const internCard = "min-w-0 rounded-2xl p-4 bg-[#FAFAFA] dark:bg-card/80 shadow-[0_4px_16px_rgba(0,0,0,0.02),_0_1px_4px_rgba(0,0,0,0.015)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06),_0_2px_8px_rgba(0,0,0,0.03)] dark:shadow-none border border-[#EBEBEB] dark:border-border/70 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-0.5";
 
-/* ── Skill category tag tints ────────────────────────────── */
-const categoryTagColors: Record<string, string> = {
-  "Product Management":   "bg-[rgba(0,122,255,0.08)] hover:bg-[rgba(0,122,255,0.13)] dark:bg-blue-500/10 dark:hover:bg-blue-500/15",
-  "Leadership":           "bg-[rgba(52,199,89,0.08)] hover:bg-[rgba(52,199,89,0.13)] dark:bg-green-500/10 dark:hover:bg-green-500/15",
-  "Technical":            "bg-[rgba(255,149,0,0.08)] hover:bg-[rgba(255,149,0,0.13)] dark:bg-orange-500/10 dark:hover:bg-orange-500/15",
-  "Methodologies & Tools":"bg-[rgba(88,86,214,0.08)] hover:bg-[rgba(88,86,214,0.13)] dark:bg-purple-500/10 dark:hover:bg-purple-500/15",
-};
 
 export default function Home() {
   const { theme, toggleTheme } = useTheme();
@@ -550,72 +543,86 @@ export default function Home() {
 
       {/* ── About ─────────────────────────────────────────────── */}
       <section id="about" className="border-t border-border">
-        <div className="container py-24" ref={aboutReveal.ref}>
+        <div className="container py-32" ref={aboutReveal.ref}>
           <div className={aboutReveal.revealed ? "is-revealed" : ""}>
-            <h2 className={`reveal-item ${sectionH2Base} mb-8`} style={stagger(0)}>
-              About Me
-            </h2>
+            <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
 
-            <div className="flex flex-col md:flex-row gap-8 md:gap-14 items-start">
-              {/* ── Left column — narrative (70%) ── */}
-              <div className="flex-[2.3] min-w-0 space-y-5">
+              {/* ── Left — bold value statement (~40%) ── */}
+              <div className="md:flex-[2] min-w-0">
                 <p
-                  className="reveal-item text-base leading-[1.7] text-foreground max-w-[64ch]"
+                  className="reveal-item text-[0.7rem] font-semibold tracking-[0.14em] text-muted-foreground/40 uppercase mb-5"
+                  style={stagger(0)}
+                >
+                  Senior Product Manager
+                </p>
+                <h2
+                  className="reveal-item text-4xl sm:text-5xl font-bold leading-[1.08] tracking-[-0.03em] text-foreground"
                   style={stagger(1)}
                 >
-                  My journey into product management did not follow a straight path. It developed
-                  from a strong curiosity about how systems work and how they create real value for
-                  people. With a background in Informatics and early experience in software
-                  delivery, I gained a solid understanding of the technical side of building
-                  digital products. Over time, I became more interested in a broader question: how
-                  to ensure that technical efforts truly solve meaningful problems for users.
-                </p>
-                <p
-                  className="reveal-item text-base leading-[1.7] text-foreground max-w-[64ch]"
-                  style={stagger(2)}
-                >
-                  Today, as a Senior Product Manager, I focus on translating complex operational
-                  and product challenges into clear and practical roadmaps. My approach begins with
-                  understanding the people behind the process. I spend time speaking with users,
-                  operations teams, and engineers to learn how they work and what obstacles they
-                  face. This perspective helps connect technical possibilities with real user needs
-                  while creating strong alignment across cross-functional teams.
-                </p>
+                  Bridging technical complexity with user-centric product strategy.
+                </h2>
               </div>
 
-              {/* ── Right column — education (30%) ── */}
-              <div className="reveal-item flex-1 min-w-0 flex flex-col gap-6" style={stagger(3)}>
-                {/* Education cards */}
-                {education.map((edu, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-6 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
+              {/* ── Right — summary + education (~60%) ── */}
+              <div className="md:flex-[3] min-w-0 flex flex-col gap-8">
+                <div className="space-y-4">
+                  <p
+                    className="reveal-item text-base leading-[1.75] text-muted-foreground"
+                    style={stagger(2)}
                   >
-                    <div className="flex items-start gap-3">
-                      {edu.schoolImage && (
-                        <img
-                          src={edu.schoolImage}
-                          alt={edu.school}
-                          className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border mt-0.5"
-                          loading="lazy"
-                        />
-                      )}
-                      <div className="min-w-0">
-                        <p className="font-semibold text-[#1D1D1F] dark:text-foreground leading-snug mb-1" style={{ fontSize: "1rem" }}>
-                          {edu.degree}
-                        </p>
-                        <p className="font-normal text-[#86868b] dark:text-muted-foreground" style={{ fontSize: "0.85rem" }}>
-                          {edu.school}
-                        </p>
-                        <p className="font-normal text-[#86868b] dark:text-muted-foreground mt-0.5" style={{ fontSize: "0.85rem" }}>
-                          {edu.date}
-                        </p>
+                    My journey into product management did not follow a straight path. It developed
+                    from a strong curiosity about how systems work and how they create real value for
+                    people. With a background in Informatics and early experience in software
+                    delivery, I gained a solid understanding of the technical side of building
+                    digital products. Over time, I became more interested in a broader question: how
+                    to ensure that technical efforts truly solve meaningful problems for users.
+                  </p>
+                  <p
+                    className="reveal-item text-base leading-[1.75] text-muted-foreground"
+                    style={stagger(3)}
+                  >
+                    Today, as a Senior Product Manager, I focus on translating complex operational
+                    and product challenges into clear and practical roadmaps. My approach begins with
+                    understanding the people behind the process. I spend time speaking with users,
+                    operations teams, and engineers to learn how they work and what obstacles they
+                    face. This perspective helps connect technical possibilities with real user needs
+                    while creating strong alignment across cross-functional teams.
+                  </p>
+                </div>
+
+                {/* Education */}
+                <div className="reveal-item flex flex-col gap-4" style={stagger(4)}>
+                  {education.map((edu, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-6 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
+                    >
+                      <div className="flex items-start gap-3">
+                        {edu.schoolImage && (
+                          <img
+                            src={edu.schoolImage}
+                            alt={edu.school}
+                            className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border mt-0.5"
+                            loading="lazy"
+                          />
+                        )}
+                        <div className="min-w-0">
+                          <p className="font-semibold text-[#1D1D1F] dark:text-foreground leading-snug mb-1" style={{ fontSize: "1rem" }}>
+                            {edu.degree}
+                          </p>
+                          <p className="font-normal text-[#86868b] dark:text-muted-foreground" style={{ fontSize: "0.85rem" }}>
+                            {edu.school}
+                          </p>
+                          <p className="font-normal text-[#86868b] dark:text-muted-foreground mt-0.5" style={{ fontSize: "0.85rem" }}>
+                            {edu.date}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-
+                  ))}
+                </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -858,9 +865,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Skills (Bento) ────────────────────────────────────── */}
+      {/* ── Skills ────────────────────────────────────────────── */}
       <section id="skills" className="border-t border-border">
-        <div className="container py-24" ref={skillsReveal.ref}>
+        <div className="container py-32" ref={skillsReveal.ref}>
           <h2 className={sectionH2}>My Toolkit</h2>
           <div
             className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${
@@ -870,17 +877,17 @@ export default function Home() {
             {Object.entries(skills).map(([category, items], catIdx) => (
               <div
                 key={category}
-                className="reveal-item bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-6 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
+                className="reveal-item bg-white dark:bg-card shadow-[0_4px_20px_rgba(0,0,0,0.04),_0_1px_6px_rgba(0,0,0,0.02)] dark:shadow-none border border-slate-100 dark:border-border rounded-3xl p-6 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
                 style={stagger(catIdx)}
               >
-                <h3 className="text-xs font-semibold text-foreground/60 mb-4 tracking-[0.08em] uppercase">
+                <h3 className="text-sm font-bold text-foreground mb-4 tracking-[-0.01em]">
                   {category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {items.map((skill, idx) => (
                     <span
                       key={idx}
-                      className={`px-4 py-1.5 text-[0.9rem] rounded-[8px] font-normal text-[#1D1D1F] dark:text-foreground transition-all duration-200 ${categoryTagColors[category] ?? "bg-[#EEEEEE] hover:bg-[#E0E0E0] dark:bg-secondary dark:hover:bg-muted"}`}
+                      className="px-3 py-1.5 text-[0.83rem] rounded-lg font-normal text-slate-600 dark:text-slate-300 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/40 dark:hover:bg-slate-800/60 border border-slate-100 dark:border-slate-700/40 transition-colors duration-200"
                     >
                       {skill}
                     </span>
@@ -894,39 +901,25 @@ export default function Home() {
 
       {/* ── Contact ───────────────────────────────────────────── */}
       <section id="contact" className="border-t border-border">
-        <div className="container py-24" ref={contactReveal.ref}>
+        <div className="container py-32" ref={contactReveal.ref}>
           <div className={contactReveal.revealed ? "is-revealed" : ""}>
-            <h2
-              className={`reveal-item ${sectionH2}`}
+            <p
+              className="reveal-item text-[0.85rem] text-muted-foreground/60 mb-8 tracking-[0.005em]"
               style={stagger(0)}
             >
-              Let's Connect
-            </h2>
-            <p
-              className="reveal-item text-[1.5rem] font-medium text-foreground mb-2 tracking-[-0.01em]"
-              style={stagger(1)}
-            >
-              Let's build something great.
+              Open to new opportunities and collaborations.
             </p>
-            <p
-              className="reveal-item text-[0.9rem] font-light text-muted-foreground mb-10 tracking-[0.005em]"
-              style={stagger(2)}
-            >
-              Open to new opportunities and collaborations. Feel free to reach out via email or connect on social media.
-            </p>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-row flex-wrap gap-8">
               {contactLinks.map(({ href, icon, label, staggerIdx, external }) => (
                 <a
                   key={href}
                   href={href}
                   {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="reveal-item inline-flex items-center gap-4 text-[1rem] text-muted-foreground hover:text-foreground hover:-translate-y-0.5 transition-all duration-200 group w-fit"
+                  className="reveal-item inline-flex items-center gap-2 text-[0.9rem] text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
                   style={stagger(staggerIdx)}
                 >
-                  <span className="w-11 h-11 rounded-2xl bg-white dark:bg-secondary shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-[#E5E5EA] dark:border-border flex items-center justify-center group-hover:border-accent/40 group-hover:bg-accent/5 transition-all duration-200 shrink-0">
-                    {icon}
-                  </span>
-                  <span className="truncate group-hover:underline underline-offset-4">{label}</span>
+                  {icon}
+                  <span>{label}</span>
                 </a>
               ))}
             </div>
