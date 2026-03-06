@@ -106,6 +106,7 @@ export default function Home() {
 
   /* Reveal hooks per section */
   const aboutReveal = useReveal();
+  const educationReveal = useReveal();
   const expReveal = useReveal();
   const skillsReveal = useReveal();
   const contactReveal = useReveal();
@@ -434,6 +435,7 @@ export default function Home() {
           <div className="flex items-center gap-0.5">
             {[
               ["About", "about"],
+              ["Education", "education"],
               ["Experience", "experience"],
               ["My Toolkit", "skills"],
               ["Contact", "contact"],
@@ -569,56 +571,129 @@ export default function Home() {
                 </h2>
               </div>
 
-              {/* ── Right — summary + education (7 cols) ── */}
-              <div className="md:col-span-7 min-w-0 flex flex-col gap-8">
-                <div className="space-y-4">
-                  <p
-                    className="reveal-item text-base leading-[1.75] text-muted-foreground"
-                    style={stagger(2)}
-                  >
-                    My journey into product management did not follow a straight path. It developed
-                    from a strong curiosity about how systems work and how they create real value for
-                    people. With a background in Informatics and early experience in software
-                    delivery, I gained a solid understanding of the technical side of building
-                    digital products. Over time, I became more interested in a broader question: how
-                    to ensure that technical efforts truly solve meaningful problems for users.
-                  </p>
-                  <p
-                    className="reveal-item text-base leading-[1.75] text-muted-foreground"
-                    style={stagger(3)}
-                  >
-                    Today, as a Senior Product Manager, I focus on translating complex operational
-                    and product challenges into clear and practical roadmaps. My approach begins with
-                    understanding the people behind the process. I spend time speaking with users,
-                    operations teams, and engineers to learn how they work and what obstacles they
-                    face. This perspective helps connect technical possibilities with real user needs
-                    while creating strong alignment across cross-functional teams.
-                  </p>
+              {/* ── Right — summary (7 cols) ── */}
+              <div className="md:col-span-7 min-w-0 space-y-4">
+                <p
+                  className="reveal-item text-base leading-[1.75] text-muted-foreground"
+                  style={stagger(2)}
+                >
+                  My journey into product management did not follow a straight path. It developed
+                  from a strong curiosity about how systems work and how they create real value for
+                  people. With a background in Informatics and early experience in software
+                  delivery, I gained a solid understanding of the technical side of building
+                  digital products. Over time, I became more interested in a broader question: how
+                  to ensure that technical efforts truly solve meaningful problems for users.
+                </p>
+                <p
+                  className="reveal-item text-base leading-[1.75] text-muted-foreground"
+                  style={stagger(3)}
+                >
+                  Today, as a Senior Product Manager, I focus on translating complex operational
+                  and product challenges into clear and practical roadmaps. My approach begins with
+                  understanding the people behind the process. I spend time speaking with users,
+                  operations teams, and engineers to learn how they work and what obstacles they
+                  face. This perspective helps connect technical possibilities with real user needs
+                  while creating strong alignment across cross-functional teams.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Education ─────────────────────────────────────────── */}
+      <section id="education" className="border-t border-border">
+        <div className="container py-16 md:py-32" ref={educationReveal.ref}>
+          <div className={educationReveal.revealed ? "is-revealed" : ""}>
+
+            <h2
+              className={`reveal-item text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-10 md:mb-14`}
+              style={stagger(0)}
+            >
+              Education
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+
+              {/* ── ITB card ── */}
+              <div
+                className="reveal-item group relative rounded-3xl bg-white dark:bg-card border border-slate-100 dark:border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.08)] dark:shadow-none hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col gap-6 overflow-hidden"
+                style={stagger(1)}
+              >
+                {/* Decorative background circle */}
+                <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-slate-50 dark:bg-slate-800/20 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="flex items-start justify-between gap-4 relative">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
+                    <img
+                      src={education[0].schoolImage}
+                      alt={education[0].school}
+                      className="w-8 h-8 object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-700/30 text-[0.7rem] font-semibold tracking-wide text-amber-700 dark:text-amber-400 uppercase shrink-0">
+                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                    In Progress
+                  </span>
                 </div>
 
-                {/* Education */}
-                <div className="reveal-item flex flex-col gap-3" style={stagger(4)}>
-                  {education.map((edu, idx) => (
-                    <div key={idx} className={`${cardBase} p-5 hover:-translate-y-1`}>
-                      <div className="flex items-start gap-3">
-                        {edu.schoolImage && (
-                          <img
-                            src={edu.schoolImage}
-                            alt={edu.school}
-                            className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-slate-100 dark:border-border mt-0.5"
-                            loading="lazy"
-                          />
-                        )}
-                        <div className="min-w-0">
-                          <p className="font-semibold text-foreground leading-snug mb-0.5 text-[0.95rem]">
-                            {edu.degree}
-                          </p>
-                          <p className="text-muted-foreground text-[0.82rem]">{edu.school}</p>
-                          <p className="text-muted-foreground/60 text-[0.82rem] mt-0.5">{edu.date}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                <div className="relative">
+                  <p className="text-xl font-bold text-foreground leading-snug mb-1">
+                    {education[0].degree}
+                  </p>
+                  <p className="text-[0.9rem] text-muted-foreground mb-4">
+                    {education[0].school}
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[0.72rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/50">
+                      Expected
+                    </span>
+                    <span className="text-[0.8rem] font-medium text-foreground/70">
+                      September 2026
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* ── Del IT card ── */}
+              <div
+                className="reveal-item group relative rounded-3xl bg-white dark:bg-card border border-slate-100 dark:border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.08)] dark:shadow-none hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col gap-6 overflow-hidden"
+                style={stagger(2)}
+              >
+                {/* Decorative background circle */}
+                <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-slate-50 dark:bg-slate-800/20 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+
+                <div className="flex items-start justify-between gap-4 relative">
+                  <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
+                    <img
+                      src={education[1].schoolImage}
+                      alt={education[1].school}
+                      className="w-8 h-8 object-contain"
+                      loading="lazy"
+                    />
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/40 text-[0.7rem] font-semibold tracking-wide text-slate-500 dark:text-slate-400 uppercase shrink-0">
+                    Graduated
+                  </span>
+                </div>
+
+                <div className="relative">
+                  <p className="text-xl font-bold text-foreground leading-snug mb-1">
+                    {education[1].degree}
+                  </p>
+                  <p className="text-[0.9rem] text-muted-foreground mb-4">
+                    {education[1].school}
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[0.72rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/50">
+                      Graduated
+                    </span>
+                    <span className="text-[0.8rem] font-medium text-foreground/70">
+                      September 2019
+                    </span>
+                  </div>
                 </div>
               </div>
 
