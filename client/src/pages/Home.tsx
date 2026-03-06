@@ -64,8 +64,10 @@ export default function Home() {
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   /* Expanded state for full-time experience bullets */
-  const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set([1, 2, 3, 4]));
+  const [expandedIds, setExpandedIds] = useState<Set<number>>(new Set([5, 6]));
   const [heroRevealed, setHeroRevealed] = useState(false);
+  const [selectedProjectId, setSelectedProjectId] = useState<number | null>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   /* Briefly add theme-transitioning class so all colours animate smoothly,
      then remove it so normal hover transitions are unaffected. */
@@ -84,10 +86,12 @@ export default function Home() {
 
   useEffect(() => {
     const onScroll = () => {
+      const totalHeight = document.body.scrollHeight - window.innerHeight;
+      setScrollProgress(totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0);
       setShowBackToTop(window.scrollY > 400);
       setScrolled(window.scrollY > 40);
     };
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -220,6 +224,29 @@ export default function Home() {
         "Maintained automation scripts using Postman and Katalon Studio to strengthen testing efficiency and long-term release stability.",
         "Actively supported sprint ceremonies and worked with development teams to address defects, performance gaps, and regression issues.",
       ],
+    },
+  ];
+
+  const featuredProjects = [
+    {
+      expId: 1,
+      title: "Electric Mobility Product Expansion",
+      impact: "Defining Indonesia's national roadmap across customer, driver, and corporate product lines for a fully electric ride-hailing platform.",
+    },
+    {
+      expId: 2,
+      title: "National Education Performance Platform",
+      impact: "Built data integration systems for 500,000+ schools and millions of educators, improving institutional accountability at national scale.",
+    },
+    {
+      expId: 4,
+      title: "Warehouse Management Overhaul",
+      impact: "Rebuilt WMS strategy and Tokopedia Seller Platform integration, cutting fulfillment turnaround time across GoTo Logistics.",
+    },
+    {
+      expId: 3,
+      title: "Fleet Management System",
+      impact: "Orchestrated cross-mile Fleet Management System enhancements at SPX Express across First, Middle, and Last Mile operations.",
     },
   ];
 
@@ -365,6 +392,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground">
 
+      {/* ── Scroll Progress Bar ────────────────────────────── */}
+      <div
+        className="fixed top-0 left-0 z-[200] h-[2px] bg-accent transition-[width] duration-75 ease-out"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
       {/* ── Floating Glassmorphism Nav ─────────────────────── */}
       <header
         className={`fixed left-0 right-0 z-50 flex justify-center px-3 sm:px-4 transition-all duration-300 ${
@@ -401,8 +434,8 @@ export default function Home() {
             {[
               ["About", "about"],
               ["Experience", "experience"],
-              ["Skills", "skills"],
-              ["Contact", "contact"],
+              ["My Toolkit", "skills"],
+              ["Let's Connect", "contact"],
             ].map(([label, id]) => (
               <a
                 key={id}
@@ -545,8 +578,28 @@ export default function Home() {
                   deep understanding of how people actually work. I begin every challenge by getting
                   close to the operation, speaking with drivers, operations teams, and engineers
                   before shaping any roadmap. I translate complexity into clarity so cross-functional
-                  teams can move with alignment and purpose.
+                  teams can move with alignment and purpose. When I'm not in sprint planning, you'll
+                  find me trail running or exploring street food spots I've never tried before.
                 </p>
+
+                {/* Product Philosophy */}
+                <div className="reveal-item pt-1" style={stagger(3)}>
+                  <p className="text-[0.7rem] font-semibold tracking-[0.14em] text-muted-foreground/50 uppercase mb-3">
+                    How I Work
+                  </p>
+                  <ul className="space-y-2">
+                    {[
+                      "Data-informed, but intuition-led.",
+                      "Simplicity in the solution, depth in the thinking.",
+                      "Proximity to users is not optional — it's the work.",
+                    ].map((item, idx) => (
+                      <li key={idx} className="flex gap-2 text-[0.9rem] text-muted-foreground">
+                        <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
+                        <span className="leading-relaxed">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
               {/* Education — labelled, two separate cards */}
@@ -563,6 +616,7 @@ export default function Home() {
                             src={edu.schoolImage}
                             alt={edu.school}
                             className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border mt-0.5"
+                            loading="lazy"
                           />
                         )}
                         <div className="min-w-0">
@@ -592,15 +646,105 @@ export default function Home() {
           <h2 className={`${sectionH2Base} mb-6`}>Experience</h2>
 
           <div className={expReveal.revealed ? "is-revealed" : ""}>
-            {/* ── Full-time Roles ── */}
-            <h3 className={subsectionH3}>
-              Full-time Roles
-            </h3>
+            {/* ── Featured Projects ── */}
+            <h3 className={subsectionH3}>Featured Projects</h3>
+            <div className="mb-10">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                {featuredProjects.map((project) => {
+                  const exp = experiences.find((e) => e.id === project.expId)!;
+                  const isSelected = selectedProjectId === project.expId;
+                  return (
+                    <button
+                      key={project.expId}
+                      onClick={() => setSelectedProjectId(isSelected ? null : project.expId)}
+                      className={`text-left rounded-3xl p-5 sm:p-6 border transition-all duration-300 hover:-translate-y-0.5 ${
+                        isSelected
+                          ? "bg-accent/5 border-accent/25 shadow-[0_10px_32px_rgba(0,122,255,0.10)]"
+                          : "bg-white dark:bg-card border-transparent dark:border-border shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.07)]"
+                      }`}
+                    >
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shrink-0">
+                          <img src={exp.companyImage} alt={exp.company} className="w-5 h-5 object-contain" loading="lazy" />
+                        </div>
+                        <span className="text-[0.7rem] font-semibold uppercase tracking-widest text-muted-foreground truncate">
+                          {exp.company}
+                        </span>
+                      </div>
+                      <p className="font-bold text-foreground leading-snug mb-2" style={{ fontSize: "1rem" }}>
+                        {project.title}
+                      </p>
+                      <p className="text-[0.85rem] text-muted-foreground leading-relaxed line-clamp-2">
+                        {project.impact}
+                      </p>
+                      <div className="flex items-center gap-1 mt-3 text-accent text-xs font-semibold">
+                        <span>{isSelected ? "Collapse" : "View Details"}</span>
+                        <ChevronDown
+                          size={12}
+                          className={`transition-transform duration-300 ${isSelected ? "rotate-180" : ""}`}
+                        />
+                      </div>
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Expanded project detail panel */}
+              {selectedProjectId !== null && (() => {
+                const exp = experiences.find((e) => e.id === selectedProjectId)!;
+                return (
+                  <div className="rounded-3xl p-6 sm:p-8 bg-accent/[0.04] border border-accent/20 transition-all duration-300">
+                    <div className="flex flex-col md:flex-row md:gap-8">
+                      <div className="md:w-52 shrink-0 mb-4 md:mb-0">
+                        <div className="flex items-center gap-2.5 mb-2">
+                          <div className={timelineNode}>
+                            <img src={exp.companyImage} alt={exp.company} className="w-7 h-7 object-contain" loading="lazy" />
+                          </div>
+                        </div>
+                        <p className="font-bold text-foreground leading-snug" style={{ fontSize: "1.05rem" }}>
+                          {exp.title}
+                        </p>
+                        <p className="font-medium text-muted-foreground mt-0.5" style={{ fontSize: "0.9rem" }}>
+                          {exp.company}
+                        </p>
+                        <div className="flex items-center gap-2 flex-wrap mt-0.5">
+                          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#6e6e73] dark:text-muted-foreground">
+                            {exp.period}
+                          </p>
+                          {exp.id === 1 && (
+                            <span className="inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase">
+                              Current
+                            </span>
+                          )}
+                        </div>
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        {exp.companyProfile && (
+                          <p className="text-[0.85rem] text-muted-foreground/70 italic mb-3 leading-relaxed">
+                            {exp.companyProfile}
+                          </p>
+                        )}
+                        <ul className="space-y-1.5">
+                          {exp.highlights.map((highlight, idx) => (
+                            <li key={idx} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.9rem" }}>
+                              <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
+                              <span className="leading-[1.6]">{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })()}
+            </div>
+
+            {/* ── Earlier Full-time Roles ── */}
+            <h3 className={`${subsectionH3} mt-2`}>Earlier Roles</h3>
             <div className="relative">
-              {/* Timeline thread */}
               <div className="absolute left-[17px] top-[46px] bottom-[46px] w-[2px] bg-gradient-to-b from-border via-border/60 to-transparent pointer-events-none" />
 
-              {experiences.map((exp, index) => {
+              {experiences.filter((e) => e.id === 5 || e.id === 6).map((exp, index) => {
                 const isExpanded = expandedIds.has(exp.id);
                 const extraCount = exp.highlights.length - 3;
                 const hasMore = extraCount > 0;
@@ -611,19 +755,16 @@ export default function Home() {
                     className="reveal-item relative flex gap-4 sm:gap-5 mb-4 last:mb-0"
                     style={stagger(index)}
                   >
-                    {/* Timeline node: logo */}
                     <div className="relative z-10 shrink-0 mt-1.5">
                       <div className={timelineNode}>
                         {exp.companyImage && (
-                          <img src={exp.companyImage} alt={exp.company} className="w-7 h-7 object-contain" />
+                          <img src={exp.companyImage} alt={exp.company} className="w-7 h-7 object-contain" loading="lazy" />
                         )}
                       </div>
                     </div>
 
-                    {/* Card */}
                     <div className={expCard}>
                       <div className="flex flex-col md:flex-row md:gap-8">
-                        {/* Left column: role info */}
                         <div className="md:w-52 shrink-0 mb-3 md:mb-0">
                           <p className="font-bold text-foreground leading-snug" style={{ fontSize: "1.05rem" }}>
                             {exp.title}
@@ -631,26 +772,16 @@ export default function Home() {
                           <p className="font-medium text-muted-foreground mt-0.5" style={{ fontSize: "0.9rem" }}>
                             {exp.company}
                           </p>
-                          <div className="flex items-center gap-2 flex-wrap mt-0.5">
-                            <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#6e6e73] dark:text-muted-foreground">
-                              {exp.period}
-                            </p>
-                            {exp.id === 1 && (
-                              <span className="inline-flex items-center px-2 py-0.5 text-[9px] font-bold tracking-wide bg-accent/10 text-accent rounded-full uppercase">
-                                Current
-                              </span>
-                            )}
-                          </div>
+                          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#6e6e73] dark:text-muted-foreground mt-0.5">
+                            {exp.period}
+                          </p>
                         </div>
-
-                        {/* Right column: company profile + highlights */}
                         <div className="flex-1 min-w-0">
                           {exp.companyProfile && (
                             <p className="text-[0.85rem] text-muted-foreground/70 italic mb-3 leading-relaxed">
                               {exp.companyProfile}
                             </p>
                           )}
-
                           <ul className="space-y-1.5">
                             {exp.highlights.slice(0, 3).map((highlight, idx) => (
                               <li key={idx} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.9rem" }}>
@@ -659,7 +790,6 @@ export default function Home() {
                               </li>
                             ))}
                           </ul>
-
                           {hasMore && (
                             <div
                               style={{
@@ -678,7 +808,6 @@ export default function Home() {
                               </ul>
                             </div>
                           )}
-
                           {hasMore && (
                             <button
                               onClick={() => toggleExpanded(exp.id)}
@@ -715,7 +844,7 @@ export default function Home() {
                   <div className="relative z-10 shrink-0 mt-1.5">
                     <div className={timelineNode}>
                       {job.companyImage && (
-                        <img src={job.companyImage} alt={job.company} className="w-7 h-7 object-contain" />
+                        <img src={job.companyImage} alt={job.company} className="w-7 h-7 object-contain" loading="lazy" />
                       )}
                     </div>
                   </div>
@@ -760,7 +889,7 @@ export default function Home() {
                   <div className="flex items-center gap-2.5 mb-2.5">
                     <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shrink-0">
                       {internship.companyImage && (
-                        <img src={internship.companyImage} alt={internship.company} className="w-5 h-5 object-contain" />
+                        <img src={internship.companyImage} alt={internship.company} className="w-5 h-5 object-contain" loading="lazy" />
                       )}
                     </div>
                     <div className="min-w-0">
@@ -801,7 +930,7 @@ export default function Home() {
       {/* ── Skills (Bento) ────────────────────────────────────── */}
       <section id="skills" className="border-t border-border">
         <div className="container py-24" ref={skillsReveal.ref}>
-          <h2 className={sectionH2}>Skills</h2>
+          <h2 className={sectionH2}>My Toolkit</h2>
           <div
             className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${
               skillsReveal.revealed ? "is-revealed" : ""
@@ -840,7 +969,7 @@ export default function Home() {
               className={`reveal-item ${sectionH2}`}
               style={stagger(0)}
             >
-              Contact
+              Let's Connect
             </h2>
             <p
               className="reveal-item text-[1.5rem] font-medium text-foreground mb-2 tracking-[-0.01em]"
