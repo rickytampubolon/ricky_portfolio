@@ -44,12 +44,18 @@ function stagger(n: number) {
 const sectionH2Base = "fluid-h2 font-bold tracking-[-0.02em] text-foreground";
 const sectionH2 = `${sectionH2Base} mb-12`;
 
+/* ── Design tokens ───────────────────────────────────────── */
+const cardShadow   = "shadow-[0_8px_30px_rgb(0,0,0,0.04)]";
+const cardShadowHover = "hover:shadow-[0_16px_40px_rgb(0,0,0,0.08)]";
+const cardBorder   = "border border-slate-100 dark:border-border";
+const cardBase     = `rounded-2xl bg-white dark:bg-card ${cardShadow} ${cardShadowHover} dark:shadow-none ${cardBorder} transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]`;
+
 /* ── Shared component styles ─────────────────────────────── */
-const expCard = "flex-1 min-w-0 rounded-3xl p-5 sm:p-6 bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_48px_rgba(0,0,0,0.09),_0_4px_14px_rgba(0,0,0,0.05)] dark:shadow-none border border-transparent dark:border-border transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1";
-const timelineNode = "w-9 h-9 rounded-2xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none";
+const expCard      = `flex-1 min-w-0 ${cardBase} p-5 sm:p-6 hover:-translate-y-1`;
+const timelineNode = `w-9 h-9 rounded-xl bg-white dark:bg-card ${cardBorder} overflow-hidden flex items-center justify-center ${cardShadow} dark:shadow-none`;
 const subsectionH3 = "fluid-h3 font-semibold tracking-[-0.01em] text-foreground mb-4";
-const partTimeCard = "flex-1 min-w-0 rounded-3xl p-4 sm:p-5 bg-[#FAFAFA] dark:bg-card/80 shadow-[0_4px_16px_rgba(0,0,0,0.02),_0_1px_4px_rgba(0,0,0,0.015)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06),_0_2px_8px_rgba(0,0,0,0.03)] dark:shadow-none border border-[#EBEBEB] dark:border-border/70 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-0.5";
-const internCard = "min-w-0 rounded-2xl p-4 bg-[#FAFAFA] dark:bg-card/80 shadow-[0_4px_16px_rgba(0,0,0,0.02),_0_1px_4px_rgba(0,0,0,0.015)] hover:shadow-[0_10px_28px_rgba(0,0,0,0.06),_0_2px_8px_rgba(0,0,0,0.03)] dark:shadow-none border border-[#EBEBEB] dark:border-border/70 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-0.5";
+const partTimeCard = `flex-1 min-w-0 ${cardBase} p-4 sm:p-5 hover:-translate-y-0.5`;
+const internCard   = `min-w-0 ${cardBase} p-4 hover:-translate-y-0.5`;
 
 
 export default function Home() {
@@ -430,7 +436,7 @@ export default function Home() {
               ["About", "about"],
               ["Experience", "experience"],
               ["My Toolkit", "skills"],
-              ["Let's Connect", "contact"],
+              ["Contact", "contact"],
             ].map(([label, id]) => (
               <a
                 key={id}
@@ -543,28 +549,28 @@ export default function Home() {
 
       {/* ── About ─────────────────────────────────────────────── */}
       <section id="about" className="border-t border-border">
-        <div className="container py-32" ref={aboutReveal.ref}>
+        <div className="container py-16 md:py-32" ref={aboutReveal.ref}>
           <div className={aboutReveal.revealed ? "is-revealed" : ""}>
-            <div className="flex flex-col md:flex-row gap-12 md:gap-16 items-start">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
 
-              {/* ── Left — bold value statement (~40%) ── */}
-              <div className="md:flex-[2] min-w-0">
+              {/* ── Left — bold value statement (5 cols) ── */}
+              <div className="md:col-span-5 min-w-0">
                 <p
-                  className="reveal-item text-[0.7rem] font-semibold tracking-[0.14em] text-muted-foreground/40 uppercase mb-5"
+                  className="reveal-item text-[0.68rem] font-semibold tracking-[0.15em] text-muted-foreground/40 uppercase mb-5"
                   style={stagger(0)}
                 >
                   Senior Product Manager
                 </p>
                 <h2
-                  className="reveal-item text-4xl sm:text-5xl font-bold leading-[1.08] tracking-[-0.03em] text-foreground"
+                  className="reveal-item text-3xl md:text-5xl font-bold leading-[1.08] tracking-[-0.03em] text-foreground"
                   style={stagger(1)}
                 >
                   Bridging technical complexity with user-centric product strategy.
                 </h2>
               </div>
 
-              {/* ── Right — summary + education (~60%) ── */}
-              <div className="md:flex-[3] min-w-0 flex flex-col gap-8">
+              {/* ── Right — summary + education (7 cols) ── */}
+              <div className="md:col-span-7 min-w-0 flex flex-col gap-8">
                 <div className="space-y-4">
                   <p
                     className="reveal-item text-base leading-[1.75] text-muted-foreground"
@@ -591,31 +597,24 @@ export default function Home() {
                 </div>
 
                 {/* Education */}
-                <div className="reveal-item flex flex-col gap-4" style={stagger(4)}>
+                <div className="reveal-item flex flex-col gap-3" style={stagger(4)}>
                   {education.map((edu, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-6 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
-                    >
+                    <div key={idx} className={`${cardBase} p-5 hover:-translate-y-1`}>
                       <div className="flex items-start gap-3">
                         {edu.schoolImage && (
                           <img
                             src={edu.schoolImage}
                             alt={edu.school}
-                            className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border mt-0.5"
+                            className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-slate-100 dark:border-border mt-0.5"
                             loading="lazy"
                           />
                         )}
                         <div className="min-w-0">
-                          <p className="font-semibold text-[#1D1D1F] dark:text-foreground leading-snug mb-1" style={{ fontSize: "1rem" }}>
+                          <p className="font-semibold text-foreground leading-snug mb-0.5 text-[0.95rem]">
                             {edu.degree}
                           </p>
-                          <p className="font-normal text-[#86868b] dark:text-muted-foreground" style={{ fontSize: "0.85rem" }}>
-                            {edu.school}
-                          </p>
-                          <p className="font-normal text-[#86868b] dark:text-muted-foreground mt-0.5" style={{ fontSize: "0.85rem" }}>
-                            {edu.date}
-                          </p>
+                          <p className="text-muted-foreground text-[0.82rem]">{edu.school}</p>
+                          <p className="text-muted-foreground/60 text-[0.82rem] mt-0.5">{edu.date}</p>
                         </div>
                       </div>
                     </div>
@@ -630,7 +629,7 @@ export default function Home() {
 
       {/* ── Experience ────────────────────────────────────────── */}
       <section id="experience" className="border-t border-border">
-        <div className="container py-24" ref={expReveal.ref}>
+        <div className="container py-16 md:py-24" ref={expReveal.ref}>
           <h2 className={`${sectionH2Base} mb-6`}>Experience</h2>
 
           <div className={expReveal.revealed ? "is-revealed" : ""}>
@@ -645,10 +644,10 @@ export default function Home() {
                     <button
                       key={project.expId}
                       onClick={() => setSelectedProjectId(isSelected ? null : project.expId)}
-                      className={`text-left rounded-3xl p-5 sm:p-6 border transition-all duration-300 hover:-translate-y-0.5 ${
+                      className={`text-left rounded-2xl p-5 sm:p-6 border transition-all duration-300 hover:-translate-y-0.5 ${
                         isSelected
-                          ? "bg-accent/5 border-accent/25 shadow-[0_10px_32px_rgba(0,122,255,0.10)]"
-                          : "bg-white dark:bg-card border-transparent dark:border-border shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] hover:shadow-[0_16px_40px_rgba(0,0,0,0.07)]"
+                          ? "bg-accent/5 border-accent/25 shadow-[0_10px_32px_rgba(0,122,255,0.08)]"
+                          : `bg-white dark:bg-card border-slate-100 dark:border-border ${cardShadow} hover:shadow-[0_16px_40px_rgb(0,0,0,0.07)]`
                       }`}
                     >
                       <div className="flex items-center gap-3 mb-3">
@@ -681,7 +680,7 @@ export default function Home() {
               {selectedProjectId !== null && (() => {
                 const exp = experiences.find((e) => e.id === selectedProjectId)!;
                 return (
-                  <div className="rounded-3xl p-6 sm:p-8 bg-accent/[0.04] border border-accent/20 transition-all duration-300">
+                  <div className="rounded-2xl p-6 sm:p-8 bg-accent/[0.03] border border-accent/15 transition-all duration-300">
                     <div className="flex flex-col md:flex-row md:gap-8">
                       <div className="md:w-52 shrink-0 mb-4 md:mb-0">
                         <div className="flex items-center gap-2.5 mb-2">
@@ -766,7 +765,7 @@ export default function Home() {
                       setEarlyCareerOpen((o) => !o);
                       setExpandedEntryKey(null);
                     }}
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-[#E8E8E8] dark:border-border/50 bg-[#F7F7F7] dark:bg-card/50 hover:bg-[#F0F0F0] dark:hover:bg-card/70 transition-all duration-200"
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-slate-100 dark:border-border/50 bg-slate-50 dark:bg-card/50 hover:bg-slate-100/70 dark:hover:bg-card/70 transition-all duration-200"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <span className="text-[0.82rem] font-semibold text-foreground/60">
@@ -793,7 +792,7 @@ export default function Home() {
                       transition: "max-height 0.4s cubic-bezier(0.4,0,0.2,1)",
                     }}
                   >
-                    <div className="mt-2 rounded-2xl border border-[#E8E8E8] dark:border-border/40 overflow-hidden divide-y divide-[#F0F0F0] dark:divide-border/30 bg-white dark:bg-card/40">
+                    <div className="mt-2 rounded-2xl border border-slate-100 dark:border-border/40 overflow-hidden divide-y divide-slate-50 dark:divide-border/30 bg-white dark:bg-card/40">
                       {earlyCareerEntries.map((entry) => {
                         const isEntryOpen = expandedEntryKey === entry.key;
                         return (
@@ -867,7 +866,7 @@ export default function Home() {
 
       {/* ── Skills ────────────────────────────────────────────── */}
       <section id="skills" className="border-t border-border">
-        <div className="container py-32" ref={skillsReveal.ref}>
+        <div className="container py-16 md:py-32" ref={skillsReveal.ref}>
           <h2 className={sectionH2}>My Toolkit</h2>
           <div
             className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${
@@ -877,7 +876,7 @@ export default function Home() {
             {Object.entries(skills).map(([category, items], catIdx) => (
               <div
                 key={category}
-                className="reveal-item bg-white dark:bg-card shadow-[0_4px_20px_rgba(0,0,0,0.04),_0_1px_6px_rgba(0,0,0,0.02)] dark:shadow-none border border-slate-100 dark:border-border rounded-3xl p-6 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
+                className={`reveal-item ${cardBase} p-6 hover:-translate-y-1`}
                 style={stagger(catIdx)}
               >
                 <h3 className="text-sm font-bold text-foreground mb-4 tracking-[-0.01em]">
@@ -887,7 +886,7 @@ export default function Home() {
                   {items.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-3 py-1.5 text-[0.83rem] rounded-lg font-normal text-slate-600 dark:text-slate-300 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800/40 dark:hover:bg-slate-800/60 border border-slate-100 dark:border-slate-700/40 transition-colors duration-200"
+                      className="inline-flex items-center px-4 py-2 text-[0.8rem] rounded-full font-normal text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800/30 border border-slate-100 dark:border-slate-700/40 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors duration-200"
                     >
                       {skill}
                     </span>
@@ -901,7 +900,7 @@ export default function Home() {
 
       {/* ── Contact ───────────────────────────────────────────── */}
       <section id="contact" className="border-t border-border">
-        <div className="container py-32" ref={contactReveal.ref}>
+        <div className="container py-16 md:py-32" ref={contactReveal.ref}>
           <div className={contactReveal.revealed ? "is-revealed" : ""}>
             <p
               className="reveal-item text-[0.85rem] text-muted-foreground/60 mb-8 tracking-[0.005em]"
@@ -928,17 +927,24 @@ export default function Home() {
       </section>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="border-t border-[#d2d2d7] dark:border-border">
-        <div className="container py-8 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-[0.875rem] text-[#86868b] dark:text-muted-foreground">
+      <footer className="border-t border-slate-100 dark:border-border">
+        <div className="container py-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-between sm:gap-3">
+          <p className="text-[0.8rem] text-muted-foreground/60">
             Ricky Halomoan © 2026
           </p>
-          <a
-            href="#contact"
-            className="text-[0.8rem] font-medium text-accent hover:text-accent/70 transition-colors duration-200"
-          >
-            Let's Work Together →
-          </a>
+          <div className="flex items-center gap-5">
+            {contactLinks.map(({ href, icon, label, external }) => (
+              <a
+                key={href}
+                href={href}
+                aria-label={label}
+                {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="text-muted-foreground/40 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
         </div>
       </footer>
 
