@@ -514,19 +514,23 @@ export default function Home() {
 
             {/* Sub-headline */}
             <p
-              className="reveal-item text-[1.1rem] text-muted-foreground font-normal leading-relaxed mb-2 tracking-[0.005em]"
+              className="reveal-item text-[1.1rem] text-muted-foreground font-medium leading-relaxed mb-5 tracking-[0.005em]"
               style={stagger(2)}
             >
               Senior Product Manager · Building digital products that move businesses forward.
             </p>
 
-            {/* Domain tags */}
-            <p
-              className="reveal-item text-[0.9rem] text-muted-foreground/60 tracking-[0.12em] uppercase font-light mb-8"
-              style={stagger(3)}
-            >
-              Logistics · Fulfillment · Electric Mobility · Digital Transformation
-            </p>
+            {/* Domain pill tags */}
+            <div className="reveal-item flex flex-wrap justify-center gap-2 mb-8" style={stagger(3)}>
+              {["Logistics", "Fulfillment", "Electric Mobility", "Digital Transformation"].map((tag) => (
+                <span
+                  key={tag}
+                  className="inline-flex items-center px-3 py-1 text-[0.75rem] rounded-full font-normal text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800/30 border border-slate-100 dark:border-slate-700/40"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
 
             {/* CTA */}
             <div
@@ -553,26 +557,29 @@ export default function Home() {
       <section id="about" className="border-t border-border">
         <div className="container py-16 md:py-32" ref={aboutReveal.ref}>
           <div className={aboutReveal.revealed ? "is-revealed" : ""}>
+
+            {/* Section heading — matches Education / Experience / My Toolkit */}
+            <h2
+              className="reveal-item text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-10 md:mb-14"
+              style={stagger(0)}
+            >
+              About
+            </h2>
+
             <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
 
-              {/* ── Left — bold value statement (5 cols) ── */}
+              {/* ── Left — value statement (5 cols) ── */}
               <div className="md:col-span-5 min-w-0">
                 <p
-                  className="reveal-item text-[0.68rem] font-semibold tracking-[0.15em] text-muted-foreground/40 uppercase mb-5"
-                  style={stagger(0)}
-                >
-                  Senior Product Manager
-                </p>
-                <h2
-                  className="reveal-item text-3xl md:text-5xl font-bold leading-[1.08] tracking-[-0.03em] text-foreground"
+                  className="reveal-item text-2xl md:text-4xl font-bold leading-[1.1] tracking-[-0.025em] text-foreground"
                   style={stagger(1)}
                 >
                   Bridging technical complexity with user-centric product strategy.
-                </h2>
+                </p>
               </div>
 
               {/* ── Right — summary (7 cols) ── */}
-              <div className="md:col-span-7 min-w-0 space-y-4">
+              <div className="md:col-span-7 min-w-0 space-y-5">
                 <p
                   className="reveal-item text-base leading-[1.75] text-muted-foreground"
                   style={stagger(2)}
@@ -608,11 +615,17 @@ export default function Home() {
           <div className={educationReveal.revealed ? "is-revealed" : ""}>
 
             <h2
-              className={`reveal-item text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-10 md:mb-14`}
+              className="reveal-item text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-3"
               style={stagger(0)}
             >
               Education
             </h2>
+            <p
+              className="reveal-item text-[0.9rem] text-muted-foreground mb-10 md:mb-14"
+              style={stagger(1)}
+            >
+              Combining technical foundations with ongoing business education.
+            </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
@@ -704,42 +717,54 @@ export default function Home() {
 
       {/* ── Experience ────────────────────────────────────────── */}
       <section id="experience" className="border-t border-border">
-        <div className="container py-16 md:py-24" ref={expReveal.ref}>
-          <h2 className={`${sectionH2Base} mb-6`}>Experience</h2>
+        <div className="container py-16 md:py-32" ref={expReveal.ref}>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-10 md:mb-14">Experience</h2>
 
           <div className={expReveal.revealed ? "is-revealed" : ""}>
-            {/* ── Featured Projects ── */}
-            <h3 className={subsectionH3}>Featured Projects</h3>
             <div className="mb-10">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                 {featuredProjects.map((project) => {
                   const exp = experiences.find((e) => e.id === project.expId)!;
                   const isSelected = selectedProjectId === project.expId;
+                  const isCurrent = exp.id === 1;
                   return (
                     <button
                       key={project.expId}
                       onClick={() => setSelectedProjectId(isSelected ? null : project.expId)}
-                      className={`text-left rounded-2xl p-5 sm:p-6 border transition-all duration-300 hover:-translate-y-0.5 ${
+                      className={`text-left rounded-2xl p-5 sm:p-6 border transition-all duration-300 hover:-translate-y-0.5 flex flex-col ${
                         isSelected
                           ? "bg-accent/5 border-accent/25 shadow-[0_10px_32px_rgba(0,122,255,0.08)]"
                           : `bg-white dark:bg-card border-slate-100 dark:border-border ${cardShadow} hover:shadow-[0_16px_40px_rgb(0,0,0,0.07)]`
                       }`}
                     >
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shrink-0">
-                          <img src={exp.companyImage} alt={exp.company} className="w-5 h-5 object-contain" loading="lazy" />
+                      {/* Header row: logo + company + period badge */}
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-slate-100 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
+                            <img src={exp.companyImage} alt={exp.company} className="w-5 h-5 object-contain" loading="lazy" />
+                          </div>
+                          <span className="text-[0.68rem] font-semibold uppercase tracking-widest text-muted-foreground truncate">
+                            {exp.company}
+                          </span>
                         </div>
-                        <span className="text-[0.7rem] font-semibold uppercase tracking-widest text-muted-foreground truncate">
-                          {exp.company}
+                        <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.65rem] font-semibold tracking-wide uppercase shrink-0 ${
+                          isCurrent
+                            ? "bg-accent/10 text-accent"
+                            : "bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/40 text-slate-500 dark:text-slate-400"
+                        }`}>
+                          {isCurrent && <span className="w-1 h-1 rounded-full bg-accent animate-pulse" />}
+                          {isCurrent ? "Ongoing" : exp.period}
                         </span>
                       </div>
-                      <p className="font-bold text-foreground leading-snug mb-2" style={{ fontSize: "1rem" }}>
+
+                      <p className="font-bold text-foreground leading-snug mb-2 text-[1rem]">
                         {project.title}
                       </p>
-                      <p className="text-[0.85rem] text-muted-foreground leading-relaxed line-clamp-2">
+                      {/* flex-1 pushes CTA to card bottom, equalising heights */}
+                      <p className="text-[0.85rem] text-muted-foreground leading-relaxed line-clamp-2 flex-1">
                         {project.impact}
                       </p>
-                      <div className="flex items-center gap-1 mt-3 text-accent text-xs font-semibold">
+                      <div className="flex items-center gap-1 mt-4 text-accent text-xs font-semibold">
                         <span>{isSelected ? "Collapse" : "View Details"}</span>
                         <ChevronDown
                           size={12}
@@ -833,28 +858,30 @@ export default function Home() {
               ];
 
               return (
-                <div className="mt-6">
-                  {/* Toggle button */}
+                <div className="mt-8">
+                  {/* Toggle — styled as a designed subheader, not a debug element */}
                   <button
                     onClick={() => {
                       setEarlyCareerOpen((o) => !o);
                       setExpandedEntryKey(null);
                     }}
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-slate-100 dark:border-border/50 bg-slate-50 dark:bg-card/50 hover:bg-slate-100/70 dark:hover:bg-card/70 transition-all duration-200"
+                    className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-2xl border border-slate-100 dark:border-border/50 bg-slate-50/70 dark:bg-card/50 hover:bg-slate-100/80 dark:hover:bg-card/70 transition-all duration-200 group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <span className="text-[0.82rem] font-semibold text-foreground/60">
+                      <span className="text-sm font-semibold text-foreground/70 group-hover:text-foreground/90 transition-colors">
                         Foundational Experience
                       </span>
-                      <span className="hidden sm:block text-[0.72rem] text-muted-foreground/40 shrink-0">
+                      <span className="hidden sm:block text-[0.72rem] font-medium text-muted-foreground/40 shrink-0">
                         {earlyCareerEntries.length} roles · 2018 – 2023
                       </span>
                     </div>
-                    <div className="flex items-center gap-1.5 shrink-0 text-muted-foreground/50">
-                      <span className="text-[0.72rem]">{earlyCareerOpen ? "Collapse" : "View"}</span>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <span className="text-[0.72rem] font-medium text-muted-foreground/50">
+                        {earlyCareerOpen ? "Collapse" : "View all"}
+                      </span>
                       <ChevronDown
                         size={13}
-                        className={`transition-transform duration-300 ${earlyCareerOpen ? "rotate-180" : ""}`}
+                        className={`text-muted-foreground/40 transition-transform duration-300 ${earlyCareerOpen ? "rotate-180" : ""}`}
                       />
                     </div>
                   </button>
@@ -862,12 +889,12 @@ export default function Home() {
                   {/* Expandable content */}
                   <div
                     style={{
-                      maxHeight: earlyCareerOpen ? `${earlyCareerEntries.length * 120}px` : "0px",
+                      maxHeight: earlyCareerOpen ? `${earlyCareerEntries.length * 200}px` : "0px",
                       overflow: "hidden",
                       transition: "max-height 0.4s cubic-bezier(0.4,0,0.2,1)",
                     }}
                   >
-                    <div className="mt-2 rounded-2xl border border-slate-100 dark:border-border/40 overflow-hidden divide-y divide-slate-50 dark:divide-border/30 bg-white dark:bg-card/40">
+                    <div className="mt-2 rounded-2xl border border-slate-100 dark:border-border/40 overflow-hidden divide-y divide-slate-100/60 dark:divide-border/30 bg-white dark:bg-card/40">
                       {earlyCareerEntries.map((entry) => {
                         const isEntryOpen = expandedEntryKey === entry.key;
                         return (
@@ -876,10 +903,10 @@ export default function Home() {
                               onClick={() =>
                                 setExpandedEntryKey(isEntryOpen ? null : entry.key)
                               }
-                              className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAFAFA] dark:hover:bg-card/60 transition-colors duration-150 text-left"
+                              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-50 dark:hover:bg-card/60 transition-colors duration-150 text-left"
                             >
                               {/* Logo */}
-                              <div className="w-6 h-6 rounded-lg bg-white dark:bg-card border border-[#EBEBEB] dark:border-border overflow-hidden flex items-center justify-center shrink-0">
+                              <div className="w-7 h-7 rounded-lg bg-white dark:bg-card border border-slate-100 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
                                 {entry.logo && (
                                   <img
                                     src={entry.logo}
@@ -891,18 +918,23 @@ export default function Home() {
                               </div>
 
                               {/* Company + title */}
-                              <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-2">
-                                <span className="text-[0.8rem] font-medium text-foreground/70 truncate">
-                                  {entry.company}
-                                </span>
-                                <span className="hidden sm:block text-muted-foreground/30 text-xs shrink-0">·</span>
-                                <span className="text-[0.72rem] text-muted-foreground/50 truncate">
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-baseline gap-2 min-w-0">
+                                  <span className="text-[0.82rem] font-semibold text-foreground/80 truncate">
+                                    {entry.company}
+                                  </span>
+                                  <span className="hidden sm:block text-muted-foreground/30 text-xs shrink-0">·</span>
+                                  <span className="hidden sm:block text-[0.75rem] text-muted-foreground/55 truncate">
+                                    {entry.title}
+                                  </span>
+                                </div>
+                                <span className="sm:hidden text-[0.7rem] text-muted-foreground/50 truncate block">
                                   {entry.title}
                                 </span>
                               </div>
 
                               {/* Period */}
-                              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground/40 shrink-0 hidden xs:block sm:block">
+                              <span className="text-[0.68rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground/40 shrink-0">
                                 {entry.period}
                               </span>
 
@@ -918,12 +950,12 @@ export default function Home() {
                             {/* Inline brief detail */}
                             <div
                               style={{
-                                maxHeight: isEntryOpen ? "120px" : "0px",
+                                maxHeight: isEntryOpen ? "160px" : "0px",
                                 overflow: "hidden",
                                 transition: "max-height 0.25s ease-in-out",
                               }}
                             >
-                              <p className="px-4 pb-3 pt-1 text-[0.75rem] text-muted-foreground/60 leading-relaxed bg-[#FAFAFA] dark:bg-card/30">
+                              <p className="px-4 pb-4 pt-1 text-[0.78rem] text-muted-foreground/60 leading-relaxed bg-slate-50 dark:bg-card/30">
                                 {entry.brief}
                               </p>
                             </div>
@@ -944,7 +976,7 @@ export default function Home() {
         <div className="container py-16 md:py-32" ref={skillsReveal.ref}>
           <h2 className={sectionH2}>My Toolkit</h2>
           <div
-            className={`grid grid-cols-1 sm:grid-cols-2 gap-4 ${
+            className={`grid grid-cols-1 sm:grid-cols-2 gap-4 items-start ${
               skillsReveal.revealed ? "is-revealed" : ""
             }`}
           >
@@ -975,14 +1007,32 @@ export default function Home() {
 
       {/* ── Contact ───────────────────────────────────────────── */}
       <section id="contact" className="border-t border-border">
-        <div className="container py-16 md:py-32" ref={contactReveal.ref}>
+        <div className="container py-16 md:py-24" ref={contactReveal.ref}>
           <div className={contactReveal.revealed ? "is-revealed" : ""}>
-            <p
-              className="reveal-item text-[0.85rem] text-muted-foreground/60 mb-8 tracking-[0.005em]"
+
+            <h2
+              className="reveal-item text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-3"
               style={stagger(0)}
             >
-              Open to new opportunities and collaborations.
+              Let's Talk
+            </h2>
+            <p
+              className="reveal-item text-[0.95rem] text-muted-foreground mb-8 max-w-[44ch]"
+              style={stagger(1)}
+            >
+              Open to new opportunities, product collaborations, and meaningful conversations.
             </p>
+
+            {/* Primary CTA — matches hero button exactly */}
+            <div className="reveal-item mb-10" style={stagger(2)}>
+              <a href="mailto:rickytampubolon97@gmail.com">
+                <button className="bg-accent text-white hover:bg-[#0056CC] px-8 py-3 min-h-[44px] text-sm font-medium rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px active:scale-[0.97]">
+                  Get in Touch
+                </button>
+              </a>
+            </div>
+
+            {/* Secondary links */}
             <div className="flex flex-row flex-wrap gap-8">
               {contactLinks.map(({ href, icon, label, staggerIdx, external }) => (
                 <a
@@ -997,6 +1047,7 @@ export default function Home() {
                 </a>
               ))}
             </div>
+
           </div>
         </div>
       </section>
