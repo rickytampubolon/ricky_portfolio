@@ -68,6 +68,8 @@ export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
   const [selectedProjectId, setSelectedProjectId] = useState<number | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [earlyCareerOpen, setEarlyCareerOpen] = useState(false);
+  const [expandedEntryKey, setExpandedEntryKey] = useState<string | null>(null);
 
   /* Briefly add theme-transitioning class so all colours animate smoothly,
      then remove it so normal hover transitions are unaffected. */
@@ -739,190 +741,140 @@ export default function Home() {
               })()}
             </div>
 
-            {/* ── Earlier Full-time Roles ── */}
-            <h3 className={`${subsectionH3} mt-2`}>Earlier Roles</h3>
-            <div className="relative">
-              <div className="absolute left-[17px] top-[46px] bottom-[46px] w-[2px] bg-gradient-to-b from-border via-border/60 to-transparent pointer-events-none" />
+            {/* ── Foundational Experience (collapsed by default) ── */}
+            {(() => {
+              const earlyCareerEntries = [
+                ...experiences
+                  .filter((e) => e.id === 5 || e.id === 6)
+                  .map((e) => ({
+                    key: `exp-${e.id}`,
+                    logo: e.companyImage,
+                    company: e.company,
+                    title: e.title,
+                    period: e.period,
+                    brief: e.highlights[0],
+                  })),
+                ...partTimeJobs.map((j) => ({
+                  key: `pt-${j.id}`,
+                  logo: j.companyImage,
+                  company: j.company,
+                  title: j.title,
+                  period: j.period,
+                  brief: j.summary.split(".")[0] + ".",
+                })),
+                ...internships.map((i, idx) => ({
+                  key: `int-${idx}`,
+                  logo: i.companyImage,
+                  company: i.company,
+                  title: i.title,
+                  period: i.period,
+                  brief: i.responsibility.split(".")[0] + ".",
+                })),
+              ];
 
-              {experiences.filter((e) => e.id === 5 || e.id === 6).map((exp, index) => {
-                const isExpanded = expandedIds.has(exp.id);
-                const extraCount = exp.highlights.length - 3;
-                const hasMore = extraCount > 0;
-
-                return (
-                  <div
-                    key={exp.id}
-                    className="reveal-item relative flex gap-4 sm:gap-5 mb-4 last:mb-0"
-                    style={stagger(index)}
+              return (
+                <div className="mt-6">
+                  {/* Toggle button */}
+                  <button
+                    onClick={() => {
+                      setEarlyCareerOpen((o) => !o);
+                      setExpandedEntryKey(null);
+                    }}
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-2xl border border-[#E8E8E8] dark:border-border/50 bg-[#F7F7F7] dark:bg-card/50 hover:bg-[#F0F0F0] dark:hover:bg-card/70 transition-all duration-200"
                   >
-                    <div className="relative z-10 shrink-0 mt-1.5">
-                      <div className={timelineNode}>
-                        {exp.companyImage && (
-                          <img src={exp.companyImage} alt={exp.company} className="w-7 h-7 object-contain" loading="lazy" />
-                        )}
-                      </div>
+                    <div className="flex items-center gap-3 min-w-0">
+                      <span className="text-[0.82rem] font-semibold text-foreground/60">
+                        Foundational Experience
+                      </span>
+                      <span className="hidden sm:block text-[0.72rem] text-muted-foreground/40 shrink-0">
+                        {earlyCareerEntries.length} roles · 2018 – 2023
+                      </span>
                     </div>
+                    <div className="flex items-center gap-1.5 shrink-0 text-muted-foreground/50">
+                      <span className="text-[0.72rem]">{earlyCareerOpen ? "Collapse" : "View"}</span>
+                      <ChevronDown
+                        size={13}
+                        className={`transition-transform duration-300 ${earlyCareerOpen ? "rotate-180" : ""}`}
+                      />
+                    </div>
+                  </button>
 
-                    <div className={expCard}>
-                      <div className="flex flex-col md:flex-row md:gap-8">
-                        <div className="md:w-52 shrink-0 mb-3 md:mb-0">
-                          <p className="font-bold text-foreground leading-snug" style={{ fontSize: "1.05rem" }}>
-                            {exp.title}
-                          </p>
-                          <p className="font-medium text-muted-foreground mt-0.5" style={{ fontSize: "0.9rem" }}>
-                            {exp.company}
-                          </p>
-                          <p className="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-[#6e6e73] dark:text-muted-foreground mt-0.5">
-                            {exp.period}
-                          </p>
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          {exp.companyProfile && (
-                            <p className="text-[0.85rem] text-muted-foreground/70 italic mb-3 leading-relaxed">
-                              {exp.companyProfile}
-                            </p>
-                          )}
-                          <ul className="space-y-1.5">
-                            {exp.highlights.slice(0, 3).map((highlight, idx) => (
-                              <li key={idx} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.9rem" }}>
-                                <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
-                                <span className="leading-[1.6]">{highlight}</span>
-                              </li>
-                            ))}
-                          </ul>
-                          {hasMore && (
-                            <div
-                              style={{
-                                maxHeight: isExpanded ? `${extraCount * 150}px` : "0px",
-                                overflow: "hidden",
-                                transition: "max-height 0.35s ease-in-out",
-                              }}
-                            >
-                              <ul className="space-y-1.5 mt-1.5">
-                                {exp.highlights.slice(3).map((highlight, idx) => (
-                                  <li key={idx + 3} className="flex gap-2 text-muted-foreground" style={{ fontSize: "0.9rem" }}>
-                                    <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
-                                    <span className="leading-[1.6]">{highlight}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                          {hasMore && (
+                  {/* Expandable content */}
+                  <div
+                    style={{
+                      maxHeight: earlyCareerOpen ? `${earlyCareerEntries.length * 120}px` : "0px",
+                      overflow: "hidden",
+                      transition: "max-height 0.4s cubic-bezier(0.4,0,0.2,1)",
+                    }}
+                  >
+                    <div className="mt-2 rounded-2xl border border-[#E8E8E8] dark:border-border/40 overflow-hidden divide-y divide-[#F0F0F0] dark:divide-border/30 bg-white dark:bg-card/40">
+                      {earlyCareerEntries.map((entry) => {
+                        const isEntryOpen = expandedEntryKey === entry.key;
+                        return (
+                          <div key={entry.key}>
                             <button
-                              onClick={() => toggleExpanded(exp.id)}
-                              className="flex items-center gap-1 mt-3 text-xs text-muted-foreground hover:text-accent transition-colors duration-150 font-medium"
+                              onClick={() =>
+                                setExpandedEntryKey(isEntryOpen ? null : entry.key)
+                              }
+                              className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-[#FAFAFA] dark:hover:bg-card/60 transition-colors duration-150 text-left"
                             >
-                              {isExpanded ? "Show Less" : "Show More"}
+                              {/* Logo */}
+                              <div className="w-6 h-6 rounded-lg bg-white dark:bg-card border border-[#EBEBEB] dark:border-border overflow-hidden flex items-center justify-center shrink-0">
+                                {entry.logo && (
+                                  <img
+                                    src={entry.logo}
+                                    alt={entry.company}
+                                    className="w-4 h-4 object-contain"
+                                    loading="lazy"
+                                  />
+                                )}
+                              </div>
+
+                              {/* Company + title */}
+                              <div className="flex-1 min-w-0 flex flex-col sm:flex-row sm:items-center gap-0 sm:gap-2">
+                                <span className="text-[0.8rem] font-medium text-foreground/70 truncate">
+                                  {entry.company}
+                                </span>
+                                <span className="hidden sm:block text-muted-foreground/30 text-xs shrink-0">·</span>
+                                <span className="text-[0.72rem] text-muted-foreground/50 truncate">
+                                  {entry.title}
+                                </span>
+                              </div>
+
+                              {/* Period */}
+                              <span className="text-[0.65rem] font-semibold uppercase tracking-[0.08em] text-muted-foreground/40 shrink-0 hidden xs:block sm:block">
+                                {entry.period}
+                              </span>
+
+                              {/* Chevron */}
                               <ChevronDown
-                                size={12}
-                                className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}
+                                size={11}
+                                className={`text-muted-foreground/30 shrink-0 transition-transform duration-200 ${
+                                  isEntryOpen ? "rotate-180" : ""
+                                }`}
                               />
                             </button>
-                          )}
-                        </div>
-                      </div>
+
+                            {/* Inline brief detail */}
+                            <div
+                              style={{
+                                maxHeight: isEntryOpen ? "120px" : "0px",
+                                overflow: "hidden",
+                                transition: "max-height 0.25s ease-in-out",
+                              }}
+                            >
+                              <p className="px-4 pb-3 pt-1 text-[0.75rem] text-muted-foreground/60 leading-relaxed bg-[#FAFAFA] dark:bg-card/30">
+                                {entry.brief}
+                              </p>
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* ── Part-Time Roles ── */}
-            <h3 className={`${subsectionH3} mt-10`}>
-              Part-Time Roles
-            </h3>
-            <div className="relative">
-              <div className="absolute left-[17px] top-[46px] bottom-[46px] w-[2px] bg-gradient-to-b from-border via-border/60 to-transparent pointer-events-none" />
-
-              {partTimeJobs.map((job, idx) => (
-                <div
-                  key={job.id}
-                  className="reveal-item relative flex gap-4 sm:gap-5 mb-4 last:mb-0"
-                  style={stagger(idx)}
-                >
-                  <div className="relative z-10 shrink-0 mt-1.5">
-                    <div className={timelineNode}>
-                      {job.companyImage && (
-                        <img src={job.companyImage} alt={job.company} className="w-7 h-7 object-contain" loading="lazy" />
-                      )}
-                    </div>
-                  </div>
-
-                  <div className={partTimeCard}>
-                    <p className="font-semibold text-foreground leading-snug mb-0.5" style={{ fontSize: "0.95rem" }}>
-                      {job.title}
-                    </p>
-                    <p className="font-medium text-muted-foreground" style={{ fontSize: "0.85rem" }}>
-                      {job.company}
-                    </p>
-                    <p className="text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground mt-0.5 mb-2">
-                      {job.period}
-                    </p>
-
-                    {job.description && (
-                      <p className="text-[0.78rem] text-muted-foreground/60 italic mb-2 leading-relaxed line-clamp-2">
-                        {job.description}
-                      </p>
-                    )}
-
-                    <p className="text-muted-foreground leading-relaxed line-clamp-3" style={{ fontSize: "0.85rem" }}>
-                      {job.summary}
-                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
-
-            {/* ── Internships ── */}
-            <h3 className={`${subsectionH3} mt-10`}>
-              Internships
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {internships.map((internship, idx) => (
-                <div
-                  key={idx}
-                  className={`reveal-item ${internCard}`}
-                  style={stagger(idx)}
-                >
-                  {/* Logo + company + period */}
-                  <div className="flex items-center gap-2.5 mb-2.5">
-                    <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-[#E5E5EA] dark:border-border overflow-hidden flex items-center justify-center shrink-0">
-                      {internship.companyImage && (
-                        <img src={internship.companyImage} alt={internship.company} className="w-5 h-5 object-contain" loading="lazy" />
-                      )}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="font-semibold text-foreground leading-snug truncate" style={{ fontSize: "0.9rem" }}>
-                        {internship.company}
-                      </p>
-                      <p className="text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-[#86868b] dark:text-muted-foreground">
-                        {internship.period}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Role title */}
-                  <p className="font-medium text-foreground/80 mb-2 leading-snug" style={{ fontSize: "0.82rem" }}>
-                    {internship.title}
-                  </p>
-
-                  {/* Company profile — capped at 2 lines */}
-                  {internship.companyProfile && (
-                    <p className="text-[0.78rem] text-muted-foreground/60 italic mb-2 leading-relaxed line-clamp-2">
-                      {internship.companyProfile}
-                    </p>
-                  )}
-
-                  {/* Responsibility — capped at 3 lines */}
-                  {internship.responsibility && (
-                    <p className="text-muted-foreground leading-relaxed line-clamp-3" style={{ fontSize: "0.82rem" }}>
-                      {internship.responsibility}
-                    </p>
-                  )}
-                </div>
-              ))}
-            </div>
+              );
+            })()}
           </div>
         </div>
       </section>
