@@ -552,40 +552,48 @@ export default function Home() {
       <section id="about" className="border-t border-border">
         <div className="container py-24" ref={aboutReveal.ref}>
           <div className={aboutReveal.revealed ? "is-revealed" : ""}>
-            {/* Section heading */}
             <h2 className={`reveal-item ${sectionH2Base} mb-8`} style={stagger(0)}>
               About Me
             </h2>
 
-            <div className="flex flex-col md:flex-row gap-6 md:gap-16 items-start">
-              {/* Bio */}
-              <div className="flex-[1.8] min-w-0 space-y-5 max-w-[65ch]">
+            <div className="flex flex-col md:flex-row gap-8 md:gap-14 items-start">
+              {/* ── Left column — narrative (70%) ── */}
+              <div className="flex-[2.3] min-w-0 space-y-5">
                 <p
-                  className="reveal-item text-base leading-[1.6] text-foreground"
+                  className="reveal-item text-base leading-[1.7] text-foreground max-w-[64ch]"
                   style={stagger(1)}
                 >
-                  I became a Product Manager because I wanted great engineering effort to solve the
-                  right problems. With a foundation in Informatics and hands-on experience
-                  delivering software, I earned a seat at the technical table. What drives me,
-                  however, is ensuring that the work truly serves real user needs. The space between
-                  what is technically possible and what is genuinely useful is where I do my best
-                  work.
+                  My journey into product management wasn't a straight line — it was a deliberate
+                  path forged from a deep curiosity about how things work and why they matter to
+                  people. Starting with a foundation in Informatics and hands-on experience in
+                  software delivery, I learned to appreciate the intricate details of engineering.
+                  What truly captivated me, though, was the challenge of ensuring that all that
+                  brilliant effort was directed towards solving real, meaningful problems for users.
                 </p>
                 <p
-                  className="reveal-item text-base leading-[1.6] text-foreground"
+                  className="reveal-item text-base leading-[1.7] text-foreground max-w-[64ch]"
                   style={stagger(2)}
                 >
-                  Across electric mobility, logistics, and fulfillment, I have learned that the
-                  most impactful products are not the most complex. They are the ones grounded in a
-                  deep understanding of how people actually work. I begin every challenge by getting
-                  close to the operation, speaking with drivers, operations teams, and engineers
-                  before shaping any roadmap. I translate complexity into clarity so cross-functional
-                  teams can move with alignment and purpose. When I'm not in sprint planning, you'll
-                  find me trail running or exploring street food spots I've never tried before.
+                  Today, as a Senior Product Manager, I thrive on translating complex challenges in
+                  electric mobility, logistics, and fulfillment into clear, actionable roadmaps. My
+                  approach is rooted in getting close to the ground — speaking with drivers,
+                  operations teams, and engineers — to truly understand their world before shaping
+                  solutions. This bridges technical possibilities with genuine user needs, fostering
+                  alignment across cross-functional teams and delivering products that move
+                  businesses forward, quite literally.
+                </p>
+                <p
+                  className="reveal-item text-base leading-[1.7] text-foreground max-w-[64ch]"
+                  style={stagger(3)}
+                >
+                  Outside of building products, you'll find me trail running through Jakarta's green
+                  pockets or hunting down street food spots I've never tried before — two habits
+                  that, surprisingly, keep me sharp at finding underserved experiences worth
+                  improving.
                 </p>
 
-                {/* Product Philosophy */}
-                <div className="reveal-item pt-1" style={stagger(3)}>
+                {/* How I Work */}
+                <div className="reveal-item pt-1" style={stagger(4)}>
                   <p className="text-[0.7rem] font-semibold tracking-[0.14em] text-muted-foreground/50 uppercase mb-3">
                     How I Work
                   </p>
@@ -595,7 +603,7 @@ export default function Home() {
                       "Simplicity in the solution, depth in the thinking.",
                       "Proximity to users is not optional — it's the work.",
                     ].map((item, idx) => (
-                      <li key={idx} className="flex gap-2 text-[0.9rem] text-muted-foreground">
+                      <li key={idx} className="flex gap-2 text-[0.9rem] text-muted-foreground max-w-[56ch]">
                         <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
                         <span className="leading-relaxed">{item}</span>
                       </li>
@@ -604,37 +612,47 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Education — labelled, two separate cards */}
-              <div className="reveal-item flex-1 min-w-0 flex flex-col" style={stagger(3)}>
-                <div className="flex flex-col gap-6">
-                  {education.map((edu, idx) => (
-                    <div
-                      key={idx}
-                      className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-8 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
-                    >
-                      <div className="flex items-start gap-3">
-                        {edu.schoolImage && (
-                          <img
-                            src={edu.schoolImage}
-                            alt={edu.school}
-                            className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border mt-0.5"
-                            loading="lazy"
-                          />
-                        )}
-                        <div className="min-w-0">
-                          <p className="font-semibold text-[#1D1D1F] dark:text-foreground leading-snug mb-1" style={{ fontSize: "1.1rem" }}>
-                            {edu.degree}
-                          </p>
-                          <p className="font-normal text-[#86868b] dark:text-muted-foreground" style={{ fontSize: "0.9rem" }}>
-                            {edu.school}
-                          </p>
-                          <p className="font-normal text-[#86868b] dark:text-muted-foreground mt-0.5" style={{ fontSize: "0.9rem" }}>
-                            {edu.date}
-                          </p>
-                        </div>
+              {/* ── Right column — education + quote (30%) ── */}
+              <div className="reveal-item flex-1 min-w-0 flex flex-col gap-6" style={stagger(3)}>
+                {/* Education cards */}
+                {education.map((edu, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white dark:bg-card shadow-[0_10px_30px_rgba(0,0,0,0.03),_0_1px_8px_rgba(0,0,0,0.02)] dark:shadow-none border border-transparent dark:border-border rounded-3xl p-6 transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1"
+                  >
+                    <div className="flex items-start gap-3">
+                      {edu.schoolImage && (
+                        <img
+                          src={edu.schoolImage}
+                          alt={edu.school}
+                          className="w-6 h-6 object-contain rounded-md shrink-0 bg-white p-0.5 border border-[#E5E5EA] dark:border-border mt-0.5"
+                          loading="lazy"
+                        />
+                      )}
+                      <div className="min-w-0">
+                        <p className="font-semibold text-[#1D1D1F] dark:text-foreground leading-snug mb-1" style={{ fontSize: "1rem" }}>
+                          {edu.degree}
+                        </p>
+                        <p className="font-normal text-[#86868b] dark:text-muted-foreground" style={{ fontSize: "0.85rem" }}>
+                          {edu.school}
+                        </p>
+                        <p className="font-normal text-[#86868b] dark:text-muted-foreground mt-0.5" style={{ fontSize: "0.85rem" }}>
+                          {edu.date}
+                        </p>
                       </div>
                     </div>
-                  ))}
+                  </div>
+                ))}
+
+                {/* Philosophy quote */}
+                <div className="rounded-3xl border border-[#E8E8E8] dark:border-border/60 bg-[#FAFAFA] dark:bg-card/60 px-5 py-4">
+                  <p className="text-[0.7rem] font-semibold tracking-[0.14em] text-muted-foreground/40 uppercase mb-2">
+                    Product Philosophy
+                  </p>
+                  <p className="text-[0.88rem] italic text-muted-foreground leading-relaxed">
+                    "Simplicity is the ultimate sophistication in product design — but it takes more
+                    discipline to achieve than complexity ever does."
+                  </p>
                 </div>
               </div>
             </div>
