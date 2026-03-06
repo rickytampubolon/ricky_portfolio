@@ -563,56 +563,27 @@ export default function Home() {
                   className="reveal-item text-base leading-[1.7] text-foreground max-w-[64ch]"
                   style={stagger(1)}
                 >
-                  My journey into product management wasn't a straight line — it was a deliberate
-                  path forged from a deep curiosity about how things work and why they matter to
-                  people. Starting with a foundation in Informatics and hands-on experience in
-                  software delivery, I learned to appreciate the intricate details of engineering.
-                  What truly captivated me, though, was the challenge of ensuring that all that
-                  brilliant effort was directed towards solving real, meaningful problems for users.
+                  My journey into product management did not follow a straight path. It developed
+                  from a strong curiosity about how systems work and how they create real value for
+                  people. With a background in Informatics and early experience in software
+                  delivery, I gained a solid understanding of the technical side of building
+                  digital products. Over time, I became more interested in a broader question: how
+                  to ensure that technical efforts truly solve meaningful problems for users.
                 </p>
                 <p
                   className="reveal-item text-base leading-[1.7] text-foreground max-w-[64ch]"
                   style={stagger(2)}
                 >
-                  Today, as a Senior Product Manager, I thrive on translating complex challenges in
-                  electric mobility, logistics, and fulfillment into clear, actionable roadmaps. My
-                  approach is rooted in getting close to the ground — speaking with drivers,
-                  operations teams, and engineers — to truly understand their world before shaping
-                  solutions. This bridges technical possibilities with genuine user needs, fostering
-                  alignment across cross-functional teams and delivering products that move
-                  businesses forward, quite literally.
+                  Today, as a Senior Product Manager, I focus on translating complex operational
+                  and product challenges into clear and practical roadmaps. My approach begins with
+                  understanding the people behind the process. I spend time speaking with users,
+                  operations teams, and engineers to learn how they work and what obstacles they
+                  face. This perspective helps connect technical possibilities with real user needs
+                  while creating strong alignment across cross-functional teams.
                 </p>
-                <p
-                  className="reveal-item text-base leading-[1.7] text-foreground max-w-[64ch]"
-                  style={stagger(3)}
-                >
-                  Outside of building products, you'll find me trail running through Jakarta's green
-                  pockets or hunting down street food spots I've never tried before — two habits
-                  that, surprisingly, keep me sharp at finding underserved experiences worth
-                  improving.
-                </p>
-
-                {/* How I Work */}
-                <div className="reveal-item pt-1" style={stagger(4)}>
-                  <p className="text-[0.7rem] font-semibold tracking-[0.14em] text-muted-foreground/50 uppercase mb-3">
-                    How I Work
-                  </p>
-                  <ul className="space-y-2">
-                    {[
-                      "Data-informed, but intuition-led.",
-                      "Simplicity in the solution, depth in the thinking.",
-                      "Proximity to users is not optional — it's the work.",
-                    ].map((item, idx) => (
-                      <li key={idx} className="flex gap-2 text-[0.9rem] text-muted-foreground max-w-[56ch]">
-                        <span className="text-accent mt-0.5 shrink-0 font-bold">·</span>
-                        <span className="leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
               </div>
 
-              {/* ── Right column — education + quote (30%) ── */}
+              {/* ── Right column — education (30%) ── */}
               <div className="reveal-item flex-1 min-w-0 flex flex-col gap-6" style={stagger(3)}>
                 {/* Education cards */}
                 {education.map((edu, idx) => (
@@ -644,16 +615,6 @@ export default function Home() {
                   </div>
                 ))}
 
-                {/* Philosophy quote */}
-                <div className="rounded-3xl border border-[#E8E8E8] dark:border-border/60 bg-[#FAFAFA] dark:bg-card/60 px-5 py-4">
-                  <p className="text-[0.7rem] font-semibold tracking-[0.14em] text-muted-foreground/40 uppercase mb-2">
-                    Product Philosophy
-                  </p>
-                  <p className="text-[0.88rem] italic text-muted-foreground leading-relaxed">
-                    "Simplicity is the ultimate sophistication in product design — but it takes more
-                    discipline to achieve than complexity ever does."
-                  </p>
-                </div>
               </div>
             </div>
           </div>
