@@ -473,12 +473,13 @@ export default function Home() {
       {/* ── Hero + About -- split-panel layout ─────────────────── */}
       <section id="about" className="relative min-h-screen pt-14 overflow-hidden">
         {/* Muted left slab -- warm stone */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-[40%] h-72 md:h-full bg-stone-200 dark:bg-stone-800/30" />
+        <div className="absolute inset-y-0 left-0 w-full md:w-[40%] h-72 md:h-full bg-secondary dark:bg-muted/20" />
 
         {/* Profile card -- centered on the 40/60 boundary (desktop only) */}
+        <div className={`hidden md:block absolute z-20 top-1/2 ${heroRevealed ? "is-revealed" : ""}`} style={{ left: "40%", transform: "translate(-50%, -50%)" }}>
         <div
-          className={`reveal-item hidden md:flex flex-col items-center text-center absolute z-20 top-1/2 bg-white dark:bg-card rounded-3xl shadow-[0_24px_64px_rgb(0,0,0,0.12)] ${cardBorder} w-[280px] p-8`}
-          style={{ left: "40%", transform: "translate(-50%, -50%)", ...stagger(0) }}
+          className={`reveal-item flex flex-col items-center text-center bg-white dark:bg-card rounded-3xl shadow-[0_24px_64px_rgb(0,0,0,0.12)] ${cardBorder} w-[280px] p-8`}
+          style={stagger(0)}
         >
           <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-[0_8px_24px_rgb(0,0,0,0.12)] mb-5 shrink-0">
             <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-full h-full object-cover" />
@@ -489,6 +490,7 @@ export default function Home() {
           <div className="flex items-center justify-center gap-1 text-[0.72rem] text-muted-foreground/60">
             <MapPin size={9} /><span>Jakarta, Indonesia</span><span>&#x1F1EE;&#x1F1E9;</span>
           </div>
+        </div>
         </div>
 
         {/* Mobile: profile card stacked (not absolute) */}
@@ -532,43 +534,13 @@ export default function Home() {
             </div>
 
             {/* Bio */}
-            <div className="reveal-item space-y-4 border-t border-slate-200 dark:border-border pt-7 mb-8" style={stagger(5)}>
+            <div className="reveal-item space-y-4 border-t border-slate-200 dark:border-border pt-7" style={stagger(5)}>
               <p className="text-[0.92rem] leading-[1.75] text-muted-foreground">
                 My journey into product management did not follow a straight path. It developed from a strong curiosity about how systems work and how they create real value for people. With a background in Informatics and early experience in software delivery, I gained a solid understanding of the technical side of building digital products.
               </p>
               <p className="text-[0.92rem] leading-[1.75] text-muted-foreground">
                 {"Today, as a Senior Product Manager, I focus on translating complex operational and product challenges into clear and practical roadmaps \u2014 speaking with users, operations teams, and engineers to connect technical possibilities with real user needs."}
               </p>
-            </div>
-
-            {/* Education -- compact horizontal rows */}
-            <div className="reveal-item grid grid-cols-1 sm:grid-cols-2 gap-3" style={stagger(6)}>
-              {/* ITB */}
-              <div className={`flex items-start gap-3 ${cardBase} p-4 hover:-translate-y-0.5`}>
-                <div className={`w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/40 ${cardBorder} flex items-center justify-center shrink-0 overflow-hidden`}>
-                  <img src={education[0].schoolImage} alt={education[0].school} className="w-6 h-6 object-contain" loading="lazy" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[0.8rem] font-semibold text-foreground leading-snug mb-0.5">{education[0].degree}</p>
-                  <p className="text-[0.72rem] text-muted-foreground/70">{education[0].school}</p>
-                  <span className="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-700/30 text-[0.6rem] font-semibold tracking-wide text-amber-700 dark:text-amber-400 uppercase">
-                    <span className="w-1 h-1 rounded-full bg-amber-400 animate-pulse" />In Progress
-                  </span>
-                </div>
-              </div>
-              {/* Del IT */}
-              <div className={`flex items-start gap-3 ${cardBase} p-4 hover:-translate-y-0.5`}>
-                <div className={`w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/40 ${cardBorder} flex items-center justify-center shrink-0 overflow-hidden`}>
-                  <img src={education[1].schoolImage} alt={education[1].school} className="w-6 h-6 object-contain" loading="lazy" />
-                </div>
-                <div className="min-w-0">
-                  <p className="text-[0.8rem] font-semibold text-foreground leading-snug mb-0.5">{education[1].degree}</p>
-                  <p className="text-[0.72rem] text-muted-foreground/70">{education[1].school}</p>
-                  <span className={`inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full ${cardBorder} bg-slate-50 dark:bg-slate-800/40 text-[0.6rem] font-semibold tracking-wide text-slate-500 dark:text-slate-400 uppercase`}>
-                    {"Graduated \u00b7 2019"}
-                  </span>
-                </div>
-              </div>
             </div>
 
           </div>
