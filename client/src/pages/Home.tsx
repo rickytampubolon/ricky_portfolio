@@ -106,7 +106,6 @@ export default function Home() {
 
   /* Reveal hooks per section */
   const aboutReveal = useReveal();
-  const educationReveal = useReveal();
   const expReveal = useReveal();
   const skillsReveal = useReveal();
   const contactReveal = useReveal();
@@ -435,7 +434,6 @@ export default function Home() {
           <div className="flex items-center gap-0.5">
             {[
               ["About", "about"],
-              ["Education", "education"],
               ["Experience", "experience"],
               ["My Toolkit", "skills"],
               ["Contact", "contact"],
@@ -605,112 +603,66 @@ export default function Home() {
               </div>
 
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── Education ─────────────────────────────────────────── */}
-      <section id="education" className="border-t border-border">
-        <div className="container py-16 md:py-32" ref={educationReveal.ref}>
-          <div className={educationReveal.revealed ? "is-revealed" : ""}>
+            {/* ── Education subsection ── */}
+            <div className="mt-10 md:mt-14">
+              <h3 className={`reveal-item ${subsectionH3}`} style={stagger(4)}>
+                Education
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
 
-            <h2
-              className="reveal-item text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-3"
-              style={stagger(0)}
-            >
-              Education
-            </h2>
-            <p
-              className="reveal-item text-[0.9rem] text-muted-foreground mb-10 md:mb-14"
-              style={stagger(1)}
-            >
-              Combining technical foundations with ongoing business education.
-            </p>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-
-              {/* ── ITB card ── */}
-              <div
-                className="reveal-item group relative rounded-3xl bg-white dark:bg-card border border-slate-100 dark:border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.08)] dark:shadow-none hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col gap-6 overflow-hidden"
-                style={stagger(1)}
-              >
-                {/* Decorative background circle */}
-                <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-slate-50 dark:bg-slate-800/20 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="flex items-start justify-between gap-4 relative">
-                  <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
-                    <img
-                      src={education[0].schoolImage}
-                      alt={education[0].school}
-                      className="w-8 h-8 object-contain"
-                      loading="lazy"
-                    />
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-700/30 text-[0.7rem] font-semibold tracking-wide text-amber-700 dark:text-amber-400 uppercase shrink-0">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                    In Progress
-                  </span>
-                </div>
-
-                <div className="relative">
-                  <p className="text-xl font-bold text-foreground leading-snug mb-1">
-                    {education[0].degree}
-                  </p>
-                  <p className="text-[0.9rem] text-muted-foreground mb-4">
-                    {education[0].school}
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[0.72rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/50">
-                      Expected
-                    </span>
-                    <span className="text-[0.8rem] font-medium text-foreground/70">
-                      September 2026
+                {/* ITB */}
+                <div
+                  className="reveal-item group relative rounded-3xl bg-white dark:bg-card border border-slate-100 dark:border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.08)] dark:shadow-none hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col gap-6 overflow-hidden"
+                  style={stagger(5)}
+                >
+                  <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-slate-50 dark:bg-slate-800/20 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="flex items-start justify-between gap-4 relative">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
+                      <img src={education[0].schoolImage} alt={education[0].school} className="w-8 h-8 object-contain" loading="lazy" />
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-700/30 text-[0.7rem] font-semibold tracking-wide text-amber-700 dark:text-amber-400 uppercase shrink-0">
+                      <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
+                      In Progress
                     </span>
                   </div>
-                </div>
-              </div>
-
-              {/* ── Del IT card ── */}
-              <div
-                className="reveal-item group relative rounded-3xl bg-white dark:bg-card border border-slate-100 dark:border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.08)] dark:shadow-none hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col gap-6 overflow-hidden"
-                style={stagger(2)}
-              >
-                {/* Decorative background circle */}
-                <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-slate-50 dark:bg-slate-800/20 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-
-                <div className="flex items-start justify-between gap-4 relative">
-                  <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
-                    <img
-                      src={education[1].schoolImage}
-                      alt={education[1].school}
-                      className="w-8 h-8 object-contain"
-                      loading="lazy"
-                    />
+                  <div className="relative">
+                    <p className="text-xl font-bold text-foreground leading-snug mb-1">{education[0].degree}</p>
+                    <p className="text-[0.9rem] text-muted-foreground mb-4">{education[0].school}</p>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[0.72rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/50">Expected</span>
+                      <span className="text-[0.8rem] font-medium text-foreground/70">September 2026</span>
+                    </div>
                   </div>
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/40 text-[0.7rem] font-semibold tracking-wide text-slate-500 dark:text-slate-400 uppercase shrink-0">
-                    Graduated
-                  </span>
                 </div>
 
-                <div className="relative">
-                  <p className="text-xl font-bold text-foreground leading-snug mb-1">
-                    {education[1].degree}
-                  </p>
-                  <p className="text-[0.9rem] text-muted-foreground mb-4">
-                    {education[1].school}
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[0.72rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/50">
+                {/* Del IT */}
+                <div
+                  className="reveal-item group relative rounded-3xl bg-white dark:bg-card border border-slate-100 dark:border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.08)] dark:shadow-none hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col gap-6 overflow-hidden"
+                  style={stagger(6)}
+                >
+                  <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-slate-50 dark:bg-slate-800/20 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="flex items-start justify-between gap-4 relative">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
+                      <img src={education[1].schoolImage} alt={education[1].school} className="w-8 h-8 object-contain" loading="lazy" />
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/40 text-[0.7rem] font-semibold tracking-wide text-slate-500 dark:text-slate-400 uppercase shrink-0">
                       Graduated
                     </span>
-                    <span className="text-[0.8rem] font-medium text-foreground/70">
-                      September 2019
-                    </span>
+                  </div>
+                  <div className="relative">
+                    <p className="text-xl font-bold text-foreground leading-snug mb-1">{education[1].degree}</p>
+                    <p className="text-[0.9rem] text-muted-foreground mb-4">{education[1].school}</p>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[0.72rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/50">Graduated</span>
+                      <span className="text-[0.8rem] font-medium text-foreground/70">September 2019</span>
+                    </div>
                   </div>
                 </div>
-              </div>
 
+              </div>
             </div>
+
           </div>
         </div>
       </section>
