@@ -40,19 +40,17 @@ function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
 }
 
-/* ── Shared section heading style ───────────────────────────── */
-const sectionH2Base = "fluid-h2 font-bold tracking-[-0.02em] text-foreground";
-const sectionH2 = `${sectionH2Base} mb-12`;
-
 /* ── Design tokens ───────────────────────────────────────── */
-const cardShadow   = "shadow-[0_8px_30px_rgb(0,0,0,0.04)]";
-const cardShadowHover = "hover:shadow-[0_16px_40px_rgb(0,0,0,0.08)]";
-const cardBorder   = "border border-slate-100 dark:border-border";
-const cardBase     = `rounded-2xl bg-white dark:bg-card ${cardShadow} ${cardShadowHover} dark:shadow-none ${cardBorder} transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]`;
+const cardBorder   = "border border-slate-200 dark:border-border";
+const cardBase     = `rounded-2xl bg-white dark:bg-card shadow-sm ${cardBorder} transition-all duration-300`;
+const sectionHeading = "font-black tracking-[-0.03em] text-foreground";
+const btnPrimary   = "inline-flex items-center justify-center bg-accent text-white px-7 py-3 rounded-full text-sm font-semibold min-h-[44px] hover:bg-[#0056CC] transition-all duration-200 shadow-[0_4px_14px_rgba(0,122,255,0.35)] hover:-translate-y-px active:scale-[0.97]";
+const btnSecondary = "inline-flex items-center justify-center border-2 border-foreground text-foreground px-7 py-3 rounded-full text-sm font-semibold min-h-[44px] hover:bg-foreground hover:text-background transition-all duration-200 active:scale-[0.97]";
+const tagPill      = "inline-flex items-center px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 text-[0.75rem] text-slate-600 dark:text-slate-400 font-normal";
 
 /* ── Shared component styles ─────────────────────────────── */
 const expCard      = `flex-1 min-w-0 ${cardBase} p-5 sm:p-6 hover:-translate-y-1`;
-const timelineNode = `w-9 h-9 rounded-xl bg-white dark:bg-card ${cardBorder} overflow-hidden flex items-center justify-center ${cardShadow} dark:shadow-none`;
+const timelineNode = `w-9 h-9 rounded-xl bg-white dark:bg-card ${cardBorder} overflow-hidden flex items-center justify-center shadow-sm dark:shadow-none`;
 const subsectionH3 = "fluid-h3 font-semibold tracking-[-0.01em] text-foreground mb-4";
 const partTimeCard = `flex-1 min-w-0 ${cardBase} p-4 sm:p-5 hover:-translate-y-0.5`;
 const internCard   = `min-w-0 ${cardBase} p-4 hover:-translate-y-0.5`;
@@ -398,39 +396,20 @@ export default function Home() {
         style={{ width: `${scrollProgress}%` }}
       />
 
-      {/* ── Floating Glassmorphism Nav ─────────────────────── */}
-      <header
-        className={`fixed left-0 right-0 z-50 flex justify-center px-3 sm:px-4 transition-all duration-300 ${
-          scrolled ? "top-2 sm:top-3" : "top-3 sm:top-5"
-        }`}
-      >
-        <nav
-          className={`max-w-[640px] w-full flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-border shadow-[0_2px_24px_rgba(0,0,0,0.08)] backdrop-blur-[30px] backdrop-saturate-[180%] bg-white/80 dark:bg-card/90 transition-all duration-300 ${
-            scrolled ? "px-3 sm:px-4 py-1.5 sm:py-2" : "px-4 sm:px-6 py-2 sm:py-3"
-          }`}
-        >
-          {/* Brand */}
-          <div className="flex items-center gap-2">
-            <img
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-              alt="Ricky Halomoan"
-              className={`rounded-full object-cover ring-1 ring-border transition-all duration-300 ${
-                scrolled ? "w-5 h-5" : "w-6 h-6"
-              }`}
-            />
-            <span
-              className={`hidden sm:block font-semibold text-foreground tracking-[-0.02em] transition-all duration-300 ${
-                scrolled ? "text-xs" : "text-sm"
-              }`}
-            >
-              Ricky Halomoan
+      {/* ── Flat Sticky Navbar ─────────────────────────────── */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-slate-200 dark:border-border">
+        <nav className="container flex items-center justify-between h-14">
+          {/* Brand — name + "/" + title */}
+          <div className="flex items-center gap-2 text-sm font-semibold text-foreground tracking-[-0.01em]">
+            <span>Ricky Halomoan</span>
+            <span className="text-muted-foreground/40 font-normal">/</span>
+            <span className="text-[0.72rem] font-semibold uppercase tracking-[0.12em] text-muted-foreground">
+              Senior Product Manager
             </span>
           </div>
 
-          <div className="hidden sm:block w-px h-4 bg-border mx-0.5" />
-
-          {/* Links + theme toggle */}
-          <div className="flex items-center gap-0.5">
+          {/* Nav links + theme toggle */}
+          <div className="flex items-center gap-1">
             {[
               ["About", "about"],
               ["Experience", "experience"],
@@ -440,47 +419,30 @@ export default function Home() {
               <a
                 key={id}
                 href={`#${id}`}
-                className={`transition-all duration-200 font-medium ${
-                  id === "contact"
-                    ? `border border-[#CCCCCC] dark:border-border text-foreground bg-transparent hover:bg-secondary rounded-full ${
-                        scrolled ? "text-[10px] px-2.5 py-0.5" : "text-[11px] sm:text-xs px-3 sm:px-4 py-1 sm:py-1.5"
-                      }`
-                    : `text-foreground/70 hover:text-foreground rounded-full hover:bg-secondary ${
-                        scrolled ? "text-[10px] px-2 py-1" : "text-[11px] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5"
-                      }`
-                }`}
+                className="text-[0.8rem] font-medium text-foreground/60 hover:text-foreground px-3 py-1.5 rounded-md hover:bg-secondary transition-all duration-150"
               >
                 {label}
               </a>
             ))}
 
-            {/* Divider */}
-            <div className="w-px h-4 bg-border mx-1.5 shrink-0" />
+            <div className="w-px h-4 bg-border mx-2 shrink-0" />
 
             {/* Dark / Light toggle */}
             <button
               onClick={handleThemeToggle}
               aria-label="Toggle dark mode"
-              className={`relative rounded-full border border-border bg-secondary hover:bg-muted flex items-center justify-center transition-colors duration-200 shrink-0 ${
-                scrolled ? "w-6 h-6" : "w-7 h-7"
-              }`}
+              className="relative w-7 h-7 rounded-full border border-border bg-secondary hover:bg-muted flex items-center justify-center transition-colors duration-200 shrink-0"
             >
-              {/* Sun — visible in light mode */}
               <Sun
-                size={scrolled ? 11 : 13}
+                size={13}
                 className={`absolute transition-all duration-300 ${
-                  theme === "dark"
-                    ? "opacity-0 rotate-90 scale-50"
-                    : "opacity-100 rotate-0 scale-100"
+                  theme === "dark" ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"
                 }`}
               />
-              {/* Moon — visible in dark mode */}
               <Moon
-                size={scrolled ? 11 : 13}
+                size={13}
                 className={`absolute transition-all duration-300 ${
-                  theme === "dark"
-                    ? "opacity-100 rotate-0 scale-100"
-                    : "opacity-0 -rotate-90 scale-50"
+                  theme === "dark" ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"
                 }`}
               />
             </button>
@@ -489,14 +451,14 @@ export default function Home() {
       </header>
 
       {/* ── Hero + About — split profile layout ───────────────── */}
-      <section id="about" className="relative overflow-hidden border-b border-border">
+      <section id="about" className="relative overflow-hidden border-b border-border pt-14">
         <div className={`flex flex-col md:flex-row md:min-h-[92vh] ${heroRevealed ? "is-revealed" : ""}`}>
 
           {/* ── Left slab: colored background + floating profile card ── */}
-          <div className="md:w-[40%] bg-slate-100 dark:bg-slate-800/20 flex items-center justify-end py-20 md:py-0 px-8 md:pl-12 md:pr-0">
+          <div className="md:w-[40%] bg-stone-200 dark:bg-slate-800/20 flex items-center justify-end py-20 md:py-0 px-8 md:pl-12 md:pr-0">
             {/* Card overlaps into the right panel via negative margin */}
             <div
-              className="reveal-item bg-white dark:bg-card rounded-3xl shadow-[0_24px_64px_rgb(0,0,0,0.10)] dark:shadow-none border border-slate-100 dark:border-border w-full max-w-[260px] md:max-w-[280px] md:-mr-[3.5rem] relative z-10 flex flex-col items-center text-center p-8"
+              className="reveal-item bg-white dark:bg-card rounded-3xl shadow-[0_24px_64px_rgb(0,0,0,0.10)] dark:shadow-none border border-slate-200 dark:border-border w-full max-w-[260px] md:max-w-[280px] md:-mr-[3.5rem] relative z-10 flex flex-col items-center text-center p-8"
               style={stagger(0)}
             >
               {/* Circular profile photo */}
@@ -550,21 +512,17 @@ export default function Home() {
               {/* Domain pills */}
               <div className="reveal-item flex flex-wrap gap-2 mb-7" style={stagger(3)}>
                 {["Logistics", "Fulfillment", "Electric Mobility", "Digital Transformation"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex items-center px-3 py-1 text-[0.73rem] rounded-full font-normal text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800/30 border border-slate-100 dark:border-slate-700/40"
-                  >
-                    {tag}
-                  </span>
+                  <span key={tag} className={tagPill}>{tag}</span>
                 ))}
               </div>
 
-              {/* Primary CTA */}
-              <div className="reveal-item mb-8" style={stagger(4)}>
+              {/* CTA buttons — primary + secondary */}
+              <div className="reveal-item flex flex-wrap items-center gap-3 mb-8" style={stagger(4)}>
                 <a href="#contact">
-                  <button className="bg-accent text-white hover:bg-[#0056CC] px-8 py-3 min-h-[44px] text-sm font-medium rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px active:scale-[0.97]">
-                    Let's Work Together
-                  </button>
+                  <button className={btnPrimary}>Let's Work Together</button>
+                </a>
+                <a href="#experience">
+                  <button className={btnSecondary}>View My Work</button>
                 </a>
               </div>
 
@@ -590,8 +548,8 @@ export default function Home() {
               <div className="reveal-item grid grid-cols-1 sm:grid-cols-2 gap-3" style={stagger(6)}>
 
                 {/* ITB */}
-                <div className="flex items-start gap-3 rounded-2xl border border-slate-100 dark:border-border bg-white dark:bg-card p-4 shadow-[0_4px_12px_rgb(0,0,0,0.03)] hover:-translate-y-0.5 transition-transform duration-200">
-                  <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
+                <div className="flex items-start gap-3 rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-card p-4 shadow-sm hover:-translate-y-0.5 transition-transform duration-200">
+                  <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
                     <img src={education[0].schoolImage} alt={education[0].school} className="w-6 h-6 object-contain" loading="lazy" />
                   </div>
                   <div className="min-w-0">
@@ -605,8 +563,8 @@ export default function Home() {
                 </div>
 
                 {/* Del IT */}
-                <div className="flex items-start gap-3 rounded-2xl border border-slate-100 dark:border-border bg-white dark:bg-card p-4 shadow-[0_4px_12px_rgb(0,0,0,0.03)] hover:-translate-y-0.5 transition-transform duration-200">
-                  <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
+                <div className="flex items-start gap-3 rounded-2xl border border-slate-200 dark:border-border bg-white dark:bg-card p-4 shadow-sm hover:-translate-y-0.5 transition-transform duration-200">
+                  <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
                     <img src={education[1].schoolImage} alt={education[1].school} className="w-6 h-6 object-contain" loading="lazy" />
                   </div>
                   <div className="min-w-0">
@@ -628,7 +586,7 @@ export default function Home() {
       {/* ── Experience ────────────────────────────────────────── */}
       <section id="experience" className="border-t border-border">
         <div className="container py-16 md:py-32" ref={expReveal.ref}>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-10 md:mb-14">Experience</h2>
+          <h2 className={`${sectionHeading} text-5xl md:text-6xl mb-10 md:mb-14`}>Experience</h2>
 
           <div className={expReveal.revealed ? "is-revealed" : ""}>
             <div className="mb-10">
@@ -644,13 +602,13 @@ export default function Home() {
                       className={`text-left rounded-2xl p-5 sm:p-6 border transition-all duration-300 hover:-translate-y-0.5 flex flex-col ${
                         isSelected
                           ? "bg-accent/5 border-accent/25 shadow-[0_10px_32px_rgba(0,122,255,0.08)]"
-                          : `bg-white dark:bg-card border-slate-100 dark:border-border ${cardShadow} hover:shadow-[0_16px_40px_rgb(0,0,0,0.07)]`
+                          : "bg-white dark:bg-card border-slate-200 dark:border-border shadow-sm hover:shadow-md"
                       }`}
                     >
                       {/* Header row: logo + company + period badge */}
                       <div className="flex items-center justify-between gap-2 mb-3">
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-slate-100 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
+                          <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-slate-200 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
                             <img src={exp.companyImage} alt={exp.company} className="w-5 h-5 object-contain" loading="lazy" />
                           </div>
                           <span className="text-[0.68rem] font-semibold uppercase tracking-widest text-muted-foreground truncate">
@@ -660,7 +618,7 @@ export default function Home() {
                         <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.65rem] font-semibold tracking-wide uppercase shrink-0 ${
                           isCurrent
                             ? "bg-accent/10 text-accent"
-                            : "bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/40 text-slate-500 dark:text-slate-400"
+                            : "bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/40 text-slate-500 dark:text-slate-400"
                         }`}>
                           {isCurrent && <span className="w-1 h-1 rounded-full bg-accent animate-pulse" />}
                           {isCurrent ? "Ongoing" : exp.period}
@@ -775,7 +733,7 @@ export default function Home() {
                       setEarlyCareerOpen((o) => !o);
                       setExpandedEntryKey(null);
                     }}
-                    className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-2xl border border-slate-100 dark:border-border/50 bg-slate-50/70 dark:bg-card/50 hover:bg-slate-100/80 dark:hover:bg-card/70 transition-all duration-200 group"
+                    className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-2xl border border-slate-200 dark:border-border/50 bg-slate-50/70 dark:bg-card/50 hover:bg-slate-100/80 dark:hover:bg-card/70 transition-all duration-200 group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <span className="text-sm font-semibold text-foreground/70 group-hover:text-foreground/90 transition-colors">
@@ -804,7 +762,7 @@ export default function Home() {
                       transition: "max-height 0.4s cubic-bezier(0.4,0,0.2,1)",
                     }}
                   >
-                    <div className="mt-2 rounded-2xl border border-slate-100 dark:border-border/40 overflow-hidden divide-y divide-slate-100/60 dark:divide-border/30 bg-white dark:bg-card/40">
+                    <div className="mt-2 rounded-2xl border border-slate-200 dark:border-border/40 overflow-hidden divide-y divide-slate-200/60 dark:divide-border/30 bg-white dark:bg-card/40">
                       {earlyCareerEntries.map((entry) => {
                         const isEntryOpen = expandedEntryKey === entry.key;
                         return (
@@ -816,7 +774,7 @@ export default function Home() {
                               className="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-50 dark:hover:bg-card/60 transition-colors duration-150 text-left"
                             >
                               {/* Logo */}
-                              <div className="w-7 h-7 rounded-lg bg-white dark:bg-card border border-slate-100 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
+                              <div className="w-7 h-7 rounded-lg bg-white dark:bg-card border border-slate-200 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
                                 {entry.logo && (
                                   <img
                                     src={entry.logo}
@@ -884,7 +842,7 @@ export default function Home() {
       {/* ── Skills ────────────────────────────────────────────── */}
       <section id="skills" className="border-t border-border">
         <div className="container py-16 md:py-32" ref={skillsReveal.ref}>
-          <h2 className={sectionH2}>My Toolkit</h2>
+          <h2 className={`${sectionHeading} text-5xl md:text-6xl mb-12`}>My Toolkit</h2>
           <div
             className={`grid grid-cols-1 sm:grid-cols-2 gap-4 items-start ${
               skillsReveal.revealed ? "is-revealed" : ""
@@ -901,12 +859,7 @@ export default function Home() {
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {items.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="inline-flex items-center px-4 py-2 text-[0.8rem] rounded-full font-normal text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800/30 border border-slate-100 dark:border-slate-700/40 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors duration-200"
-                    >
-                      {skill}
-                    </span>
+                    <span key={idx} className={tagPill}>{skill}</span>
                   ))}
                 </div>
               </div>
@@ -921,7 +874,7 @@ export default function Home() {
           <div className={contactReveal.revealed ? "is-revealed" : ""}>
 
             <h2
-              className="reveal-item text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-3"
+              className={`reveal-item ${sectionHeading} text-5xl md:text-6xl mb-4`}
               style={stagger(0)}
             >
               Let's Talk
@@ -933,12 +886,13 @@ export default function Home() {
               Open to new opportunities, product collaborations, and meaningful conversations.
             </p>
 
-            {/* Primary CTA — matches hero button exactly */}
-            <div className="reveal-item mb-10" style={stagger(2)}>
+            {/* CTA buttons — primary + secondary */}
+            <div className="reveal-item flex flex-wrap items-center gap-3 mb-10" style={stagger(2)}>
               <a href="mailto:rickytampubolon97@gmail.com">
-                <button className="bg-accent text-white hover:bg-[#0056CC] px-8 py-3 min-h-[44px] text-sm font-medium rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px active:scale-[0.97]">
-                  Get in Touch
-                </button>
+                <button className={btnPrimary}>Get in Touch</button>
+              </a>
+              <a href="https://www.linkedin.com/in/rickytampubolon" target="_blank" rel="noopener noreferrer">
+                <button className={btnSecondary}>View LinkedIn</button>
               </a>
             </div>
 
@@ -963,7 +917,7 @@ export default function Home() {
       </section>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="border-t border-slate-100 dark:border-border">
+      <footer className="border-t border-slate-200 dark:border-border">
         <div className="container py-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-between sm:gap-3">
           <p className="text-[0.8rem] text-muted-foreground/60">
             Ricky Halomoan © 2026
