@@ -556,21 +556,19 @@ export default function Home() {
         <div className="container py-16 md:py-32" ref={aboutReveal.ref}>
           <div className={aboutReveal.revealed ? "is-revealed" : ""}>
 
-            {/* Section heading — matches Education / Experience / My Toolkit */}
-            <h2
-              className="reveal-item text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-10 md:mb-14"
-              style={stagger(0)}
-            >
-              About
-            </h2>
-
-            {/* 3-column grid: tagline | bio | education cards */}
+            {/* 3-column grid: heading+tagline | bio | education cards */}
             <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr_1fr] gap-10 md:gap-12 items-start">
 
-              {/* ── Col 1 — tagline ── */}
-              <div className="md:border-r border-slate-100 dark:border-border md:pr-12">
+              {/* ── Col 1 — section heading + tagline ── */}
+              <div className="md:border-r border-slate-100 dark:border-border md:pr-12 flex flex-col gap-5">
+                <h2
+                  className="reveal-item text-2xl md:text-3xl font-bold tracking-tight text-foreground"
+                  style={stagger(0)}
+                >
+                  About
+                </h2>
                 <p
-                  className="reveal-item text-2xl md:text-4xl font-bold leading-[1.1] tracking-[-0.025em] text-foreground"
+                  className="reveal-item text-base md:text-lg font-semibold leading-[1.4] tracking-[-0.01em] text-foreground/80"
                   style={stagger(1)}
                 >
                   Bridging technical complexity with user-centric product strategy.
