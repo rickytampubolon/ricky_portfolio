@@ -564,10 +564,11 @@ export default function Home() {
               About
             </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-start">
+            {/* 3-column grid: tagline | bio | education cards */}
+            <div className="grid grid-cols-1 md:grid-cols-[1fr_1.4fr_1fr] gap-10 md:gap-12 items-start">
 
-              {/* ── Left — value statement (5 cols) ── */}
-              <div className="md:col-span-5 min-w-0">
+              {/* ── Col 1 — tagline ── */}
+              <div className="md:border-r border-slate-100 dark:border-border md:pr-12">
                 <p
                   className="reveal-item text-2xl md:text-4xl font-bold leading-[1.1] tracking-[-0.025em] text-foreground"
                   style={stagger(1)}
@@ -576,8 +577,8 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* ── Right — summary (7 cols) ── */}
-              <div className="md:col-span-7 min-w-0 space-y-5">
+              {/* ── Col 2 — bio paragraphs ── */}
+              <div className="md:border-r border-slate-100 dark:border-border md:pr-12 space-y-5">
                 <p
                   className="reveal-item text-base leading-[1.75] text-muted-foreground"
                   style={stagger(2)}
@@ -602,65 +603,60 @@ export default function Home() {
                 </p>
               </div>
 
-            </div>
-
-            {/* ── Education subsection ── */}
-            <div className="mt-10 md:mt-14">
-              <h3 className={`reveal-item ${subsectionH3}`} style={stagger(4)}>
-                Education
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+              {/* ── Col 3 — education cards ── */}
+              <div className="flex flex-col gap-3">
 
                 {/* ITB */}
                 <div
-                  className="reveal-item group relative rounded-3xl bg-white dark:bg-card border border-slate-100 dark:border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.08)] dark:shadow-none hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col gap-6 overflow-hidden"
-                  style={stagger(5)}
+                  className="reveal-item group relative rounded-3xl bg-white dark:bg-card border border-slate-100 dark:border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.08)] dark:shadow-none hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col gap-4 overflow-hidden"
+                  style={stagger(4)}
                 >
-                  <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-slate-50 dark:bg-slate-800/20 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="flex items-start justify-between gap-4 relative">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
-                      <img src={education[0].schoolImage} alt={education[0].school} className="w-8 h-8 object-contain" loading="lazy" />
+                  <div className="pointer-events-none absolute -top-10 -right-10 w-36 h-36 rounded-full bg-slate-50 dark:bg-slate-800/20 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="flex items-start justify-between gap-3 relative">
+                    <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
+                      <img src={education[0].schoolImage} alt={education[0].school} className="w-7 h-7 object-contain" loading="lazy" />
                     </div>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-700/30 text-[0.7rem] font-semibold tracking-wide text-amber-700 dark:text-amber-400 uppercase shrink-0">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-700/30 text-[0.65rem] font-semibold tracking-wide text-amber-700 dark:text-amber-400 uppercase shrink-0">
                       <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                       In Progress
                     </span>
                   </div>
                   <div className="relative">
-                    <p className="text-xl font-bold text-foreground leading-snug mb-1">{education[0].degree}</p>
-                    <p className="text-[0.9rem] text-muted-foreground mb-4">{education[0].school}</p>
-                    <div className="flex items-center gap-2">
-                      <span className="text-[0.72rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/50">Expected</span>
-                      <span className="text-[0.8rem] font-medium text-foreground/70">September 2026</span>
+                    <p className="text-[1rem] font-bold text-foreground leading-snug mb-0.5">{education[0].degree}</p>
+                    <p className="text-[0.82rem] text-muted-foreground mb-3">{education[0].school}</p>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[0.68rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/50">Expected</span>
+                      <span className="text-[0.78rem] font-medium text-foreground/70">September 2026</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Del IT */}
                 <div
-                  className="reveal-item group relative rounded-3xl bg-white dark:bg-card border border-slate-100 dark:border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.08)] dark:shadow-none hover:-translate-y-1 transition-all duration-300 p-8 flex flex-col gap-6 overflow-hidden"
-                  style={stagger(6)}
+                  className="reveal-item group relative rounded-3xl bg-white dark:bg-card border border-slate-100 dark:border-border shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_16px_48px_rgb(0,0,0,0.08)] dark:shadow-none hover:-translate-y-1 transition-all duration-300 p-6 flex flex-col gap-4 overflow-hidden"
+                  style={stagger(5)}
                 >
-                  <div className="pointer-events-none absolute -top-10 -right-10 w-40 h-40 rounded-full bg-slate-50 dark:bg-slate-800/20 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="flex items-start justify-between gap-4 relative">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
-                      <img src={education[1].schoolImage} alt={education[1].school} className="w-8 h-8 object-contain" loading="lazy" />
+                  <div className="pointer-events-none absolute -top-10 -right-10 w-36 h-36 rounded-full bg-slate-50 dark:bg-slate-800/20 opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="flex items-start justify-between gap-3 relative">
+                    <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
+                      <img src={education[1].schoolImage} alt={education[1].school} className="w-7 h-7 object-contain" loading="lazy" />
                     </div>
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/40 text-[0.7rem] font-semibold tracking-wide text-slate-500 dark:text-slate-400 uppercase shrink-0">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/40 text-[0.65rem] font-semibold tracking-wide text-slate-500 dark:text-slate-400 uppercase shrink-0">
                       Graduated
                     </span>
                   </div>
                   <div className="relative">
-                    <p className="text-xl font-bold text-foreground leading-snug mb-1">{education[1].degree}</p>
-                    <p className="text-[0.9rem] text-muted-foreground mb-4">{education[1].school}</p>
-                    <div className="flex items-center gap-2">
-                      <span className="text-[0.72rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/50">Graduated</span>
-                      <span className="text-[0.8rem] font-medium text-foreground/70">September 2019</span>
+                    <p className="text-[1rem] font-bold text-foreground leading-snug mb-0.5">{education[1].degree}</p>
+                    <p className="text-[0.82rem] text-muted-foreground mb-3">{education[1].school}</p>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[0.68rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/50">Graduated</span>
+                      <span className="text-[0.78rem] font-medium text-foreground/70">September 2019</span>
                     </div>
                   </div>
                 </div>
 
               </div>
+
             </div>
 
           </div>
