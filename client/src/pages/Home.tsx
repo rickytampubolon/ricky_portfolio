@@ -40,19 +40,22 @@ function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
 }
 
-/* ── Shared section heading style ───────────────────────────── */
-const sectionH2Base = "fluid-h2 font-bold tracking-[-0.02em] text-foreground";
-const sectionH2 = `${sectionH2Base} mb-12`;
-
 /* ── Design tokens ───────────────────────────────────────── */
-const cardShadow   = "shadow-[0_8px_30px_rgb(0,0,0,0.04)]";
-const cardShadowHover = "hover:shadow-[0_16px_40px_rgb(0,0,0,0.08)]";
-const cardBorder   = "border border-slate-100 dark:border-border";
-const cardBase     = `rounded-2xl bg-white dark:bg-card ${cardShadow} ${cardShadowHover} dark:shadow-none ${cardBorder} transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]`;
-
+// Universal card
+const cardBorder  = "border border-slate-200 dark:border-border";
+const cardBase    = `bg-white dark:bg-card rounded-2xl shadow-sm ${cardBorder} transition-all duration-300`;
+// Section heading — same scale as "Hello." for every section
+const sectionHeading = "font-black tracking-[-0.03em] text-foreground";
+// Buttons — two styles only, used everywhere
+const btnPrimary  = "inline-flex items-center justify-center bg-accent text-white px-7 py-3 rounded-full text-sm font-semibold min-h-[44px] hover:bg-[#0056CC] transition-all duration-200 shadow-[0_4px_14px_rgba(0,122,255,0.35)] hover:-translate-y-px active:scale-[0.97]";
+const btnSecondary= "inline-flex items-center justify-center border-2 border-foreground text-foreground px-7 py-3 rounded-full text-sm font-semibold min-h-[44px] hover:bg-foreground hover:text-background transition-all duration-200 active:scale-[0.97]";
+// Universal tag/pill
+const tagPill     = "inline-flex items-center px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 text-[0.75rem] text-slate-600 dark:text-slate-400 font-normal";
+// Card padding token
+const cardPad     = "p-6";
 /* ── Shared component styles ─────────────────────────────── */
-const expCard      = `flex-1 min-w-0 ${cardBase} p-5 sm:p-6 hover:-translate-y-1`;
-const timelineNode = `w-9 h-9 rounded-xl bg-white dark:bg-card ${cardBorder} overflow-hidden flex items-center justify-center ${cardShadow} dark:shadow-none`;
+const expCard      = `flex-1 min-w-0 ${cardBase} ${cardPad} hover:-translate-y-1`;
+const timelineNode = `w-9 h-9 rounded-xl bg-white dark:bg-card ${cardBorder} overflow-hidden flex items-center justify-center shadow-sm dark:shadow-none`;
 const subsectionH3 = "fluid-h3 font-semibold tracking-[-0.01em] text-foreground mb-4";
 const partTimeCard = `flex-1 min-w-0 ${cardBase} p-4 sm:p-5 hover:-translate-y-0.5`;
 const internCard   = `min-w-0 ${cardBase} p-4 hover:-translate-y-0.5`;
@@ -120,7 +123,7 @@ export default function Home() {
       companyImage:
         "https://media.licdn.com/dms/image/v2/D560BAQG5Xqveq4buhg/company-logo_200_200/company-logo_200_200/0/1731636708850/greensmartmobility_logo?e=1773273600&v=beta&t=Q6qJwyL1Q3ofHqnlzuetOUmPcP83yX7TJbxOh5apik4",
       location: "Jakarta, Indonesia",
-      period: "2025 – Present",
+      period: "2025 \u2013 Present",
       highlights: [
         "Lead end-to-end product strategy and execution for Xanh SM Indonesia, defining the national roadmap that aligns regional and global priorities with local operational needs, market behavior, and regulatory requirements.",
         "Oversee development of customer apps, driver flows, corporate solutions, and internal operational systems, collaborating with engineering, design, operations, finance, data teams, and global stakeholders to ensure smooth feature delivery.",
@@ -139,7 +142,7 @@ export default function Home() {
       companyImage:
         "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/cJhNVtPdbOHZIgCZ.png",
       location: "Jakarta, Indonesia",
-      period: "2024 – 2025",
+      period: "2024 \u2013 2025",
       highlights: [
         "Led development of national-scale performance management tools and data integration systems, improving accountability and efficiency across Indonesia's education sector.",
         "Defined product vision and roadmap, aligning platform development with ministry priorities and national education standards while managing the full delivery lifecycle from research to release.",
@@ -177,7 +180,7 @@ export default function Home() {
       companyImage:
         "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png",
       location: "Jakarta, Indonesia",
-      period: "2022 – 2024",
+      period: "2022 \u2013 2024",
       highlights: [
         "Directed the Fulfillment team to reduce turnaround time and improve service levels, managing the complete product development lifecycle from concept to launch.",
         "Led enhancements to the Warehouse Management System, driving improvements in productivity, data accuracy, and process standardization.",
@@ -196,7 +199,7 @@ export default function Home() {
       companyImage:
         "https://media.licdn.com/dms/image/v2/D560BAQGe_izwxvj_SQ/company-logo_200_200/company-logo_200_200/0/1700635813325/traveloka_logo?e=1773273600&v=beta&t=bOObxNgTa_cE27Qpaljq9RoLoVxqtvAUdWwgbjbQdiU",
       location: "Jakarta, Indonesia",
-      period: "2020 – 2022",
+      period: "2020 \u2013 2022",
       highlights: [
         "Conducted comprehensive testing across Android, iOS, Web, and mobile web platforms to ensure high-quality delivery for the Accommodation product team.",
         "Led weekly Web release processes to ensure smooth deployments and high platform stability.",
@@ -215,7 +218,7 @@ export default function Home() {
       companyImage:
         "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/hLmBFNBFYNwCqgOT.png",
       location: "Jakarta, Indonesia",
-      period: "2019 – 2020",
+      period: "2019 \u2013 2020",
       highlights: [
         "Contributed to MyBluebird application by conducting extensive functional and integration testing across Android, Web, and API components.",
         "Collaborated closely with business analysts, product owners, engineers, and designers to clarify requirements, refine user flows, and resolve issues.",
@@ -310,7 +313,7 @@ export default function Home() {
       companyImage:
         "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/iWSWOgSUpfIhugUD.png",
       location: "Jakarta, Indonesia",
-      period: "2022 – 2023",
+      period: "2022 \u2013 2023",
       description:
         "Indonesian health technology company building an integrated digital healthcare ecosystem. Through teleconsultation, medicine delivery, and health commerce services, SehatQ aims to improve access to trusted and affordable healthcare across Indonesia.",
       summary:
@@ -323,7 +326,7 @@ export default function Home() {
       companyImage:
         "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/vtUAAIQhTvYAhdQP.png",
       location: "Jakarta, Indonesia",
-      period: "2021 – 2022",
+      period: "2021 \u2013 2022",
       description:
         "Indonesian express logistics company focused on fast and reliable delivery services nationwide. With strong same-day capabilities and extensive city coverage, SiCepat plays a key role in supporting Indonesia's growing e-commerce ecosystem.",
       summary:
@@ -398,56 +401,37 @@ export default function Home() {
         style={{ width: `${scrollProgress}%` }}
       />
 
-      {/* ── Floating Glassmorphism Nav ─────────────────────── */}
-      <header
-        className={`fixed left-0 right-0 z-50 flex justify-center px-3 sm:px-4 transition-all duration-300 ${
-          scrolled ? "top-2 sm:top-3" : "top-3 sm:top-5"
-        }`}
-      >
-        <nav
-          className={`max-w-[640px] w-full flex items-center justify-between gap-2 sm:gap-3 rounded-full border border-border shadow-[0_2px_24px_rgba(0,0,0,0.08)] backdrop-blur-[30px] backdrop-saturate-[180%] bg-white/80 dark:bg-card/90 transition-all duration-300 ${
-            scrolled ? "px-3 sm:px-4 py-1.5 sm:py-2" : "px-4 sm:px-6 py-2 sm:py-3"
-          }`}
-        >
-          {/* Brand */}
-          <div className="flex items-center gap-2">
-            <img
-              src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-              alt="Ricky Halomoan"
-              className={`rounded-full object-cover ring-1 ring-border transition-all duration-300 ${
-                scrolled ? "w-5 h-5" : "w-6 h-6"
-              }`}
-            />
-            <span
-              className={`hidden sm:block font-semibold text-foreground tracking-[-0.02em] transition-all duration-300 ${
-                scrolled ? "text-xs" : "text-sm"
-              }`}
-            >
+      {/* ── Flat Sticky Navbar ─────────────────────────────── */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-slate-200 dark:border-border">
+        <div className="h-14 flex items-center justify-between px-6 md:px-10">
+          {/* Left side: name + separator + title */}
+          <div className="flex items-center gap-2.5">
+            <span className="font-bold text-foreground" style={{ fontSize: "0.95rem" }}>
               Ricky Halomoan
+            </span>
+            <span className="text-slate-300 dark:text-slate-600">/</span>
+            <span className="hidden sm:block text-[0.68rem] tracking-[0.12em] uppercase text-muted-foreground">
+              Senior Product Manager
             </span>
           </div>
 
-          <div className="hidden sm:block w-px h-4 bg-border mx-0.5" />
-
-          {/* Links + theme toggle */}
-          <div className="flex items-center gap-0.5">
-            {[
-              ["About", "about"],
-              ["Experience", "experience"],
-              ["My Toolkit", "skills"],
-              ["Contact", "contact"],
-            ].map(([label, id]) => (
+          {/* Right side: nav links + divider + theme toggle */}
+          <div className="flex items-center gap-4 md:gap-7">
+            {(
+              [
+                ["About", "about"],
+                ["Experience", "experience"],
+                ["My Toolkit", "skills"],
+                ["Contact", "contact"],
+              ] as [string, string][]
+            ).map(([label, id]) => (
               <a
                 key={id}
                 href={`#${id}`}
-                className={`transition-all duration-200 font-medium ${
+                className={`text-[0.85rem] font-medium transition-colors duration-200 ${
                   id === "contact"
-                    ? `border border-[#CCCCCC] dark:border-border text-foreground bg-transparent hover:bg-secondary rounded-full ${
-                        scrolled ? "text-[10px] px-2.5 py-0.5" : "text-[11px] sm:text-xs px-3 sm:px-4 py-1 sm:py-1.5"
-                      }`
-                    : `text-foreground/70 hover:text-foreground rounded-full hover:bg-secondary ${
-                        scrolled ? "text-[10px] px-2 py-1" : "text-[11px] sm:text-xs px-2 sm:px-3 py-1 sm:py-1.5"
-                      }`
+                    ? "text-accent font-semibold"
+                    : "text-foreground/70 hover:text-foreground"
                 }`}
               >
                 {label}
@@ -455,28 +439,26 @@ export default function Home() {
             ))}
 
             {/* Divider */}
-            <div className="w-px h-4 bg-border mx-1.5 shrink-0" />
+            <div className="w-px h-4 bg-slate-200 dark:bg-slate-700 shrink-0" />
 
             {/* Dark / Light toggle */}
             <button
               onClick={handleThemeToggle}
               aria-label="Toggle dark mode"
-              className={`relative rounded-full border border-border bg-secondary hover:bg-muted flex items-center justify-center transition-colors duration-200 shrink-0 ${
-                scrolled ? "w-6 h-6" : "w-7 h-7"
-              }`}
+              className="relative w-7 h-7 rounded-full border border-slate-200 dark:border-border bg-secondary hover:bg-muted flex items-center justify-center transition-colors duration-200 shrink-0"
             >
-              {/* Sun — visible in light mode */}
+              {/* Sun -- visible in light mode */}
               <Sun
-                size={scrolled ? 11 : 13}
+                size={13}
                 className={`absolute transition-all duration-300 ${
                   theme === "dark"
                     ? "opacity-0 rotate-90 scale-50"
                     : "opacity-100 rotate-0 scale-100"
                 }`}
               />
-              {/* Moon — visible in dark mode */}
+              {/* Moon -- visible in dark mode */}
               <Moon
-                size={scrolled ? 11 : 13}
+                size={13}
                 className={`absolute transition-all duration-300 ${
                   theme === "dark"
                     ? "opacity-100 rotate-0 scale-100"
@@ -485,154 +467,122 @@ export default function Home() {
               />
             </button>
           </div>
-        </nav>
+        </div>
       </header>
 
-      {/* ── Hero + About — split profile layout ───────────────── */}
-      <section id="about" className="relative overflow-hidden border-b border-border">
-        <div className={`flex flex-col md:flex-row md:min-h-[92vh] ${heroRevealed ? "is-revealed" : ""}`}>
+      {/* ── Hero + About -- split-panel layout ─────────────────── */}
+      <section id="about" className="relative min-h-screen pt-14 overflow-hidden">
+        {/* Muted left slab -- warm stone */}
+        <div className="absolute inset-y-0 left-0 w-full md:w-[40%] h-72 md:h-full bg-stone-200 dark:bg-stone-800/30" />
 
-          {/* ── Left slab: colored background + floating profile card ── */}
-          <div className="md:w-[40%] bg-slate-100 dark:bg-slate-800/20 flex items-center justify-end py-20 md:py-0 px-8 md:pl-12 md:pr-0">
-            {/* Card overlaps into the right panel via negative margin */}
-            <div
-              className="reveal-item bg-white dark:bg-card rounded-3xl shadow-[0_24px_64px_rgb(0,0,0,0.10)] dark:shadow-none border border-slate-100 dark:border-border w-full max-w-[260px] md:max-w-[280px] md:-mr-[3.5rem] relative z-10 flex flex-col items-center text-center p-8"
-              style={stagger(0)}
-            >
-              {/* Circular profile photo */}
-              <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden border-[3px] border-white shadow-[0_8px_24px_rgb(0,0,0,0.12)] mb-5 shrink-0">
-                <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-                  alt="Ricky Halomoan"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <h2 className="text-lg font-bold text-foreground leading-snug mb-3">
-                Ricky<br />Halomoan
-              </h2>
-
-              {/* Accent divider — matches reference */}
-              <div className="w-8 h-[2px] bg-accent mb-3 rounded-full" />
-
-              <p className="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-2">
-                Senior Product Manager
-              </p>
-
-              <div className="flex items-center justify-center gap-1 text-[0.72rem] text-muted-foreground/60">
-                <MapPin size={9} />
-                <span>Jakarta, Indonesia</span>
-                <span>🇮🇩</span>
-              </div>
-            </div>
+        {/* Profile card -- centered on the 40/60 boundary (desktop only) */}
+        <div
+          className={`reveal-item hidden md:flex flex-col items-center text-center absolute z-20 top-1/2 bg-white dark:bg-card rounded-3xl shadow-[0_24px_64px_rgb(0,0,0,0.12)] ${cardBorder} w-[280px] p-8`}
+          style={{ left: "40%", transform: "translate(-50%, -50%)", ...stagger(0) }}
+        >
+          <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-[0_8px_24px_rgb(0,0,0,0.12)] mb-5 shrink-0">
+            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-full h-full object-cover" />
           </div>
+          <h2 className="text-lg font-bold text-foreground leading-snug mb-3">Ricky<br />Halomoan</h2>
+          <div className="w-8 h-[2px] bg-accent mb-3 rounded-full" />
+          <p className="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-2">Senior Product Manager</p>
+          <div className="flex items-center justify-center gap-1 text-[0.72rem] text-muted-foreground/60">
+            <MapPin size={9} /><span>Jakarta, Indonesia</span><span>&#x1F1EE;&#x1F1E9;</span>
+          </div>
+        </div>
 
-          {/* ── Right panel: headline + bio + education ── */}
-          <div className="md:w-[60%] bg-background flex items-center py-16 md:py-20 px-8 md:pl-24 md:pr-12 lg:pr-16">
-            <div className="w-full max-w-[520px]">
+        {/* Mobile: profile card stacked (not absolute) */}
+        <div className={`reveal-item flex md:hidden flex-col items-center text-center relative z-10 py-16 px-6 ${heroRevealed ? "is-revealed" : ""}`} style={stagger(0)}>
+          <div className={`bg-white dark:bg-card rounded-3xl shadow-[0_16px_48px_rgb(0,0,0,0.10)] ${cardBorder} w-full max-w-[260px] p-8 flex flex-col items-center`}>
+            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-[0_8px_24px_rgb(0,0,0,0.12)] mb-4">
+              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-full h-full object-cover" />
+            </div>
+            <h2 className="text-base font-bold text-foreground leading-snug mb-2">Ricky Halomoan</h2>
+            <div className="w-8 h-[2px] bg-accent mb-2 rounded-full" />
+            <p className="text-[0.62rem] font-semibold tracking-[0.15em] uppercase text-muted-foreground">Senior Product Manager</p>
+          </div>
+        </div>
 
-              {/* Large greeting */}
-              <h1
-                className="reveal-item font-black text-foreground leading-[0.95] tracking-[-0.04em] mb-4"
-                style={{ ...stagger(1), fontSize: "clamp(3.5rem, 8vw, 6rem)" }}
-              >
-                Hello.
-              </h1>
+        {/* Right panel -- full width on mobile, 60% on desktop */}
+        <div className={`relative z-10 md:absolute md:inset-y-0 md:right-0 md:w-[60%] flex items-center bg-background ${heroRevealed ? "is-revealed" : ""}`}>
+          <div className="w-full py-16 md:py-0 px-6 md:pl-48 md:pr-16 lg:pr-24 max-w-none md:max-w-[700px]">
 
-              {/* Tagline */}
-              <p
-                className="reveal-item text-base md:text-lg font-semibold text-foreground/70 mb-5 leading-[1.4] tracking-[-0.01em]"
-                style={stagger(2)}
-              >
-                Bridging technical complexity with user-centric product strategy.
+            {/* Greeting */}
+            <h1
+              className={`reveal-item ${sectionHeading} mb-4 leading-[0.92]`}
+              style={{ ...stagger(1), fontSize: "clamp(3.5rem, 7vw, 6.5rem)" }}
+            >Hello.</h1>
+
+            {/* Tagline */}
+            <p className="reveal-item text-base md:text-lg font-semibold text-foreground/70 mb-5 leading-[1.4] tracking-[-0.01em]" style={stagger(2)}>
+              Bridging technical complexity with user-centric product strategy.
+            </p>
+
+            {/* Domain pills -- unified tagPill style */}
+            <div className="reveal-item flex flex-wrap gap-2 mb-7" style={stagger(3)}>
+              {["Logistics","Fulfillment","Electric Mobility","Digital Transformation"].map(tag=>(
+                <span key={tag} className={tagPill}>{tag}</span>
+              ))}
+            </div>
+
+            {/* CTA buttons -- primary + secondary */}
+            <div className="reveal-item flex flex-wrap gap-3 mb-9" style={stagger(4)}>
+              <a href="#contact"><button className={btnPrimary}>{"Let's Work Together"}</button></a>
+              <a href="#experience"><button className={btnSecondary}>View My Work</button></a>
+            </div>
+
+            {/* Bio */}
+            <div className="reveal-item space-y-4 border-t border-slate-200 dark:border-border pt-7 mb-8" style={stagger(5)}>
+              <p className="text-[0.92rem] leading-[1.75] text-muted-foreground">
+                My journey into product management did not follow a straight path. It developed from a strong curiosity about how systems work and how they create real value for people. With a background in Informatics and early experience in software delivery, I gained a solid understanding of the technical side of building digital products.
               </p>
+              <p className="text-[0.92rem] leading-[1.75] text-muted-foreground">
+                {"Today, as a Senior Product Manager, I focus on translating complex operational and product challenges into clear and practical roadmaps \u2014 speaking with users, operations teams, and engineers to connect technical possibilities with real user needs."}
+              </p>
+            </div>
 
-              {/* Domain pills */}
-              <div className="reveal-item flex flex-wrap gap-2 mb-7" style={stagger(3)}>
-                {["Logistics", "Fulfillment", "Electric Mobility", "Digital Transformation"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="inline-flex items-center px-3 py-1 text-[0.73rem] rounded-full font-normal text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-800/30 border border-slate-100 dark:border-slate-700/40"
-                  >
-                    {tag}
+            {/* Education -- compact horizontal rows */}
+            <div className="reveal-item grid grid-cols-1 sm:grid-cols-2 gap-3" style={stagger(6)}>
+              {/* ITB */}
+              <div className={`flex items-start gap-3 ${cardBase} p-4 hover:-translate-y-0.5`}>
+                <div className={`w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/40 ${cardBorder} flex items-center justify-center shrink-0 overflow-hidden`}>
+                  <img src={education[0].schoolImage} alt={education[0].school} className="w-6 h-6 object-contain" loading="lazy" />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-[0.8rem] font-semibold text-foreground leading-snug mb-0.5">{education[0].degree}</p>
+                  <p className="text-[0.72rem] text-muted-foreground/70">{education[0].school}</p>
+                  <span className="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-700/30 text-[0.6rem] font-semibold tracking-wide text-amber-700 dark:text-amber-400 uppercase">
+                    <span className="w-1 h-1 rounded-full bg-amber-400 animate-pulse" />In Progress
                   </span>
-                ))}
-              </div>
-
-              {/* Primary CTA */}
-              <div className="reveal-item mb-8" style={stagger(4)}>
-                <a href="#contact">
-                  <button className="bg-accent text-white hover:bg-[#0056CC] px-8 py-3 min-h-[44px] text-sm font-medium rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px active:scale-[0.97]">
-                    Let's Work Together
-                  </button>
-                </a>
-              </div>
-
-              {/* Bio paragraphs */}
-              <div className="reveal-item space-y-4 border-t border-slate-100 dark:border-border pt-7 mb-8" style={stagger(5)}>
-                <p className="text-[0.92rem] leading-[1.75] text-muted-foreground">
-                  My journey into product management did not follow a straight path. It developed
-                  from a strong curiosity about how systems work and how they create real value for
-                  people. With a background in Informatics and early experience in software delivery,
-                  I gained a solid understanding of the technical side of building digital products.
-                  Over time, I became more interested in a broader question: how to ensure that
-                  technical efforts truly solve meaningful problems for users.
-                </p>
-                <p className="text-[0.92rem] leading-[1.75] text-muted-foreground">
-                  Today, as a Senior Product Manager, I focus on translating complex operational and
-                  product challenges into clear and practical roadmaps. My approach begins with
-                  understanding the people behind the process — speaking with users, operations
-                  teams, and engineers to learn how they work and what obstacles they face.
-                </p>
-              </div>
-
-              {/* Education — compact inline rows */}
-              <div className="reveal-item grid grid-cols-1 sm:grid-cols-2 gap-3" style={stagger(6)}>
-
-                {/* ITB */}
-                <div className="flex items-start gap-3 rounded-2xl border border-slate-100 dark:border-border bg-white dark:bg-card p-4 shadow-[0_4px_12px_rgb(0,0,0,0.03)] hover:-translate-y-0.5 transition-transform duration-200">
-                  <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
-                    <img src={education[0].schoolImage} alt={education[0].school} className="w-6 h-6 object-contain" loading="lazy" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-[0.8rem] font-semibold text-foreground leading-snug mb-0.5">{education[0].degree}</p>
-                    <p className="text-[0.72rem] text-muted-foreground/70">{education[0].school}</p>
-                    <span className="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full bg-amber-50 dark:bg-amber-900/20 border border-amber-100 dark:border-amber-700/30 text-[0.6rem] font-semibold tracking-wide text-amber-700 dark:text-amber-400 uppercase">
-                      <span className="w-1 h-1 rounded-full bg-amber-400 animate-pulse" />
-                      In Progress
-                    </span>
-                  </div>
                 </div>
-
-                {/* Del IT */}
-                <div className="flex items-start gap-3 rounded-2xl border border-slate-100 dark:border-border bg-white dark:bg-card p-4 shadow-[0_4px_12px_rgb(0,0,0,0.03)] hover:-translate-y-0.5 transition-transform duration-200">
-                  <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-border flex items-center justify-center shrink-0 overflow-hidden">
-                    <img src={education[1].schoolImage} alt={education[1].school} className="w-6 h-6 object-contain" loading="lazy" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-[0.8rem] font-semibold text-foreground leading-snug mb-0.5">{education[1].degree}</p>
-                    <p className="text-[0.72rem] text-muted-foreground/70">{education[1].school}</p>
-                    <span className="inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/40 text-[0.6rem] font-semibold tracking-wide text-slate-500 dark:text-slate-400 uppercase">
-                      Graduated · 2019
-                    </span>
-                  </div>
+              </div>
+              {/* Del IT */}
+              <div className={`flex items-start gap-3 ${cardBase} p-4 hover:-translate-y-0.5`}>
+                <div className={`w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/40 ${cardBorder} flex items-center justify-center shrink-0 overflow-hidden`}>
+                  <img src={education[1].schoolImage} alt={education[1].school} className="w-6 h-6 object-contain" loading="lazy" />
                 </div>
-
+                <div className="min-w-0">
+                  <p className="text-[0.8rem] font-semibold text-foreground leading-snug mb-0.5">{education[1].degree}</p>
+                  <p className="text-[0.72rem] text-muted-foreground/70">{education[1].school}</p>
+                  <span className={`inline-flex items-center gap-1 mt-1.5 px-2 py-0.5 rounded-full ${cardBorder} bg-slate-50 dark:bg-slate-800/40 text-[0.6rem] font-semibold tracking-wide text-slate-500 dark:text-slate-400 uppercase`}>
+                    {"Graduated \u00b7 2019"}
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </section>
 
       {/* ── Experience ────────────────────────────────────────── */}
-      <section id="experience" className="border-t border-border">
-        <div className="container py-16 md:py-32" ref={expReveal.ref}>
-          <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-10 md:mb-14">Experience</h2>
+      <section id="experience" className="border-t border-slate-200 dark:border-border">
+        <div className="container py-20 md:py-32" ref={expReveal.ref}>
+          <h2 className={`${sectionHeading} text-5xl md:text-6xl mb-10 md:mb-14`}>Experience</h2>
 
           <div className={expReveal.revealed ? "is-revealed" : ""}>
             <div className="mb-10">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 items-stretch">
                 {featuredProjects.map((project) => {
                   const exp = experiences.find((e) => e.id === project.expId)!;
                   const isSelected = selectedProjectId === project.expId;
@@ -641,16 +591,16 @@ export default function Home() {
                     <button
                       key={project.expId}
                       onClick={() => setSelectedProjectId(isSelected ? null : project.expId)}
-                      className={`text-left rounded-2xl p-5 sm:p-6 border transition-all duration-300 hover:-translate-y-0.5 flex flex-col ${
+                      className={`text-left rounded-2xl p-6 border transition-all duration-300 hover:-translate-y-0.5 flex flex-col ${
                         isSelected
                           ? "bg-accent/5 border-accent/25 shadow-[0_10px_32px_rgba(0,122,255,0.08)]"
-                          : `bg-white dark:bg-card border-slate-100 dark:border-border ${cardShadow} hover:shadow-[0_16px_40px_rgb(0,0,0,0.07)]`
+                          : `bg-white dark:bg-card border-slate-200 dark:border-border shadow-sm hover:shadow-[0_16px_40px_rgb(0,0,0,0.07)]`
                       }`}
                     >
                       {/* Header row: logo + company + period badge */}
                       <div className="flex items-center justify-between gap-2 mb-3">
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-slate-100 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
+                          <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-slate-200 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
                             <img src={exp.companyImage} alt={exp.company} className="w-5 h-5 object-contain" loading="lazy" />
                           </div>
                           <span className="text-[0.68rem] font-semibold uppercase tracking-widest text-muted-foreground truncate">
@@ -660,7 +610,7 @@ export default function Home() {
                         <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.65rem] font-semibold tracking-wide uppercase shrink-0 ${
                           isCurrent
                             ? "bg-accent/10 text-accent"
-                            : "bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-700/40 text-slate-500 dark:text-slate-400"
+                            : "bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/40 text-slate-500 dark:text-slate-400"
                         }`}>
                           {isCurrent && <span className="w-1 h-1 rounded-full bg-accent animate-pulse" />}
                           {isCurrent ? "Ongoing" : exp.period}
@@ -769,16 +719,16 @@ export default function Home() {
 
               return (
                 <div className="mt-8">
-                  {/* Toggle — styled as a designed subheader, not a debug element */}
+                  {/* Toggle -- styled as a designed subheader, not a debug element */}
                   <button
                     onClick={() => {
                       setEarlyCareerOpen((o) => !o);
                       setExpandedEntryKey(null);
                     }}
-                    className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-2xl border border-slate-100 dark:border-border/50 bg-slate-50/70 dark:bg-card/50 hover:bg-slate-100/80 dark:hover:bg-card/70 transition-all duration-200 group"
+                    className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-2xl border border-slate-200 dark:border-border/50 bg-slate-50/70 dark:bg-card/50 hover:bg-slate-100/80 dark:hover:bg-card/70 transition-all duration-200 group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
-                      <span className="text-sm font-semibold text-foreground/70 group-hover:text-foreground/90 transition-colors">
+                      <span className="text-[0.85rem] font-semibold text-foreground/70 group-hover:text-foreground/90 transition-colors">
                         Foundational Experience
                       </span>
                       <span className="hidden sm:block text-[0.72rem] font-medium text-muted-foreground/40 shrink-0">
@@ -804,7 +754,7 @@ export default function Home() {
                       transition: "max-height 0.4s cubic-bezier(0.4,0,0.2,1)",
                     }}
                   >
-                    <div className="mt-2 rounded-2xl border border-slate-100 dark:border-border/40 overflow-hidden divide-y divide-slate-100/60 dark:divide-border/30 bg-white dark:bg-card/40">
+                    <div className="mt-2 rounded-2xl border border-slate-200 dark:border-border/40 overflow-hidden divide-y divide-slate-100/60 dark:divide-border/30 bg-white dark:bg-card/40">
                       {earlyCareerEntries.map((entry) => {
                         const isEntryOpen = expandedEntryKey === entry.key;
                         return (
@@ -816,7 +766,7 @@ export default function Home() {
                               className="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-50 dark:hover:bg-card/60 transition-colors duration-150 text-left"
                             >
                               {/* Logo */}
-                              <div className="w-7 h-7 rounded-lg bg-white dark:bg-card border border-slate-100 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
+                              <div className="w-7 h-7 rounded-lg bg-white dark:bg-card border border-slate-200 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
                                 {entry.logo && (
                                   <img
                                     src={entry.logo}
@@ -882,9 +832,9 @@ export default function Home() {
       </section>
 
       {/* ── Skills ────────────────────────────────────────────── */}
-      <section id="skills" className="border-t border-border">
-        <div className="container py-16 md:py-32" ref={skillsReveal.ref}>
-          <h2 className={sectionH2}>My Toolkit</h2>
+      <section id="skills" className="border-t border-slate-200 dark:border-border">
+        <div className="container py-20 md:py-32" ref={skillsReveal.ref}>
+          <h2 className={`${sectionHeading} text-5xl md:text-6xl mb-10 md:mb-14`}>My Toolkit</h2>
           <div
             className={`grid grid-cols-1 sm:grid-cols-2 gap-4 items-start ${
               skillsReveal.revealed ? "is-revealed" : ""
@@ -893,17 +843,17 @@ export default function Home() {
             {Object.entries(skills).map(([category, items], catIdx) => (
               <div
                 key={category}
-                className={`reveal-item ${cardBase} p-6 hover:-translate-y-1`}
+                className={`reveal-item ${cardBase} ${cardPad} hover:-translate-y-1`}
                 style={stagger(catIdx)}
               >
-                <h3 className="text-sm font-bold text-foreground mb-4 tracking-[-0.01em]">
+                <h3 className="text-[0.72rem] font-semibold tracking-[0.1em] uppercase text-muted-foreground/60 mb-4">
                   {category}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {items.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="inline-flex items-center px-4 py-2 text-[0.8rem] rounded-full font-normal text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800/30 border border-slate-100 dark:border-slate-700/40 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors duration-200"
+                      className={tagPill}
                     >
                       {skill}
                     </span>
@@ -916,40 +866,35 @@ export default function Home() {
       </section>
 
       {/* ── Contact ───────────────────────────────────────────── */}
-      <section id="contact" className="border-t border-border">
-        <div className="container py-16 md:py-24" ref={contactReveal.ref}>
+      <section id="contact" className="border-t border-slate-200 dark:border-border">
+        <div className="container py-20 md:py-32" ref={contactReveal.ref}>
           <div className={contactReveal.revealed ? "is-revealed" : ""}>
 
-            <h2
-              className="reveal-item text-2xl md:text-3xl font-bold tracking-tight text-foreground mb-3"
-              style={stagger(0)}
-            >
-              Let's Talk
+            <h2 className={`reveal-item ${sectionHeading} text-5xl md:text-6xl mb-4`} style={stagger(0)}>
+              {"Let's Talk."}
             </h2>
-            <p
-              className="reveal-item text-[0.95rem] text-muted-foreground mb-8 max-w-[44ch]"
-              style={stagger(1)}
-            >
+            <p className="reveal-item text-[0.95rem] text-muted-foreground mb-8 max-w-[44ch]" style={stagger(1)}>
               Open to new opportunities, product collaborations, and meaningful conversations.
             </p>
 
-            {/* Primary CTA — matches hero button exactly */}
-            <div className="reveal-item mb-10" style={stagger(2)}>
+            {/* Two CTA buttons -- same pattern as hero */}
+            <div className="reveal-item flex flex-wrap gap-3 mb-10" style={stagger(2)}>
               <a href="mailto:rickytampubolon97@gmail.com">
-                <button className="bg-accent text-white hover:bg-[#0056CC] px-8 py-3 min-h-[44px] text-sm font-medium rounded-full transition-all duration-200 shadow-[0_4px_16px_rgba(0,122,255,0.35)] hover:shadow-[0_6px_24px_rgba(0,122,255,0.45)] hover:-translate-y-px active:scale-[0.97]">
-                  Get in Touch
-                </button>
+                <button className={btnPrimary}>Get in Touch</button>
+              </a>
+              <a href="https://www.linkedin.com/in/rickyhlmn/" target="_blank" rel="noopener noreferrer">
+                <button className={btnSecondary}>LinkedIn</button>
               </a>
             </div>
 
-            {/* Secondary links */}
+            {/* Social links */}
             <div className="flex flex-row flex-wrap gap-8">
               {contactLinks.map(({ href, icon, label, staggerIdx, external }) => (
                 <a
                   key={href}
                   href={href}
                   {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="reveal-item inline-flex items-center gap-2 text-[0.9rem] text-muted-foreground hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                  className="reveal-item inline-flex items-center gap-2 text-[0.85rem] text-muted-foreground/60 hover:text-accent transition-colors duration-200"
                   style={stagger(staggerIdx)}
                 >
                   {icon}
@@ -963,20 +908,16 @@ export default function Home() {
       </section>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="border-t border-slate-100 dark:border-border">
-        <div className="container py-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-between sm:gap-3">
-          <p className="text-[0.8rem] text-muted-foreground/60">
+      <footer className="border-t border-slate-200 dark:border-border">
+        <div className="container py-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
+          <p className="text-[0.8rem] text-muted-foreground/50">
             Ricky Halomoan © 2026
           </p>
           <div className="flex items-center gap-5">
             {contactLinks.map(({ href, icon, label, external }) => (
-              <a
-                key={href}
-                href={href}
-                aria-label={label}
+              <a key={href} href={href} aria-label={label}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="text-muted-foreground/40 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
-              >
+                className="text-muted-foreground/40 hover:text-accent transition-colors duration-200">
                 {icon}
               </a>
             ))}
