@@ -127,47 +127,44 @@ export default function Home() {
       </div>
 
       {/* ════════════════════════════════════════════════════════
-          DESKTOP layout — split-panel with positioned card
+          DESKTOP layout — flex-row so columns stretch equally
           ════════════════════════════════════════════════════════ */}
       <section
-        className="relative hidden md:block overflow-hidden"
+        className="relative hidden md:flex flex-row overflow-hidden"
         style={{ minHeight: "min(680px, calc(100vh - 3.5rem - 56px))" }}
       >
-        {/* Warm tan/beige left slab */}
-        <div className="absolute inset-y-0 left-0 w-[38%]" style={{ backgroundColor: BEIGE }} />
+        {/* Left beige slab — flex child, stretches to match right column */}
+        <div className="w-[38%] shrink-0" style={{ backgroundColor: BEIGE }} />
 
-        {/* Profile card on the 38/62 boundary — stretches to match section height */}
+        {/* Profile card straddling the 38/62 boundary — inset-y-0 so it fills
+            the exact same height as the section (which is driven by the right column) */}
         <div
-          className={`absolute z-20 inset-y-4 ${heroRevealed ? "is-revealed" : ""}`}
+          className={`absolute z-20 inset-y-0 ${heroRevealed ? "is-revealed" : ""}`}
           style={{ left: "38%", transform: "translateX(-50%)" }}
         >
           <div
-            className="reveal-item h-full flex flex-col items-center justify-center text-center rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-[#E0D8CC] w-[300px] px-9"
+            className="reveal-item h-full flex flex-col items-center justify-between text-center rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-[#E0D8CC] w-[300px] px-9 py-10"
             style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
           >
-            {/* Photo */}
-            <div className="w-36 h-36 rounded-full overflow-hidden ring-4 ring-white shadow-[0_8px_28px_rgba(0,0,0,0.14)] mb-6 shrink-0 bg-[#B0B0B0]">
-              <img
-                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-                alt="Ricky Halomoan"
-                className="w-full h-full object-cover"
-              />
+            {/* Top group: photo + name + divider + title */}
+            <div className="flex flex-col items-center">
+              <div className="w-36 h-36 rounded-full overflow-hidden ring-4 ring-white shadow-[0_8px_28px_rgba(0,0,0,0.14)] mb-6 shrink-0 bg-[#B0B0B0]">
+                <img
+                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
+                  alt="Ricky Halomoan"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <h2 className="text-[1.25rem] font-bold text-[#1A1A1A] leading-snug mb-4">
+                Ricky Halomoan
+              </h2>
+              <div className="w-12 h-[2px] bg-[#007BFF] mb-4 rounded-full" />
+              <p className="text-[0.65rem] font-bold tracking-[0.16em] uppercase text-[#888888]">
+                Senior Product Manager
+              </p>
             </div>
 
-            {/* Name */}
-            <h2 className="text-[1.25rem] font-bold text-[#1A1A1A] leading-snug mb-4">
-              Ricky Halomoan
-            </h2>
-
-            {/* Blue divider */}
-            <div className="w-12 h-[2px] bg-[#007BFF] mb-4 rounded-full" />
-
-            {/* Title */}
-            <p className="text-[0.65rem] font-bold tracking-[0.16em] uppercase text-[#888888] mb-6">
-              Senior Product Manager
-            </p>
-
-            {/* Flat dark social icons — no circle borders */}
+            {/* Bottom: social icons */}
             <div className="flex items-center justify-center gap-5">
               {socialCard.map(({ href, icon, label }) => (
                 <a key={label} href={href} aria-label={label}
@@ -180,12 +177,11 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right content panel */}
+        {/* Right content panel — flex-1, drives the section height */}
         <div
-          className={`absolute inset-y-0 right-0 w-[62%] flex items-center bg-white dark:bg-[#121212] ${heroRevealed ? "is-revealed" : ""}`}
+          className={`flex-1 flex items-center bg-white dark:bg-[#121212] ${heroRevealed ? "is-revealed" : ""}`}
         >
-          <div className="w-full py-0 px-6 pl-44 pr-16 lg:pr-32 max-w-[680px]">
-            {/* Hello — no period, larger */}
+          <div className="w-full py-10 px-6 pl-44 pr-16 lg:pr-32 max-w-[680px]">
             <h1
               className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 leading-[0.9]"
               style={{ ...stagger(1), fontSize: "clamp(3.5rem, 6.5vw, 5.5rem)" }}
@@ -195,7 +191,6 @@ export default function Home() {
             <p className="reveal-item text-[1.08rem] font-semibold text-[#555555] dark:text-[#888888] mb-7 leading-[1.45]" style={stagger(2)}>
               Here's who I am &amp; what I do.
             </p>
-            {/* CTAs: RESUME + PROJECTS */}
             <div className="reveal-item flex flex-wrap gap-3 mb-9" style={stagger(3)}>
               <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
               <a href="/projects"><button className={btnSecondary}>PROJECTS</button></a>
