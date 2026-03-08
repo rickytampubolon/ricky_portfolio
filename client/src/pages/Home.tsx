@@ -137,13 +137,13 @@ export default function Home() {
         {/* Warm tan/beige left slab */}
         <div className="absolute inset-y-0 left-0 w-[38%]" style={{ backgroundColor: BEIGE }} />
 
-        {/* Profile card on the 38/62 boundary */}
+        {/* Profile card on the 38/62 boundary — stretches to match section height */}
         <div
-          className={`absolute z-20 top-1/2 ${heroRevealed ? "is-revealed" : ""}`}
-          style={{ left: "38%", transform: "translate(-50%, -50%)" }}
+          className={`absolute z-20 inset-y-8 ${heroRevealed ? "is-revealed" : ""}`}
+          style={{ left: "38%", transform: "translateX(-50%)" }}
         >
           <div
-            className="reveal-item flex flex-col items-center text-center rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-[#E0D8CC] w-[300px] pt-10 pb-9 px-9"
+            className="reveal-item h-full flex flex-col items-center justify-center text-center rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-[#E0D8CC] w-[300px] px-9"
             style={{ ...stagger(0), backgroundColor: "#FAF8F4" }}
           >
             {/* Photo */}
