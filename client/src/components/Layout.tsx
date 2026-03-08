@@ -1,24 +1,21 @@
 import { Link, useLocation } from "wouter";
-import { Sun, Moon, Linkedin, Instagram, Facebook, Twitter, Menu, X } from "lucide-react";
+import { Sun, Moon, Linkedin, Mail, Menu, X } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "ABOUT ME", href: "/" },
-  { label: "RESUME",   href: "/resume" },
-  { label: "PROJECTS", href: "/projects" },
-  { label: "CONTACT",  href: "/contact" },
+  { label: "HOME",    href: "/" },
+  { label: "RESUME",  href: "/resume" },
+  { label: "CONTACT", href: "/contact" },
 ];
 
-const socialLinks = [
-  { href: "https://www.linkedin.com/in/rickyhlmn/",   icon: <Linkedin  size={14} />, label: "LinkedIn" },
-  { href: "https://www.instagram.com/rickyhlmn/",     icon: <Instagram size={14} />, label: "Instagram" },
-  { href: "#",                                         icon: <Twitter   size={14} />, label: "Twitter" },
-  { href: "#",                                         icon: <Facebook  size={14} />, label: "Facebook" },
+const footerSocial = [
+  { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin size={14} />, label: "LinkedIn" },
+  { href: "mailto:rickytampubolon97@gmail.com",     icon: <Mail     size={14} />, label: "Email" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const [location]    = useLocation();
+  const [location]   = useLocation();
   const { theme, toggleTheme } = useTheme();
   const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -29,7 +26,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => { setMobileOpen(false); }, [location]);
 
   const handleThemeToggle = () => {
@@ -42,87 +38,87 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-background text-foreground flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-[#121212] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
 
       {/* ── Sticky Header ─────────────────────────────────────── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 bg-white/96 dark:bg-background/96 backdrop-blur-sm border-b border-[#E0E0E0] dark:border-border transition-shadow duration-300 ${scrolled ? "shadow-sm" : ""}`}
+        className={`fixed top-0 left-0 right-0 z-50 bg-white/96 dark:bg-[#121212]/96 backdrop-blur-sm border-b border-[#E0E0E0] dark:border-[#2C2C2C] transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : ""}`}
       >
         <div className="h-14 flex items-center justify-between px-5 md:px-12">
 
-          {/* Left: blue square + name / title */}
+          {/* Brand */}
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-[10px] h-[10px] bg-[#007BFF] rounded-[2px] shrink-0" />
-            <span className="font-bold text-[#1A1A1A] dark:text-foreground leading-none" style={{ fontSize: "0.92rem" }}>
+            <div className="w-[9px] h-[9px] bg-[#007BFF] rounded-[2px] shrink-0" />
+            <span className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-none" style={{ fontSize: "0.92rem" }}>
               Ricky Halomoan
             </span>
-            <span className="text-[#CCCCCC] dark:text-slate-600 leading-none">/</span>
-            <span className="hidden md:block text-[0.63rem] tracking-[0.12em] uppercase text-[#666666] dark:text-muted-foreground font-medium leading-none">
+            <span className="hidden md:inline text-[#D0D0D0] dark:text-[#444] leading-none mx-0.5">/</span>
+            <span className="hidden md:block text-[0.62rem] tracking-[0.12em] uppercase text-[#888888] dark:text-[#888888] font-medium leading-none">
               Senior Product Manager
             </span>
           </Link>
 
-          {/* Desktop nav + toggle */}
+          {/* Desktop nav */}
           <div className="hidden sm:flex items-center gap-6 md:gap-8">
             {navLinks.map(({ label, href }) => (
               <Link
                 key={href}
                 href={href}
-                className={`text-[0.72rem] font-bold tracking-[0.08em] transition-colors duration-200 ${
+                className={`text-[0.72rem] font-bold tracking-[0.09em] transition-colors duration-200 ${
                   isActive(href)
-                    ? "text-[#007BFF] dark:text-accent"
-                    : "text-[#666666] dark:text-foreground/60 hover:text-[#007BFF] dark:hover:text-accent"
+                    ? "text-[#007BFF]"
+                    : "text-[#666666] dark:text-[#888888] hover:text-[#007BFF] dark:hover:text-[#3B9EFF]"
                 }`}
               >
                 {label}
               </Link>
             ))}
 
-            <div className="w-px h-4 bg-[#E0E0E0] dark:bg-border shrink-0" />
+            <div className="w-px h-4 bg-[#E0E0E0] dark:bg-[#2C2C2C] shrink-0" />
 
-            {/* Theme toggle */}
+            {/* Dark/light toggle */}
             <button
               onClick={handleThemeToggle}
               aria-label="Toggle dark mode"
-              className="relative w-7 h-7 rounded-full border border-[#E0E0E0] dark:border-border bg-[#F8F8F8] dark:bg-secondary hover:bg-[#EFEFEF] dark:hover:bg-muted flex items-center justify-center transition-colors duration-200 shrink-0"
+              className="relative w-[30px] h-[30px] rounded-full border border-[#E0E0E0] dark:border-[#2C2C2C] bg-[#F5F5F5] dark:bg-[#1E1E1E] hover:bg-[#EBEBEB] dark:hover:bg-[#2A2A2A] flex items-center justify-center transition-colors duration-200 shrink-0"
             >
-              <Sun  size={13} className={`absolute transition-all duration-300 ${theme === "dark" ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"}`} />
-              <Moon size={13} className={`absolute transition-all duration-300 ${theme === "dark" ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"}`} />
+              <Sun  size={13} className={`absolute text-[#888] transition-all duration-300 ${theme === "dark" ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"}`} />
+              <Moon size={13} className={`absolute text-[#aaa] transition-all duration-300 ${theme === "dark" ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"}`} />
             </button>
           </div>
 
-          {/* Mobile: theme toggle + hamburger */}
+          {/* Mobile controls */}
           <div className="flex sm:hidden items-center gap-3">
             <button
               onClick={handleThemeToggle}
               aria-label="Toggle dark mode"
-              className="relative w-7 h-7 rounded-full border border-[#E0E0E0] dark:border-border bg-[#F8F8F8] dark:bg-secondary flex items-center justify-center shrink-0"
+              className="relative w-[30px] h-[30px] rounded-full border border-[#E0E0E0] dark:border-[#2C2C2C] bg-[#F5F5F5] dark:bg-[#1E1E1E] flex items-center justify-center shrink-0"
             >
-              <Sun  size={13} className={`absolute transition-all duration-300 ${theme === "dark" ? "opacity-0 rotate-90 scale-50" : "opacity-100"}`} />
-              <Moon size={13} className={`absolute transition-all duration-300 ${theme === "dark" ? "opacity-100" : "opacity-0 -rotate-90 scale-50"}`} />
+              <Sun  size={13} className={`absolute text-[#888] transition-all duration-300 ${theme === "dark" ? "opacity-0 rotate-90 scale-50" : "opacity-100"}`} />
+              <Moon size={13} className={`absolute text-[#aaa] transition-all duration-300 ${theme === "dark" ? "opacity-100" : "opacity-0 -rotate-90 scale-50"}`} />
             </button>
             <button
               onClick={() => setMobileOpen((o) => !o)}
               aria-label="Toggle menu"
-              className="w-7 h-7 flex items-center justify-center text-[#666666] dark:text-muted-foreground"
+              className="w-7 h-7 flex items-center justify-center text-[#666] dark:text-[#888]"
             >
               {mobileOpen ? <X size={18} /> : <Menu size={18} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile dropdown menu */}
+        {/* Mobile dropdown */}
         <div
-          style={{ maxHeight: mobileOpen ? "220px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}
-          className="sm:hidden border-t border-[#E0E0E0] dark:border-border bg-white dark:bg-background"
+          style={{ maxHeight: mobileOpen ? "180px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}
+          className="sm:hidden border-t border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#121212]"
         >
           <nav className="flex flex-col py-2 px-5">
             {navLinks.map(({ label, href }) => (
               <Link
                 key={href}
                 href={href}
-                className={`py-2.5 text-[0.8rem] font-bold tracking-[0.08em] border-b border-[#F0F0F0] dark:border-border/40 last:border-0 transition-colors ${
-                  isActive(href) ? "text-[#007BFF]" : "text-[#666666] dark:text-foreground/60"
+                className={`py-3 text-[0.8rem] font-bold tracking-[0.08em] border-b border-[#F4F4F4] dark:border-[#2C2C2C] last:border-0 transition-colors ${
+                  isActive(href) ? "text-[#007BFF]" : "text-[#666666] dark:text-[#888888]"
                 }`}
               >
                 {label}
@@ -132,36 +128,33 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      {/* ── Page content ──────────────────────────────────────── */}
+      {/* Content */}
       <main className="flex-1 pt-14">{children}</main>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="border-t border-[#E0E0E0] dark:border-border bg-white dark:bg-background">
+      <footer className="border-t border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#121212]">
         <div className="px-5 md:px-12 py-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
 
-          {/* Copyright */}
-          <p className="text-[0.73rem] text-[#4A4A4A]/55 dark:text-muted-foreground/50 shrink-0">
+          <p className="text-[0.72rem] text-[#999] shrink-0">
             © 2026 Ricky Halomoan. All rights reserved.
           </p>
 
-          {/* Call + Write */}
           <div className="flex flex-col sm:flex-row gap-1 sm:gap-6">
             <a href="tel:+6281234567890"
-              className="text-[0.73rem] text-[#4A4A4A]/55 dark:text-muted-foreground/50 hover:text-[#007BFF] dark:hover:text-accent transition-colors duration-200">
+              className="text-[0.72rem] text-[#999] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
               Call +62 812-3456-7890
             </a>
             <a href="mailto:rickytampubolon97@gmail.com"
-              className="text-[0.73rem] text-[#4A4A4A]/55 dark:text-muted-foreground/50 hover:text-[#007BFF] dark:hover:text-accent transition-colors duration-200">
+              className="text-[0.72rem] text-[#999] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
               Write rickytampubolon97@gmail.com
             </a>
           </div>
 
-          {/* Social icons */}
           <div className="flex items-center gap-4 shrink-0">
-            {socialLinks.map(({ href, icon, label }) => (
+            {footerSocial.map(({ href, icon, label }) => (
               <a key={label} href={href} aria-label={label}
-                {...(href !== "#" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="text-[#4A4A4A]/35 dark:text-muted-foreground/35 hover:text-[#007BFF] dark:hover:text-accent transition-colors duration-200">
+                {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className="text-[#BBBBBB] dark:text-[#555] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
                 {icon}
               </a>
             ))}
