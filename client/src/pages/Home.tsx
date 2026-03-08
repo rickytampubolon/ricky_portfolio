@@ -1,4 +1,4 @@
-import { Linkedin, Instagram } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 
@@ -15,6 +15,8 @@ const btnSecondary =
 
 // Flat dark social icons for the profile card (no circle wrapper)
 const socialCard = [
+  { href: "https://facebook.com",                   icon: <Facebook  size={20} />, label: "Facebook" },
+  { href: "https://twitter.com",                    icon: <Twitter   size={20} />, label: "Twitter" },
   { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin  size={20} />, label: "LinkedIn" },
   { href: "mailto:rickytampubolon97@gmail.com",     icon: <Instagram size={20} />, label: "Instagram" },
 ];
@@ -60,7 +62,7 @@ export default function Home() {
           style={{ ...stagger(0), backgroundColor: BEIGE }}
         >
           {/* Photo */}
-          <div className="w-36 h-36 rounded-full overflow-hidden ring-[5px] ring-white shadow-[0_8px_28px_rgba(0,0,0,0.15)] mb-6 shrink-0">
+          <div className="w-36 h-36 rounded-full overflow-hidden ring-[5px] ring-white shadow-[0_8px_28px_rgba(0,0,0,0.15)] mb-6 shrink-0 bg-[#B0B0B0]">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
               alt="Ricky Halomoan"
@@ -83,9 +85,9 @@ export default function Home() {
                 RESUME
               </button>
             </a>
-            <a href="/contact" className="flex-1">
+            <a href="/projects" className="flex-1">
               <button className="w-full border-2 border-[#1A1A1A] text-[#1A1A1A] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] hover:text-white transition-all duration-200 active:scale-[0.97]">
-                LET'S TALK
+                PROJECTS
               </button>
             </a>
           </div>
@@ -115,7 +117,10 @@ export default function Home() {
           </p>
           <div className="reveal-item space-y-4" style={stagger(3)}>
             <p className="text-[0.93rem] leading-[1.8] text-[#4A4A4A]">
-              My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products. Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
+              My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
+            </p>
+            <p className="text-[0.93rem] leading-[1.8] text-[#4A4A4A]">
+              Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
             </p>
           </div>
         </div>
@@ -141,7 +146,7 @@ export default function Home() {
             style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
           >
             {/* Photo */}
-            <div className="w-36 h-36 rounded-full overflow-hidden ring-4 ring-white shadow-[0_8px_28px_rgba(0,0,0,0.14)] mb-6 shrink-0">
+            <div className="w-36 h-36 rounded-full overflow-hidden ring-4 ring-white shadow-[0_8px_28px_rgba(0,0,0,0.14)] mb-6 shrink-0 bg-[#B0B0B0]">
               <img
                 src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                 alt="Ricky Halomoan"
@@ -190,14 +195,17 @@ export default function Home() {
             <p className="reveal-item text-[1.08rem] font-semibold text-[#555555] dark:text-[#888888] mb-7 leading-[1.45]" style={stagger(2)}>
               Here's who I am &amp; what I do.
             </p>
-            {/* CTAs: RESUME + LET'S TALK */}
+            {/* CTAs: RESUME + PROJECTS */}
             <div className="reveal-item flex flex-wrap gap-3 mb-9" style={stagger(3)}>
               <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
-              <a href="/contact"><button className={btnSecondary}>LET'S TALK</button></a>
+              <a href="/projects"><button className={btnSecondary}>PROJECTS</button></a>
             </div>
             <div className="reveal-item space-y-4 pt-7" style={stagger(4)}>
               <p className="text-[0.92rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
-                My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products. Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
+                My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
+              </p>
+              <p className="text-[0.92rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
+                Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
               </p>
             </div>
           </div>
