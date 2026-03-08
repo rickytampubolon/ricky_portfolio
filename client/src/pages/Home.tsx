@@ -44,8 +44,8 @@ export default function Home() {
         style={{ width: `${scrollProgress}%` }}
       />
 
-      {/* ── Hero: full viewport split-panel ─────────────────── */}
-      <section className="relative min-h-[calc(100vh-3.5rem)] overflow-hidden">
+      {/* ── Hero: split-panel — not full-viewport so footer is visible ─ */}
+      <section className="relative overflow-hidden" style={{ minHeight: "min(680px, calc(100vh - 3.5rem - 56px))" }}>
 
         {/* Beige left slab */}
         <div className="absolute inset-y-0 left-0 w-full md:w-[38%] h-72 md:h-full bg-[#F5EDE5] dark:bg-[#1A1A1A]" />
@@ -56,11 +56,11 @@ export default function Home() {
           style={{ left: "38%", transform: "translate(-50%, -50%)" }}
         >
           <div
-            className="reveal-item flex flex-col items-center text-center bg-white dark:bg-[#1E1E1E] rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-[#E8E8E8] dark:border-[#2C2C2C] w-[230px] pt-8 pb-7 px-7"
+            className="reveal-item flex flex-col items-center text-center bg-white dark:bg-[#1E1E1E] rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-[#E8E8E8] dark:border-[#2C2C2C] w-[300px] pt-10 pb-9 px-9"
             style={stagger(0)}
           >
             {/* Profile image */}
-            <div className="w-28 h-28 rounded-full overflow-hidden ring-4 ring-white dark:ring-[#2A2A2A] shadow-[0_6px_20px_rgba(0,0,0,0.13)] mb-5 shrink-0">
+            <div className="w-36 h-36 rounded-full overflow-hidden ring-4 ring-white dark:ring-[#2A2A2A] shadow-[0_8px_28px_rgba(0,0,0,0.14)] mb-6 shrink-0">
               <img
                 src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                 alt="Ricky Halomoan"
@@ -69,29 +69,29 @@ export default function Home() {
             </div>
 
             {/* Name */}
-            <h2 className="text-[1rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug mb-3">
+            <h2 className="text-[1.25rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug mb-4">
               Ricky Halomoan
             </h2>
 
             {/* Blue divider */}
-            <div className="w-10 h-[2px] bg-[#007BFF] mb-3 rounded-full" />
+            <div className="w-12 h-[2px] bg-[#007BFF] mb-4 rounded-full" />
 
             {/* Title */}
-            <p className="text-[0.58rem] font-bold tracking-[0.16em] uppercase text-[#888888] dark:text-[#666666] mb-5">
+            <p className="text-[0.65rem] font-bold tracking-[0.16em] uppercase text-[#888888] dark:text-[#666666] mb-6">
               Senior Product Manager
             </p>
 
             {/* Social icons */}
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-4">
               {socialCard.map(({ href, icon, label }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
                   {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="w-8 h-8 rounded-full bg-[#F5F5F5] dark:bg-[#2A2A2A] flex items-center justify-center text-[#888888] dark:text-[#666666] hover:bg-[#007BFF] hover:text-white dark:hover:bg-[#007BFF] dark:hover:text-white transition-all duration-200"
+                  className="w-9 h-9 rounded-full bg-[#F5F5F5] dark:bg-[#2A2A2A] flex items-center justify-center text-[#888888] dark:text-[#666666] hover:bg-[#007BFF] hover:text-white dark:hover:bg-[#007BFF] dark:hover:text-white transition-all duration-200"
                 >
-                  <span style={{ fontSize: "13px" }}>{icon}</span>
+                  <span style={{ fontSize: "15px" }}>{icon}</span>
                 </a>
               ))}
             </div>
@@ -101,33 +101,33 @@ export default function Home() {
         {/* ── Mobile: stacked profile card ── */}
         <div className={`flex md:hidden flex-col items-center text-center relative z-10 py-12 px-6 ${heroRevealed ? "is-revealed" : ""}`}>
           <div
-            className="reveal-item bg-white dark:bg-[#1E1E1E] rounded-3xl shadow-[0_16px_48px_rgba(0,0,0,0.10)] dark:shadow-[0_16px_48px_rgba(0,0,0,0.5)] border border-[#E8E8E8] dark:border-[#2C2C2C] w-full max-w-[230px] pt-7 pb-6 px-7 flex flex-col items-center"
+            className="reveal-item bg-white dark:bg-[#1E1E1E] rounded-3xl shadow-[0_16px_48px_rgba(0,0,0,0.10)] dark:shadow-[0_16px_48px_rgba(0,0,0,0.5)] border border-[#E8E8E8] dark:border-[#2C2C2C] w-full max-w-[280px] pt-9 pb-8 px-8 flex flex-col items-center"
             style={stagger(0)}
           >
-            <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white dark:ring-[#2A2A2A] shadow-[0_6px_18px_rgba(0,0,0,0.12)] mb-4">
+            <div className="w-32 h-32 rounded-full overflow-hidden ring-4 ring-white dark:ring-[#2A2A2A] shadow-[0_8px_24px_rgba(0,0,0,0.13)] mb-5">
               <img
                 src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                 alt="Ricky Halomoan"
                 className="w-full h-full object-cover"
               />
             </div>
-            <h2 className="text-[0.95rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug mb-2">
+            <h2 className="text-[1.1rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug mb-3">
               Ricky Halomoan
             </h2>
-            <div className="w-10 h-[2px] bg-[#007BFF] mb-2.5 rounded-full" />
-            <p className="text-[0.56rem] font-bold tracking-[0.16em] uppercase text-[#888888] dark:text-[#666666] mb-4">
+            <div className="w-12 h-[2px] bg-[#007BFF] mb-3 rounded-full" />
+            <p className="text-[0.62rem] font-bold tracking-[0.16em] uppercase text-[#888888] dark:text-[#666666] mb-5">
               Senior Product Manager
             </p>
-            <div className="flex items-center justify-center gap-3">
+            <div className="flex items-center justify-center gap-4">
               {socialCard.map(({ href, icon, label }) => (
                 <a
                   key={label}
                   href={href}
                   aria-label={label}
                   {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="w-7 h-7 rounded-full bg-[#F5F5F5] dark:bg-[#2A2A2A] flex items-center justify-center text-[#888888] hover:bg-[#007BFF] hover:text-white transition-all duration-200"
+                  className="w-9 h-9 rounded-full bg-[#F5F5F5] dark:bg-[#2A2A2A] flex items-center justify-center text-[#888888] hover:bg-[#007BFF] hover:text-white transition-all duration-200"
                 >
-                  <span style={{ fontSize: "12px" }}>{icon}</span>
+                  <span style={{ fontSize: "15px" }}>{icon}</span>
                 </a>
               ))}
             </div>
