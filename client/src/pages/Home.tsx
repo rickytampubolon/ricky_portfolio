@@ -42,15 +42,15 @@ function stagger(n: number) {
 
 /* ── Design tokens ───────────────────────────────────────── */
 // Universal card
-const cardBorder  = "border border-slate-200 dark:border-border";
+const cardBorder  = "border border-[#EEEEEE] dark:border-border";
 const cardBase    = `bg-white dark:bg-card rounded-2xl shadow-sm ${cardBorder} transition-all duration-300`;
 // Section heading — same scale as "Hello." for every section
-const sectionHeading = "font-black tracking-[-0.03em] text-foreground";
+const sectionHeading = "font-black tracking-[-0.03em] text-[#222222] dark:text-foreground";
 // Buttons — two styles only, used everywhere
-const btnPrimary  = "inline-flex items-center justify-center bg-accent text-white px-7 py-3 rounded-full text-sm font-semibold min-h-[44px] hover:bg-[#0056CC] transition-all duration-200 shadow-[0_4px_14px_rgba(0,122,255,0.35)] hover:-translate-y-px active:scale-[0.97]";
-const btnSecondary= "inline-flex items-center justify-center border-2 border-foreground text-foreground px-7 py-3 rounded-full text-sm font-semibold min-h-[44px] hover:bg-foreground hover:text-background transition-all duration-200 active:scale-[0.97]";
+const btnPrimary  = "inline-flex items-center justify-center bg-[#007BFF] text-white px-7 py-3 rounded-full text-sm font-semibold min-h-[44px] hover:bg-[#0056CC] transition-all duration-200 shadow-[0_4px_14px_rgba(0,123,255,0.35)] hover:-translate-y-px active:scale-[0.97]";
+const btnSecondary= "inline-flex items-center justify-center border-2 border-[#007BFF] text-[#007BFF] dark:border-foreground dark:text-foreground px-7 py-3 rounded-full text-sm font-semibold min-h-[44px] hover:bg-[#007BFF] hover:text-white dark:hover:bg-foreground dark:hover:text-background transition-all duration-200 active:scale-[0.97]";
 // Universal tag/pill
-const tagPill     = "inline-flex items-center px-3 py-1 rounded-full border border-slate-200 dark:border-slate-700 text-[0.75rem] text-slate-600 dark:text-slate-400 font-normal";
+const tagPill     = "inline-flex items-center px-3 py-1.5 rounded-full bg-[#EFEFEF] dark:bg-muted text-[0.75rem] text-[#555555] dark:text-muted-foreground font-medium";
 // Card padding token
 const cardPad     = "p-6";
 /* ── Shared component styles ─────────────────────────────── */
@@ -402,15 +402,15 @@ export default function Home() {
       />
 
       {/* ── Flat Sticky Navbar ─────────────────────────────── */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-slate-200 dark:border-border">
+      <header className={`fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-background/95 backdrop-blur-sm border-b border-[#EEEEEE] dark:border-border transition-shadow duration-300 ${scrolled ? "shadow-sm" : ""}`}>
         <div className="h-14 flex items-center justify-between px-6 md:px-10">
           {/* Left side: name + separator + title */}
           <div className="flex items-center gap-2.5">
-            <span className="font-bold text-foreground" style={{ fontSize: "0.95rem" }}>
+            <span className="font-bold text-[#222222] dark:text-foreground" style={{ fontSize: "0.95rem" }}>
               Ricky Halomoan
             </span>
-            <span className="text-slate-300 dark:text-slate-600">/</span>
-            <span className="hidden sm:block text-[0.68rem] tracking-[0.12em] uppercase text-muted-foreground">
+            <span className="text-[#CCCCCC] dark:text-slate-600">/</span>
+            <span className="hidden sm:block text-[0.68rem] tracking-[0.12em] uppercase text-[#777777] dark:text-muted-foreground font-medium">
               Senior Product Manager
             </span>
           </div>
@@ -430,8 +430,8 @@ export default function Home() {
                 href={`#${id}`}
                 className={`text-[0.85rem] font-medium transition-colors duration-200 ${
                   id === "contact"
-                    ? "text-accent font-semibold"
-                    : "text-foreground/70 hover:text-foreground"
+                    ? "text-[#007BFF] dark:text-accent font-semibold"
+                    : "text-[#777777] dark:text-foreground/70 hover:text-[#222222] dark:hover:text-foreground"
                 }`}
               >
                 {label}
@@ -439,13 +439,13 @@ export default function Home() {
             ))}
 
             {/* Divider */}
-            <div className="w-px h-4 bg-slate-200 dark:bg-slate-700 shrink-0" />
+            <div className="w-px h-4 bg-[#EEEEEE] dark:bg-slate-700 shrink-0" />
 
             {/* Dark / Light toggle */}
             <button
               onClick={handleThemeToggle}
               aria-label="Toggle dark mode"
-              className="relative w-7 h-7 rounded-full border border-slate-200 dark:border-border bg-secondary hover:bg-muted flex items-center justify-center transition-colors duration-200 shrink-0"
+              className="relative w-7 h-7 rounded-full border border-[#EEEEEE] dark:border-border bg-[#F8F8F8] dark:bg-secondary hover:bg-[#EFEFEF] dark:hover:bg-muted flex items-center justify-center transition-colors duration-200 shrink-0"
             >
               {/* Sun -- visible in light mode */}
               <Sun
@@ -472,73 +472,112 @@ export default function Home() {
 
       {/* ── Hero + About -- split-panel layout ─────────────────── */}
       <section id="about" className="relative min-h-screen pt-14 overflow-hidden">
-        {/* Muted left slab -- warm stone */}
-        <div className="absolute inset-y-0 left-0 w-full md:w-[40%] h-72 md:h-full bg-secondary dark:bg-muted/20" />
+        {/* Left slab — light grey #F8F8F8 */}
+        <div className="absolute inset-y-0 left-0 w-full md:w-[38%] h-72 md:h-full bg-[#F8F8F8] dark:bg-muted/20" />
 
-        {/* Profile card -- centered on the 40/60 boundary (desktop only) */}
-        <div className={`hidden md:block absolute z-20 top-1/2 ${heroRevealed ? "is-revealed" : ""}`} style={{ left: "40%", transform: "translate(-50%, -50%)" }}>
+        {/* ── Desktop profile card: pinned to the 38/62 boundary ── */}
         <div
-          className={`reveal-item flex flex-col items-center text-center bg-white dark:bg-card rounded-3xl shadow-[0_24px_64px_rgb(0,0,0,0.12)] ${cardBorder} w-[280px] p-8`}
+          className={`hidden md:block absolute z-20 top-1/2 ${heroRevealed ? "is-revealed" : ""}`}
+          style={{ left: "38%", transform: "translate(-50%, -50%)" }}
+        >
+          <div
+            className="reveal-item flex flex-col items-center text-center bg-white dark:bg-card rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.13)] border border-[#EEEEEE] dark:border-border w-[260px] p-8"
+            style={stagger(0)}
+          >
+            {/* Circular profile image */}
+            <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-[0_6px_20px_rgba(0,0,0,0.12)] mb-5 shrink-0">
+              <img
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
+                alt="Ricky Halomoan"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Name */}
+            <h2 className="text-[1.1rem] font-bold text-[#222222] dark:text-foreground leading-snug mb-3">
+              Ricky<br />Halomoan
+            </h2>
+            {/* Blue accent line */}
+            <div className="w-10 h-[2px] bg-[#007BFF] dark:bg-accent mb-3 rounded-full" />
+            {/* Title */}
+            <p className="text-[0.62rem] font-bold tracking-[0.15em] uppercase text-[#777777] dark:text-muted-foreground mb-3">
+              Senior Product Manager
+            </p>
+            {/* Location */}
+            <div className="flex items-center justify-center gap-1 text-[0.72rem] text-[#777777]/70 dark:text-muted-foreground/60">
+              <MapPin size={9} />
+              <span>Jakarta, Indonesia</span>
+              <span>&#x1F1EE;&#x1F1E9;</span>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Mobile: profile card stacked ── */}
+        <div
+          className={`flex md:hidden flex-col items-center text-center relative z-10 py-14 px-6 ${heroRevealed ? "is-revealed" : ""}`}
           style={stagger(0)}
         >
-          <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-[0_8px_24px_rgb(0,0,0,0.12)] mb-5 shrink-0">
-            <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-full h-full object-cover" />
-          </div>
-          <h2 className="text-lg font-bold text-foreground leading-snug mb-3">Ricky<br />Halomoan</h2>
-          <div className="w-8 h-[2px] bg-accent mb-3 rounded-full" />
-          <p className="text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-muted-foreground mb-2">Senior Product Manager</p>
-          <div className="flex items-center justify-center gap-1 text-[0.72rem] text-muted-foreground/60">
-            <MapPin size={9} /><span>Jakarta, Indonesia</span><span>&#x1F1EE;&#x1F1E9;</span>
-          </div>
-        </div>
-        </div>
-
-        {/* Mobile: profile card stacked (not absolute) */}
-        <div className={`reveal-item flex md:hidden flex-col items-center text-center relative z-10 py-16 px-6 ${heroRevealed ? "is-revealed" : ""}`} style={stagger(0)}>
-          <div className={`bg-white dark:bg-card rounded-3xl shadow-[0_16px_48px_rgb(0,0,0,0.10)] ${cardBorder} w-full max-w-[260px] p-8 flex flex-col items-center`}>
-            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-[0_8px_24px_rgb(0,0,0,0.12)] mb-4">
-              <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png" alt="Ricky Halomoan" className="w-full h-full object-cover" />
+          <div className="reveal-item bg-white dark:bg-card rounded-3xl shadow-[0_16px_48px_rgba(0,0,0,0.10)] border border-[#EEEEEE] dark:border-border w-full max-w-[260px] p-8 flex flex-col items-center">
+            <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-[0_6px_18px_rgba(0,0,0,0.12)] mb-4">
+              <img
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
+                alt="Ricky Halomoan"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <h2 className="text-base font-bold text-foreground leading-snug mb-2">Ricky Halomoan</h2>
-            <div className="w-8 h-[2px] bg-accent mb-2 rounded-full" />
-            <p className="text-[0.62rem] font-semibold tracking-[0.15em] uppercase text-muted-foreground">Senior Product Manager</p>
+            <h2 className="text-base font-bold text-[#222222] dark:text-foreground leading-snug mb-2">Ricky Halomoan</h2>
+            <div className="w-10 h-[2px] bg-[#007BFF] dark:bg-accent mb-2 rounded-full" />
+            <p className="text-[0.60rem] font-bold tracking-[0.15em] uppercase text-[#777777] dark:text-muted-foreground mb-2">Senior Product Manager</p>
+            <div className="flex items-center justify-center gap-1 text-[0.7rem] text-[#777777]/60 dark:text-muted-foreground/60">
+              <MapPin size={9} /><span>Jakarta, Indonesia</span><span>&#x1F1EE;&#x1F1E9;</span>
+            </div>
           </div>
         </div>
 
-        {/* Right panel -- full width on mobile, 60% on desktop */}
-        <div className={`relative z-10 md:absolute md:inset-y-0 md:right-0 md:w-[60%] flex items-center bg-background ${heroRevealed ? "is-revealed" : ""}`}>
-          <div className="w-full py-16 md:py-0 px-6 md:pl-48 md:pr-16 lg:pr-24 max-w-none md:max-w-[700px]">
+        {/* ── Right content panel ── */}
+        <div
+          className={`relative z-10 md:absolute md:inset-y-0 md:right-0 md:w-[62%] flex items-center bg-white dark:bg-background ${heroRevealed ? "is-revealed" : ""}`}
+        >
+          <div className="w-full py-12 md:py-0 px-6 md:pl-44 md:pr-16 lg:pr-28 max-w-none md:max-w-[720px]">
 
             {/* Greeting */}
             <h1
-              className={`reveal-item ${sectionHeading} mb-4 leading-[0.92]`}
-              style={{ ...stagger(1), fontSize: "clamp(3.5rem, 7vw, 6.5rem)" }}
-            >Hello.</h1>
+              className={`reveal-item font-black tracking-[-0.03em] text-[#222222] dark:text-foreground mb-4 leading-[0.9]`}
+              style={{ ...stagger(1), fontSize: "clamp(3.5rem, 7vw, 6rem)" }}
+            >
+              Hello.
+            </h1>
 
             {/* Tagline */}
-            <p className="reveal-item text-base md:text-lg font-semibold text-foreground/70 mb-5 leading-[1.4] tracking-[-0.01em]" style={stagger(2)}>
+            <p
+              className="reveal-item text-base md:text-lg font-semibold text-[#555555] dark:text-foreground/70 mb-5 leading-[1.45] tracking-[-0.01em]"
+              style={stagger(2)}
+            >
               Bridging technical complexity with user-centric product strategy.
             </p>
 
-            {/* Domain pills -- unified tagPill style */}
+            {/* Domain tags */}
             <div className="reveal-item flex flex-wrap gap-2 mb-7" style={stagger(3)}>
-              {["Logistics","Fulfillment","Electric Mobility","Digital Transformation"].map(tag=>(
+              {["Logistics", "Fulfillment", "Electric Mobility", "Digital Transformation"].map((tag) => (
                 <span key={tag} className={tagPill}>{tag}</span>
               ))}
             </div>
 
-            {/* CTA buttons -- primary + secondary */}
+            {/* CTA buttons */}
             <div className="reveal-item flex flex-wrap gap-3 mb-9" style={stagger(4)}>
-              <a href="#contact"><button className={btnPrimary}>{"Let's Work Together"}</button></a>
-              <a href="#experience"><button className={btnSecondary}>View My Work</button></a>
+              <a href="#contact">
+                <button className={btnPrimary}>{"Let's Work Together"}</button>
+              </a>
+              <a href="#experience">
+                <button className={btnSecondary}>View My Work</button>
+              </a>
             </div>
 
             {/* Bio */}
-            <div className="reveal-item space-y-4 border-t border-slate-200 dark:border-border pt-7" style={stagger(5)}>
-              <p className="text-[0.92rem] leading-[1.75] text-muted-foreground">
+            <div className="reveal-item space-y-4 border-t border-[#EEEEEE] dark:border-border pt-7" style={stagger(5)}>
+              <p className="text-[0.92rem] leading-[1.8] text-[#555555] dark:text-muted-foreground">
                 My journey into product management did not follow a straight path. It developed from a strong curiosity about how systems work and how they create real value for people. With a background in Informatics and early experience in software delivery, I gained a solid understanding of the technical side of building digital products.
               </p>
-              <p className="text-[0.92rem] leading-[1.75] text-muted-foreground">
+              <p className="text-[0.92rem] leading-[1.8] text-[#555555] dark:text-muted-foreground">
                 {"Today, as a Senior Product Manager, I focus on translating complex operational and product challenges into clear and practical roadmaps \u2014 speaking with users, operations teams, and engineers to connect technical possibilities with real user needs."}
               </p>
             </div>
@@ -548,7 +587,7 @@ export default function Home() {
       </section>
 
       {/* ── Experience ────────────────────────────────────────── */}
-      <section id="experience" className="border-t border-slate-200 dark:border-border">
+      <section id="experience" className="border-t border-[#EEEEEE] dark:border-border">
         <div className="container py-20 md:py-32" ref={expReveal.ref}>
           <h2 className={`${sectionHeading} text-5xl md:text-6xl mb-10 md:mb-14`}>Experience</h2>
 
@@ -566,13 +605,13 @@ export default function Home() {
                       className={`text-left rounded-2xl p-6 border transition-all duration-300 hover:-translate-y-0.5 flex flex-col ${
                         isSelected
                           ? "bg-accent/5 border-accent/25 shadow-[0_10px_32px_rgba(0,122,255,0.08)]"
-                          : `bg-white dark:bg-card border-slate-200 dark:border-border shadow-sm hover:shadow-[0_16px_40px_rgb(0,0,0,0.07)]`
+                          : `bg-white dark:bg-card border-[#EEEEEE] dark:border-border shadow-sm hover:shadow-[0_16px_40px_rgb(0,0,0,0.07)]`
                       }`}
                     >
                       {/* Header row: logo + company + period badge */}
                       <div className="flex items-center justify-between gap-2 mb-3">
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-slate-200 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
+                          <div className="w-7 h-7 rounded-xl bg-white dark:bg-card border border-[#EEEEEE] dark:border-border overflow-hidden flex items-center justify-center shrink-0">
                             <img src={exp.companyImage} alt={exp.company} className="w-5 h-5 object-contain" loading="lazy" />
                           </div>
                           <span className="text-[0.68rem] font-semibold uppercase tracking-widest text-muted-foreground truncate">
@@ -582,7 +621,7 @@ export default function Home() {
                         <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.65rem] font-semibold tracking-wide uppercase shrink-0 ${
                           isCurrent
                             ? "bg-accent/10 text-accent"
-                            : "bg-slate-50 dark:bg-slate-800/40 border border-slate-200 dark:border-slate-700/40 text-slate-500 dark:text-slate-400"
+                            : "bg-[#F8F8F8] dark:bg-slate-800/40 border border-[#EEEEEE] dark:border-slate-700/40 text-[#777777] dark:text-slate-400"
                         }`}>
                           {isCurrent && <span className="w-1 h-1 rounded-full bg-accent animate-pulse" />}
                           {isCurrent ? "Ongoing" : exp.period}
@@ -697,7 +736,7 @@ export default function Home() {
                       setEarlyCareerOpen((o) => !o);
                       setExpandedEntryKey(null);
                     }}
-                    className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-2xl border border-slate-200 dark:border-border/50 bg-slate-50/70 dark:bg-card/50 hover:bg-slate-100/80 dark:hover:bg-card/70 transition-all duration-200 group"
+                    className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-2xl border border-[#EEEEEE] dark:border-border/50 bg-[#F8F8F8]/70 dark:bg-card/50 hover:bg-[#EFEFEF]/80 dark:hover:bg-card/70 transition-all duration-200 group"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <span className="text-[0.85rem] font-semibold text-foreground/70 group-hover:text-foreground/90 transition-colors">
@@ -726,7 +765,7 @@ export default function Home() {
                       transition: "max-height 0.4s cubic-bezier(0.4,0,0.2,1)",
                     }}
                   >
-                    <div className="mt-2 rounded-2xl border border-slate-200 dark:border-border/40 overflow-hidden divide-y divide-slate-100/60 dark:divide-border/30 bg-white dark:bg-card/40">
+                    <div className="mt-2 rounded-2xl border border-[#EEEEEE] dark:border-border/40 overflow-hidden divide-y divide-[#EEEEEE]/60 dark:divide-border/30 bg-white dark:bg-card/40">
                       {earlyCareerEntries.map((entry) => {
                         const isEntryOpen = expandedEntryKey === entry.key;
                         return (
@@ -735,10 +774,10 @@ export default function Home() {
                               onClick={() =>
                                 setExpandedEntryKey(isEntryOpen ? null : entry.key)
                               }
-                              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-slate-50 dark:hover:bg-card/60 transition-colors duration-150 text-left"
+                              className="w-full flex items-center gap-3 px-4 py-3 hover:bg-[#F8F8F8] dark:hover:bg-card/60 transition-colors duration-150 text-left"
                             >
                               {/* Logo */}
-                              <div className="w-7 h-7 rounded-lg bg-white dark:bg-card border border-slate-200 dark:border-border overflow-hidden flex items-center justify-center shrink-0">
+                              <div className="w-7 h-7 rounded-lg bg-white dark:bg-card border border-[#EEEEEE] dark:border-border overflow-hidden flex items-center justify-center shrink-0">
                                 {entry.logo && (
                                   <img
                                     src={entry.logo}
@@ -787,7 +826,7 @@ export default function Home() {
                                 transition: "max-height 0.25s ease-in-out",
                               }}
                             >
-                              <p className="px-4 pb-4 pt-1 text-[0.78rem] text-muted-foreground/60 leading-relaxed bg-slate-50 dark:bg-card/30">
+                              <p className="px-4 pb-4 pt-1 text-[0.78rem] text-muted-foreground/60 leading-relaxed bg-[#F8F8F8] dark:bg-card/30">
                                 {entry.brief}
                               </p>
                             </div>
@@ -804,7 +843,7 @@ export default function Home() {
       </section>
 
       {/* ── Skills ────────────────────────────────────────────── */}
-      <section id="skills" className="border-t border-slate-200 dark:border-border">
+      <section id="skills" className="border-t border-[#EEEEEE] dark:border-border">
         <div className="container py-20 md:py-32" ref={skillsReveal.ref}>
           <h2 className={`${sectionHeading} text-5xl md:text-6xl mb-10 md:mb-14`}>My Toolkit</h2>
           <div
@@ -838,7 +877,7 @@ export default function Home() {
       </section>
 
       {/* ── Contact ───────────────────────────────────────────── */}
-      <section id="contact" className="border-t border-slate-200 dark:border-border">
+      <section id="contact" className="border-t border-[#EEEEEE] dark:border-border">
         <div className="container py-20 md:py-32" ref={contactReveal.ref}>
           <div className={contactReveal.revealed ? "is-revealed" : ""}>
 
@@ -880,20 +919,45 @@ export default function Home() {
       </section>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="border-t border-slate-200 dark:border-border">
-        <div className="container py-6 flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
-          <p className="text-[0.8rem] text-muted-foreground/50">
-            Ricky Halomoan © 2026
+      <footer className="border-t border-[#EEEEEE] dark:border-border">
+        <div className="container py-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+
+          {/* Left: copyright */}
+          <p className="text-[0.78rem] text-[#555555]/60 dark:text-muted-foreground/50 shrink-0">
+            © 2026 Ricky Halomoan. All rights reserved.
           </p>
-          <div className="flex items-center gap-5">
+
+          {/* Center: call + write */}
+          <div className="flex flex-col sm:flex-row gap-1.5 sm:gap-6">
+            <a
+              href="tel:+6281234567890"
+              className="text-[0.78rem] text-[#555555]/60 dark:text-muted-foreground/50 hover:text-[#007BFF] dark:hover:text-accent transition-colors duration-200"
+            >
+              Call +62 812-3456-7890
+            </a>
+            <a
+              href="mailto:rickytampubolon97@gmail.com"
+              className="text-[0.78rem] text-[#555555]/60 dark:text-muted-foreground/50 hover:text-[#007BFF] dark:hover:text-accent transition-colors duration-200"
+            >
+              Write rickytampubolon97@gmail.com
+            </a>
+          </div>
+
+          {/* Right: social icons */}
+          <div className="flex items-center gap-5 shrink-0">
             {contactLinks.map(({ href, icon, label, external }) => (
-              <a key={href} href={href} aria-label={label}
+              <a
+                key={href}
+                href={href}
+                aria-label={label}
                 {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="text-muted-foreground/40 hover:text-accent transition-colors duration-200">
+                className="text-[#555555]/40 dark:text-muted-foreground/40 hover:text-[#007BFF] dark:hover:text-accent transition-colors duration-200"
+              >
                 {icon}
               </a>
             ))}
           </div>
+
         </div>
       </footer>
 
