@@ -1,22 +1,25 @@
 import { Link, useLocation } from "wouter";
-import { Sun, Moon, Linkedin, Mail, Menu, X } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram, Mail } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "HOME",    href: "/" },
-  { label: "RESUME",  href: "/resume" },
-  { label: "CONTACT", href: "/contact" },
+  { label: "ABOUT ME", href: "/about" },
+  { label: "RESUME",   href: "/resume" },
+  { label: "PROJECTS", href: "/projects" },
+  { label: "CONTACT",  href: "/contact" },
 ];
 
 const footerSocial = [
-  { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin size={20} />, label: "LinkedIn" },
-  { href: "mailto:rickytampubolon97@gmail.com",     icon: <Mail     size={20} />, label: "Email" },
+  { href: "https://facebook.com",                      icon: <Facebook  size={20} />, label: "Facebook" },
+  { href: "https://twitter.com",                       icon: <Twitter   size={20} />, label: "Twitter" },
+  { href: "https://www.linkedin.com/in/rickyhlmn/",    icon: <Linkedin  size={20} />, label: "LinkedIn" },
+  { href: "mailto:rickytampubolon97@gmail.com",        icon: <Mail      size={20} />, label: "Email" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location]   = useLocation();
-  const { theme, toggleTheme } = useTheme();
+  const { theme }    = useTheme();
   const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -27,12 +30,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }, []);
 
   useEffect(() => { setMobileOpen(false); }, [location]);
-
-  const handleThemeToggle = () => {
-    document.documentElement.classList.add("theme-transitioning");
-    toggleTheme?.();
-    setTimeout(() => document.documentElement.classList.remove("theme-transitioning"), 450);
-  };
 
   const isActive = (href: string) =>
     href === "/" ? location === "/" : location.startsWith(href);
@@ -66,12 +63,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {label}
               </Link>
             ))}
-            <div className="w-px h-4 bg-[#E0E0E0] dark:bg-[#2C2C2C] shrink-0" />
-            <button onClick={handleThemeToggle} aria-label="Toggle dark mode"
-              className="relative w-[30px] h-[30px] rounded-full border border-[#E0E0E0] dark:border-[#2C2C2C] bg-[#F5F5F5] dark:bg-[#1E1E1E] hover:bg-[#EBEBEB] dark:hover:bg-[#2A2A2A] flex items-center justify-center transition-colors duration-200 shrink-0">
-              <Sun  size={13} className={`absolute text-[#888] transition-all duration-300 ${theme === "dark" ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"}`} />
-              <Moon size={13} className={`absolute text-[#aaa] transition-all duration-300 ${theme === "dark" ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-50"}`} />
-            </button>
           </div>
         </div>
 
@@ -90,24 +81,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </span>
           </Link>
 
-          {/* Right: theme toggle + hamburger */}
-          <div className="flex items-center gap-2.5 mt-1">
-            <button onClick={handleThemeToggle} aria-label="Toggle dark mode"
-              className="relative w-[28px] h-[28px] rounded-full border border-[#E0E0E0] dark:border-[#2C2C2C] bg-[#F5F5F5] dark:bg-[#1E1E1E] flex items-center justify-center shrink-0">
-              <Sun  size={12} className={`absolute text-[#888] transition-all duration-300 ${theme === "dark" ? "opacity-0 rotate-90 scale-50" : "opacity-100"}`} />
-              <Moon size={12} className={`absolute text-[#aaa] transition-all duration-300 ${theme === "dark" ? "opacity-100" : "opacity-0 -rotate-90 scale-50"}`} />
-            </button>
-            <button onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu"
-              className="flex flex-col gap-[5px] w-6 shrink-0 py-1">
-              <span className={`block h-[2px] bg-[#007BFF] rounded-full transition-all duration-300 ${mobileOpen ? "w-full" : "w-full"}`} />
-              <span className={`block h-[2px] bg-[#007BFF] rounded-full transition-all duration-300 ${mobileOpen ? "w-3/4" : "w-3/4"}`} />
-            </button>
-          </div>
+          {/* Right: hamburger only */}
+          <button onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu"
+            className="flex flex-col gap-[5px] w-6 shrink-0 py-1 mt-1">
+            <span className="block h-[2px] bg-[#007BFF] rounded-full w-full" />
+            <span className="block h-[2px] bg-[#007BFF] rounded-full w-3/4" />
+          </button>
         </div>
 
         {/* Mobile dropdown nav */}
         <div
-          style={{ maxHeight: mobileOpen ? "180px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}
+          style={{ maxHeight: mobileOpen ? "220px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}
           className="sm:hidden border-t border-[#F0F0F0] dark:border-[#2C2C2C] bg-white dark:bg-[#121212]"
         >
           <nav className="flex flex-col py-1 px-5">
@@ -166,28 +150,39 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* ── Desktop footer layout ── */}
-        <div className="hidden sm:flex px-5 md:px-12 py-5 items-center justify-between gap-4">
+        <div className="hidden sm:flex px-5 md:px-12 py-5 items-center justify-between gap-6">
           <p className="text-[0.72rem] text-[#999] shrink-0">
             © 2026 Ricky Halomoan. All rights reserved.
           </p>
-          <div className="flex flex-row gap-6">
-            <a href="tel:+6281234567890"
-              className="text-[0.72rem] text-[#999] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
-              Call +62 812-3456-7890
-            </a>
-            <a href="mailto:rickytampubolon97@gmail.com"
-              className="text-[0.72rem] text-[#999] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
-              Write rickytampubolon97@gmail.com
-            </a>
-          </div>
-          <div className="flex items-center gap-4 shrink-0">
-            {footerSocial.map(({ href, icon, label }) => (
-              <a key={label} href={href} aria-label={label}
-                {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="text-[#BBBBBB] dark:text-[#555] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
-                {icon}
+
+          <div className="flex items-start gap-10">
+            {/* Call */}
+            <div>
+              <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-0.5 tracking-[0.06em]">Call</p>
+              <a href="tel:+6281234567890" className="text-[0.72rem] text-[#999] hover:text-[#007BFF] transition-colors duration-200">
+                +62 812-3456-7890
               </a>
-            ))}
+            </div>
+            {/* Write */}
+            <div>
+              <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-0.5 tracking-[0.06em]">Write</p>
+              <a href="mailto:rickytampubolon97@gmail.com" className="text-[0.72rem] text-[#999] hover:text-[#007BFF] transition-colors duration-200">
+                rickytampubolon97@gmail.com
+              </a>
+            </div>
+            {/* Follow */}
+            <div>
+              <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-1.5 tracking-[0.06em]">Follow</p>
+              <div className="flex items-center gap-3">
+                {footerSocial.map(({ href, icon, label }) => (
+                  <a key={label} href={href} aria-label={label}
+                    {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="text-[#888] dark:text-[#555] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
+                    {icon}
+                  </a>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
 
