@@ -127,49 +127,49 @@ export default function Home() {
       </div>
 
       {/* ════════════════════════════════════════════════════════
-          DESKTOP layout — flex-row so columns stretch equally
+          DESKTOP layout — tall section, beige fills full height,
+          card floats centered on the boundary (matches reference)
           ════════════════════════════════════════════════════════ */}
       <section
         className="relative hidden md:flex flex-row overflow-hidden"
-        style={{ minHeight: "min(680px, calc(100vh - 3.5rem - 56px))" }}
+        style={{ minHeight: "min(820px, calc(100vh - 56px))" }}
       >
-        {/* Left beige slab — flex child, stretches to match right column */}
-        <div className="w-[38%] shrink-0" style={{ backgroundColor: BEIGE }} />
+        {/* Left beige slab — full section height */}
+        <div className="w-[41%] shrink-0" style={{ backgroundColor: BEIGE }} />
 
-        {/* Profile card straddling the 38/62 boundary — inset-y-0 so it fills
-            the exact same height as the section (which is driven by the right column) */}
+        {/* Profile card — vertically centered on the beige/white boundary */}
         <div
-          className={`absolute z-20 inset-y-0 ${heroRevealed ? "is-revealed" : ""}`}
-          style={{ left: "38%", transform: "translateX(-50%)" }}
+          className={`absolute z-20 top-1/2 ${heroRevealed ? "is-revealed" : ""}`}
+          style={{ left: "41%", transform: "translate(-50%, -50%)" }}
         >
           <div
-            className="reveal-item h-full flex flex-col items-center justify-between text-center rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-[#E0D8CC] w-[300px] px-9 py-10"
-            style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
+            className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.10)] border border-[#E0D8CC] w-[295px] px-9 pt-10 pb-8"
+            style={{ ...stagger(0), backgroundColor: "#F3ECE7", minHeight: "410px" }}
           >
-            {/* Top group: photo + name + divider + title */}
+            {/* Top: photo + name + divider + title */}
             <div className="flex flex-col items-center">
-              <div className="w-36 h-36 rounded-full overflow-hidden ring-4 ring-white shadow-[0_8px_28px_rgba(0,0,0,0.14)] mb-6 shrink-0 bg-[#B0B0B0]">
+              <div className="w-[152px] h-[152px] rounded-full overflow-hidden ring-[3px] ring-white/80 shadow-[0_4px_18px_rgba(0,0,0,0.13)] mb-5 shrink-0 bg-[#B8B8B8]">
                 <img
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                   alt="Ricky Halomoan"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h2 className="text-[1.25rem] font-bold text-[#1A1A1A] leading-snug mb-4">
-                Ricky Halomoan
+              <h2 className="text-[1.3rem] font-bold text-[#1A1A1A] leading-[1.2] mb-4">
+                Ricky<br />Halomoan
               </h2>
-              <div className="w-12 h-[2px] bg-[#007BFF] mb-4 rounded-full" />
-              <p className="text-[0.65rem] font-bold tracking-[0.16em] uppercase text-[#888888]">
+              <div className="w-10 h-[2.5px] bg-[#007BFF] mb-4 rounded-full" />
+              <p className="text-[0.62rem] font-semibold tracking-[0.18em] uppercase text-[#666666]">
                 Senior Product Manager
               </p>
             </div>
 
-            {/* Bottom: social icons */}
-            <div className="flex items-center justify-center gap-5">
+            {/* Social icons pinned to bottom */}
+            <div className="flex items-center justify-center gap-5 pt-6">
               {socialCard.map(({ href, icon, label }) => (
                 <a key={label} href={href} aria-label={label}
                   {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="text-[#555555] hover:text-[#007BFF] transition-colors duration-200">
+                  className="text-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200">
                   {icon}
                 </a>
               ))}
@@ -177,29 +177,29 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Right content panel — flex-1, drives the section height */}
+        {/* Right content panel — vertically centered */}
         <div
           className={`flex-1 flex items-center bg-white dark:bg-[#121212] ${heroRevealed ? "is-revealed" : ""}`}
         >
-          <div className="w-full py-10 px-6 pl-44 pr-16 lg:pr-32 max-w-[680px]">
+          <div className="w-full px-6 pl-40 pr-16 lg:pr-32 max-w-[660px]">
             <h1
-              className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 leading-[0.9]"
-              style={{ ...stagger(1), fontSize: "clamp(3.5rem, 6.5vw, 5.5rem)" }}
+              className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-4 leading-[0.88]"
+              style={{ ...stagger(1), fontSize: "clamp(4rem, 7vw, 6.5rem)" }}
             >
               Hello
             </h1>
-            <p className="reveal-item text-[1.08rem] font-semibold text-[#555555] dark:text-[#888888] mb-7 leading-[1.45]" style={stagger(2)}>
-              Here's who I am &amp; what I do.
+            <p className="reveal-item text-[1.1rem] text-[#333333] dark:text-[#AAAAAA] mb-8 leading-[1.45]" style={stagger(2)}>
+              Here's who I am &amp; what I do
             </p>
-            <div className="reveal-item flex flex-wrap gap-3 mb-9" style={stagger(3)}>
+            <div className="reveal-item flex flex-wrap gap-3 mb-10" style={stagger(3)}>
               <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
               <a href="/projects"><button className={btnSecondary}>PROJECTS</button></a>
             </div>
-            <div className="reveal-item space-y-4 pt-7" style={stagger(4)}>
-              <p className="text-[0.92rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
+            <div className="reveal-item space-y-5" style={stagger(4)}>
+              <p className="text-[0.95rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
                 My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
               </p>
-              <p className="text-[0.92rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
+              <p className="text-[0.95rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
                 Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
               </p>
             </div>
