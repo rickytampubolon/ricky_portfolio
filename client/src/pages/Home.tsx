@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 
@@ -15,14 +15,11 @@ const btnSecondary =
 
 // Flat dark social icons for the profile card (no circle wrapper)
 const socialCard = [
-  { href: "https://facebook.com",                   icon: <Facebook  size={20} />, label: "Facebook" },
-  { href: "https://twitter.com",                    icon: <Twitter   size={20} />, label: "Twitter" },
   { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin  size={20} />, label: "LinkedIn" },
   { href: "mailto:rickytampubolon97@gmail.com",     icon: <Instagram size={20} />, label: "Instagram" },
 ];
 
-// Warm tan/beige matching Wix template
-const BEIGE = "#C4B49A";
+const BEIGE = "#E6DACE";
 const BEIGE_DARK = "#1A1A1A";
 
 export default function Home() {
@@ -86,9 +83,9 @@ export default function Home() {
                 RESUME
               </button>
             </a>
-            <a href="/projects" className="flex-1">
+            <a href="/contact" className="flex-1">
               <button className="w-full border-2 border-[#1A1A1A] text-[#1A1A1A] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] hover:text-white transition-all duration-200 active:scale-[0.97]">
-                PROJECTS
+                LET'S TALK
               </button>
             </a>
           </div>
@@ -136,12 +133,12 @@ export default function Home() {
 
         {/* Profile card on the 38/62 boundary — stretches to match section height */}
         <div
-          className={`absolute z-20 inset-y-8 ${heroRevealed ? "is-revealed" : ""}`}
+          className={`absolute z-20 inset-y-4 ${heroRevealed ? "is-revealed" : ""}`}
           style={{ left: "38%", transform: "translateX(-50%)" }}
         >
           <div
             className="reveal-item h-full flex flex-col items-center justify-center text-center rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-[#E0D8CC] w-[300px] px-9"
-            style={{ ...stagger(0), backgroundColor: "#FAF8F4" }}
+            style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
           >
             {/* Photo */}
             <div className="w-36 h-36 rounded-full overflow-hidden ring-4 ring-white shadow-[0_8px_28px_rgba(0,0,0,0.14)] mb-6 shrink-0">
@@ -193,10 +190,10 @@ export default function Home() {
             <p className="reveal-item text-[1.08rem] font-semibold text-[#555555] dark:text-[#888888] mb-7 leading-[1.45]" style={stagger(2)}>
               Here's who I am &amp; what I do.
             </p>
-            {/* CTAs: RESUME + PROJECTS */}
+            {/* CTAs: RESUME + LET'S TALK */}
             <div className="reveal-item flex flex-wrap gap-3 mb-9" style={stagger(3)}>
               <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
-              <a href="/projects"><button className={btnSecondary}>PROJECTS</button></a>
+              <a href="/contact"><button className={btnSecondary}>LET'S TALK</button></a>
             </div>
             <div className="reveal-item space-y-4 pt-7" style={stagger(4)}>
               <p className="text-[0.92rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
