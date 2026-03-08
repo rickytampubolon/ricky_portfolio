@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Facebook, Twitter, Linkedin, Instagram, Mail } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect } from "react";
 
@@ -14,7 +14,7 @@ const footerSocial = [
   { href: "https://facebook.com",                      icon: <Facebook  size={20} />, label: "Facebook" },
   { href: "https://twitter.com",                       icon: <Twitter   size={20} />, label: "Twitter" },
   { href: "https://www.linkedin.com/in/rickyhlmn/",    icon: <Linkedin  size={20} />, label: "LinkedIn" },
-  { href: "mailto:rickytampubolon97@gmail.com",        icon: <Mail      size={20} />, label: "Email" },
+  { href: "https://instagram.com",                     icon: <Instagram size={20} />, label: "Instagram" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
