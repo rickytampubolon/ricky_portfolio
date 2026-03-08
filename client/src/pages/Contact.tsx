@@ -84,21 +84,21 @@ export default function Contact() {
 
   /* Shared field styles */
   const inputBase =
-    "w-full bg-transparent border-b-2 border-[#E0E0E0] dark:border-border/60 py-2.5 text-[0.92rem] text-[#1A1A1A] dark:text-foreground placeholder:text-[#AAAAAA] dark:placeholder:text-muted-foreground/40 outline-none transition-colors duration-200 focus:border-[#007BFF] dark:focus:border-accent";
+    "w-full bg-transparent border-b-2 border-[#E0E0E0] dark:border-[#333] py-2.5 text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] placeholder:text-[#AAAAAA] dark:placeholder:text-[#555] outline-none transition-colors duration-200 focus:border-[#007BFF] dark:focus:border-[#3B9EFF]";
   const labelBase =
-    "block text-[0.72rem] font-bold tracking-[0.08em] uppercase text-[#666666] dark:text-muted-foreground mb-1.5";
+    "block text-[0.72rem] font-bold tracking-[0.08em] uppercase text-[#666666] dark:text-[#888888] mb-1.5";
   const errorMsg = "mt-1 text-[0.72rem] text-red-500 font-medium";
 
   return (
     <Layout>
       {/* Full-page beige background */}
-      <div className="min-h-[calc(100vh-3.5rem)] bg-[#F5EDE5] dark:bg-muted/20 flex flex-col items-center justify-start py-16 px-4">
+      <div className="min-h-[calc(100vh-3.5rem)] bg-[#F5EDE5] dark:bg-[#1A1A1A] flex flex-col items-center justify-start py-16 px-4">
 
         {/* Heading with blue square icon */}
         <div className="flex items-center gap-3 mb-10">
           <div className="w-[10px] h-[10px] bg-[#007BFF] rounded-[2px] shrink-0" />
           <h1
-            className="font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-foreground leading-none"
+            className="font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-none"
             style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}
           >
             Let's talk.
@@ -106,19 +106,19 @@ export default function Contact() {
         </div>
 
         {/* ── White form card ──────────────────────────────────── */}
-        <div className="w-full max-w-lg bg-white dark:bg-card rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.10)] border border-[#E0E0E0] dark:border-border p-8 md:p-10">
+        <div className="w-full max-w-lg bg-white dark:bg-[#1E1E1E] rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.10)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-[#E8E8E8] dark:border-[#2C2C2C] p-8 md:p-10">
 
           {/* Success state */}
           {success ? (
             <div className="flex flex-col items-center text-center py-8">
-              <CheckCircle size={48} className="text-[#007BFF] dark:text-accent mb-4" strokeWidth={1.5} />
-              <h2 className="text-xl font-bold text-[#1A1A1A] dark:text-foreground mb-2">Message sent!</h2>
-              <p className="text-[0.9rem] text-[#666666] dark:text-muted-foreground mb-6">
+              <CheckCircle size={48} className="text-[#007BFF] mb-4" strokeWidth={1.5} />
+              <h2 className="text-xl font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-2">Message sent!</h2>
+              <p className="text-[0.9rem] text-[#666666] dark:text-[#888888] mb-6">
                 Thanks for reaching out. I'll get back to you as soon as possible.
               </p>
               <button
                 onClick={() => setSuccess(false)}
-                className="text-[0.82rem] font-semibold text-[#007BFF] dark:text-accent hover:underline"
+                className="text-[0.82rem] font-semibold text-[#007BFF] hover:underline"
               >
                 Send another message
               </button>
@@ -239,9 +239,9 @@ export default function Contact() {
         </div>
 
         {/* Sub-copy */}
-        <p className="mt-6 text-[0.78rem] text-[#666666]/60 dark:text-muted-foreground/50">
+        <p className="mt-6 text-[0.78rem] text-[#999999]">
           Or email me directly at{" "}
-          <a href="mailto:rickytampubolon97@gmail.com" className="text-[#007BFF] dark:text-accent hover:underline">
+          <a href="mailto:rickytampubolon97@gmail.com" className="text-[#007BFF] hover:underline">
             rickytampubolon97@gmail.com
           </a>
         </p>
