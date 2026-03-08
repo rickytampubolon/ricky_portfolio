@@ -143,7 +143,7 @@ export default function Home() {
           style={{ left: "41%", transform: "translate(-50%, -50%)" }}
         >
           <div
-            className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.10)] border border-[#E0D8CC] w-[295px] px-9 pt-10 pb-8"
+            className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] w-[295px] px-9 pt-10 pb-8"
             style={{ ...stagger(0), backgroundColor: "#F3ECE7", minHeight: "410px" }}
           >
             {/* Top: photo + name + divider + title */}
