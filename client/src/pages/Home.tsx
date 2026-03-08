@@ -109,7 +109,7 @@ export default function Home() {
         <div className="px-6 pt-10 pb-12" style={{ backgroundColor: BEIGE }}>
           <h1
             className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] mb-3 leading-[0.9]"
-            style={{ ...stagger(1), fontSize: "clamp(3.5rem, 14vw, 5rem)" }}
+            style={{ ...stagger(1), fontSize: "clamp(2.8rem, 11vw, 4rem)" }}
           >
             Hello
           </h1>
@@ -118,10 +118,7 @@ export default function Home() {
           </p>
           <div className="reveal-item space-y-4" style={stagger(3)}>
             <p className="text-[0.93rem] leading-[1.8] text-[#4A4A4A]">
-              My journey into product management did not follow a straight path. It developed from a strong curiosity about how systems work and how they create real value for people. With a background in Informatics and early experience in software delivery, I gained a solid understanding of the technical side of building digital products.
-            </p>
-            <p className="text-[0.93rem] leading-[1.8] text-[#4A4A4A]">
-              Today, as a Senior Product Manager, I focus on translating complex operational and product challenges into clear and practical roadmaps — speaking with users, operations teams, and engineers to connect technical possibilities with real user needs.
+              My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products. Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
             </p>
           </div>
         </div>
@@ -189,7 +186,7 @@ export default function Home() {
             {/* Hello — no period, larger */}
             <h1
               className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 leading-[0.9]"
-              style={{ ...stagger(1), fontSize: "clamp(4.5rem, 8.5vw, 7.5rem)" }}
+              style={{ ...stagger(1), fontSize: "clamp(3.5rem, 6.5vw, 5.5rem)" }}
             >
               Hello
             </h1>
@@ -201,12 +198,9 @@ export default function Home() {
               <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
               <a href="/projects"><button className={btnSecondary}>PROJECTS</button></a>
             </div>
-            <div className="reveal-item space-y-4 border-t border-[#E8E8E8] dark:border-[#2C2C2C] pt-7" style={stagger(4)}>
+            <div className="reveal-item space-y-4 pt-7" style={stagger(4)}>
               <p className="text-[0.92rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
-                My journey into product management did not follow a straight path. It developed from a strong curiosity about how systems work and how they create real value for people. With a background in Informatics and early experience in software delivery, I gained a solid understanding of the technical side of building digital products.
-              </p>
-              <p className="text-[0.92rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
-                Today, as a Senior Product Manager, I focus on translating complex operational and product challenges into clear and practical roadmaps — speaking with users, operations teams, and engineers to connect technical possibilities with real user needs.
+                My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products. Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
               </p>
             </div>
           </div>
