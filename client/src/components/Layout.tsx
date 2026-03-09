@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram, Facebook, Twitter } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect } from "react";
 
@@ -10,8 +10,6 @@ const navLinks = [
 ];
 
 const footerSocial = [
-  { href: "https://facebook.com",                       icon: <Facebook  size={18} />, label: "Facebook"  },
-  { href: "https://twitter.com",                        icon: <Twitter   size={18} />, label: "Twitter"   },
   { href: "https://www.linkedin.com/in/rickyhlmn/",    icon: <Linkedin  size={18} />, label: "LinkedIn"  },
   { href: "https://instagram.com",                      icon: <Instagram size={18} />, label: "Instagram" },
 ];
@@ -112,14 +110,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* ── Mobile footer layout ── */}
         <div className="sm:hidden px-6 pt-8 pb-6">
-          {/* Call */}
-          <div className="mb-6">
-            <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Call</p>
-            <a href="tel:+628123456789" className="text-[0.8rem] text-[#666666] dark:text-[#888888] hover:text-[#007BFF] transition-colors">
-              +62 812-3456-7890
-            </a>
-          </div>
-
           {/* Write */}
           <div className="mb-6">
             <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Write</p>
@@ -155,13 +145,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </p>
 
           <div className="flex items-start gap-10">
-            {/* Call */}
-            <div>
-              <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-0.5 tracking-[0.06em]">Call</p>
-              <a href="tel:+628123456789" className="text-[0.72rem] text-[#999] hover:text-[#007BFF] transition-colors duration-200">
-                +62 812-3456-7890
-              </a>
-            </div>
             {/* Write */}
             <div>
               <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-0.5 tracking-[0.06em]">Write</p>

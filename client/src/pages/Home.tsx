@@ -140,34 +140,34 @@ export default function Home() {
 
           {/* Spacer: occupies the beige area minus half the card width,
               so the card column ends up centered on the 41% boundary */}
-          <div className="shrink-0" style={{ width: "calc(41% - 147.5px)" }} />
+          <div className="shrink-0" style={{ width: "calc(41% - 170px)" }} />
 
           {/* Card column — in flex flow, h-full fills the stretched row height */}
-          <div className="w-[295px] shrink-0 z-20">
+          <div className="w-[340px] shrink-0 z-20">
             <div
-              className="reveal-item h-full flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-9 pt-10 pb-8"
+              className="reveal-item h-full flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-12 pb-10"
               style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
             >
               {/* Top group: photo + name + divider + title */}
               <div className="flex flex-col items-center">
-                <div className="w-[152px] h-[152px] rounded-full overflow-hidden ring-[3px] ring-white/80 shadow-[0_4px_18px_rgba(0,0,0,0.13)] mb-5 shrink-0 bg-[#B8B8B8]">
+                <div className="w-[180px] h-[180px] rounded-full overflow-hidden ring-[3px] ring-white/80 shadow-[0_4px_18px_rgba(0,0,0,0.13)] mb-6 shrink-0 bg-[#B8B8B8]">
                   <img
                     src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                     alt="Ricky Halomoan"
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h2 className="text-[1.3rem] font-bold text-[#1A1A1A] leading-[1.2] mb-4">
+                <h2 className="text-[1.5rem] font-bold text-[#1A1A1A] leading-[1.2] mb-4">
                   Ricky<br />Halomoan
                 </h2>
                 <div className="w-10 h-[2.5px] bg-[#007BFF] mb-4 rounded-full" />
-                <p className="text-[0.62rem] font-semibold tracking-[0.18em] uppercase text-[#666666]">
+                <p className="text-[0.68rem] font-semibold tracking-[0.18em] uppercase text-[#666666]">
                   Senior Product Manager
                 </p>
               </div>
 
-              {/* Social icons — anchored to bottom by justify-between */}
-              <div className="flex items-center justify-center gap-5">
+              {/* Social icons — white background pill */}
+              <div className="bg-white rounded-xl px-8 py-3 flex items-center justify-center gap-6 shadow-sm">
                 {socialCard.map(({ href, icon, label }) => (
                   <a key={label} href={href} aria-label={label}
                     {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -179,9 +179,8 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Right content — pt/pb matches card so Hello aligns with photo
-              and last paragraph aligns with social icons */}
-          <div className="flex-1 pl-14 pr-16 lg:pr-32 pt-10 pb-8">
+          {/* Right content — constrained width so card feels more prominent */}
+          <div className="flex-1 pl-12 pr-12 lg:pr-20 pt-10 pb-8 max-w-[520px]">
             <h1
               className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-4 leading-[0.88]"
               style={{ ...stagger(1), fontSize: "clamp(3.2rem, 6vw, 5.5rem)" }}
