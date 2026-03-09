@@ -127,61 +127,64 @@ export default function Home() {
       </div>
 
       {/* ════════════════════════════════════════════════════════
-          DESKTOP layout — tall section, beige fills full height,
-          card floats centered on the boundary (matches reference)
+          DESKTOP layout — tall section; card is in flex flow
+          so items-stretch guarantees exact height match
           ════════════════════════════════════════════════════════ */}
       <section
-        className="relative hidden md:flex flex-row overflow-hidden"
+        className="relative hidden md:flex flex-row items-center overflow-hidden"
         style={{ minHeight: "min(820px, calc(100vh - 56px))" }}
       >
-        {/* Left beige slab — full section height */}
-        <div className="w-[41%] shrink-0" style={{ backgroundColor: BEIGE }} />
+        {/* Full-height background slabs */}
+        <div className="absolute inset-y-0 left-0 w-[41%]" style={{ backgroundColor: BEIGE }} />
+        <div className="absolute inset-y-0 left-[41%] right-0 bg-white dark:bg-[#121212]" />
 
-        {/* Profile card — vertically centered on the beige/white boundary */}
-        <div
-          className={`absolute z-20 top-1/2 ${heroRevealed ? "is-revealed" : ""}`}
-          style={{ left: "41%", transform: "translate(-50%, -50%)" }}
-        >
-          <div
-            className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] w-[295px] px-9 pt-10 pb-8"
-            style={{ ...stagger(0), backgroundColor: "#F3ECE7", minHeight: "410px" }}
-          >
-            {/* Top: photo + name + divider + title */}
-            <div className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] rounded-full overflow-hidden ring-[3px] ring-white/80 shadow-[0_4px_18px_rgba(0,0,0,0.13)] mb-5 shrink-0 bg-[#B8B8B8]">
-                <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-                  alt="Ricky Halomoan"
-                  className="w-full h-full object-cover"
-                />
+        {/* Content row — items-stretch makes card height === right content height */}
+        <div className={`relative z-10 w-full flex flex-row items-stretch ${heroRevealed ? "is-revealed" : ""}`}>
+
+          {/* Spacer: occupies the beige area minus half the card width,
+              so the card column ends up centered on the 41% boundary */}
+          <div className="shrink-0" style={{ width: "calc(41% - 147.5px)" }} />
+
+          {/* Card column — in flex flow, h-full fills the stretched row height */}
+          <div className="w-[295px] shrink-0 z-20">
+            <div
+              className="reveal-item h-full flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-9 pt-10 pb-8"
+              style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
+            >
+              {/* Top group: photo + name + divider + title */}
+              <div className="flex flex-col items-center">
+                <div className="w-[152px] h-[152px] rounded-full overflow-hidden ring-[3px] ring-white/80 shadow-[0_4px_18px_rgba(0,0,0,0.13)] mb-5 shrink-0 bg-[#B8B8B8]">
+                  <img
+                    src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
+                    alt="Ricky Halomoan"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h2 className="text-[1.3rem] font-bold text-[#1A1A1A] leading-[1.2] mb-4">
+                  Ricky<br />Halomoan
+                </h2>
+                <div className="w-10 h-[2.5px] bg-[#007BFF] mb-4 rounded-full" />
+                <p className="text-[0.62rem] font-semibold tracking-[0.18em] uppercase text-[#666666]">
+                  Senior Product Manager
+                </p>
               </div>
-              <h2 className="text-[1.3rem] font-bold text-[#1A1A1A] leading-[1.2] mb-4">
-                Ricky<br />Halomoan
-              </h2>
-              <div className="w-10 h-[2.5px] bg-[#007BFF] mb-4 rounded-full" />
-              <p className="text-[0.62rem] font-semibold tracking-[0.18em] uppercase text-[#666666]">
-                Senior Product Manager
-              </p>
-            </div>
 
-            {/* Social icons pinned to bottom */}
-            <div className="flex items-center justify-center gap-5 pt-6">
-              {socialCard.map(({ href, icon, label }) => (
-                <a key={label} href={href} aria-label={label}
-                  {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="text-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200">
-                  {icon}
-                </a>
-              ))}
+              {/* Social icons — anchored to bottom by justify-between */}
+              <div className="flex items-center justify-center gap-5">
+                {socialCard.map(({ href, icon, label }) => (
+                  <a key={label} href={href} aria-label={label}
+                    {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="text-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200">
+                    {icon}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Right content panel — vertically centered */}
-        <div
-          className={`flex-1 flex items-center bg-white dark:bg-[#121212] ${heroRevealed ? "is-revealed" : ""}`}
-        >
-          <div className="w-full px-6 pl-40 pr-16 lg:pr-32 max-w-[660px]">
+          {/* Right content — pt/pb matches card so Hello aligns with photo
+              and last paragraph aligns with social icons */}
+          <div className="flex-1 pl-14 pr-16 lg:pr-32 pt-10 pb-8">
             <h1
               className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-4 leading-[0.88]"
               style={{ ...stagger(1), fontSize: "clamp(4rem, 7vw, 6.5rem)" }}
@@ -204,6 +207,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+
         </div>
       </section>
 
