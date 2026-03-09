@@ -32,11 +32,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#1A1310] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-[#121212] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
 
       {/* ── Sticky Header ─────────────────────────────────────── */}
       <header
-        className={`sticky top-0 left-0 right-0 z-50 bg-white/96 dark:bg-[#1A1310]/96 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : ""}`}
+        className={`sticky top-0 left-0 right-0 z-50 bg-white/96 dark:bg-[#121212]/96 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : ""}`}
       >
         {/* ── Desktop header row ── */}
         <div className="hidden sm:flex h-14 items-center justify-between px-5 md:px-12">
@@ -101,7 +101,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Mobile dropdown nav */}
         <div
           style={{ maxHeight: mobileOpen ? "220px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}
-          className="sm:hidden border-t border-[#F0F0F0] dark:border-[#2C2C2C] bg-white dark:bg-[#1A1310]"
+          className="sm:hidden border-t border-[#F0F0F0] dark:border-[#2C2C2C] bg-white dark:bg-[#121212]"
         >
           <nav className="flex flex-col py-1 px-5">
             {navLinks.map(({ label, href }) => (
@@ -120,7 +120,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-1 flex flex-col">{children}</main>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="bg-white dark:bg-[#1A1310]">
+      <footer className="bg-white dark:bg-[#121212]">
 
         {/* ── Mobile footer layout ── */}
         <div className="sm:hidden px-6 pt-8 pb-6">
