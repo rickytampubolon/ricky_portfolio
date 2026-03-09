@@ -145,7 +145,7 @@ export default function Home() {
           {/* Card column — in flex flow, h-full fills the stretched row height */}
           <div className="w-[340px] shrink-0 z-20">
             <div
-              className="reveal-item h-full flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-12 pb-10"
+              className="reveal-item h-full flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-8 pb-0 overflow-hidden"
               style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
             >
               {/* Top group: photo + name + divider + title */}
@@ -167,7 +167,7 @@ export default function Home() {
               </div>
 
               {/* Social icons — full-width white bar */}
-              <div className="self-stretch -mx-10 bg-white py-3 flex items-center justify-center gap-6">
+              <div className="self-stretch -mx-10 bg-white py-4 flex items-center justify-center gap-6">
                 {socialCard.map(({ href, icon, label }) => (
                   <a key={label} href={href} aria-label={label}
                     {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -180,17 +180,17 @@ export default function Home() {
           </div>
 
           {/* Right content — constrained width so card feels more prominent */}
-          <div className="flex-1 pl-12 pr-12 lg:pr-20 pt-10 pb-8 max-w-[520px]">
+          <div className="flex-1 pl-12 pr-12 lg:pr-20 pt-8 pb-6 max-w-[520px]">
             <h1
-              className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-4 leading-[0.88]"
+              className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 leading-[0.88]"
               style={{ ...stagger(1), fontSize: "clamp(3.2rem, 6vw, 5.5rem)" }}
             >
               Hello
             </h1>
-            <p className="reveal-item text-[1.15rem] font-bold text-[#333333] dark:text-[#AAAAAA] mb-8 leading-[1.45]" style={stagger(2)}>
+            <p className="reveal-item text-[1.15rem] font-bold text-[#333333] dark:text-[#AAAAAA] mb-6 leading-[1.45]" style={stagger(2)}>
               Here's who I am &amp; what I do
             </p>
-            <div className="reveal-item flex flex-wrap gap-3 mb-10" style={stagger(3)}>
+            <div className="reveal-item flex flex-wrap gap-3 mb-7" style={stagger(3)}>
               <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
               <a href="/contact"><button className={btnSecondary}>LET'S WORK</button></a>
             </div>
