@@ -38,17 +38,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* ── Sticky Header ─────────────────────────────────────── */}
       <header
-        className={`sticky top-0 left-0 right-0 z-50 bg-white/96 dark:bg-[#121212]/96 backdrop-blur-sm border-b border-[#E0E0E0] dark:border-[#2C2C2C] transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : ""}`}
+        className={`sticky top-0 left-0 right-0 z-50 bg-white/96 dark:bg-[#121212]/96 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : ""}`}
       >
         {/* ── Desktop header row ── */}
         <div className="hidden sm:flex h-14 items-center justify-between px-5 md:px-12">
           <Link href="/" className="flex items-center gap-2.5">
             <div className="w-[9px] h-[9px] bg-[#007BFF] rounded-[2px] shrink-0" />
-            <span className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-none" style={{ fontSize: "1.05rem" }}>
+            <span className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-none" style={{ fontSize: "1.2rem" }}>
               Ricky Halomoan
             </span>
             <span className="hidden md:inline text-[#D0D0D0] dark:text-[#444] leading-none mx-0.5">/</span>
-            <span className="hidden md:block text-[0.72rem] tracking-[0.12em] uppercase text-[#888888] dark:text-[#888888] font-medium leading-none">
+            <span className="hidden md:block text-[0.82rem] tracking-[0.12em] uppercase text-[#888888] dark:text-[#888888] font-medium leading-none">
               Senior Product Manager
             </span>
           </Link>
@@ -70,7 +70,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Link href="/" className="flex flex-col gap-0.5">
             <div className="flex items-center gap-2">
               <div className="w-[10px] h-[10px] bg-[#007BFF] rounded-[2px] shrink-0 mt-0.5" />
-              <span className="font-black text-[1.25rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight tracking-[-0.02em]">
+              <span className="font-black text-[1.45rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight tracking-[-0.02em]">
                 Ricky Halomoan
               </span>
             </div>
@@ -108,7 +108,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className="flex-1 flex flex-col">{children}</main>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="border-t border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#121212]">
+      <footer className="bg-white dark:bg-[#121212]">
 
         {/* ── Mobile footer layout ── */}
         <div className="sm:hidden px-6 pt-8 pb-6">

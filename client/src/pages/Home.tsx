@@ -110,7 +110,7 @@ export default function Home() {
           >
             Hello
           </h1>
-          <p className="reveal-item text-[0.88rem] font-semibold text-[#4A4A4A] mb-6 leading-[1.45]" style={stagger(2)}>
+          <p className="reveal-item text-[1.05rem] font-bold text-[#4A4A4A] mb-6 leading-[1.45]" style={stagger(2)}>
             Here's who I am &amp; what I do.
           </p>
           <div className="reveal-item space-y-4" style={stagger(3)}>
@@ -188,7 +188,7 @@ export default function Home() {
             >
               Hello
             </h1>
-            <p className="reveal-item text-[0.95rem] text-[#333333] dark:text-[#AAAAAA] mb-8 leading-[1.45]" style={stagger(2)}>
+            <p className="reveal-item text-[1.15rem] font-bold text-[#333333] dark:text-[#AAAAAA] mb-8 leading-[1.45]" style={stagger(2)}>
               Here's who I am &amp; what I do
             </p>
             <div className="reveal-item flex flex-wrap gap-3 mb-10" style={stagger(3)}>
