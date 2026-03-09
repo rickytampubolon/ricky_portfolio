@@ -17,11 +17,11 @@ const btnSecondary =
 // Flat dark social icons for the profile card (no circle wrapper)
 const socialCard = [
   { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin  size={20} />, label: "LinkedIn" },
-  { href: "mailto:rickytampubolon97@gmail.com",     icon: <Instagram size={20} />, label: "Instagram" },
+  { href: "https://www.instagram.com/rickyhlmn/",   icon: <Instagram size={20} />, label: "Instagram" },
 ];
 
 const BEIGE = "#E6DACE";
-const BEIGE_DARK = "#1C1713";   // dark warm brown — matches the cream palette
+const BEIGE_DARK = "#1A1A1A";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -148,7 +148,7 @@ export default function Home() {
           <div className="w-[340px] shrink-0 z-20">
             <div
               className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_6px_28px_rgba(0,0,0,0.16)] border border-[#CFC0B0] dark:border-[#3D3026] px-10 pt-10 pb-0 overflow-hidden min-h-[420px]"
-              style={{ ...stagger(0), backgroundColor: theme === "dark" ? "#27201A" : "#FDFAF8" }}
+              style={{ ...stagger(0), backgroundColor: theme === "dark" ? "#2A2420" : "#F3ECE7" }}
             >
               {/* Top group: photo + name + divider + title */}
               <div className="flex flex-col items-center">
