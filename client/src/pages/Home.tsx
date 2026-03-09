@@ -145,7 +145,7 @@ export default function Home() {
           {/* Card column — in flex flow, h-full fills the stretched row height */}
           <div className="w-[340px] shrink-0 z-20">
             <div
-              className="reveal-item h-full flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-12 pb-10"
+              className="reveal-item h-full flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-12 pb-0 overflow-hidden"
               style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
             >
               {/* Top group: photo + name + divider + title */}
@@ -167,7 +167,7 @@ export default function Home() {
               </div>
 
               {/* Social icons — full-width white bar */}
-              <div className="self-stretch -mx-10 bg-white py-3 flex items-center justify-center gap-6">
+              <div className="self-stretch -mx-10 bg-white py-4 flex items-center justify-center gap-6">
                 {socialCard.map(({ href, icon, label }) => (
                   <a key={label} href={href} aria-label={label}
                     {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
