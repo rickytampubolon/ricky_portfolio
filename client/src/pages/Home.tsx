@@ -52,7 +52,7 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════
           MOBILE layout — full-width beige, no white card
           ════════════════════════════════════════════════════════ */}
-      <div className={`md:hidden ${heroRevealed ? "is-revealed" : ""}`}>
+      <div className={`md:hidden flex flex-col flex-1 ${heroRevealed ? "is-revealed" : ""}`}>
 
         {/* Beige block: photo + name + divider + CTAs */}
         <div
@@ -129,8 +129,7 @@ export default function Home() {
           so items-stretch guarantees exact height match
           ════════════════════════════════════════════════════════ */}
       <section
-        className="relative hidden md:flex flex-row items-center overflow-hidden"
-        style={{ minHeight: "min(820px, calc(100vh - 56px))" }}
+        className="relative hidden md:flex flex-row items-center overflow-hidden flex-1"
       >
         {/* Full-height background slabs */}
         <div className="absolute inset-y-0 left-0 w-[41%]" style={{ backgroundColor: BEIGE }} />
