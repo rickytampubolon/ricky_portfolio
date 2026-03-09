@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 
@@ -15,8 +15,6 @@ const btnSecondary =
 
 // Flat dark social icons for the profile card (no circle wrapper)
 const socialCard = [
-  { href: "https://facebook.com",                   icon: <Facebook  size={20} />, label: "Facebook" },
-  { href: "https://twitter.com",                    icon: <Twitter   size={20} />, label: "Twitter" },
   { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin  size={20} />, label: "LinkedIn" },
   { href: "mailto:rickytampubolon97@gmail.com",     icon: <Instagram size={20} />, label: "Instagram" },
 ];
@@ -85,9 +83,9 @@ export default function Home() {
                 RESUME
               </button>
             </a>
-            <a href="/projects" className="flex-1">
+            <a href="/contact" className="flex-1">
               <button className="w-full border-2 border-[#1A1A1A] text-[#1A1A1A] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] hover:text-white transition-all duration-200 active:scale-[0.97]">
-                PROJECTS
+                LET'S WORK
               </button>
             </a>
           </div>
@@ -132,7 +130,6 @@ export default function Home() {
           ════════════════════════════════════════════════════════ */}
       <section
         className="relative hidden md:flex flex-row items-center overflow-hidden"
-        style={{ minHeight: "min(820px, calc(100vh - 56px))" }}
       >
         {/* Full-height background slabs */}
         <div className="absolute inset-y-0 left-0 w-[41%]" style={{ backgroundColor: BEIGE }} />
@@ -196,7 +193,7 @@ export default function Home() {
             </p>
             <div className="reveal-item flex flex-wrap gap-3 mb-10" style={stagger(3)}>
               <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
-              <a href="/projects"><button className={btnSecondary}>PROJECTS</button></a>
+              <a href="/contact"><button className={btnSecondary}>LET'S WORK</button></a>
             </div>
             <div className="reveal-item space-y-5" style={stagger(4)}>
               <p className="text-[0.95rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
