@@ -1,18 +1,15 @@
 import { Link, useLocation } from "wouter";
-import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect } from "react";
 
 const navLinks = [
   { label: "ABOUT ME", href: "/about" },
   { label: "RESUME",   href: "/resume" },
-  { label: "PROJECTS", href: "/projects" },
   { label: "CONTACT",  href: "/contact" },
 ];
 
 const footerSocial = [
-  { href: "https://facebook.com",                      icon: <Facebook  size={20} />, label: "Facebook" },
-  { href: "https://twitter.com",                       icon: <Twitter   size={20} />, label: "Twitter" },
   { href: "https://www.linkedin.com/in/rickyhlmn/",    icon: <Linkedin  size={20} />, label: "LinkedIn" },
   { href: "https://instagram.com",                     icon: <Instagram size={20} />, label: "Instagram" },
 ];
@@ -115,20 +112,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* ── Mobile footer layout ── */}
         <div className="sm:hidden px-6 pt-8 pb-6">
-          {/* Call + Write — 2-column grid */}
-          <div className="grid grid-cols-2 gap-4 mb-7">
-            <div>
-              <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Call</p>
-              <a href="tel:+6281234567890" className="text-[0.8rem] text-[#666666] dark:text-[#888888] hover:text-[#007BFF] transition-colors">
-                +62 812-3456-7890
-              </a>
-            </div>
-            <div>
-              <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Write</p>
-              <a href="mailto:rickytampubolon97@gmail.com" className="text-[0.8rem] text-[#666666] dark:text-[#888888] hover:text-[#007BFF] transition-colors break-all">
-                rickytampubolon97@gmail.com
-              </a>
-            </div>
+          {/* Write */}
+          <div className="mb-7">
+            <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Write</p>
+            <a href="mailto:rickytampubolon97@gmail.com" className="text-[0.8rem] text-[#666666] dark:text-[#888888] hover:text-[#007BFF] transition-colors break-all">
+              rickytampubolon97@gmail.com
+            </a>
           </div>
 
           {/* Follow */}
@@ -156,13 +145,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </p>
 
           <div className="flex items-start gap-10">
-            {/* Call */}
-            <div>
-              <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-0.5 tracking-[0.06em]">Call</p>
-              <a href="tel:+6281234567890" className="text-[0.72rem] text-[#999] hover:text-[#007BFF] transition-colors duration-200">
-                +62 812-3456-7890
-              </a>
-            </div>
             {/* Write */}
             <div>
               <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-0.5 tracking-[0.06em]">Write</p>
