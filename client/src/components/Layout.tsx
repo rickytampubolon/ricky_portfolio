@@ -42,11 +42,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="hidden sm:flex h-14 items-center justify-between px-5 md:px-12">
           <Link href="/" className="flex items-center gap-2.5">
             <div className="w-[9px] h-[9px] bg-[#007BFF] rounded-[2px] shrink-0" />
-            <span className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-none" style={{ fontSize: "0.92rem" }}>
+            <span className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-none" style={{ fontSize: "1.05rem" }}>
               Ricky Halomoan
             </span>
             <span className="hidden md:inline text-[#D0D0D0] dark:text-[#444] leading-none mx-0.5">/</span>
-            <span className="hidden md:block text-[0.62rem] tracking-[0.12em] uppercase text-[#888888] dark:text-[#888888] font-medium leading-none">
+            <span className="hidden md:block text-[0.72rem] tracking-[0.12em] uppercase text-[#888888] dark:text-[#888888] font-medium leading-none">
               Senior Product Manager
             </span>
           </Link>
