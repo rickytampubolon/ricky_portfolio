@@ -21,7 +21,7 @@ const socialCard = [
 ];
 
 const BEIGE = "#E6DACE";
-const BEIGE_DARK = "#1A1A1A";
+const BEIGE_DARK = "#1C1713";   // dark warm brown — matches the cream palette
 
 export default function Home() {
   const { theme } = useTheme();
@@ -62,7 +62,7 @@ export default function Home() {
           style={{ ...stagger(0), backgroundColor: theme === "dark" ? BEIGE_DARK : BEIGE }}
         >
           {/* Photo */}
-          <div className="w-36 h-36 rounded-full overflow-hidden ring-[5px] ring-white dark:ring-[#2C2C2C] shadow-[0_8px_28px_rgba(0,0,0,0.15)] mb-6 shrink-0 bg-[#B0B0B0]">
+          <div className="w-36 h-36 rounded-full overflow-hidden ring-[5px] ring-white dark:ring-[#3D3026] shadow-[0_8px_28px_rgba(0,0,0,0.15)] mb-6 shrink-0 bg-[#B0B0B0]">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
               alt="Ricky Halomoan"
@@ -94,7 +94,7 @@ export default function Home() {
         </div>
 
         {/* Social icons strip */}
-        <div className="bg-white dark:bg-[#1E1E1E] border-y border-[#E8E8E8] dark:border-[#2C2C2C] py-5 flex items-center justify-center gap-8">
+        <div className="bg-white dark:bg-[#1C1713] border-y border-[#E8E8E8] dark:border-[#3D3026] py-5 flex items-center justify-center gap-8">
           {socialCard.map(({ href, icon, label }) => (
             <a key={label} href={href} aria-label={label}
               {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -147,8 +147,8 @@ export default function Home() {
           {/* Card column — in flex flow, h-full fills the stretched row height */}
           <div className="w-[340px] shrink-0 z-20">
             <div
-              className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-10 pb-0 overflow-hidden min-h-[420px]"
-              style={{ ...stagger(0), backgroundColor: theme === "dark" ? "#2A2420" : "#F3ECE7" }}
+              className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_6px_28px_rgba(0,0,0,0.16)] border border-[#CFC0B0] dark:border-[#3D3026] px-10 pt-10 pb-0 overflow-hidden min-h-[420px]"
+              style={{ ...stagger(0), backgroundColor: theme === "dark" ? "#27201A" : "#FDFAF8" }}
             >
               {/* Top group: photo + name + divider + title */}
               <div className="flex flex-col items-center">
@@ -169,7 +169,7 @@ export default function Home() {
               </div>
 
               {/* Social icons — full-width white bar */}
-              <div className="self-stretch -mx-10 bg-white dark:bg-[#1E1E1E] py-4 flex items-center justify-center gap-6">
+              <div className="self-stretch -mx-10 bg-white dark:bg-[#1C1713] py-4 flex items-center justify-center gap-6">
                 {socialCard.map(({ href, icon, label }) => (
                   <a key={label} href={href} aria-label={label}
                     {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
