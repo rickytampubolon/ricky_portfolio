@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, Facebook, Twitter } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect } from "react";
 
@@ -10,8 +10,10 @@ const navLinks = [
 ];
 
 const footerSocial = [
-  { href: "https://www.linkedin.com/in/rickyhlmn/",    icon: <Linkedin  size={20} />, label: "LinkedIn" },
-  { href: "https://instagram.com",                     icon: <Instagram size={20} />, label: "Instagram" },
+  { href: "https://facebook.com",                       icon: <Facebook  size={18} />, label: "Facebook"  },
+  { href: "https://twitter.com",                        icon: <Twitter   size={18} />, label: "Twitter"   },
+  { href: "https://www.linkedin.com/in/rickyhlmn/",    icon: <Linkedin  size={18} />, label: "LinkedIn"  },
+  { href: "https://instagram.com",                      icon: <Instagram size={18} />, label: "Instagram" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -65,7 +67,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* ── Mobile header: 2-line ── */}
         <div className="flex sm:hidden items-start justify-between px-5 pt-3 pb-2.5">
-          {/* Left: square + name (large) + title below */}
           <Link href="/" className="flex flex-col gap-0.5">
             <div className="flex items-center gap-2">
               <div className="w-[10px] h-[10px] bg-[#007BFF] rounded-[2px] shrink-0 mt-0.5" />
@@ -78,7 +79,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </span>
           </Link>
 
-          {/* Right: hamburger only */}
           <button onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu"
             className="flex flex-col gap-[5px] w-6 shrink-0 py-1 mt-1">
             <span className="block h-[2px] bg-[#007BFF] rounded-full w-full" />
@@ -104,16 +104,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      {/* Content */}
-      <main className="flex-1">{children}</main>
+      {/* Content — flex-col so hero can use flex-1 inside */}
+      <main className="flex-1 flex flex-col">{children}</main>
 
       {/* ── Footer ────────────────────────────────────────────── */}
       <footer className="border-t border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#121212]">
 
         {/* ── Mobile footer layout ── */}
         <div className="sm:hidden px-6 pt-8 pb-6">
+          {/* Call */}
+          <div className="mb-6">
+            <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Call</p>
+            <a href="tel:+628123456789" className="text-[0.8rem] text-[#666666] dark:text-[#888888] hover:text-[#007BFF] transition-colors">
+              +62 812-3456-7890
+            </a>
+          </div>
+
           {/* Write */}
-          <div className="mb-7">
+          <div className="mb-6">
             <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Write</p>
             <a href="mailto:rickytampubolon97@gmail.com" className="text-[0.8rem] text-[#666666] dark:text-[#888888] hover:text-[#007BFF] transition-colors break-all">
               rickytampubolon97@gmail.com
@@ -121,15 +129,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           {/* Follow */}
-          <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-3">Follow</p>
-          <div className="flex items-center gap-5 mb-7">
-            {footerSocial.map(({ href, icon, label }) => (
-              <a key={label} href={href} aria-label={label}
-                {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
-                {icon}
-              </a>
-            ))}
+          <div className="mb-7">
+            <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-3">Follow</p>
+            <div className="flex items-center gap-5">
+              {footerSocial.map(({ href, icon, label }) => (
+                <a key={label} href={href} aria-label={label}
+                  {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
+                  {icon}
+                </a>
+              ))}
+            </div>
           </div>
 
           {/* Copyright */}
@@ -145,6 +155,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </p>
 
           <div className="flex items-start gap-10">
+            {/* Call */}
+            <div>
+              <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-0.5 tracking-[0.06em]">Call</p>
+              <a href="tel:+628123456789" className="text-[0.72rem] text-[#999] hover:text-[#007BFF] transition-colors duration-200">
+                +62 812-3456-7890
+              </a>
+            </div>
             {/* Write */}
             <div>
               <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-0.5 tracking-[0.06em]">Write</p>
