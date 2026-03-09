@@ -136,7 +136,7 @@ export default function Home() {
         <div className="absolute inset-y-0 left-[41%] right-0 bg-white dark:bg-[#121212]" />
 
         {/* Content row — items-stretch makes card height === right content height */}
-        <div className={`relative z-10 w-full flex flex-row items-stretch ${heroRevealed ? "is-revealed" : ""}`}>
+        <div className={`relative z-10 w-full flex flex-row items-center ${heroRevealed ? "is-revealed" : ""}`}>
 
           {/* Spacer: occupies the beige area minus half the card width,
               so the card column ends up centered on the 41% boundary */}
@@ -145,7 +145,7 @@ export default function Home() {
           {/* Card column — in flex flow, h-full fills the stretched row height */}
           <div className="w-[340px] shrink-0 z-20">
             <div
-              className="reveal-item h-full flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-8 pb-0 overflow-hidden"
+              className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-8 pb-0 overflow-hidden"
               style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
             >
               {/* Top group: photo + name + divider + title */}
