@@ -150,7 +150,7 @@ export default function Home() {
             >
               {/* Top group: photo + name + divider + title */}
               <div className="flex flex-col items-center">
-                <div className="w-[180px] h-[180px] rounded-full overflow-hidden ring-[3px] ring-white/80 shadow-[0_4px_18px_rgba(0,0,0,0.13)] mb-6 shrink-0 bg-[#B8B8B8]">
+                <div className="w-[152px] h-[152px] rounded-full overflow-hidden ring-[3px] ring-white/80 shadow-[0_4px_18px_rgba(0,0,0,0.13)] mb-5 shrink-0 bg-[#B8B8B8]">
                   <img
                     src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                     alt="Ricky Halomoan"
@@ -166,8 +166,8 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Social icons — white background pill */}
-              <div className="bg-white rounded-xl px-8 py-3 flex items-center justify-center gap-6 shadow-sm">
+              {/* Social icons — full-width white bar */}
+              <div className="self-stretch -mx-10 bg-white py-3 flex items-center justify-center gap-6">
                 {socialCard.map(({ href, icon, label }) => (
                   <a key={label} href={href} aria-label={label}
                     {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
