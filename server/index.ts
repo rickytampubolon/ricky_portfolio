@@ -2,6 +2,7 @@ import express from "express";
 import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
+import nodemailer from "nodemailer";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -9,6 +10,41 @@ const __dirname = path.dirname(__filename);
 async function startServer() {
   const app = express();
   const server = createServer(app);
+
+  app.use(express.json());
+
+  // ── Contact form API ──────────────────────────────────────────
+  app.post("/api/contact", async (req, res) => {
+    const { firstName, lastName, email, subject, message } = req.body ?? {};
+    if (!firstName || !lastName || !email) {
+      res.status(400).json({ error: "Missing required fields." });
+      return;
+    }
+
+    try {
+      const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+
+      await transporter.sendMail({
+        from: `"Portfolio Contact" <${process.env.EMAIL_USER}>`,
+        to: "rickytampubolon97@gmail.com",
+        replyTo: email,
+        subject: subject ? `[Portfolio] ${subject}` : `[Portfolio] New message from ${firstName} ${lastName}`,
+        text: `From: ${firstName} ${lastName} <${email}>\n\n${message ?? ""}`,
+        html: `<p><strong>From:</strong> ${firstName} ${lastName} &lt;${email}&gt;</p><p>${(message ?? "").replace(/\n/g, "<br>")}</p>`,
+      });
+
+      res.json({ ok: true });
+    } catch (err) {
+      console.error("Email send error:", err);
+      res.status(500).json({ error: "Failed to send email." });
+    }
+  });
 
   // Serve static files from dist/public in production
   const staticPath =

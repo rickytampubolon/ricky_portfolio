@@ -106,18 +106,18 @@ export default function Home() {
         <div className="px-6 pt-10 pb-12" style={{ backgroundColor: BEIGE }}>
           <h1
             className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] mb-3 leading-[0.9]"
-            style={{ ...stagger(1), fontSize: "clamp(2.8rem, 11vw, 4rem)" }}
+            style={{ ...stagger(1), fontSize: "clamp(2.2rem, 9vw, 3.2rem)" }}
           >
             Hello
           </h1>
-          <p className="reveal-item text-[1rem] font-semibold text-[#4A4A4A] mb-6 leading-[1.45]" style={stagger(2)}>
+          <p className="reveal-item text-[0.88rem] font-semibold text-[#4A4A4A] mb-6 leading-[1.45]" style={stagger(2)}>
             Here's who I am &amp; what I do.
           </p>
           <div className="reveal-item space-y-4" style={stagger(3)}>
-            <p className="text-[0.93rem] leading-[1.8] text-[#4A4A4A]">
+            <p className="text-[0.82rem] leading-[1.8] text-[#4A4A4A]">
               My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
             </p>
-            <p className="text-[0.93rem] leading-[1.8] text-[#4A4A4A]">
+            <p className="text-[0.82rem] leading-[1.8] text-[#4A4A4A]">
               Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
             </p>
           </div>
@@ -130,6 +130,7 @@ export default function Home() {
           ════════════════════════════════════════════════════════ */}
       <section
         className="relative hidden md:flex flex-row items-center overflow-hidden"
+        style={{ minHeight: "min(820px, calc(100vh - 56px))" }}
       >
         {/* Full-height background slabs */}
         <div className="absolute inset-y-0 left-0 w-[41%]" style={{ backgroundColor: BEIGE }} />
@@ -184,11 +185,11 @@ export default function Home() {
           <div className="flex-1 pl-14 pr-16 lg:pr-32 pt-10 pb-8">
             <h1
               className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-4 leading-[0.88]"
-              style={{ ...stagger(1), fontSize: "clamp(4rem, 7vw, 6.5rem)" }}
+              style={{ ...stagger(1), fontSize: "clamp(3.2rem, 6vw, 5.5rem)" }}
             >
               Hello
             </h1>
-            <p className="reveal-item text-[1.1rem] text-[#333333] dark:text-[#AAAAAA] mb-8 leading-[1.45]" style={stagger(2)}>
+            <p className="reveal-item text-[0.95rem] text-[#333333] dark:text-[#AAAAAA] mb-8 leading-[1.45]" style={stagger(2)}>
               Here's who I am &amp; what I do
             </p>
             <div className="reveal-item flex flex-wrap gap-3 mb-10" style={stagger(3)}>
@@ -196,10 +197,10 @@ export default function Home() {
               <a href="/contact"><button className={btnSecondary}>LET'S WORK</button></a>
             </div>
             <div className="reveal-item space-y-5" style={stagger(4)}>
-              <p className="text-[0.95rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
+              <p className="text-[0.85rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
                 My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
               </p>
-              <p className="text-[0.95rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
+              <p className="text-[0.85rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
                 Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
               </p>
             </div>
