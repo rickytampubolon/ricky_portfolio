@@ -11,7 +11,7 @@ const navLinks = [
 
 const footerSocial = [
   { href: "https://www.linkedin.com/in/rickyhlmn/",    icon: <Linkedin  size={18} />, label: "LinkedIn"  },
-  { href: "https://instagram.com",                      icon: <Instagram size={18} />, label: "Instagram" },
+  { href: "https://www.instagram.com/rickyhlmn/",       icon: <Instagram size={18} />, label: "Instagram" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
