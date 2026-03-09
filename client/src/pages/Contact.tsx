@@ -28,12 +28,17 @@ function validate(fields: FormState): FormErrors {
   return errors;
 }
 
-/* ── Placeholder submit handler ──────────────────────────────── */
+/* ── Submit handler ──────────────────────────────────────────── */
 async function handleSubmit(data: FormState): Promise<void> {
-  // TODO: Replace with your actual form submission logic, e.g.:
-  // await fetch("/api/contact", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
-  console.log("Form submitted:", data);
-  await new Promise((res) => setTimeout(res, 800)); // simulate network delay
+  const res = await fetch("/api/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) {
+    const body = await res.json().catch(() => ({}));
+    throw new Error((body as { error?: string }).error ?? "Failed to send.");
+  }
 }
 
 /* ── Component ───────────────────────────────────────────────── */

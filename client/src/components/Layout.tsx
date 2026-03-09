@@ -4,7 +4,7 @@ import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect } from "react";
 
 const navLinks = [
-  { label: "ABOUT ME", href: "/about" },
+  { label: "ABOUT ME", href: "/" },
   { label: "RESUME",   href: "/resume" },
   { label: "CONTACT",  href: "/contact" },
 ];
