@@ -145,7 +145,7 @@ export default function Home() {
           {/* Card column — in flex flow, h-full fills the stretched row height */}
           <div className="w-[340px] shrink-0 z-20">
             <div
-              className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-8 pb-0 overflow-hidden"
+              className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-10 pb-0 overflow-hidden min-h-[420px]"
               style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
             >
               {/* Top group: photo + name + divider + title */}
