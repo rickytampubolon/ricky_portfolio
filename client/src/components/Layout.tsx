@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, Sun, Moon } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect } from "react";
 
@@ -16,7 +16,7 @@ const footerSocial = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location]   = useLocation();
-  const { theme }    = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -60,6 +60,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 {label}
               </Link>
             ))}
+            {toggleTheme && (
+              <button onClick={toggleTheme} aria-label="Toggle dark mode"
+                className="text-[#666666] dark:text-[#888888] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
+                {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+              </button>
+            )}
           </div>
         </div>
 
@@ -77,11 +83,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </span>
           </Link>
 
-          <button onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu"
-            className="flex flex-col gap-[5px] w-6 shrink-0 py-1 mt-1">
-            <span className="block h-[2px] bg-[#007BFF] rounded-full w-full" />
-            <span className="block h-[2px] bg-[#007BFF] rounded-full w-3/4" />
-          </button>
+          <div className="flex items-center gap-4 mt-1">
+            {toggleTheme && (
+              <button onClick={toggleTheme} aria-label="Toggle dark mode"
+                className="text-[#666666] dark:text-[#888888] hover:text-[#007BFF] transition-colors duration-200">
+                {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+              </button>
+            )}
+            <button onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu"
+              className="flex flex-col gap-[5px] w-6 shrink-0 py-1">
+              <span className="block h-[2px] bg-[#007BFF] rounded-full w-full" />
+              <span className="block h-[2px] bg-[#007BFF] rounded-full w-3/4" />
+            </button>
+          </div>
         </div>
 
         {/* Mobile dropdown nav */}

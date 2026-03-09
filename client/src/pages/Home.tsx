@@ -1,6 +1,7 @@
 import { Linkedin, Instagram } from "lucide-react";
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
+import { useTheme } from "../contexts/ThemeContext";
 
 function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
@@ -23,6 +24,7 @@ const BEIGE = "#E6DACE";
 const BEIGE_DARK = "#1A1A1A";
 
 export default function Home() {
+  const { theme } = useTheme();
   const [heroRevealed, setHeroRevealed]     = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -57,10 +59,10 @@ export default function Home() {
         {/* Beige block: photo + name + divider + CTAs */}
         <div
           className="reveal-item px-6 pt-12 pb-8 flex flex-col items-center text-center"
-          style={{ ...stagger(0), backgroundColor: BEIGE }}
+          style={{ ...stagger(0), backgroundColor: theme === "dark" ? BEIGE_DARK : BEIGE }}
         >
           {/* Photo */}
-          <div className="w-36 h-36 rounded-full overflow-hidden ring-[5px] ring-white shadow-[0_8px_28px_rgba(0,0,0,0.15)] mb-6 shrink-0 bg-[#B0B0B0]">
+          <div className="w-36 h-36 rounded-full overflow-hidden ring-[5px] ring-white dark:ring-[#2C2C2C] shadow-[0_8px_28px_rgba(0,0,0,0.15)] mb-6 shrink-0 bg-[#B0B0B0]">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
               alt="Ricky Halomoan"
@@ -69,7 +71,7 @@ export default function Home() {
           </div>
 
           {/* Name */}
-          <h2 className="text-[2rem] font-black text-[#1A1A1A] leading-[1.1] tracking-[-0.02em] mb-4">
+          <h2 className="text-[2rem] font-black text-[#1A1A1A] dark:text-[#E0E0E0] leading-[1.1] tracking-[-0.02em] mb-4">
             Ricky<br />Halomoan
           </h2>
 
@@ -84,40 +86,40 @@ export default function Home() {
               </button>
             </a>
             <a href="/contact" className="flex-1">
-              <button className="w-full border-2 border-[#1A1A1A] text-[#1A1A1A] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] hover:text-white transition-all duration-200 active:scale-[0.97]">
+              <button className="w-full border-2 border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]">
                 LET'S WORK
               </button>
             </a>
           </div>
         </div>
 
-        {/* White social icons strip */}
-        <div className="bg-white border-y border-[#E8E8E8] py-5 flex items-center justify-center gap-8">
+        {/* Social icons strip */}
+        <div className="bg-white dark:bg-[#1E1E1E] border-y border-[#E8E8E8] dark:border-[#2C2C2C] py-5 flex items-center justify-center gap-8">
           {socialCard.map(({ href, icon, label }) => (
             <a key={label} href={href} aria-label={label}
               {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className="text-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200">
+              className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
               {icon}
             </a>
           ))}
         </div>
 
         {/* Beige content: Hello + sub-headline + bio */}
-        <div className="px-6 pt-10 pb-12" style={{ backgroundColor: BEIGE }}>
+        <div className="px-6 pt-10 pb-12" style={{ backgroundColor: theme === "dark" ? BEIGE_DARK : BEIGE }}>
           <h1
-            className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] mb-3 leading-[0.9]"
+            className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 leading-[0.9]"
             style={{ ...stagger(1), fontSize: "clamp(2.2rem, 9vw, 3.2rem)" }}
           >
             Hello
           </h1>
-          <p className="reveal-item text-[1.05rem] font-bold text-[#4A4A4A] mb-6 leading-[1.45]" style={stagger(2)}>
+          <p className="reveal-item text-[1.05rem] font-bold text-[#4A4A4A] dark:text-[#AAAAAA] mb-6 leading-[1.45]" style={stagger(2)}>
             Here's who I am &amp; what I do.
           </p>
           <div className="reveal-item space-y-4" style={stagger(3)}>
-            <p className="text-[0.82rem] leading-[1.8] text-[#4A4A4A]">
+            <p className="text-[0.82rem] leading-[1.8] text-[#4A4A4A] dark:text-[#888888]">
               My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
             </p>
-            <p className="text-[0.82rem] leading-[1.8] text-[#4A4A4A]">
+            <p className="text-[0.82rem] leading-[1.8] text-[#4A4A4A] dark:text-[#888888]">
               Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
             </p>
           </div>
@@ -132,7 +134,7 @@ export default function Home() {
         className="relative hidden md:flex flex-row items-center overflow-hidden flex-1"
       >
         {/* Full-height background slabs */}
-        <div className="absolute inset-y-0 left-0 w-[41%]" style={{ backgroundColor: BEIGE }} />
+        <div className="absolute inset-y-0 left-0 w-[41%]" style={{ backgroundColor: theme === "dark" ? BEIGE_DARK : BEIGE }} />
         <div className="absolute inset-y-0 left-[41%] right-0 bg-white dark:bg-[#121212]" />
 
         {/* Content row — items-stretch makes card height === right content height */}
@@ -146,7 +148,7 @@ export default function Home() {
           <div className="w-[340px] shrink-0 z-20">
             <div
               className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.14)] border border-[#E4DAD0] px-10 pt-10 pb-0 overflow-hidden min-h-[420px]"
-              style={{ ...stagger(0), backgroundColor: "#F3ECE7" }}
+              style={{ ...stagger(0), backgroundColor: theme === "dark" ? "#2A2420" : "#F3ECE7" }}
             >
               {/* Top group: photo + name + divider + title */}
               <div className="flex flex-col items-center">
@@ -157,21 +159,21 @@ export default function Home() {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h2 className="text-[1.5rem] font-bold text-[#1A1A1A] leading-[1.2] mb-4">
+                <h2 className="text-[1.5rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-[1.2] mb-4">
                   Ricky<br />Halomoan
                 </h2>
                 <div className="w-10 h-[2.5px] bg-[#007BFF] mb-4 rounded-full" />
-                <p className="text-[0.68rem] font-semibold tracking-[0.18em] uppercase text-[#666666]">
+                <p className="text-[0.68rem] font-semibold tracking-[0.18em] uppercase text-[#666666] dark:text-[#888888]">
                   Senior Product Manager
                 </p>
               </div>
 
               {/* Social icons — full-width white bar */}
-              <div className="self-stretch -mx-10 bg-white py-4 flex items-center justify-center gap-6">
+              <div className="self-stretch -mx-10 bg-white dark:bg-[#1E1E1E] py-4 flex items-center justify-center gap-6">
                 {socialCard.map(({ href, icon, label }) => (
                   <a key={label} href={href} aria-label={label}
                     {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="text-[#1A1A1A] hover:text-[#007BFF] transition-colors duration-200">
+                    className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:text-[#007BFF] dark:hover:text-[#3B9EFF] transition-colors duration-200">
                     {icon}
                   </a>
                 ))}
