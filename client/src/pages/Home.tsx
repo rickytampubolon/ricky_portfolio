@@ -130,6 +130,7 @@ export default function Home() {
           ════════════════════════════════════════════════════════ */}
       <section
         className="relative hidden md:flex flex-row items-center overflow-hidden"
+        style={{ minHeight: "min(820px, calc(100vh - 56px))" }}
       >
         {/* Full-height background slabs */}
         <div className="absolute inset-y-0 left-0 w-[41%]" style={{ backgroundColor: BEIGE }} />
