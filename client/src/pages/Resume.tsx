@@ -307,7 +307,7 @@ export default function Resume() {
                   Senior Product Manager · 6+ years across logistics, mobility, and education.
                 </p>
               </div>
-              <a href="#" className={btnDL} title="Replace href with your PDF resume link">
+              <a href="#" className={`${btnDL} self-start`} title="Replace href with your PDF resume link">
                 <Download size={14} />
                 Download PDF
               </a>
