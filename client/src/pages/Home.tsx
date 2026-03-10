@@ -1,4 +1,4 @@
-import { Linkedin, Instagram } from "lucide-react";
+import { Linkedin, Instagram, Facebook, Twitter } from "lucide-react";
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { useTheme } from "../contexts/ThemeContext";
@@ -16,7 +16,9 @@ const btnSecondary =
 
 // Flat dark social icons for the profile card (no circle wrapper)
 const socialCard = [
-  { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin  size={20} />, label: "LinkedIn" },
+  { href: "https://www.facebook.com/rickyhlmn",     icon: <Facebook  size={20} />, label: "Facebook"  },
+  { href: "https://twitter.com/rickyhlmn",           icon: <Twitter   size={20} />, label: "Twitter"   },
+  { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin  size={20} />, label: "LinkedIn"  },
   { href: "https://www.instagram.com/rickyhlmn/",   icon: <Instagram size={20} />, label: "Instagram" },
 ];
 
@@ -85,9 +87,9 @@ export default function Home() {
                 RESUME
               </button>
             </a>
-            <a href="/contact" className="flex-1">
-              <button className="w-full border-2 border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]">
-                LET'S WORK
+            <a href="/resume#projects" className="flex-1">
+              <button className="w-full border-2 border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] bg-white dark:bg-[#121212] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]">
+                PROJECTS
               </button>
             </a>
           </div>
