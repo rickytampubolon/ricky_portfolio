@@ -93,7 +93,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <button onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu"
               className="flex flex-col gap-[5px] w-6 shrink-0 py-1">
               <span className="block h-[2px] bg-[#007BFF] rounded-full w-full" />
-              <span className="block h-[2px] bg-[#007BFF] rounded-full w-full" />
               <span className="block h-[2px] bg-[#007BFF] rounded-full w-3/4" />
             </button>
           </div>
@@ -124,15 +123,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <footer className="bg-white dark:bg-[#121212]">
 
         {/* ── Mobile footer layout ── */}
-        <div className="sm:hidden px-6 pt-8 pb-6 text-center">
-          {/* Call */}
-          <div className="mb-6">
-            <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Call</p>
-            <a href="tel:+6281234567890" className="text-[0.8rem] text-[#666666] dark:text-[#888888] hover:text-[#007BFF] transition-colors">
-              +62 812-3456-7890
-            </a>
-          </div>
-
+        <div className="sm:hidden px-6 pt-8 pb-6">
           {/* Write */}
           <div className="mb-6">
             <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Write</p>
@@ -144,7 +135,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Follow */}
           <div className="mb-7">
             <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-3">Follow</p>
-            <div className="flex items-center justify-center gap-5">
+            <div className="flex items-center gap-5">
               {footerSocial.map(({ href, icon, label }) => (
                 <a key={label} href={href} aria-label={label}
                   {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
