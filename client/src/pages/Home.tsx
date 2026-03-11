@@ -87,7 +87,7 @@ export default function Home() {
             </a>
             <a href="/contact" className="flex-1">
               <button className="w-full border-2 border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]">
-                LET'S WORK
+                LET'S TALK
               </button>
             </a>
           </div>
@@ -194,7 +194,7 @@ export default function Home() {
             </p>
             <div className="reveal-item flex flex-wrap gap-3 mb-7" style={stagger(3)}>
               <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
-              <a href="/contact"><button className={btnSecondary}>LET'S WORK</button></a>
+              <a href="/contact"><button className={btnSecondary}>LET'S TALK</button></a>
             </div>
             <div className="reveal-item space-y-5" style={stagger(4)}>
               <p className="text-[0.85rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
