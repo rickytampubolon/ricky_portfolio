@@ -1,11 +1,8 @@
-import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import Layout from "../components/Layout";
 import { Send, CheckCircle } from "lucide-react";
 
-const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
-const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string;
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string;
 
 /* ── Types ───────────────────────────────────────────────────── */
 interface FormState {
@@ -35,17 +32,21 @@ function validate(fields: FormState): FormErrors {
 
 /* ── Submit handler ──────────────────────────────────────────── */
 async function handleSubmit(data: FormState): Promise<void> {
-  await emailjs.send(
-    EMAILJS_SERVICE_ID,
-    EMAILJS_TEMPLATE_ID,
-    {
-      from_name:  `${data.firstName} ${data.lastName}`,
-      from_email: data.email,
-      subject:    data.subject || "(no subject)",
-      message:    data.message,
-    },
-    { publicKey: EMAILJS_PUBLIC_KEY },
-  );
+  const res = await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Accept: "application/json" },
+    body: JSON.stringify({
+      access_key: WEB3FORMS_ACCESS_KEY,
+      name:    `${data.firstName} ${data.lastName}`,
+      email:   data.email,
+      subject: data.subject || `New message from ${data.firstName} ${data.lastName}`,
+      message: data.message,
+    }),
+  });
+  const json = await res.json();
+  if (!res.ok || !json.success) {
+    throw new Error(json.message ?? "Failed to send message.");
+  }
 }
 
 /* ── Component ───────────────────────────────────────────────── */
