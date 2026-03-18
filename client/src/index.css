@@ -232,7 +232,10 @@ html.theme-transitioning *::after {
   }
 
   /* ── Staggered reveal animations ────────────────────────── */
-  .reveal-item {
+  /* reveal-item is visible by default (progressive enhancement).
+     The .will-animate class is added by JS immediately on mount
+     to opt-in to the animation — content stays visible if JS fails. */
+  .will-animate .reveal-item {
     opacity: 0;
     transform: translateY(20px);
     transition:
@@ -248,7 +251,7 @@ html.theme-transitioning *::after {
 
   /* Skip reveal animation when OS reduce-motion is on */
   @media (prefers-reduced-motion: reduce) {
-    .reveal-item {
+    .will-animate .reveal-item {
       opacity: 1;
       transform: none;
       transition: none;

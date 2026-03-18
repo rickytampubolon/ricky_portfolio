@@ -26,9 +26,13 @@ const BEIGE_DARK = "#1A1A1A";
 export default function Home() {
   const { theme } = useTheme();
   const [heroRevealed, setHeroRevealed]     = useState(false);
+  const [willAnimate,  setWillAnimate]      = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
+    // Add will-animate immediately so animation opt-in is synchronous,
+    // then reveal after a short stagger delay.
+    setWillAnimate(true);
     const t = setTimeout(() => setHeroRevealed(true), 80);
     return () => clearTimeout(t);
   }, []);
@@ -54,7 +58,7 @@ export default function Home() {
       {/* ════════════════════════════════════════════════════════
           MOBILE layout — full-width beige, no white card
           ════════════════════════════════════════════════════════ */}
-      <div className={`md:hidden flex flex-col flex-1 ${heroRevealed ? "is-revealed" : ""}`}>
+      <div className={`md:hidden flex flex-col flex-1 ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}>
 
         {/* Beige block: photo + name + divider + CTAs */}
         <div
@@ -138,7 +142,7 @@ export default function Home() {
         <div className="absolute inset-y-0 left-[41%] right-0 bg-white dark:bg-[#121212]" />
 
         {/* Content row — items-stretch makes card height === right content height */}
-        <div className={`relative z-10 w-full flex flex-row items-center ${heroRevealed ? "is-revealed" : ""}`}>
+        <div className={`relative z-10 w-full flex flex-row items-center ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}>
 
           {/* Spacer: occupies the beige area minus half the card width,
               so the card column ends up centered on the 41% boundary */}
