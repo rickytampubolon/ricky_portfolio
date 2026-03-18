@@ -45,6 +45,7 @@ async function handleSubmit(data: FormState): Promise<void> {
   });
   const json = await res.json();
   if (!res.ok || !json.success) {
+    console.error("Web3Forms error:", json);
     throw new Error(json.message ?? "Failed to send message.");
   }
 }
@@ -88,8 +89,9 @@ export default function Contact() {
       setForm(EMPTY);
       setTouched({});
       setErrors({});
-    } catch {
-      setSubmitErr("Something went wrong. Please try again or email me directly.");
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : "Unknown error";
+      setSubmitErr(`Something went wrong: ${msg}. Please try again or email me directly.`);
     } finally {
       setLoading(false);
     }
