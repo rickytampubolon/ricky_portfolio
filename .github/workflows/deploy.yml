@@ -33,9 +33,10 @@ jobs:
       - name: Build
         run: pnpm run build
         env:
-          # Contact form API is not available on GitHub Pages.
-          # The form will show an error if submitted.
           NODE_ENV: production
+          VITE_EMAILJS_SERVICE_ID:  ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY:  ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4

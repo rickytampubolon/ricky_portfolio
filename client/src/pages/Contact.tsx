@@ -1,6 +1,11 @@
+import emailjs from "@emailjs/browser";
 import { useState } from "react";
 import Layout from "../components/Layout";
 import { Send, CheckCircle } from "lucide-react";
+
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string;
 
 /* ── Types ───────────────────────────────────────────────────── */
 interface FormState {
@@ -30,15 +35,17 @@ function validate(fields: FormState): FormErrors {
 
 /* ── Submit handler ──────────────────────────────────────────── */
 async function handleSubmit(data: FormState): Promise<void> {
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(data),
-  });
-  if (!res.ok) {
-    const body = await res.json().catch(() => ({}));
-    throw new Error((body as { error?: string }).error ?? "Failed to send.");
-  }
+  await emailjs.send(
+    EMAILJS_SERVICE_ID,
+    EMAILJS_TEMPLATE_ID,
+    {
+      from_name:  `${data.firstName} ${data.lastName}`,
+      from_email: data.email,
+      subject:    data.subject || "(no subject)",
+      message:    data.message,
+    },
+    { publicKey: EMAILJS_PUBLIC_KEY },
+  );
 }
 
 /* ── Component ───────────────────────────────────────────────── */
