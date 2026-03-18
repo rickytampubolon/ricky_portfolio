@@ -2,13 +2,28 @@ import { useState } from "react";
 import Layout from "../components/Layout";
 import { ChevronDown, Download } from "lucide-react";
 
-/* ── Shared tokens ───────────────────────────────────────────── */
+/* ══════════════════════════════════════════════════════════════
+   SHARED B&W DESIGN TOKENS
+   All blue (#007BFF) replaced with off-black (#1A1A1A) / gray.
+   ══════════════════════════════════════════════════════════════ */
+
+/* Section heading: Montserrat bold */
 const sectionHead = "font-black tracking-[-0.025em] text-[#1A1A1A] dark:text-[#E0E0E0]";
-const cardBase    = "bg-white dark:bg-[#1E1E1E] rounded-2xl border border-[#E8E8E8] dark:border-[#2C2C2C] shadow-sm";
-const tagPill     = "inline-flex items-center px-3 py-1.5 rounded-full bg-[#F2F2F2] dark:bg-[#2A2A2A] text-[0.73rem] text-[#4A4A4A] dark:text-[#AAAAAA] font-medium";
-const btnDL       = "inline-flex items-center gap-2 bg-[#007BFF] text-white px-5 py-2.5 rounded-full text-[0.8rem] font-semibold tracking-[0.04em] hover:bg-[#0056CC] transition-all duration-200 shadow-[0_4px_12px_rgba(0,123,255,0.25)] hover:-translate-y-px active:scale-[0.97]";
-const sectionAccent = "flex items-center gap-2.5 mb-7";
-const accentDot   = "w-[6px] h-[6px] bg-[#007BFF] rounded-[1px] shrink-0";
+
+/* Card base: white bg, subtle border, no shadow */
+const cardBase =
+  "bg-white dark:bg-[#1E1E1E] border border-[#E0E0E0] dark:border-[#2C2C2C]";
+
+/* Skill tag pill: light gray bg */
+const tagPill =
+  "inline-flex items-center px-3 py-1.5 rounded-sm bg-[#F2F2F2] dark:bg-[#2A2A2A] text-[0.72rem] text-[#555555] dark:text-[#AAAAAA] font-medium";
+
+/* Download PDF button: black fill → hover inverted */
+const btnDL =
+  "inline-flex items-center gap-2 bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#1A1A1A] px-5 py-2.5 text-[0.78rem] font-semibold tracking-[0.06em] uppercase hover:bg-white dark:hover:bg-[#1A1A1A] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] border border-[#1A1A1A] dark:border-[#E0E0E0] transition-all duration-300 ease-in-out active:scale-[0.97]";
+
+/* Section accent row */
+const sectionAccent = "flex items-center gap-3 mb-7";
 
 /* ── Data ────────────────────────────────────────────────────── */
 const fullTimeExp = [
@@ -214,27 +229,44 @@ function ExpRow({ item, isOpen, onToggle }: {
     <div className={`${cardBase} overflow-hidden`}>
       <button
         onClick={onToggle}
-        className="w-full flex items-start gap-4 p-5 text-left hover:bg-[#FAFAFA] dark:hover:bg-[#242424] transition-colors"
+        aria-expanded={isOpen}
+        className="w-full flex items-start gap-4 p-5 text-left hover:bg-[#F8F8F8] dark:hover:bg-[#242424] transition-colors"
       >
-        {/* Logo */}
-        <div className="w-9 h-9 rounded-xl bg-white dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-          <img src={item.companyImage} alt={item.company} className="w-6 h-6 object-contain" loading="lazy" />
+        {/* Company logo — grayscale to match B&W aesthetic */}
+        <div className="w-9 h-9 bg-white dark:bg-[#2A2A2A] border border-[#E0E0E0] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 mt-0.5">
+          <img
+            src={item.companyImage}
+            alt={item.company}
+            className="w-6 h-6 object-contain"
+            style={{ filter: "grayscale(100%)" }}
+            loading="lazy"
+          />
         </div>
 
         {/* Title + company */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-0.5">
-            <span className="font-bold text-[0.93rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug">
+            <span
+              className="font-bold text-[0.93rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug"
+              style={{ fontFamily: "var(--font-heading)" }}
+            >
               {item.title}
             </span>
+            {/* "Current" badge — black/gray instead of blue */}
             {isCurrent && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.58rem] font-bold uppercase tracking-wide bg-[#007BFF]/10 text-[#007BFF]">
-                <span className="w-1 h-1 rounded-full bg-[#007BFF] animate-pulse" />
+              <span
+                className="inline-flex items-center gap-1 px-2 py-0.5 text-[0.58rem] font-bold uppercase tracking-wide bg-[#1A1A1A] text-white dark:bg-[#E0E0E0] dark:text-[#1A1A1A]"
+                style={{ fontFamily: "var(--font-nav)" }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-white dark:bg-[#1A1A1A] animate-pulse" />
                 Current
               </span>
             )}
             {typeBadge && (
-              <span className="px-2 py-0.5 rounded-full text-[0.58rem] font-bold uppercase tracking-wide bg-[#F2F2F2] dark:bg-[#2A2A2A] text-[#888]">
+              <span
+                className="px-2 py-0.5 text-[0.58rem] font-bold uppercase tracking-wide bg-[#F2F2F2] dark:bg-[#2A2A2A] text-[#888888] dark:text-[#666666]"
+                style={{ fontFamily: "var(--font-nav)" }}
+              >
                 {typeBadge}
               </span>
             )}
@@ -244,7 +276,10 @@ function ExpRow({ item, isOpen, onToggle }: {
 
         {/* Period + chevron */}
         <div className="flex items-center gap-2.5 shrink-0">
-          <span className="hidden sm:block text-[0.68rem] font-bold uppercase tracking-[0.08em] text-[#AAAAAA] dark:text-[#555555]">
+          <span
+            className="hidden sm:block text-[0.68rem] font-bold uppercase tracking-[0.08em] text-[#AAAAAA] dark:text-[#555555]"
+            style={{ fontFamily: "var(--font-nav)" }}
+          >
             {item.period}
           </span>
           <ChevronDown
@@ -254,7 +289,7 @@ function ExpRow({ item, isOpen, onToggle }: {
         </div>
       </button>
 
-      {/* Expanded bullets */}
+      {/* Expanded highlights */}
       <div
         style={{
           maxHeight: isOpen ? `${item.highlights.length * 80}px` : "0px",
@@ -262,14 +297,19 @@ function ExpRow({ item, isOpen, onToggle }: {
           transition: "max-height 0.35s cubic-bezier(0.4,0,0.2,1)",
         }}
       >
-        <div className="px-5 pb-5 pt-1 border-t border-[#F2F2F2] dark:border-[#2C2C2C] bg-[#FAFAFA]/70 dark:bg-[#181818]/60">
-          <p className="text-[0.66rem] font-bold uppercase tracking-[0.1em] text-[#BBBBBB] dark:text-[#555] mb-2.5 mt-2 sm:hidden">
+        <div className="px-5 pb-5 pt-1 border-t border-[#F0F0F0] dark:border-[#2C2C2C] bg-[#FAFAFA] dark:bg-[#181818]">
+          {/* Period on mobile */}
+          <p
+            className="text-[0.66rem] font-bold uppercase tracking-[0.1em] text-[#BBBBBB] dark:text-[#555] mb-2.5 mt-2 sm:hidden"
+            style={{ fontFamily: "var(--font-nav)" }}
+          >
             {item.period}
           </p>
-          <ul className="space-y-1.5">
+          <ul className="space-y-1.5 list-none p-0 m-0">
             {item.highlights.map((h, i) => (
               <li key={i} className="flex gap-2 text-[0.84rem] text-[#555555] dark:text-[#888888] leading-relaxed">
-                <span className="text-[#007BFF] mt-0.5 shrink-0 font-bold">·</span>
+                {/* Bullet: dark gray instead of blue */}
+                <span className="text-[#1A1A1A] dark:text-[#888888] mt-0.5 shrink-0 font-bold" aria-hidden="true">·</span>
                 <span>{h}</span>
               </li>
             ))}
@@ -289,17 +329,26 @@ export default function Resume() {
     <Layout>
       <div className="min-h-[calc(100vh-3.5rem)]">
 
-        {/* ── Banner ─────────────────────────────────────────── */}
-        <div className="bg-[#F5EDE5] dark:bg-[#1A1A1A] border-b border-[#E0E0E0] dark:border-[#2C2C2C]">
+        {/* ── Banner — light gray instead of beige ───────────── */}
+        <div className="bg-[#F8F8F8] dark:bg-[#1A1A1A] border-b border-[#E0E0E0] dark:border-[#2C2C2C]">
           <div className="container py-12 md:py-16">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <div>
-                <p className="text-[0.65rem] font-bold tracking-[0.14em] uppercase text-[#007BFF] mb-2">
+                {/* Label: Montserrat, dark gray instead of blue */}
+                <p
+                  className="text-[0.65rem] font-bold tracking-[0.14em] uppercase text-[#888888] mb-2"
+                  style={{ fontFamily: "var(--font-nav)" }}
+                >
                   Ricky Halomoan
                 </p>
                 <h1
                   className={`${sectionHead} leading-[0.92]`}
-                  style={{ fontSize: "clamp(2.2rem, 5vw, 3.6rem)" }}
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontSize: "clamp(2.2rem, 5vw, 3.6rem)",
+                    fontWeight: 800,
+                    textTransform: "uppercase",
+                  }}
                 >
                   Resume
                 </h1>
@@ -307,7 +356,14 @@ export default function Resume() {
                   Senior Product Manager · 6+ years across logistics, mobility, and education.
                 </p>
               </div>
-              <a href="#" className={`${btnDL} self-start`} title="Replace href with your PDF resume link">
+
+              {/* Download button — black fill, spec primary btn style */}
+              <a
+                href="#"
+                className={`${btnDL} self-start`}
+                title="Replace href with your PDF resume link"
+                style={{ fontFamily: "var(--font-nav)" }}
+              >
                 <Download size={14} />
                 Download PDF
               </a>
@@ -320,10 +376,16 @@ export default function Resume() {
           {/* ── Experience ─────────────────────────────────────── */}
           <section className="mb-14 md:mb-18">
             <div className={sectionAccent}>
-              <div className={accentDot} />
-              <h2 className={`${sectionHead} text-2xl md:text-[1.7rem]`}>Experience</h2>
+              {/* Thin dark accent line replaces blue dot */}
+              <div className="w-[3px] h-6 bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" aria-hidden="true" />
+              <h2
+                className={`${sectionHead} text-2xl md:text-[1.7rem]`}
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Experience
+              </h2>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {fullTimeExp.map((exp) => (
                 <ExpRow
                   key={exp.id}
@@ -338,10 +400,15 @@ export default function Resume() {
           {/* ── Internships & Part-time ─────────────────────────── */}
           <section className="mb-14 md:mb-18">
             <div className={sectionAccent}>
-              <div className={accentDot} />
-              <h2 className={`${sectionHead} text-2xl md:text-[1.7rem]`}>Internships &amp; Part-time</h2>
+              <div className="w-[3px] h-6 bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" aria-hidden="true" />
+              <h2
+                className={`${sectionHead} text-2xl md:text-[1.7rem]`}
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Internships &amp; Part-time
+              </h2>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2">
               {partTimeAndInternships.map((item) => (
                 <ExpRow
                   key={item.id}
@@ -356,22 +423,40 @@ export default function Resume() {
           {/* ── Education ──────────────────────────────────────── */}
           <section className="mb-14 md:mb-18">
             <div className={sectionAccent}>
-              <div className={accentDot} />
-              <h2 className={`${sectionHead} text-2xl md:text-[1.7rem]`}>Education</h2>
+              <div className="w-[3px] h-6 bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" aria-hidden="true" />
+              <h2
+                className={`${sectionHead} text-2xl md:text-[1.7rem]`}
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Education
+              </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {education.map((edu) => (
                 <div key={edu.degree} className={`${cardBase} p-6 flex gap-4 items-start`}>
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 shadow-sm">
-                    <img src={edu.schoolImage} alt={edu.school} className="w-7 h-7 object-contain" loading="lazy" />
+                  <div className="w-10 h-10 bg-white dark:bg-[#2A2A2A] border border-[#E0E0E0] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0">
+                    <img
+                      src={edu.schoolImage}
+                      alt={edu.school}
+                      className="w-7 h-7 object-contain"
+                      style={{ filter: "grayscale(100%)" }}
+                      loading="lazy"
+                    />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-bold text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug mb-0.5">
+                    <p
+                      className="font-bold text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug mb-0.5"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
                       {edu.degree}
                     </p>
                     <p className="text-[0.8rem] text-[#888888] dark:text-[#666666] mb-1">{edu.school}</p>
                     <p className="text-[0.72rem] text-[#AAAAAA] dark:text-[#555555]">{edu.detail}</p>
-                    <span className="mt-2.5 inline-block text-[0.62rem] font-bold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full bg-[#007BFF]/8 text-[#007BFF] border border-[#007BFF]/15">
+                    {/* Date badge — dark instead of blue */}
+                    <span
+                      className="mt-2.5 inline-block text-[0.62rem] font-bold uppercase tracking-[0.1em] px-2.5 py-1 bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#1A1A1A]"
+                      style={{ fontFamily: "var(--font-nav)" }}
+                    >
                       {edu.date}
                     </span>
                   </div>
@@ -383,18 +468,29 @@ export default function Resume() {
           {/* ── Skills ─────────────────────────────────────────── */}
           <section>
             <div className={sectionAccent}>
-              <div className={accentDot} />
-              <h2 className={`${sectionHead} text-2xl md:text-[1.7rem]`}>Skills</h2>
+              <div className="w-[3px] h-6 bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" aria-hidden="true" />
+              <h2
+                className={`${sectionHead} text-2xl md:text-[1.7rem]`}
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Skills
+              </h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {Object.entries(skills).map(([category, items]) => (
                 <div key={category} className={`${cardBase} p-6`}>
-                  <h3 className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-[#007BFF]/70 mb-4">
+                  {/* Category label — dark gray instead of blue */}
+                  <h3
+                    className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-[#888888] dark:text-[#666666] mb-4"
+                    style={{ fontFamily: "var(--font-nav)" }}
+                  >
                     {category}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {items.map((skill) => (
-                      <span key={skill} className={tagPill}>{skill}</span>
+                      <span key={skill} className={tagPill} style={{ fontFamily: "var(--font-nav)" }}>
+                        {skill}
+                      </span>
                     ))}
                   </div>
                 </div>

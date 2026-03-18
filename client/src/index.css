@@ -42,90 +42,108 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* ═══════════════════════════════════════════════════════════════
+   B&W DESIGN TOKENS — Monochromatic palette per spec
+   ═══════════════════════════════════════════════════════════════ */
 :root {
-  --radius: 0.75rem;
-  --font-sans: "Avenir Next", "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --radius: 0.5rem;
 
-  /* ── Fluid typography scale ───────────────────────────────── */
-  --font-size-h1: clamp(2.5rem, 8vw + 1rem, 4.5rem);
-  --font-size-h2: clamp(1.75rem, 5vw + 0.5rem, 2.5rem);
-  --font-size-h3: clamp(1.2rem, 3vw, 1.5rem);
-  --font-size-body: clamp(1rem, 2vw + 0.5rem, 1.1rem);
+  /* ── B&W Color Palette ──────────────────────────────────────── */
+  --color-white:      #FFFFFF;
+  --color-off-white:  #F8F8F8;
+  --color-light-gray: #E0E0E0;
+  --color-mid-gray:   #888888;
+  --color-dark-gray:  #555555;
+  --color-off-black:  #1A1A1A;
+  --color-black:      #000000;
 
-  /* ── Light Mode ─────────────────────────────────────────── */
-  --hero-slab: #F5EDE5;
-  --background: #FFFFFF;
-  --foreground: #222222;
-  --card: #FFFFFF;
-  --card-foreground: #222222;
-  --popover: #FFFFFF;
-  --popover-foreground: #222222;
-  --primary: #1D1D1F;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F8F8F8;
-  --secondary-foreground: #555555;
-  --muted: #EFEFEF;
-  --muted-foreground: #777777;
-  --accent: #007BFF;
-  --accent-foreground: #FFFFFF;
-  --destructive: #FF3B30;
-  --destructive-foreground: #FFFFFF;
-  --border: #EEEEEE;
-  --input: #EEEEEE;
-  --ring: #007AFF;
-  --chart-1: #1D1D1F;
-  --chart-2: #007AFF;
-  --chart-3: #5AC8FA;
-  --chart-4: #34C759;
-  --chart-5: #FF9500;
-  --sidebar: #FFFFFF;
-  --sidebar-foreground: #1D1D1F;
-  --sidebar-primary: #1D1D1F;
-  --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #007AFF;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #D1D1D6;
-  --sidebar-ring: #007AFF;
+  /* ── Typography — Google Fonts loaded in index.html ─────────── */
+  --font-heading: 'Montserrat', system-ui, -apple-system, sans-serif;
+  --font-body:    'Lora', Georgia, 'Times New Roman', serif;
+  --font-nav:     'Montserrat', system-ui, -apple-system, sans-serif;
+
+  /* ── Fluid typography scale (clamp for responsive sizing) ─────── */
+  --font-size-h1:   clamp(2.5rem, 8vw + 0.5rem, 5rem);
+  --font-size-h2:   clamp(1.5rem, 4vw + 0.5rem, 2.5rem);
+  --font-size-h3:   clamp(1.1rem, 2.5vw, 1.4rem);
+  --font-size-body: clamp(0.95rem, 1.5vw + 0.3rem, 1.05rem);
+
+  /* ── Spacing scale (rem-based modular scale) ─────────────────── */
+  --space-xs:  0.5rem;
+  --space-sm:  1rem;
+  --space-md:  2rem;
+  --space-lg:  4rem;
+  --space-xl:  6rem;
+
+  /* ── Tailwind component tokens (mapped to B&W palette) ──────── */
+  --background:            var(--color-white);
+  --foreground:            var(--color-off-black);
+  --card:                  var(--color-white);
+  --card-foreground:       var(--color-off-black);
+  --popover:               var(--color-white);
+  --popover-foreground:    var(--color-off-black);
+  --primary:               var(--color-off-black);
+  --primary-foreground:    var(--color-white);
+  --secondary:             var(--color-off-white);
+  --secondary-foreground:  var(--color-dark-gray);
+  --muted:                 #EFEFEF;
+  --muted-foreground:      var(--color-mid-gray);
+  --accent:                var(--color-off-black);
+  --accent-foreground:     var(--color-white);
+  --destructive:           #CC0000;
+  --destructive-foreground: var(--color-white);
+  --border:                var(--color-light-gray);
+  --input:                 var(--color-light-gray);
+  --ring:                  var(--color-off-black);
+  --chart-1:               var(--color-off-black);
+  --chart-2:               var(--color-dark-gray);
+  --chart-3:               var(--color-mid-gray);
+  --chart-4:               var(--color-light-gray);
+  --chart-5:               var(--color-off-white);
+  --sidebar:               var(--color-white);
+  --sidebar-foreground:    var(--color-off-black);
+  --sidebar-primary:       var(--color-off-black);
+  --sidebar-primary-foreground: var(--color-white);
+  --sidebar-accent:        var(--color-off-black);
+  --sidebar-accent-foreground: var(--color-white);
+  --sidebar-border:        var(--color-light-gray);
+  --sidebar-ring:          var(--color-off-black);
 }
 
+/* ── Dark mode (still monochromatic — inverted B&W) ─────────── */
 .dark {
-  --primary: #E0E0E0;
-  --primary-foreground: #121212;
-  --sidebar-primary: #E0E0E0;
-  --sidebar-primary-foreground: #121212;
-  --background: #121212;
-  --foreground: #E0E0E0;
-  --card: #1E1E1E;
-  --card-foreground: #E0E0E0;
-  --popover: #1E1E1E;
-  --popover-foreground: #E0E0E0;
-  --secondary: #2A2A2A;
-  --secondary-foreground: #E0E0E0;
-  --muted: #2A2A2A;
-  --muted-foreground: #888888;
-  --accent: #3B9EFF;
-  --accent-foreground: #FFFFFF;
-  --destructive: #FF453A;
+  --background:            #121212;
+  --foreground:            #E0E0E0;
+  --card:                  #1E1E1E;
+  --card-foreground:       #E0E0E0;
+  --popover:               #1E1E1E;
+  --popover-foreground:    #E0E0E0;
+  --primary:               #E0E0E0;
+  --primary-foreground:    #121212;
+  --secondary:             #2A2A2A;
+  --secondary-foreground:  #AAAAAA;
+  --muted:                 #2A2A2A;
+  --muted-foreground:      #888888;
+  --accent:                #E0E0E0;
+  --accent-foreground:     #121212;
+  --destructive:           #FF4444;
   --destructive-foreground: #FFFFFF;
-  --border: #2C2C2C;
-  --input: #2C2C2C;
-  --ring: #3B9EFF;
-  --chart-1: #E0E0E0;
-  --chart-2: #3B9EFF;
-  --chart-3: #5AC8FA;
-  --chart-4: #34C759;
-  --chart-5: #FF9500;
-  --sidebar: #1E1E1E;
-  --sidebar-foreground: #E0E0E0;
-  --sidebar-accent: #3B9EFF;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #2C2C2C;
-  --sidebar-ring: #3B9EFF;
+  --border:                #2C2C2C;
+  --input:                 #2C2C2C;
+  --ring:                  #E0E0E0;
+  --sidebar:               #1E1E1E;
+  --sidebar-foreground:    #E0E0E0;
+  --sidebar-primary:       #E0E0E0;
+  --sidebar-primary-foreground: #121212;
+  --sidebar-accent:        #E0E0E0;
+  --sidebar-accent-foreground: #121212;
+  --sidebar-border:        #2C2C2C;
+  --sidebar-ring:          #E0E0E0;
 }
 
-/* ── Smooth dark-mode colour transition ───────────────────────
-   Applied only while the toggle animates, then removed so that
-   hover transitions work normally at all other times.          */
+/* ── Smooth dark-mode colour transition ────────────────────────
+   Applied only while the toggle animates, preserving hover
+   transitions at all other times.                              */
 html.theme-transitioning,
 html.theme-transitioning *,
 html.theme-transitioning *::before,
@@ -137,13 +155,19 @@ html.theme-transitioning *::after {
     box-shadow 0.4s ease !important;
 }
 
-/* ── Scroll indicator pulse animation ────────────────────────── */
+/* ── Scroll indicator pulse animation ─────────────────────────── */
 @keyframes scroll-pulse {
   0%, 100% { opacity: 0.35; transform: translateY(0); }
   50%       { opacity: 0.75; transform: translateY(5px); }
 }
 .animate-scroll-pulse {
   animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+/* ── Nav overlay open animation ───────────────────────────────── */
+@keyframes nav-link-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 @layer base {
@@ -157,46 +181,59 @@ html.theme-transitioning *::after {
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Avenir Next", "Avenir", -apple-system, BlinkMacSystemFont,
-      "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    /* Lora for body text (spec: classic, readable serif) */
+    font-family: var(--font-body);
+    font-size: var(--font-size-body);
     line-height: 1.6;
+    letter-spacing: 0.005em;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   /* ── Typographic scale ────────────────────────────────────── */
   h1 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-h1);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    /* Spec: H1 uppercase for impact */
+    text-transform: uppercase;
   }
+
   h2 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-h2);
-    font-weight: 600;
-    line-height: 1.2;
+    font-weight: 700;
+    line-height: 1.15;
     letter-spacing: -0.02em;
   }
+
   h3 {
+    font-family: var(--font-heading);
     font-size: var(--font-size-h3);
-    font-weight: 500;
-    line-height: 1.3;
+    font-weight: 700;
+    line-height: 1.25;
     letter-spacing: -0.01em;
+  }
+
+  h4 {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: var(--font-size-body);
+    line-height: 1.6;
+    /* Spec: max-width 70ch for optimal readability */
+    max-width: 70ch;
   }
 
   /* ── Fast tap: remove 300ms delay on mobile ───────────────── */
   button, a {
     touch-action: manipulation;
-  }
-  h4 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    line-height: 1.3;
-  }
-  p {
-    font-size: var(--font-size-body);
-    line-height: 1.6;
-    letter-spacing: 0.005em;
   }
 
   button:not(:disabled),
@@ -213,10 +250,20 @@ html.theme-transitioning *::after {
 }
 
 @layer components {
-  /* Fluid heading helpers — reference CSS variables so clamp() is always live */
+  /* Fluid heading helpers */
   .fluid-h2 { font-size: var(--font-size-h2); }
   .fluid-h3 { font-size: var(--font-size-h3); }
 
+  /* Spec: typography uses Montserrat for headings */
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-nav {
+    font-family: var(--font-nav);
+  }
+
+  /* Page container with consistent horizontal padding */
   .container {
     width: 100%;
     margin-left: auto;
@@ -231,10 +278,53 @@ html.theme-transitioning *::after {
     min-width: 0;
   }
 
+  /* ── B&W Button styles (spec §VI) ────────────────────────── */
+
+  /* Primary: black fill, white text → hover: inverted */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-off-black);
+    color: var(--color-white);
+    border: 1px solid var(--color-off-black);
+    padding: 0.75rem 2rem;
+    font-family: var(--font-nav);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-white);
+    color: var(--color-off-black);
+  }
+
+  /* Secondary: transparent, black border → hover: filled black */
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--color-off-black);
+    border: 1px solid var(--color-off-black);
+    padding: 0.75rem 2rem;
+    font-family: var(--font-nav);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  .btn-secondary:hover {
+    background-color: var(--color-off-black);
+    color: var(--color-white);
+  }
+
   /* ── Staggered reveal animations ────────────────────────── */
-  /* reveal-item is visible by default (progressive enhancement).
-     The .will-animate class is added by JS immediately on mount
-     to opt-in to the animation — content stays visible if JS fails. */
   .will-animate .reveal-item {
     opacity: 0;
     transform: translateY(20px);
