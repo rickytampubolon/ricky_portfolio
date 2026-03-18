@@ -1,32 +1,42 @@
 import { Linkedin, Instagram } from "lucide-react";
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
 import Layout from "../components/Layout";
+import { useTheme } from "../contexts/ThemeContext";
 
-/* ── Stagger helper ───────────────────────────────────────────── */
 function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
 }
 
-/* ── Social links (profile card & overlay) ────────────────────── */
-const socialLinks = [
-  { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin size={18} />, label: "LinkedIn" },
-  { href: "https://www.instagram.com/rickyhlmn/",   icon: <Instagram size={18} />, label: "Instagram" },
+/* ── Design tokens ───────────────────────────────────────────── */
+// Slightly rectangular pills (rounded-[28px]) matching the Wix template
+const btnPrimary =
+  "inline-flex items-center justify-center bg-[#1A1A1A] text-white px-8 py-3 rounded-[28px] text-[0.75rem] font-bold tracking-[0.1em] min-h-[46px] hover:bg-[#000000] transition-all duration-200 shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:-translate-y-px active:scale-[0.97]";
+const btnSecondary =
+  "inline-flex items-center justify-center border-2 border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] px-8 py-3 rounded-[28px] text-[0.75rem] font-bold tracking-[0.1em] min-h-[46px] hover:bg-[#1A1A1A] hover:text-white dark:hover:bg-[#E0E0E0] dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]";
+
+// Flat dark social icons for the profile card (no circle wrapper)
+const socialCard = [
+  { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin  size={20} />, label: "LinkedIn" },
+  { href: "https://www.instagram.com/rickyhlmn/",   icon: <Instagram size={20} />, label: "Instagram" },
 ];
 
+const BEIGE = "#F0F0F0";
+const BEIGE_DARK = "#1A1A1A";
+
 export default function Home() {
-  const [heroRevealed, setHeroRevealed] = useState(false);
-  const [willAnimate,  setWillAnimate]  = useState(false);
+  const { theme } = useTheme();
+  const [heroRevealed, setHeroRevealed]     = useState(false);
+  const [willAnimate,  setWillAnimate]      = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  /* Staggered entrance animation */
   useEffect(() => {
+    // Add will-animate immediately so animation opt-in is synchronous,
+    // then reveal after a short stagger delay.
     setWillAnimate(true);
     const t = setTimeout(() => setHeroRevealed(true), 80);
     return () => clearTimeout(t);
   }, []);
 
-  /* Scroll progress indicator */
   useEffect(() => {
     const onScroll = () => {
       const total = document.body.scrollHeight - window.innerHeight;
@@ -39,169 +49,168 @@ export default function Home() {
   return (
     <Layout>
 
-      {/* ── Scroll progress bar — monochromatic black ────────── */}
+      {/* Scroll progress */}
       <div
-        aria-hidden="true"
-        className="fixed top-0 left-0 z-[200] h-[2px] bg-[#1A1A1A] dark:bg-[#E0E0E0] transition-[width] duration-75 ease-out"
+        className="fixed top-0 left-0 z-[200] h-[2px] bg-[#1A1A1A] transition-[width] duration-75 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 
-      {/* ══════════════════════════════════════════════════════════
-          HERO SECTION — single-column, full-width (spec §III)
-          Profile picture → name → rule → hello heading → bio → CTAs
-          ══════════════════════════════════════════════════════════ */}
-      <section
-        className={`flex-1 flex flex-col items-start justify-center px-6 md:px-16 lg:px-24 py-20 md:py-28 max-w-[1100px] mx-auto w-full ${
-          willAnimate ? "will-animate" : ""
-        } ${heroRevealed ? "is-revealed" : ""}`}
-      >
+      {/* ════════════════════════════════════════════════════════
+          MOBILE layout — full-width beige, no white card
+          ════════════════════════════════════════════════════════ */}
+      <div className={`md:hidden flex flex-col flex-1 ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}>
 
-        {/* ── Profile area: image + name + title ───────────────
-            Spec: "integrated cleanly into the main content flow,
-            not as a separate floating element. Consider a figure."   */}
-        <figure
-          className="reveal-item flex items-center gap-5 mb-10"
-          style={{ ...stagger(0), margin: "0 0 2.5rem 0" }}
+        {/* Beige block: photo + name + divider + CTAs */}
+        <div
+          className="reveal-item px-6 pt-12 pb-8 flex flex-col items-center text-center"
+          style={{ ...stagger(0), backgroundColor: theme === "dark" ? BEIGE_DARK : BEIGE }}
         >
-          {/* Profile picture — grayscale filter per spec §VII */}
-          <div
-            className="w-[72px] h-[72px] md:w-[88px] md:h-[88px] rounded-full overflow-hidden shrink-0 bg-[#E0E0E0] dark:bg-[#2A2A2A]"
-            style={{
-              boxShadow: "0 2px 16px rgba(0,0,0,0.12)",
-              outline: "2px solid #1A1A1A",
-              outlineOffset: "3px",
-            }}
-          >
+          {/* Photo */}
+          <div className="w-36 h-36 rounded-full overflow-hidden ring-[5px] ring-white dark:ring-[#2C2C2C] shadow-[0_8px_28px_rgba(0,0,0,0.15)] mb-6 shrink-0 bg-[#B0B0B0]">
             <img
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-              alt="Ricky Halomoan — Senior Product Manager"
+              alt="Ricky Halomoan"
               className="w-full h-full object-cover"
-              /* Spec §VII: grayscale filter for B&W aesthetic */
-              style={{ filter: "grayscale(100%)" }}
-              loading="eager"
             />
           </div>
 
-          {/* Name + title as figure caption for accessibility */}
-          <figcaption className="flex flex-col gap-1">
-            <span
-              className="font-black text-[#1A1A1A] dark:text-[#E0E0E0] leading-none tracking-[-0.02em]"
-              style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.1rem, 3vw, 1.35rem)" }}
-            >
-              Ricky Halomoan
-            </span>
-            <span
-              className="text-[#888888] dark:text-[#666666] tracking-[0.12em] uppercase"
-              style={{ fontFamily: "var(--font-nav)", fontSize: "0.65rem", fontWeight: 400 }}
-            >
-              Senior Product Manager
-            </span>
-          </figcaption>
-        </figure>
+          {/* Name */}
+          <h2 className="text-[2rem] font-black text-[#1A1A1A] dark:text-[#E0E0E0] leading-[1.1] tracking-[-0.02em] mb-4">
+            Ricky<br />Halomoan
+          </h2>
 
-        {/* ── Thin horizontal rule ──────────────────────────────── */}
-        <hr
-          className="reveal-item w-full border-0 border-t border-[#E0E0E0] dark:border-[#2C2C2C] mb-10"
-          style={stagger(1)}
-          aria-hidden="true"
-        />
+          {/* Blue divider */}
+          <div className="w-20 h-[3px] bg-[#1A1A1A] mb-7 rounded-full" />
 
-        {/* ── H1 "Hello" — uppercase Montserrat (spec §IV) ─────── */}
-        <h1
-          className="reveal-item text-[#1A1A1A] dark:text-[#E0E0E0] mb-4"
-          style={{
-            ...stagger(2),
-            fontFamily: "var(--font-heading)",
-            fontSize: "clamp(3rem, 10vw, 6rem)",
-            fontWeight: 800,
-            lineHeight: 0.95,
-            letterSpacing: "-0.04em",
-            textTransform: "uppercase",
-          }}
-        >
-          Hello
-        </h1>
-
-        {/* ── Sub-headline ──────────────────────────────────────── */}
-        <p
-          className="reveal-item text-[#555555] dark:text-[#AAAAAA] mb-8"
-          style={{
-            ...stagger(3),
-            fontFamily: "var(--font-heading)",
-            fontSize: "clamp(1rem, 2.5vw, 1.2rem)",
-            fontWeight: 400,
-            letterSpacing: "0.01em",
-            maxWidth: "none",
-          }}
-        >
-          Here's who I am &amp; what I do.
-        </p>
-
-        {/* ── CTA Buttons (spec §VI) ────────────────────────────── */}
-        <div className="reveal-item flex flex-wrap gap-3 mb-14" style={stagger(4)}>
-          {/* Primary: black fill → hover inverted */}
-          <Link href="/resume">
-            <button
-              className="btn-primary"
-              style={{ minWidth: "140px" }}
-            >
-              Resume
-            </button>
-          </Link>
-
-          {/* Secondary: outline → hover filled black */}
-          <Link href="/contact">
-            <button
-              className="btn-secondary"
-              style={{ minWidth: "140px" }}
-            >
-              Let's Talk
-            </button>
-          </Link>
+          {/* CTA buttons */}
+          <div className="flex gap-3 w-full max-w-xs">
+            <a href="/resume" className="flex-1">
+              <button className="w-full bg-[#1A1A1A] text-white py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#000000] transition-all duration-200 active:scale-[0.97]">
+                RESUME
+              </button>
+            </a>
+            <a href="/contact" className="flex-1">
+              <button className="w-full border-2 border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]">
+                LET'S TALK
+              </button>
+            </a>
+          </div>
         </div>
 
-        {/* ── Bio paragraphs — Lora serif, max-width 70ch ──────── */}
-        <div className="reveal-item space-y-5 mb-12" style={stagger(5)}>
-          <p
-            className="text-[#555555] dark:text-[#888888]"
-            style={{ lineHeight: 1.8, fontSize: "clamp(0.9rem, 1.5vw + 0.2rem, 1rem)" }}
-          >
-            My journey into product management grew from a curiosity about how systems work and
-            create real value for people. With a background in Informatics and experience in
-            software delivery, I developed a strong understanding of building digital products.
-          </p>
-          <p
-            className="text-[#555555] dark:text-[#888888]"
-            style={{ lineHeight: 1.8, fontSize: "clamp(0.9rem, 1.5vw + 0.2rem, 1rem)" }}
-          >
-            Today, as a Senior Product Manager, I focus on turning complex challenges into clear
-            and practical product strategies that align technology with business impact.
-          </p>
-        </div>
-
-        {/* ── Social icons — SVG, scale on hover (spec §VI) ─────── */}
-        <div
-          className="reveal-item flex items-center gap-6"
-          style={stagger(6)}
-          aria-label="Social links"
-        >
-          {socialLinks.map(({ href, icon, label }) => (
-            <a
-              key={label}
-              href={href}
-              aria-label={label}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#888888] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] inline-block"
-              style={{ transition: "color 0.2s ease, transform 0.2s ease", transform: "scale(1)" }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1.1)"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.transform = "scale(1)"; }}
-            >
+        {/* Social icons strip */}
+        <div className="bg-white dark:bg-[#1E1E1E] border-y border-[#E8E8E8] dark:border-[#2C2C2C] py-5 flex items-center justify-center gap-8">
+          {socialCard.map(({ href, icon, label }) => (
+            <a key={label} href={href} aria-label={label}
+              {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+              className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:text-[#1A1A1A] dark:hover:text-[#AAAAAA] transition-colors duration-200">
               {icon}
             </a>
           ))}
         </div>
 
+        {/* Beige content: Hello + sub-headline + bio */}
+        <div className="px-6 pt-10 pb-12" style={{ backgroundColor: theme === "dark" ? BEIGE_DARK : BEIGE }}>
+          <h1
+            className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 leading-[0.9]"
+            style={{ ...stagger(1), fontSize: "clamp(2.2rem, 9vw, 3.2rem)" }}
+          >
+            Hello
+          </h1>
+          <p className="reveal-item text-[1.05rem] font-bold text-[#4A4A4A] dark:text-[#AAAAAA] mb-6 leading-[1.45]" style={stagger(2)}>
+            Here's who I am &amp; what I do.
+          </p>
+          <div className="reveal-item space-y-4" style={stagger(3)}>
+            <p className="text-[0.82rem] leading-[1.8] text-[#4A4A4A] dark:text-[#888888]">
+              My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
+            </p>
+            <p className="text-[0.82rem] leading-[1.8] text-[#4A4A4A] dark:text-[#888888]">
+              Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════════════
+          DESKTOP layout — tall section; card is in flex flow
+          so items-stretch guarantees exact height match
+          ════════════════════════════════════════════════════════ */}
+      <section
+        className="relative hidden md:flex flex-row items-center overflow-hidden flex-1"
+      >
+        {/* Full-height background slabs */}
+        <div className="absolute inset-y-0 left-0 w-[41%]" style={{ backgroundColor: theme === "dark" ? BEIGE_DARK : BEIGE }} />
+        <div className="absolute inset-y-0 left-[41%] right-0 bg-white dark:bg-[#121212]" />
+
+        {/* Content row — items-stretch makes card height === right content height */}
+        <div className={`relative z-10 w-full flex flex-row items-center ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}>
+
+          {/* Spacer: occupies the beige area minus half the card width,
+              so the card column ends up centered on the 41% boundary */}
+          <div className="shrink-0" style={{ width: "calc(41% - 170px)" }} />
+
+          {/* Card column — in flex flow, h-full fills the stretched row height */}
+          <div className="w-[340px] shrink-0 z-20">
+            <div
+              className="reveal-item flex flex-col items-center justify-between text-center rounded-2xl shadow-[0_6px_28px_rgba(0,0,0,0.16)] border border-[#E0E0E0] dark:border-[#2C2C2C] px-10 pt-10 pb-0 overflow-hidden min-h-[460px]"
+              style={{ ...stagger(0), backgroundColor: theme === "dark" ? "#2A2A2A" : "#F5F5F5" }}
+            >
+              {/* Top group: photo + name + divider + title */}
+              <div className="flex flex-col items-center">
+                <div className="w-[152px] h-[152px] rounded-full overflow-hidden ring-[3px] ring-white/80 shadow-[0_4px_18px_rgba(0,0,0,0.13)] mb-5 shrink-0 bg-[#B8B8B8]">
+                  <img
+                    src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
+                    alt="Ricky Halomoan"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <h2 className="text-[1.5rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-[1.2] mb-4">
+                  Ricky<br />Halomoan
+                </h2>
+                <div className="w-10 h-[2.5px] bg-[#1A1A1A] mb-4 rounded-full" />
+                <p className="text-[0.68rem] font-semibold tracking-[0.18em] uppercase text-[#666666] dark:text-[#888888]">
+                  Senior Product Manager
+                </p>
+              </div>
+
+              {/* Social icons — full-width white bar */}
+              <div className="self-stretch -mx-10 bg-white dark:bg-[#1E1E1E] py-4 flex items-center justify-center gap-6">
+                {socialCard.map(({ href, icon, label }) => (
+                  <a key={label} href={href} aria-label={label}
+                    {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:text-[#1A1A1A] dark:hover:text-[#AAAAAA] transition-colors duration-200">
+                    {icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right content — constrained width so card feels more prominent */}
+          <div className="flex-1 pl-12 pr-12 lg:pr-20 pt-8 pb-6 max-w-[520px]">
+            <h1
+              className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 leading-[0.88]"
+              style={{ ...stagger(1), fontSize: "clamp(3.2rem, 6vw, 5.5rem)" }}
+            >
+              Hello
+            </h1>
+            <p className="reveal-item text-[1.15rem] font-bold text-[#333333] dark:text-[#AAAAAA] mb-6 leading-[1.45]" style={stagger(2)}>
+              Here's who I am &amp; what I do
+            </p>
+            <div className="reveal-item flex flex-wrap gap-3 mb-7" style={stagger(3)}>
+              <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
+              <a href="/contact"><button className={btnSecondary}>LET'S TALK</button></a>
+            </div>
+            <div className="reveal-item space-y-5" style={stagger(4)}>
+              <p className="text-[0.85rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
+                My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
+              </p>
+              <p className="text-[0.85rem] leading-[1.8] text-[#555555] dark:text-[#888888]">
+                Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
+              </p>
+            </div>
+          </div>
+
+        </div>
       </section>
 
     </Layout>
