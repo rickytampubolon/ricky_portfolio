@@ -52,11 +52,11 @@ async function handleSubmit(data: FormState): Promise<void> {
 
 /* ── Component ───────────────────────────────────────────────── */
 export default function Contact() {
-  const [form,     setForm]     = useState<FormState>(EMPTY);
-  const [errors,   setErrors]   = useState<FormErrors>({});
-  const [touched,  setTouched]  = useState<Partial<Record<keyof FormState, boolean>>>({});
-  const [loading,  setLoading]  = useState(false);
-  const [success,  setSuccess]  = useState(false);
+  const [form,      setForm]      = useState<FormState>(EMPTY);
+  const [errors,    setErrors]    = useState<FormErrors>({});
+  const [touched,   setTouched]   = useState<Partial<Record<keyof FormState, boolean>>>({});
+  const [loading,   setLoading]   = useState(false);
+  const [success,   setSuccess]   = useState(false);
   const [submitErr, setSubmitErr] = useState<string | null>(null);
 
   const update = (field: keyof FormState, value: string) => {
@@ -97,43 +97,52 @@ export default function Contact() {
     }
   };
 
-  /* Shared field styles */
+  /* ── Field styles — bottom-border, monochromatic focus ─── */
   const inputBase =
-    "w-full bg-transparent border-b-2 border-[#E0E0E0] dark:border-[#333] py-2.5 text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] placeholder:text-[#AAAAAA] dark:placeholder:text-[#555] outline-none transition-colors duration-200 focus:border-[#0D7377] dark:focus:border-[#14A8AD]";
+    "w-full bg-transparent border-b-2 border-[#E0E0E0] dark:border-[#333333] py-2.5 text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] placeholder:text-[#BBBBBB] dark:placeholder:text-[#555] outline-none transition-colors duration-200 focus:border-b-[#1A1A1A] dark:focus:border-b-[#E0E0E0]";
   const labelBase =
-    "block text-[0.72rem] font-bold tracking-[0.08em] uppercase text-[#666666] dark:text-[#888888] mb-1.5";
-  const errorMsg = "mt-1 text-[0.72rem] text-red-500 font-medium";
+    "block text-[0.7rem] font-bold tracking-[0.1em] uppercase text-[#888888] dark:text-[#666666] mb-1.5";
+  const errorMsg  = "mt-1 text-[0.72rem] text-red-500 font-medium";
 
   return (
     <Layout>
-      {/* Full-page beige background */}
-      <div className="min-h-[calc(100vh-3.5rem)] bg-[#F2F2F2] dark:bg-[#1A1A1A] flex flex-col items-center justify-start py-16 px-4">
+      {/* Page background — uses surface color */}
+      <div className="min-h-[calc(100vh-3.5rem)] bg-[#F5F5F5] dark:bg-[#1E1E1E] flex flex-col items-center justify-start py-16 px-4">
 
-        {/* Heading with blue square icon */}
+        {/* ── Page heading ─────────────────────────────────── */}
         <div className="flex items-center gap-3 mb-10">
-          <div className="w-[10px] h-[10px] bg-[#0D7377] rounded-[2px] shrink-0" />
+          <div className="w-[8px] h-[8px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0" />
           <h1
-            className="font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-none"
-            style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}
+            className="font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-none uppercase"
+            style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(2rem, 5vw, 3rem)" }}
           >
             Let's talk.
           </h1>
         </div>
 
-        {/* ── White form card ──────────────────────────────────── */}
-        <div className="w-full max-w-lg bg-white dark:bg-[#1E1E1E] rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.10)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-[#E8E8E8] dark:border-[#2C2C2C] p-8 md:p-10">
+        {/* ── Form card ────────────────────────────────────── */}
+        <div className="w-full max-w-lg bg-white dark:bg-[#1A1A1A] rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.4)] border border-[#E0E0E0] dark:border-[#333333] p-8 md:p-10">
 
           {/* Success state */}
           {success ? (
             <div className="flex flex-col items-center text-center py-8">
-              <CheckCircle size={48} className="text-[#0D7377] mb-4" strokeWidth={1.5} />
-              <h2 className="text-xl font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-2">Message sent!</h2>
-              <p className="text-[0.9rem] text-[#666666] dark:text-[#888888] mb-6">
+              <CheckCircle size={44} className="text-[#1A1A1A] dark:text-[#E0E0E0] mb-4" strokeWidth={1.5} />
+              <h2
+                className="text-xl font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-2"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Message sent!
+              </h2>
+              <p
+                className="text-[0.9rem] text-[#666666] dark:text-[#888888] mb-6"
+                style={{ fontFamily: "var(--font-body)" }}
+              >
                 Thanks for reaching out. I'll get back to you as soon as possible.
               </p>
               <button
                 onClick={() => setSuccess(false)}
-                className="text-[0.82rem] font-semibold text-[#1A1A1A] hover:underline"
+                className="text-[0.82rem] font-semibold text-[#1A1A1A] dark:text-[#E0E0E0] hover:underline"
+                style={{ fontFamily: "var(--font-ui)" }}
               >
                 Send another message
               </button>
@@ -144,8 +153,8 @@ export default function Contact() {
               {/* First Name + Last Name */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className={labelBase}>
-                    First Name <span className="text-[#0D7377]">*</span>
+                  <label className={labelBase} style={{ fontFamily: "var(--font-ui)" }}>
+                    First Name <span className="text-[#1A1A1A] dark:text-[#E0E0E0]">*</span>
                   </label>
                   <input
                     type="text"
@@ -153,16 +162,17 @@ export default function Contact() {
                     value={form.firstName}
                     onChange={(e) => update("firstName", e.target.value)}
                     onBlur={() => blur("firstName")}
-                    className={`${inputBase} ${touched.firstName && errors.firstName ? "border-b-red-400 focus:border-b-red-500" : ""}`}
+                    className={`${inputBase} ${touched.firstName && errors.firstName ? "!border-b-red-400 focus:!border-b-red-500" : ""}`}
                     autoComplete="given-name"
+                    style={{ fontFamily: "var(--font-body)" }}
                   />
                   {touched.firstName && errors.firstName && (
                     <p className={errorMsg}>{errors.firstName}</p>
                   )}
                 </div>
                 <div>
-                  <label className={labelBase}>
-                    Last Name <span className="text-[#0D7377]">*</span>
+                  <label className={labelBase} style={{ fontFamily: "var(--font-ui)" }}>
+                    Last Name <span className="text-[#1A1A1A] dark:text-[#E0E0E0]">*</span>
                   </label>
                   <input
                     type="text"
@@ -170,8 +180,9 @@ export default function Contact() {
                     value={form.lastName}
                     onChange={(e) => update("lastName", e.target.value)}
                     onBlur={() => blur("lastName")}
-                    className={`${inputBase} ${touched.lastName && errors.lastName ? "border-b-red-400 focus:border-b-red-500" : ""}`}
+                    className={`${inputBase} ${touched.lastName && errors.lastName ? "!border-b-red-400 focus:!border-b-red-500" : ""}`}
                     autoComplete="family-name"
+                    style={{ fontFamily: "var(--font-body)" }}
                   />
                   {touched.lastName && errors.lastName && (
                     <p className={errorMsg}>{errors.lastName}</p>
@@ -181,8 +192,8 @@ export default function Contact() {
 
               {/* Email */}
               <div>
-                <label className={labelBase}>
-                  Email <span className="text-[#0D7377]">*</span>
+                <label className={labelBase} style={{ fontFamily: "var(--font-ui)" }}>
+                  Email <span className="text-[#1A1A1A] dark:text-[#E0E0E0]">*</span>
                 </label>
                 <input
                   type="email"
@@ -190,8 +201,9 @@ export default function Contact() {
                   value={form.email}
                   onChange={(e) => update("email", e.target.value)}
                   onBlur={() => blur("email")}
-                  className={`${inputBase} ${touched.email && errors.email ? "border-b-red-400 focus:border-b-red-500" : ""}`}
+                  className={`${inputBase} ${touched.email && errors.email ? "!border-b-red-400 focus:!border-b-red-500" : ""}`}
                   autoComplete="email"
+                  style={{ fontFamily: "var(--font-body)" }}
                 />
                 {touched.email && errors.email && (
                   <p className={errorMsg}>{errors.email}</p>
@@ -200,7 +212,7 @@ export default function Contact() {
 
               {/* Subject */}
               <div>
-                <label className={labelBase}>Subject</label>
+                <label className={labelBase} style={{ fontFamily: "var(--font-ui)" }}>Subject</label>
                 <input
                   type="text"
                   placeholder="How can I help you?"
@@ -208,18 +220,20 @@ export default function Contact() {
                   onChange={(e) => update("subject", e.target.value)}
                   className={inputBase}
                   autoComplete="off"
+                  style={{ fontFamily: "var(--font-body)" }}
                 />
               </div>
 
               {/* Message */}
               <div>
-                <label className={labelBase}>Message</label>
+                <label className={labelBase} style={{ fontFamily: "var(--font-ui)" }}>Message</label>
                 <textarea
                   rows={5}
                   placeholder="Tell me about your project, opportunity, or just say hello…"
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
                   className={`${inputBase} resize-none`}
+                  style={{ fontFamily: "var(--font-body)" }}
                 />
               </div>
 
@@ -228,21 +242,22 @@ export default function Contact() {
                 <p className="text-[0.82rem] text-red-500 font-medium">{submitErr}</p>
               )}
 
-              {/* Send button */}
+              {/* Send button — primary black */}
               <div className="pt-2 flex justify-center">
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center gap-2 bg-[#0D7377] text-white px-10 py-3 rounded-full text-sm font-semibold tracking-[0.06em] hover:bg-[#0A5C60] transition-all duration-200 shadow-[0_4px_14px_rgba(13,115,119,0.3)] hover:-translate-y-px active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+                  className="inline-flex items-center justify-center gap-2 bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#1A1A1A] px-10 py-3 rounded-full text-[0.8rem] font-bold tracking-[0.08em] uppercase hover:bg-[#000000] dark:hover:bg-[#FFFFFF] transition-all duration-200 hover:-translate-y-px active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed disabled:translate-y-0 min-h-[44px]"
+                  style={{ fontFamily: "var(--font-ui)" }}
                 >
                   {loading ? (
                     <>
-                      <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                      <span className="w-4 h-4 border-2 border-white/40 dark:border-[#1A1A1A]/40 border-t-white dark:border-t-[#1A1A1A] rounded-full animate-spin" />
                       Sending…
                     </>
                   ) : (
                     <>
-                      <Send size={14} />
+                      <Send size={13} />
                       Send
                     </>
                   )}
@@ -254,9 +269,15 @@ export default function Contact() {
         </div>
 
         {/* Sub-copy */}
-        <p className="mt-6 text-[0.78rem] text-[#999999]">
+        <p
+          className="mt-6 text-[0.78rem] text-[#AAAAAA] dark:text-[#555555]"
+          style={{ fontFamily: "var(--font-ui)", maxWidth: "none" }}
+        >
           Or email me directly at{" "}
-          <a href="mailto:rickytampubolon97@gmail.com" className="text-[#0D7377] hover:underline">
+          <a
+            href="mailto:rickytampubolon97@gmail.com"
+            className="text-[#1A1A1A] dark:text-[#E0E0E0] underline hover:opacity-60 transition-opacity"
+          >
             rickytampubolon97@gmail.com
           </a>
         </p>
