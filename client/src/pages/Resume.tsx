@@ -6,9 +6,9 @@ import { ChevronDown, Download } from "lucide-react";
 const sectionHead = "font-black tracking-[-0.025em] text-[#1A1A1A] dark:text-[#E0E0E0]";
 const cardBase    = "bg-white dark:bg-[#1E1E1E] rounded-2xl border border-[#E8E8E8] dark:border-[#2C2C2C] shadow-sm";
 const tagPill     = "inline-flex items-center px-3 py-1.5 rounded-full bg-[#F2F2F2] dark:bg-[#2A2A2A] text-[0.73rem] text-[#4A4A4A] dark:text-[#AAAAAA] font-medium";
-const btnDL       = "inline-flex items-center gap-2 bg-[#1A1A1A] text-white px-5 py-2.5 rounded-full text-[0.8rem] font-semibold tracking-[0.04em] hover:bg-[#000000] transition-all duration-200 shadow-[0_4px_12px_rgba(0,0,0,0.12)] hover:-translate-y-px active:scale-[0.97]";
+const btnDL       = "inline-flex items-center gap-2 bg-[#0D7377] text-white px-5 py-2.5 rounded-full text-[0.8rem] font-semibold tracking-[0.04em] hover:bg-[#0A5C60] transition-all duration-200 shadow-[0_4px_12px_rgba(13,115,119,0.25)] hover:-translate-y-px active:scale-[0.97]";
 const sectionAccent = "flex items-center gap-2.5 mb-7";
-const accentDot   = "w-[6px] h-[6px] bg-[#1A1A1A] rounded-[1px] shrink-0";
+const accentDot   = "w-[6px] h-[6px] bg-[#0D7377] rounded-[1px] shrink-0";
 
 /* ── Data ────────────────────────────────────────────────────── */
 const fullTimeExp = [
@@ -228,8 +228,8 @@ function ExpRow({ item, isOpen, onToggle }: {
               {item.title}
             </span>
             {isCurrent && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.58rem] font-bold uppercase tracking-wide bg-[#1A1A1A]/10 text-[#1A1A1A]">
-                <span className="w-1 h-1 rounded-full bg-[#1A1A1A] animate-pulse" />
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.58rem] font-bold uppercase tracking-wide bg-[#0D7377]/10 text-[#0D7377]">
+                <span className="w-1 h-1 rounded-full bg-[#0D7377] animate-pulse" />
                 Current
               </span>
             )}
@@ -269,7 +269,7 @@ function ExpRow({ item, isOpen, onToggle }: {
           <ul className="space-y-1.5">
             {item.highlights.map((h, i) => (
               <li key={i} className="flex gap-2 text-[0.84rem] text-[#555555] dark:text-[#888888] leading-relaxed">
-                <span className="text-[#1A1A1A] mt-0.5 shrink-0 font-bold">·</span>
+                <span className="text-[#0D7377] mt-0.5 shrink-0 font-bold">·</span>
                 <span>{h}</span>
               </li>
             ))}
@@ -371,7 +371,7 @@ export default function Resume() {
                     </p>
                     <p className="text-[0.8rem] text-[#888888] dark:text-[#666666] mb-1">{edu.school}</p>
                     <p className="text-[0.72rem] text-[#AAAAAA] dark:text-[#555555]">{edu.detail}</p>
-                    <span className="mt-2.5 inline-block text-[0.62rem] font-bold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full bg-[#1A1A1A]/8 text-[#1A1A1A] border border-[#1A1A1A]/15">
+                    <span className="mt-2.5 inline-block text-[0.62rem] font-bold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full bg-[#0D7377]/8 text-[#0D7377] border border-[#0D7377]/20">
                       {edu.date}
                     </span>
                   </div>
@@ -389,7 +389,7 @@ export default function Resume() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {Object.entries(skills).map(([category, items]) => (
                 <div key={category} className={`${cardBase} p-6`}>
-                  <h3 className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-[#1A1A1A]/70 mb-4">
+                  <h3 className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-[#0D7377] mb-4">
                     {category}
                   </h3>
                   <div className="flex flex-wrap gap-2">

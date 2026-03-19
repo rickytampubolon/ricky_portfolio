@@ -10,9 +10,9 @@ function stagger(n: number) {
 /* ── Design tokens ───────────────────────────────────────────── */
 // Slightly rectangular pills (rounded-[28px]) matching the Wix template
 const btnPrimary =
-  "inline-flex items-center justify-center bg-[#1A1A1A] text-white px-8 py-3 rounded-[28px] text-[0.75rem] font-bold tracking-[0.1em] min-h-[46px] hover:bg-[#000000] transition-all duration-200 shadow-[0_4px_14px_rgba(0,0,0,0.15)] hover:-translate-y-px active:scale-[0.97]";
+  "inline-flex items-center justify-center bg-[#0D7377] text-white px-8 py-3 rounded-[28px] text-[0.75rem] font-bold tracking-[0.1em] min-h-[46px] hover:bg-[#0A5C60] transition-all duration-200 shadow-[0_4px_14px_rgba(13,115,119,0.3)] hover:-translate-y-px active:scale-[0.97]";
 const btnSecondary =
-  "inline-flex items-center justify-center border-2 border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] px-8 py-3 rounded-[28px] text-[0.75rem] font-bold tracking-[0.1em] min-h-[46px] hover:bg-[#1A1A1A] hover:text-white dark:hover:bg-[#E0E0E0] dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]";
+  "inline-flex items-center justify-center border-2 border-[#0D7377] dark:border-[#14A8AD] text-[#0D7377] dark:text-[#14A8AD] px-8 py-3 rounded-[28px] text-[0.75rem] font-bold tracking-[0.1em] min-h-[46px] hover:bg-[#0D7377] hover:text-white dark:hover:bg-[#14A8AD] dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]";
 
 // Flat dark social icons for the profile card (no circle wrapper)
 const socialCard = [
@@ -51,7 +51,7 @@ export default function Home() {
 
       {/* Scroll progress */}
       <div
-        className="fixed top-0 left-0 z-[200] h-[2px] bg-[#1A1A1A] transition-[width] duration-75 ease-out"
+        className="fixed top-0 left-0 z-[200] h-[2px] bg-[#0D7377] transition-[width] duration-75 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 
@@ -79,18 +79,18 @@ export default function Home() {
             Ricky<br />Halomoan
           </h2>
 
-          {/* Blue divider */}
-          <div className="w-20 h-[3px] bg-[#1A1A1A] mb-7 rounded-full" />
+          {/* Teal divider */}
+          <div className="w-20 h-[3px] bg-[#0D7377] mb-7 rounded-full" />
 
           {/* CTA buttons */}
           <div className="flex gap-3 w-full max-w-xs">
             <a href="/resume" className="flex-1">
-              <button className="w-full bg-[#1A1A1A] text-white py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#000000] transition-all duration-200 active:scale-[0.97]">
+              <button className="w-full bg-[#0D7377] text-white py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#0A5C60] transition-all duration-200 active:scale-[0.97] shadow-[0_4px_12px_rgba(13,115,119,0.25)]">
                 RESUME
               </button>
             </a>
             <a href="/contact" className="flex-1">
-              <button className="w-full border-2 border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]">
+              <button className="w-full border-2 border-[#0D7377] dark:border-[#14A8AD] text-[#0D7377] dark:text-[#14A8AD] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#0D7377] dark:hover:bg-[#14A8AD] hover:text-white dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]">
                 LET'S TALK
               </button>
             </a>
@@ -166,7 +166,7 @@ export default function Home() {
                 <h2 className="text-[1.5rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-[1.2] mb-4">
                   Ricky<br />Halomoan
                 </h2>
-                <div className="w-10 h-[2.5px] bg-[#1A1A1A] mb-4 rounded-full" />
+                <div className="w-10 h-[2.5px] bg-[#0D7377] mb-4 rounded-full" />
                 <p className="text-[0.68rem] font-semibold tracking-[0.18em] uppercase text-[#666666] dark:text-[#888888]">
                   Senior Product Manager
                 </p>

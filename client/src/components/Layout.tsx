@@ -55,14 +55,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {navLinks.map(({ label, href }) => (
               <Link key={href} href={href}
                 className={`text-[0.72rem] font-bold tracking-[0.09em] transition-colors duration-200 ${
-                  isActive(href) ? "text-[#1A1A1A]" : "text-[#666666] dark:text-[#888888] hover:text-[#1A1A1A] dark:hover:text-[#AAAAAA]"
+                  isActive(href) ? "text-[#0D7377] dark:text-[#14A8AD]" : "text-[#666666] dark:text-[#888888] hover:text-[#0D7377] dark:hover:text-[#14A8AD]"
                 }`}>
                 {label}
               </Link>
             ))}
             {toggleTheme && (
               <button onClick={toggleTheme} aria-label="Toggle dark mode"
-                className="text-[#666666] dark:text-[#888888] hover:text-[#1A1A1A] dark:hover:text-[#AAAAAA] transition-colors duration-200">
+                className="text-[#666666] dark:text-[#888888] hover:text-[#0D7377] dark:hover:text-[#14A8AD] transition-colors duration-200">
                 {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
               </button>
             )}
@@ -107,7 +107,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {navLinks.map(({ label, href }) => (
               <Link key={href} href={href}
                 className={`py-3 text-[0.82rem] font-bold tracking-[0.08em] border-b border-[#F4F4F4] dark:border-[#2C2C2C] last:border-0 transition-colors ${
-                  isActive(href) ? "text-[#1A1A1A]" : "text-[#666666] dark:text-[#888888]"
+                  isActive(href) ? "text-[#0D7377] dark:text-[#14A8AD]" : "text-[#666666] dark:text-[#888888]"
                 }`}>
                 {label}
               </Link>
@@ -127,7 +127,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Write */}
           <div className="mb-6">
             <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Write</p>
-            <a href="mailto:rickytampubolon97@gmail.com" className="text-[0.8rem] text-[#666666] dark:text-[#888888] hover:text-[#1A1A1A] transition-colors break-all">
+            <a href="mailto:rickytampubolon97@gmail.com" className="text-[0.8rem] text-[#666666] dark:text-[#888888] hover:text-[#0D7377] dark:hover:text-[#14A8AD] transition-colors break-all">
               rickytampubolon97@gmail.com
             </a>
           </div>
@@ -162,7 +162,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Write */}
             <div>
               <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-0.5 tracking-[0.06em]">Write</p>
-              <a href="mailto:rickytampubolon97@gmail.com" className="text-[0.72rem] text-[#999] hover:text-[#1A1A1A] transition-colors duration-200">
+              <a href="mailto:rickytampubolon97@gmail.com" className="text-[0.72rem] text-[#999] hover:text-[#0D7377] dark:hover:text-[#14A8AD] transition-colors duration-200">
                 rickytampubolon97@gmail.com
               </a>
             </div>
