@@ -1,27 +1,141 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <!-- ITB Logo: Institut Teknologi Bandung -->
-  <!-- Background circle -->
-  <circle cx="50" cy="50" r="48" fill="#003F7F" stroke="#003F7F" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <!-- Arc path for top text: starts lower-left, goes clockwise over the top to lower-right -->
+    <path id="topArc" d="M 23,130 A 84,84 0 1,1 177,130"/>
+    <!-- Arc path for bottom text: starts lower-right, goes clockwise under the bottom to lower-left -->
+    <path id="botArc" d="M 177,130 A 84,84 0 0,1 23,130"/>
+  </defs>
 
-  <!-- Outer ring -->
-  <circle cx="50" cy="50" r="46" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+  <!-- Background blue circle -->
+  <circle cx="100" cy="100" r="99" fill="#0147A3"/>
 
-  <!-- Stylized "ITB" text mark -->
-  <!-- I -->
-  <rect x="24" y="32" width="5" height="36" fill="#FFFFFF" rx="1"/>
+  <!-- Outermost white ring -->
+  <circle cx="100" cy="100" r="97" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+  <!-- Second white ring -->
+  <circle cx="100" cy="100" r="88" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
+  <!-- Inner white ring (encloses figure) -->
+  <circle cx="100" cy="100" r="68" fill="none" stroke="#FFFFFF" stroke-width="1.2"/>
 
-  <!-- T -->
-  <rect x="34" y="32" width="18" height="5" fill="#FFFFFF" rx="1"/>
-  <rect x="40.5" y="37" width="5" height="31" fill="#FFFFFF" rx="1"/>
+  <!-- ── Circumference text ──────────────────────────────── -->
+  <text fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="10.2" font-weight="bold" letter-spacing="2.4">
+    <textPath href="#topArc" startOffset="8%">INSTITUT TEKNOLOGI BANDUNG</textPath>
+  </text>
 
-  <!-- B -->
-  <rect x="57" y="32" width="5" height="36" fill="#FFFFFF" rx="1"/>
-  <rect x="62" y="32" width="6" height="3" fill="#FFFFFF" rx="0"/>
-  <rect x="62" y="48.5" width="6" height="3" fill="#FFFFFF" rx="0"/>
-  <rect x="62" y="65" width="6" height="3" fill="#FFFFFF" rx="0"/>
-  <path d="M68 35 Q76 35 76 46.5 Q76 48.5 68 48.5 Z" fill="#FFFFFF"/>
-  <path d="M68 51.5 Q78 51.5 78 63 Q78 65 68 65 Z" fill="#FFFFFF"/>
+  <!-- Decorating dots -->
+  <circle cx="100" cy="14.5" r="2.8" fill="#FFFFFF"/>
+  <circle cx="20.5" cy="134"  r="2.8" fill="#FFFFFF"/>
+  <circle cx="179.5" cy="134" r="2.8" fill="#FFFFFF"/>
 
-  <!-- Gold accent line -->
-  <rect x="20" y="76" width="60" height="3" fill="#F5A623" rx="1"/>
+  <!-- Year "1920" along bottom arc -->
+  <text fill="#FFFFFF" font-family="Georgia, 'Times New Roman', serif" font-size="10.5" font-weight="bold" letter-spacing="5">
+    <textPath href="#botArc" startOffset="31%">1920</textPath>
+  </text>
+
+  <!-- ══════════════════════════════════════════════════════
+       GANESHA FIGURE  (Ganesha Wisuda — ITB mascot)
+       White silhouette on blue background
+       ══════════════════════════════════════════════════════ -->
+
+  <!-- ── Pedestal / base ─────────────────────────────────── -->
+  <rect x="76" y="145" width="48" height="6" rx="2" fill="#FFFFFF"/>
+  <rect x="72" y="151" width="56" height="5" rx="2" fill="#FFFFFF"/>
+
+  <!-- ── Lotus seat ──────────────────────────────────────── -->
+  <!-- petals row -->
+  <ellipse cx="82" cy="143" rx="7" ry="4" fill="#FFFFFF" transform="rotate(-15,82,143)"/>
+  <ellipse cx="91" cy="140" rx="7" ry="4" fill="#FFFFFF"/>
+  <ellipse cx="100" cy="140" rx="7" ry="4" fill="#FFFFFF"/>
+  <ellipse cx="109" cy="140" rx="7" ry="4" fill="#FFFFFF"/>
+  <ellipse cx="118" cy="143" rx="7" ry="4" fill="#FFFFFF" transform="rotate(15,118,143)"/>
+
+  <!-- ── Crossed legs (body base) ───────────────────────── -->
+  <ellipse cx="100" cy="137" rx="22" ry="9" fill="#FFFFFF"/>
+  <!-- knee bumps -->
+  <ellipse cx="79"  cy="133" rx="7" ry="5" fill="#FFFFFF"/>
+  <ellipse cx="121" cy="133" rx="7" ry="5" fill="#FFFFFF"/>
+
+  <!-- ── Torso ───────────────────────────────────────────── -->
+  <ellipse cx="100" cy="118" rx="17" ry="16" fill="#FFFFFF"/>
+  <!-- navel dot -->
+  <circle cx="100" cy="121" r="2.2" fill="#0147A3"/>
+
+  <!-- ── Neck ────────────────────────────────────────────── -->
+  <rect x="94" y="101" width="12" height="10" rx="4" fill="#FFFFFF"/>
+
+  <!-- ── HEAD (large elephant head) ─────────────────────── -->
+  <ellipse cx="100" cy="91" rx="21" ry="20" fill="#FFFFFF"/>
+
+  <!-- ── Big ears ────────────────────────────────────────── -->
+  <ellipse cx="75"  cy="90" rx="13" ry="17" fill="#FFFFFF"/>
+  <ellipse cx="125" cy="90" rx="13" ry="17" fill="#FFFFFF"/>
+  <!-- inner ear detail -->
+  <ellipse cx="75"  cy="90" rx="9"  ry="12" fill="#0147A3"/>
+  <ellipse cx="125" cy="90" rx="9"  ry="12" fill="#0147A3"/>
+  <ellipse cx="75"  cy="90" rx="6"  ry="8"  fill="#FFFFFF" opacity="0.25"/>
+  <ellipse cx="125" cy="90" rx="6"  ry="8"  fill="#FFFFFF" opacity="0.25"/>
+
+  <!-- ── Eyes ────────────────────────────────────────────── -->
+  <ellipse cx="92" cy="86" rx="4" ry="3.5" fill="#0147A3"/>
+  <ellipse cx="108" cy="86" rx="4" ry="3.5" fill="#0147A3"/>
+  <circle cx="92"  cy="86" r="1.8" fill="#FFFFFF"/>
+  <circle cx="108" cy="86" r="1.8" fill="#FFFFFF"/>
+  <circle cx="92"  cy="86" r="1"   fill="#0147A3"/>
+  <circle cx="108" cy="86" r="1"   fill="#0147A3"/>
+
+  <!-- ── Trunk (curling to the left) ────────────────────── -->
+  <path d="M 92,99 Q 82,106 78,115 Q 74,124 82,126 Q 90,128 90,120"
+        fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- ── Tusk (right side) ──────────────────────────────── -->
+  <path d="M 108,97 Q 118,103 122,112 Q 120,116 116,113"
+        fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+
+  <!-- ── Crown / headdress ───────────────────────────────── -->
+  <!-- base band -->
+  <rect x="81" y="72" width="38" height="6" rx="2" fill="#FFFFFF"/>
+  <!-- center jewel mount -->
+  <polygon points="100,56 107,68 100,72 93,68" fill="#FFFFFF"/>
+  <!-- side prongs -->
+  <line x1="86" y1="72" x2="82" y2="62" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="91" y1="72" x2="88" y2="61" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="109" y1="72" x2="113" y2="62" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="114" y1="72" x2="117" y2="61" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- center gem -->
+  <circle cx="100" cy="59" r="3" fill="#FFFFFF"/>
+
+  <!-- ── Four arms ────────────────────────────────────────── -->
+  <!-- Upper-left arm holding an axe/attribute -->
+  <path d="M 85,107 Q 70,100 64,92" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <!-- axe head -->
+  <path d="M 64,92 L 60,88 L 66,86 Z" fill="#FFFFFF"/>
+
+  <!-- Upper-right arm holding a noose/rope -->
+  <path d="M 115,107 Q 130,100 136,92" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="138" cy="90" r="4" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+
+  <!-- Lower-left arm — open blessing (abhaya mudra) -->
+  <path d="M 83,120 Q 70,118 63,122" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <!-- hand -->
+  <ellipse cx="60" cy="122" rx="5" ry="3.5" fill="#FFFFFF" transform="rotate(-10,60,122)"/>
+
+  <!-- Lower-right arm holding a book (manuscript) -->
+  <path d="M 117,120 Q 130,118 137,122" fill="none" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+  <!-- book rectangle -->
+  <rect x="136" y="118" width="10" height="8" rx="1" fill="#FFFFFF"/>
+  <line x1="141" y1="118" x2="141" y2="126" stroke="#0147A3" stroke-width="1"/>
+
+  <!-- ── Ornaments / necklace ────────────────────────────── -->
+  <path d="M 88,110 Q 100,116 112,110" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  <circle cx="100" cy="114" r="2"   fill="#FFFFFF"/>
+  <circle cx="93"  cy="112" r="1.5" fill="#FFFFFF"/>
+  <circle cx="107" cy="112" r="1.5" fill="#FFFFFF"/>
+
+  <!-- ── Small tools on sides (ruler / set-square) ──────── -->
+  <!-- Left side: set-square / triangle ruler -->
+  <polygon points="46,100 46,125 61,125" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+  <!-- Right side: ruler -->
+  <rect x="140" y="100" width="5" height="25" rx="1" fill="none" stroke="#FFFFFF" stroke-width="1.8"/>
+  <line x1="140" y1="106" x2="145" y2="106" stroke="#FFFFFF" stroke-width="1"/>
+  <line x1="140" y1="112" x2="145" y2="112" stroke="#FFFFFF" stroke-width="1"/>
+  <line x1="140" y1="118" x2="145" y2="118" stroke="#FFFFFF" stroke-width="1"/>
 </svg>
