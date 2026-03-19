@@ -17,7 +17,7 @@ const fullTimeExp = [
     title: "Lead Country Product Manager – ID Market",
     company: "GSM – Xanh SM",
     companyImage:
-      "https://media.licdn.com/dms/image/v2/D560BAQG5Xqveq4buhg/company-logo_200_200/company-logo_200_200/0/1731636708850/greensmartmobility_logo?e=1773273600&v=beta&t=Q6qJwyL1Q3ofHqnlzuetOUmPcP83yX7TJbxOh5apik4",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Xanh_SM_logo.svg/200px-Xanh_SM_logo.svg.png",
     period: "2025 – Present",
     current: true,
     highlights: [
@@ -50,7 +50,7 @@ const fullTimeExp = [
     title: "Senior Associate, System Product Lead – SPX Express",
     company: "Shopee",
     companyImage:
-      "https://media.licdn.com/dms/image/v2/C560BAQE0iX_dgdH7nA/company-logo_200_200/company-logo_200_200/0/1672279162763/shopee_logo?e=1773273600&v=beta&t=jlKIMPDqPZbW-4BSR5HmYJVM6SlcapRqyMCtSCGl768",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopee_logo.svg/200px-Shopee_logo.svg.png",
     period: "2024",
     current: false,
     highlights: [
@@ -80,7 +80,7 @@ const fullTimeExp = [
     title: "Quality Engineer – Accommodation",
     company: "Traveloka",
     companyImage:
-      "https://media.licdn.com/dms/image/v2/D560BAQGe_izwxvj_SQ/company-logo_200_200/company-logo_200_200/0/1700635813325/traveloka_logo?e=1773273600&v=beta&t=bOObxNgTa_cE27Qpaljq9RoLoVxqtvAUdWwgbjbQdiU",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Logo_Traveloka.png/200px-Logo_Traveloka.png",
     period: "2020 – 2022",
     current: false,
     highlights: [
@@ -180,7 +180,7 @@ const education = [
     degree: "Master of Business Administration",
     school: "Bandung Institute of Technology (ITB)",
     schoolImage:
-      "https://media.licdn.com/dms/image/v2/C560BAQGJoYkUiQpUKA/company-logo_200_200/company-logo_200_200/0/1630672186443/itb_logo?e=1773273600&v=beta&t=ofyRWEblbh2qjZR2HYOofN8zQ-M_gy2yhiVMyS5J334",
+      "https://upload.wikimedia.org/wikipedia/id/b/b9/ITB_logo.png",
     date: "Expected Sep 2026",
     detail: "SBM ITB · Bandung, Indonesia",
   },
@@ -188,7 +188,7 @@ const education = [
     degree: "Bachelor of Engineering – Informatics",
     school: "Del Institute of Technology (IT Del)",
     schoolImage:
-      "https://media.licdn.com/dms/image/v2/C560BAQESCZFZZqVyng/company-logo_200_200/company-logo_200_200/0/1631389462084?e=1773273600&v=beta&t=jNYjv_W6atTEERBs7tTk78Yhl1xnfkRZGPXuT4rcyLY",
+      "https://upload.wikimedia.org/wikipedia/id/4/46/IT_Del_logo.png",
     date: "Sep 2019",
     detail: "Laguboti, North Sumatra, Indonesia",
   },
