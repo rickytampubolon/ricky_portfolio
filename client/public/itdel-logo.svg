@@ -1,28 +1,98 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <!-- IT Del Logo: Institut Teknologi Del -->
-  <!-- Background circle -->
-  <circle cx="50" cy="50" r="48" fill="#006837" stroke="#006837" stroke-width="1"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240" width="200" height="240">
+  <defs>
+    <!-- Wave pattern for decoration between "del" and ribbon -->
+    <path id="wavePath"
+          d="M 22,158 Q 32,150 42,158 Q 52,166 62,158 Q 72,150 82,158
+             Q 92,166 102,158 Q 112,150 122,158 Q 132,166 142,158
+             Q 152,150 162,158 Q 170,164 178,158"/>
+  </defs>
 
-  <!-- Outer ring -->
-  <circle cx="50" cy="50" r="46" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+  <!-- ── Outer border (white/light) ─────────────────────── -->
+  <path d="M 18,3 L 182,3 Q 197,3 197,18 L 197,172
+           Q 190,212 100,237 Q 10,212 3,172 L 3,18 Q 3,3 18,3 Z"
+        fill="#6EA0E0"/>
 
-  <!-- Stylized shield shape -->
-  <path d="M50 18 L72 28 L72 56 Q72 74 50 84 Q28 74 28 56 L28 28 Z" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+  <!-- ── Thin lighter-blue inner frame ──────────────────── -->
+  <path d="M 20,6 L 180,6 Q 194,6 194,20 L 194,172
+           Q 187,210 100,234 Q 13,210 6,172 L 6,20 Q 6,6 20,6 Z"
+        fill="#FFFFFF"/>
 
-  <!-- IT Del initials inside shield -->
-  <!-- I -->
-  <rect x="33" y="38" width="4" height="24" fill="#FFFFFF" rx="1"/>
+  <!-- ── Main blue background ───────────────────────────── -->
+  <path d="M 22,9 L 178,9 Q 191,9 191,22 L 191,172
+           Q 184,208 100,231 Q 16,208 9,172 L 9,22 Q 9,9 22,9 Z"
+        fill="#1A53B0"/>
 
-  <!-- T -->
-  <rect x="40" y="38" width="14" height="4" fill="#FFFFFF" rx="1"/>
-  <rect x="45" y="42" width="4" height="20" fill="#FFFFFF" rx="1"/>
+  <!-- ── Top text area separator (thin lighter bar) ─────── -->
+  <rect x="9" y="9" width="182" height="38" rx="0" fill="#1A53B0"/>
+  <!-- thin border line under top text area -->
+  <line x1="9" y1="44" x2="191" y2="44" stroke="#FFFFFF" stroke-width="1.2" opacity="0.6"/>
 
-  <!-- D -->
-  <rect x="58" y="38" width="4" height="24" fill="#FFFFFF" rx="1"/>
-  <rect x="62" y="38" width="4" height="3" fill="#FFFFFF" rx="0"/>
-  <rect x="62" y="59" width="4" height="3" fill="#FFFFFF" rx="0"/>
-  <path d="M66 41 Q74 41 74 50 Q74 59 66 59 Z" fill="#FFFFFF"/>
+  <!-- ── "institut teknologi" ────────────────────────────── -->
+  <text x="100" y="31"
+        text-anchor="middle" dominant-baseline="middle"
+        fill="#FFFFFF"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="14.5"
+        font-weight="400"
+        letter-spacing="0.8">institut teknologi</text>
 
-  <!-- Gold accent -->
-  <rect x="20" y="76" width="60" height="3" fill="#FFD700" rx="1"/>
+  <!-- ── Large "del" wordmark ───────────────────────────── -->
+  <!--
+       The 'd' in the IT Del logo is intentionally very large and
+       extends from near the top separator all the way to the wave.
+       We use individual letter positioning for accurate sizing.
+  -->
+
+  <!-- letter "d" — tall, almost full height of the central area -->
+  <text x="28" y="148"
+        text-anchor="start" dominant-baseline="auto"
+        fill="#FFFFFF"
+        font-family="Arial Black, 'Arial Bold', Gadget, sans-serif"
+        font-size="110"
+        font-weight="900">d</text>
+
+  <!-- letter "e" -->
+  <text x="96" y="148"
+        text-anchor="start" dominant-baseline="auto"
+        fill="#FFFFFF"
+        font-family="Arial Black, 'Arial Bold', Gadget, sans-serif"
+        font-size="110"
+        font-weight="900">e</text>
+
+  <!-- letter "l" -->
+  <text x="158" y="148"
+        text-anchor="start" dominant-baseline="auto"
+        fill="#FFFFFF"
+        font-family="Arial Black, 'Arial Bold', Gadget, sans-serif"
+        font-size="110"
+        font-weight="900">l</text>
+
+  <!-- ── Wave / decorative line ─────────────────────────── -->
+  <use href="#wavePath" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+
+  <!-- ── Motto ribbon / banner ──────────────────────────── -->
+  <!-- Banner background — slightly darker blue ribbon shape -->
+  <path d="M 9,166 L 14,161 L 186,161 L 191,166 L 186,177 L 14,177 Z"
+        fill="#0F3D8C"/>
+  <!-- ribbon side folds -->
+  <polygon points="9,166 14,161 14,177 9,177" fill="#0A2E6E"/>
+  <polygon points="191,166 186,161 186,177 191,177" fill="#0A2E6E"/>
+
+  <!-- Motto text -->
+  <text x="100" y="172"
+        text-anchor="middle" dominant-baseline="middle"
+        fill="#FFFFFF"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="7.8"
+        font-weight="700"
+        letter-spacing="0.4">MARTUHAN-MARROHA-MARBISUK</text>
+
+  <!-- ── Year "2001" ─────────────────────────────────────── -->
+  <text x="100" y="204"
+        text-anchor="middle" dominant-baseline="middle"
+        fill="#FFFFFF"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="15"
+        font-weight="400"
+        letter-spacing="4">2001</text>
 </svg>
