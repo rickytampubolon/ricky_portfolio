@@ -75,6 +75,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Controls */}
           <div className="flex items-center gap-3">
+
+            {/* Desktop nav links — visible on md+, hidden on mobile (spec: III Navigation) */}
+            <nav className="hidden md:flex items-center gap-6 mr-2" aria-label="Main navigation">
+              {navLinks.map(({ label, href }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  className={`text-[0.72rem] font-bold tracking-[0.12em] uppercase transition-colors duration-200 ${
+                    isActive(href)
+                      ? "text-[#1A1A1A] dark:text-[#E0E0E0]"
+                      : "text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0]"
+                  }`}
+                  style={{ fontFamily: "var(--font-ui)" }}
+                >
+                  {label}
+                </Link>
+              ))}
+            </nav>
+
+            {/* Vertical separator between nav and controls — desktop only */}
+            <span className="hidden md:block w-px h-4 bg-[#E0E0E0] dark:bg-[#333333] mr-1" aria-hidden="true" />
+
             {/* Theme toggle */}
             {toggleTheme && (
               <button
