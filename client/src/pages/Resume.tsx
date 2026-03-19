@@ -187,16 +187,14 @@ const education = [
   {
     degree: "Master of Business Administration",
     school: "Bandung Institute of Technology (ITB)",
-    schoolImage:
-      "https://upload.wikimedia.org/wikipedia/id/b/b9/ITB_logo.png",
+    schoolImage: "/itb-logo.svg",
     date: "Expected Sep 2026",
     detail: "SBM ITB · Bandung, Indonesia",
   },
   {
     degree: "Bachelor of Engineering – Informatics",
     school: "Del Institute of Technology (IT Del)",
-    schoolImage:
-      "https://upload.wikimedia.org/wikipedia/id/4/46/IT_Del_logo.png",
+    schoolImage: "/itdel-logo.svg",
     date: "Sep 2019",
     detail: "Laguboti, North Sumatra, Indonesia",
   },
