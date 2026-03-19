@@ -14,65 +14,66 @@ const accentDot   = "w-[6px] h-[6px] bg-[#0D7377] rounded-[1px] shrink-0";
 const fullTimeExp = [
   {
     id: 1,
-    title: "Lead Country Product Manager – ID Market",
+    title: "Lead Country Product Manager",
     company: "GSM – Xanh SM",
     companyImage:
-      "https://media.licdn.com/dms/image/v2/D560BAQG5Xqveq4buhg/company-logo_200_200/company-logo_200_200/0/1731636708850/greensmartmobility_logo?e=1773273600&v=beta&t=Q6qJwyL1Q3ofHqnlzuetOUmPcP83yX7TJbxOh5apik4",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Xanh_SM_logo.svg/200px-Xanh_SM_logo.svg.png",
     period: "2025 – Present",
     current: true,
     highlights: [
-      "Lead end-to-end product strategy and execution for Xanh SM Indonesia, defining the national roadmap aligned with regional priorities and local market needs.",
-      "Oversee development of customer apps, driver flows, corporate solutions, and internal operational systems across engineering, design, operations, and data teams.",
-      "Act as primary liaison between Indonesia leadership and global product organization to align priorities, timelines, and long-term direction.",
-      "Drive market localization by adapting core product features to local user behavior and regulatory requirements.",
-      "Analyze operational and behavioral data to identify performance gaps and optimize user journeys.",
-      "Spearhead user research and competitive analysis to uncover market opportunities and inform strategic decisions.",
+      "Led the Indonesian market entry and growth strategy for Xanh SM's digital ecosystem, developing a localized product roadmap that supported operational scalability and service quality for thousands of drivers and riders across the nation.",
+      "Managed end-to-end product strategy and execution, defining the national roadmap that balanced aggressive business growth targets with local operational realities, user behaviour, and regional priorities from the global headquarters.",
+      "Oversaw development of the full product ecosystem including driver and rider applications, corporate dashboard solutions, and internal operational systems, using behavioural data and performance metrics to identify improvement areas and strengthen service reliability.",
+      "Drove market localization initiatives including dynamic pricing logic adjustments, payment flow optimization with local providers, loyalty program design tailored to Indonesian consumers, and fleet management customization for local operational patterns.",
+      "Served as primary liaison between Indonesia leadership and global product teams, ensuring alignment on priorities and timelines while coordinating pilot programs and managing national rollout phases across multiple cities.",
     ],
   },
   {
     id: 2,
-    title: "Product Manager – Performance Evaluation & Data Integration",
+    title: "Senior Product Manager – Performance Evaluation & Data",
     company: "INA Digital Edu – Ministry of Primary and Secondary Education",
     companyImage:
       "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/cJhNVtPdbOHZIgCZ.png",
     period: "2024 – 2025",
     current: false,
     highlights: [
-      "Led development of national-scale performance management tools and data integration systems for 500,000+ schools.",
-      "Defined product vision and roadmap aligned with ministry priorities, managing the full delivery lifecycle.",
-      "Drove product adoption through training sessions and ongoing support to educational institutions nationwide.",
-      "Collaborated with internal teams, regional education offices, and external partners to integrate field feedback.",
-      "Coordinated with engineering, data, and UX teams for stable, compliant development.",
+      "Led development of a national performance management and data integration platform that improved accountability tracking for millions of educators and students across Indonesia's primary and secondary education system.",
+      "Defined product vision and roadmap aligned with ministry priorities and national education standards, incorporating feedback from regional offices, school administrators, and education partners across the archipelago.",
+      "Managed full delivery lifecycle from user research and ideation to testing and nationwide release, coordinating with engineering, data, and UX teams to build a stable, compliant, and user-centered platform.",
+      "Supported user adoption through training sessions and continuous assistance for thousands of educational institutions, using usage data and feedback loops to inform product refinements and feature enhancements.",
+      "Developed measurement approaches to evaluate tool effectiveness across different regions, guiding iterative improvements based on user behaviour patterns and institutional performance data.",
     ],
   },
   {
     id: 3,
-    title: "Senior Associate, System Product Lead – SPX Express",
+    title: "OPEX Product Lead – Logistic (Shopee Xpress)",
     company: "Shopee",
     companyImage:
-      "https://media.licdn.com/dms/image/v2/C560BAQE0iX_dgdH7nA/company-logo_200_200/company-logo_200_200/0/1672279162763/shopee_logo?e=1773273600&v=beta&t=jlKIMPDqPZbW-4BSR5HmYJVM6SlcapRqyMCtSCGl768",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopee_logo.svg/200px-Shopee_logo.svg.png",
     period: "2024",
     current: false,
     highlights: [
-      "Led a team maintaining and enhancing the Fleet Management System across First, Middle, and Last Mile operations.",
-      "Managed system enhancement planning, tracking, and delivery, coordinating cross-team SLA resolution.",
-      "Authored Functional Requirement Specifications and Business Requirement Documents; led UAT sessions.",
-      "Developed new system features that improved operational efficiency across multiple logistics functions.",
+      "Led strategic improvements to the Fleet Management System across First Mile, Middle Mile, and Last Mile operations, enhancing operational throughput and reducing delivery times for millions of shipments.",
+      "Managed a team responsible for maintaining and enhancing the core FMS, ensuring alignment with daily operational needs through close collaboration with Business, Finance, Strategy, BI, and Operations teams.",
+      "Drove system enhancement planning and delivery to strengthen process sustainability, while handling critical troubleshooting and coordinating cross-team responses to guarantee resolutions within strict SLAs.",
+      "Improved operational efficiency by developing new system features that standardized workflows across multiple logistics functions, using data analysis to identify bottlenecks and propose impactful solutions.",
+      "Created comprehensive Functional Specification and Business Requirement documents and managed UAT sessions with operations teams to ensure consistent, high-quality feature releases.",
     ],
   },
   {
     id: 4,
-    title: "Product Manager II – Fulfillment",
+    title: "Product Manager – Fulfillment (Dilayani Tokopedia)",
     company: "Tokopedia & GoTo Logistics",
     companyImage:
       "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png",
     period: "2022 – 2024",
     current: false,
     highlights: [
-      "Directed the Fulfillment team to reduce turnaround time and improve service levels across the full product lifecycle.",
-      "Led Warehouse Management System enhancements, improving productivity, data accuracy, and process standardization.",
-      "Developed long-term WMS strategy aligned with business objectives and evolving market conditions.",
-      "Oversaw Tokopedia Seller Platform ↔ WMS integration ensuring seamless real-time data flow.",
+      "Drove significant improvements in Dilayani Tokopedia fulfillment operations through strategic Warehouse Management System enhancements that reduced turnaround time and improved service levels across multiple warehouses.",
+      "Led the Fulfillment team to achieve higher efficiency by enhancing WMS productivity, data accuracy, and process standardization across all warehouse operations handling thousands of daily orders.",
+      "Managed the critical integration between Tokopedia Seller Platform and WMS to ensure accurate, real-time data flow for inventory tracking and order management across the fulfillment network.",
+      "Strengthened both Inbound and Integration teams, improving cross-functional collaboration and creating smoother operational handovers between warehouse teams and product development.",
+      "Developed long-term, data-driven strategy for WMS improvements, continuously refining product features based on user feedback from warehouse operators and market analysis to support evolving business objectives.",
     ],
   },
   {
@@ -80,13 +81,15 @@ const fullTimeExp = [
     title: "Quality Engineer – Accommodation",
     company: "Traveloka",
     companyImage:
-      "https://media.licdn.com/dms/image/v2/D560BAQGe_izwxvj_SQ/company-logo_200_200/company-logo_200_200/0/1700635813325/traveloka_logo?e=1773273600&v=beta&t=bOObxNgTa_cE27Qpaljq9RoLoVxqtvAUdWwgbjbQdiU",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Logo_Traveloka.png/200px-Logo_Traveloka.png",
     period: "2020 – 2022",
     current: false,
     highlights: [
-      "Conducted comprehensive testing across Android, iOS, Web, and mobile web for the Accommodation product team.",
-      "Led weekly Web release processes ensuring smooth deployments and high platform stability.",
-      "Maintained automation frameworks using Selenium, Java, and TestNG; performed API testing with Postman.",
+      "Established comprehensive quality assurance practices for the Accommodation product team, implementing testing strategies across Android, iOS, and Web that significantly improved feature reliability and user experience for millions of travelers.",
+      "Conducted rigorous platform testing alongside software engineers, product managers, and designers to identify and resolve critical issues early in the development cycle before they impacted users.",
+      "Participated actively in all Agile ceremonies including sprint planning, grooming, and retrospectives while leading weekly Web release processes to ensure smooth deployments with minimal disruption.",
+      "Maintained long-term product stability by preparing structured test cases that improved coverage across critical user journeys and supporting automation scripts using Selenium and Java.",
+      "Performed extensive backend API testing with Postman to verify data consistency and system reliability across accommodation booking flows and inventory management systems.",
     ],
   },
   {
@@ -98,9 +101,11 @@ const fullTimeExp = [
     period: "2019 – 2020",
     current: false,
     highlights: [
-      "Contributed to MyBluebird application with extensive functional and integration testing across Android, Web, and API.",
-      "Created detailed test cases in TestRail, significantly improving coverage across release cycles.",
-      "Maintained automation scripts using Postman and Katalon Studio.",
+      "Conducted comprehensive functional and integration testing for the MyBluebird application across Android, Web, and API platforms to ensure consistent user experience for millions of transportation service users.",
+      "Validated complex end-to-end user flows across multiple release cycles, monitoring feature behaviour and ensuring platform consistency between driver and passenger applications.",
+      "Collaborated closely with business analysts, product owners, and engineers to clarify requirements, refine user flows, and resolve critical issues discovered during testing phases.",
+      "Created detailed and structured test cases in TestRail to maximize coverage across the application and maintained automation scripts using Postman and Katalon Studio.",
+      "Supported all sprint ceremonies and worked closely with development teams to address defects, performance gaps, and regression issues affecting user experience or system reliability.",
     ],
   },
 ];
@@ -115,9 +120,9 @@ const partTimeAndInternships = [
     period: "2022 – 2023",
     type: "Part-time",
     highlights: [
-      "Executed structured manual, regression, and exploratory testing across Android, iOS, web, and mobile web for the eCommerce and Merchant squad.",
-      "Managed test cases and sprint tracking in Xray and JIRA; monitored and communicated bug status.",
-      "Collaborated with developers and product owners to align on acceptance criteria and ensure consistent product quality.",
+      "Conducted structured manual, regression, and exploratory testing across Android, iOS, web, and mobile web platforms for the eCommerce and Merchant squad, ensuring stable releases for healthcare product transactions.",
+      "Managed test cases and sprint tracking in Xray and JIRA, monitoring bug status throughout development cycles and communicating priorities to stakeholders.",
+      "Collaborated with developers and product owners to align on acceptance criteria and ensure consistent product quality across multiple features and releases.",
     ],
   },
   {
@@ -129,9 +134,9 @@ const partTimeAndInternships = [
     period: "2021 – 2022",
     type: "Part-time",
     highlights: [
-      "Executed integration, regression, and API testing across Android and web platforms for the CMS and Integration team.",
-      "Developed structured test cases in TestRail; validated backend functionality with Postman.",
-      "Collaborated with developers and product owners to align on test scope and ensure stable releases.",
+      "Executed integration, regression, and API testing across Android and web platforms for the CMS and Integration team, ensuring reliable performance for logistics management systems.",
+      "Developed structured test cases in TestRail and validated backend functionality using Postman to ensure data consistency across systems.",
+      "Collaborated with developers and product owners to align on test scope and ensure stable releases for critical logistics features.",
     ],
   },
   {
@@ -143,8 +148,9 @@ const partTimeAndInternships = [
     period: "2019",
     type: "Internship",
     highlights: [
-      "Supported end-to-end testing and QA activities for the Moka POS Backoffice Inventory team.",
-      "Executed structured test scenarios, validated critical inventory workflows, and collaborated with engineers.",
+      "Supported end-to-end testing and QA activities for the Moka POS Backoffice Inventory team, ensuring smooth operations for merchant inventory management.",
+      "Executed structured test scenarios and validated critical inventory workflows including stock updates, product categorization, and order synchronization.",
+      "Collaborated with engineers to identify and address issues during development, contributing to improved system reliability.",
     ],
   },
   {
@@ -156,8 +162,9 @@ const partTimeAndInternships = [
     period: "2019",
     type: "Internship",
     highlights: [
-      "Automated API testing for payment systems using Postman; built UI automation with Robot Framework and Appium.",
-      "Identified defects through systematic validation of payment flows and worked with developers to resolve issues.",
+      "Automated API testing for payment systems using Postman and built UI automation with Robot Framework and Appium, improving testing efficiency for critical payment flows.",
+      "Identified defects through systematic validation of payment transactions, refund processes, and wallet integrations across the application.",
+      "Worked with developers to resolve issues and improve system reliability before production releases.",
     ],
   },
   {
@@ -169,8 +176,9 @@ const partTimeAndInternships = [
     period: "2018",
     type: "Internship",
     highlights: [
-      "Supported BukaDANA integration and KYC initiatives by validating key user journeys and monitoring system behavior.",
-      "Partnered with cross-functional teams to maintain consistent payment and identity verification processes.",
+      "Supported BukaDANA integration and KYC initiatives by validating key user journeys including registration, identity verification, and account setup processes.",
+      "Partnered with cross-functional teams to maintain consistent payment and identity verification workflows across the application.",
+      "Identified and documented defects during testing cycles, working with developers to resolve issues before release and ensure compliance with financial regulations.",
     ],
   },
 ];
@@ -180,7 +188,7 @@ const education = [
     degree: "Master of Business Administration",
     school: "Bandung Institute of Technology (ITB)",
     schoolImage:
-      "https://media.licdn.com/dms/image/v2/C560BAQGJoYkUiQpUKA/company-logo_200_200/company-logo_200_200/0/1630672186443/itb_logo?e=1773273600&v=beta&t=ofyRWEblbh2qjZR2HYOofN8zQ-M_gy2yhiVMyS5J334",
+      "https://upload.wikimedia.org/wikipedia/id/b/b9/ITB_logo.png",
     date: "Expected Sep 2026",
     detail: "SBM ITB · Bandung, Indonesia",
   },
@@ -188,7 +196,7 @@ const education = [
     degree: "Bachelor of Engineering – Informatics",
     school: "Del Institute of Technology (IT Del)",
     schoolImage:
-      "https://media.licdn.com/dms/image/v2/C560BAQESCZFZZqVyng/company-logo_200_200/company-logo_200_200/0/1631389462084?e=1773273600&v=beta&t=jNYjv_W6atTEERBs7tTk78Yhl1xnfkRZGPXuT4rcyLY",
+      "https://upload.wikimedia.org/wikipedia/id/4/46/IT_Del_logo.png",
     date: "Sep 2019",
     detail: "Laguboti, North Sumatra, Indonesia",
   },
@@ -257,7 +265,7 @@ function ExpRow({ item, isOpen, onToggle }: {
       {/* Expanded bullets */}
       <div
         style={{
-          maxHeight: isOpen ? `${item.highlights.length * 80}px` : "0px",
+          maxHeight: isOpen ? `${item.highlights.length * 120}px` : "0px",
           overflow: "hidden",
           transition: "max-height 0.35s cubic-bezier(0.4,0,0.2,1)",
         }}
