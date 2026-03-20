@@ -28,6 +28,7 @@ function validate(fields: FormState): FormErrors {
     errors.email = "Please enter a valid email address.";
   }
   if (!fields.subject.trim()) errors.subject = "Subject is required.";
+  if (!fields.message.trim()) errors.message = "Message is required.";
   return errors;
 }
 
@@ -220,14 +221,20 @@ export default function Contact() {
 
               {/* Message */}
               <div>
-                <label className={labelBase}>Message</label>
+                <label className={labelBase}>
+                  Message <span className="text-[#888888]">*</span>
+                </label>
                 <textarea
                   rows={5}
                   placeholder="Tell me about your project, opportunity, or just say hello…"
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
-                  className={`${inputBase} resize-none`}
+                  onBlur={() => blur("message")}
+                  className={`${inputBase} resize-none ${touched.message && errors.message ? "border-b-red-400 focus:border-b-red-500" : ""}`}
                 />
+                {touched.message && errors.message && (
+                  <p className={errorMsg}>{errors.message}</p>
+                )}
               </div>
 
               {/* Submit error */}
