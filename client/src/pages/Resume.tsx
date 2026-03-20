@@ -17,7 +17,7 @@ const fullTimeExp = [
     title: "Lead Country Product Manager – ID Market",
     company: "GSM – Xanh SM",
     companyImage:
-      "https://media.licdn.com/dms/image/v2/D560BAQG5Xqveq4buhg/company-logo_200_200/company-logo_200_200/0/1731636708850/greensmartmobility_logo?e=1773273600&v=beta&t=Q6qJwyL1Q3ofHqnlzuetOUmPcP83yX7TJbxOh5apik4",
+      "https://logo.clearbit.com/xanhsm.com",
     period: "2025 – Present",
     current: true,
     highlights: [
@@ -50,7 +50,7 @@ const fullTimeExp = [
     title: "Senior Associate, System Product Lead – SPX Express",
     company: "Shopee",
     companyImage:
-      "https://media.licdn.com/dms/image/v2/C560BAQE0iX_dgdH7nA/company-logo_200_200/company-logo_200_200/0/1672279162763/shopee_logo?e=1773273600&v=beta&t=jlKIMPDqPZbW-4BSR5HmYJVM6SlcapRqyMCtSCGl768",
+      "https://logo.clearbit.com/shopee.com",
     period: "2024",
     current: false,
     highlights: [
@@ -80,7 +80,7 @@ const fullTimeExp = [
     title: "Quality Engineer – Accommodation",
     company: "Traveloka",
     companyImage:
-      "https://media.licdn.com/dms/image/v2/D560BAQGe_izwxvj_SQ/company-logo_200_200/company-logo_200_200/0/1700635813325/traveloka_logo?e=1773273600&v=beta&t=bOObxNgTa_cE27Qpaljq9RoLoVxqtvAUdWwgbjbQdiU",
+      "https://logo.clearbit.com/traveloka.com",
     period: "2020 – 2022",
     current: false,
     highlights: [
@@ -179,16 +179,14 @@ const education = [
   {
     degree: "Master of Business Administration",
     school: "Bandung Institute of Technology (ITB)",
-    schoolImage:
-      "https://media.licdn.com/dms/image/v2/C560BAQGJoYkUiQpUKA/company-logo_200_200/company-logo_200_200/0/1630672186443/itb_logo?e=1773273600&v=beta&t=ofyRWEblbh2qjZR2HYOofN8zQ-M_gy2yhiVMyS5J334",
+    schoolImage: "/itb-logo.svg",
     date: "Expected Sep 2026",
     detail: "SBM ITB · Bandung, Indonesia",
   },
   {
     degree: "Bachelor of Engineering – Informatics",
     school: "Del Institute of Technology (IT Del)",
-    schoolImage:
-      "https://media.licdn.com/dms/image/v2/C560BAQESCZFZZqVyng/company-logo_200_200/company-logo_200_200/0/1631389462084?e=1773273600&v=beta&t=jNYjv_W6atTEERBs7tTk78Yhl1xnfkRZGPXuT4rcyLY",
+    schoolImage: "/itdel-logo.svg",
     date: "Sep 2019",
     detail: "Laguboti, North Sumatra, Indonesia",
   },
@@ -218,7 +216,7 @@ function ExpRow({ item, isOpen, onToggle }: {
       >
         {/* Logo */}
         <div className="w-9 h-9 rounded-xl bg-white dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-          <img src={item.companyImage} alt={item.company} className="w-6 h-6 object-contain" loading="lazy" />
+          <img src={item.companyImage} alt={item.company} className="w-6 h-6 object-contain" loading="lazy" style={{ filter: "grayscale(100%)" }} />
         </div>
 
         {/* Title + company */}
@@ -363,7 +361,7 @@ export default function Resume() {
               {education.map((edu) => (
                 <div key={edu.degree} className={`${cardBase} p-6 flex gap-4 items-start`}>
                   <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 shadow-sm">
-                    <img src={edu.schoolImage} alt={edu.school} className="w-7 h-7 object-contain" loading="lazy" />
+                    <img src={edu.schoolImage} alt={edu.school} className="w-7 h-7 object-contain" loading="lazy" style={{ filter: "grayscale(100%)" }} />
                   </div>
                   <div className="min-w-0">
                     <p className="font-bold text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug mb-0.5">
