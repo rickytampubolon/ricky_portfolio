@@ -1,4 +1,3 @@
-import { Linkedin, Instagram } from "lucide-react";
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 
@@ -14,10 +13,6 @@ const btnPrimary =
 const btnSecondary =
   "inline-flex items-center justify-center border border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] bg-transparent px-7 py-3 text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-300 ease-in-out active:scale-[0.97] cursor-pointer";
 
-const socialLinks = [
-  { href: "https://www.linkedin.com/in/rickyhlmn/", icon: <Linkedin size={18} />, label: "LinkedIn" },
-  { href: "https://www.instagram.com/rickyhlmn/",   icon: <Instagram size={18} />, label: "Instagram" },
-];
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
@@ -80,11 +75,11 @@ export default function Home() {
                 className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full md:w-[240px]"
                 style={{ padding: "clamp(1rem, 2.5vw, 1.5rem)" }}
               >
-                {/* Mobile: flex row. Desktop: block (vertical). */}
-                <div className="flex md:block items-center gap-5 md:gap-0">
+                {/* Vertical centered layout */}
+                <div className="flex flex-col items-center text-center gap-0">
 
                   {/* Profile photo */}
-                  <div className="w-[72px] h-[72px] md:w-[84px] md:h-[84px] rounded-full overflow-hidden ring-[2px] ring-[#E0E0E0] dark:ring-[#2A2A2A] bg-[#C8C8C8] shrink-0 md:mb-4">
+                  <div className="w-[84px] h-[84px] rounded-full overflow-hidden ring-[2px] ring-[#E0E0E0] dark:ring-[#2A2A2A] bg-[#C8C8C8] shrink-0 mb-4">
                     <img
                       src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                       alt="Ricky Halomoan – Senior Product Manager"
@@ -96,38 +91,24 @@ export default function Home() {
                     />
                   </div>
 
-                  {/* Name + title (inside the flex row on mobile) */}
-                  <div className="md:mb-4 min-w-0">
+                  {/* Name + title */}
+                  <div className="mb-4 min-w-0">
                     <p
-                      className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight mb-1.5 truncate"
+                      className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight mb-1.5"
                       style={{ fontFamily: "var(--font-heading)", fontSize: "0.95rem" }}
                     >
                       Ricky Halomoan
                     </p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-5 h-[2px] bg-[#CCCCCC] dark:bg-[#444444] rounded-full shrink-0" />
-                      <p className="text-[0.58rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#666666]">
-                        Senior Product Manager
-                      </p>
-                    </div>
+                    <p className="text-[0.58rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#666666]">
+                      Senior Product Manager
+                    </p>
                   </div>
 
-                </div>
+                  {/* Domain tags */}
+                  <p className="text-[0.52rem] font-bold tracking-[0.18em] uppercase text-[#AAAAAA] dark:text-[#555555] leading-relaxed">
+                    LOGISTICS&nbsp;•&nbsp;FULFILLMENT<br />ELECTRIC MOBILITY<br />DIGITAL TRANSFORMATION
+                  </p>
 
-                {/* Social icon links — below the row on both layouts */}
-                <div className="flex items-center gap-1 mt-3 md:mt-0">
-                  {socialLinks.map(({ href, icon, label }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      aria-label={label}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-[#AAAAAA] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-all duration-200 hover:scale-110 min-w-[44px] min-h-[44px] flex items-center"
-                    >
-                      {icon}
-                    </a>
-                  ))}
                 </div>
 
               </div>
@@ -147,15 +128,8 @@ export default function Home() {
                 Building digital products that move businesses forward.
               </h1>
 
-              {/* Domain tags / sub-headline */}
-              <div className="reveal-item mb-6" style={stagger(2)}>
-                <p className="text-[0.6rem] font-bold tracking-[0.22em] uppercase text-[#888888] dark:text-[#666666]">
-                  LOGISTICS&nbsp;•&nbsp;FULFILLMENT&nbsp;•&nbsp;ELECTRIC MOBILITY&nbsp;•&nbsp;DIGITAL TRANSFORMATION
-                </p>
-              </div>
-
               {/* Bio paragraph */}
-              <div className="reveal-item mb-6" style={stagger(3)}>
+              <div className="reveal-item mb-6" style={stagger(2)}>
                 <p className="text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[50ch]">
                   My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
                   <br /><br />
@@ -164,7 +138,7 @@ export default function Home() {
               </div>
 
               {/* CTA buttons */}
-              <div className="reveal-item flex flex-wrap gap-3" style={stagger(4)}>
+              <div className="reveal-item flex flex-wrap gap-3" style={stagger(3)}>
                 <a href="/resume">
                   <button className={btnPrimary}>Resume</button>
                 </a>
