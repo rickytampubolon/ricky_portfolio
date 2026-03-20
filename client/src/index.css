@@ -288,6 +288,17 @@ html.theme-transitioning *::after {
     transform: translateY(0);
   }
 
+  /* ── Hero dot-grid background texture ───────────────────── */
+  .hero-dot-grid {
+    background-image: radial-gradient(circle, #1A1A1A 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.04;
+  }
+  .dark .hero-dot-grid {
+    background-image: radial-gradient(circle, #E0E0E0 1px, transparent 1px);
+    opacity: 0.035;
+  }
+
   /* Skip reveal animation when OS reduce-motion is on */
   @media (prefers-reduced-motion: reduce) {
     .will-animate .reveal-item {
