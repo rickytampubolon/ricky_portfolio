@@ -20,12 +20,11 @@ const fullTimeExp = [
     period: "2025 – Present",
     current: true,
     highlights: [
-      "Lead end-to-end product strategy and execution for Xanh SM Indonesia, defining the national roadmap aligned with regional priorities and local market needs.",
-      "Oversee development of customer apps, driver flows, corporate solutions, and internal operational systems across engineering, design, operations, and data teams.",
-      "Act as primary liaison between Indonesia leadership and global product organization to align priorities, timelines, and long-term direction.",
-      "Drive market localization by adapting core product features to local user behavior and regulatory requirements.",
-      "Analyze operational and behavioral data to identify performance gaps and optimize user journeys.",
-      "Spearhead user research and competitive analysis to uncover market opportunities and inform strategic decisions.",
+      "Led Indonesia market entry and growth for Xanh SM's digital ecosystem, building a localized product roadmap that supported operational scale and service quality for drivers and riders nationwide.",
+      "Owned end-to-end product strategy and the national roadmap, balancing aggressive growth targets with local operational realities, user behavior, and priorities from global headquarters.",
+      "Oversaw the full product ecosystem including driver and rider apps, corporate dashboard, and internal operational tools, using behavioral data and performance metrics to drive reliability improvements.",
+      "Drove market localization across pricing logic, payment flows with local providers, loyalty program design, and fleet management customization for Indonesian operational patterns.",
+      "Served as the primary bridge between Indonesia leadership and global product teams, aligning priorities, coordinating pilots, and managing multi-city rollout phases.",
     ],
   },
   {
@@ -37,11 +36,11 @@ const fullTimeExp = [
     period: "2024 – 2025",
     current: false,
     highlights: [
-      "Led development of national-scale performance management tools and data integration systems for 500,000+ schools.",
-      "Defined product vision and roadmap aligned with ministry priorities, managing the full delivery lifecycle.",
-      "Drove product adoption through training sessions and ongoing support to educational institutions nationwide.",
-      "Collaborated with internal teams, regional education offices, and external partners to integrate field feedback.",
-      "Coordinated with engineering, data, and UX teams for stable, compliant development.",
+      "Led the development of a national performance management and data integration platform, improving accountability tracking for millions of educators and students across Indonesia's primary and secondary education system.",
+      "Defined product vision and roadmap in line with ministry priorities and national education standards, incorporating input from regional offices, school administrators, and education partners across the archipelago.",
+      "Managed the full delivery lifecycle from user research through to nationwide release, coordinating across engineering, data, and UX teams to ship a stable, compliant, and user-centered platform.",
+      "Supported adoption through hands-on training and ongoing assistance for thousands of educational institutions, using usage data and feedback to continuously improve the product.",
+      "Built measurement frameworks to evaluate tool effectiveness by region, using behavioral patterns and institutional performance data to guide iterative improvements.",
     ],
   },
   {
@@ -53,10 +52,11 @@ const fullTimeExp = [
     period: "2024",
     current: false,
     highlights: [
-      "Led a team maintaining and enhancing the Fleet Management System across First, Middle, and Last Mile operations.",
-      "Managed system enhancement planning, tracking, and delivery, coordinating cross-team SLA resolution.",
-      "Authored Functional Requirement Specifications and Business Requirement Documents; led UAT sessions.",
-      "Developed new system features that improved operational efficiency across multiple logistics functions.",
+      "Led strategic improvements to the Fleet Management System across First Mile, Middle Mile, and Last Mile operations, increasing throughput and cutting delivery times across millions of shipments.",
+      "Managed a cross-functional team responsible for maintaining and evolving the core FMS, staying closely aligned with daily operational needs through collaboration with Business, Finance, Strategy, BI, and Operations.",
+      "Drove system enhancement planning and delivery to strengthen process sustainability, while handling critical troubleshooting and coordinating cross-team responses within strict SLAs.",
+      "Developed new system features that standardized workflows across multiple logistics functions, using data analysis to surface bottlenecks and drive meaningful solutions.",
+      "Produced comprehensive Functional Specification and Business Requirement documents, and led UAT sessions with operations teams to ensure consistent, high-quality releases.",
     ],
   },
   {
@@ -68,10 +68,11 @@ const fullTimeExp = [
     period: "2022 – 2024",
     current: false,
     highlights: [
-      "Directed the Fulfillment team to reduce turnaround time and improve service levels across the full product lifecycle.",
-      "Led Warehouse Management System enhancements, improving productivity, data accuracy, and process standardization.",
-      "Developed long-term WMS strategy aligned with business objectives and evolving market conditions.",
-      "Oversaw Tokopedia Seller Platform ↔ WMS integration ensuring seamless real-time data flow.",
+      "Drove measurable improvements in Dilayani Tokopedia fulfillment operations through strategic WMS enhancements that reduced turnaround time and raised service levels across multiple warehouses.",
+      "Led the Fulfillment team in improving WMS productivity, data accuracy, and process standardization across warehouse operations handling thousands of daily orders.",
+      "Managed the critical integration between Tokopedia's Seller Platform and WMS, ensuring accurate, real-time data flow for inventory tracking and order management.",
+      "Strengthened Inbound and Integration teams through improved cross-functional collaboration and cleaner operational handovers between warehouse and product development.",
+      "Built a long-term, data-driven WMS improvement strategy, refining product features continuously based on operator feedback and evolving market needs.",
     ],
   },
   {
@@ -83,9 +84,11 @@ const fullTimeExp = [
     period: "2020 – 2022",
     current: false,
     highlights: [
-      "Conducted comprehensive testing across Android, iOS, Web, and mobile web for the Accommodation product team.",
-      "Led weekly Web release processes ensuring smooth deployments and high platform stability.",
-      "Maintained automation frameworks using Selenium, Java, and TestNG; performed API testing with Postman.",
+      "Built comprehensive QA practices for the Accommodation product team, implementing testing strategies across Android, iOS, and Web that raised feature reliability for millions of travelers.",
+      "Worked closely with engineers, PMs, and designers to catch and resolve critical issues early in the development cycle, well before they reached users.",
+      "Participated in all Agile ceremonies including sprint planning, grooming, and retrospectives, and led weekly Web release processes to ensure smooth, low-disruption deployments.",
+      "Maintained long-term product stability through structured test cases that broadened coverage across critical user journeys and supported automation scripts using Selenium and Java.",
+      "Performed extensive backend API testing with Postman to verify data consistency and system reliability across accommodation booking flows and inventory management.",
     ],
   },
   {
@@ -97,9 +100,11 @@ const fullTimeExp = [
     period: "2019 – 2020",
     current: false,
     highlights: [
-      "Contributed to MyBluebird application with extensive functional and integration testing across Android, Web, and API.",
-      "Created detailed test cases in TestRail, significantly improving coverage across release cycles.",
-      "Maintained automation scripts using Postman and Katalon Studio.",
+      "Ran comprehensive functional and integration testing for the MyBluebird application across Android, Web, and API platforms, ensuring a consistent experience for millions of transportation users.",
+      "Validated complex end-to-end user flows across multiple release cycles, monitoring feature behavior and maintaining consistency between driver and passenger applications.",
+      "Worked closely with business analysts, product owners, and engineers to sharpen requirements, refine user flows, and resolve critical issues found during testing.",
+      "Built detailed, structured test cases in TestRail to maximize coverage and maintained automation scripts using Postman and Katalon Studio.",
+      "Participated in all sprint ceremonies and worked alongside development teams to address defects, performance gaps, and regression issues affecting user experience and system reliability.",
     ],
   },
 ];
@@ -114,9 +119,9 @@ const partTimeAndInternships = [
     period: "2022 – 2023",
     type: "Part-time",
     highlights: [
-      "Executed structured manual, regression, and exploratory testing across Android, iOS, web, and mobile web for the eCommerce and Merchant squad.",
-      "Managed test cases and sprint tracking in Xray and JIRA; monitored and communicated bug status.",
-      "Collaborated with developers and product owners to align on acceptance criteria and ensure consistent product quality.",
+      "Ran structured manual, regression, and exploratory testing across Android, iOS, web, and mobile web for the eCommerce and Merchant squad, ensuring stable releases for healthcare product transactions.",
+      "Managed test cases and sprint tracking in Xray and JIRA, monitoring bug status throughout development cycles and keeping stakeholders informed on priorities.",
+      "Partnered with developers and product owners to align on acceptance criteria and maintain consistent product quality across features and releases.",
     ],
   },
   {
@@ -128,9 +133,9 @@ const partTimeAndInternships = [
     period: "2021 – 2022",
     type: "Part-time",
     highlights: [
-      "Executed integration, regression, and API testing across Android and web platforms for the CMS and Integration team.",
-      "Developed structured test cases in TestRail; validated backend functionality with Postman.",
-      "Collaborated with developers and product owners to align on test scope and ensure stable releases.",
+      "Ran integration, regression, and API testing across Android and web for the CMS and Integration team, ensuring reliable performance for logistics management systems.",
+      "Built structured test cases in TestRail and validated backend functionality using Postman to verify data consistency across systems.",
+      "Worked with developers and product owners to align on test scope and deliver stable releases for critical logistics features.",
     ],
   },
   {
@@ -142,8 +147,9 @@ const partTimeAndInternships = [
     period: "2019",
     type: "Internship",
     highlights: [
-      "Supported end-to-end testing and QA activities for the Moka POS Backoffice Inventory team.",
-      "Executed structured test scenarios, validated critical inventory workflows, and collaborated with engineers.",
+      "Supported end-to-end testing and QA activities for the Moka POS Backoffice Inventory team, contributing to smooth operations for merchant inventory management.",
+      "Executed structured test scenarios and validated critical inventory workflows including stock updates, product categorization, and order synchronization.",
+      "Worked with engineers to identify and resolve issues during development, helping improve overall system reliability.",
     ],
   },
   {
@@ -155,8 +161,9 @@ const partTimeAndInternships = [
     period: "2019",
     type: "Internship",
     highlights: [
-      "Automated API testing for payment systems using Postman; built UI automation with Robot Framework and Appium.",
-      "Identified defects through systematic validation of payment flows and worked with developers to resolve issues.",
+      "Automated API testing for payment systems using Postman and built UI automation with Robot Framework and Appium, improving testing coverage for critical payment flows.",
+      "Identified defects through systematic validation of payment transactions, refund processes, and wallet integrations across the application.",
+      "Partnered with developers to resolve issues and strengthen system reliability before production releases.",
     ],
   },
   {
@@ -168,8 +175,9 @@ const partTimeAndInternships = [
     period: "2018",
     type: "Internship",
     highlights: [
-      "Supported BukaDANA integration and KYC initiatives by validating key user journeys and monitoring system behavior.",
-      "Partnered with cross-functional teams to maintain consistent payment and identity verification processes.",
+      "Supported BukaDANA integration and KYC initiatives by validating key user journeys including registration, identity verification, and account setup.",
+      "Worked with cross-functional teams to maintain consistent payment and identity verification workflows across the application.",
+      "Identified and documented defects during testing cycles, collaborating with developers to resolve issues before release and ensure compliance with financial regulations.",
     ],
   },
 ];
