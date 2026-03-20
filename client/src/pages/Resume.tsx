@@ -216,7 +216,7 @@ const education = [
   {
     degree: "Bachelor of Engineering – Informatics",
     school: "Del Institute of Technology (IT Del)",
-    schoolImage: "https://www.google.com/s2/favicons?domain=del.ac.id&sz=256",
+    schoolImage: "https://instagram.fcgk53-1.fna.fbcdn.net/v/t51.2885-19/280229359_535565961429651_6162074952034670710_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby43OTQuYzIifQ&_nc_ht=instagram.fcgk53-1.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2gEcvt2qISB8AnFd0BtzLyGmIof-Y8I9MqJDnnZcK11Ska8_FWQzmfBh98Pa5IJbLQ0&_nc_ohc=U5mZj60ivhYQ7kNvwH2cO-F&_nc_gid=MUTHnFdhQaCjgvRYMaCe9w&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AfxxfILSR7fdC_5gG6Myi35uZHj16ZhyzHGB3VqGs7TxBw&oe=69C364A9&_nc_sid=7a9f4b",
     date: "Sep 2019",
     detail: "Laguboti, North Sumatra, Indonesia",
   },
@@ -335,9 +335,6 @@ export default function Resume() {
         <div className="bg-[#F2F2F2] dark:bg-[#1A1A1A] border-b border-[#E0E0E0] dark:border-[#2C2C2C]">
           <div className="container py-8 md:py-14">
             <div>
-              <p className="text-[0.65rem] font-bold tracking-[0.14em] uppercase text-[#1A1A1A] mb-2">
-                Ricky Halomoan
-              </p>
               <h1
                 className={`${sectionHead} leading-[0.92]`}
                 style={{ fontSize: "clamp(2.2rem, 5vw, 3.6rem)" }}

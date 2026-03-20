@@ -27,6 +27,7 @@ function validate(fields: FormState): FormErrors {
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
     errors.email = "Please enter a valid email address.";
   }
+  if (!fields.subject.trim()) errors.subject = "Subject is required.";
   return errors;
 }
 
@@ -110,7 +111,7 @@ export default function Contact() {
       <div className="flex-1 bg-[#F2F2F2] dark:bg-[#222222] flex flex-col items-center justify-start py-8 md:py-14 px-4">
 
         {/* Heading */}
-        <div className="flex items-center gap-3 mb-7 md:mb-10 w-full max-w-lg">
+        <div className="flex items-center justify-center gap-3 mb-7 md:mb-10 w-full max-w-lg">
           <div className="w-[9px] h-[9px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0" />
           <h1
             className="font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-none"
@@ -200,15 +201,21 @@ export default function Contact() {
 
               {/* Subject */}
               <div>
-                <label className={labelBase}>Subject</label>
+                <label className={labelBase}>
+                  Subject <span className="text-[#888888]">*</span>
+                </label>
                 <input
                   type="text"
                   placeholder="How can I help you?"
                   value={form.subject}
                   onChange={(e) => update("subject", e.target.value)}
-                  className={inputBase}
+                  onBlur={() => blur("subject")}
+                  className={`${inputBase} ${touched.subject && errors.subject ? "border-b-red-400 focus:border-b-red-500" : ""}`}
                   autoComplete="off"
                 />
+                {touched.subject && errors.subject && (
+                  <p className={errorMsg}>{errors.subject}</p>
+                )}
               </div>
 
               {/* Message */}
