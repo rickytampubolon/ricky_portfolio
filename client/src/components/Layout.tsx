@@ -58,7 +58,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </span>
             <span className="hidden md:inline text-[#D0D0D0] dark:text-[#444] leading-none mx-0.5">/</span>
             <span className="hidden md:block text-[0.92rem] tracking-[0.12em] uppercase text-[#888888] dark:text-[#888888] font-medium leading-none">
-              Senior Product Manager
+              Lead Product Manager
             </span>
           </Link>
 
@@ -104,7 +104,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </span>
             </div>
             <span className="text-[0.65rem] tracking-[0.14em] uppercase text-[#888888] font-semibold pl-4">
-              Senior Product Manager
+              Lead Product Manager
             </span>
           </Link>
 

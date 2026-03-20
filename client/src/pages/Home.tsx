@@ -73,7 +73,7 @@ export default function Home() {
                     <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-[2px] ring-[#E0E0E0] dark:ring-[#2A2A2A] bg-[#C8C8C8] shrink-0 mb-4">
                       <img
                         src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-                        alt="Ricky Halomoan – Senior Product Manager"
+                        alt="Ricky Halomoan – Lead Product Manager"
                         className="w-full h-full object-cover"
                         style={{ filter: "grayscale(100%)" }}
                         loading="eager"
@@ -92,7 +92,7 @@ export default function Home() {
                           Ricky Halomoan
                         </p>
                         <p className="text-[0.6rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#666666]">
-                          Senior Product Manager
+                          Lead Product Manager
                         </p>
                       </div>
 
@@ -135,7 +135,7 @@ export default function Home() {
                   My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
                 </p>
                 <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[60ch] mt-2 hidden md:block">
-                  Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
+                  Today, as a Lead Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
                 </p>
               </div>
 
