@@ -18,7 +18,7 @@ const socialLinks = [
   { href: "https://www.instagram.com/rickyhlmn/",   icon: <Instagram size={20} />, label: "Instagram" },
 ];
 
-const SLAB       = "#F2F2F2";
+const SLAB       = "#D8D8D8";
 const SLAB_DARK  = "#1C1C1C";
 
 export default function Home() {
@@ -77,7 +77,7 @@ export default function Home() {
           </h2>
 
           {/* Divider + title */}
-          <div className="w-12 h-[2px] bg-[#1A1A1A] dark:bg-[#E0E0E0] my-3 rounded-full" />
+          <div className="w-10 h-[2px] bg-[#1A1A1A] dark:bg-[#E0E0E0] my-3 rounded-full" />
           <p className="text-[0.62rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#777777] mb-7">
             Senior Product Manager
           </p>
@@ -117,11 +117,8 @@ export default function Home() {
             Hello
           </h1>
           <div className="reveal-item mb-7" style={stagger(2)}>
-            <p className="text-[1.0rem] font-bold text-[#333333] dark:text-[#CCCCCC] leading-[1.5] mb-3">
-              Building digital products that move businesses forward.
-            </p>
-            <p className="text-[0.6rem] font-semibold tracking-[0.14em] uppercase text-[#AAAAAA] dark:text-[#666666]">
-              LOGISTICS &nbsp;·&nbsp; FULFILLMENT &nbsp;·&nbsp; ELECTRIC MOBILITY &nbsp;·&nbsp; DIGITAL TRANSFORMATION
+            <p className="text-[1.0rem] font-bold text-[#333333] dark:text-[#CCCCCC] leading-[1.5]">
+              Here's who I am &amp; what I do
             </p>
           </div>
           <div className="reveal-item space-y-4" style={stagger(3)}>
@@ -149,24 +146,16 @@ export default function Home() {
         {/* Two-column content row */}
         <div className={`relative z-10 w-full flex flex-row items-stretch ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}>
 
-          {/* ── Left: Hello + profile card ──────────────────────── */}
-          <div className="w-1/2 flex flex-col items-center justify-center px-10 lg:px-16 py-10 gap-6">
-
-            {/* Hello heading — left-aligned above card */}
-            <h1
-              className="reveal-item self-start font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-[0.88]"
-              style={{ ...stagger(1), fontSize: "clamp(3rem, 5.5vw, 5rem)" }}
-            >
-              Hello
-            </h1>
+          {/* ── Left: Profile card only (centered in slab) ──────── */}
+          <div className="w-1/2 flex flex-col items-center justify-center px-10 lg:px-16 py-10">
 
             {/* Profile card */}
             <div
-              className="reveal-item w-full max-w-[300px] flex flex-col items-center text-center rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.4)] border border-[#E8E8E8] dark:border-[#2E2E2E] px-10 pt-10 pb-0 overflow-hidden"
+              className="reveal-item w-full max-w-[300px] flex flex-col items-center text-center rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.4)] border border-[#CCCCCC] dark:border-[#2E2E2E] px-10 pt-10 pb-0 overflow-hidden"
               style={{ ...stagger(0), backgroundColor: theme === "dark" ? "#222222" : "#FFFFFF" }}
             >
               {/* Photo */}
-              <div className="w-[148px] h-[148px] rounded-full overflow-hidden ring-[3px] ring-[#F0F0F0] dark:ring-[#2A2A2A] shadow-[0_4px_20px_rgba(0,0,0,0.10)] mb-5 shrink-0 bg-[#C8C8C8]">
+              <div className="w-[148px] h-[148px] rounded-full overflow-hidden ring-[3px] ring-[#E8E8E8] dark:ring-[#2A2A2A] shadow-[0_4px_20px_rgba(0,0,0,0.10)] mb-5 shrink-0 bg-[#C8C8C8]">
                 <img
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                   alt="Ricky Halomoan"
@@ -181,7 +170,7 @@ export default function Home() {
               </h2>
 
               {/* Divider */}
-              <div className="w-10 h-[2px] bg-[#D0D0D0] dark:bg-[#444444] mb-3 rounded-full" />
+              <div className="w-10 h-[2px] bg-[#1A1A1A] dark:bg-[#E0E0E0] mb-3 rounded-full" />
 
               {/* Title */}
               <p className="text-[0.62rem] font-semibold tracking-[0.18em] uppercase text-[#999999] dark:text-[#777777] mb-7">
@@ -202,30 +191,35 @@ export default function Home() {
 
           </div>
 
-          {/* ── Right: tagline + bio + CTAs ───────────────────── */}
+          {/* ── Right: Hello + tagline + CTAs + bio ───────────── */}
           <div className="w-1/2 flex flex-col justify-center px-10 lg:px-16 py-12">
 
-            <div className="reveal-item max-w-[480px]" style={stagger(1)}>
-              <p className="text-[0.95rem] font-bold text-[#333333] dark:text-[#CCCCCC] leading-[1.5] mb-3">
-                Building digital products that move businesses forward.
-              </p>
-              <p className="text-[0.58rem] font-semibold tracking-[0.14em] uppercase text-[#AAAAAA] dark:text-[#666666] leading-[2] mb-8">
-                LOGISTICS · FULFILLMENT · ELECTRIC MOBILITY · DIGITAL TRANSFORMATION
+            {/* Hello heading */}
+            <h1
+              className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-[0.88] mb-5"
+              style={{ ...stagger(0), fontSize: "clamp(3rem, 5.5vw, 5.5rem)" }}
+            >
+              Hello
+            </h1>
+
+            <div className="reveal-item mb-7 max-w-[480px]" style={stagger(1)}>
+              <p className="text-[0.95rem] font-bold text-[#333333] dark:text-[#CCCCCC] leading-[1.5]">
+                Here's who I am &amp; what I do
               </p>
             </div>
 
-            <div className="reveal-item space-y-5 mb-8 max-w-[480px]" style={stagger(2)}>
+            <div className="reveal-item flex flex-wrap gap-3 mb-8" style={stagger(2)}>
+              <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
+              <a href="/contact"><button className={btnSecondary}>LET'S TALK</button></a>
+            </div>
+
+            <div className="reveal-item space-y-5 max-w-[480px]" style={stagger(3)}>
               <p className="text-[0.875rem] leading-[1.85] text-[#555555] dark:text-[#888888]">
                 My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
               </p>
               <p className="text-[0.875rem] leading-[1.85] text-[#555555] dark:text-[#888888]">
                 Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
               </p>
-            </div>
-
-            <div className="reveal-item flex flex-wrap gap-3" style={stagger(3)}>
-              <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
-              <a href="/contact"><button className={btnSecondary}>LET'S TALK</button></a>
             </div>
 
           </div>
