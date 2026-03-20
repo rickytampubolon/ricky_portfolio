@@ -341,7 +341,7 @@ export default function Resume() {
               >
                 Resume
               </h1>
-              <p className="mt-2 text-[0.82rem] sm:text-[0.88rem] text-[#666666] dark:text-[#888888] max-w-[46ch]">Lead Product Manager · 6+ years across logistics, mobility, and education.</p>
+              <p className="mt-2 text-[0.82rem] sm:text-[0.88rem] text-[#666666] dark:text-[#888888] whitespace-nowrap">Lead Product Manager · 6+ years across logistics, mobility, and education.</p>
             </div>
           </div>
         </div>
