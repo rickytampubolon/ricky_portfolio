@@ -39,7 +39,7 @@ const fullTimeExp = [
     title: "Lead Country Product Manager – ID Market",
     company: "GSM – Xanh SM",
     companyImage:
-      "https://logo.clearbit.com/xanhsm.com",
+      "https://www.google.com/s2/favicons?domain=xanhsm.com&sz=256",
     period: "2025 – Present",
     current: true,
     highlights: [
@@ -71,7 +71,7 @@ const fullTimeExp = [
     title: "Senior Associate, System Product Lead – SPX Express",
     company: "Shopee",
     companyImage:
-      "https://logo.clearbit.com/shopee.com",
+      "https://www.google.com/s2/favicons?domain=shopee.co.id&sz=256",
     period: "2024",
     current: false,
     highlights: [
@@ -209,14 +209,14 @@ const education = [
   {
     degree: "Master of Business Administration",
     school: "Bandung Institute of Technology (ITB)",
-    schoolImage: "/itb-logo.svg",
+    schoolImage: "https://www.google.com/s2/favicons?domain=itb.ac.id&sz=256",
     date: "Expected Sep 2026",
     detail: "SBM ITB · Bandung, Indonesia",
   },
   {
     degree: "Bachelor of Engineering – Informatics",
     school: "Del Institute of Technology (IT Del)",
-    schoolImage: "/itdel-logo.svg",
+    schoolImage: "https://www.google.com/s2/favicons?domain=del.ac.id&sz=256",
     date: "Sep 2019",
     detail: "Laguboti, North Sumatra, Indonesia",
   },
