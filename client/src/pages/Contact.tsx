@@ -109,7 +109,7 @@ export default function Contact() {
   return (
     <Layout>
       {/* Background fill */}
-      <div className="flex-1 bg-[#F2F2F2] dark:bg-[#222222] flex flex-col items-center justify-start py-8 md:py-14 px-4">
+      <div className="grow shrink-0 bg-[#F2F2F2] dark:bg-[#222222] flex flex-col items-center justify-start py-8 md:py-14 px-4">
 
         {/* Heading */}
         <div className="flex items-center justify-center gap-3 mb-7 md:mb-10 w-full max-w-lg">
