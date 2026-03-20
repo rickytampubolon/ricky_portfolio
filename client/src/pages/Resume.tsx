@@ -103,7 +103,7 @@ const fullTimeExp = [
     title: "Quality Engineer – Accommodation",
     company: "Traveloka",
     companyImage:
-      "https://logo.clearbit.com/traveloka.com",
+      "/traveloka-logo.png",
     period: "2020 – 2022",
     current: false,
     highlights: [
