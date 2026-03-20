@@ -219,17 +219,17 @@ function ExpRow({ item, isOpen, onToggle }: {
     <div className={`${cardBase} overflow-hidden`}>
       <button
         onClick={onToggle}
-        className="w-full flex items-start gap-4 p-5 text-left hover:bg-[#FAFAFA] dark:hover:bg-[#242424] transition-colors"
+        className="w-full flex items-start gap-3 p-4 sm:p-5 text-left hover:bg-[#FAFAFA] dark:hover:bg-[#242424] transition-colors"
       >
         {/* Logo */}
-        <div className="w-9 h-9 rounded-xl bg-white dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-          <img src={item.companyImage} alt={item.company} className="w-6 h-6 object-contain" loading="lazy" style={{ filter: "grayscale(100%)" }} />
+        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+          <img src={item.companyImage} alt={item.company} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" loading="lazy" style={{ filter: "grayscale(100%)" }} />
         </div>
 
         {/* Title + company */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2 flex-wrap mb-0.5">
-            <span className="font-bold text-[0.93rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug">
+          <div className="flex items-start gap-2 flex-wrap mb-0.5">
+            <span className="font-bold text-[0.85rem] sm:text-[0.93rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug">
               {item.title}
             </span>
             {isCurrent && (
@@ -267,13 +267,13 @@ function ExpRow({ item, isOpen, onToggle }: {
           transition: "max-height 0.35s cubic-bezier(0.4,0,0.2,1)",
         }}
       >
-        <div className="px-5 pb-5 pt-1 border-t border-[#F2F2F2] dark:border-[#2C2C2C] bg-[#FAFAFA]/70 dark:bg-[#181818]/60">
-          <p className="text-[0.66rem] font-bold uppercase tracking-[0.1em] text-[#BBBBBB] dark:text-[#555] mb-2.5 mt-2 sm:hidden">
+        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1 border-t border-[#F2F2F2] dark:border-[#2C2C2C] bg-[#FAFAFA]/70 dark:bg-[#181818]/60">
+          <p className="text-[0.63rem] font-bold uppercase tracking-[0.1em] text-[#BBBBBB] dark:text-[#555] mb-2 mt-2 sm:hidden">
             {item.period}
           </p>
           <ul className="space-y-1.5">
             {item.highlights.map((h, i) => (
-              <li key={i} className="flex gap-2 text-[0.84rem] text-[#555555] dark:text-[#888888] leading-relaxed">
+              <li key={i} className="flex gap-2 text-[0.8rem] sm:text-[0.84rem] text-[#555555] dark:text-[#888888] leading-relaxed">
                 <span className="text-[#AAAAAA] dark:text-[#555555] mt-0.5 shrink-0 font-bold">·</span>
                 <span>{h}</span>
               </li>
@@ -292,11 +292,11 @@ export default function Resume() {
 
   return (
     <Layout>
-      <div className="min-h-[calc(100vh-3.5rem)]">
+      <div>
 
         {/* ── Banner ─────────────────────────────────────────── */}
         <div className="bg-[#F2F2F2] dark:bg-[#1A1A1A] border-b border-[#E0E0E0] dark:border-[#2C2C2C]">
-          <div className="container py-12 md:py-16">
+          <div className="container py-8 md:py-14">
             <div>
               <p className="text-[0.65rem] font-bold tracking-[0.14em] uppercase text-[#1A1A1A] mb-2">
                 Ricky Halomoan
@@ -307,22 +307,22 @@ export default function Resume() {
               >
                 Resume
               </h1>
-              <p className="mt-3 text-[0.88rem] text-[#666666] dark:text-[#888888] max-w-[46ch]">
+              <p className="mt-2 text-[0.82rem] sm:text-[0.88rem] text-[#666666] dark:text-[#888888] max-w-[46ch]">
                 Senior Product Manager · 6+ years across logistics, mobility, and education.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="container py-14 md:py-20">
+        <div className="container py-8 md:py-16">
 
           {/* ── Experience ─────────────────────────────────────── */}
-          <section className="mb-14 md:mb-18">
+          <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
               <div className={accentDot} />
-              <h2 className={`${sectionHead} text-2xl md:text-[1.7rem]`}>Experience</h2>
+              <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Experience</h2>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {fullTimeExp.map((exp) => (
                 <ExpRow
                   key={exp.id}
@@ -335,12 +335,12 @@ export default function Resume() {
           </section>
 
           {/* ── Internships & Part-time ─────────────────────────── */}
-          <section className="mb-14 md:mb-18">
+          <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
               <div className={accentDot} />
-              <h2 className={`${sectionHead} text-2xl md:text-[1.7rem]`}>Internships &amp; Part-time</h2>
+              <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Internships &amp; Part-time</h2>
             </div>
-            <div className="space-y-3">
+            <div className="space-y-2.5">
               {partTimeAndInternships.map((item) => (
                 <ExpRow
                   key={item.id}
@@ -353,10 +353,10 @@ export default function Resume() {
           </section>
 
           {/* ── Education ──────────────────────────────────────── */}
-          <section className="mb-14 md:mb-18">
+          <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
               <div className={accentDot} />
-              <h2 className={`${sectionHead} text-2xl md:text-[1.7rem]`}>Education</h2>
+              <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Education</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {education.map((edu) => (
@@ -383,7 +383,7 @@ export default function Resume() {
           <section>
             <div className={sectionAccent}>
               <div className={accentDot} />
-              <h2 className={`${sectionHead} text-2xl md:text-[1.7rem]`}>Skills</h2>
+              <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Skills</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {Object.entries(skills).map(([category, items]) => (

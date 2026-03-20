@@ -40,7 +40,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="h-screen overflow-hidden bg-[#FAFAFA] dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
+    <div className="h-screen bg-[#FAFAFA] dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
 
       {/* ── Sticky Header ─────────────────────────────────────── */}
       <header
@@ -217,19 +217,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* Content */}
-      <main className="flex-1 flex flex-col">{children}</main>
+      <main className="flex-1 flex flex-col overflow-y-auto">{children}</main>
 
       {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="bg-[#FAFAFA] dark:bg-[#1A1A1A] border-t border-[#E8E8E8] dark:border-[#2C2C2C]">
-        <div className="flex items-center justify-between px-6 md:px-12 py-5">
+      <footer className="shrink-0 bg-[#FAFAFA] dark:bg-[#1A1A1A] border-t border-[#E8E8E8] dark:border-[#2C2C2C]">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 py-4 gap-3 sm:gap-0">
 
-          {/* Left: copyright */}
+          {/* Copyright */}
           <span className="text-[0.72rem] text-[#999999] dark:text-[#555555]">
             © 2026 Ricky Halomoan. All rights reserved.
           </span>
 
-          {/* Right: Write + Follow */}
-          <div className="flex items-start gap-10 md:gap-14">
+          {/* Write + Follow */}
+          <div className="flex items-start gap-8 md:gap-14">
 
             {/* Write */}
             <div className="flex flex-col gap-1.5">
@@ -238,7 +238,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </span>
               <a
                 href="mailto:rickytampubolon97@gmail.com"
-                className="text-[0.72rem] text-[#999999] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200"
+                className="text-[0.72rem] text-[#999999] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200 break-all"
               >
                 rickytampubolon97@gmail.com
               </a>
