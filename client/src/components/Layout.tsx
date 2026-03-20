@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram, Sun, Moon } from "lucide-react";
+import { Linkedin, Instagram, Sun, Moon, X, Menu } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect } from "react";
 
@@ -11,8 +11,8 @@ const navLinks = [
 ];
 
 const footerSocial = [
-  { href: "https://www.linkedin.com/in/rickyhlmn/",    icon: <Linkedin  size={18} />, label: "LinkedIn"  },
-  { href: "https://www.instagram.com/rickyhlmn/",       icon: <Instagram size={18} />, label: "Instagram" },
+  { href: "https://www.linkedin.com/in/rickyhlmn/",  icon: <Linkedin  size={16} />, label: "LinkedIn"  },
+  { href: "https://www.instagram.com/rickyhlmn/",    icon: <Instagram size={16} />, label: "Instagram" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -27,22 +27,29 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  /* Close nav on route change */
   useEffect(() => { setMobileOpen(false); }, [location]);
+
+  /* Lock body scroll when mobile nav is open */
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
 
   const isActive = (href: string) =>
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="min-h-screen bg-white dark:bg-[#121212] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
+    <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
 
       {/* ── Sticky Header ─────────────────────────────────────── */}
       <header
-        className={`sticky top-0 left-0 right-0 z-50 bg-white/96 dark:bg-[#121212]/96 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : ""}`}
+        className={`sticky top-0 left-0 right-0 z-50 bg-[#FAFAFA]/96 dark:bg-[#1A1A1A]/96 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : ""}`}
       >
         {/* ── Desktop header row ── */}
         <div className="hidden sm:flex h-14 items-center justify-between px-5 md:px-12">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-[9px] h-[9px] bg-[#1A1A1A] rounded-[2px] shrink-0" />
+            <div className="w-[9px] h-[9px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0" />
             <span className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-none" style={{ fontSize: "1.4rem" }}>
               Ricky Halomoan
             </span>
@@ -52,7 +59,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </span>
           </Link>
 
-          <div className="flex items-center gap-6 md:gap-8">
+          <nav className="flex items-center gap-6 md:gap-8" role="navigation" aria-label="Primary navigation">
             {navLinks.map(({ label, href, soon }) =>
               soon ? (
                 <span key={label} className="flex items-center gap-1.5 text-[0.72rem] font-bold tracking-[0.09em] text-[#C0C0C0] dark:text-[#444444] cursor-default select-none">
@@ -65,25 +72,30 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Link key={href} href={href!}
                   className={`text-[0.72rem] font-bold tracking-[0.09em] transition-colors duration-200 ${
                     isActive(href!) ? "text-[#1A1A1A] dark:text-[#E0E0E0]" : "text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0]"
-                  }`}>
+                  }`}
+                  aria-current={isActive(href!) ? "page" : undefined}
+                >
                   {label}
                 </Link>
               )
             )}
             {toggleTheme && (
-              <button onClick={toggleTheme} aria-label="Toggle dark mode"
-                className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200">
+              <button
+                onClick={toggleTheme}
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              >
                 {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
               </button>
             )}
-          </div>
+          </nav>
         </div>
 
-        {/* ── Mobile header: 2-line ── */}
+        {/* ── Mobile header row ── */}
         <div className="flex sm:hidden items-start justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5">
             <div className="flex items-center gap-2">
-              <div className="w-[10px] h-[10px] bg-[#1A1A1A] rounded-[2px] shrink-0 mt-0.5" />
+              <div className="w-[10px] h-[10px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0 mt-0.5" />
               <span className="font-black text-[1.45rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight tracking-[-0.02em]">
                 Ricky Halomoan
               </span>
@@ -93,115 +105,149 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </span>
           </Link>
 
-          <div className="flex items-center gap-4 mt-1">
+          <div className="flex items-center gap-1 mt-1">
             {toggleTheme && (
-              <button onClick={toggleTheme} aria-label="Toggle dark mode"
-                className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200">
+              <button
+                onClick={toggleTheme}
+                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              >
                 {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
               </button>
             )}
-            <button onClick={() => setMobileOpen((o) => !o)} aria-label="Toggle menu"
-              className="flex flex-col gap-[5px] w-6 shrink-0 py-1">
-              <span className="block h-[2px] bg-[#1A1A1A] rounded-full w-full" />
-              <span className="block h-[2px] bg-[#1A1A1A] rounded-full w-3/4" />
+            {/* Hamburger menu button with proper ARIA */}
+            <button
+              onClick={() => setMobileOpen((o) => !o)}
+              aria-label="Open navigation menu"
+              aria-expanded={mobileOpen}
+              aria-controls="mobile-nav"
+              className="text-[#1A1A1A] dark:text-[#E0E0E0] min-w-[44px] min-h-[44px] flex items-center justify-center"
+            >
+              <Menu size={22} />
             </button>
           </div>
         </div>
-
-        {/* Mobile dropdown nav */}
-        <div
-          style={{ maxHeight: mobileOpen ? "220px" : "0", overflow: "hidden", transition: "max-height 0.3s ease" }}
-          className="sm:hidden border-t border-[#F0F0F0] dark:border-[#2C2C2C] bg-white dark:bg-[#121212]"
-        >
-          <nav className="flex flex-col py-1 px-5">
-            {navLinks.map(({ label, href, soon }) =>
-              soon ? (
-                <span key={label} className="py-3 flex items-center gap-2 text-[0.82rem] font-bold tracking-[0.08em] border-b border-[#F4F4F4] dark:border-[#2C2C2C] text-[#C0C0C0] dark:text-[#444444] cursor-default select-none">
-                  {label}
-                  <span className="px-1.5 py-0.5 rounded-full text-[0.5rem] font-bold uppercase tracking-wide bg-[#F0F0F0] dark:bg-[#2A2A2A] text-[#AAAAAA] dark:text-[#555555]">
-                    Soon
-                  </span>
-                </span>
-              ) : (
-                <Link key={href} href={href!}
-                  className={`py-3 text-[0.82rem] font-bold tracking-[0.08em] border-b border-[#F4F4F4] dark:border-[#2C2C2C] last:border-0 transition-colors ${
-                    isActive(href!) ? "text-[#1A1A1A] dark:text-[#E0E0E0]" : "text-[#888888] dark:text-[#666666]"
-                  }`}>
-                  {label}
-                </Link>
-              )
-            )}
-          </nav>
-        </div>
       </header>
 
-      {/* Content — flex-col so hero can use flex-1 inside */}
+      {/* ── Full-screen mobile navigation overlay ─────────────── */}
+      <div
+        id="mobile-nav"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Navigation menu"
+        className={`sm:hidden fixed inset-0 z-[100] bg-[#FAFAFA] dark:bg-[#1A1A1A] flex flex-col transition-opacity duration-300 ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+        style={{
+          transform: mobileOpen ? "translateY(0)" : "translateY(-8px)",
+          transition: "opacity 0.3s ease, transform 0.3s ease",
+        }}
+      >
+        {/* Overlay header row */}
+        <div className="flex items-center justify-between px-5 pt-3 pb-2.5">
+          <Link href="/" className="flex flex-col gap-0.5" onClick={() => setMobileOpen(false)}>
+            <div className="flex items-center gap-2">
+              <div className="w-[10px] h-[10px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0 mt-0.5" />
+              <span className="font-black text-[1.45rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight tracking-[-0.02em]">
+                Ricky Halomoan
+              </span>
+            </div>
+          </Link>
+          {/* Close button */}
+          <button
+            onClick={() => setMobileOpen(false)}
+            aria-label="Close navigation menu"
+            className="text-[#1A1A1A] dark:text-[#E0E0E0] min-w-[44px] min-h-[44px] flex items-center justify-center"
+          >
+            <X size={22} />
+          </button>
+        </div>
+
+        {/* Nav links — large text */}
+        <nav
+          role="navigation"
+          aria-label="Mobile navigation"
+          className="flex flex-col px-5 pt-10 pb-8 flex-1"
+        >
+          {navLinks.map(({ label, href, soon }) =>
+            soon ? (
+              <span
+                key={label}
+                className="py-5 flex items-center gap-3 font-black tracking-[0.08em] text-[#C0C0C0] dark:text-[#444444] cursor-default select-none border-b border-[#E8E8E8] dark:border-[#2C2C2C]"
+                style={{ fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
+              >
+                {label}
+                <span className="px-2 py-0.5 rounded-full text-[0.55rem] font-bold uppercase tracking-wide bg-[#F0F0F0] dark:bg-[#2A2A2A] text-[#AAAAAA] dark:text-[#555555]">
+                  Soon
+                </span>
+              </span>
+            ) : (
+              <Link
+                key={href}
+                href={href!}
+                aria-current={isActive(href!) ? "page" : undefined}
+                className={`py-5 font-black tracking-[0.08em] border-b border-[#E8E8E8] dark:border-[#2C2C2C] last:border-0 transition-colors duration-200 ${
+                  isActive(href!)
+                    ? "text-[#1A1A1A] dark:text-[#E0E0E0]"
+                    : "text-[#888888] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0]"
+                }`}
+                style={{ fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
+              >
+                {label}
+              </Link>
+            )
+          )}
+        </nav>
+
+        {/* Social links at the bottom of overlay */}
+        <div className="px-5 pb-10 flex items-center gap-5">
+          {footerSocial.map(({ href, icon, label }) => (
+            <a
+              key={label}
+              href={href}
+              aria-label={label}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center"
+            >
+              {icon}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Content */}
       <main className="flex-1 flex flex-col">{children}</main>
 
-      {/* ── Footer ────────────────────────────────────────────── */}
-      <footer className="bg-white dark:bg-[#121212]">
-
-        {/* ── Mobile footer layout ── */}
-        <div className="sm:hidden px-6 pt-8 pb-6">
-          {/* Write */}
-          <div className="mb-6">
-            <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-1.5">Write</p>
-            <a href="mailto:rickytampubolon97@gmail.com" className="text-[0.8rem] text-[#666666] dark:text-[#888888] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors break-all">
-              rickytampubolon97@gmail.com
-            </a>
-          </div>
-
-          {/* Follow */}
-          <div className="mb-7">
-            <p className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-3">Follow</p>
-            <div className="flex items-center gap-5">
-              {footerSocial.map(({ href, icon, label }) => (
-                <a key={label} href={href} aria-label={label}
-                  {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                  className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:text-[#1A1A1A] dark:hover:text-[#AAAAAA] transition-colors duration-200">
-                  {icon}
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <p className="text-[0.72rem] text-[#999]">
-            © 2026 Ricky Halomoan. All rights reserved.
-          </p>
-        </div>
-
-        {/* ── Desktop footer layout ── */}
-        <div className="hidden sm:flex px-5 md:px-12 py-5 items-center justify-between gap-6">
-          <p className="text-[0.72rem] text-[#999] shrink-0">
-            © 2026 Ricky Halomoan. All rights reserved.
-          </p>
-
-          <div className="flex items-start gap-10">
-            {/* Write */}
-            <div>
-              <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-0.5 tracking-[0.06em]">Write</p>
-              <a href="mailto:rickytampubolon97@gmail.com" className="text-[0.72rem] text-[#999] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200">
-                rickytampubolon97@gmail.com
+      {/* ── Footer — single centered line ─────────────────────── */}
+      <footer className="bg-[#FAFAFA] dark:bg-[#1A1A1A] border-t border-[#E8E8E8] dark:border-[#2C2C2C]">
+        <div className="flex flex-wrap items-center justify-center gap-4 px-6 py-5 text-[0.72rem] text-[#999999] dark:text-[#555555]">
+          <span>© 2026 Ricky Halomoan. All rights reserved.</span>
+          <span aria-hidden="true">·</span>
+          <a
+            href="mailto:rickytampubolon97@gmail.com"
+            className="hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200"
+          >
+            rickytampubolon97@gmail.com
+          </a>
+          <span aria-hidden="true">·</span>
+          <div className="flex items-center gap-3">
+            {footerSocial.map(({ href, icon, label }) => (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#AAAAAA] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-all duration-200 hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
+              >
+                {icon}
               </a>
-            </div>
-            {/* Follow */}
-            <div>
-              <p className="text-[0.7rem] font-bold text-[#555] dark:text-[#AAA] mb-1.5 tracking-[0.06em]">Follow</p>
-              <div className="flex items-center gap-3">
-                {footerSocial.map(({ href, icon, label }) => (
-                  <a key={label} href={href} aria-label={label}
-                    {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="text-[#888] dark:text-[#555] hover:text-[#1A1A1A] dark:hover:text-[#AAAAAA] transition-colors duration-200">
-                    {icon}
-                  </a>
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
-
       </footer>
+
     </div>
   );
 }

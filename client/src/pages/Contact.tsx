@@ -99,7 +99,7 @@ export default function Contact() {
 
   /* Shared field styles */
   const inputBase =
-    "w-full bg-transparent border-b-2 border-[#E0E0E0] dark:border-[#333] py-2.5 text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] placeholder:text-[#AAAAAA] dark:placeholder:text-[#555] outline-none transition-colors duration-200 focus:border-[#0D7377] dark:focus:border-[#14A8AD]";
+    "w-full bg-transparent border-b-2 border-[#E0E0E0] dark:border-[#333] py-2.5 text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] placeholder:text-[#AAAAAA] dark:placeholder:text-[#555] outline-none transition-colors duration-200 focus:border-[#1A1A1A] dark:focus:border-[#E0E0E0]";
   const labelBase =
     "block text-[0.72rem] font-bold tracking-[0.08em] uppercase text-[#666666] dark:text-[#888888] mb-1.5";
   const errorMsg = "mt-1 text-[0.72rem] text-red-500 font-medium";
@@ -107,11 +107,11 @@ export default function Contact() {
   return (
     <Layout>
       {/* Full-page beige background */}
-      <div className="min-h-[calc(100vh-3.5rem)] bg-[#F2F2F2] dark:bg-[#1A1A1A] flex flex-col items-center justify-start py-16 px-4">
+      <div className="min-h-[calc(100vh-3.5rem)] bg-[#F2F2F2] dark:bg-[#222222] flex flex-col items-center justify-start py-16 px-4">
 
-        {/* Heading with blue square icon */}
+        {/* Heading with monochromatic square icon */}
         <div className="flex items-center gap-3 mb-10">
-          <div className="w-[10px] h-[10px] bg-[#0D7377] rounded-[2px] shrink-0" />
+          <div className="w-[10px] h-[10px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0" />
           <h1
             className="font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-none"
             style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}
@@ -126,7 +126,7 @@ export default function Contact() {
           {/* Success state */}
           {success ? (
             <div className="flex flex-col items-center text-center py-8">
-              <CheckCircle size={48} className="text-[#0D7377] mb-4" strokeWidth={1.5} />
+              <CheckCircle size={48} className="text-[#1A1A1A] dark:text-[#E0E0E0] mb-4" strokeWidth={1.5} />
               <h2 className="text-xl font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-2">Message sent!</h2>
               <p className="text-[0.9rem] text-[#666666] dark:text-[#888888] mb-6">
                 Thanks for reaching out. I'll get back to you as soon as possible.
@@ -145,7 +145,7 @@ export default function Contact() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className={labelBase}>
-                    First Name <span className="text-[#0D7377]">*</span>
+                    First Name <span className="text-[#888888]">*</span>
                   </label>
                   <input
                     type="text"
@@ -162,7 +162,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <label className={labelBase}>
-                    Last Name <span className="text-[#0D7377]">*</span>
+                    Last Name <span className="text-[#888888]">*</span>
                   </label>
                   <input
                     type="text"
@@ -182,7 +182,7 @@ export default function Contact() {
               {/* Email */}
               <div>
                 <label className={labelBase}>
-                  Email <span className="text-[#0D7377]">*</span>
+                  Email <span className="text-[#888888]">*</span>
                 </label>
                 <input
                   type="email"
@@ -233,7 +233,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center gap-2 bg-[#0D7377] text-white px-10 py-3 rounded-full text-sm font-semibold tracking-[0.06em] hover:bg-[#0A5C60] transition-all duration-200 shadow-[0_4px_14px_rgba(13,115,119,0.3)] hover:-translate-y-px active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+                  className="inline-flex items-center justify-center gap-2 bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] px-10 py-3 rounded-full text-sm font-semibold tracking-[0.06em] hover:bg-[#000000] dark:hover:bg-[#FFFFFF] transition-all duration-200 shadow-[0_4px_14px_rgba(0,0,0,0.18)] hover:-translate-y-px active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
                 >
                   {loading ? (
                     <>
@@ -256,7 +256,7 @@ export default function Contact() {
         {/* Sub-copy */}
         <p className="mt-6 text-[0.78rem] text-[#999999]">
           Or email me directly at{" "}
-          <a href="mailto:rickytampubolon97@gmail.com" className="text-[#0D7377] hover:underline">
+          <a href="mailto:rickytampubolon97@gmail.com" className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:underline">
             rickytampubolon97@gmail.com
           </a>
         </p>
