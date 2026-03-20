@@ -123,7 +123,7 @@ export default function Home() {
 
               {/* Primary headline */}
               <h1
-                className="reveal-item text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.75rem] md:text-[37px]"
+                className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.75rem] md:text-[37px]"
                 style={stagger(2)}
               >
                 Building digital products that move businesses forward.

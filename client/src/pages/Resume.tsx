@@ -336,7 +336,7 @@ export default function Resume() {
           <div className="container py-8 md:py-14">
             <div>
               <h1
-                className={`${sectionHead} leading-[0.92]`}
+                className="font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0]"
                 style={{ fontSize: "clamp(2.2rem, 5vw, 3.6rem)" }}
               >
                 Resume
