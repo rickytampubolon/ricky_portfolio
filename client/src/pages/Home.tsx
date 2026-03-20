@@ -43,7 +43,7 @@ export default function Home() {
           aria-label="Hero"
         >
           {/* Inner wrapper: stack on mobile, two-col flex on desktop */}
-          <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-center gap-6 md:gap-16">
+          <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch gap-6 md:gap-16">
 
             {/* ── Profile Card ───────────────────────────────────── */}
             <div className="reveal-item flex-shrink-0 w-full md:w-[280px] flex flex-col" style={stagger(0)}>
@@ -102,7 +102,7 @@ export default function Home() {
 
               {/* Primary headline */}
               <h1
-                className="reveal-item text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.15rem] sm:text-[1.35rem] md:text-[30px]"
+                className="reveal-item text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.15rem] sm:text-[1.35rem] md:text-[37px]"
                 style={stagger(1)}
               >
                 Building digital products that move businesses forward.

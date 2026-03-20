@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ArrowUp } from "lucide-react";
 
 /* ── Shared tokens ───────────────────────────────────────────── */
 const sectionHead = "font-black tracking-[-0.025em] text-[#1A1A1A] dark:text-[#E0E0E0]";
@@ -290,6 +290,20 @@ export default function Resume() {
   const [openId, setOpenId] = useState<string | number | null>(null);
   const toggle = (id: string | number) => setOpenId((p) => (p === id ? null : id));
 
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const main = document.querySelector("main");
+    if (!main) return;
+    const onScroll = () => setShowScrollTop(main.scrollTop > 300);
+    main.addEventListener("scroll", onScroll, { passive: true });
+    return () => main.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    document.querySelector("main")?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <Layout>
       <div>
@@ -403,6 +417,17 @@ export default function Resume() {
 
         </div>
       </div>
+
+      {/* ── Scroll-to-top button ───────────────────────────────── */}
+      <button
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+        className={`fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] shadow-[0_4px_16px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-110 active:scale-95 ${
+          showScrollTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-3"
+        }`}
+      >
+        <ArrowUp size={16} />
+      </button>
     </Layout>
   );
 }
