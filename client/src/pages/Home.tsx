@@ -154,8 +154,17 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Bio paragraph */}
+              <div className="reveal-item mb-6" style={stagger(3)}>
+                <p className="text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[50ch]">
+                  My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
+                  <br /><br />
+                  Today, as a Senior Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
+                </p>
+              </div>
+
               {/* CTA buttons */}
-              <div className="reveal-item flex flex-wrap gap-3" style={stagger(3)}>
+              <div className="reveal-item flex flex-wrap gap-3" style={stagger(4)}>
                 <a href="/resume">
                   <button className={btnPrimary}>Resume</button>
                 </a>
