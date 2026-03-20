@@ -150,19 +150,23 @@ export default function Home() {
         <div className={`relative z-10 w-full flex flex-row items-stretch ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}>
 
           {/* ── Left: Hello + profile card ──────────────────────── */}
-          <div className="w-1/2 flex flex-col items-center justify-center px-10 lg:px-16 py-12">
-            <div className="reveal-item flex flex-col items-center text-center w-full max-w-[320px]" style={stagger(0)}>
+          <div className="w-1/2 flex flex-col items-center justify-center px-10 lg:px-16 py-10 gap-6">
 
-              {/* Hello heading */}
-              <h1
-                className="font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-[0.88] mb-8 self-start"
-                style={{ fontSize: "clamp(3rem, 5.5vw, 5rem)" }}
-              >
-                Hello
-              </h1>
+            {/* Hello heading — left-aligned above card */}
+            <h1
+              className="reveal-item self-start font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-[0.88]"
+              style={{ ...stagger(1), fontSize: "clamp(3rem, 5.5vw, 5rem)" }}
+            >
+              Hello
+            </h1>
 
-              {/* Profile photo */}
-              <div className="w-[148px] h-[148px] rounded-full overflow-hidden ring-[4px] ring-white dark:ring-[#2A2A2A] shadow-[0_8px_28px_rgba(0,0,0,0.12)] mb-5 shrink-0 bg-[#C8C8C8]">
+            {/* Profile card */}
+            <div
+              className="reveal-item w-full max-w-[300px] flex flex-col items-center text-center rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.4)] border border-[#E8E8E8] dark:border-[#2E2E2E] px-10 pt-10 pb-0 overflow-hidden"
+              style={{ ...stagger(0), backgroundColor: theme === "dark" ? "#222222" : "#FFFFFF" }}
+            >
+              {/* Photo */}
+              <div className="w-[148px] h-[148px] rounded-full overflow-hidden ring-[3px] ring-[#F0F0F0] dark:ring-[#2A2A2A] shadow-[0_4px_20px_rgba(0,0,0,0.10)] mb-5 shrink-0 bg-[#C8C8C8]">
                 <img
                   src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                   alt="Ricky Halomoan"
@@ -173,19 +177,19 @@ export default function Home() {
 
               {/* Name */}
               <h2 className="text-[1.45rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-[1.2] mb-3 tracking-[-0.01em]">
-                Ricky Halomoan
+                Ricky<br />Halomoan
               </h2>
 
-              {/* Thin divider */}
-              <div className="w-10 h-[2px] bg-[#C0C0C0] dark:bg-[#444444] mb-3 rounded-full" />
+              {/* Divider */}
+              <div className="w-10 h-[2px] bg-[#D0D0D0] dark:bg-[#444444] mb-3 rounded-full" />
 
               {/* Title */}
-              <p className="text-[0.62rem] font-semibold tracking-[0.18em] uppercase text-[#999999] dark:text-[#777777] mb-6">
+              <p className="text-[0.62rem] font-semibold tracking-[0.18em] uppercase text-[#999999] dark:text-[#777777] mb-7">
                 Senior Product Manager
               </p>
 
-              {/* Social icons */}
-              <div className="flex items-center justify-center gap-7">
+              {/* Social icons bar */}
+              <div className="self-stretch -mx-10 bg-[#F7F7F7] dark:bg-[#1A1A1A] border-t border-[#EEEEEE] dark:border-[#2C2C2C] py-4 flex items-center justify-center gap-7">
                 {socialLinks.map(({ href, icon, label }) => (
                   <a key={label} href={href} aria-label={label}
                     {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
@@ -195,6 +199,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
+
           </div>
 
           {/* ── Right: tagline + bio + CTAs ───────────────────── */}
