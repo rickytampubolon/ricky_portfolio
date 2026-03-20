@@ -1,7 +1,7 @@
 # Portfolio Design Brainstorm - Ricky Halomoan
 
 ## Context
-Ricky is a Senior Product Manager with deep experience in electric mobility, logistics, fulfillment, and education technology. The portfolio needs to convey professionalism, strategic thinking, and execution excellence. The audience includes potential employers, collaborators, and stakeholders in tech and product leadership.
+Ricky is a Lead Product Manager with deep experience in electric mobility, logistics, fulfillment, and education technology. The portfolio needs to convey professionalism, strategic thinking, and execution excellence. The audience includes potential employers, collaborators, and stakeholders in tech and product leadership.
 
 ---
 
