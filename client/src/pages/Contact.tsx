@@ -106,22 +106,22 @@ export default function Contact() {
 
   return (
     <Layout>
-      {/* Full-page beige background */}
-      <div className="min-h-[calc(100vh-3.5rem)] bg-[#F2F2F2] dark:bg-[#222222] flex flex-col items-center justify-start py-16 px-4">
+      {/* Background fill */}
+      <div className="flex-1 bg-[#F2F2F2] dark:bg-[#222222] flex flex-col items-center justify-start py-8 md:py-14 px-4">
 
-        {/* Heading with monochromatic square icon */}
-        <div className="flex items-center gap-3 mb-10">
-          <div className="w-[10px] h-[10px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0" />
+        {/* Heading */}
+        <div className="flex items-center gap-3 mb-7 md:mb-10 w-full max-w-lg">
+          <div className="w-[9px] h-[9px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0" />
           <h1
             className="font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-none"
-            style={{ fontSize: "clamp(2rem, 5vw, 3rem)" }}
+            style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
           >
             Let's talk.
           </h1>
         </div>
 
         {/* ── White form card ──────────────────────────────────── */}
-        <div className="w-full max-w-lg bg-white dark:bg-[#1E1E1E] rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.10)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-[#E8E8E8] dark:border-[#2C2C2C] p-8 md:p-10">
+        <div className="w-full max-w-lg bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-[#E8E8E8] dark:border-[#2C2C2C] p-6 md:p-10">
 
           {/* Success state */}
           {success ? (
@@ -139,7 +139,7 @@ export default function Contact() {
               </button>
             </div>
           ) : (
-            <form onSubmit={onSubmit} noValidate className="space-y-6">
+            <form onSubmit={onSubmit} noValidate className="space-y-5">
 
               {/* First Name + Last Name */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -254,7 +254,7 @@ export default function Contact() {
         </div>
 
         {/* Sub-copy */}
-        <p className="mt-6 text-[0.78rem] text-[#999999]">
+        <p className="mt-5 text-[0.75rem] text-[#999999] text-center">
           Or email me directly at{" "}
           <a href="mailto:rickytampubolon97@gmail.com" className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:underline">
             rickytampubolon97@gmail.com
