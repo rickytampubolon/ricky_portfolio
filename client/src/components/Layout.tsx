@@ -219,32 +219,52 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* Content */}
       <main className="flex-1 flex flex-col">{children}</main>
 
-      {/* ── Footer — single centered line ─────────────────────── */}
-      {/* py-3.5 keeps the footer compact so header+hero+footer fits 100vh */}
+      {/* ── Footer ────────────────────────────────────────────── */}
       <footer className="bg-[#FAFAFA] dark:bg-[#1A1A1A] border-t border-[#E8E8E8] dark:border-[#2C2C2C]">
-        <div className="flex flex-wrap items-center justify-center gap-4 px-6 py-3.5 text-[0.72rem] text-[#999999] dark:text-[#555555]">
-          <span>© 2026 Ricky Halomoan. All rights reserved.</span>
-          <span aria-hidden="true">·</span>
-          <a
-            href="mailto:rickytampubolon97@gmail.com"
-            className="hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200"
-          >
-            rickytampubolon97@gmail.com
-          </a>
-          <span aria-hidden="true">·</span>
-          <div className="flex items-center gap-3">
-            {footerSocial.map(({ href, icon, label }) => (
+        <div className="flex items-center justify-between px-6 md:px-12 py-5">
+
+          {/* Left: copyright */}
+          <span className="text-[0.72rem] text-[#999999] dark:text-[#555555]">
+            © 2026 Ricky Halomoan. All rights reserved.
+          </span>
+
+          {/* Right: Write + Follow */}
+          <div className="flex items-start gap-10 md:gap-14">
+
+            {/* Write */}
+            <div className="flex flex-col gap-1.5">
+              <span className="text-[0.72rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
+                Write
+              </span>
               <a
-                key={label}
-                href={href}
-                aria-label={label}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#AAAAAA] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-all duration-200 hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                href="mailto:rickytampubolon97@gmail.com"
+                className="text-[0.72rem] text-[#999999] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200"
               >
-                {icon}
+                rickytampubolon97@gmail.com
               </a>
-            ))}
+            </div>
+
+            {/* Follow */}
+            <div className="flex flex-col gap-1.5">
+              <span className="text-[0.72rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
+                Follow
+              </span>
+              <div className="flex items-center gap-3">
+                {footerSocial.map(({ href, icon, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#AAAAAA] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-all duration-200 hover:scale-110"
+                  >
+                    {icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+
           </div>
         </div>
       </footer>
