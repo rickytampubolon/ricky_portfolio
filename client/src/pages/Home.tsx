@@ -61,18 +61,13 @@ export default function Home() {
           className="container flex-1 flex items-center"
           aria-label="Hero"
         >
-          {/* Inner wrapper: column on mobile, two-col grid on desktop */}
-          <div className="w-full flex flex-col md:grid md:grid-cols-[auto_1fr] md:gap-10 md:items-center gap-7 py-8 md:py-0">
+          {/* Inner wrapper: stack on mobile, two-col flex on desktop */}
+          <div className="w-full flex flex-col md:flex-row md:items-center gap-8 md:gap-12 py-10 md:py-0">
 
-            {/* ── Profile Card ──────────────────────────────────── */}
-            <div className="reveal-item" style={stagger(0)}>
-              {/*
-                Card: visually distinct bordered element.
-                Mobile  → full width, horizontal (photo + info in a row).
-                Desktop → fixed 240px width, vertical layout.
-              */}
+            {/* ── Profile Card (~30%) ────────────────────────────── */}
+            <div className="reveal-item flex-shrink-0 w-full md:w-[30%] md:max-w-[260px]" style={stagger(0)}>
               <div
-                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full md:w-[240px]"
+                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full"
                 style={{ padding: "clamp(1rem, 2.5vw, 1.5rem)" }}
               >
                 {/* Vertical centered layout */}
@@ -114,8 +109,8 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ── Hero Text ─────────────────────────────────────── */}
-            <div>
+            {/* ── Hero Text (~70%) ──────────────────────────────── */}
+            <div className="flex-1 min-w-0">
 
               {/* Primary headline — compact clamp per spec */}
               <h1
