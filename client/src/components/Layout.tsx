@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 const navLinks = [
   { label: "ABOUT ME", href: "/" },
   { label: "RESUME",   href: "/resume" },
+  { label: "WORK",     href: null, soon: true },
   { label: "CONTACT",  href: "/contact" },
 ];
 
@@ -52,14 +53,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           <div className="flex items-center gap-6 md:gap-8">
-            {navLinks.map(({ label, href }) => (
-              <Link key={href} href={href}
-                className={`text-[0.72rem] font-bold tracking-[0.09em] transition-colors duration-200 ${
-                  isActive(href) ? "text-[#1A1A1A] dark:text-[#E0E0E0]" : "text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0]"
-                }`}>
-                {label}
-              </Link>
-            ))}
+            {navLinks.map(({ label, href, soon }) =>
+              soon ? (
+                <span key={label} className="flex items-center gap-1.5 text-[0.72rem] font-bold tracking-[0.09em] text-[#C0C0C0] dark:text-[#444444] cursor-default select-none">
+                  {label}
+                  <span className="px-1.5 py-0.5 rounded-full text-[0.5rem] font-bold uppercase tracking-wide bg-[#F0F0F0] dark:bg-[#2A2A2A] text-[#AAAAAA] dark:text-[#555555]">
+                    Soon
+                  </span>
+                </span>
+              ) : (
+                <Link key={href} href={href!}
+                  className={`text-[0.72rem] font-bold tracking-[0.09em] transition-colors duration-200 ${
+                    isActive(href!) ? "text-[#1A1A1A] dark:text-[#E0E0E0]" : "text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0]"
+                  }`}>
+                  {label}
+                </Link>
+              )
+            )}
             {toggleTheme && (
               <button onClick={toggleTheme} aria-label="Toggle dark mode"
                 className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200">
@@ -104,14 +114,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           className="sm:hidden border-t border-[#F0F0F0] dark:border-[#2C2C2C] bg-white dark:bg-[#121212]"
         >
           <nav className="flex flex-col py-1 px-5">
-            {navLinks.map(({ label, href }) => (
-              <Link key={href} href={href}
-                className={`py-3 text-[0.82rem] font-bold tracking-[0.08em] border-b border-[#F4F4F4] dark:border-[#2C2C2C] last:border-0 transition-colors ${
-                  isActive(href) ? "text-[#1A1A1A] dark:text-[#E0E0E0]" : "text-[#888888] dark:text-[#666666]"
-                }`}>
-                {label}
-              </Link>
-            ))}
+            {navLinks.map(({ label, href, soon }) =>
+              soon ? (
+                <span key={label} className="py-3 flex items-center gap-2 text-[0.82rem] font-bold tracking-[0.08em] border-b border-[#F4F4F4] dark:border-[#2C2C2C] text-[#C0C0C0] dark:text-[#444444] cursor-default select-none">
+                  {label}
+                  <span className="px-1.5 py-0.5 rounded-full text-[0.5rem] font-bold uppercase tracking-wide bg-[#F0F0F0] dark:bg-[#2A2A2A] text-[#AAAAAA] dark:text-[#555555]">
+                    Soon
+                  </span>
+                </span>
+              ) : (
+                <Link key={href} href={href!}
+                  className={`py-3 text-[0.82rem] font-bold tracking-[0.08em] border-b border-[#F4F4F4] dark:border-[#2C2C2C] last:border-0 transition-colors ${
+                    isActive(href!) ? "text-[#1A1A1A] dark:text-[#E0E0E0]" : "text-[#888888] dark:text-[#666666]"
+                  }`}>
+                  {label}
+                </Link>
+              )
+            )}
           </nav>
         </div>
       </header>
