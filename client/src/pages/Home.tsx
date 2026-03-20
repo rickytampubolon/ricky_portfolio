@@ -175,27 +175,37 @@ export default function Home() {
         {/* ── About Me Section ───────────────────────────────────── */}
         <section className="container py-14 md:py-20" id="about">
 
-          <div className="reveal-item mb-5" style={stagger(4)}>
-            <h2
-              className="text-[#1A1A1A] dark:text-[#E0E0E0]"
-              style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.1rem)" }}
-            >
-              HEY! I'm Ricky Halomoan,{" "}
-              <span className="text-[#888888] dark:text-[#666666]">
-                A SENIOR PRODUCT MANAGER
-              </span>
-            </h2>
-          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
 
-          <div className="reveal-item max-w-[70ch]" style={stagger(5)}>
-            <p
-              className="font-body-serif text-[0.9rem] text-[#555555] dark:text-[#888888]"
-            >
-              My journey into product management grew from a curiosity about how
-              systems work and create real value for people. With a background in
-              Informatics and experience in software delivery, I developed a strong
-              understanding of building digital products.
-            </p>
+            {/* Left column: label + name + role */}
+            <div className="reveal-item" style={stagger(4)}>
+              <p className="text-[0.58rem] font-bold tracking-[0.22em] uppercase text-[#AAAAAA] dark:text-[#555555] mb-4">
+                About
+              </p>
+              <h2
+                className="text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight"
+                style={{ fontSize: "clamp(1.3rem, 3.5vw, 2.1rem)" }}
+              >
+                Ricky Halomoan
+              </h2>
+              <div className="flex items-center gap-2 mt-2">
+                <div className="w-5 h-[2px] bg-[#CCCCCC] dark:bg-[#444444] rounded-full shrink-0" />
+                <p className="text-[0.6rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#666666]">
+                  Senior Product Manager
+                </p>
+              </div>
+            </div>
+
+            {/* Right column: bio */}
+            <div className="reveal-item" style={stagger(5)}>
+              <p className="font-body-serif text-[0.9rem] text-[#555555] dark:text-[#888888] leading-relaxed">
+                My journey into product management grew from a curiosity about how
+                systems work and create real value for people. With a background in
+                Informatics and experience in software delivery, I developed a strong
+                understanding of building digital products.
+              </p>
+            </div>
+
           </div>
 
         </section>
