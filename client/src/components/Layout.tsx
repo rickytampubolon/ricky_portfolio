@@ -11,8 +11,8 @@ const navLinks = [
 ];
 
 const footerSocial = [
-  { href: "https://www.linkedin.com/in/rickyhlmn/",  icon: <Linkedin  size={16} />, label: "LinkedIn"  },
-  { href: "https://www.instagram.com/rickyhlmn/",    icon: <Instagram size={16} />, label: "Instagram" },
+  { href: "https://www.linkedin.com/in/rickyhlmn/",  icon: <Linkedin  size={22} />, label: "LinkedIn"  },
+  { href: "https://www.instagram.com/rickyhlmn/",    icon: <Instagram size={22} />, label: "Instagram" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -226,35 +226,30 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* ── Footer (non-home pages: scrolls with content) ───── */}
         {location !== "/" && (
           <footer className="shrink-0 bg-[#FAFAFA] dark:bg-[#1A1A1A] border-t border-[#E8E8E8] dark:border-[#2C2C2C]">
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 py-4 gap-3 sm:gap-0">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 py-6 sm:py-4 gap-5 sm:gap-0">
 
-              {/* Copyright */}
-              <span className="text-[0.72rem] text-[#999999] dark:text-[#555555]">
-                © 2026 Ricky Halomoan. All rights reserved.
-              </span>
-
-              {/* Write + Follow */}
-              <div className="flex items-start gap-8 md:gap-14">
+              {/* Write + Follow — order-first on mobile, order-last on desktop */}
+              <div className="order-first sm:order-last flex flex-col sm:flex-row gap-5 sm:gap-8 md:gap-14">
 
                 {/* Write */}
-                <div className="flex flex-col gap-1.5">
-                  <span className="text-[0.72rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
+                <div className="flex flex-col gap-2">
+                  <span className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
                     Write
                   </span>
                   <a
                     href="mailto:rickytampubolon97@gmail.com"
-                    className="text-[0.72rem] text-[#999999] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200 break-all"
+                    className="text-[0.82rem] text-[#999999] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200"
                   >
                     rickytampubolon97@gmail.com
                   </a>
                 </div>
 
                 {/* Follow */}
-                <div className="flex flex-col gap-1.5">
-                  <span className="text-[0.72rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
+                <div className="flex flex-col gap-2">
+                  <span className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
                     Follow
                   </span>
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-4">
                     {footerSocial.map(({ href, icon, label }) => (
                       <a
                         key={label}
@@ -262,7 +257,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                         aria-label={label}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#AAAAAA] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-all duration-200 hover:scale-110"
+                        className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:opacity-60 transition-opacity duration-200"
                       >
                         {icon}
                       </a>
@@ -271,6 +266,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
 
               </div>
+
+              {/* Copyright — order-last on mobile, order-first on desktop */}
+              <span className="order-last sm:order-first text-[0.72rem] text-[#999999] dark:text-[#555555]">
+                © 2026 Ricky Halomoan. All rights reserved.
+              </span>
+
             </div>
           </footer>
         )}
@@ -279,35 +280,30 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* ── Footer (home page only: sticky at bottom) ─────────── */}
       {location === "/" && (
         <footer className="shrink-0 bg-[#FAFAFA] dark:bg-[#1A1A1A] border-t border-[#E8E8E8] dark:border-[#2C2C2C]">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 py-4 gap-3 sm:gap-0">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 py-6 sm:py-4 gap-5 sm:gap-0">
 
-            {/* Copyright */}
-            <span className="text-[0.72rem] text-[#999999] dark:text-[#555555]">
-              © 2026 Ricky Halomoan. All rights reserved.
-            </span>
-
-            {/* Write + Follow */}
-            <div className="flex items-start gap-8 md:gap-14">
+            {/* Write + Follow — order-first on mobile, order-last on desktop */}
+            <div className="order-first sm:order-last flex flex-col sm:flex-row gap-5 sm:gap-8 md:gap-14">
 
               {/* Write */}
-              <div className="flex flex-col gap-1.5">
-                <span className="text-[0.72rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
+              <div className="flex flex-col gap-2">
+                <span className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
                   Write
                 </span>
                 <a
                   href="mailto:rickytampubolon97@gmail.com"
-                  className="text-[0.72rem] text-[#999999] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200 break-all"
+                  className="text-[0.82rem] text-[#999999] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200"
                 >
                   rickytampubolon97@gmail.com
                 </a>
               </div>
 
               {/* Follow */}
-              <div className="flex flex-col gap-1.5">
-                <span className="text-[0.72rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
+              <div className="flex flex-col gap-2">
+                <span className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
                   Follow
                 </span>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-4">
                   {footerSocial.map(({ href, icon, label }) => (
                     <a
                       key={label}
@@ -315,7 +311,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       aria-label={label}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#AAAAAA] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-all duration-200 hover:scale-110"
+                      className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:opacity-60 transition-opacity duration-200"
                     >
                       {icon}
                     </a>
@@ -324,6 +320,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </div>
 
             </div>
+
+            {/* Copyright — order-last on mobile, order-first on desktop */}
+            <span className="order-last sm:order-first text-[0.72rem] text-[#999999] dark:text-[#555555]">
+              © 2026 Ricky Halomoan. All rights reserved.
+            </span>
+
           </div>
         </footer>
       )}
