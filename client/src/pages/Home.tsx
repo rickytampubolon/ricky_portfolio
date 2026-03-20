@@ -58,11 +58,11 @@ export default function Home() {
             Mobile: single-column stack.
         ─────────────────────────────────────────────────────────── */}
         <section
-          className="min-h-[100vh] flex items-center px-6 md:px-12"
+          className="flex-1 flex items-center px-6 md:px-12 py-6 md:py-8"
           aria-label="Hero"
         >
           {/* Inner wrapper: stack on mobile, two-col flex on desktop */}
-          <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch gap-10 md:gap-16 py-10 md:py-0">
+          <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-center gap-8 md:gap-16">
 
             {/* ── Profile Card (~35%) ────────────────────────────── */}
             <div className="reveal-item flex-shrink-0 w-full md:w-[300px] flex flex-col" style={stagger(0)}>
@@ -117,14 +117,14 @@ export default function Home() {
 
               {/* Primary headline */}
               <h1
-                className="reveal-item text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.35rem] md:text-[36px]"
+                className="reveal-item text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.2rem] md:text-[30px]"
                 style={stagger(1)}
               >
                 Building digital products that move businesses forward.
               </h1>
 
               {/* Bio paragraph */}
-              <div className="reveal-item mb-5" style={stagger(2)}>
+              <div className="reveal-item mb-3" style={stagger(2)}>
                 <p className="text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[60ch]">
                   My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
                   <br /><br />

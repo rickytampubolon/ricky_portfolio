@@ -40,7 +40,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
+    <div className="h-screen overflow-hidden bg-[#FAFAFA] dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
 
       {/* ── Sticky Header ─────────────────────────────────────── */}
       <header
