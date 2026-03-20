@@ -58,20 +58,20 @@ export default function Home() {
             Mobile: single-column stack.
         ─────────────────────────────────────────────────────────── */}
         <section
-          className="flex-1 flex items-center px-6 md:px-12"
+          className="min-h-[100vh] flex items-center px-6 md:px-12"
           aria-label="Hero"
         >
           {/* Inner wrapper: stack on mobile, two-col flex on desktop */}
           <div className="w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch gap-10 md:gap-16 py-10 md:py-0">
 
             {/* ── Profile Card (~35%) ────────────────────────────── */}
-            <div className="reveal-item flex-shrink-0 w-full md:w-[300px] md:h-full" style={stagger(0)}>
+            <div className="reveal-item flex-shrink-0 w-full md:w-[300px] flex flex-col" style={stagger(0)}>
               <div
-                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full"
+                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full flex-1 flex flex-col justify-center"
                 style={{ padding: "clamp(1.5rem, 3vw, 2rem)" }}
               >
                 {/* Vertical centered layout */}
-                <div className="flex flex-col items-center justify-center text-center h-full">
+                <div className="flex flex-col items-center text-center">
 
                   {/* Profile photo */}
                   <div className="w-[128px] h-[128px] rounded-full overflow-hidden ring-[2px] ring-[#E0E0E0] dark:ring-[#2A2A2A] bg-[#C8C8C8] shrink-0 mb-5">
@@ -117,11 +117,8 @@ export default function Home() {
 
               {/* Primary headline */}
               <h1
-                className="reveal-item text-[#1A1A1A] dark:text-[#E0E0E0] mb-3"
-                style={{
-                  ...stagger(1),
-                  fontSize: "clamp(1.4rem, 3vw, 2.5rem)",
-                }}
+                className="reveal-item text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.35rem] md:text-[36px]"
+                style={stagger(1)}
               >
                 Building digital products that move businesses forward.
               </h1>
