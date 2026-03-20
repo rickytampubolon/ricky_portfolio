@@ -225,7 +225,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* ── Footer (non-home pages: scrolls with content) ───── */}
         {location !== "/" && (
-          <footer className="shrink-0 bg-[#FAFAFA] dark:bg-[#1A1A1A] border-t border-[#E8E8E8] dark:border-[#2C2C2C] mt-auto">
+          <footer className="shrink-0 bg-[#FAFAFA] dark:bg-[#1A1A1A] border-t border-[#E8E8E8] dark:border-[#2C2C2C]">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 py-4 gap-3 sm:gap-0">
 
               {/* Copyright */}

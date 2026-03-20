@@ -2,6 +2,29 @@ import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { ChevronDown, ArrowUp } from "lucide-react";
 
+/* ── Company logo with initial fallback ──────────────────────── */
+function CompanyLogo({ src, alt, className }: { src: string; alt: string; className?: string }) {
+  const [failed, setFailed] = useState(false);
+  const initial = alt.trim().charAt(0).toUpperCase();
+  if (failed) {
+    return (
+      <span className={`flex items-center justify-center font-bold text-[#888888] dark:text-[#666666] text-[0.85rem] select-none ${className ?? ""}`}>
+        {initial}
+      </span>
+    );
+  }
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={className}
+      loading="lazy"
+      style={{ filter: "grayscale(100%)" }}
+      onError={() => setFailed(true)}
+    />
+  );
+}
+
 /* ── Shared tokens ───────────────────────────────────────────── */
 const sectionHead = "font-black tracking-[-0.025em] text-[#1A1A1A] dark:text-[#E0E0E0]";
 const cardBase    = "bg-white dark:bg-[#1E1E1E] rounded-2xl border border-[#E8E8E8] dark:border-[#2C2C2C] shadow-sm";
@@ -223,7 +246,7 @@ function ExpRow({ item, isOpen, onToggle }: {
       >
         {/* Logo */}
         <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
-          <img src={item.companyImage} alt={item.company} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" loading="lazy" style={{ filter: "grayscale(100%)" }} />
+          <CompanyLogo src={item.companyImage} alt={item.company} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
         </div>
 
         {/* Title + company */}
@@ -376,7 +399,7 @@ export default function Resume() {
               {education.map((edu) => (
                 <div key={edu.degree} className={`${cardBase} p-6 flex gap-4 items-start`}>
                   <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 shadow-sm">
-                    <img src={edu.schoolImage} alt={edu.school} className="w-7 h-7 object-contain" loading="lazy" style={{ filter: "grayscale(100%)" }} />
+                    <CompanyLogo src={edu.schoolImage} alt={edu.school} className="w-7 h-7 object-contain" />
                   </div>
                   <div className="min-w-0">
                     <p className="font-bold text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug mb-0.5">
