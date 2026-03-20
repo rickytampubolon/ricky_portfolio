@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Linkedin, Instagram, Sun, Moon, X, Menu } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const navLinks = [
   { label: "ABOUT ME", href: "/" },
@@ -20,11 +20,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const { theme, toggleTheme } = useTheme();
   const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const mainRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const el = mainRef.current;
+    if (!el) return;
+    const onScroll = () => setScrolled(el.scrollTop > 40);
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
   /* Close nav on route change */
@@ -40,7 +43,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="h-screen bg-[#FAFAFA] dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
+    <div className="h-screen overflow-hidden bg-[#FAFAFA] dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
 
       {/* ── Sticky Header ─────────────────────────────────────── */}
       <header
@@ -217,7 +220,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* Content */}
-      <main className="flex-1 flex flex-col overflow-y-auto">{children}</main>
+      <main ref={mainRef} className="flex-1 min-h-0 flex flex-col overflow-y-auto">{children}</main>
 
       {/* ── Footer ────────────────────────────────────────────── */}
       <footer className="shrink-0 bg-[#FAFAFA] dark:bg-[#1A1A1A] border-t border-[#E8E8E8] dark:border-[#2C2C2C]">
