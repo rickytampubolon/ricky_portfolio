@@ -133,87 +133,83 @@ export default function Home() {
       </div>
 
       {/* ════════════════════════════════════════════════════════
-          DESKTOP layout — two-column balanced split
-          Left slab  : Hello heading + profile photo, name, title, social links
-          Right panel: Tagline + industry tags + bio + CTA buttons
+          DESKTOP layout — card centered on the split line
+          Card sits absolutely at the horizontal midpoint;
+          right panel holds all text content.
           ════════════════════════════════════════════════════════ */}
-      <section className="relative hidden md:flex flex-row items-stretch overflow-hidden flex-1">
+      <section className={`relative hidden md:flex flex-row items-stretch overflow-hidden flex-1 ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}>
 
         {/* Background slabs */}
         <div className="absolute inset-y-0 left-0 w-1/2" style={{ backgroundColor: theme === "dark" ? SLAB_DARK : SLAB }} />
         <div className="absolute inset-y-0 left-1/2 right-0 bg-white dark:bg-[#121212]" />
 
-        {/* Two-column content row */}
-        <div className={`relative z-10 w-full flex flex-row items-stretch ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}>
-
-          {/* ── Left: Profile card only (centered in slab) ──────── */}
-          <div className="w-1/2 flex flex-col items-center justify-center px-10 lg:px-16 py-10">
-
-            {/* Profile card */}
-            <div
-              className="reveal-item w-full max-w-[300px] flex flex-col items-center text-center rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.4)] border border-[#CCCCCC] dark:border-[#2E2E2E] px-10 pt-10 pb-0 overflow-hidden"
-              style={{ ...stagger(0), backgroundColor: theme === "dark" ? "#222222" : "#FFFFFF" }}
-            >
-              {/* Photo */}
-              <div className="w-[148px] h-[148px] rounded-full overflow-hidden ring-[3px] ring-[#E8E8E8] dark:ring-[#2A2A2A] shadow-[0_4px_20px_rgba(0,0,0,0.10)] mb-5 shrink-0 bg-[#C8C8C8]">
-                <img
-                  src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-                  alt="Ricky Halomoan"
-                  className="w-full h-full object-cover"
-                  style={{ filter: "grayscale(100%)" }}
-                />
-              </div>
-
-              {/* Name */}
-              <h2 className="text-[1.45rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-[1.2] mb-3 tracking-[-0.01em]">
-                Ricky<br />Halomoan
-              </h2>
-
-              {/* Divider */}
-              <div className="w-10 h-[2px] bg-[#1A1A1A] dark:bg-[#E0E0E0] mb-3 rounded-full" />
-
-              {/* Title */}
-              <p className="text-[0.62rem] font-semibold tracking-[0.18em] uppercase text-[#999999] dark:text-[#777777] mb-7">
-                Senior Product Manager
-              </p>
-
-              {/* Social icons bar */}
-              <div className="self-stretch -mx-10 bg-[#F7F7F7] dark:bg-[#1A1A1A] border-t border-[#EEEEEE] dark:border-[#2C2C2C] py-4 flex items-center justify-center gap-7">
-                {socialLinks.map(({ href, icon, label }) => (
-                  <a key={label} href={href} aria-label={label}
-                    {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200">
-                    {icon}
-                  </a>
-                ))}
-              </div>
+        {/* ── Profile card — absolutely centered on the midline ── */}
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[280px]">
+          <div
+            className="reveal-item flex flex-col items-center text-center rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.14)] dark:shadow-[0_8px_40px_rgba(0,0,0,0.5)] border border-[#CCCCCC] dark:border-[#2E2E2E] px-10 pt-10 pb-0 overflow-hidden w-full"
+            style={{ ...stagger(0), backgroundColor: theme === "dark" ? "#222222" : "#FFFFFF" }}
+          >
+            {/* Photo */}
+            <div className="w-[136px] h-[136px] rounded-full overflow-hidden ring-[3px] ring-[#E8E8E8] dark:ring-[#2A2A2A] shadow-[0_4px_20px_rgba(0,0,0,0.10)] mb-5 shrink-0 bg-[#C8C8C8]">
+              <img
+                src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
+                alt="Ricky Halomoan"
+                className="w-full h-full object-cover"
+                style={{ filter: "grayscale(100%)" }}
+              />
             </div>
 
+            {/* Name */}
+            <h2 className="text-[1.35rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-[1.2] mb-3 tracking-[-0.01em]">
+              Ricky<br />Halomoan
+            </h2>
+
+            {/* Divider */}
+            <div className="w-10 h-[2px] bg-[#1A1A1A] dark:bg-[#E0E0E0] mb-3 rounded-full" />
+
+            {/* Title */}
+            <p className="text-[0.58rem] font-semibold tracking-[0.18em] uppercase text-[#999999] dark:text-[#777777] mb-7">
+              Senior Product Manager
+            </p>
+
+            {/* Social icons bar */}
+            <div className="self-stretch -mx-10 bg-[#F7F7F7] dark:bg-[#1A1A1A] border-t border-[#EEEEEE] dark:border-[#2C2C2C] py-4 flex items-center justify-center gap-7">
+              {socialLinks.map(({ href, icon, label }) => (
+                <a key={label} href={href} aria-label={label}
+                  {...(href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200">
+                  {icon}
+                </a>
+              ))}
+            </div>
           </div>
+        </div>
 
-          {/* ── Right: Hello + tagline + CTAs + bio ───────────── */}
-          <div className="w-1/2 flex flex-col justify-center px-10 lg:px-16 py-12">
+        {/* ── Right panel: Hello + tagline + CTAs + bio ─────────── */}
+        {/* pl offsets the card that bleeds 140px into this column */}
+        <div className="relative z-10 w-full flex flex-row items-stretch">
+          <div className="w-1/2 shrink-0" />
+          <div className="w-1/2 flex flex-col justify-center pl-[160px] pr-10 lg:pr-16 py-12">
 
-            {/* Hello heading */}
             <h1
               className="reveal-item font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-[0.88] mb-5"
-              style={{ ...stagger(0), fontSize: "clamp(3rem, 5.5vw, 5.5rem)" }}
+              style={{ ...stagger(1), fontSize: "clamp(3rem, 5.5vw, 5.5rem)" }}
             >
               Hello
             </h1>
 
-            <div className="reveal-item mb-7 max-w-[480px]" style={stagger(1)}>
+            <div className="reveal-item mb-7 max-w-[420px]" style={stagger(2)}>
               <p className="text-[0.95rem] font-bold text-[#333333] dark:text-[#CCCCCC] leading-[1.5]">
                 Here's who I am &amp; what I do
               </p>
             </div>
 
-            <div className="reveal-item flex flex-wrap gap-3 mb-8" style={stagger(2)}>
+            <div className="reveal-item flex flex-wrap gap-3 mb-8" style={stagger(3)}>
               <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
               <a href="/contact"><button className={btnSecondary}>LET'S TALK</button></a>
             </div>
 
-            <div className="reveal-item space-y-5 max-w-[480px]" style={stagger(3)}>
+            <div className="reveal-item space-y-5 max-w-[420px]" style={stagger(4)}>
               <p className="text-[0.875rem] leading-[1.85] text-[#555555] dark:text-[#888888]">
                 My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
               </p>
@@ -223,8 +219,8 @@ export default function Home() {
             </div>
 
           </div>
-
         </div>
+
       </section>
 
     </Layout>
