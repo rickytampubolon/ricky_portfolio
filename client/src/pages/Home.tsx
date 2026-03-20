@@ -8,11 +8,10 @@ function stagger(n: number) {
 }
 
 /* ── Design tokens ───────────────────────────────────────────── */
-// Slightly rectangular pills (rounded-[28px]) matching the Wix template
 const btnPrimary =
-  "inline-flex items-center justify-center bg-[#0D7377] text-white px-8 py-3 rounded-[28px] text-[0.75rem] font-bold tracking-[0.1em] min-h-[46px] hover:bg-[#0A5C60] transition-all duration-200 shadow-[0_4px_14px_rgba(13,115,119,0.3)] hover:-translate-y-px active:scale-[0.97]";
+  "inline-flex items-center justify-center bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] px-8 py-3 rounded-[28px] text-[0.75rem] font-bold tracking-[0.1em] min-h-[46px] hover:bg-[#000000] dark:hover:bg-[#FFFFFF] transition-all duration-200 shadow-[0_4px_14px_rgba(0,0,0,0.2)] hover:-translate-y-px active:scale-[0.97]";
 const btnSecondary =
-  "inline-flex items-center justify-center border-2 border-[#0D7377] dark:border-[#14A8AD] text-[#0D7377] dark:text-[#14A8AD] px-8 py-3 rounded-[28px] text-[0.75rem] font-bold tracking-[0.1em] min-h-[46px] hover:bg-[#0D7377] hover:text-white dark:hover:bg-[#14A8AD] dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]";
+  "inline-flex items-center justify-center border-2 border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] px-8 py-3 rounded-[28px] text-[0.75rem] font-bold tracking-[0.1em] min-h-[46px] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]";
 
 // Flat dark social icons for the profile card (no circle wrapper)
 const socialCard = [
@@ -51,7 +50,7 @@ export default function Home() {
 
       {/* Scroll progress */}
       <div
-        className="fixed top-0 left-0 z-[200] h-[2px] bg-[#0D7377] transition-[width] duration-75 ease-out"
+        className="fixed top-0 left-0 z-[200] h-[2px] bg-[#1A1A1A] dark:bg-[#E0E0E0] transition-[width] duration-75 ease-out"
         style={{ width: `${scrollProgress}%` }}
       />
 
@@ -71,6 +70,7 @@ export default function Home() {
               src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
               alt="Ricky Halomoan"
               className="w-full h-full object-cover"
+              style={{ filter: "grayscale(100%)" }}
             />
           </div>
 
@@ -79,18 +79,18 @@ export default function Home() {
             Ricky<br />Halomoan
           </h2>
 
-          {/* Teal divider */}
-          <div className="w-20 h-[3px] bg-[#0D7377] mb-7 rounded-full" />
+          {/* Divider */}
+          <div className="w-20 h-[3px] bg-[#1A1A1A] dark:bg-[#E0E0E0] mb-7 rounded-full" />
 
           {/* CTA buttons */}
           <div className="flex gap-3 w-full max-w-xs">
             <a href="/resume" className="flex-1">
-              <button className="w-full bg-[#0D7377] text-white py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#0A5C60] transition-all duration-200 active:scale-[0.97] shadow-[0_4px_12px_rgba(13,115,119,0.25)]">
+              <button className="w-full bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#000000] dark:hover:bg-[#FFFFFF] transition-all duration-200 active:scale-[0.97] shadow-[0_4px_12px_rgba(0,0,0,0.2)]">
                 RESUME
               </button>
             </a>
             <a href="/contact" className="flex-1">
-              <button className="w-full border-2 border-[#0D7377] dark:border-[#14A8AD] text-[#0D7377] dark:text-[#14A8AD] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#0D7377] dark:hover:bg-[#14A8AD] hover:text-white dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]">
+              <button className="w-full border-2 border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] py-3 rounded-[28px] text-[0.72rem] font-bold tracking-[0.1em] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-200 active:scale-[0.97]">
                 LET'S TALK
               </button>
             </a>
@@ -116,9 +116,14 @@ export default function Home() {
           >
             Hello
           </h1>
-          <p className="reveal-item text-[1.05rem] font-bold text-[#4A4A4A] dark:text-[#AAAAAA] mb-6 leading-[1.45]" style={stagger(2)}>
-            Here's who I am &amp; what I do.
-          </p>
+          <div className="reveal-item mb-6" style={stagger(2)}>
+            <p className="text-[1.05rem] font-bold text-[#4A4A4A] dark:text-[#AAAAAA] leading-[1.45] mb-2">
+              Building digital products that move businesses forward.
+            </p>
+            <p className="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-[#888888] dark:text-[#666666]">
+              • LOGISTICS &nbsp;•&nbsp; FULFILLMENT &nbsp;•&nbsp; ELECTRIC MOBILITY &nbsp;•&nbsp; DIGITAL TRANSFORMATION
+            </p>
+          </div>
           <div className="reveal-item space-y-4" style={stagger(3)}>
             <p className="text-[0.82rem] leading-[1.8] text-[#4A4A4A] dark:text-[#888888]">
               My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
@@ -193,9 +198,14 @@ export default function Home() {
             >
               Hello
             </h1>
-            <p className="reveal-item text-[1.15rem] font-bold text-[#333333] dark:text-[#AAAAAA] mb-6 leading-[1.45]" style={stagger(2)}>
-              Here's who I am &amp; what I do
-            </p>
+            <div className="reveal-item mb-6" style={stagger(2)}>
+              <p className="text-[1.15rem] font-bold text-[#333333] dark:text-[#AAAAAA] leading-[1.45] mb-2">
+                Building digital products that move businesses forward.
+              </p>
+              <p className="text-[0.65rem] font-semibold tracking-[0.14em] uppercase text-[#888888] dark:text-[#666666]">
+                • LOGISTICS &nbsp;•&nbsp; FULFILLMENT &nbsp;•&nbsp; ELECTRIC MOBILITY &nbsp;•&nbsp; DIGITAL TRANSFORMATION
+              </p>
+            </div>
             <div className="reveal-item flex flex-wrap gap-3 mb-7" style={stagger(3)}>
               <a href="/resume"><button className={btnPrimary}>RESUME</button></a>
               <a href="/contact"><button className={btnSecondary}>LET'S TALK</button></a>
