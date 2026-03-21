@@ -27,7 +27,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     if (!el) return;
     const onScroll = () => setScrolled(el.scrollTop > 40);
     el.addEventListener("scroll", onScroll, { passive: true });
-    return () => el.removeEventListener("scroll", onScroll);
+    // Also handle window scroll for mobile (normal document flow)
+    const onWindowScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onWindowScroll, { passive: true });
+    return () => {
+      el.removeEventListener("scroll", onScroll);
+      window.removeEventListener("scroll", onWindowScroll);
+    };
   }, []);
 
   /* Close nav on route change */
@@ -43,7 +49,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="h-screen overflow-hidden bg-[#FAFAFA] dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
+    <div className="sm:h-screen sm:overflow-hidden bg-[#FAFAFA] dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
 
       {/* ── Sticky Header ─────────────────────────────────────── */}
       <header
@@ -220,7 +226,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* Content */}
-      <main ref={mainRef} className="flex-1 min-h-0 flex flex-col overflow-y-auto">
+      <main ref={mainRef} className="flex-1 sm:min-h-0 flex flex-col sm:overflow-y-auto">
         {children}
 
         {/* ── Footer (scrolls with content on all pages) ───────── */}
