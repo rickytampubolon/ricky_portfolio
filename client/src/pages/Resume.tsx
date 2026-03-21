@@ -285,7 +285,7 @@ function ExpRow({ item, isOpen, onToggle }: {
       {/* Expanded bullets */}
       <div
         style={{
-          maxHeight: isOpen ? `${item.highlights.length * 80}px` : "0px",
+          maxHeight: isOpen ? "2000px" : "0px",
           overflow: "hidden",
           transition: "max-height 0.35s cubic-bezier(0.4,0,0.2,1)",
         }}
