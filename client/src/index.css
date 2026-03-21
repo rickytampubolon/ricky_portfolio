@@ -43,117 +43,121 @@
 }
 
 :root {
-  --radius: 0.75rem;
-  /* ── Font stacks ─────────────────────────────────────────── */
-  --font-sans: "Montserrat", "Avenir Next", "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-heading: "Montserrat", "Avenir Next", "Avenir", sans-serif;
-  --font-body-serif: "Lora", "Georgia", "Times New Roman", serif;
+  --radius: 0.375rem; /* Tighter radius for architectural feel */
 
-  /* ── Fluid typography scale (compact, above-fold friendly) ── */
-  /* H1 deliberately smaller to keep hero content within 100vh on desktop */
-  --font-size-h1: clamp(1.5rem, 5vw, 2.8rem);
-  --font-size-h2: clamp(1.3rem, 3.5vw, 2.1rem);
-  --font-size-h3: clamp(1.05rem, 2.5vw, 1.3rem);
+  /* ── Font stacks ─────────────────────────────────────────── */
+  --font-sans:    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-heading: "Archivo", "Inter", sans-serif;
+
+  /* ── Fluid typography scale ──────────────────────────────── */
+  --font-size-h1:   clamp(1.6rem, 5vw, 3rem);
+  --font-size-h2:   clamp(1.3rem, 3.5vw, 2rem);
+  --font-size-h3:   clamp(1.05rem, 2.5vw, 1.25rem);
   --font-size-body: clamp(0.875rem, 1.5vw + 0.4rem, 1rem);
 
-  /* ── Light Mode ─────────────────────────────────────────── */
-  --hero-slab: #F2F2F2;
-  --background: #FAFAFA;
-  --foreground: #1A1A1A;
-  --card: #FFFFFF;
-  --card-foreground: #1A1A1A;
-  --popover: #FFFFFF;
-  --popover-foreground: #1A1A1A;
-  --primary: #1A1A1A;
-  --primary-foreground: #FFFFFF;
-  --secondary: #F4F4F4;
-  --secondary-foreground: #555555;
-  --muted: #EFEFEF;
-  --muted-foreground: #888888;
-  --accent: #3A3A3A;
-  --accent-foreground: #FFFFFF;
-  --destructive: #FF3B30;
-  --destructive-foreground: #FFFFFF;
-  --border: #E8E8E8;
-  --input: #E8E8E8;
-  --ring: #1A1A1A;
-  --chart-1: #1A1A1A;
-  --chart-2: #555555;
-  --chart-3: #888888;
-  --chart-4: #BBBBBB;
-  --chart-5: #DDDDDD;
-  --sidebar: #FAFAFA;
-  --sidebar-foreground: #1A1A1A;
-  --sidebar-primary: #1A1A1A;
+  /* ── Light Mode Monochrome Palette ───────────────────────── */
+  /* Background: Pure White */
+  --background:            #FFFFFF;
+  --foreground:            #121212;
+  /* Card / Left Column: Very light grey */
+  --hero-slab:             #F5F5F5;
+  --card:                  #FFFFFF;
+  --card-foreground:       #121212;
+  --popover:               #FFFFFF;
+  --popover-foreground:    #121212;
+  /* Buttons: Solid Black with White text */
+  --primary:               #121212;
+  --primary-foreground:    #FFFFFF;
+  --secondary:             #F5F5F5;
+  --secondary-foreground:  #555555;
+  --muted:                 #F0F0F0;
+  --muted-foreground:      #888888;
+  --accent:                #3A3A3A;
+  --accent-foreground:     #FFFFFF;
+  --destructive:           #FF3B30;
+  --destructive-foreground:#FFFFFF;
+  --border:                #E2E2E2;
+  --input:                 #E2E2E2;
+  --ring:                  #121212;
+  --chart-1:               #121212;
+  --chart-2:               #555555;
+  --chart-3:               #888888;
+  --chart-4:               #BBBBBB;
+  --chart-5:               #DDDDDD;
+  --sidebar:               #FFFFFF;
+  --sidebar-foreground:    #121212;
+  --sidebar-primary:       #121212;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #3A3A3A;
+  --sidebar-accent:        #3A3A3A;
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #E8E8E8;
-  --sidebar-ring: #1A1A1A;
+  --sidebar-border:        #E2E2E2;
+  --sidebar-ring:          #121212;
 }
 
 .dark {
-  --primary: #E0E0E0;
-  --primary-foreground: #121212;
-  --sidebar-primary: #E0E0E0;
-  --sidebar-primary-foreground: #121212;
-  --background: #121212;
-  --foreground: #E0E0E0;
-  --card: #1E1E1E;
-  --card-foreground: #E0E0E0;
-  --popover: #1E1E1E;
-  --popover-foreground: #E0E0E0;
-  --secondary: #2A2A2A;
-  --secondary-foreground: #E0E0E0;
-  --muted: #2A2A2A;
-  --muted-foreground: #888888;
-  --accent: #AAAAAA;
-  --accent-foreground: #121212;
-  --destructive: #FF453A;
-  --destructive-foreground: #FFFFFF;
-  --border: #2C2C2C;
-  --input: #2C2C2C;
-  --ring: #E0E0E0;
-  --chart-1: #E0E0E0;
-  --chart-2: #AAAAAA;
-  --chart-3: #777777;
-  --chart-4: #444444;
-  --chart-5: #222222;
-  --sidebar: #1E1E1E;
-  --sidebar-foreground: #E0E0E0;
-  --sidebar-accent: #AAAAAA;
-  --sidebar-accent-foreground: #121212;
-  --sidebar-border: #2C2C2C;
-  --sidebar-ring: #E0E0E0;
+  /* Background: Deep Black */
+  --background:            #0A0A0A;
+  --foreground:            #E5E5E5;
+  /* Card / Left Column: Dark Charcoal */
+  --hero-slab:             #1A1A1A;
+  --card:                  #161616;
+  --card-foreground:       #E5E5E5;
+  --popover:               #161616;
+  --popover-foreground:    #E5E5E5;
+  /* Buttons: Solid White with Black text */
+  --primary:               #E5E5E5;
+  --primary-foreground:    #0A0A0A;
+  --secondary:             #1A1A1A;
+  --secondary-foreground:  #E5E5E5;
+  --muted:                 #1A1A1A;
+  --muted-foreground:      #777777;
+  --accent:                #AAAAAA;
+  --accent-foreground:     #0A0A0A;
+  --destructive:           #FF453A;
+  --destructive-foreground:#FFFFFF;
+  --border:                #252525;
+  --input:                 #252525;
+  --ring:                  #E5E5E5;
+  --chart-1:               #E5E5E5;
+  --chart-2:               #AAAAAA;
+  --chart-3:               #777777;
+  --chart-4:               #444444;
+  --chart-5:               #222222;
+  --sidebar:               #161616;
+  --sidebar-foreground:    #E5E5E5;
+  --sidebar-primary:       #E5E5E5;
+  --sidebar-primary-foreground: #0A0A0A;
+  --sidebar-accent:        #AAAAAA;
+  --sidebar-accent-foreground: #0A0A0A;
+  --sidebar-border:        #252525;
+  --sidebar-ring:          #E5E5E5;
 }
 
-/* ── Native prefers-color-scheme fallback (no-JS environments) ─
-   When JS hasn't toggled the .dark class yet, honor the OS setting. */
+/* ── Native prefers-color-scheme fallback ──────────────────── */
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
-    --primary: #E0E0E0;
-    --primary-foreground: #121212;
-    --background: #121212;
-    --foreground: #E0E0E0;
-    --card: #1E1E1E;
-    --card-foreground: #E0E0E0;
-    --popover: #1E1E1E;
-    --popover-foreground: #E0E0E0;
-    --secondary: #2A2A2A;
-    --secondary-foreground: #E0E0E0;
-    --muted: #2A2A2A;
-    --muted-foreground: #888888;
-    --accent: #AAAAAA;
-    --accent-foreground: #121212;
-    --border: #2C2C2C;
-    --input: #2C2C2C;
-    --ring: #E0E0E0;
+    --background:         #0A0A0A;
+    --foreground:         #E5E5E5;
+    --hero-slab:          #1A1A1A;
+    --card:               #161616;
+    --card-foreground:    #E5E5E5;
+    --popover:            #161616;
+    --popover-foreground: #E5E5E5;
+    --secondary:          #1A1A1A;
+    --secondary-foreground: #E5E5E5;
+    --muted:              #1A1A1A;
+    --muted-foreground:   #777777;
+    --accent:             #AAAAAA;
+    --accent-foreground:  #0A0A0A;
+    --border:             #252525;
+    --input:              #252525;
+    --ring:               #E5E5E5;
+    --primary:            #E5E5E5;
+    --primary-foreground: #0A0A0A;
   }
 }
 
-/* ── Smooth dark-mode colour transition ───────────────────────
-   Applied only while the toggle animates, then removed so that
-   hover transitions work normally at all other times.          */
+/* ── Smooth dark-mode colour transition ───────────────────── */
 html.theme-transitioning,
 html.theme-transitioning *,
 html.theme-transitioning *::before,
@@ -165,7 +169,7 @@ html.theme-transitioning *::after {
     box-shadow 0.4s ease !important;
 }
 
-/* ── Scroll indicator pulse animation ────────────────────────── */
+/* ── Scroll indicator pulse ───────────────────────────────── */
 @keyframes scroll-pulse {
   0%, 100% { opacity: 0.35; transform: translateY(0); }
   50%       { opacity: 0.75; transform: translateY(5px); }
@@ -191,21 +195,22 @@ html.theme-transitioning *::after {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* ── Typographic scale ────────────────────────────────────── */
+  /* ── Typographic scale ──────────────────────────────────── */
+  /* All headings use Archivo — bold, geometric, architectural */
   h1 {
     font-family: var(--font-heading);
     font-size: var(--font-size-h1);
-    font-weight: 800;
-    line-height: 1.05;
-    letter-spacing: 0.05em;
+    font-weight: 900;       /* Black weight for maximum impact */
+    line-height: 0.95;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
   }
   h2 {
     font-family: var(--font-heading);
     font-size: var(--font-size-h2);
     font-weight: 800;
-    line-height: 1.1;
-    letter-spacing: 0.05em;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
     text-transform: uppercase;
   }
   h3 {
@@ -213,16 +218,11 @@ html.theme-transitioning *::after {
     font-size: var(--font-size-h3);
     font-weight: 700;
     line-height: 1.2;
-    letter-spacing: 0.03em;
-  }
-
-  /* ── Fast tap: remove 300ms delay on mobile ───────────────── */
-  button, a {
-    touch-action: manipulation;
+    letter-spacing: -0.01em;
   }
   h4 {
     font-family: var(--font-heading);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     line-height: 1.3;
   }
@@ -230,6 +230,11 @@ html.theme-transitioning *::after {
     font-size: var(--font-size-body);
     line-height: 1.6;
     letter-spacing: 0.005em;
+  }
+
+  /* ── Fast tap on mobile ─────────────────────────────────── */
+  button, a {
+    touch-action: manipulation;
   }
 
   button:not(:disabled),
@@ -246,23 +251,18 @@ html.theme-transitioning *::after {
 }
 
 @layer components {
-  /* Fluid heading helpers — reference CSS variables so clamp() is always live */
+  /* ── Fluid heading helpers ──────────────────────────────── */
   .fluid-h2 { font-size: var(--font-size-h2); }
   .fluid-h3 { font-size: var(--font-size-h3); }
 
-  /* Serif body text for long-form reading content */
-  .font-body-serif {
-    font-family: var(--font-body-serif);
-    line-height: 1.85;
-  }
-
+  /* ── Container ──────────────────────────────────────────── */
   .container {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding-left: 1.75rem;
     padding-right: 1.75rem;
-    max-width: 800px;
+    max-width: 820px;
   }
 
   .flex {
@@ -271,18 +271,15 @@ html.theme-transitioning *::after {
   }
 
   /* ── Staggered reveal animations ────────────────────────── */
-  /* reveal-item is visible by default (progressive enhancement).
-     The .will-animate class is added by JS immediately on mount
-     to opt-in to the animation — content stays visible if JS fails. */
+  /* progressive enhancement: visible by default, JS opts in */
   .will-animate .reveal-item {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
     transition:
-      opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-      transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-    transition-delay: calc(var(--stagger, 0) * 80ms);
+      opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    transition-delay: calc(var(--stagger, 0) * 90ms);
   }
-
   .is-revealed .reveal-item {
     opacity: 1;
     transform: translateY(0);
@@ -290,21 +287,60 @@ html.theme-transitioning *::after {
 
   /* ── Hero dot-grid background texture ───────────────────── */
   .hero-dot-grid {
-    background-image: radial-gradient(circle, #1A1A1A 1px, transparent 1px);
+    background-image: radial-gradient(circle, #121212 1px, transparent 1px);
     background-size: 28px 28px;
-    opacity: 0.04;
-  }
-  .dark .hero-dot-grid {
-    background-image: radial-gradient(circle, #E0E0E0 1px, transparent 1px);
     opacity: 0.035;
   }
+  .dark .hero-dot-grid {
+    background-image: radial-gradient(circle, #E5E5E5 1px, transparent 1px);
+    opacity: 0.03;
+  }
 
-  /* Skip reveal animation when OS reduce-motion is on */
+  /* ── Premium layered shadow for the profile card ────────── */
+  /* Multiple shadow layers simulate realistic depth & elevation */
+  .card-elevated {
+    box-shadow:
+      0 0 0 1px rgba(0, 0, 0, 0.04),
+      0 2px 4px  rgba(0, 0, 0, 0.04),
+      0 4px 8px  rgba(0, 0, 0, 0.05),
+      0 8px 16px rgba(0, 0, 0, 0.06),
+      0 20px 48px rgba(0, 0, 0, 0.10);
+  }
+  .dark .card-elevated {
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.03),
+      0 2px 4px  rgba(0, 0, 0, 0.4),
+      0 4px 8px  rgba(0, 0, 0, 0.4),
+      0 8px 16px rgba(0, 0, 0, 0.5),
+      0 20px 48px rgba(0, 0, 0, 0.6);
+  }
+
+  /* ── Btn lift: subtle translateY + shadow on hover ──────── */
+  .btn-lift {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .btn-lift:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  }
+  .btn-lift:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+  .dark .btn-lift:hover:not(:disabled) {
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.08);
+  }
+
+  /* ── Skip reveal when OS prefers-reduced-motion ─────────── */
   @media (prefers-reduced-motion: reduce) {
     .will-animate .reveal-item {
       opacity: 1;
       transform: none;
       transition: none;
+    }
+    .btn-lift:hover:not(:disabled),
+    .btn-lift:active:not(:disabled) {
+      transform: none;
     }
   }
 
