@@ -47,10 +47,10 @@ export default function Home() {
           <div className="hero-dot-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
 
           {/* Inner wrapper: stack on mobile, two-col flex on desktop */}
-          <div className="relative w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch gap-6 md:gap-14">
+          <div className="relative w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch gap-6 md:gap-10">
 
             {/* ── Profile Card ───────────────────────────────────── */}
-            <div className="reveal-item flex-shrink-0 w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 md:w-[280px] flex flex-col" style={stagger(0)}>
+            <div className="reveal-item flex-shrink-0 w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 md:w-[280px] flex flex-col md:h-auto" style={stagger(0)}>
               {/*
                 Card: overflow-hidden so the accent line at the top
                 sits flush against the rounded corner without clipping.
@@ -119,11 +119,11 @@ export default function Home() {
             </div>
 
             {/* ── Hero Text ──────────────────────────────────────── */}
-            <div className="flex-1 min-w-0 md:flex md:flex-col md:justify-center">
+            <div className="flex-1 min-w-0 max-w-[520px] md:flex md:flex-col md:justify-center">
 
               {/* Primary headline */}
               <h1
-                className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.75rem] md:text-[37px]"
+                className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[2rem] md:text-[52px]"
                 style={stagger(2)}
               >
                 Building digital products that <span className="text-gray-400">move businesses forward.</span>
