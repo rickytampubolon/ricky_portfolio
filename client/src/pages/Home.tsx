@@ -126,7 +126,7 @@ export default function Home() {
                 className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.75rem] md:text-[37px]"
                 style={stagger(2)}
               >
-                Building digital products that move businesses forward.
+                Building digital products that <span className="text-gray-400">move businesses forward.</span>
               </h1>
 
               {/* Bio paragraph */}
