@@ -25,12 +25,14 @@ function CompanyLogo({ src, alt, className }: { src: string; alt: string; classN
   );
 }
 
-/* ── Shared tokens ───────────────────────────────────────────── */
-const sectionHead = "font-black tracking-[-0.025em] text-[#1A1A1A] dark:text-[#E0E0E0]";
-const cardBase    = "bg-white dark:bg-[#1E1E1E] rounded-2xl border border-[#E8E8E8] dark:border-[#2C2C2C] shadow-sm";
-const tagPill     = "inline-flex items-center px-3 py-1.5 rounded-full bg-[#F2F2F2] dark:bg-[#2A2A2A] text-[0.73rem] text-[#4A4A4A] dark:text-[#AAAAAA] font-medium";
-const sectionAccent = "flex items-center gap-2.5 mb-7";
-const accentDot   = "w-[6px] h-[6px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[1px] shrink-0";
+/* ── Shared design tokens — monochrome palette ───────────────── */
+const sectionHead  = "font-black tracking-[-0.025em] text-[#121212] dark:text-[#E5E5E5]";
+// Card: white on light / dark charcoal on dark, 1px border dividers
+const cardBase     = "bg-[#FFFFFF] dark:bg-[#161616] border border-[#EEEEEE] dark:border-[#252525]";
+// Pill tags: grey border-only, no fill
+const tagPill      = "inline-flex items-center px-3 py-1.5 border border-[#DEDEDE] dark:border-[#2A2A2A] text-[0.68rem] text-[#888888] dark:text-[#666666] font-medium tracking-[0.03em] rounded-sm uppercase";
+const sectionAccent = "flex items-center gap-2.5 mb-6";
+const accentDot    = "w-[5px] h-[5px] bg-[#121212] dark:bg-[#E5E5E5] shrink-0";
 
 /* ── Data ────────────────────────────────────────────────────── */
 const fullTimeExp = [
@@ -38,8 +40,7 @@ const fullTimeExp = [
     id: 1,
     title: "Lead Country Product Manager – ID Market",
     company: "GSM – Xanh SM",
-    companyImage:
-      "https://www.google.com/s2/favicons?domain=xanhsm.com&sz=256",
+    companyImage: "https://www.google.com/s2/favicons?domain=xanhsm.com&sz=256",
     period: "2025 – Present",
     current: true,
     highlights: [
@@ -54,8 +55,7 @@ const fullTimeExp = [
     id: 2,
     title: "Product Manager – Performance Evaluation & Data Integration",
     company: "INA Digital Edu – Ministry of Primary and Secondary Education",
-    companyImage:
-      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/cJhNVtPdbOHZIgCZ.png",
+    companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/cJhNVtPdbOHZIgCZ.png",
     period: "2024 – 2025",
     current: false,
     highlights: [
@@ -70,8 +70,7 @@ const fullTimeExp = [
     id: 3,
     title: "Senior Associate, System Product Lead – SPX Express",
     company: "Shopee",
-    companyImage:
-      "https://www.google.com/s2/favicons?domain=shopee.co.id&sz=256",
+    companyImage: "https://www.google.com/s2/favicons?domain=shopee.co.id&sz=256",
     period: "2024",
     current: false,
     highlights: [
@@ -86,8 +85,7 @@ const fullTimeExp = [
     id: 4,
     title: "Product Manager II – Fulfillment",
     company: "Tokopedia & GoTo Logistics",
-    companyImage:
-      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png",
+    companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png",
     period: "2022 – 2024",
     current: false,
     highlights: [
@@ -102,8 +100,7 @@ const fullTimeExp = [
     id: 5,
     title: "Quality Engineer – Accommodation",
     company: "Traveloka",
-    companyImage:
-      "/traveloka-logo.png",
+    companyImage: "/traveloka-logo.png",
     period: "2020 – 2022",
     current: false,
     highlights: [
@@ -118,8 +115,7 @@ const fullTimeExp = [
     id: 6,
     title: "QA Engineer – Taxi Group",
     company: "Ice House",
-    companyImage:
-      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/hLmBFNBFYNwCqgOT.png",
+    companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/hLmBFNBFYNwCqgOT.png",
     period: "2019 – 2020",
     current: false,
     highlights: [
@@ -137,8 +133,7 @@ const partTimeAndInternships = [
     id: "pt-1",
     title: "QA Engineer – Part-time",
     company: "SehatQ",
-    companyImage:
-      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/iWSWOgSUpfIhugUD.png",
+    companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/iWSWOgSUpfIhugUD.png",
     period: "2022 – 2023",
     type: "Part-time",
     highlights: [
@@ -151,8 +146,7 @@ const partTimeAndInternships = [
     id: "pt-2",
     title: "QA Engineer – Part-time",
     company: "SiCepat",
-    companyImage:
-      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/vtUAAIQhTvYAhdQP.png",
+    companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/vtUAAIQhTvYAhdQP.png",
     period: "2021 – 2022",
     type: "Part-time",
     highlights: [
@@ -165,8 +159,7 @@ const partTimeAndInternships = [
     id: "int-1",
     title: "QA Engineer Intern",
     company: "GoTo Group (Moka)",
-    companyImage:
-      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/fMzZvBYHbNOGcXlH.png",
+    companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/fMzZvBYHbNOGcXlH.png",
     period: "2019",
     type: "Internship",
     highlights: [
@@ -179,8 +172,7 @@ const partTimeAndInternships = [
     id: "int-2",
     title: "QA Engineer Intern",
     company: "Grab",
-    companyImage:
-      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/bUAqVpvhsLeEvRro.png",
+    companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/bUAqVpvhsLeEvRro.png",
     period: "2019",
     type: "Internship",
     highlights: [
@@ -193,8 +185,7 @@ const partTimeAndInternships = [
     id: "int-3",
     title: "QA Engineer Intern",
     company: "DANA Indonesia",
-    companyImage:
-      "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/JlXCSsTrCXQVouBa.png",
+    companyImage: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/JlXCSsTrCXQVouBa.png",
     period: "2018",
     type: "Internship",
     highlights: [
@@ -240,49 +231,51 @@ function ExpRow({ item, isOpen, onToggle }: {
 
   return (
     <div className={`${cardBase} overflow-hidden`}>
+      {/* Row header — click to expand */}
       <button
         onClick={onToggle}
-        className="w-full flex items-start gap-3 p-4 sm:p-5 text-left hover:bg-[#FAFAFA] dark:hover:bg-[#242424] transition-colors"
+        className="w-full flex items-start gap-3 p-4 sm:p-5 text-left hover:bg-[#FAFAFA] dark:hover:bg-[#1A1A1A] transition-colors duration-150"
       >
-        {/* Logo */}
-        <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+        {/* Company logo */}
+        <div className="w-8 h-8 sm:w-9 sm:h-9 bg-[#F5F5F5] dark:bg-[#222222] border border-[#EEEEEE] dark:border-[#2A2A2A] overflow-hidden flex items-center justify-center shrink-0 mt-0.5">
           <CompanyLogo src={item.companyImage} alt={item.company} className="w-5 h-5 sm:w-6 sm:h-6 object-contain" />
         </div>
 
-        {/* Title + company */}
+        {/* Title + company name */}
         <div className="flex-1 min-w-0">
           <div className="flex items-start gap-2 flex-wrap mb-0.5">
-            <span className="font-bold text-[0.85rem] sm:text-[0.93rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug">
+            <span className="font-bold text-[0.85rem] sm:text-[0.9rem] text-[#121212] dark:text-[#E5E5E5] leading-snug" style={{ fontFamily: "var(--font-heading)" }}>
               {item.title}
             </span>
             {isCurrent && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.58rem] font-bold uppercase tracking-wide bg-[#1A1A1A]/8 dark:bg-[#E0E0E0]/10 text-[#1A1A1A] dark:text-[#E0E0E0]">
-                <span className="w-1 h-1 rounded-full bg-[#1A1A1A] dark:bg-[#E0E0E0] animate-pulse" />
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 text-[0.55rem] font-bold uppercase tracking-wide bg-[#121212]/7 dark:bg-[#E5E5E5]/8 text-[#121212] dark:text-[#E5E5E5]">
+                <span className="w-1 h-1 rounded-full bg-[#121212] dark:bg-[#E5E5E5] animate-pulse" />
                 Current
               </span>
             )}
             {typeBadge && (
-              <span className="px-2 py-0.5 rounded-full text-[0.58rem] font-bold uppercase tracking-wide bg-[#F2F2F2] dark:bg-[#2A2A2A] text-[#888]">
+              <span className="px-2 py-0.5 text-[0.55rem] font-bold uppercase tracking-wide border border-[#DEDEDE] dark:border-[#2A2A2A] text-[#888888] dark:text-[#666666]">
                 {typeBadge}
               </span>
             )}
           </div>
-          <p className="text-[0.8rem] text-[#888888] dark:text-[#666666]">{item.company}</p>
+          <p className="text-[0.78rem] text-[#999999] dark:text-[#555555]">{item.company}</p>
         </div>
 
         {/* Period + chevron */}
         <div className="flex items-center gap-2.5 shrink-0">
-          <span className="hidden sm:block text-[0.68rem] font-bold uppercase tracking-[0.08em] text-[#AAAAAA] dark:text-[#555555]">
+          <span className="hidden sm:block text-[0.65rem] font-bold uppercase tracking-[0.1em] text-[#BBBBBB] dark:text-[#444444]">
             {item.period}
           </span>
           <ChevronDown
             size={14}
-            className={`text-[#BBBBBB] dark:text-[#444] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+            strokeWidth={2}
+            className={`text-[#CCCCCC] dark:text-[#404040] transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
           />
         </div>
       </button>
 
-      {/* Expanded bullets */}
+      {/* Expanded highlights — smooth height animation */}
       <div
         style={{
           maxHeight: isOpen ? `${item.highlights.length * 80}px` : "0px",
@@ -290,14 +283,17 @@ function ExpRow({ item, isOpen, onToggle }: {
           transition: "max-height 0.35s cubic-bezier(0.4,0,0.2,1)",
         }}
       >
-        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1 border-t border-[#F2F2F2] dark:border-[#2C2C2C] bg-[#FAFAFA]/70 dark:bg-[#181818]/60">
-          <p className="text-[0.63rem] font-bold uppercase tracking-[0.1em] text-[#BBBBBB] dark:text-[#555] mb-2 mt-2 sm:hidden">
+        {/* 1px top divider inside the expanded area */}
+        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1 border-t border-[#F0F0F0] dark:border-[#222222] bg-[#FAFAFA] dark:bg-[#111111]">
+          {/* Period shown on mobile (hidden in header row) */}
+          <p className="text-[0.6rem] font-bold uppercase tracking-[0.1em] text-[#CCCCCC] dark:text-[#444] mb-2 mt-2 sm:hidden">
             {item.period}
           </p>
           <ul className="space-y-1.5">
             {item.highlights.map((h, i) => (
-              <li key={i} className="flex gap-2 text-[0.8rem] sm:text-[0.84rem] text-[#555555] dark:text-[#888888] leading-relaxed">
-                <span className="text-[#AAAAAA] dark:text-[#555555] mt-0.5 shrink-0 font-bold">·</span>
+              <li key={i} className="flex gap-2 text-[0.8rem] sm:text-[0.83rem] text-[#666666] dark:text-[#777777] leading-relaxed">
+                {/* 1px vertical accent instead of bullet dot */}
+                <span className="w-[1px] bg-[#DDDDDD] dark:bg-[#333333] shrink-0 mt-1 self-stretch" />
                 <span>{h}</span>
               </li>
             ))}
@@ -331,30 +327,31 @@ export default function Resume() {
     <Layout>
       <div>
 
-        {/* ── Banner ─────────────────────────────────────────── */}
-        <div className="bg-[#F2F2F2] dark:bg-[#1A1A1A] border-b border-[#E0E0E0] dark:border-[#2C2C2C]">
+        {/* ── Banner — light grey / dark charcoal strip ─────────── */}
+        <div className="bg-[#F5F5F5] dark:bg-[#1A1A1A] border-b border-[#EEEEEE] dark:border-[#252525]">
           <div className="container py-8 md:py-14">
-            <div>
-              <h1
-                className="font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0]"
-                style={{ fontSize: "clamp(2.2rem, 5vw, 3.6rem)" }}
-              >
-                Resume
-              </h1>
-              <p className="mt-2 text-[0.82rem] sm:text-[0.88rem] text-[#666666] dark:text-[#888888] whitespace-nowrap">Lead Product Manager · 6+ years across logistics, mobility, and education.</p>
-            </div>
+            <h1
+              className="font-black tracking-[-0.03em] leading-none text-[#121212] dark:text-[#E5E5E5]"
+              style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(2.2rem, 5vw, 3.6rem)" }}
+            >
+              Resume
+            </h1>
+            <p className="mt-3 text-[0.8rem] text-[#888888] dark:text-[#666666] tracking-[0.03em]">
+              Lead Product Manager · 6+ years across logistics, mobility, and education.
+            </p>
           </div>
         </div>
 
         <div className="container py-8 md:py-16">
 
-          {/* ── Experience ─────────────────────────────────────── */}
+          {/* ── Experience ──────────────────────────────────────── */}
           <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
               <div className={accentDot} />
-              <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Experience</h2>
+              <h2 className={`${sectionHead} text-xl md:text-[1.65rem]`}>Experience</h2>
             </div>
-            <div className="space-y-2.5">
+            {/* 1px top border above the list */}
+            <div className="border-t border-[#EEEEEE] dark:border-[#252525] pt-4 space-y-2">
               {fullTimeExp.map((exp) => (
                 <ExpRow
                   key={exp.id}
@@ -366,13 +363,13 @@ export default function Resume() {
             </div>
           </section>
 
-          {/* ── Internships & Part-time ─────────────────────────── */}
+          {/* ── Internships & Part-time ──────────────────────────── */}
           <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
               <div className={accentDot} />
-              <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Internships &amp; Part-time</h2>
+              <h2 className={`${sectionHead} text-xl md:text-[1.65rem]`}>Internships &amp; Part-time</h2>
             </div>
-            <div className="space-y-2.5">
+            <div className="border-t border-[#EEEEEE] dark:border-[#252525] pt-4 space-y-2">
               {partTimeAndInternships.map((item) => (
                 <ExpRow
                   key={item.id}
@@ -384,25 +381,25 @@ export default function Resume() {
             </div>
           </section>
 
-          {/* ── Education ──────────────────────────────────────── */}
+          {/* ── Education ───────────────────────────────────────── */}
           <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
               <div className={accentDot} />
-              <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Education</h2>
+              <h2 className={`${sectionHead} text-xl md:text-[1.65rem]`}>Education</h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="border-t border-[#EEEEEE] dark:border-[#252525] pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {education.map((edu) => (
-                <div key={edu.degree} className={`${cardBase} p-6 flex gap-4 items-start`}>
-                  <div className="w-10 h-10 rounded-xl bg-white dark:bg-[#2A2A2A] border border-[#E8E8E8] dark:border-[#333] overflow-hidden flex items-center justify-center shrink-0 shadow-sm">
+                <div key={edu.degree} className={`${cardBase} p-5 flex gap-4 items-start`}>
+                  <div className="w-10 h-10 bg-[#F5F5F5] dark:bg-[#222222] border border-[#EEEEEE] dark:border-[#2A2A2A] overflow-hidden flex items-center justify-center shrink-0">
                     <CompanyLogo src={edu.schoolImage} alt={edu.school} className="w-7 h-7 object-contain" />
                   </div>
                   <div className="min-w-0">
-                    <p className="font-bold text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-snug mb-0.5">
+                    <p className="font-bold text-[0.9rem] text-[#121212] dark:text-[#E5E5E5] leading-snug mb-0.5" style={{ fontFamily: "var(--font-heading)" }}>
                       {edu.degree}
                     </p>
-                    <p className="text-[0.8rem] text-[#888888] dark:text-[#666666] mb-1">{edu.school}</p>
-                    <p className="text-[0.72rem] text-[#AAAAAA] dark:text-[#555555]">{edu.detail}</p>
-                    <span className="mt-2.5 inline-block text-[0.62rem] font-bold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full bg-[#F2F2F2] dark:bg-[#2A2A2A] text-[#666666] dark:text-[#888888] border border-[#E0E0E0] dark:border-[#333]">
+                    <p className="text-[0.78rem] text-[#999999] dark:text-[#555555] mb-1">{edu.school}</p>
+                    <p className="text-[0.7rem] text-[#BBBBBB] dark:text-[#444444]">{edu.detail}</p>
+                    <span className="mt-2.5 inline-block text-[0.6rem] font-bold uppercase tracking-[0.1em] px-2.5 py-1 border border-[#DEDEDE] dark:border-[#2A2A2A] text-[#888888] dark:text-[#666666]">
                       {edu.date}
                     </span>
                   </div>
@@ -411,16 +408,19 @@ export default function Resume() {
             </div>
           </section>
 
-          {/* ── Skills ─────────────────────────────────────────── */}
+          {/* ── Skills ──────────────────────────────────────────── */}
           <section>
             <div className={sectionAccent}>
               <div className={accentDot} />
-              <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Skills</h2>
+              <h2 className={`${sectionHead} text-xl md:text-[1.65rem]`}>Skills</h2>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="border-t border-[#EEEEEE] dark:border-[#252525] pt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
               {Object.entries(skills).map(([category, items]) => (
-                <div key={category} className={`${cardBase} p-6`}>
-                  <h3 className="text-[0.66rem] font-bold uppercase tracking-[0.13em] text-[#888888] dark:text-[#666666] mb-4">
+                <div key={category} className={`${cardBase} p-5`}>
+                  <h3
+                    className="text-[0.62rem] font-bold uppercase tracking-[0.14em] text-[#999999] dark:text-[#555555] mb-4"
+                    style={{ fontFamily: "var(--font-heading)" }}
+                  >
                     {category}
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -436,15 +436,15 @@ export default function Resume() {
         </div>
       </div>
 
-      {/* ── Scroll-to-top button ───────────────────────────────── */}
+      {/* ── Scroll-to-top button ──────────────────────────────── */}
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        className={`fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] shadow-[0_4px_16px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-110 active:scale-95 ${
+        className={`fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center bg-[#121212] dark:bg-[#E5E5E5] text-white dark:text-[#0A0A0A] shadow-[0_4px_16px_rgba(0,0,0,0.18)] transition-all duration-300 hover:scale-110 active:scale-95 ${
           showScrollTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-3"
         }`}
       >
-        <ArrowUp size={16} />
+        <ArrowUp size={15} strokeWidth={2} />
       </button>
     </Layout>
   );

@@ -11,8 +11,8 @@ const navLinks = [
 ];
 
 const footerSocial = [
-  { href: "https://www.linkedin.com/in/rickyhlmn/",  icon: <Linkedin  size={22} />, label: "LinkedIn"  },
-  { href: "https://www.instagram.com/rickyhlmn/",    icon: <Instagram size={22} />, label: "Instagram" },
+  { href: "https://www.linkedin.com/in/rickyhlmn/",  icon: <Linkedin  size={20} strokeWidth={1.75} />, label: "LinkedIn"  },
+  { href: "https://www.instagram.com/rickyhlmn/",    icon: <Instagram size={20} strokeWidth={1.75} />, label: "Instagram" },
 ];
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -30,10 +30,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => el.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* Close nav on route change */
   useEffect(() => { setMobileOpen(false); }, [location]);
 
-  /* Lock body scroll when mobile nav is open */
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -43,38 +41,51 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="h-screen overflow-hidden bg-[#FAFAFA] dark:bg-[#1A1A1A] text-[#1A1A1A] dark:text-[#E0E0E0] flex flex-col">
+    /* Outer shell: pure white / deep black per monochrome spec */
+    <div className="h-screen overflow-hidden bg-[#FFFFFF] dark:bg-[#0A0A0A] text-[#121212] dark:text-[#E5E5E5] flex flex-col">
 
       {/* ── Sticky Header ─────────────────────────────────────── */}
       <header
-        className={`sticky top-0 left-0 right-0 z-50 bg-[#FAFAFA]/96 dark:bg-[#1A1A1A]/96 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : ""}`}
+        className={`sticky top-0 left-0 right-0 z-50 bg-[#FFFFFF]/96 dark:bg-[#0A0A0A]/96 backdrop-blur-sm transition-shadow duration-300 ${
+          scrolled
+            ? "shadow-[0_1px_0_rgba(0,0,0,0.08)] dark:shadow-[0_1px_0_rgba(255,255,255,0.05)]"
+            : ""
+        }`}
       >
         {/* ── Desktop header row ── */}
         <div className="hidden sm:flex h-14 items-center justify-between px-5 md:px-12">
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-[9px] h-[9px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0" />
-            <span className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-none" style={{ fontSize: "1.4rem" }}>
+          <Link href="/" className="flex items-center gap-3">
+            {/* Minimal square logo mark */}
+            <div className="w-[8px] h-[8px] bg-[#121212] dark:bg-[#E5E5E5] shrink-0" />
+            <span
+              className="font-bold text-[#121212] dark:text-[#E5E5E5] leading-none tracking-[-0.01em]"
+              style={{ fontFamily: "var(--font-heading)", fontSize: "1.35rem" }}
+            >
               Ricky Halomoan
             </span>
-            <span className="hidden md:inline text-[#D0D0D0] dark:text-[#444] leading-none mx-0.5">/</span>
-            <span className="hidden md:block text-[0.92rem] tracking-[0.12em] uppercase text-[#888888] dark:text-[#888888] font-medium leading-none">
+            <span className="hidden md:inline text-[#D8D8D8] dark:text-[#333] leading-none mx-0.5">/</span>
+            <span className="hidden md:block text-[0.7rem] tracking-[0.18em] uppercase text-[#999999] dark:text-[#666666] font-medium leading-none">
               Lead Product Manager
             </span>
           </Link>
 
-          <nav className="flex items-center gap-6 md:gap-8" role="navigation" aria-label="Primary navigation">
+          <nav className="flex items-center gap-7 md:gap-9" role="navigation" aria-label="Primary navigation">
             {navLinks.map(({ label, href, soon }) =>
               soon ? (
-                <span key={label} className="flex items-center gap-1.5 text-[0.72rem] font-bold tracking-[0.09em] text-[#C0C0C0] dark:text-[#444444] cursor-default select-none">
+                <span key={label} className="flex items-center gap-1.5 text-[0.68rem] font-bold tracking-[0.1em] text-[#C8C8C8] dark:text-[#383838] cursor-default select-none">
                   {label}
-                  <span className="px-1.5 py-0.5 rounded-full text-[0.5rem] font-bold uppercase tracking-wide bg-[#F0F0F0] dark:bg-[#2A2A2A] text-[#AAAAAA] dark:text-[#555555]">
+                  <span className="px-1.5 py-0.5 text-[0.48rem] font-bold uppercase tracking-wide bg-[#F0F0F0] dark:bg-[#1E1E1E] text-[#AAAAAA] dark:text-[#555555]">
                     Soon
                   </span>
                 </span>
               ) : (
-                <Link key={href} href={href!}
-                  className={`text-[0.72rem] font-bold tracking-[0.09em] transition-colors duration-200 ${
-                    isActive(href!) ? "text-[#1A1A1A] dark:text-[#E0E0E0]" : "text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0]"
+                <Link
+                  key={href}
+                  href={href!}
+                  className={`text-[0.68rem] font-bold tracking-[0.1em] transition-colors duration-200 ${
+                    isActive(href!)
+                      ? "text-[#121212] dark:text-[#E5E5E5]"
+                      : "text-[#999999] dark:text-[#555555] hover:text-[#121212] dark:hover:text-[#E5E5E5]"
                   }`}
                   aria-current={isActive(href!) ? "page" : undefined}
                 >
@@ -82,13 +93,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               )
             )}
+            {/* Dark mode toggle — minimal sun/moon icon */}
             {toggleTheme && (
               <button
                 onClick={toggleTheme}
                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="text-[#999999] dark:text-[#555555] hover:text-[#121212] dark:hover:text-[#E5E5E5] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
               >
-                {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+                {theme === "dark" ? <Sun size={16} strokeWidth={1.75} /> : <Moon size={16} strokeWidth={1.75} />}
               </button>
             )}
           </nav>
@@ -98,12 +110,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="flex sm:hidden items-start justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5">
             <div className="flex items-center gap-2">
-              <div className="w-[10px] h-[10px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0 mt-0.5" />
-              <span className="font-black text-[1.45rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight tracking-[-0.02em]">
+              <div className="w-[9px] h-[9px] bg-[#121212] dark:bg-[#E5E5E5] shrink-0 mt-0.5" />
+              <span
+                className="font-black text-[1.4rem] text-[#121212] dark:text-[#E5E5E5] leading-tight tracking-[-0.02em]"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
                 Ricky Halomoan
               </span>
             </div>
-            <span className="text-[0.65rem] tracking-[0.14em] uppercase text-[#888888] font-semibold pl-4">
+            <span className="text-[0.6rem] tracking-[0.18em] uppercase text-[#999999] font-medium pl-4">
               Lead Product Manager
             </span>
           </Link>
@@ -113,20 +128,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <button
                 onClick={toggleTheme}
                 aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                className="text-[#999999] dark:text-[#555555] hover:text-[#121212] dark:hover:text-[#E5E5E5] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
               >
-                {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+                {theme === "dark" ? <Sun size={16} strokeWidth={1.75} /> : <Moon size={16} strokeWidth={1.75} />}
               </button>
             )}
-            {/* Hamburger menu button with proper ARIA */}
             <button
               onClick={() => setMobileOpen((o) => !o)}
               aria-label="Open navigation menu"
               aria-expanded={mobileOpen}
               aria-controls="mobile-nav"
-              className="text-[#1A1A1A] dark:text-[#E0E0E0] min-w-[44px] min-h-[44px] flex items-center justify-center"
+              className="text-[#121212] dark:text-[#E5E5E5] min-w-[44px] min-h-[44px] flex items-center justify-center"
             >
-              <Menu size={22} />
+              <Menu size={20} strokeWidth={1.75} />
             </button>
           </div>
         </div>
@@ -138,7 +152,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className={`sm:hidden fixed inset-0 z-[100] bg-[#FAFAFA] dark:bg-[#1A1A1A] flex flex-col transition-opacity duration-300 ${
+        className={`sm:hidden fixed inset-0 z-[100] bg-[#FFFFFF] dark:bg-[#0A0A0A] flex flex-col ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         style={{
@@ -146,27 +160,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           transition: "opacity 0.3s ease, transform 0.3s ease",
         }}
       >
-        {/* Overlay header row */}
         <div className="flex items-center justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5" onClick={() => setMobileOpen(false)}>
             <div className="flex items-center gap-2">
-              <div className="w-[10px] h-[10px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0 mt-0.5" />
-              <span className="font-black text-[1.45rem] text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight tracking-[-0.02em]">
+              <div className="w-[9px] h-[9px] bg-[#121212] dark:bg-[#E5E5E5] shrink-0 mt-0.5" />
+              <span
+                className="font-black text-[1.4rem] text-[#121212] dark:text-[#E5E5E5] leading-tight tracking-[-0.02em]"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
                 Ricky Halomoan
               </span>
             </div>
           </Link>
-          {/* Close button */}
           <button
             onClick={() => setMobileOpen(false)}
             aria-label="Close navigation menu"
-            className="text-[#1A1A1A] dark:text-[#E0E0E0] min-w-[44px] min-h-[44px] flex items-center justify-center"
+            className="text-[#121212] dark:text-[#E5E5E5] min-w-[44px] min-h-[44px] flex items-center justify-center"
           >
-            <X size={22} />
+            <X size={20} strokeWidth={1.75} />
           </button>
         </div>
 
-        {/* Nav links — large text */}
+        {/* Large text nav links */}
         <nav
           role="navigation"
           aria-label="Mobile navigation"
@@ -176,11 +191,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             soon ? (
               <span
                 key={label}
-                className="py-5 flex items-center gap-3 font-black tracking-[0.08em] text-[#C0C0C0] dark:text-[#444444] cursor-default select-none border-b border-[#E8E8E8] dark:border-[#2C2C2C]"
-                style={{ fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
+                className="py-5 flex items-center gap-3 font-black tracking-[0.06em] text-[#CCCCCC] dark:text-[#333333] cursor-default select-none border-b border-[#EEEEEE] dark:border-[#1A1A1A]"
+                style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
               >
                 {label}
-                <span className="px-2 py-0.5 rounded-full text-[0.55rem] font-bold uppercase tracking-wide bg-[#F0F0F0] dark:bg-[#2A2A2A] text-[#AAAAAA] dark:text-[#555555]">
+                <span className="px-2 py-0.5 text-[0.52rem] font-bold uppercase tracking-wide bg-[#F0F0F0] dark:bg-[#1E1E1E] text-[#AAAAAA] dark:text-[#555555]">
                   Soon
                 </span>
               </span>
@@ -189,12 +204,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 key={href}
                 href={href!}
                 aria-current={isActive(href!) ? "page" : undefined}
-                className={`py-5 font-black tracking-[0.08em] border-b border-[#E8E8E8] dark:border-[#2C2C2C] last:border-0 transition-colors duration-200 ${
+                className={`py-5 font-black tracking-[0.06em] border-b border-[#EEEEEE] dark:border-[#1A1A1A] last:border-0 transition-colors duration-200 ${
                   isActive(href!)
-                    ? "text-[#1A1A1A] dark:text-[#E0E0E0]"
-                    : "text-[#888888] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0]"
+                    ? "text-[#121212] dark:text-[#E5E5E5]"
+                    : "text-[#AAAAAA] dark:text-[#444444] hover:text-[#121212] dark:hover:text-[#E5E5E5]"
                 }`}
-                style={{ fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
+                style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
               >
                 {label}
               </Link>
@@ -202,7 +217,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           )}
         </nav>
 
-        {/* Social links at the bottom of overlay */}
+        {/* Social links at the bottom */}
         <div className="px-5 pb-10 flex items-center gap-5">
           {footerSocial.map(({ href, icon, label }) => (
             <a
@@ -211,7 +226,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               aria-label={label}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center"
+              className="text-[#AAAAAA] dark:text-[#555555] hover:text-[#121212] dark:hover:text-[#E5E5E5] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center"
             >
               {icon}
             </a>
@@ -219,25 +234,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      {/* Content */}
+      {/* ── Main content ──────────────────────────────────────── */}
       <main ref={mainRef} className="flex-1 min-h-0 flex flex-col overflow-y-auto">
         {children}
 
-        {/* ── Footer (scrolls with content on all pages) ───────── */}
-        <footer className="shrink-0 bg-[#FAFAFA] dark:bg-[#1A1A1A] border-t border-[#E8E8E8] dark:border-[#2C2C2C]">
+        {/* ── Footer ────────────────────────────────────────────── */}
+        <footer className="shrink-0 bg-[#FFFFFF] dark:bg-[#0A0A0A] border-t border-[#EEEEEE] dark:border-[#1A1A1A]">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 py-6 sm:py-4 gap-5 sm:gap-0">
 
-            {/* Write + Follow — order-first on mobile, order-last on desktop */}
             <div className="order-first sm:order-last flex flex-col sm:flex-row gap-5 sm:gap-8 md:gap-14">
 
               {/* Write */}
               <div className="flex flex-col gap-2">
-                <span className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
+                <span className="text-[0.7rem] font-bold text-[#121212] dark:text-[#E5E5E5] tracking-[0.1em] uppercase">
                   Write
                 </span>
                 <a
                   href="mailto:rickytampubolon97@gmail.com"
-                  className="text-[0.82rem] text-[#999999] dark:text-[#555555] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200"
+                  className="text-[0.8rem] text-[#999999] dark:text-[#555555] hover:text-[#121212] dark:hover:text-[#E5E5E5] transition-colors duration-200"
                 >
                   rickytampubolon97@gmail.com
                 </a>
@@ -245,7 +259,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
               {/* Follow */}
               <div className="flex flex-col gap-2">
-                <span className="text-[0.82rem] font-bold text-[#1A1A1A] dark:text-[#E0E0E0] tracking-[0.06em]">
+                <span className="text-[0.7rem] font-bold text-[#121212] dark:text-[#E5E5E5] tracking-[0.1em] uppercase">
                   Follow
                 </span>
                 <div className="flex items-center gap-4">
@@ -256,7 +270,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       aria-label={label}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:opacity-60 transition-opacity duration-200"
+                      className="text-[#121212] dark:text-[#E5E5E5] hover:opacity-50 transition-opacity duration-200"
                     >
                       {icon}
                     </a>
@@ -266,8 +280,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             </div>
 
-            {/* Copyright — order-last on mobile, order-first on desktop */}
-            <span className="order-last sm:order-first text-[0.72rem] text-[#999999] dark:text-[#555555]">
+            <span className="order-last sm:order-first text-[0.68rem] text-[#BBBBBB] dark:text-[#444444]">
               © 2026 Ricky Halomoan. All rights reserved.
             </span>
 

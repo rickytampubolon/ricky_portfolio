@@ -54,11 +54,11 @@ async function handleSubmit(data: FormState): Promise<void> {
 
 /* ── Component ───────────────────────────────────────────────── */
 export default function Contact() {
-  const [form,     setForm]     = useState<FormState>(EMPTY);
-  const [errors,   setErrors]   = useState<FormErrors>({});
-  const [touched,  setTouched]  = useState<Partial<Record<keyof FormState, boolean>>>({});
-  const [loading,  setLoading]  = useState(false);
-  const [success,  setSuccess]  = useState(false);
+  const [form,      setForm]      = useState<FormState>(EMPTY);
+  const [errors,    setErrors]    = useState<FormErrors>({});
+  const [touched,   setTouched]   = useState<Partial<Record<keyof FormState, boolean>>>({});
+  const [loading,   setLoading]   = useState(false);
+  const [success,   setSuccess]   = useState(false);
   const [submitErr, setSubmitErr] = useState<string | null>(null);
 
   const update = (field: keyof FormState, value: string) => {
@@ -99,55 +99,65 @@ export default function Contact() {
     }
   };
 
-  /* Shared field styles */
+  /* ── Shared field styles ──────────────────────────────────────
+     Bottom-border only (no box). Thickens from 1px → 2px on focus.
+  ──────────────────────────────────────────────────────────────── */
   const inputBase =
-    "w-full bg-transparent border-b-2 border-[#E0E0E0] dark:border-[#333] py-2.5 text-[0.92rem] text-[#1A1A1A] dark:text-[#E0E0E0] placeholder:text-[#AAAAAA] dark:placeholder:text-[#555] outline-none transition-colors duration-200 focus:border-[#1A1A1A] dark:focus:border-[#E0E0E0]";
+    "w-full bg-transparent border-b border-[#DDDDDD] dark:border-[#2A2A2A] py-2.5 text-[0.9rem] text-[#121212] dark:text-[#E5E5E5] placeholder:text-[#CCCCCC] dark:placeholder:text-[#404040] outline-none transition-all duration-200 focus:border-b-2 focus:border-[#121212] dark:focus:border-[#E5E5E5]";
   const labelBase =
-    "block text-[0.72rem] font-bold tracking-[0.08em] uppercase text-[#666666] dark:text-[#888888] mb-1.5";
-  const errorMsg = "mt-1 text-[0.72rem] text-red-500 font-medium";
+    "block text-[0.65rem] font-semibold tracking-[0.1em] uppercase text-[#888888] dark:text-[#666666] mb-1.5";
+  const errorMsg = "mt-1 text-[0.68rem] text-red-500 font-medium";
 
   return (
     <Layout>
-      {/* Background fill */}
-      <div className="grow shrink-0 bg-[#F2F2F2] dark:bg-[#222222] flex flex-col items-center justify-start py-8 md:py-14 px-4">
+      {/*
+        Background: light grey (#F5F5F5) / dark charcoal (#1A1A1A) — per spec.
+        The form card sits centered on top of this background.
+      */}
+      <div className="grow shrink-0 bg-[#F5F5F5] dark:bg-[#1A1A1A] flex flex-col items-center justify-start py-10 md:py-16 px-4">
 
-        {/* Heading */}
-        <div className="flex items-center justify-center gap-3 mb-7 md:mb-10 w-full max-w-lg">
-          <div className="w-[9px] h-[9px] bg-[#1A1A1A] dark:bg-[#E0E0E0] rounded-[2px] shrink-0" />
+        {/* Page heading */}
+        <div className="flex items-center justify-center gap-3 mb-8 md:mb-12 w-full max-w-lg">
+          <div className="w-[7px] h-[7px] bg-[#121212] dark:bg-[#E5E5E5] shrink-0" />
           <h1
-            className="font-black tracking-[-0.03em] text-[#1A1A1A] dark:text-[#E0E0E0] leading-none"
-            style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
+            className="font-black tracking-[-0.03em] text-[#121212] dark:text-[#E5E5E5] leading-none"
+            style={{ fontFamily: "var(--font-heading)", fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
           >
             Let's talk.
           </h1>
         </div>
 
-        {/* ── White form card ──────────────────────────────────── */}
-        <div className="w-full max-w-lg bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-[#E8E8E8] dark:border-[#2C2C2C] p-6 md:p-10">
+        {/* ── Form card: white / dark-grey, sharp corners ───────── */}
+        <div className="w-full max-w-lg bg-[#FFFFFF] dark:bg-[#111111] border border-[#EEEEEE] dark:border-[#252525] shadow-[0_20px_60px_rgba(0,0,0,0.07)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] p-6 md:p-10">
 
-          {/* Success state */}
+          {/* ── Success state ──────────────────────────────────── */}
           {success ? (
             <div className="flex flex-col items-center text-center py-8">
-              <CheckCircle size={48} className="text-[#1A1A1A] dark:text-[#E0E0E0] mb-4" strokeWidth={1.5} />
-              <h2 className="text-xl font-bold text-[#1A1A1A] dark:text-[#E0E0E0] mb-2">Message sent!</h2>
-              <p className="text-[0.9rem] text-[#666666] dark:text-[#888888] mb-6">
+              <CheckCircle size={44} className="text-[#121212] dark:text-[#E5E5E5] mb-5" strokeWidth={1.25} />
+              <h2
+                className="text-lg font-bold text-[#121212] dark:text-[#E5E5E5] mb-2 tracking-[-0.01em]"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Message sent!
+              </h2>
+              <p className="text-[0.88rem] text-[#888888] dark:text-[#666666] mb-6 leading-relaxed">
                 Thanks for reaching out. I'll get back to you as soon as possible.
               </p>
               <button
                 onClick={() => setSuccess(false)}
-                className="text-[0.82rem] font-semibold text-[#1A1A1A] hover:underline"
+                className="text-[0.75rem] font-semibold text-[#121212] dark:text-[#E5E5E5] tracking-[0.06em] uppercase hover:opacity-60 transition-opacity"
               >
                 Send another message
               </button>
             </div>
           ) : (
-            <form onSubmit={onSubmit} noValidate className="space-y-5">
+            <form onSubmit={onSubmit} noValidate className="space-y-6">
 
-              {/* First Name + Last Name */}
+              {/* First + Last Name */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label className={labelBase}>
-                    First Name <span className="text-[#888888]">*</span>
+                    First Name <span className="text-[#CCCCCC] dark:text-[#444]">*</span>
                   </label>
                   <input
                     type="text"
@@ -164,7 +174,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <label className={labelBase}>
-                    Last Name <span className="text-[#888888]">*</span>
+                    Last Name <span className="text-[#CCCCCC] dark:text-[#444]">*</span>
                   </label>
                   <input
                     type="text"
@@ -184,7 +194,7 @@ export default function Contact() {
               {/* Email */}
               <div>
                 <label className={labelBase}>
-                  Email <span className="text-[#888888]">*</span>
+                  Email <span className="text-[#CCCCCC] dark:text-[#444]">*</span>
                 </label>
                 <input
                   type="email"
@@ -203,7 +213,7 @@ export default function Contact() {
               {/* Subject */}
               <div>
                 <label className={labelBase}>
-                  Subject <span className="text-[#888888]">*</span>
+                  Subject <span className="text-[#CCCCCC] dark:text-[#444]">*</span>
                 </label>
                 <input
                   type="text"
@@ -222,7 +232,7 @@ export default function Contact() {
               {/* Message */}
               <div>
                 <label className={labelBase}>
-                  Message <span className="text-[#888888]">*</span>
+                  Message <span className="text-[#CCCCCC] dark:text-[#444]">*</span>
                 </label>
                 <textarea
                   rows={5}
@@ -239,25 +249,26 @@ export default function Contact() {
 
               {/* Submit error */}
               {submitErr && (
-                <p className="text-[0.82rem] text-red-500 font-medium">{submitErr}</p>
+                <p className="text-[0.8rem] text-red-500 font-medium">{submitErr}</p>
               )}
 
-              {/* Send button */}
-              <div className="pt-2 flex justify-center">
+              {/* ── Large Send button — high-contrast black/white ── */}
+              <div className="pt-2">
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center gap-2 bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] px-10 py-3 rounded-full text-sm font-semibold tracking-[0.06em] hover:bg-[#000000] dark:hover:bg-[#FFFFFF] transition-all duration-200 shadow-[0_4px_14px_rgba(0,0,0,0.18)] hover:-translate-y-px active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+                  className="btn-lift w-full inline-flex items-center justify-center gap-2.5 bg-[#121212] dark:bg-[#E5E5E5] text-white dark:text-[#0A0A0A] py-4 text-[0.75rem] font-bold tracking-[0.14em] uppercase shadow-[0_4px_16px_rgba(0,0,0,0.15)] disabled:opacity-60 disabled:cursor-not-allowed"
+                  style={{ fontFamily: "var(--font-heading)" }}
                 >
                   {loading ? (
                     <>
-                      <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                      <span className="w-4 h-4 border-2 border-white/30 dark:border-[#0A0A0A]/30 border-t-white dark:border-t-[#0A0A0A] rounded-full animate-spin" />
                       Sending…
                     </>
                   ) : (
                     <>
-                      <Send size={14} />
-                      Send
+                      <Send size={14} strokeWidth={2} />
+                      Send Message
                     </>
                   )}
                 </button>
@@ -268,9 +279,12 @@ export default function Contact() {
         </div>
 
         {/* Sub-copy */}
-        <p className="mt-5 text-[0.75rem] text-[#999999] text-center">
+        <p className="mt-6 text-[0.73rem] text-[#AAAAAA] dark:text-[#555555] text-center">
           Or email me directly at{" "}
-          <a href="mailto:rickytampubolon97@gmail.com" className="text-[#1A1A1A] dark:text-[#E0E0E0] hover:underline">
+          <a
+            href="mailto:rickytampubolon97@gmail.com"
+            className="text-[#121212] dark:text-[#E5E5E5] hover:underline underline-offset-2"
+          >
             rickytampubolon97@gmail.com
           </a>
         </p>
