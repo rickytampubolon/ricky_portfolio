@@ -138,7 +138,7 @@ export default function Home() {
             </div>
 
             {/* ── Hero Text ──────────────────────────────────────── */}
-            <div className="flex-1 min-w-0 max-w-[750px] md:self-stretch md:flex md:flex-col md:justify-center">
+            <div className="flex-1 min-w-0 max-w-[750px] md:self-stretch md:flex md:flex-col md:justify-center bg-white dark:bg-[#1E1E1E] border border-[#E0E0E0] dark:border-[#2C2C2C] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] px-5 py-6 md:bg-transparent md:dark:bg-transparent md:border-0 md:shadow-none md:rounded-none md:px-0 md:py-0">
 
               {/* Primary headline */}
               <h1
