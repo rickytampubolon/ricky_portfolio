@@ -100,7 +100,7 @@ export default function Home() {
                       <div className="w-10 h-[2px] mb-3 bg-[#1A1A1A] dark:bg-[#E0E0E0] md:h-[1px] md:bg-[#E0E0E0] md:dark:bg-[#3A3A3A]" />
 
                       {/* Domain tags — desktop: plain text with dot separators; mobile: colored dot separators */}
-                      <div className="flex flex-wrap justify-center items-center gap-x-1.5 gap-y-1">
+                      <div className="hidden md:flex flex-wrap justify-center items-center gap-x-1.5 gap-y-1">
                         {domainTags.map((tag, i) => (
                           <span key={tag} className="flex items-center gap-1.5">
                             {i > 0 && (
