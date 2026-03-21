@@ -208,21 +208,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           )}
         </nav>
 
-        {/* Social links at the bottom of overlay */}
-        <div className="px-5 pb-10 flex items-center gap-5">
-          {footerSocial.map(({ href, icon, label }) => (
-            <a
-              key={label}
-              href={href}
-              aria-label={label}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#888888] dark:text-[#666666] hover:text-[#1A1A1A] dark:hover:text-[#E0E0E0] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center"
-            >
-              {icon}
-            </a>
-          ))}
-        </div>
       </div>
 
       {/* Content */}
