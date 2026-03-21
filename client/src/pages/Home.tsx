@@ -96,18 +96,27 @@ export default function Home() {
                         </p>
                       </div>
 
-                      {/* Divider — hidden on mobile to save space */}
-                      <div className="hidden md:block w-10 h-[1px] bg-[#E0E0E0] dark:bg-[#3A3A3A] mb-3" />
+                      {/* Divider — accent color on mobile, muted on desktop */}
+                      <div className="w-10 h-[2px] mb-3 bg-[#1A1A1A] dark:bg-[#E0E0E0] md:h-[1px] md:bg-[#E0E0E0] md:dark:bg-[#3A3A3A]" />
 
-                      {/* Domain tags — pill badges (all breakpoints) */}
-                      <div className="flex flex-wrap justify-center gap-1.5">
-                        {domainTags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="px-[10px] py-[4px] rounded-full bg-[#F2F2F2] dark:bg-[#2A2A2A] text-[#888888] dark:text-[#666666] font-semibold uppercase"
-                            style={{ fontSize: "10px", letterSpacing: "0.07em" }}
-                          >
-                            {tag}
+                      {/* Domain tags — desktop: plain text with dot separators; mobile: colored dot separators */}
+                      <div className="flex flex-wrap justify-center items-center gap-x-1.5 gap-y-1">
+                        {domainTags.map((tag, i) => (
+                          <span key={tag} className="flex items-center gap-1.5">
+                            {i > 0 && (
+                              <>
+                                {/* Desktop separator: muted dot */}
+                                <span className="hidden md:inline w-1 h-1 rounded-full bg-[#D0D0D0] dark:bg-[#3A3A3A] shrink-0" />
+                                {/* Mobile separator: accent dot */}
+                                <span className="md:hidden w-1.5 h-1.5 rounded-full bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" />
+                              </>
+                            )}
+                            <span
+                              className="text-[#888888] dark:text-[#666666] font-semibold uppercase"
+                              style={{ fontSize: "10px", letterSpacing: "0.07em" }}
+                            >
+                              {tag}
+                            </span>
                           </span>
                         ))}
                       </div>
