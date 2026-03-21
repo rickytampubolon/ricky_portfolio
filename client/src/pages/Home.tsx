@@ -131,10 +131,10 @@ export default function Home() {
 
               {/* Bio paragraph */}
               <div className="reveal-item mb-4" style={stagger(3)}>
-                <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[60ch]">
+                <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[750px]">
                   My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
                 </p>
-                <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[60ch] mt-2 hidden md:block">
+                <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[750px] mt-2 hidden md:block">
                   Today, as a Lead Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
                 </p>
               </div>
