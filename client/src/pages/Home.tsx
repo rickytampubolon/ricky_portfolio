@@ -96,8 +96,8 @@ export default function Home() {
                         </p>
                       </div>
 
-                      {/* Divider — hidden on mobile to save space */}
-                      <div className="hidden md:block w-10 h-[1px] bg-[#E0E0E0] dark:bg-[#3A3A3A] mb-3" />
+                      {/* Divider — accent color on mobile, muted on desktop */}
+                      <div className="w-10 h-[2px] mb-3 bg-[#1A1A1A] dark:bg-[#E0E0E0] md:h-[1px] md:bg-[#E0E0E0] md:dark:bg-[#3A3A3A]" />
 
                       {/* Domain tags — desktop: plain text with dot separators; mobile: colored dot separators */}
                       <div className="flex flex-wrap justify-center items-center gap-x-1.5 gap-y-1">
