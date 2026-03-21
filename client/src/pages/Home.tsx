@@ -119,7 +119,7 @@ export default function Home() {
             </div>
 
             {/* ── Hero Text ──────────────────────────────────────── */}
-            <div className="flex-1 min-w-0 max-w-[660px] md:flex md:flex-col md:justify-center">
+            <div className="flex-1 min-w-0 max-w-[750px] md:self-stretch md:flex md:flex-col md:justify-center">
 
               {/* Primary headline */}
               <h1
