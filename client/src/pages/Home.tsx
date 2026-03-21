@@ -50,7 +50,7 @@ export default function Home() {
           <div className="relative w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch gap-6 md:gap-14">
 
             {/* ── Profile Card ───────────────────────────────────── */}
-            <div className="reveal-item flex-shrink-0 w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 md:w-[280px] flex flex-col" style={stagger(0)}>
+            <div className="reveal-item flex-shrink-0 w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 md:w-[280px] flex flex-col md:self-stretch" style={stagger(0)}>
               {/*
                 Card: overflow-hidden so the accent line at the top
                 sits flush against the rounded corner without clipping.
@@ -123,7 +123,7 @@ export default function Home() {
 
               {/* Primary headline */}
               <h1
-                className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.75rem] md:text-[37px]"
+                className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[2rem] md:text-[52px]"
                 style={stagger(2)}
               >
                 Building digital products that <span className="text-gray-400">move businesses forward.</span>
