@@ -50,7 +50,7 @@ export default function Home() {
           <div className="relative w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch gap-6 md:gap-10">
 
             {/* ── Profile Card ───────────────────────────────────── */}
-            <div className="reveal-item flex-shrink-0 w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 md:w-[280px] flex flex-col" style={stagger(0)}>
+            <div className="reveal-item flex-shrink-0 w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 md:w-[280px] flex flex-col md:self-stretch" style={stagger(0)}>
               {/*
                 Card: overflow-hidden so the accent line at the top
                 sits flush against the rounded corner without clipping.
@@ -119,7 +119,7 @@ export default function Home() {
             </div>
 
             {/* ── Hero Text ──────────────────────────────────────── */}
-            <div className="flex-1 min-w-0 max-w-[520px] md:flex md:flex-col md:justify-center">
+            <div className="flex-1 min-w-0 max-w-[660px] md:flex md:flex-col md:justify-center">
 
               {/* Primary headline */}
               <h1
