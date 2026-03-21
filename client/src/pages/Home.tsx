@@ -120,6 +120,16 @@ export default function Home() {
                           </span>
                         ))}
                       </div>
+
+                      {/* CTA buttons — mobile only, shown below domain tags */}
+                      <div className="md:hidden flex flex-wrap justify-center gap-3 mt-4">
+                        <a href="/resume">
+                          <button className={btnPrimary}>Resume</button>
+                        </a>
+                        <a href="/contact">
+                          <button className={btnSecondary}>Let's Talk</button>
+                        </a>
+                      </div>
                     </div>
 
                   </div>
@@ -148,8 +158,8 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* CTA buttons */}
-              <div className="reveal-item flex flex-wrap gap-3" style={stagger(4)}>
+              {/* CTA buttons — hidden on mobile (shown in profile card), visible on desktop */}
+              <div className="reveal-item hidden md:flex flex-wrap gap-3" style={stagger(4)}>
                 <a href="/resume">
                   <button className={btnPrimary}>Resume</button>
                 </a>
