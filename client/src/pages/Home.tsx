@@ -1,35 +1,19 @@
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-import { Linkedin, Github } from "lucide-react";
 
 function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
 }
 
-/* ── Button tokens ─────────────────────────────────────────────
-   Primary:   Solid Black (#121212) / Solid White (#E5E5E5 dark)
-   Secondary: Ghost / Outlined — fills on hover
-   Both use the .btn-lift class from index.css for the translateY effect.
-──────────────────────────────────────────────────────────────── */
+/* ── Design tokens ───────────────────────────────────────────── */
+// Primary CTA: filled black/white, inverts on hover
 const btnPrimary =
-  "btn-lift inline-flex items-center justify-center bg-[#121212] dark:bg-[#E5E5E5] text-white dark:text-[#0A0A0A] px-8 py-3.5 text-[0.68rem] font-bold tracking-[0.16em] uppercase min-h-[44px] cursor-pointer";
-
+  "inline-flex items-center justify-center bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] border border-[#1A1A1A] dark:border-[#E0E0E0] px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#000000] dark:hover:bg-[#FFFFFF] transition-all duration-300 ease-in-out active:scale-[0.97] cursor-pointer";
+// Secondary CTA: outline, fills on hover
 const btnSecondary =
-  "btn-lift inline-flex items-center justify-center border border-[#121212] dark:border-[#E5E5E5] text-[#121212] dark:text-[#E5E5E5] bg-transparent px-8 py-3.5 text-[0.68rem] font-bold tracking-[0.16em] uppercase min-h-[44px] hover:bg-[#121212] dark:hover:bg-[#E5E5E5] hover:text-white dark:hover:text-[#0A0A0A] transition-colors duration-200 cursor-pointer";
+  "inline-flex items-center justify-center border border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] bg-transparent px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-300 ease-in-out active:scale-[0.97] cursor-pointer";
 
-/* ── Skill tags shown in the right column ─────────────────────
-   Border-only, no fill — subtle grey border, rounded corners.
-──────────────────────────────────────────────────────────────── */
-const skillTags = [
-  "Product Strategy",
-  "Roadmapping",
-  "User Research",
-  "Cross-functional Leadership",
-  "Data Analysis",
-  "Go-to-Market",
-  "Agile / Scrum",
-  "Stakeholder Management",
-];
+const domainTags = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TRANSFORMATION"];
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
@@ -43,134 +27,120 @@ export default function Home() {
 
   return (
     <Layout>
-      <div
-        className={`flex-1 flex flex-col ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}
-      >
-        {/* ── Hero Section ────────────────────────────────────────
-            Desktop: two-column layout
-              LEFT  — elevated profile card (#F5F5F5 bg)
-              RIGHT — headline, bio, CTAs, skill tags
-            Mobile: single-column stack
-        ──────────────────────────────────────────────────────── */}
+      {/*
+        Outer wrapper: flex-1 fills all available main space (Layout's <main>
+        is already flex-1 flex-col). flex-col here lets children stack
+        vertically so the hero can use flex-1 to fill the remaining space.
+      */}
+      <div className={`flex-1 flex flex-col ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}>
+
+        {/* ── Hero Section ─────────────────────────────────────────
+            Desktop: two-column (profile card | hero text), vertically
+            centered, filling the viewport below the header (flex-1).
+            Mobile: single-column stack, scrolls naturally if needed.
+        ─────────────────────────────────────────────────────────── */}
         <section
-          className="md:flex-1 flex items-start md:items-center px-5 sm:px-6 md:px-12 py-8 md:py-10 relative bg-[#FFFFFF] dark:bg-[#0A0A0A]"
+          className="md:flex-1 flex items-start md:items-center px-5 sm:px-6 md:px-12 py-6 md:py-8 relative"
           aria-label="Hero"
         >
-          {/* Faint dot-grid background texture */}
+          {/* ── Faint dot-grid background texture ─────────────────── */}
           <div className="hero-dot-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
 
-          {/* Two-column wrapper — max-width keeps it centered on wide screens */}
-          <div className="relative w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch gap-8 md:gap-16">
+          {/* Inner wrapper: stack on mobile, two-col flex on desktop */}
+          <div className="relative w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch gap-6 md:gap-14">
 
-            {/* ── LEFT: Elevated Profile Card ─────────────────────
-                Background: #F5F5F5 light / #1A1A1A dark (per spec).
-                card-elevated applies layered box-shadows from index.css.
-                Sharp corners (no border-radius) for architectural feel.
-            ─────────────────────────────────────────────────── */}
-            <div
-              className="reveal-item flex-shrink-0 w-full max-w-[300px] mx-auto md:max-w-none md:mx-0 md:w-[268px]"
-              style={stagger(0)}
-            >
-              <div className="card-elevated bg-[#F5F5F5] dark:bg-[#1A1A1A] w-full h-full flex flex-col overflow-hidden">
+            {/* ── Profile Card ───────────────────────────────────── */}
+            <div className="reveal-item flex-shrink-0 w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 md:w-[280px] flex flex-col" style={stagger(0)}>
+              {/*
+                Card: overflow-hidden so the accent line at the top
+                sits flush against the rounded corner without clipping.
+              */}
+              <div
+                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full flex flex-col overflow-hidden"
+              >
+                {/* Accent line — 3px, spans full card width */}
+                <div className="h-[3px] w-full bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" />
 
-                {/* Top accent bar — 4px solid black/white */}
-                <div className="h-[4px] w-full bg-[#121212] dark:bg-[#E5E5E5] shrink-0" />
+                {/* Card content */}
+                <div
+                  className="flex-1 flex flex-col justify-center"
+                  style={{ padding: "clamp(1rem, 3vw, 1.75rem)" }}
+                >
+                  {/* Vertical centered layout on all breakpoints */}
+                  <div className="flex flex-col items-center text-center gap-4">
 
-                {/* Card body */}
-                <div className="flex-1 flex flex-col items-center text-center px-7 py-8 gap-5">
+                    {/* Profile photo */}
+                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-[2px] ring-[#E0E0E0] dark:ring-[#2A2A2A] bg-[#C8C8C8] shrink-0 mb-4">
+                      <img
+                        src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
+                        alt="Ricky Halomoan – Lead Product Manager"
+                        className="w-full h-full object-cover"
+                        style={{ filter: "grayscale(100%)" }}
+                        loading="eager"
+                        width="128"
+                        height="128"
+                      />
+                    </div>
 
-                  {/* Circular grayscale headshot */}
-                  <div className="w-28 h-28 rounded-full overflow-hidden ring-[2px] ring-[#DEDEDE] dark:ring-[#2A2A2A] bg-[#CCCCCC] shrink-0">
-                    <img
-                      src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-                      alt="Ricky Halomoan – Lead Product Manager"
-                      className="w-full h-full object-cover"
-                      style={{ filter: "grayscale(100%)" }}
-                      loading="eager"
-                      width="128"
-                      height="128"
-                    />
+                    {/* Name + title + divider + tags */}
+                    <div className="w-full flex flex-col items-center">
+                      <div className="mb-2 md:mb-4">
+                        <p
+                          className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight mb-1 text-[1.0625rem]"
+                          style={{ fontFamily: "var(--font-heading)" }}
+                        >
+                          Ricky Halomoan
+                        </p>
+                        <p className="text-[0.6rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#666666]">
+                          Lead Product Manager
+                        </p>
+                      </div>
+
+                      {/* Divider — hidden on mobile to save space */}
+                      <div className="hidden md:block w-10 h-[1px] bg-[#E0E0E0] dark:bg-[#3A3A3A] mb-3" />
+
+                      {/* Domain tags — pill badges (all breakpoints) */}
+                      <div className="flex flex-wrap justify-center gap-1.5">
+                        {domainTags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-[10px] py-[4px] rounded-full bg-[#F2F2F2] dark:bg-[#2A2A2A] text-[#888888] dark:text-[#666666] font-semibold uppercase"
+                            style={{ fontSize: "10px", letterSpacing: "0.07em" }}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
                   </div>
-
-                  {/* Name block */}
-                  <div className="w-full flex flex-col items-center">
-                    {/* Bold name */}
-                    <p
-                      className="font-bold text-[1.0rem] text-[#121212] dark:text-[#E5E5E5] leading-tight tracking-[-0.01em]"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      Ricky Halomoan
-                    </p>
-
-                    {/* Thin black divider — 1px, constrained width */}
-                    <div className="w-8 h-[1px] bg-[#CCCCCC] dark:bg-[#333333] my-3" />
-
-                    {/* Title — light weight, very tracked out */}
-                    <p className="text-[0.58rem] font-light tracking-[0.24em] uppercase text-[#888888] dark:text-[#666666]">
-                      Lead Product Manager
-                    </p>
-                  </div>
-
-                  {/* Social icons: LinkedIn + GitHub (monochrome) */}
-                  <div className="flex items-center justify-center gap-1 pt-1">
-                    <a
-                      href="https://www.linkedin.com/in/rickyhlmn/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="LinkedIn"
-                      className="text-[#AAAAAA] dark:text-[#555555] hover:text-[#121212] dark:hover:text-[#E5E5E5] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                    >
-                      <Linkedin size={17} strokeWidth={1.75} />
-                    </a>
-                    <a
-                      href="https://github.com/rickyhlmn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="GitHub"
-                      className="text-[#AAAAAA] dark:text-[#555555] hover:text-[#121212] dark:hover:text-[#E5E5E5] transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                    >
-                      <Github size={17} strokeWidth={1.75} />
-                    </a>
-                  </div>
-
                 </div>
               </div>
             </div>
 
-            {/* ── RIGHT: Hero Content ──────────────────────────────
-                Headline: ALL-CAPS (via h1 CSS), extra-bold Archivo.
-                Sub-headline + bio + CTAs + skill tags stack below.
-            ─────────────────────────────────────────────────── */}
+            {/* ── Hero Text ──────────────────────────────────────── */}
             <div className="flex-1 min-w-0 md:flex md:flex-col md:justify-center">
 
-              {/* Eyebrow / sub-label */}
-              <p
-                className="reveal-item text-[0.62rem] font-semibold tracking-[0.22em] uppercase text-[#AAAAAA] dark:text-[#555555] mb-4"
-                style={stagger(1)}
-              >
-                Here's who I am &amp; what I do.
-              </p>
-
-              {/* Main headline — ALL-CAPS via h1 CSS in index.css */}
+              {/* Primary headline */}
               <h1
-                className="reveal-item font-black text-[#121212] dark:text-[#E5E5E5] mb-5"
-                style={{ ...stagger(2), fontSize: "clamp(1.75rem, 4.2vw, 3rem)" }}
+                className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.75rem] md:text-[37px]"
+                style={stagger(2)}
               >
-                Building digital products that move businesses forward.
+                Building digital products that <span className="text-gray-400">move businesses forward.</span>
               </h1>
 
-              {/* Bio — Inter body, generous line-height for "breathable" feel */}
-              <div className="reveal-item mb-6" style={stagger(3)}>
-                <p className="text-[0.88rem] text-[#666666] dark:text-[#777777] leading-[1.75] max-w-[58ch]">
+              {/* Bio paragraph */}
+              <div className="reveal-item mb-4" style={stagger(3)}>
+                <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[60ch]">
                   My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
                 </p>
-                <p className="text-[0.88rem] text-[#666666] dark:text-[#777777] leading-[1.75] max-w-[58ch] mt-3 hidden md:block">
+                <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[60ch] mt-2 hidden md:block">
                   Today, as a Lead Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
                 </p>
               </div>
 
-              {/* CTA Buttons */}
-              <div className="reveal-item flex flex-wrap gap-3 mb-7" style={stagger(4)}>
+              {/* CTA buttons */}
+              <div className="reveal-item flex flex-wrap gap-3" style={stagger(4)}>
                 <a href="/resume">
                   <button className={btnPrimary}>Resume</button>
                 </a>
@@ -179,22 +149,14 @@ export default function Home() {
                 </a>
               </div>
 
-              {/* Skill Tags — border-only, no background fill */}
-              <div className="reveal-item flex flex-wrap gap-2" style={stagger(5)}>
-                {skillTags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1.5 border border-[#DDDDDD] dark:border-[#2A2A2A] text-[#888888] dark:text-[#666666] text-[0.65rem] font-medium tracking-[0.04em] rounded-sm uppercase"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
             </div>
+
           </div>
         </section>
+
+
       </div>
+
     </Layout>
   );
 }
