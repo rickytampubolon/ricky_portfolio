@@ -40,7 +40,7 @@ export default function Home() {
             Mobile: single-column stack, scrolls naturally if needed.
         ─────────────────────────────────────────────────────────── */}
         <section
-          className="flex-1 flex items-start md:items-center px-5 sm:px-6 md:px-12 py-6 md:py-8 relative"
+          className="flex-1 flex items-center px-5 sm:px-6 md:px-12 py-6 md:py-8 relative min-h-[calc(100dvh-12rem)]"
           aria-label="Hero"
         >
           {/* ── Faint dot-grid background texture ─────────────────── */}
