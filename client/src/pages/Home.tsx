@@ -56,7 +56,7 @@ export default function Home() {
                 sits flush against the rounded corner without clipping.
               */}
               <div
-                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full flex flex-col overflow-hidden"
+                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full flex-1 flex flex-col overflow-hidden"
               >
                 {/* Accent line — 3px, spans full card width */}
                 <div className="h-[3px] w-full bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" />
