@@ -8,10 +8,10 @@ function stagger(n: number) {
 /* ── Design tokens ───────────────────────────────────────────── */
 // Primary CTA: filled black/white, inverts on hover
 const btnPrimary =
-  "inline-flex items-center justify-center bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] border border-[#1A1A1A] dark:border-[#E0E0E0] px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#000000] dark:hover:bg-[#FFFFFF] transition-all duration-300 ease-in-out active:scale-[0.97] cursor-pointer";
+  "inline-flex items-center justify-center bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] border border-[#1A1A1A] dark:border-[#E0E0E0] px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#000000] dark:hover:bg-[#FFFFFF] hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
 // Secondary CTA: outline, fills on hover
 const btnSecondary =
-  "inline-flex items-center justify-center border border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] bg-transparent px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] transition-all duration-300 ease-in-out active:scale-[0.97] cursor-pointer";
+  "inline-flex items-center justify-center border border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] bg-transparent px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
 
 const domainTags = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TRANSFORMATION"];
 
@@ -132,28 +132,34 @@ export default function Home() {
             </div>
 
             {/* ── Hero Text ──────────────────────────────────────── */}
-            <div className="flex-1 min-w-0 max-w-[750px] md:self-stretch md:flex md:flex-col md:justify-center bg-white dark:bg-[#1E1E1E] border border-[#E0E0E0] dark:border-[#2C2C2C] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] px-5 py-6 md:bg-transparent md:dark:bg-transparent md:border-0 md:shadow-none md:rounded-none md:px-0 md:py-0">
+            <div className="flex-1 min-w-0 max-w-[750px] md:self-stretch md:flex md:flex-col bg-white dark:bg-[#1E1E1E] border border-[#E0E0E0] dark:border-[#2C2C2C] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] px-5 py-6 md:bg-transparent md:dark:bg-transparent md:border-0 md:shadow-none md:rounded-none md:px-0 md:py-0">
 
-              {/* Primary headline */}
-              <h1
-                className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.85rem] md:text-[44px]"
-                style={stagger(2)}
-              >
-                Building digital products that <span className="text-gray-600 dark:text-gray-300">move businesses forward.</span>
-              </h1>
+              {/* Text content — grows to fill column, centers headline + bio vertically */}
+              <div className="md:flex-1 md:flex md:flex-col md:justify-center">
 
-              {/* Bio paragraph */}
-              <div className="reveal-item mb-4" style={stagger(3)}>
-                <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[750px]">
-                  My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
-                </p>
-                <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[750px] mt-2">
-                  Today, as a Lead Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
-                </p>
+                {/* Primary headline */}
+                <h1
+                  className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.85rem] md:text-[44px]"
+                  style={stagger(2)}
+                >
+                  Building digital products that <span className="text-gray-600 dark:text-gray-300">move businesses forward.</span>
+                </h1>
+
+                {/* Bio paragraph */}
+                <div className="reveal-item" style={stagger(3)}>
+                  <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[750px]">
+                    My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
+                  </p>
+                  <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[750px] mt-2">
+                    Today, as a Lead Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
+                  </p>
+                </div>
+
               </div>
 
-              {/* CTA buttons — hidden on mobile (shown in profile card), visible on desktop */}
-              <div className="reveal-item hidden md:flex flex-wrap gap-3" style={stagger(4)}>
+              {/* CTA buttons — hidden on mobile (shown in profile card); pinned to the bottom of the
+                  column on desktop so their baseline aligns with the bottom edge of the profile card */}
+              <div className="reveal-item hidden md:flex flex-wrap gap-3 md:pt-6" style={stagger(4)}>
                 <a href="/resume">
                   <button className={btnPrimary}>Resume</button>
                 </a>
