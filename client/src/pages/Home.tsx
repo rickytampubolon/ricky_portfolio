@@ -86,12 +86,12 @@ export default function Home() {
                     <div className="w-full flex flex-col items-center">
                       <div className="mb-2 md:mb-4">
                         <p
-                          className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight mb-1 text-[1.25rem] md:text-[1.0625rem]"
+                          className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight mb-1 text-[1.25rem] md:text-[1.3rem]"
                           style={{ fontFamily: "var(--font-heading)" }}
                         >
                           Ricky Halomoan
                         </p>
-                        <p className="text-[0.75rem] md:text-[0.6rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#666666]">
+                        <p className="text-[0.75rem] md:text-[0.72rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#666666]">
                           Lead Product Manager
                         </p>
                       </div>
@@ -99,24 +99,20 @@ export default function Home() {
                       {/* Divider — accent color on mobile, muted on desktop */}
                       <div className="w-10 h-[2px] mb-3 bg-[#1A1A1A] dark:bg-[#E0E0E0] md:h-[1px] md:bg-[#E0E0E0] md:dark:bg-[#3A3A3A]" />
 
-                      {/* Domain tags — desktop: plain text with dot separators; mobile: colored dot separators */}
-                      <div className="hidden md:flex flex-wrap justify-center items-center gap-x-1.5 gap-y-1">
-                        {domainTags.map((tag, i) => (
-                          <span key={tag} className="flex items-center gap-1.5">
-                            {i > 0 && (
-                              <>
-                                {/* Desktop separator: muted dot */}
-                                <span className="hidden md:inline w-1 h-1 rounded-full bg-[#D0D0D0] dark:bg-[#3A3A3A] shrink-0" />
-                                {/* Mobile separator: accent dot */}
-                                <span className="md:hidden w-1.5 h-1.5 rounded-full bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" />
-                              </>
-                            )}
-                            <span
-                              className="text-[#888888] dark:text-[#666666] font-semibold uppercase"
-                              style={{ fontSize: "10px", letterSpacing: "0.07em" }}
-                            >
-                              {tag}
-                            </span>
+                      {/* Domain tags — uniform pill badges */}
+                      <div className="flex flex-wrap justify-center gap-[6px]">
+                        {domainTags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[#555555] dark:text-[#999999] font-semibold uppercase bg-[#F0F0F0] dark:bg-[#2A2A2A]"
+                            style={{
+                              borderRadius: "999px",
+                              padding: "4px 10px",
+                              fontSize: "10px",
+                              letterSpacing: "0.07em",
+                            }}
+                          >
+                            {tag}
                           </span>
                         ))}
                       </div>
