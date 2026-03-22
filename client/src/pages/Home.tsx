@@ -46,17 +46,17 @@ export default function Home() {
           {/* ── Faint dot-grid background texture ─────────────────── */}
           <div className="hero-dot-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
 
-          {/* Inner wrapper: stack on mobile, two-col flex on desktop */}
-          <div className="relative w-full max-w-5xl mx-auto flex flex-col md:flex-row md:items-stretch gap-6 md:gap-10">
+          {/* Inner wrapper: stack on mobile, two-col grid on desktop */}
+          <div className="relative w-full max-w-5xl mx-auto flex flex-col md:grid md:grid-cols-[280px_1fr] gap-6 md:gap-10">
 
             {/* ── Profile Card ───────────────────────────────────── */}
-            <div className="reveal-item flex-shrink-0 w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 md:w-[280px] flex flex-col md:self-stretch" style={stagger(0)}>
+            <div className="reveal-item w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 flex flex-col" style={stagger(0)}>
               {/*
                 Card: overflow-hidden so the accent line at the top
                 sits flush against the rounded corner without clipping.
               */}
               <div
-                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full flex-1 flex flex-col overflow-hidden"
+                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full flex flex-col overflow-hidden"
               >
                 {/* Accent line — 3px, spans full card width */}
                 <div className="h-[3px] w-full bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" />
@@ -134,7 +134,7 @@ export default function Home() {
             </div>
 
             {/* ── Hero Text ──────────────────────────────────────── */}
-            <div className="flex-1 min-w-0 max-w-[750px] md:self-stretch md:flex md:flex-col bg-white dark:bg-[#1E1E1E] border border-[#E0E0E0] dark:border-[#2C2C2C] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] px-5 py-6 md:bg-transparent md:dark:bg-transparent md:border-0 md:shadow-none md:rounded-none md:px-0 md:py-0">
+            <div className="min-w-0 max-w-[750px] md:flex md:flex-col bg-white dark:bg-[#1E1E1E] border border-[#E0E0E0] dark:border-[#2C2C2C] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] px-5 py-6 md:bg-transparent md:dark:bg-transparent md:border-0 md:shadow-none md:rounded-none md:px-0 md:py-0">
 
               {/* Text content — grows to fill column, centers headline + bio vertically */}
               <div className="md:flex-1 md:flex md:flex-col md:justify-center">
