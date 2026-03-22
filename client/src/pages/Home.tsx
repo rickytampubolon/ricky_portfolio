@@ -86,12 +86,12 @@ export default function Home() {
                     <div className="w-full flex flex-col items-center">
                       <div className="mb-2 md:mb-4">
                         <p
-                          className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight mb-1 text-[1.0625rem]"
+                          className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight mb-1 text-[1.25rem] md:text-[1.0625rem]"
                           style={{ fontFamily: "var(--font-heading)" }}
                         >
                           Ricky Halomoan
                         </p>
-                        <p className="text-[0.6rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#666666]">
+                        <p className="text-[0.75rem] md:text-[0.6rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#666666]">
                           Lead Product Manager
                         </p>
                       </div>
