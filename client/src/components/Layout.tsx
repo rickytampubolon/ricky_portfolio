@@ -71,10 +71,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <nav className="flex items-center gap-6 md:gap-8" role="navigation" aria-label="Primary navigation">
             {navLinks.map(({ label, href, soon }) =>
               soon ? (
-                <span key={label} className="flex items-center gap-1.5 text-[0.72rem] font-bold tracking-[0.09em] text-[#C0C0C0] dark:text-[#444444] cursor-default select-none">
+                <span key={label} className="relative flex items-center gap-1.5 text-[0.72rem] font-bold tracking-[0.09em] text-[#C0C0C0] dark:text-[#444444] cursor-default select-none group">
                   {label}
-                  <span className="px-1.5 py-0.5 rounded-full text-[0.5rem] font-bold uppercase tracking-wide bg-[#F0F0F0] dark:bg-[#2A2A2A] text-[#AAAAAA] dark:text-[#555555]">
+                  <span className="px-1 py-px rounded text-[0.42rem] font-medium uppercase tracking-wide bg-[#F0F0F0]/70 dark:bg-[#2A2A2A]/60 text-[#BEBEBE] dark:text-[#404040]">
                     Soon
+                  </span>
+                  {/* Tooltip */}
+                  <span className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 px-2.5 py-1.5 rounded-lg text-[0.65rem] font-medium text-white bg-[#1A1A1A] dark:bg-[#E0E0E0] dark:text-[#1A1A1A] whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-md z-50">
+                    Case studies coming soon!
                   </span>
                 </span>
               ) : (
@@ -186,7 +190,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 style={{ fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
               >
                 {label}
-                <span className="px-2 py-0.5 rounded-full text-[0.55rem] font-bold uppercase tracking-wide bg-[#F0F0F0] dark:bg-[#2A2A2A] text-[#AAAAAA] dark:text-[#555555]">
+                <span className="px-1.5 py-px rounded text-[0.5rem] font-medium uppercase tracking-wide bg-[#F0F0F0]/70 dark:bg-[#2A2A2A]/60 text-[#BEBEBE] dark:text-[#404040]">
                   Soon
                 </span>
               </span>
