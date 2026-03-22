@@ -70,11 +70,11 @@ export default function Home() {
                   <div className="flex flex-col items-center text-center gap-4">
 
                     {/* Profile photo */}
-                    <div className="w-24 h-24 md:w-28 md:h-28 rounded-full overflow-hidden ring-[2px] ring-[#E0E0E0] dark:ring-[#2A2A2A] bg-[#C8C8C8] shrink-0 mb-4">
+                    <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden ring-[2px] ring-[#E0E0E0] dark:ring-[#2A2A2A] bg-[#C8C8C8] shrink-0 mb-4">
                       <img
                         src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                         alt="Ricky Halomoan – Lead Product Manager"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover scale-110"
                         style={{ filter: "grayscale(100%)" }}
                         loading="eager"
                         width="128"
@@ -145,7 +145,7 @@ export default function Home() {
                 className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.85rem] md:text-[44px]"
                 style={stagger(2)}
               >
-                Building digital products that <span className="text-gray-400">move businesses forward.</span>
+                Building digital products that <span className="text-gray-600 dark:text-gray-300">move businesses forward.</span>
               </h1>
 
               {/* Bio paragraph */}
