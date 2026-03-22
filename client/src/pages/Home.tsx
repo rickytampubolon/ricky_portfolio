@@ -56,7 +56,7 @@ export default function Home() {
                 sits flush against the rounded corner without clipping.
               */}
               <div
-                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.04),0_6px_16px_rgba(0,0,0,0.06),0_20px_40px_rgba(0,0,0,0.08)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.2),0_6px_16px_rgba(0,0,0,0.28),0_20px_40px_rgba(0,0,0,0.38)] w-full h-full flex flex-col overflow-hidden"
+                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full flex flex-col overflow-hidden"
               >
                 {/* Accent line — 3px, spans full card width */}
                 <div className="h-[3px] w-full bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" />
@@ -99,15 +99,21 @@ export default function Home() {
                       {/* Divider — accent color on mobile, muted on desktop */}
                       <div className="w-10 h-[2px] mb-3 bg-[#1A1A1A] dark:bg-[#E0E0E0] md:h-[1px] md:bg-[#E0E0E0] md:dark:bg-[#3A3A3A]" />
 
-                      {/* Domain tags — desktop: vertical list with subtle bullet; mobile: hidden (CTA buttons shown instead) */}
-                      <div className="hidden md:flex flex-col items-center gap-y-[0.45rem]">
-                        {domainTags.map((tag) => (
-                          <span key={tag} className="flex items-center gap-2 leading-[1.6]">
-                            {/* Subtle diamond bullet */}
-                            <span className="w-[5px] h-[5px] rotate-45 bg-[#C0C0C0] dark:bg-[#4A4A4A] shrink-0" />
+                      {/* Domain tags — desktop: plain text with dot separators; mobile: colored dot separators */}
+                      <div className="hidden md:flex flex-wrap justify-center items-center gap-x-1.5 gap-y-1">
+                        {domainTags.map((tag, i) => (
+                          <span key={tag} className="flex items-center gap-1.5">
+                            {i > 0 && (
+                              <>
+                                {/* Desktop separator: muted dot */}
+                                <span className="hidden md:inline w-1 h-1 rounded-full bg-[#D0D0D0] dark:bg-[#3A3A3A] shrink-0" />
+                                {/* Mobile separator: accent dot */}
+                                <span className="md:hidden w-1.5 h-1.5 rounded-full bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" />
+                              </>
+                            )}
                             <span
                               className="text-[#888888] dark:text-[#666666] font-semibold uppercase"
-                              style={{ fontSize: "10.5px", letterSpacing: "0.07em", lineHeight: "1.6" }}
+                              style={{ fontSize: "10px", letterSpacing: "0.07em" }}
                             >
                               {tag}
                             </span>
