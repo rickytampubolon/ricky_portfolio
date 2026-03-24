@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Layout from "../components/Layout";
 import { Send, CheckCircle } from "lucide-react";
 import { profile } from "../data/homeData";
@@ -63,10 +63,10 @@ async function submitForm(data: FormState): Promise<void> {
 
 /* ── FormField ───────────────────────────────────────────────── */
 interface FormFieldProps {
-  label:       string;
-  error?:      string;
-  touched?:    boolean;
-  children:    React.ReactElement<{ className?: string }>;
+  label:    string;
+  error?:   string;
+  touched?: boolean;
+  children: React.ReactNode;
 }
 
 function FormField({ label, error, touched, children }: FormFieldProps) {
@@ -76,13 +76,13 @@ function FormField({ label, error, touched, children }: FormFieldProps) {
       <label className={labelBase}>
         {label} <span className="text-muted-foreground">*</span>
       </label>
-      {React.cloneElement(children, {
-        className: `${children.props.className ?? ""} ${hasError ? "border-b-red-400 focus:border-b-red-500" : ""}`.trim(),
-      })}
+      {children}
       {hasError && <p className={errorMsg}>{error}</p>}
     </div>
   );
 }
+
+const inputError = "border-b-red-400 focus:border-b-red-500";
 
 /* ── Component ───────────────────────────────────────────────── */
 export default function Contact() {
@@ -174,7 +174,7 @@ export default function Contact() {
                     value={form.firstName}
                     onChange={(e) => update("firstName", e.target.value)}
                     onBlur={() => blur("firstName")}
-                    className={inputBase}
+                    className={`${inputBase} ${touched.firstName && errors.firstName ? inputError : ""}`}
                     autoComplete="given-name"
                   />
                 </FormField>
@@ -185,7 +185,7 @@ export default function Contact() {
                     value={form.lastName}
                     onChange={(e) => update("lastName", e.target.value)}
                     onBlur={() => blur("lastName")}
-                    className={inputBase}
+                    className={`${inputBase} ${touched.lastName && errors.lastName ? inputError : ""}`}
                     autoComplete="family-name"
                   />
                 </FormField>
@@ -198,7 +198,7 @@ export default function Contact() {
                   value={form.email}
                   onChange={(e) => update("email", e.target.value)}
                   onBlur={() => blur("email")}
-                  className={inputBase}
+                  className={`${inputBase} ${touched.email && errors.email ? inputError : ""}`}
                   autoComplete="email"
                 />
               </FormField>
@@ -210,7 +210,7 @@ export default function Contact() {
                   value={form.subject}
                   onChange={(e) => update("subject", e.target.value)}
                   onBlur={() => blur("subject")}
-                  className={inputBase}
+                  className={`${inputBase} ${touched.subject && errors.subject ? inputError : ""}`}
                   autoComplete="off"
                 />
               </FormField>
@@ -222,7 +222,7 @@ export default function Contact() {
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
                   onBlur={() => blur("message")}
-                  className={`${inputBase} resize-none`}
+                  className={`${inputBase} resize-none ${touched.message && errors.message ? inputError : ""}`}
                 />
               </FormField>
 

@@ -21,6 +21,8 @@ export const domainTags = [
   "DIGITAL TRANSFORMATION",
 ];
 
+export const headline = "Building digital products that move businesses forward.";
+
 export const bio = [
   "My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.",
   "Today, as a Lead Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.",
