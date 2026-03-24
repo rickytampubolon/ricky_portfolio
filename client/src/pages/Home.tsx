@@ -91,7 +91,7 @@ export default function Home() {
                   />
 
                   {/* CTA buttons — pill shape, inside the card */}
-                  <div className="flex gap-3 mt-6 justify-center flex-wrap">
+                  <div className="flex gap-3 mt-6 justify-center">
                     <Link href="/resume">
                       <button className={btnPrimary}>Resume</button>
                     </Link>
