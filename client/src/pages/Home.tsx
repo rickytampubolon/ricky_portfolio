@@ -6,12 +6,12 @@ function stagger(n: number) {
 }
 
 /* ── Design tokens ───────────────────────────────────────────── */
-// Primary CTA: filled black/white, inverts on hover
+// Primary CTA: filled, inverts on hover
 const btnPrimary =
-  "inline-flex items-center justify-center bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] border border-[#1A1A1A] dark:border-[#E0E0E0] px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#000000] dark:hover:bg-[#FFFFFF] hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
+  "inline-flex items-center justify-center bg-primary text-primary-foreground border border-primary px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:opacity-90 hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
 // Secondary CTA: outline, fills on hover
 const btnSecondary =
-  "inline-flex items-center justify-center border border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] bg-transparent px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
+  "inline-flex items-center justify-center border border-primary text-foreground bg-transparent px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-primary hover:text-primary-foreground hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
 
 const domainTags = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TRANSFORMATION"];
 
@@ -56,7 +56,7 @@ export default function Home() {
                 sits flush against the rounded corner without clipping.
               */}
               <div
-                className="border border-[#E0E0E0] dark:border-[#2C2C2C] border-t-[3px] border-t-[#1A1A1A] dark:border-t-[#E0E0E0] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full flex flex-col"
+                className="border border-border border-t-[3px] border-t-primary bg-card rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full flex flex-col"
               >
 
                 {/* Card content */}
@@ -68,7 +68,7 @@ export default function Home() {
                   <div className="flex flex-col items-center text-center gap-4">
 
                     {/* Profile photo */}
-                    <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden ring-[2px] ring-[#E0E0E0] dark:ring-[#2A2A2A] bg-[#C8C8C8] shrink-0 mb-4">
+                    <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden ring-[2px] ring-border bg-muted shrink-0 mb-4">
                       <img
                         src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
                         alt="Ricky Halomoan – Lead Product Manager"
@@ -84,31 +84,25 @@ export default function Home() {
                     <div className="w-full flex flex-col items-center">
                       <div className="mb-2 md:mb-4">
                         <p
-                          className="font-bold text-[#1A1A1A] dark:text-[#E0E0E0] leading-tight mb-1 text-[1.25rem] md:text-[1.3rem]"
+                          className="font-bold text-foreground leading-tight mb-1 text-[1.25rem] md:text-[1.3rem]"
                           style={{ fontFamily: "var(--font-heading)" }}
                         >
                           Ricky Halomoan
                         </p>
-                        <p className="text-[0.75rem] md:text-[0.72rem] font-semibold tracking-[0.18em] uppercase text-[#888888] dark:text-[#666666]">
+                        <p className="text-[0.75rem] md:text-[0.72rem] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
                           Lead Product Manager
                         </p>
                       </div>
 
                       {/* Divider — accent color on mobile, muted on desktop */}
-                      <div className="w-10 h-[2px] mb-3 bg-[#1A1A1A] dark:bg-[#E0E0E0] md:h-[1px] md:bg-[#E0E0E0] md:dark:bg-[#3A3A3A]" />
+                      <div className="w-10 h-[2px] mb-3 bg-primary md:h-[1px] md:bg-border" />
 
                       {/* Domain tags — uniform pill badges */}
                       <div className="flex flex-wrap justify-center gap-[6px]">
                         {domainTags.map((tag) => (
                           <span
                             key={tag}
-                            className="text-[#555555] dark:text-[#999999] font-semibold uppercase bg-[#F0F0F0] dark:bg-[#2A2A2A]"
-                            style={{
-                              borderRadius: "999px",
-                              padding: "4px 10px",
-                              fontSize: "10px",
-                              letterSpacing: "0.07em",
-                            }}
+                            className="text-subtle font-semibold uppercase bg-secondary rounded-full px-2.5 py-1 text-[10px] tracking-[0.07em]"
                           >
                             {tag}
                           </span>
@@ -130,7 +124,7 @@ export default function Home() {
 
                 {/* Primary headline */}
                 <h1
-                  className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[21px] md:text-[44px]"
+                  className="reveal-item font-black tracking-[-0.03em] leading-none text-foreground mb-3 text-[21px] md:text-[44px]"
                   style={stagger(2)}
                 >
                   Building digital products that move businesses forward.
@@ -138,10 +132,10 @@ export default function Home() {
 
                 {/* Bio paragraph */}
                 <div className="reveal-item" style={stagger(3)}>
-                  <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[750px]">
+                  <p className="text-[0.9rem] md:text-sm text-subtle leading-relaxed max-w-[750px]">
                     My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
                   </p>
-                  <p className="text-[0.9rem] md:text-sm text-[#555555] dark:text-[#AAAAAA] leading-relaxed max-w-[750px] mt-2">
+                  <p className="text-[0.9rem] md:text-sm text-subtle leading-relaxed max-w-[750px] mt-2">
                     Today, as a Lead Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
                   </p>
                 </div>
