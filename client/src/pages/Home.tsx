@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-import { profile, domainTags, bio } from "../data/homeData";
+import { profile, headline, domainTags, bio } from "../data/homeData";
 
 function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
@@ -126,7 +126,7 @@ export default function Home() {
                   className="reveal-item font-black tracking-[-0.03em] leading-none text-foreground mb-3 text-[21px] md:text-[44px]"
                   style={stagger(2)}
                 >
-                  Building digital products that move businesses forward.
+                  {headline}
                 </h1>
 
                 {/* Bio paragraph */}

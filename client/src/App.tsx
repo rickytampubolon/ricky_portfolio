@@ -12,7 +12,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 function Router() {
   return (
-    <Suspense>
+    <Suspense fallback={null}>
       <Switch>
         <Route path="/"        component={Home} />
         <Route path="/resume"  component={Resume} />
