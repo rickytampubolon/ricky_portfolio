@@ -8,10 +8,10 @@ function stagger(n: number) {
 /* ── Design tokens ───────────────────────────────────────────── */
 // Primary CTA: filled black/white, inverts on hover
 const btnPrimary =
-  "inline-flex items-center justify-center bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] border border-[#1A1A1A] dark:border-[#E0E0E0] px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#000000] dark:hover:bg-[#FFFFFF] hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
+  "inline-flex items-center justify-center bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#121212] border border-[#1A1A1A] dark:border-[#E0E0E0] px-7 py-3 rounded-full max-md:rounded-[5px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#000000] dark:hover:bg-[#FFFFFF] hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
 // Secondary CTA: outline, fills on hover
 const btnSecondary =
-  "inline-flex items-center justify-center border border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] bg-transparent px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
+  "inline-flex items-center justify-center border border-[#1A1A1A] dark:border-[#E0E0E0] text-[#1A1A1A] dark:text-[#E0E0E0] bg-transparent px-7 py-3 rounded-full max-md:rounded-[5px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-[#1A1A1A] dark:hover:bg-[#E0E0E0] hover:text-white dark:hover:text-[#121212] hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
 
 const domainTags = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TRANSFORMATION"];
 
@@ -50,7 +50,7 @@ export default function Home() {
           <div className="relative w-full max-w-5xl mx-auto flex flex-col md:grid md:grid-cols-[280px_1fr] gap-6 md:gap-10">
 
             {/* ── Profile Card ───────────────────────────────────── */}
-            <div className="reveal-item w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 flex flex-col" style={stagger(0)}>
+            <div className="reveal-item w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 flex flex-col overflow-hidden" style={stagger(0)}>
               {/*
                 Card: overflow-hidden so the accent line at the top
                 sits flush against the rounded corner without clipping.
@@ -117,15 +117,6 @@ export default function Home() {
                         ))}
                       </div>
 
-                      {/* CTA buttons — mobile only, shown below domain tags */}
-                      <div className="md:hidden flex flex-wrap justify-center gap-3 mt-4">
-                        <a href="/resume">
-                          <button className={btnPrimary}>Resume</button>
-                        </a>
-                        <a href="/contact">
-                          <button className={btnSecondary}>Let's Talk</button>
-                        </a>
-                      </div>
                     </div>
 
                   </div>
@@ -134,7 +125,7 @@ export default function Home() {
             </div>
 
             {/* ── Hero Text ──────────────────────────────────────── */}
-            <div className="min-w-0 max-w-[750px] md:flex md:flex-col bg-white dark:bg-[#1E1E1E] border border-[#E0E0E0] dark:border-[#2C2C2C] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] px-5 py-6 md:bg-transparent md:dark:bg-transparent md:border-0 md:shadow-none md:rounded-none md:px-0 md:py-0">
+            <div className="min-w-0 max-w-[750px] md:flex md:flex-col">
 
               {/* Text content — grows to fill column, centers headline + bio vertically */}
               <div className="md:flex-1 md:flex md:flex-col md:justify-center">
@@ -144,7 +135,7 @@ export default function Home() {
                   className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.85rem] md:text-[44px]"
                   style={stagger(2)}
                 >
-                  Building digital products that <span className="text-gray-600 dark:text-gray-300">move businesses forward.</span>
+                  Building digital products that <span className="md:text-gray-600 md:dark:text-gray-300">move businesses forward.</span>
                 </h1>
 
                 {/* Bio paragraph */}
@@ -157,10 +148,20 @@ export default function Home() {
                   </p>
                 </div>
 
+                {/* CTA buttons — mobile only, shown below bio paragraphs */}
+                <div className="md:hidden flex flex-wrap justify-center gap-3 mt-5">
+                  <a href="/resume">
+                    <button className={btnPrimary}>Resume</button>
+                  </a>
+                  <a href="/contact">
+                    <button className={btnSecondary}>Let's Talk</button>
+                  </a>
+                </div>
+
               </div>
 
-              {/* CTA buttons — hidden on mobile (shown in profile card); pinned to the bottom of the
-                  column on desktop so their baseline aligns with the bottom edge of the profile card */}
+              {/* CTA buttons — desktop only; pinned to the bottom of the
+                  column so their baseline aligns with the bottom edge of the profile card */}
               <div className="reveal-item hidden md:flex flex-wrap gap-3 md:pt-6" style={stagger(4)}>
                 <a href="/resume">
                   <button className={btnPrimary}>Resume</button>
