@@ -221,7 +221,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
         aria-label="Scroll to top"
-        className={`sm:hidden fixed bottom-5 right-5 z-50 w-11 h-11 rounded-full bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#1A1A1A] flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-300 ${
+        className={`hidden fixed bottom-5 right-5 z-50 w-11 h-11 rounded-full bg-[#1A1A1A] dark:bg-[#E0E0E0] text-white dark:text-[#1A1A1A] flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-300 ${
           scrolled ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
