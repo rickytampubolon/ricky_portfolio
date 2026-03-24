@@ -55,13 +55,13 @@ export default function Home() {
                 sits flush against the rounded corner without clipping.
               */}
               <div
-                className="border border-border border-t-[3px] border-t-primary bg-card rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full flex flex-col"
+                className="border border-border border-t-[3px] border-t-primary bg-card rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full flex flex-col overflow-hidden"
               >
 
                 {/* Card content */}
                 <div
-                  className="flex-1 flex flex-col justify-center"
-                  style={{ paddingLeft: "clamp(1rem, 3vw, 1.75rem)", paddingRight: "clamp(1rem, 3vw, 1.75rem)", paddingTop: "24px" }}
+                  className="flex-1 flex flex-col items-center justify-center"
+                  style={{ paddingLeft: "clamp(1rem, 3vw, 1.75rem)", paddingRight: "clamp(1rem, 3vw, 1.75rem)", paddingTop: "28px", paddingBottom: "28px" }}
                 >
                   {/* Vertical centered layout on all breakpoints */}
                   <div className="flex flex-col items-center text-center">
