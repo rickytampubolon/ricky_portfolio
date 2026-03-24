@@ -8,6 +8,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -44,6 +46,9 @@
 
 :root {
   --radius: 0.75rem;
+  /* ── Semantic surface & subtle tokens ───────────────────── */
+  --surface: #F2F2F2;     /* section/banner backgrounds, elevated areas */
+  --subtle: #555555;      /* secondary body text */
   /* ── Font stacks ─────────────────────────────────────────── */
   --font-sans: "Montserrat", "Avenir Next", "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-heading: "Montserrat", "Avenir Next", "Avenir", sans-serif;
@@ -93,6 +98,8 @@
 }
 
 .dark {
+  --surface: #1A1A1A;     /* section/banner backgrounds in dark mode */
+  --subtle: #AAAAAA;      /* secondary body text in dark mode */
   --primary: #E0E0E0;
   --primary-foreground: #121212;
   --sidebar-primary: #E0E0E0;
