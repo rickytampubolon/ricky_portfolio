@@ -50,16 +50,14 @@ export default function Home() {
           <div className="relative w-full max-w-5xl mx-auto flex flex-col md:flex md:flex-row md:items-stretch gap-5 md:gap-10">
 
             {/* ── Profile Card ───────────────────────────────────── */}
-            <div className="reveal-item w-full max-w-[340px] mx-auto md:w-[280px] md:max-w-none md:mx-0 md:shrink-0 md:h-full flex flex-col overflow-hidden rounded-2xl" style={stagger(0)}>
+            <div className="reveal-item w-full max-w-[340px] mx-auto md:w-[280px] md:max-w-none md:mx-0 md:shrink-0 md:h-full flex flex-col" style={stagger(0)}>
               {/*
                 Card: overflow-hidden so the accent line at the top
                 sits flush against the rounded corner without clipping.
               */}
               <div
-                className="border border-[#E0E0E0] dark:border-[#2C2C2C] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full flex flex-col overflow-hidden"
+                className="border border-[#E0E0E0] dark:border-[#2C2C2C] border-t-[3px] border-t-[#1A1A1A] dark:border-t-[#E0E0E0] bg-white dark:bg-[#1E1E1E] rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full h-full flex flex-col"
               >
-                {/* Accent line — 3px, spans full card width */}
-                <div className="h-[3px] w-full bg-[#1A1A1A] dark:bg-[#E0E0E0] shrink-0" />
 
                 {/* Card content */}
                 <div
