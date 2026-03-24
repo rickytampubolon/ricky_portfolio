@@ -130,10 +130,10 @@ export default function Home() {
 
                 {/* Primary headline */}
                 <h1
-                  className="reveal-item font-black tracking-[-0.03em] leading-none text-foreground mb-3"
-                  style={{ ...stagger(2), fontSize: "clamp(2.8rem, 10vw, 5.5rem)" }}
+                  className="reveal-item font-black tracking-[-0.03em] leading-tight text-foreground mb-3"
+                  style={{ ...stagger(2), fontSize: "clamp(1.4rem, 4vw, 2.2rem)" }}
                 >
-                  Hello
+                  Building digital products that move businesses forward.
                 </h1>
 
                 {/* Bio paragraphs */}
