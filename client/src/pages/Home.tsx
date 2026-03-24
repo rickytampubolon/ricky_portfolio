@@ -132,7 +132,7 @@ export default function Home() {
 
                 {/* Primary headline */}
                 <h1
-                  className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[24px] md:text-[44px]"
+                  className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[21px] md:text-[44px]"
                   style={stagger(2)}
                 >
                   Building digital products that <span className="md:text-gray-600 md:dark:text-gray-300">move businesses forward.</span>
