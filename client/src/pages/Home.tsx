@@ -149,7 +149,7 @@ export default function Home() {
                 </div>
 
                 {/* CTA buttons — mobile only, shown below bio paragraphs */}
-                <div className="md:hidden flex flex-wrap justify-center gap-3 mt-5">
+                <div className="md:hidden flex flex-wrap justify-start gap-3 mt-5">
                   <a href="/resume">
                     <button className={btnPrimary}>Resume</button>
                   </a>
