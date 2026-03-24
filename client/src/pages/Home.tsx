@@ -61,13 +61,13 @@ export default function Home() {
                 {/* Card content */}
                 <div
                   className="flex-1 flex flex-col justify-center"
-                  style={{ paddingLeft: "clamp(1rem, 3vw, 1.75rem)", paddingRight: "clamp(1rem, 3vw, 1.75rem)" }}
+                  style={{ paddingLeft: "clamp(1rem, 3vw, 1.75rem)", paddingRight: "clamp(1rem, 3vw, 1.75rem)", paddingTop: "24px" }}
                 >
                   {/* Vertical centered layout on all breakpoints */}
-                  <div className="flex flex-col items-center text-center gap-4">
+                  <div className="flex flex-col items-center text-center">
 
                     {/* Profile photo */}
-                    <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden ring-[2px] ring-border bg-muted shrink-0 mb-4">
+                    <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden ring-[2px] ring-border bg-muted shrink-0">
                       <img
                         src={profile.photo}
                         alt={`${profile.name} – ${profile.title}`}
@@ -79,35 +79,35 @@ export default function Home() {
                       />
                     </div>
 
-                    {/* Name + title + divider + tags */}
-                    <div className="w-full flex flex-col items-center">
-                      <div className="mb-2 md:mb-4">
-                        <p
-                          className="font-bold text-foreground leading-tight mb-1 text-[1.25rem] md:text-[1.3rem]"
-                          style={{ fontFamily: "var(--font-heading)" }}
+                    {/* Name */}
+                    <p
+                      className="font-bold text-foreground leading-tight text-[1.25rem] md:text-[1.3rem]"
+                      style={{ fontFamily: "var(--font-heading)", marginTop: "16px" }}
+                    >
+                      {profile.name}
+                    </p>
+
+                    {/* Title */}
+                    <p
+                      className="text-[0.75rem] md:text-[0.72rem] font-semibold tracking-[0.18em] uppercase text-muted-foreground"
+                      style={{ marginTop: "6px" }}
+                    >
+                      {profile.title}
+                    </p>
+
+                    {/* Divider — short, centered, dark */}
+                    <div style={{ width: "32px", height: "1.5px", marginTop: "12px", backgroundColor: "var(--foreground)" }} />
+
+                    {/* Domain tags — uniform pill badges */}
+                    <div className="flex flex-wrap justify-center gap-[6px]" style={{ marginTop: "12px" }}>
+                      {domainTags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-subtle font-semibold uppercase bg-secondary rounded-full px-2.5 py-1 text-[10px] tracking-[0.07em]"
                         >
-                          {profile.name}
-                        </p>
-                        <p className="text-[0.75rem] md:text-[0.72rem] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
-                          {profile.title}
-                        </p>
-                      </div>
-
-                      {/* Divider — accent color on mobile, muted on desktop */}
-                      <div className="w-10 h-[2px] mb-3 bg-primary md:h-[1px] md:bg-border" />
-
-                      {/* Domain tags — uniform pill badges */}
-                      <div className="flex flex-wrap justify-center gap-[6px]">
-                        {domainTags.map((tag) => (
-                          <span
-                            key={tag}
-                            className="text-subtle font-semibold uppercase bg-secondary rounded-full px-2.5 py-1 text-[10px] tracking-[0.07em]"
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-
+                          {tag}
+                        </span>
+                      ))}
                     </div>
 
                   </div>
