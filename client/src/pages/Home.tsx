@@ -47,10 +47,10 @@ export default function Home() {
           <div className="hero-dot-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
 
           {/* Inner wrapper: stack on mobile, two-col grid on desktop */}
-          <div className="relative w-full max-w-5xl mx-auto flex flex-col md:grid md:grid-cols-[280px_1fr] gap-6 md:gap-10">
+          <div className="relative w-full max-w-5xl mx-auto flex flex-col md:grid md:grid-cols-[280px_1fr] gap-5 md:gap-10">
 
             {/* ── Profile Card ───────────────────────────────────── */}
-            <div className="reveal-item w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 flex flex-col overflow-hidden" style={stagger(0)}>
+            <div className="reveal-item w-full max-w-[340px] mx-auto md:max-w-none md:mx-0 flex flex-col overflow-hidden max-md:rounded-2xl" style={stagger(0)}>
               {/*
                 Card: overflow-hidden so the accent line at the top
                 sits flush against the rounded corner without clipping.
@@ -132,7 +132,7 @@ export default function Home() {
 
                 {/* Primary headline */}
                 <h1
-                  className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[1.85rem] md:text-[44px]"
+                  className="reveal-item font-black tracking-[-0.03em] leading-none text-[#1A1A1A] dark:text-[#E0E0E0] mb-3 text-[27px] md:text-[44px]"
                   style={stagger(2)}
                 >
                   Building digital products that <span className="md:text-gray-600 md:dark:text-gray-300">move businesses forward.</span>
