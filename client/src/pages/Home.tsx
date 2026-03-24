@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
+import { profile, domainTags, bio } from "../data/homeData";
 
 function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
@@ -12,8 +13,6 @@ const btnPrimary =
 // Secondary CTA: outline, fills on hover
 const btnSecondary =
   "inline-flex items-center justify-center border border-primary text-foreground bg-transparent px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-primary hover:text-primary-foreground hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
-
-const domainTags = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TRANSFORMATION"];
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
@@ -70,8 +69,8 @@ export default function Home() {
                     {/* Profile photo */}
                     <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden ring-[2px] ring-border bg-muted shrink-0 mb-4">
                       <img
-                        src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png"
-                        alt="Ricky Halomoan – Lead Product Manager"
+                        src={profile.photo}
+                        alt={`${profile.name} – ${profile.title}`}
                         className="w-full h-full object-cover scale-110"
                         style={{ filter: "grayscale(100%)" }}
                         loading="eager"
@@ -87,10 +86,10 @@ export default function Home() {
                           className="font-bold text-foreground leading-tight mb-1 text-[1.25rem] md:text-[1.3rem]"
                           style={{ fontFamily: "var(--font-heading)" }}
                         >
-                          Ricky Halomoan
+                          {profile.name}
                         </p>
                         <p className="text-[0.75rem] md:text-[0.72rem] font-semibold tracking-[0.18em] uppercase text-muted-foreground">
-                          Lead Product Manager
+                          {profile.title}
                         </p>
                       </div>
 
@@ -132,12 +131,14 @@ export default function Home() {
 
                 {/* Bio paragraph */}
                 <div className="reveal-item" style={stagger(3)}>
-                  <p className="text-[0.9rem] md:text-sm text-subtle leading-relaxed max-w-[750px]">
-                    My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.
-                  </p>
-                  <p className="text-[0.9rem] md:text-sm text-subtle leading-relaxed max-w-[750px] mt-2">
-                    Today, as a Lead Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.
-                  </p>
+                  {bio.map((paragraph, i) => (
+                    <p
+                      key={i}
+                      className={`text-[0.9rem] md:text-sm text-subtle leading-relaxed max-w-[750px]${i > 0 ? " mt-2" : ""}`}
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
                 </div>
 
                 {/* CTA buttons — mobile only, shown below bio paragraphs */}
