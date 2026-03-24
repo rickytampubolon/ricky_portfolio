@@ -46,7 +46,7 @@ export default function Home() {
           <div className="hero-dot-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
 
           {/* Inner wrapper: stack on mobile, two-col grid on desktop */}
-          <div className="relative w-full max-w-5xl mx-auto flex flex-col md:flex md:flex-row md:items-stretch gap-5 md:gap-10">
+          <div className="relative w-full max-w-5xl mx-auto flex flex-col items-stretch md:flex-row gap-5 md:gap-10">
 
             {/* ── Profile Card ───────────────────────────────────── */}
             <div className="reveal-item w-full max-w-[340px] mx-auto md:w-[280px] md:max-w-none md:mx-0 md:shrink-0 flex flex-col" style={stagger(0)}>
@@ -61,7 +61,7 @@ export default function Home() {
                 {/* Card content */}
                 <div
                   className="flex-1 flex flex-col justify-center"
-                  style={{ padding: "clamp(1rem, 3vw, 1.75rem)" }}
+                  style={{ paddingLeft: "clamp(1rem, 3vw, 1.75rem)", paddingRight: "clamp(1rem, 3vw, 1.75rem)" }}
                 >
                   {/* Vertical centered layout on all breakpoints */}
                   <div className="flex flex-col items-center text-center gap-4">
