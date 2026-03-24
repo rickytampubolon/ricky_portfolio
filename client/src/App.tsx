@@ -1,24 +1,27 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import Home    from "./pages/Home";
-import Resume  from "./pages/Resume";
-import Contact from "./pages/Contact";
 
+const Home    = lazy(() => import("./pages/Home"));
+const Resume  = lazy(() => import("./pages/Resume"));
+const Contact = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/"        component={Home} />
-      <Route path="/resume"  component={Resume} />
-      <Route path="/contact" component={Contact} />
-      <Route path="/projects" component={NotFound} />
-      <Route path="/404"     component={NotFound} />
-      <Route component={NotFound} />
-    </Switch>
+    <Suspense>
+      <Switch>
+        <Route path="/"        component={Home} />
+        <Route path="/resume"  component={Resume} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/projects" component={NotFound} />
+        <Route path="/404"     component={NotFound} />
+        <Route component={NotFound} />
+      </Switch>
+    </Suspense>
   );
 }
 
