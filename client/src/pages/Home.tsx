@@ -50,7 +50,7 @@ export default function Home() {
           <div className="relative w-full max-w-5xl mx-auto flex flex-col md:flex md:flex-row md:items-stretch gap-5 md:gap-10">
 
             {/* ── Profile Card ───────────────────────────────────── */}
-            <div className="reveal-item w-full max-w-[340px] mx-auto md:w-[280px] md:max-w-none md:mx-0 md:shrink-0 md:h-full flex flex-col" style={stagger(0)}>
+            <div className="reveal-item w-full max-w-[340px] mx-auto md:w-[280px] md:max-w-none md:mx-0 md:shrink-0 flex flex-col" style={stagger(0)}>
               {/*
                 Card: overflow-hidden so the accent line at the top
                 sits flush against the rounded corner without clipping.
