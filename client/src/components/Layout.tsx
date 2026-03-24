@@ -1,8 +1,10 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram, Sun, Moon, X, Menu, ArrowUp } from "lucide-react";
+import { Linkedin, Instagram, Sun, Moon, X, Menu, ArrowUp, type LucideProps } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect, useRef } from "react";
+import { profile, social } from "../data/homeData";
 
+/* ── Nav config ──────────────────────────────────────────────── */
 const navLinks = [
   { label: "ABOUT ME", href: "/" },
   { label: "RESUME",   href: "/resume" },
@@ -10,14 +12,30 @@ const navLinks = [
   { label: "CONTACT",  href: "/contact" },
 ];
 
-const footerSocial = [
-  { href: "https://www.linkedin.com/in/rickyhlmn/",  icon: <Linkedin  size={22} />, label: "LinkedIn"  },
-  { href: "https://www.instagram.com/rickyhlmn/",    icon: <Instagram size={22} />, label: "Instagram" },
-];
+/* ── Icon map for footer social links ────────────────────────── */
+const socialIcons: Record<string, React.FC<LucideProps>> = {
+  linkedin:  Linkedin,
+  instagram: Instagram,
+};
 
+/* ── Theme toggle button ─────────────────────────────────────── */
+function ThemeToggle({ className }: { className?: string }) {
+  const { theme, toggleTheme } = useTheme();
+  if (!toggleTheme) return null;
+  return (
+    <button
+      onClick={toggleTheme}
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      className={`text-muted-foreground hover:text-foreground transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center ${className ?? ""}`}
+    >
+      {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+    </button>
+  );
+}
+
+/* ── Layout ──────────────────────────────────────────────────── */
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location]   = useLocation();
-  const { theme, toggleTheme } = useTheme();
   const [scrolled,   setScrolled]   = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const mainRef = useRef<HTMLElement>(null);
@@ -27,7 +45,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     if (!el) return;
     const onScroll = () => setScrolled(el.scrollTop > 40);
     el.addEventListener("scroll", onScroll, { passive: true });
-    // Also handle window scroll for mobile (normal document flow)
     const onWindowScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", onWindowScroll, { passive: true });
     return () => {
@@ -36,10 +53,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     };
   }, []);
 
-  /* Close nav on route change */
   useEffect(() => { setMobileOpen(false); }, [location]);
 
-  /* Lock body scroll when mobile nav is open */
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -55,16 +70,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header
         className={`sticky top-0 left-0 right-0 z-50 bg-background/96 dark:bg-surface/96 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : ""}`}
       >
-        {/* ── Desktop header row ── */}
+        {/* Desktop header */}
         <div className="hidden sm:flex h-14 items-center justify-between px-5 md:px-12">
           <Link href="/" className="flex items-center gap-2.5">
             <div className="w-[9px] h-[9px] bg-primary rounded-[2px] shrink-0" />
             <span className="font-bold text-foreground leading-none" style={{ fontSize: "1.4rem" }}>
-              Ricky Halomoan
+              {profile.name}
             </span>
             <span className="hidden md:inline text-border leading-none mx-0.5">/</span>
             <span className="hidden md:block text-[0.92rem] tracking-[0.12em] uppercase text-muted-foreground font-medium leading-none">
-              Lead Product Manager
+              {profile.title}
             </span>
           </Link>
 
@@ -76,7 +91,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <span className="px-1 py-px rounded text-[0.42rem] font-medium uppercase tracking-wide bg-secondary/70 text-muted-foreground/40">
                     Soon
                   </span>
-                  {/* Tooltip */}
                   <span className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 px-2.5 py-1.5 rounded-lg text-[0.65rem] font-medium text-primary-foreground bg-primary whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-md z-50">
                     Case studies coming soon!
                   </span>
@@ -92,43 +106,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               )
             )}
-            {toggleTheme && (
-              <button
-                onClick={toggleTheme}
-                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
-              >
-                {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
-              </button>
-            )}
+            <ThemeToggle />
           </nav>
         </div>
 
-        {/* ── Mobile header row ── */}
+        {/* Mobile header */}
         <div className="flex sm:hidden items-start justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5">
             <div className="flex items-center gap-2">
               <div className="w-[10px] h-[10px] bg-primary rounded-[2px] shrink-0 mt-0.5" />
               <span className="font-black text-[1.45rem] text-foreground leading-tight tracking-[-0.02em]">
-                Ricky Halomoan
+                {profile.name}
               </span>
             </div>
             <span className="text-[0.65rem] tracking-[0.14em] uppercase text-muted-foreground font-semibold pl-4">
-              Lead Product Manager
+              {profile.title}
             </span>
           </Link>
 
           <div className="flex items-center gap-1 mt-1">
-            {toggleTheme && (
-              <button
-                onClick={toggleTheme}
-                aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 min-w-[44px] min-h-[44px] flex items-center justify-center"
-              >
-                {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
-              </button>
-            )}
-            {/* Hamburger menu button with proper ARIA */}
+            <ThemeToggle />
             <button
               onClick={() => setMobileOpen((o) => !o)}
               aria-label="Open navigation menu"
@@ -142,7 +139,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      {/* ── Full-screen mobile navigation overlay ─────────────── */}
+      {/* ── Mobile navigation overlay ──────────────────────────── */}
       <div
         id="mobile-nav"
         role="dialog"
@@ -156,17 +153,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           transition: "opacity 0.3s ease, transform 0.3s ease",
         }}
       >
-        {/* Overlay header row */}
         <div className="flex items-center justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5" onClick={() => setMobileOpen(false)}>
             <div className="flex items-center gap-2">
               <div className="w-[10px] h-[10px] bg-primary rounded-[2px] shrink-0 mt-0.5" />
               <span className="font-black text-[1.45rem] text-foreground leading-tight tracking-[-0.02em]">
-                Ricky Halomoan
+                {profile.name}
               </span>
             </div>
           </Link>
-          {/* Close button */}
           <button
             onClick={() => setMobileOpen(false)}
             aria-label="Close navigation menu"
@@ -176,7 +171,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </button>
         </div>
 
-        {/* Nav links — large text */}
         <nav
           role="navigation"
           aria-label="Mobile navigation"
@@ -200,9 +194,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 href={href!}
                 aria-current={isActive(href!) ? "page" : undefined}
                 className={`py-5 font-black tracking-[0.08em] border-b border-border last:border-0 transition-colors duration-200 ${
-                  isActive(href!)
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                  isActive(href!) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                 }`}
                 style={{ fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
               >
@@ -211,10 +203,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             )
           )}
         </nav>
-
       </div>
 
-      {/* ── Scroll-to-top button — mobile only ────────────────── */}
+      {/* ── Scroll-to-top — mobile only ────────────────────────── */}
       <button
         onClick={() => {
           mainRef.current?.scrollTo({ top: 0, behavior: "smooth" });
@@ -228,56 +219,49 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <ArrowUp size={18} />
       </button>
 
-      {/* Content */}
+      {/* ── Main content ───────────────────────────────────────── */}
       <main ref={mainRef} className="flex-1 sm:min-h-0 flex flex-col sm:overflow-y-auto">
         {children}
 
-        {/* ── Footer (scrolls with content on all pages) ───────── */}
+        {/* Footer */}
         <footer className="shrink-0 bg-background dark:bg-surface border-t border-border">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 py-6 sm:py-4 gap-5 sm:gap-0">
 
-            {/* Write + Follow — order-first on mobile, order-last on desktop */}
             <div className="order-first sm:order-last flex flex-col sm:flex-row gap-5 sm:gap-8 md:gap-14">
-
-              {/* Write */}
               <div className="flex flex-col gap-2">
-                <span className="text-[0.82rem] font-bold text-foreground tracking-[0.06em]">
-                  Write
-                </span>
+                <span className="text-[0.82rem] font-bold text-foreground tracking-[0.06em]">Write</span>
                 <a
-                  href="mailto:rickytampubolon97@gmail.com"
+                  href={`mailto:${profile.email}`}
                   className="text-[0.82rem] text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
-                  rickytampubolon97@gmail.com
+                  {profile.email}
                 </a>
               </div>
 
-              {/* Follow */}
               <div className="flex flex-col gap-2">
-                <span className="text-[0.82rem] font-bold text-foreground tracking-[0.06em]">
-                  Follow
-                </span>
+                <span className="text-[0.82rem] font-bold text-foreground tracking-[0.06em]">Follow</span>
                 <div className="flex items-center gap-4">
-                  {footerSocial.map(({ href, icon, label }) => (
-                    <a
-                      key={label}
-                      href={href}
-                      aria-label={label}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-foreground hover:opacity-60 transition-opacity duration-200"
-                    >
-                      {icon}
-                    </a>
-                  ))}
+                  {social.map(({ href, label, icon }) => {
+                    const Icon = socialIcons[icon];
+                    return (
+                      <a
+                        key={label}
+                        href={href}
+                        aria-label={label}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-foreground hover:opacity-60 transition-opacity duration-200"
+                      >
+                        <Icon size={22} />
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
-
             </div>
 
-            {/* Copyright — order-last on mobile, order-first on desktop */}
             <span className="order-last sm:order-first text-[0.72rem] text-muted-foreground">
-              © 2026 Ricky Halomoan. All rights reserved.
+              © {new Date().getFullYear()} {profile.name}. All rights reserved.
             </span>
 
           </div>

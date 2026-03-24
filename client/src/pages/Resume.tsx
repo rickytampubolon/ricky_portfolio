@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { ChevronDown, ArrowUp } from "lucide-react";
-import { fullTimeExp, partTimeAndInternships, education, skills } from "../data/resumeData";
+import { fullTimeExp, partTimeAndInternships, education, skills, type ExperienceItem } from "../data/resumeData";
 
 /* ── Company logo with initial fallback ──────────────────────── */
 function CompanyLogo({ src, alt, className }: { src: string; alt: string; className?: string }) {
@@ -35,7 +35,7 @@ const accentDot     = "w-[6px] h-[6px] bg-primary rounded-[1px] shrink-0";
 
 /* ── Collapsible experience row ─────────────────────────────── */
 function ExpRow({ item, isOpen, onToggle }: {
-  item: typeof fullTimeExp[number] | typeof partTimeAndInternships[number];
+  item: ExperienceItem;
   isOpen: boolean;
   onToggle: () => void;
 }) {

@@ -9,6 +9,11 @@ export const profile = {
   email:  "rickytampubolon97@gmail.com",
 };
 
+export const social = [
+  { href: "https://www.linkedin.com/in/rickyhlmn/",  label: "LinkedIn",  icon: "linkedin"  },
+  { href: "https://www.instagram.com/rickyhlmn/",    label: "Instagram", icon: "instagram" },
+] as const;
+
 export const domainTags = [
   "LOGISTICS",
   "FULFILLMENT",
