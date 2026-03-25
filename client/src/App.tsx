@@ -5,10 +5,9 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 
-const Home     = lazy(() => import("./pages/Home"));
-const Resume   = lazy(() => import("./pages/Resume"));
-const Work     = lazy(() => import("./pages/Work"));
-const Contact  = lazy(() => import("./pages/Contact"));
+const Home    = lazy(() => import("./pages/Home"));
+const Resume  = lazy(() => import("./pages/Resume"));
+const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 function Router() {
@@ -17,8 +16,8 @@ function Router() {
       <Switch>
         <Route path="/"        component={Home} />
         <Route path="/resume"  component={Resume} />
-        <Route path="/work"    component={Work} />
         <Route path="/contact" component={Contact} />
+        <Route path="/projects" component={NotFound} />
         <Route path="/404"     component={NotFound} />
         <Route component={NotFound} />
       </Switch>

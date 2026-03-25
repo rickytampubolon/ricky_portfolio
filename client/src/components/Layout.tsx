@@ -5,12 +5,14 @@ import { useState, useEffect, useRef } from "react";
 import { profile, social } from "../data/homeData";
 
 /* ── Nav config ──────────────────────────────────────────────── */
-interface NavLink { label: string; href: string; }
+type NavLink =
+  | { label: string; href: string; soon?: never }
+  | { label: string; href?: never;  soon: true  };
 
 const navLinks: NavLink[] = [
   { label: "ABOUT ME", href: "/" },
   { label: "RESUME",   href: "/resume" },
-  { label: "WORK",     href: "/work" },
+  { label: "WORK",     soon: true },
   { label: "CONTACT",  href: "/contact" },
 ];
 
@@ -86,16 +88,28 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           <nav className="flex items-center gap-6 md:gap-8" role="navigation" aria-label="Primary navigation">
-            {navLinks.map((link) => (
-              <Link key={link.href} href={link.href}
-                className={`text-[0.72rem] font-bold tracking-[0.09em] transition-colors duration-200 ${
-                  isActive(link.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                }`}
-                aria-current={isActive(link.href) ? "page" : undefined}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) =>
+              link.soon ? (
+                <span key={link.label} className="relative flex items-center gap-1.5 text-[0.72rem] font-bold tracking-[0.09em] text-muted-foreground/40 cursor-default select-none group">
+                  {link.label}
+                  <span className="px-1 py-px rounded text-[0.42rem] font-medium uppercase tracking-wide bg-secondary/70 text-muted-foreground/40">
+                    Soon
+                  </span>
+                  <span className="absolute top-[calc(100%+8px)] left-1/2 -translate-x-1/2 px-2.5 py-1.5 rounded-lg text-[0.65rem] font-medium text-primary-foreground bg-primary whitespace-nowrap pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-md z-50">
+                    Case studies coming soon!
+                  </span>
+                </span>
+              ) : (
+                <Link key={link.href} href={link.href}
+                  className={`text-[0.72rem] font-bold tracking-[0.09em] transition-colors duration-200 ${
+                    isActive(link.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  }`}
+                  aria-current={isActive(link.href) ? "page" : undefined}
+                >
+                  {link.label}
+                </Link>
+              )
+            )}
             <ThemeToggle />
           </nav>
         </div>
@@ -166,19 +180,32 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           aria-label="Mobile navigation"
           className="flex flex-col px-5 pt-10 pb-8 flex-1"
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={isActive(link.href) ? "page" : undefined}
-              className={`py-5 font-black tracking-[0.08em] border-b border-border last:border-0 transition-colors duration-200 ${
-                isActive(link.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-              }`}
-              style={{ fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            link.soon ? (
+              <span
+                key={link.label}
+                className="py-5 flex items-center gap-3 font-black tracking-[0.08em] text-muted-foreground/40 cursor-default select-none border-b border-border"
+                style={{ fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
+              >
+                {link.label}
+                <span className="px-1.5 py-px rounded text-[0.5rem] font-medium uppercase tracking-wide bg-secondary/70 text-muted-foreground/40">
+                  Soon
+                </span>
+              </span>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`py-5 font-black tracking-[0.08em] border-b border-border last:border-0 transition-colors duration-200 ${
+                  isActive(link.href) ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                }`}
+                style={{ fontSize: "clamp(1.5rem, 8vw, 2.5rem)" }}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
       </div>
 
