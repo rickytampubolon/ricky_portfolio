@@ -126,7 +126,7 @@ export default function Home() {
 
             {/* ── Hero Text ──────────────────────────────────────── */}
             <div className="min-w-0 max-w-[750px] md:flex-1 md:flex md:flex-col">
-              <div className="md:flex-1 md:flex md:flex-col md:justify-center">
+              <div className="md:flex-1 md:flex md:flex-col md:justify-start">
 
                 {/* Primary headline */}
                 <h1
