@@ -16,10 +16,10 @@ const socialIconMap: Record<string, React.FC<LucideProps>> = {
 /* ── Design tokens ───────────────────────────────────────────── */
 // Pill-shaped primary CTA: filled
 const btnPrimary =
-  "inline-flex items-center justify-center bg-primary text-primary-foreground border border-primary px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:opacity-90 hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
+  "inline-flex items-center justify-center bg-primary text-primary-foreground border border-primary px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] whitespace-nowrap hover:opacity-90 hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
 // Pill-shaped secondary CTA: outline
 const btnSecondary =
-  "inline-flex items-center justify-center border border-primary text-foreground bg-transparent px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] hover:bg-primary hover:text-primary-foreground hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
+  "inline-flex items-center justify-center border border-primary text-foreground bg-transparent px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] whitespace-nowrap hover:bg-primary hover:text-primary-foreground hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
@@ -126,7 +126,7 @@ export default function Home() {
 
             {/* ── Hero Text ──────────────────────────────────────── */}
             <div className="min-w-0 max-w-[750px] md:flex-1 md:flex md:flex-col">
-              <div className="md:flex-1 md:flex md:flex-col md:justify-center">
+              <div className="md:flex-1 md:flex md:flex-col md:justify-start">
 
                 {/* Primary headline */}
                 <h1
