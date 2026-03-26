@@ -1,25 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Linkedin, Instagram, type LucideProps } from "lucide-react";
 import Layout from "../components/Layout";
-import { profile, social, bio } from "../data/homeData";
+import { profile, bio } from "../data/homeData";
 
 function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
 }
 
-const socialIconMap: Record<string, React.FC<LucideProps>> = {
-  linkedin: Linkedin,
-  instagram: Instagram,
-};
+const pillBadges = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TRANSFORMATION"];
 
 /* ── Design tokens ───────────────────────────────────────────── */
 // Pill-shaped primary CTA: filled
 const btnPrimary =
-  "inline-flex items-center justify-center bg-primary text-primary-foreground border border-primary px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] whitespace-nowrap hover:opacity-90 hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
-// Pill-shaped secondary CTA: outline
+  "inline-flex items-center justify-center bg-primary text-primary-foreground border border-primary px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] whitespace-nowrap hover:opacity-90 hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
+// Secondary CTA: outline
 const btnSecondary =
-  "inline-flex items-center justify-center border border-primary text-foreground bg-transparent px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] whitespace-nowrap hover:bg-primary hover:text-primary-foreground hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
+  "inline-flex items-center justify-center border border-primary text-foreground bg-transparent px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] whitespace-nowrap hover:bg-primary hover:text-primary-foreground hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer";
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
@@ -40,7 +36,7 @@ export default function Home() {
             centered. Mobile: single-column stack.
         ─────────────────────────────────────────────────────────── */}
         <section
-          className="flex-1 flex items-center px-5 sm:px-6 md:px-12 py-6 md:py-8 relative min-h-[calc(100dvh-12rem)]"
+          className="flex-1 flex items-center px-5 sm:px-6 md:px-12 py-6 md:py-8 relative"
           aria-label="Hero"
         >
           {/* ── Faint dot-grid background texture ─────────────────── */}
@@ -54,73 +50,87 @@ export default function Home() {
               className="reveal-item w-full max-w-[420px] mx-auto md:w-[280px] md:max-w-none md:mx-0 md:shrink-0 flex flex-col"
               style={stagger(0)}
             >
-              <div className="bg-surface dark:bg-surface border border-border rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full flex flex-col overflow-hidden">
+              {/* Depth-effect wrapper */}
+              <div className="relative" style={{ paddingBottom: "8px", paddingRight: "8px" }}>
+                {/* Shadow block behind the card */}
+                <div
+                  className="absolute rounded-2xl"
+                  style={{
+                    backgroundColor: "#D9D0C4",
+                    top: "8px",
+                    left: "8px",
+                    right: "0",
+                    bottom: "0",
+                  }}
+                />
 
-                {/* Top section: photo + name + divider + buttons */}
-                <div className="flex flex-col items-center pt-8 pb-6 px-6">
+                {/* Card itself */}
+                <div className="relative bg-surface dark:bg-surface border border-border rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full flex flex-col overflow-hidden">
 
-                  {/* Profile photo */}
-                  <div className="w-32 h-32 rounded-full overflow-hidden ring-[2px] ring-border bg-muted shrink-0">
-                    <img
-                      src={profile.photo}
-                      alt={`${profile.name} – ${profile.title}`}
-                      className="w-full h-full object-cover scale-110"
-                      style={{ filter: "grayscale(100%)" }}
-                      loading="eager"
-                      width="128"
-                      height="128"
+                  {/* Top section: photo + name + subtitle + divider + pills + buttons */}
+                  <div className="flex flex-col items-center pt-8 pb-6 px-6">
+
+                    {/* Profile photo */}
+                    <div className="w-32 h-32 rounded-full overflow-hidden ring-[2px] ring-border bg-muted shrink-0">
+                      <img
+                        src={profile.photo}
+                        alt={`${profile.name} – ${profile.title}`}
+                        className="w-full h-full object-cover scale-110"
+                        style={{ filter: "grayscale(100%)" }}
+                        loading="eager"
+                        width="128"
+                        height="128"
+                      />
+                    </div>
+
+                    {/* Name */}
+                    <p
+                      className="font-bold text-foreground leading-tight text-center mt-4 text-[1.35rem]"
+                      style={{ fontFamily: "var(--font-heading)" }}
+                    >
+                      {profile.name}
+                    </p>
+
+                    {/* Subtitle */}
+                    <p className="text-[0.65rem] font-bold tracking-[0.14em] uppercase text-muted-foreground mt-1 text-center">
+                      LEAD PRODUCT MANAGER
+                    </p>
+
+                    {/* Short centered divider */}
+                    <div
+                      style={{
+                        width: "48px",
+                        height: "2px",
+                        marginTop: "10px",
+                        backgroundColor: "var(--foreground)",
+                      }}
                     />
-                  </div>
 
-                  {/* Name */}
-                  <p
-                    className="font-bold text-foreground leading-tight text-center mt-4 text-[1.35rem]"
-                    style={{ fontFamily: "var(--font-heading)" }}
-                  >
-                    {profile.name}
-                  </p>
+                    {/* Pill badges */}
+                    <div className="flex flex-wrap gap-1.5 justify-center mt-4">
+                      {pillBadges.map((badge) => (
+                        <span
+                          key={badge}
+                          className="px-2.5 py-1 rounded-full border border-border text-[0.58rem] font-bold tracking-[0.1em] uppercase text-muted-foreground"
+                        >
+                          {badge}
+                        </span>
+                      ))}
+                    </div>
 
-                  {/* Short centered divider — monochrome */}
-                  <div
-                    style={{
-                      width: "48px",
-                      height: "2px",
-                      marginTop: "10px",
-                      backgroundColor: "var(--foreground)",
-                    }}
-                  />
+                    {/* CTA buttons */}
+                    <div className="flex gap-3 mt-6 justify-center">
+                      <Link href="/resume">
+                        <button className={btnPrimary}>Resume</button>
+                      </Link>
+                      <Link href="/contact">
+                        <button className={btnSecondary}>Let's Talk</button>
+                      </Link>
+                    </div>
 
-                  {/* CTA buttons — pill shape, inside the card */}
-                  <div className="flex gap-3 mt-6 justify-center">
-                    <Link href="/resume">
-                      <button className={btnPrimary}>Resume</button>
-                    </Link>
-                    <Link href="/contact">
-                      <button className={btnSecondary}>Let's Talk</button>
-                    </Link>
                   </div>
 
                 </div>
-
-                {/* Social icons row — separated by a border */}
-                <div className="border-t border-border flex items-center justify-center gap-7 py-4">
-                  {social.map(({ href, label, icon }) => {
-                    const Icon = socialIconMap[icon];
-                    return Icon ? (
-                      <a
-                        key={label}
-                        href={href}
-                        aria-label={label}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground hover:opacity-50 transition-opacity duration-200"
-                      >
-                        <Icon size={20} />
-                      </a>
-                    ) : null;
-                  })}
-                </div>
-
               </div>
             </div>
 
