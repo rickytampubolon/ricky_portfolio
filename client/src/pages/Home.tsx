@@ -51,10 +51,10 @@ export default function Home() {
               style={stagger(0)}
             >
               {/* Depth-effect wrapper */}
-              <div className="relative md:pb-2 md:pr-2">
-                {/* Shadow block behind the card — desktop only; hidden on mobile */}
+              <div className="relative" style={{ paddingBottom: "8px", paddingRight: "8px" }}>
+                {/* Shadow block behind the card — shifts on hover for a parallax depth feel */}
                 <div
-                  className="hidden md:block absolute rounded-2xl card-depth-shadow transition-transform duration-300 ease-out group-hover:translate-x-[3px] group-hover:translate-y-[3px]"
+                  className="absolute rounded-2xl card-depth-shadow transition-transform duration-300 ease-out group-hover:translate-x-[3px] group-hover:translate-y-[3px]"
                   style={{
                     top: "8px",
                     left: "8px",
