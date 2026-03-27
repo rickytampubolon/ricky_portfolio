@@ -134,7 +134,7 @@ export default function Home() {
             </div>
 
             {/* ── Hero Text ──────────────────────────────────────── */}
-            <div className="min-w-0 max-w-[750px] md:flex-1 md:flex md:flex-col">
+            <div className="min-w-0 max-w-[520px] md:flex-1 md:flex md:flex-col">
               <div className="md:flex-1 md:flex md:flex-col md:justify-start">
 
                 {/* Primary headline */}
@@ -150,7 +150,7 @@ export default function Home() {
                   {bio.map((paragraph, i) => (
                     <p
                       key={i}
-                      className={`text-[0.9rem] md:text-sm text-subtle leading-relaxed max-w-[750px]${i > 0 ? " mt-2" : ""}`}
+                      className={`text-[0.9rem] md:text-sm text-subtle leading-relaxed${i > 0 ? " mt-2" : ""}`}
                     >
                       {paragraph}
                     </p>
