@@ -188,14 +188,14 @@ export const partTimeAndInternships: ExperienceItem[] = [
 export const education: EducationItem[] = [
   {
     degree: "Master of Business Administration",
-    school: "Bandung Institute of Technology (ITB)",
+    school: "Bandung Institute of Technology",
     schoolImage: "https://www.google.com/s2/favicons?domain=itb.ac.id&sz=256",
     date: "Expected Sep 2026",
     detail: "SBM ITB · Bandung, Indonesia",
   },
   {
     degree: "Bachelor of Informatics",
-    school: "Del Institute of Technology (IT Del)",
+    school: "Del Institute of Technology",
     schoolImage: "/itdel-logo.svg",
     date: "Sep 2019",
     detail: "Laguboti, North Sumatra, Indonesia",
