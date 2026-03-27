@@ -196,7 +196,7 @@ export const education: EducationItem[] = [
   {
     degree: "Bachelor of Informatics",
     school: "Del Institute of Technology",
-    schoolImage: "/itdel-logo.svg",
+    schoolImage: "https://www.google.com/s2/favicons?domain=del.ac.id&sz=256",
     date: "Sep 2019",
     detail: "Laguboti, North Sumatra, Indonesia",
   },
