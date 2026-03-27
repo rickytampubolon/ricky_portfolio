@@ -12,10 +12,10 @@ const pillBadges = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TR
 /* ── Design tokens ───────────────────────────────────────────── */
 // Pill-shaped primary CTA: filled
 const btnPrimary =
-  "inline-flex items-center justify-center bg-primary text-primary-foreground border border-primary px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] whitespace-nowrap hover:opacity-90 hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
+  "inline-flex items-center justify-center bg-primary text-primary-foreground border border-primary px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:opacity-90 hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
 // Secondary CTA: outline — border-2 + rest-state shadow preserve visual weight at all times
 const btnSecondary =
-  "inline-flex items-center justify-center border-2 border-primary text-foreground bg-transparent px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] whitespace-nowrap shadow-[0_1px_6px_rgba(0,0,0,0.07)] dark:shadow-[0_1px_6px_rgba(0,0,0,0.25)] hover:bg-primary hover:text-primary-foreground hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.14)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.08)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
+  "inline-flex items-center justify-center border-2 border-primary text-foreground bg-transparent px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap shadow-[0_1px_6px_rgba(0,0,0,0.07)] dark:shadow-[0_1px_6px_rgba(0,0,0,0.25)] hover:bg-primary hover:text-primary-foreground hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.14)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.08)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
@@ -36,7 +36,7 @@ export default function Home() {
             centered. Mobile: single-column stack.
         ─────────────────────────────────────────────────────────── */}
         <section
-          className="flex-1 flex items-center px-5 sm:px-6 md:px-12 py-6 md:py-8 relative"
+          className="flex-1 flex items-center px-5 sm:px-6 md:px-12 py-8 md:py-10 relative hero-gradient"
           aria-label="Hero"
         >
           {/* ── Faint dot-grid background texture ─────────────────── */}
@@ -64,7 +64,7 @@ export default function Home() {
                 />
 
                 {/* Card itself — lifts on hover */}
-                <div className="relative bg-surface dark:bg-surface border border-border rounded-2xl shadow-[0_4px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.35)] w-full flex flex-col overflow-hidden transition-all duration-300 ease-out group-hover:-translate-y-[3px] group-hover:shadow-[0_12px_36px_rgba(0,0,0,0.1)] dark:group-hover:shadow-[0_12px_36px_rgba(0,0,0,0.45)]">
+                <div className="relative bg-card dark:bg-card border border-border rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.10)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.45)] w-full flex flex-col overflow-hidden transition-all duration-300 ease-out group-hover:-translate-y-[3px] group-hover:shadow-[0_16px_48px_rgba(0,0,0,0.15)] dark:group-hover:shadow-[0_16px_48px_rgba(0,0,0,0.55)]">
 
                   {/* Top section: photo + name + subtitle + divider + pills + buttons */}
                   <div className="flex flex-col items-center pt-8 pb-6 px-6">
@@ -110,7 +110,7 @@ export default function Home() {
                       {pillBadges.map((badge) => (
                         <span
                           key={badge}
-                          className="px-2 py-0.5 rounded-full border border-border text-[0.54rem] font-bold tracking-[0.06em] uppercase text-muted-foreground"
+                          className="px-2.5 py-0.5 rounded-full border border-border bg-muted text-[0.54rem] font-bold tracking-[0.06em] uppercase text-muted-foreground"
                         >
                           {badge}
                         </span>
@@ -144,7 +144,7 @@ export default function Home() {
                     {bio.map((paragraph, i) => (
                       <p
                         key={i}
-                        className={`text-[0.9rem] md:text-sm text-subtle leading-relaxed${i > 0 ? " mt-2" : ""}`}
+                        className={`text-[0.9rem] md:text-sm text-subtle leading-[1.7]${i > 0 ? " mt-2" : ""}`}
                       >
                         {paragraph}
                       </p>
@@ -152,11 +152,11 @@ export default function Home() {
                   </div>
 
                   {/* CTA buttons */}
-                  <div className="reveal-item flex gap-3 mt-5" style={stagger(3)}>
-                    <Link href="/resume">
+                  <div className="reveal-item flex flex-col sm:flex-row gap-3 mt-5" style={stagger(3)}>
+                    <Link href="/resume" className="w-full sm:w-auto">
                       <button className={btnPrimary}>Resume</button>
                     </Link>
-                    <Link href="/contact">
+                    <Link href="/contact" className="w-full sm:w-auto">
                       <button className={btnSecondary}>Let's Talk</button>
                     </Link>
                   </div>

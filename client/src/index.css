@@ -197,7 +197,7 @@ html.theme-transitioning *::after {
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
-    line-height: 1.6;
+    line-height: 1.7;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -239,7 +239,7 @@ html.theme-transitioning *::after {
   }
   p {
     font-size: var(--font-size-body);
-    line-height: 1.6;
+    line-height: 1.7;
     letter-spacing: 0.005em;
   }
 
@@ -306,6 +306,14 @@ html.theme-transitioning *::after {
   }
   .dark .card-depth-shadow {
     background-color: #2C2C2C;
+  }
+
+  /* ── Hero section subtle gradient background ────────────── */
+  .hero-gradient {
+    background: radial-gradient(ellipse at 70% 40%, #FFFFFF 0%, #F0F0F0 100%);
+  }
+  .dark .hero-gradient {
+    background: radial-gradient(ellipse at 70% 40%, #1E1E1E 0%, #111111 100%);
   }
 
   /* ── Hero dot-grid background texture ───────────────────── */
