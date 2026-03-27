@@ -205,7 +205,7 @@ export const education: EducationItem[] = [
 
 export const skills: Record<string, string[]> = {
   "Product Management":    ["Product Strategy", "Roadmapping", "Backlog Management", "User Research", "Product Metrics", "Go-to-Market Strategy"],
-  "Leadership":            ["Cross-Functional Leadership", "Stakeholder Management", "Executive Communication", "Decision Making", "Change Management", "Negotiation"],
+  "Leadership":            ["Cross-Functional Leadership", "Stakeholder Management", "Decision Making", "Change Management", "Negotiation"],
   "Technical":             ["SDLC", "Data Analysis", "API Knowledge", "A/B Testing", "Release Management", "SQL"],
   "Methodologies & Tools": ["Agile", "Scrum", "Jira", "Confluence", "Figma", "Postman"],
 };
