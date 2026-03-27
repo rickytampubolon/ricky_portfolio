@@ -205,7 +205,6 @@ export default function Resume() {
                       {edu.degree}
                     </p>
                     <p className="text-[0.8rem] text-muted-foreground mb-1">{edu.school}</p>
-                    <p className="text-[0.72rem] text-muted-foreground/60">{edu.detail}</p>
                     <span className="mt-2.5 inline-block text-[0.62rem] font-bold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border">
                       {edu.date}
                     </span>
