@@ -68,7 +68,7 @@ export const fullTimeExp: ExperienceItem[] = [
   },
   {
     id: 4,
-    title: "Product Manager II – Fulfillment",
+    title: "Product Manager II – Fulfillment (Dilayani Tokopedia)",
     company: "Tokopedia & GoTo Logistics",
     companyImage:
       "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png",
@@ -115,7 +115,7 @@ export const fullTimeExp: ExperienceItem[] = [
 export const partTimeAndInternships: ExperienceItem[] = [
   {
     id: "pt-1",
-    title: "QA Engineer – Part-time",
+    title: "QA Engineer Part-time",
     company: "SehatQ",
     companyImage:
       "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/iWSWOgSUpfIhugUD.png",
@@ -129,7 +129,7 @@ export const partTimeAndInternships: ExperienceItem[] = [
   },
   {
     id: "pt-2",
-    title: "QA Engineer – Part-time",
+    title: "QA Engineer Part-time",
     company: "SiCepat",
     companyImage:
       "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/vtUAAIQhTvYAhdQP.png",
@@ -188,16 +188,15 @@ export const partTimeAndInternships: ExperienceItem[] = [
 export const education: EducationItem[] = [
   {
     degree: "Master of Business Administration",
-    school: "Bandung Institute of Technology (ITB)",
+    school: "Bandung Institute of Technology",
     schoolImage: "https://www.google.com/s2/favicons?domain=itb.ac.id&sz=256",
     date: "Expected Sep 2026",
     detail: "SBM ITB · Bandung, Indonesia",
   },
   {
     degree: "Bachelor of Informatics",
-    school: "Del Institute of Technology (IT Del)",
-    schoolImage:
-      "https://instagram.fcgk53-1.fna.fbcdn.net/v/t51.2885-19/280229359_535565961429651_6162074952034670710_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby43OTQuYzIifQ&_nc_ht=instagram.fcgk53-1.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2gGgJwzrq5EzEkB6nGt_4_OPXD-DKytEB4G7jl42jrIJc6GmahtNz2NlEwqsCy5W7nc&_nc_ohc=cKavk3b2yPMQ7kNvwHXu0JD&_nc_gid=qroNVXqjoEJv0fyLs69PrA&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AfzZWaF7QKlzXIKdskn_bjKIT1MkQXkIoJspMyAvytnAvA&oe=69CC66E9&_nc_sid=7a9f4b",
+    school: "Del Institute of Technology",
+    schoolImage: "/itdel-logo.svg",
     date: "Sep 2019",
     detail: "Laguboti, North Sumatra, Indonesia",
   },
