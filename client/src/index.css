@@ -197,7 +197,7 @@ html.theme-transitioning *::after {
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
-    line-height: 1.7;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -239,7 +239,7 @@ html.theme-transitioning *::after {
   }
   p {
     font-size: var(--font-size-body);
-    line-height: 1.7;
+    line-height: 1.6;
     letter-spacing: 0.005em;
   }
 

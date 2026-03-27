@@ -129,7 +129,7 @@ export default function Home() {
               <div className="md:flex-1 md:flex md:flex-col md:justify-start">
 
                 {/* Left-border accent — mobile only */}
-                <div className="md:contents border-l-[3px] md:border-l-0 border-border pl-4 md:pl-0">
+                <div className="md:contents">
 
                   {/* Primary headline */}
                   <h1
@@ -144,7 +144,7 @@ export default function Home() {
                     {bio.map((paragraph, i) => (
                       <p
                         key={i}
-                        className={`text-[0.9rem] md:text-sm text-subtle leading-[1.7]${i > 0 ? " mt-2" : ""}`}
+                        className={`text-[0.9rem] md:text-sm text-subtle leading-relaxed${i > 0 ? " mt-2" : ""}`}
                       >
                         {paragraph}
                       </p>
