@@ -140,7 +140,7 @@ export default function Contact() {
           <div className="w-[9px] h-[9px] bg-primary rounded-[2px] shrink-0" />
           <h1
             className="font-black tracking-[-0.03em] text-foreground leading-none"
-            style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
+            style={{ fontSize: "clamp(2.2rem, 5vw, 3.6rem)" }}
           >
             Let's talk.
           </h1>
