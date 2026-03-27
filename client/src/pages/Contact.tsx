@@ -82,7 +82,7 @@ function FormField({ label, error, touched, children }: FormFieldProps) {
   );
 }
 
-const inputError = "border-b-red-400 focus:border-b-red-500";
+const inputError = "border-b-primary focus:border-b-primary";
 
 /* ── Component ───────────────────────────────────────────────── */
 export default function Contact() {
