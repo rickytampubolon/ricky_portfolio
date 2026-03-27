@@ -117,8 +117,8 @@ export default function Home() {
                       ))}
                     </div>
 
-                    {/* CTA buttons */}
-                    <div className="flex gap-3 mt-6 justify-center">
+                    {/* CTA buttons — mobile only; hidden on desktop (moved to right column) */}
+                    <div className="flex md:hidden gap-3 mt-6 justify-center">
                       <Link href="/resume">
                         <button className={btnPrimary}>Resume</button>
                       </Link>
@@ -155,6 +155,16 @@ export default function Home() {
                       {paragraph}
                     </p>
                   ))}
+                </div>
+
+                {/* CTA buttons — desktop only; hidden on mobile (shown inside card) */}
+                <div className="reveal-item hidden md:flex gap-3 mt-5" style={stagger(3)}>
+                  <Link href="/resume">
+                    <button className={btnPrimary}>Resume</button>
+                  </Link>
+                  <Link href="/contact">
+                    <button className={btnSecondary}>Let's Talk</button>
+                  </Link>
                 </div>
 
               </div>
