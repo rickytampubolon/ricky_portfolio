@@ -68,7 +68,7 @@ export const fullTimeExp: ExperienceItem[] = [
   },
   {
     id: 4,
-    title: "Product Manager II – Fulfillment",
+    title: "Product Manager II – Fulfillment (Dilayani Tokopedia)",
     company: "Tokopedia & GoTo Logistics",
     companyImage:
       "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png",
