@@ -128,24 +128,29 @@ export default function Home() {
             <div className="min-w-0 max-w-[580px] md:flex-1 md:flex md:flex-col">
               <div className="md:flex-1 md:flex md:flex-col md:justify-start">
 
-                {/* Primary headline — left-border accent on desktop anchors the column visually */}
-                <h1
-                  className="reveal-item font-black tracking-[-0.03em] leading-tight text-foreground mb-3"
-                  style={{ ...stagger(1), fontSize: "clamp(1.25rem, 3.5vw, 2rem)" }}
-                >
-                  Building digital products that move businesses forward.
-                </h1>
+                {/* Left-border accent — mobile only */}
+                <div className="md:contents border-l-[3px] md:border-l-0 border-foreground pl-4 md:pl-0">
 
-                {/* Bio paragraphs */}
-                <div className="reveal-item" style={stagger(2)}>
-                  {bio.map((paragraph, i) => (
-                    <p
-                      key={i}
-                      className={`text-[0.9rem] md:text-sm text-subtle leading-relaxed${i > 0 ? " mt-2" : ""}`}
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
+                  {/* Primary headline */}
+                  <h1
+                    className="reveal-item font-black tracking-[-0.03em] leading-tight text-foreground mb-3"
+                    style={{ ...stagger(1), fontSize: "clamp(1.25rem, 3.5vw, 2rem)" }}
+                  >
+                    Building digital products that move businesses forward.
+                  </h1>
+
+                  {/* Bio paragraphs */}
+                  <div className="reveal-item" style={stagger(2)}>
+                    {bio.map((paragraph, i) => (
+                      <p
+                        key={i}
+                        className={`text-[0.9rem] md:text-sm text-subtle leading-relaxed${i > 0 ? " mt-2" : ""}`}
+                      >
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+
                 </div>
 
                 {/* CTA buttons */}
