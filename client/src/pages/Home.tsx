@@ -139,7 +139,7 @@ export default function Home() {
 
                 {/* Primary headline — left-border accent on desktop anchors the column visually */}
                 <h1
-                  className="reveal-item font-black tracking-[-0.03em] leading-tight text-foreground mb-3 md:pl-4 md:border-l-[3px] md:border-foreground/20"
+                  className="reveal-item font-black tracking-[-0.03em] leading-tight text-foreground mb-3"
                   style={{ ...stagger(1), fontSize: "clamp(1.25rem, 3.5vw, 2rem)" }}
                 >
                   Building digital products that move businesses forward.
