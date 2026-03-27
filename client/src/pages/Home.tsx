@@ -144,7 +144,7 @@ export default function Home() {
                     {bio.map((paragraph, i) => (
                       <p
                         key={i}
-                        className={`text-[0.9rem] md:text-sm text-subtle leading-[1.7]${i > 0 ? " mt-2" : ""}`}
+                        className={`text-[0.9rem] md:text-sm text-subtle leading-relaxed${i > 0 ? " mt-2" : ""}`}
                       >
                         {paragraph}
                       </p>
