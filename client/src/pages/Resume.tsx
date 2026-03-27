@@ -141,7 +141,7 @@ export default function Resume() {
             <div>
               <h1
                 className="font-black tracking-[-0.03em] leading-none text-foreground"
-                style={{ fontSize: "clamp(2.2rem, 5vw, 3.6rem)" }}
+                style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
               >
                 Resume
               </h1>
@@ -205,7 +205,6 @@ export default function Resume() {
                       {edu.degree}
                     </p>
                     <p className="text-[0.8rem] text-muted-foreground mb-1">{edu.school}</p>
-                    <p className="text-[0.72rem] text-muted-foreground/60">{edu.detail}</p>
                     <span className="mt-2.5 inline-block text-[0.62rem] font-bold uppercase tracking-[0.1em] px-2.5 py-1 rounded-full bg-secondary text-muted-foreground border border-border">
                       {edu.date}
                     </span>
