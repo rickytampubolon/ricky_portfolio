@@ -135,7 +135,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               )
             )}
-            <LocalClock />
             <ThemeToggle />
           </nav>
         </div>
@@ -155,7 +154,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           <div className="flex items-center gap-1 mt-1">
-            <LocalClock />
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen((o) => !o)}
@@ -291,8 +289,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </div>
             </div>
 
-            <span className="order-last sm:order-first text-[0.72rem] text-muted-foreground">
+            <span className="order-last sm:order-first flex items-center gap-2 text-[0.72rem] text-muted-foreground">
               © {new Date().getFullYear()} {profile.name}. All rights reserved.
+              <span className="select-none">·</span>
+              <LocalClock />
             </span>
 
           </div>
