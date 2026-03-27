@@ -117,15 +117,6 @@ export default function Home() {
                       ))}
                     </div>
 
-                    {/* CTA buttons — mobile only; inside card below profile desc */}
-                    <div className="flex md:hidden gap-3 mt-5 justify-center w-full">
-                      <Link href="/resume">
-                        <button className={btnPrimary}>Resume</button>
-                      </Link>
-                      <Link href="/contact">
-                        <button className={btnSecondary}>Let's Talk</button>
-                      </Link>
-                    </div>
 
                   </div>
 
@@ -157,8 +148,8 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* CTA buttons — desktop only; hidden on mobile */}
-                <div className="reveal-item hidden md:flex gap-3 mt-5" style={stagger(3)}>
+                {/* CTA buttons */}
+                <div className="reveal-item flex gap-3 mt-5" style={stagger(3)}>
                   <Link href="/resume">
                     <button className={btnPrimary}>Resume</button>
                   </Link>
