@@ -140,7 +140,7 @@ export default function Home() {
                 {/* Primary headline */}
                 <h1
                   className="reveal-item font-black tracking-[-0.03em] leading-tight text-foreground mb-3"
-                  style={{ ...stagger(1), fontSize: "clamp(1.1rem, 3vw, 1.7rem)" }}
+                  style={{ ...stagger(1), fontSize: "clamp(1.25rem, 3.5vw, 2rem)" }}
                 >
                   Building digital products that move businesses forward.
                 </h1>
