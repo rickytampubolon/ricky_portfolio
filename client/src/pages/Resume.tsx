@@ -138,14 +138,16 @@ export default function Resume() {
         {/* ── Banner ─────────────────────────────────────────── */}
         <div className="bg-surface border-b border-border">
           <div className="container py-8 md:py-14">
-            <div className="flex items-center gap-3">
-              <div className="w-[9px] h-[9px] bg-primary rounded-[2px] shrink-0" />
-              <h1
-                className="font-black tracking-[-0.03em] leading-none text-foreground"
-                style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
-              >
-                Resume
-              </h1>
+            <div>
+              <div className="flex items-center gap-3">
+                <div className="w-[9px] h-[9px] bg-primary rounded-[2px] shrink-0" />
+                <h1
+                  className="font-black tracking-[-0.03em] leading-none text-foreground"
+                  style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
+                >
+                  Resume
+                </h1>
+              </div>
               <p className="mt-2 text-[0.82rem] sm:text-[0.88rem] text-muted-foreground">Lead Product Manager · 6+ years across logistics, fulfillment, electric mobility, and digital transformation.</p>
             </div>
           </div>
