@@ -155,6 +155,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </Link>
 
           <div className="flex items-center gap-1 mt-1">
+            <LocalClock />
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen((o) => !o)}
