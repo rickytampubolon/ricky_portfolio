@@ -142,7 +142,7 @@ export default function Contact() {
             className="font-black tracking-[-0.03em] text-foreground leading-none"
             style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
           >
-            Let's talk.
+            Let's talk
           </h1>
         </div>
 
