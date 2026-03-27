@@ -43,7 +43,7 @@ export default function Home() {
           <div className="hero-dot-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
 
           {/* Inner wrapper: stack on mobile, two-col grid on desktop */}
-          <div className="relative w-full max-w-5xl mx-auto flex flex-col items-stretch md:flex-row gap-5 md:gap-10">
+          <div className="relative w-full max-w-5xl mx-auto md:ml-[8%] flex flex-col items-stretch md:flex-row gap-5 md:gap-10">
 
             {/* ── Profile Card ───────────────────────────────────── */}
             <div
@@ -117,8 +117,8 @@ export default function Home() {
                       ))}
                     </div>
 
-                    {/* CTA buttons — mobile only; hidden on desktop (moved to right column) */}
-                    <div className="flex md:hidden gap-3 mt-6 justify-center">
+                    {/* CTA buttons — mobile only; inside card below profile desc */}
+                    <div className="flex md:hidden gap-3 mt-5 justify-center w-full">
                       <Link href="/resume">
                         <button className={btnPrimary}>Resume</button>
                       </Link>
@@ -157,7 +157,7 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* CTA buttons — desktop only; hidden on mobile (shown inside card) */}
+                {/* CTA buttons — desktop only; hidden on mobile */}
                 <div className="reveal-item hidden md:flex gap-3 mt-5" style={stagger(3)}>
                   <Link href="/resume">
                     <button className={btnPrimary}>Resume</button>
