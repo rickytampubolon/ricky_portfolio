@@ -77,7 +77,7 @@
   --muted-foreground: #888888;
   --accent: #3A3A3A;
   --accent-foreground: #FFFFFF;
-  --destructive: #FF3B30;
+  --destructive: #1A1A1A;
   --destructive-foreground: #FFFFFF;
   --border: #E8E8E8;
   --input: #E8E8E8;
@@ -116,8 +116,8 @@
   --muted-foreground: #888888;
   --accent: #AAAAAA;
   --accent-foreground: #121212;
-  --destructive: #FF453A;
-  --destructive-foreground: #FFFFFF;
+  --destructive: #E0E0E0;
+  --destructive-foreground: #121212;
   --border: #2C2C2C;
   --input: #2C2C2C;
   --ring: #E0E0E0;
@@ -155,6 +155,8 @@
     --border: #2C2C2C;
     --input: #2C2C2C;
     --ring: #E0E0E0;
+    --destructive: #E0E0E0;
+    --destructive-foreground: #121212;
     --surface: #1A1A1A;
     --subtle: #AAAAAA;
   }
@@ -298,9 +300,9 @@ html.theme-transitioning *::after {
   }
 
   /* ── Profile card depth-shadow block ────────────────────── */
-  /* Warm offset shadow in light mode; near-surface tone in dark mode */
+  /* Neutral offset shadow in light mode; near-surface tone in dark mode */
   .card-depth-shadow {
-    background-color: #D9D0C4;
+    background-color: #D0D0D0;
   }
   .dark .card-depth-shadow {
     background-color: #2C2C2C;
