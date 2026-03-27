@@ -117,15 +117,6 @@ export default function Home() {
                       ))}
                     </div>
 
-                    {/* CTA buttons — mobile only; hidden on desktop (moved to right column) */}
-                    <div className="flex md:hidden gap-3 mt-6 justify-center">
-                      <Link href="/resume">
-                        <button className={btnPrimary}>Resume</button>
-                      </Link>
-                      <Link href="/contact">
-                        <button className={btnSecondary}>Let's Talk</button>
-                      </Link>
-                    </div>
 
                   </div>
 
@@ -157,7 +148,17 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* CTA buttons — desktop only; hidden on mobile (shown inside card) */}
+                {/* CTA buttons — mobile only; below bio */}
+                <div className="reveal-item flex md:hidden gap-3 mt-5 justify-center" style={stagger(3)}>
+                  <Link href="/resume">
+                    <button className={btnPrimary}>Resume</button>
+                  </Link>
+                  <Link href="/contact">
+                    <button className={btnSecondary}>Let's Talk</button>
+                  </Link>
+                </div>
+
+                {/* CTA buttons — desktop only; hidden on mobile */}
                 <div className="reveal-item hidden md:flex gap-3 mt-5" style={stagger(3)}>
                   <Link href="/resume">
                     <button className={btnPrimary}>Resume</button>
