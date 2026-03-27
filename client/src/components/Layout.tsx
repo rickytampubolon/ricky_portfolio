@@ -254,7 +254,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Footer */}
         <footer className="shrink-0 bg-background dark:bg-surface border-t border-border">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 py-6 sm:py-4 gap-5 sm:gap-0">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 pt-8 pb-6 sm:pt-6 sm:pb-4 gap-5 sm:gap-0">
 
             <div className="order-first sm:order-last flex flex-col sm:flex-row gap-5 sm:gap-8 md:gap-14">
               <div className="flex flex-col gap-2">
