@@ -110,7 +110,7 @@ export default function Home() {
                       {pillBadges.map((badge) => (
                         <span
                           key={badge}
-                          className="px-2.5 py-1 rounded-full border border-border text-[0.58rem] font-bold tracking-[0.1em] uppercase text-muted-foreground"
+                          className="px-2 py-0.5 rounded-full border border-border text-[0.54rem] font-bold tracking-[0.06em] uppercase text-muted-foreground"
                         >
                           {badge}
                         </span>
