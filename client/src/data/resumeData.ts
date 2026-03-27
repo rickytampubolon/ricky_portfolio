@@ -196,8 +196,7 @@ export const education: EducationItem[] = [
   {
     degree: "Bachelor of Informatics",
     school: "Del Institute of Technology (IT Del)",
-    schoolImage:
-      "https://instagram.fcgk53-1.fna.fbcdn.net/v/t51.2885-19/280229359_535565961429651_6162074952034670710_n.jpg?efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby43OTQuYzIifQ&_nc_ht=instagram.fcgk53-1.fna.fbcdn.net&_nc_cat=103&_nc_oc=Q6cZ2gGgJwzrq5EzEkB6nGt_4_OPXD-DKytEB4G7jl42jrIJc6GmahtNz2NlEwqsCy5W7nc&_nc_ohc=cKavk3b2yPMQ7kNvwHXu0JD&_nc_gid=qroNVXqjoEJv0fyLs69PrA&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AfzZWaF7QKlzXIKdskn_bjKIT1MkQXkIoJspMyAvytnAvA&oe=69CC66E9&_nc_sid=7a9f4b",
+    schoolImage: "/itdel-logo.svg",
     date: "Sep 2019",
     detail: "Laguboti, North Sumatra, Indonesia",
   },
