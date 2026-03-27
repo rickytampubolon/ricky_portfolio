@@ -297,6 +297,15 @@ html.theme-transitioning *::after {
     transform: translateY(0);
   }
 
+  /* ── Profile card depth-shadow block ────────────────────── */
+  /* Warm offset shadow in light mode; near-surface tone in dark mode */
+  .card-depth-shadow {
+    background-color: #D9D0C4;
+  }
+  .dark .card-depth-shadow {
+    background-color: #2C2C2C;
+  }
+
   /* ── Hero dot-grid background texture ───────────────────── */
   .hero-dot-grid {
     background-image: radial-gradient(circle, #1A1A1A 1px, transparent 1px);
