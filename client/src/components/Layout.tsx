@@ -22,6 +22,31 @@ const socialIcons: Record<string, React.FC<LucideProps>> = {
   instagram: Instagram,
 };
 
+/* ── Local clock (GMT+7) ─────────────────────────────────────── */
+function LocalClock() {
+  const getTime = () =>
+    new Date().toLocaleTimeString("en-GB", {
+      timeZone: "Asia/Jakarta",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: false,
+    });
+
+  const [time, setTime] = useState(getTime);
+
+  useEffect(() => {
+    const id = setInterval(() => setTime(getTime()), 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <span className="text-[0.72rem] font-bold tracking-[0.09em] text-muted-foreground select-none tabular-nums">
+      🇮🇩 {time} GMT+7
+    </span>
+  );
+}
+
 /* ── Theme toggle button ─────────────────────────────────────── */
 function ThemeToggle({ className }: { className?: string }) {
   const { theme, toggleTheme } = useTheme();
@@ -110,6 +135,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               )
             )}
+            <LocalClock />
             <ThemeToggle />
           </nav>
         </div>
