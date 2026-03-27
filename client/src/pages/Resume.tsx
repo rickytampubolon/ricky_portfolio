@@ -141,7 +141,7 @@ export default function Resume() {
             <div>
               <h1
                 className="font-black tracking-[-0.03em] leading-none text-foreground"
-                style={{ fontSize: "clamp(2.2rem, 5vw, 3.6rem)" }}
+                style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
               >
                 Resume
               </h1>
