@@ -115,7 +115,7 @@ export const fullTimeExp: ExperienceItem[] = [
 export const partTimeAndInternships: ExperienceItem[] = [
   {
     id: "pt-1",
-    title: "QA Engineer – Part-time",
+    title: "QA Engineer Part-time",
     company: "SehatQ",
     companyImage:
       "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/iWSWOgSUpfIhugUD.png",
@@ -129,7 +129,7 @@ export const partTimeAndInternships: ExperienceItem[] = [
   },
   {
     id: "pt-2",
-    title: "QA Engineer – Part-time",
+    title: "QA Engineer Part-time",
     company: "SiCepat",
     companyImage:
       "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/vtUAAIQhTvYAhdQP.png",
