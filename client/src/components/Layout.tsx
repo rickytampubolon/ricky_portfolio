@@ -289,9 +289,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </div>
             </div>
 
-            <span className="order-last sm:order-first flex items-center gap-2 text-[0.72rem] text-muted-foreground">
-              © {new Date().getFullYear()} {profile.name}. All rights reserved.
-              <span className="select-none">·</span>
+            <span className="order-last sm:order-first flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-[0.72rem] text-muted-foreground">
+              <span>© {new Date().getFullYear()} {profile.name}. All rights reserved.</span>
+              <span className="hidden sm:inline select-none">·</span>
               <LocalClock />
             </span>
 
