@@ -151,16 +151,16 @@ export default function Home() {
                     ))}
                   </div>
 
-                </div>
+                  {/* CTA buttons */}
+                  <div className="reveal-item flex gap-3 mt-5" style={stagger(3)}>
+                    <Link href="/resume">
+                      <button className={btnPrimary}>Resume</button>
+                    </Link>
+                    <Link href="/contact">
+                      <button className={btnSecondary}>Let's Talk</button>
+                    </Link>
+                  </div>
 
-                {/* CTA buttons */}
-                <div className="reveal-item flex gap-3 mt-5" style={stagger(3)}>
-                  <Link href="/resume">
-                    <button className={btnPrimary}>Resume</button>
-                  </Link>
-                  <Link href="/contact">
-                    <button className={btnSecondary}>Let's Talk</button>
-                  </Link>
                 </div>
 
               </div>
