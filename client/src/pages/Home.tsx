@@ -43,7 +43,7 @@ export default function Home() {
           <div className="hero-dot-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
 
           {/* Inner wrapper: stack on mobile, two-col grid on desktop */}
-          <div className="relative w-full max-w-5xl mx-auto flex flex-col items-stretch md:flex-row gap-5 md:gap-10">
+          <div className="relative w-full max-w-5xl mx-auto md:ml-[8%] flex flex-col items-stretch md:flex-row gap-5 md:gap-10">
 
             {/* ── Profile Card ───────────────────────────────────── */}
             <div
