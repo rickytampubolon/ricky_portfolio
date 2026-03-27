@@ -129,7 +129,7 @@ export default function Home() {
               <div className="md:flex-1 md:flex md:flex-col md:justify-start">
 
                 {/* Left-border accent — mobile only */}
-                <div className="md:contents border-l-[3px] md:border-l-0 border-border pl-4 md:pl-0">
+                <div className="md:contents">
 
                   {/* Primary headline */}
                   <h1
