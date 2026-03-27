@@ -145,7 +145,7 @@ export default function Resume() {
               >
                 Resume
               </h1>
-              <p className="mt-2 text-[0.82rem] sm:text-[0.88rem] text-muted-foreground">Lead Product Manager · 6+ years across logistics, mobility, and education.</p>
+              <p className="mt-2 text-[0.82rem] sm:text-[0.88rem] text-muted-foreground">Lead Product Manager · 6+ years across logistics, fulfillment, electric mobility, and digital transformation.</p>
             </div>
           </div>
         </div>
