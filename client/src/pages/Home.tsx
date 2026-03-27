@@ -137,16 +137,16 @@ export default function Home() {
             <div className="min-w-0 max-w-[750px] md:flex-1 md:flex md:flex-col">
               <div className="md:flex-1 md:flex md:flex-col md:justify-start">
 
-                {/* Primary headline — left-border accent on desktop anchors the column visually */}
+                {/* Primary headline */}
                 <h1
-                  className="reveal-item font-black tracking-[-0.03em] leading-tight text-foreground mb-3 md:pl-4 md:border-l-[3px] md:border-foreground/20"
+                  className="reveal-item font-black tracking-[-0.03em] leading-tight text-foreground mb-3"
                   style={{ ...stagger(1), fontSize: "clamp(1.4rem, 4vw, 2.2rem)" }}
                 >
                   Building digital products that move businesses forward.
                 </h1>
 
-                {/* Bio paragraphs */}
-                <div className="reveal-item" style={stagger(2)}>
+                {/* Bio paragraphs — left-border accent on desktop anchors the column visually */}
+                <div className="reveal-item md:pl-4 md:border-l-[3px] md:border-foreground/20" style={stagger(2)}>
                   {bio.map((paragraph, i) => (
                     <p
                       key={i}
