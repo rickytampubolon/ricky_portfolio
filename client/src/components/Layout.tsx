@@ -41,7 +41,7 @@ function LocalClock() {
   }, []);
 
   return (
-    <span className="text-[0.72rem] font-bold tracking-[0.09em] text-muted-foreground select-none tabular-nums">
+    <span className="text-[0.72rem] text-muted-foreground select-none tabular-nums">
       🇮🇩 {time} GMT+7
     </span>
   );
@@ -261,7 +261,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <span className="text-[0.82rem] font-bold text-foreground tracking-[0.06em]">Write</span>
                 <a
                   href={`mailto:${profile.email}`}
-                  className="text-[0.82rem] text-muted-foreground hover:text-foreground transition-colors duration-200"
+                  className="text-[0.72rem] text-muted-foreground hover:text-foreground transition-colors duration-200"
                 >
                   {profile.email}
                 </a>
