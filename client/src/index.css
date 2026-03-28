@@ -317,22 +317,7 @@ html.theme-transitioning *::after {
       radial-gradient(ellipse at 70% 40%, #FFFFFF 0%, #EDEDED 100%);
   }
   .dark .hero-gradient {
-    background:
-      radial-gradient(ellipse at 10% 55%, hsla(0, 0%, 22%, 0.70) 0%, transparent 52%),
-      radial-gradient(ellipse at 88% 12%, hsla(0, 0%, 18%, 0.60) 0%, transparent 46%),
-      radial-gradient(ellipse at 65% 88%, hsla(0, 0%, 15%, 0.55) 0%, transparent 42%),
-      radial-gradient(ellipse at 70% 40%, #1E1E1E 0%, #101010 100%);
-  }
-
-  /* ── Hero dot-grid background texture ───────────────────── */
-  .hero-dot-grid {
-    background-image: radial-gradient(circle, #1A1A1A 1px, transparent 1px);
-    background-size: 28px 28px;
-    opacity: 0.06;
-  }
-  .dark .hero-dot-grid {
-    background-image: radial-gradient(circle, #E0E0E0 1px, transparent 1px);
-    opacity: 0.055;
+    background: #121212;
   }
 
   /* Skip reveal animation when OS reduce-motion is on */

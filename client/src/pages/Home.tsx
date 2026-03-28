@@ -39,8 +39,7 @@ export default function Home() {
           className="flex-1 flex items-center px-5 sm:px-6 md:px-12 py-8 md:py-10 relative hero-gradient"
           aria-label="Hero"
         >
-          {/* ── Faint dot-grid background texture ─────────────────── */}
-          <div className="hero-dot-grid absolute inset-0 pointer-events-none" aria-hidden="true" />
+
 
           {/* Inner wrapper: stack on mobile, two-col grid on desktop */}
           <div className="relative w-full max-w-5xl mx-auto md:ml-[18%] flex flex-col items-stretch md:flex-row gap-5 md:gap-10">
