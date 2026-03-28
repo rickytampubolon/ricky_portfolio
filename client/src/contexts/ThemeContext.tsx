@@ -23,12 +23,9 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
     if (switchable) {
-      // Respect stored preference; fall back to OS prefers-color-scheme, then defaultTheme
+      // Respect stored preference; fall back to defaultTheme (light)
       const stored = localStorage.getItem("theme") as Theme | null;
       if (stored === "light" || stored === "dark") return stored;
-      if (typeof window !== "undefined" && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        return "dark";
-      }
     }
     return defaultTheme;
   });
