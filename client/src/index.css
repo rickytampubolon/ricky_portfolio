@@ -308,23 +308,31 @@ html.theme-transitioning *::after {
     background-color: #2C2C2C;
   }
 
-  /* ── Hero section subtle gradient background ────────────── */
+  /* ── Hero section gradient background ───────────────────── */
   .hero-gradient {
-    background: radial-gradient(ellipse at 70% 40%, #FFFFFF 0%, #F0F0F0 100%);
+    background:
+      radial-gradient(ellipse at 10% 55%, hsla(215, 100%, 93%, 0.55) 0%, transparent 52%),
+      radial-gradient(ellipse at 88% 12%, hsla(35,  100%, 92%, 0.50) 0%, transparent 46%),
+      radial-gradient(ellipse at 65% 88%, hsla(260,  80%, 94%, 0.40) 0%, transparent 42%),
+      radial-gradient(ellipse at 70% 40%, #FFFFFF 0%, #EDEDED 100%);
   }
   .dark .hero-gradient {
-    background: radial-gradient(ellipse at 70% 40%, #1E1E1E 0%, #111111 100%);
+    background:
+      radial-gradient(ellipse at 10% 55%, hsla(215, 60%, 14%, 0.70) 0%, transparent 52%),
+      radial-gradient(ellipse at 88% 12%, hsla(35,  40%, 11%, 0.55) 0%, transparent 46%),
+      radial-gradient(ellipse at 65% 88%, hsla(260, 50%, 11%, 0.50) 0%, transparent 42%),
+      radial-gradient(ellipse at 70% 40%, #1E1E1E 0%, #101010 100%);
   }
 
   /* ── Hero dot-grid background texture ───────────────────── */
   .hero-dot-grid {
     background-image: radial-gradient(circle, #1A1A1A 1px, transparent 1px);
     background-size: 28px 28px;
-    opacity: 0.04;
+    opacity: 0.06;
   }
   .dark .hero-dot-grid {
     background-image: radial-gradient(circle, #E0E0E0 1px, transparent 1px);
-    opacity: 0.035;
+    opacity: 0.055;
   }
 
   /* Skip reveal animation when OS reduce-motion is on */
