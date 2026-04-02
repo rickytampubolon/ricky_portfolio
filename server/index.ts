@@ -3,6 +3,7 @@ import { createServer } from "http";
 import path from "path";
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
+import { trackPageView, trackClick, getStats } from "./analytics.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -44,6 +45,34 @@ async function startServer() {
       console.error("Email send error:", err);
       res.status(500).json({ error: "Failed to send email." });
     }
+  });
+
+  // ── Analytics API ─────────────────────────────────────────────
+  app.post("/api/analytics/track", (req, res) => {
+    const { type, path: pagePath, label } = req.body ?? {};
+    const ip =
+      (req.headers["x-forwarded-for"] as string)?.split(",")[0]?.trim() ??
+      req.socket.remoteAddress ??
+      "unknown";
+
+    if (type === "pageview" && typeof pagePath === "string") {
+      trackPageView(pagePath, ip);
+    } else if (type === "click" && typeof label === "string") {
+      trackClick(label, ip);
+    }
+    res.json({ ok: true });
+  });
+
+  app.get("/api/analytics/stats", (req, res) => {
+    const secret = req.query.secret as string | undefined;
+    const dashboardSecret = process.env.DASHBOARD_SECRET;
+
+    if (!dashboardSecret || !secret || secret !== dashboardSecret) {
+      res.status(401).json({ error: "Unauthorized" });
+      return;
+    }
+
+    res.json(getStats());
   });
 
   // Serve static files from dist/public in production
