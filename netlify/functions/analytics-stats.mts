@@ -60,15 +60,7 @@ function getStats(store: AnalyticsStore, limitDays = 30): AnalyticsStats {
   return { days, totals };
 }
 
-export default async (req: Request) => {
-  const url = new URL(req.url);
-  const secret = url.searchParams.get("secret");
-  const dashboardSecret = process.env.DASHBOARD_SECRET;
-
-  if (!dashboardSecret || !secret || secret !== dashboardSecret) {
-    return Response.json({ error: "Unauthorized" }, { status: 401 });
-  }
-
+export default async (_req: Request) => {
   const store = getStore("analytics");
   const existing = (await store.get("data", {
     type: "json",
