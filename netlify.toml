@@ -5,6 +5,22 @@
 [build.environment]
   NODE_VERSION = "22"
 
+[functions]
+  node_bundler = "esbuild"
+
+# Analytics API — must come before the catch-all SPA redirect
+[[redirects]]
+  from   = "/api/analytics/track"
+  to     = "/.netlify/functions/analytics-track"
+  status = 200
+  force  = true
+
+[[redirects]]
+  from   = "/api/analytics/stats"
+  to     = "/.netlify/functions/analytics-stats"
+  status = 200
+  force  = true
+
 [[redirects]]
   from   = "/*"
   to     = "/index.html"

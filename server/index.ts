@@ -63,15 +63,7 @@ async function startServer() {
     res.json({ ok: true });
   });
 
-  app.get("/api/analytics/stats", (req, res) => {
-    const secret = req.query.secret as string | undefined;
-    const dashboardSecret = process.env.DASHBOARD_SECRET;
-
-    if (!dashboardSecret || !secret || secret !== dashboardSecret) {
-      res.status(401).json({ error: "Unauthorized" });
-      return;
-    }
-
+  app.get("/api/analytics/stats", (_req, res) => {
     res.json(getStats());
   });
 
