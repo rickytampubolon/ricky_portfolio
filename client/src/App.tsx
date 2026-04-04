@@ -6,11 +6,10 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { useAnalytics } from "./hooks/useAnalytics";
 
-const Home      = lazy(() => import("./pages/Home"));
-const Resume    = lazy(() => import("./pages/Resume"));
-const Contact   = lazy(() => import("./pages/Contact"));
-const Dashboard = lazy(() => import("./pages/Dashboard"));
-const NotFound  = lazy(() => import("./pages/NotFound"));
+const Home     = lazy(() => import("./pages/Home"));
+const Resume   = lazy(() => import("./pages/Resume"));
+const Contact  = lazy(() => import("./pages/Contact"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 function Router() {
   useAnalytics();
@@ -18,12 +17,11 @@ function Router() {
   return (
     <Suspense fallback={null}>
       <Switch>
-        <Route path="/"          component={Home} />
-        <Route path="/resume"    component={Resume} />
-        <Route path="/contact"   component={Contact} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route path="/projects"  component={NotFound} />
-        <Route path="/404"       component={NotFound} />
+        <Route path="/"         component={Home} />
+        <Route path="/resume"   component={Resume} />
+        <Route path="/contact"  component={Contact} />
+        <Route path="/projects" component={NotFound} />
+        <Route path="/404"      component={NotFound} />
         <Route component={NotFound} />
       </Switch>
     </Suspense>
