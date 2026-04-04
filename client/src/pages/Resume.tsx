@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-import { ChevronDown, ArrowUp, Download } from "lucide-react";
+import { ChevronDown, ArrowUp } from "lucide-react";
 import { fullTimeExp, partTimeAndInternships, education, skills, type ExperienceItem } from "../data/resumeData";
 
 /* ── Company logo with initial fallback ──────────────────────── */
@@ -149,14 +149,6 @@ export default function Resume() {
                 </h1>
               </div>
               <p className="mt-2 text-[0.82rem] sm:text-[0.88rem] text-muted-foreground">Lead Product Manager · 6+ years across logistics, fulfillment, electric mobility, and digital transformation.</p>
-              <a
-                href="/resume.pdf"
-                download
-                className="mt-4 inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-[4px] text-[0.72rem] font-bold tracking-[0.1em] uppercase hover:opacity-90 hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 active:scale-[0.97]"
-              >
-                <Download size={13} />
-                Download PDF
-              </a>
             </div>
           </div>
         </div>
