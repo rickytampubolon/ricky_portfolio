@@ -5,7 +5,7 @@
 export const profile = {
   name:   "Ricky Halomoan",
   title:  "Lead Product Manager",
-  photo:  "/profile.png",
+  photo:  "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/FytkfOyUipkYiXSh.png",
   email:  "rickytampubolon97@gmail.com",
 };
 
