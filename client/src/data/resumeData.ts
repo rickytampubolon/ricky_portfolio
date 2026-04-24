@@ -39,7 +39,7 @@ export const fullTimeExp: ExperienceItem[] = [
   },
   {
     id: 2,
-    title: "Product Manager – Performance Evaluation & Data Integration",
+    title: "Senior Product Manager – Performance Evaluation & Data Integration",
     company: "INA Digital Edu – Ministry of Primary and Secondary Education",
     companyImage:
       "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/cJhNVtPdbOHZIgCZ.png",
@@ -54,7 +54,7 @@ export const fullTimeExp: ExperienceItem[] = [
   },
   {
     id: 3,
-    title: "Senior Associate, System Product Lead – SPX Express",
+    title: "Lead Product / System – SPX Xpress",
     company: "Shopee",
     companyImage: "https://www.google.com/s2/favicons?domain=shopee.co.id&sz=256",
     period: "2024",
