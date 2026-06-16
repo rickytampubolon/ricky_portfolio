@@ -62,17 +62,19 @@ export default function Home() {
                   {/* Divider */}
                   <div className="my-3 border-t border-border" />
 
-                  {/* Domain tags */}
-                  <div className="flex flex-wrap gap-1">
-                    {domainTags.map((tag, i) => (
-                      <span
-                        key={tag}
-                        className={`px-2 py-px rounded-full text-[0.55rem] font-semibold tracking-[0.03em] uppercase leading-5 ${
-                          i === 0 ? "bg-mint-subtle" : "bg-secondary text-muted-foreground"
-                        }`}
-                      >
-                        {tag}
-                      </span>
+                  {/* Domain tags — 2 fixed rows */}
+                  <div className="space-y-1">
+                    {[domainTags.slice(0, 2), domainTags.slice(2)].map((row, r) => (
+                      <div key={r} className="flex gap-1">
+                        {row.map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-1.5 py-px rounded-full bg-secondary text-[0.48rem] font-semibold uppercase text-muted-foreground tracking-normal leading-5 whitespace-nowrap"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     ))}
                   </div>
 
