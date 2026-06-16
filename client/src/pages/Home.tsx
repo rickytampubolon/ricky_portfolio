@@ -107,8 +107,8 @@ export default function Home() {
 
               <div className="reveal-item" style={stagger(1)}>
                 <h1
-                  className="font-black text-foreground leading-[1.08] tracking-[-0.03em]"
-                  style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)" }}
+                  className="font-black leading-[1.08] tracking-[-0.03em]"
+                  style={{ fontSize: "clamp(2rem, 5vw, 3.2rem)", color: "var(--mint)" }}
                 >
                   {headline}
                 </h1>
