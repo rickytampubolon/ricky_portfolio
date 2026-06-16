@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram, Sun, Moon, X, Menu, ArrowUp, type LucideProps } from "lucide-react";
+import { Linkedin, Instagram, Sun, Moon, X, Menu, ArrowUp, Mail, type LucideProps } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect, useRef } from "react";
 import { profile, social } from "../data/homeData";
@@ -255,46 +255,38 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Footer */}
         <footer className="shrink-0 bg-background border-t border-border">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 pt-8 pb-6 sm:pt-6 sm:pb-4 gap-5 sm:gap-0">
+          <div className="flex items-center justify-between px-5 md:px-12 py-3">
 
-            <div className="order-first sm:order-last flex flex-col sm:flex-row gap-5 sm:gap-8 md:gap-14">
-              <div className="flex flex-col gap-2">
-                <span className="text-[0.82rem] font-bold text-foreground tracking-[0.06em]">Write</span>
-                <a
-                  href={`mailto:${profile.email}`}
-                  className="text-[0.72rem] text-muted-foreground hover:text-foreground transition-colors duration-200"
-                >
-                  {profile.email}
-                </a>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <span className="text-[0.82rem] font-bold text-foreground tracking-[0.06em]">Follow</span>
-                <div className="flex items-center gap-4">
-                  {social.map(({ href, label, icon }) => {
-                    const Icon = socialIcons[icon];
-                    return (
-                      <a
-                        key={label}
-                        href={href}
-                        aria-label={label}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-foreground hover:opacity-60 transition-opacity duration-200"
-                      >
-                        <Icon size={22} />
-                      </a>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            <span className="order-last sm:order-first flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2 text-[0.72rem] text-muted-foreground">
-              <span>© {new Date().getFullYear()} {profile.name}. All rights reserved.</span>
+            <span className="flex items-center gap-2 text-[0.72rem] text-muted-foreground">
+              <span>© {new Date().getFullYear()} {profile.name}</span>
               <span className="hidden sm:inline select-none">·</span>
               <span className="hidden sm:inline"><LocalClock /></span>
             </span>
+
+            <div className="flex items-center gap-4">
+              <a
+                href={`mailto:${profile.email}`}
+                aria-label="Email"
+                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                <Mail size={17} strokeWidth={1.75} />
+              </a>
+              {social.map(({ href, label, icon }) => {
+                const Icon = socialIcons[icon];
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                  >
+                    <Icon size={17} strokeWidth={1.75} />
+                  </a>
+                );
+              })}
+            </div>
 
           </div>
         </footer>

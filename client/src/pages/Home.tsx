@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "wouter";
 import { Linkedin, Instagram } from "lucide-react";
 import Layout from "../components/Layout";
-import { profile, bio, social, domainTags } from "../data/homeData";
+import { profile, bio, social, domainTags, headline } from "../data/homeData";
 
 function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
@@ -104,14 +104,11 @@ export default function Home() {
             <div className="flex flex-col gap-5">
 
               <div className="reveal-item" style={stagger(1)}>
-                <p className="text-[0.7rem] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-3">
-                  Portfolio
-                </p>
                 <h1
                   className="font-black text-foreground leading-[1.08] tracking-[-0.03em]"
                   style={{ fontSize: "clamp(1.6rem, 4vw, 2.6rem)" }}
                 >
-                  {bio[0].split(".")[0]}.
+                  {headline}
                 </h1>
               </div>
 
