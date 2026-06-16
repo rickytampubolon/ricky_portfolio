@@ -63,10 +63,12 @@ export default function Home() {
 
                   {/* Domain tags */}
                   <div className="flex flex-wrap gap-1 overflow-hidden" style={{ maxHeight: "3.2rem" }}>
-                    {domainTags.map((tag) => (
+                    {domainTags.map((tag, i) => (
                       <span
                         key={tag}
-                        className="px-2 py-px rounded-full bg-secondary text-[0.55rem] font-semibold tracking-[0.03em] uppercase text-muted-foreground leading-5"
+                        className={`px-2 py-px rounded-full text-[0.55rem] font-semibold tracking-[0.03em] uppercase leading-5 ${
+                          i === 0 ? "bg-mint-subtle" : "bg-secondary text-muted-foreground"
+                        }`}
                       >
                         {tag}
                       </span>
@@ -80,13 +82,14 @@ export default function Home() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       {companies.map(({ name, logo }) => (
-                        <img
-                          key={name}
-                          src={logo}
-                          alt={name}
-                          title={name}
-                          className="w-5 h-5 object-contain grayscale opacity-50"
-                        />
+                        <div key={name} className="w-5 h-5 flex items-center justify-center shrink-0">
+                          <img
+                            src={logo}
+                            alt={name}
+                            title={name}
+                            className="max-w-full max-h-full object-contain grayscale opacity-70"
+                          />
+                        </div>
                       ))}
                     </div>
                     <span className="text-[0.68rem] text-muted-foreground">Jakarta, ID</span>
