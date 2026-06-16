@@ -76,17 +76,20 @@ export default function Home() {
                   {/* Divider */}
                   <div className="my-3 border-t border-border" />
 
-                  {/* Company logos */}
+                  {/* Company logos + location */}
                   <div className="flex items-center justify-between">
-                    {companies.map(({ name, logo }) => (
-                      <img
-                        key={name}
-                        src={logo}
-                        alt={name}
-                        title={name}
-                        className="w-5 h-5 object-contain grayscale opacity-50"
-                      />
-                    ))}
+                    <div className="flex items-center gap-3">
+                      {companies.map(({ name, logo }) => (
+                        <img
+                          key={name}
+                          src={logo}
+                          alt={name}
+                          title={name}
+                          className="w-5 h-5 object-contain grayscale opacity-50"
+                        />
+                      ))}
+                    </div>
+                    <span className="text-[0.68rem] text-muted-foreground">Jakarta, ID</span>
                   </div>
                 </div>
 
