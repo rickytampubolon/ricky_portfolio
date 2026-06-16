@@ -40,11 +40,11 @@ export default function Home() {
               <div className="apple-card overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.07)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
 
                 {/* Photo */}
-                <div className="w-full overflow-hidden bg-secondary" style={{ aspectRatio: "4/3" }}>
+                <div className="w-full overflow-hidden bg-secondary" style={{ aspectRatio: "3/2" }}>
                   <img
                     src={profile.photo}
                     alt={profile.name}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-center"
                     loading="eager"
                   />
                 </div>
