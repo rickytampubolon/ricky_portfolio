@@ -98,15 +98,9 @@
   /* ── Glass tokens ──────────────────────────────────────── */
   --glass-bg: rgba(255,255,255,0.55);
   --glass-border: rgba(255,255,255,0.65);
-  --glass-shadow: 0 8px 32px rgba(80,80,180,0.10), inset 0 1px 0 rgba(255,255,255,0.8);
+  --glass-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
   --glass-blur: blur(24px) saturate(180%);
-  --gradient-mesh:
-    radial-gradient(ellipse at 15% 25%, rgba(120,100,255,0.22) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 10%, rgba(255,100,200,0.15) 0%, transparent 45%),
-    radial-gradient(ellipse at 5%  80%, rgba(56,189,248,0.18)  0%, transparent 50%),
-    radial-gradient(ellipse at 90% 80%, rgba(52,211,153,0.12)  0%, transparent 45%),
-    radial-gradient(ellipse at 50% 50%, rgba(251,113,133,0.08) 0%, transparent 60%),
-    #F5F5FA;
+  --gradient-mesh: #F7F7F9;
 }
 
 .dark {
@@ -149,13 +143,7 @@
   --glass-border: rgba(255,255,255,0.12);
   --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.07);
   --glass-blur: blur(24px) saturate(160%);
-  --gradient-mesh:
-    radial-gradient(ellipse at 15% 25%, rgba(120,100,255,0.35) 0%, transparent 50%),
-    radial-gradient(ellipse at 85% 10%, rgba(200,80,255,0.20) 0%, transparent 45%),
-    radial-gradient(ellipse at 5%  80%, rgba(56,189,248,0.22)  0%, transparent 50%),
-    radial-gradient(ellipse at 90% 80%, rgba(52,211,153,0.15)  0%, transparent 45%),
-    radial-gradient(ellipse at 50% 50%, rgba(251,113,133,0.10) 0%, transparent 60%),
-    #0A0A14;
+  --gradient-mesh: #0C0C0F;
 }
 
 /* ── Native prefers-color-scheme fallback (no-JS environments) ─
@@ -187,13 +175,7 @@
     --glass-border: rgba(255,255,255,0.12);
     --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.07);
     --glass-blur: blur(24px) saturate(160%);
-    --gradient-mesh:
-      radial-gradient(ellipse at 15% 25%, rgba(120,100,255,0.35) 0%, transparent 50%),
-      radial-gradient(ellipse at 85% 10%, rgba(200,80,255,0.20) 0%, transparent 45%),
-      radial-gradient(ellipse at 5%  80%, rgba(56,189,248,0.22)  0%, transparent 50%),
-      radial-gradient(ellipse at 90% 80%, rgba(52,211,153,0.15)  0%, transparent 45%),
-      radial-gradient(ellipse at 50% 50%, rgba(251,113,133,0.10) 0%, transparent 60%),
-      #0A0A14;
+    --gradient-mesh: #0C0C0F;
   }
 }
 
@@ -398,11 +380,11 @@ html.theme-transitioning *::after {
 
   /* ── Profile card depth-shadow block ────────────────────── */
   .card-depth-shadow {
-    background: linear-gradient(135deg, rgba(120,100,255,0.3), rgba(56,189,248,0.2));
+    background: rgba(0,0,0,0.08);
     filter: blur(2px);
   }
   .dark .card-depth-shadow {
-    background: linear-gradient(135deg, rgba(120,100,255,0.4), rgba(56,189,248,0.25));
+    background: rgba(255,255,255,0.04);
     filter: blur(2px);
   }
 

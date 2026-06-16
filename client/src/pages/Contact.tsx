@@ -137,7 +137,7 @@ export default function Contact() {
 
         {/* Heading */}
         <div className="flex items-center justify-center gap-3 mb-7 md:mb-10 w-full max-w-lg">
-          <div className="w-[9px] h-[9px] rounded-full shrink-0" style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)" }} />
+          <div className="w-[9px] h-[9px] rounded-full bg-foreground shrink-0" />
           <h1
             className="font-black tracking-[-0.03em] text-foreground leading-none"
             style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
@@ -234,8 +234,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center gap-2 text-white px-10 py-3 rounded-full text-sm font-semibold tracking-[0.06em] transition-all duration-200 hover:-translate-y-px active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
-                  style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)", boxShadow: "0 4px 20px rgba(123,123,255,0.4)" }}
+                  className="inline-flex items-center justify-center gap-2 bg-foreground text-background px-10 py-3 rounded-full text-sm font-semibold tracking-[0.06em] transition-all duration-200 hover:opacity-90 hover:-translate-y-px active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
                 >
                   {loading ? (
                     <>

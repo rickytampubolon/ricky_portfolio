@@ -140,7 +140,7 @@ export default function Resume() {
           <div className="container py-8 md:py-14">
             <div>
               <div className="flex items-center gap-3">
-                <div className="w-[9px] h-[9px] rounded-full shrink-0" style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)" }} />
+                <div className="w-[9px] h-[9px] rounded-full shrink-0" style={{ background: "var(--foreground)" }} />
                 <h1
                   className="font-black tracking-[-0.03em] leading-none text-foreground"
                   style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
@@ -158,7 +158,7 @@ export default function Resume() {
           {/* ── Experience ─────────────────────────────────────── */}
           <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
-              <div className={accentDot} style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)" }} />
+              <div className={accentDot} style={{ background: "var(--foreground)" }} />
               <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Experience</h2>
             </div>
             <div className="space-y-2.5">
@@ -176,7 +176,7 @@ export default function Resume() {
           {/* ── Internships & Part-time ─────────────────────────── */}
           <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
-              <div className={accentDot} style={{ background: "linear-gradient(135deg, #FB7185, #C084FC)" }} />
+              <div className={accentDot} style={{ background: "var(--foreground)" }} />
               <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Internships &amp; Part-time</h2>
             </div>
             <div className="space-y-2.5">
@@ -194,7 +194,7 @@ export default function Resume() {
           {/* ── Education ──────────────────────────────────────── */}
           <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
-              <div className={accentDot} style={{ background: "linear-gradient(135deg, #34D399, #38BDF8)" }} />
+              <div className={accentDot} style={{ background: "var(--foreground)" }} />
               <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Education</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -220,7 +220,7 @@ export default function Resume() {
           {/* ── Skills ─────────────────────────────────────────── */}
           <section>
             <div className={sectionAccent}>
-              <div className={accentDot} style={{ background: "linear-gradient(135deg, #F59E0B, #FB7185)" }} />
+              <div className={accentDot} style={{ background: "var(--foreground)" }} />
               <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Skills</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -249,7 +249,7 @@ export default function Resume() {
         className={`fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95 ${
           showScrollTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-3"
         }`}
-        style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)", color: "#fff", boxShadow: "0 4px 20px rgba(123,123,255,0.5)" }}
+        style={{ background: "var(--foreground)", color: "var(--background)" }}
       >
         <ArrowUp size={16} />
       </button>
