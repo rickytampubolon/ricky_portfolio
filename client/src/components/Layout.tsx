@@ -102,7 +102,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Desktop header */}
         <div className="hidden sm:flex h-14 items-center justify-between px-5 md:px-12">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-[10px] h-[10px] rounded-full shrink-0 bg-foreground" />
+            <div className="w-[10px] h-[10px] rounded-full shrink-0" style={{ background: "var(--mint)" }} />
             <span className="font-bold text-foreground leading-none" style={{ fontSize: "1.4rem" }}>
               {profile.name}
             </span>
@@ -123,7 +123,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               ) : (
                 <Link key={link.href} href={link.href}
                   className={`text-[0.72rem] font-bold tracking-[0.09em] transition-colors duration-200 ${
-                    isActive(link.href) ? "text-foreground" : "text-muted-foreground hover:text-mint"
+                    isActive(link.href) ? "text-mint" : "text-muted-foreground hover:text-foreground"
                   }`}
                   aria-current={isActive(link.href) ? "page" : undefined}
                 >
@@ -138,7 +138,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Mobile header */}
         <div className="flex sm:hidden h-14 items-center justify-between px-5">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-[10px] h-[10px] rounded-full shrink-0 bg-foreground" />
+            <div className="w-[10px] h-[10px] rounded-full shrink-0" style={{ background: "var(--mint)" }} />
             <span className="font-bold text-[1.1rem] text-foreground leading-none tracking-[-0.02em]">
               {profile.name}
             </span>
@@ -176,7 +176,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="flex items-center justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5" onClick={() => setMobileOpen(false)}>
             <div className="flex items-center gap-2">
-              <div className="w-[10px] h-[10px] rounded-full shrink-0 bg-foreground" />
+              <div className="w-[10px] h-[10px] rounded-full shrink-0" style={{ background: "var(--mint)" }} />
               <span className="font-black text-[1.45rem] text-foreground leading-tight tracking-[-0.02em]">
                 {profile.name}
               </span>
@@ -258,7 +258,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <a
                 href={`mailto:${profile.email}`}
                 aria-label="Email"
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                className="text-muted-foreground hover:text-mint transition-colors duration-200"
               >
                 <Mail size={17} strokeWidth={1.75} />
               </a>
@@ -271,7 +271,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     aria-label={label}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                    className="text-muted-foreground hover:text-mint transition-colors duration-200"
                   >
                     <Icon size={17} strokeWidth={1.75} />
                   </a>

@@ -37,7 +37,7 @@ export default function Home() {
 
             {/* ── Profile Card ───────────────────────────────── */}
             <div className="reveal-item w-full max-w-sm mx-auto md:mx-0" style={stagger(0)}>
-              <div className="apple-card overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.07)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
+              <div className="apple-card overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.07)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)] border-t-2" style={{ borderTopColor: "var(--mint)" }}>
 
                 {/* Photo */}
                 <div className="w-full overflow-hidden bg-secondary" style={{ aspectRatio: "6/5" }}>
@@ -66,10 +66,14 @@ export default function Home() {
                   <div className="space-y-1">
                     {[domainTags.slice(0, 2), domainTags.slice(2)].map((row, r) => (
                       <div key={r} className="flex gap-1">
-                        {row.map((tag) => (
+                        {row.map((tag, i) => (
                           <span
                             key={tag}
-                            className="px-1.5 py-px rounded-full bg-secondary text-[0.48rem] font-semibold uppercase text-muted-foreground tracking-normal leading-5 whitespace-nowrap"
+                            className={`px-1.5 py-px rounded-full text-[0.48rem] font-semibold uppercase tracking-normal leading-5 whitespace-nowrap ${
+                              r === 0 && i === 0
+                                ? "bg-mint-subtle text-mint"
+                                : "bg-secondary text-muted-foreground"
+                            }`}
                           >
                             {tag}
                           </span>
@@ -129,7 +133,7 @@ export default function Home() {
                   </button>
                 </Link>
                 <Link href="/contact">
-                  <button className="inline-flex items-center justify-center border border-border text-foreground px-7 py-2.5 rounded-full text-[0.78rem] font-semibold tracking-[0.02em] hover:bg-secondary transition-colors duration-200 active:scale-[0.97] min-h-[42px]">
+                  <button className="inline-flex items-center justify-center border text-mint px-7 py-2.5 rounded-full text-[0.78rem] font-semibold tracking-[0.02em] transition-colors duration-200 active:scale-[0.97] min-h-[42px] hover:bg-mint hover:text-white" style={{ borderColor: "var(--mint)" }}>
                     Let's Talk
                   </button>
                 </Link>

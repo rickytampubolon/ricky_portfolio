@@ -60,8 +60,8 @@ function ExpRow({ item, isOpen, onToggle }: {
               {item.title}
             </span>
             {isCurrent && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.58rem] font-bold uppercase tracking-wide bg-primary/8 dark:bg-primary/10 text-foreground">
-                <span className="w-1 h-1 rounded-full bg-primary animate-pulse" />
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.58rem] font-bold uppercase tracking-wide bg-mint-subtle text-mint">
+                <span className="w-1 h-1 rounded-full bg-mint animate-pulse" />
                 Current
               </span>
             )}
@@ -140,7 +140,7 @@ export default function Resume() {
           <div className="container py-8 md:py-14">
             <div>
               <div className="flex items-center gap-3">
-                <div className="w-[9px] h-[9px] rounded-full shrink-0" style={{ background: "var(--foreground)" }} />
+                <div className="w-[9px] h-[9px] rounded-full bg-mint shrink-0" />
                 <h1
                   className="font-black tracking-[-0.03em] leading-none text-foreground"
                   style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
@@ -158,7 +158,7 @@ export default function Resume() {
           {/* ── Experience ─────────────────────────────────────── */}
           <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
-              <div className={accentDot} style={{ background: "var(--foreground)" }} />
+              <div className={accentDot} style={{ background: "var(--mint)" }} />
               <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Experience</h2>
             </div>
             <div className="space-y-2.5">
@@ -176,7 +176,7 @@ export default function Resume() {
           {/* ── Internships & Part-time ─────────────────────────── */}
           <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
-              <div className={accentDot} style={{ background: "var(--foreground)" }} />
+              <div className={accentDot} style={{ background: "var(--mint)" }} />
               <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Internships &amp; Part-time</h2>
             </div>
             <div className="space-y-2.5">
@@ -194,7 +194,7 @@ export default function Resume() {
           {/* ── Education ──────────────────────────────────────── */}
           <section className="mb-10 md:mb-16">
             <div className={sectionAccent}>
-              <div className={accentDot} style={{ background: "var(--foreground)" }} />
+              <div className={accentDot} style={{ background: "var(--mint)" }} />
               <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Education</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -220,7 +220,7 @@ export default function Resume() {
           {/* ── Skills ─────────────────────────────────────────── */}
           <section>
             <div className={sectionAccent}>
-              <div className={accentDot} style={{ background: "var(--foreground)" }} />
+              <div className={accentDot} style={{ background: "var(--mint)" }} />
               <h2 className={`${sectionHead} text-xl md:text-[1.7rem]`}>Skills</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
