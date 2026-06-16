@@ -63,7 +63,7 @@ export default function Home() {
                   <div className="my-3 border-t border-border" />
 
                   {/* Domain tags */}
-                  <div className="flex flex-wrap gap-1 overflow-hidden" style={{ maxHeight: "3.2rem" }}>
+                  <div className="flex flex-wrap gap-1">
                     {domainTags.map((tag, i) => (
                       <span
                         key={tag}
