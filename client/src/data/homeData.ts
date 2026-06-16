@@ -21,9 +21,9 @@ export const domainTags = [
   "DIGITAL TRANSFORMATION",
 ];
 
-export const headline = "Building digital products that move businesses forward.";
+export const headline = "I build digital products that create real value.";
 
 export const bio = [
-  "My journey into product management grew from a curiosity about how systems work and create real value for people. With a background in Informatics and experience in software delivery, I developed a strong understanding of building digital products.",
-  "Today, as a Lead Product Manager, I focus on turning complex challenges into clear and practical product strategies that align technology with business impact.",
+  "My path into product started with a simple curiosity about how systems work and why some products earn people's trust while others do not. A background in engineering and QA gave me an eye for the details that make or break an experience, and over the past six years I have shaped products across electric mobility, logistics, and education.",
+  "Today I lead product for Green SM Indonesia, owning strategy from early discovery through launch and keeping local needs aligned with the bigger regional and global picture. I care most about clear thinking, sharp priorities, and products that feel obvious once they exist.",
 ];
