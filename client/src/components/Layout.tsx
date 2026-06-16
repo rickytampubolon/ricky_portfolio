@@ -136,15 +136,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* Mobile header */}
-        <div className="flex sm:hidden items-start justify-between px-5 pt-3 pb-2.5">
+        <div className="flex sm:hidden h-14 items-center justify-between px-5">
           <Link href="/" className="flex items-center gap-2">
             <div className="w-[10px] h-[10px] rounded-full shrink-0 bg-foreground" />
-            <span className="font-black text-[1.45rem] text-foreground leading-tight tracking-[-0.02em]">
+            <span className="font-bold text-[1.1rem] text-foreground leading-none tracking-[-0.02em]">
               {profile.name}
             </span>
           </Link>
 
-          <div className="flex items-center gap-1 mt-1">
+          <div className="flex items-center gap-1">
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen((o) => !o)}
@@ -176,7 +176,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="flex items-center justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5" onClick={() => setMobileOpen(false)}>
             <div className="flex items-center gap-2">
-              <div className="w-[10px] h-[10px] rounded-full shrink-0 mt-0.5" className="bg-foreground" />
+              <div className="w-[10px] h-[10px] rounded-full shrink-0 bg-foreground" />
               <span className="font-black text-[1.45rem] text-foreground leading-tight tracking-[-0.02em]">
                 {profile.name}
               </span>
