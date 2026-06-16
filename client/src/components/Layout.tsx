@@ -257,8 +257,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <footer className="shrink-0 bg-background border-t border-border">
           <div className="flex items-center justify-between px-5 md:px-12 py-3">
 
-            <span className="text-[0.72rem] text-muted-foreground">
-              © {new Date().getFullYear()} {profile.name}
+            <span className="flex items-center gap-2 text-[0.72rem] text-muted-foreground">
+              <span>© {new Date().getFullYear()} {profile.name}</span>
+              <span className="hidden sm:inline select-none">·</span>
+              <span className="hidden sm:inline"><LocalClock /></span>
             </span>
 
             <div className="flex items-center gap-4">
