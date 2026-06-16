@@ -28,8 +28,8 @@ function CompanyLogo({ src, alt, className }: { src: string; alt: string; classN
 
 /* ── Shared tokens ───────────────────────────────────────────── */
 const sectionHead   = "font-black tracking-[-0.025em] text-foreground";
-const cardBase      = "glass-card rounded-2xl";
-const tagPill       = "inline-flex items-center px-3 py-1.5 rounded-full glass-card text-[0.73rem] text-subtle font-medium";
+const cardBase      = "apple-card";
+const tagPill       = "inline-flex items-center px-3 py-1.5 rounded-full bg-secondary text-[0.73rem] text-subtle font-medium";
 const sectionAccent = "flex items-center gap-2.5 mb-7";
 const accentDot     = "w-[6px] h-[6px] rounded-full shrink-0";
 
@@ -46,7 +46,7 @@ function ExpRow({ item, isOpen, onToggle }: {
     <div className={`${cardBase} overflow-hidden`}>
       <button
         onClick={onToggle}
-        className="w-full flex items-start gap-3 p-4 sm:p-5 text-left hover:bg-background dark:hover:bg-[#242424] transition-colors"
+        className="w-full flex items-start gap-3 p-4 sm:p-5 text-left hover:bg-secondary transition-colors rounded-t-[1.25rem]"
       >
         {/* Logo */}
         <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-card border border-border overflow-hidden flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
@@ -94,7 +94,7 @@ function ExpRow({ item, isOpen, onToggle }: {
           transition: "max-height 0.35s cubic-bezier(0.4,0,0.2,1)",
         }}
       >
-        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1 border-t border-border/40" style={{ background: "rgba(123,123,255,0.03)" }}>
+        <div className="px-4 sm:px-5 pb-4 sm:pb-5 pt-1 border-t border-border bg-surface rounded-b-[1.25rem]">
           <p className="text-[0.63rem] font-bold uppercase tracking-[0.1em] text-muted-foreground/50 mb-2 mt-2 sm:hidden">
             {item.period}
           </p>
@@ -136,7 +136,7 @@ export default function Resume() {
       <div>
 
         {/* ── Banner ─────────────────────────────────────────── */}
-        <div className="glass-nav border-b border-border/40">
+        <div className="bg-surface border-b border-border">
           <div className="container py-8 md:py-14">
             <div>
               <div className="flex items-center gap-3">
@@ -246,10 +246,9 @@ export default function Resume() {
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        className={`fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95 ${
+        className={`fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-foreground text-background transition-all duration-300 hover:opacity-80 active:scale-95 ${
           showScrollTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-3"
         }`}
-        style={{ background: "var(--foreground)", color: "var(--background)" }}
       >
         <ArrowUp size={16} />
       </button>

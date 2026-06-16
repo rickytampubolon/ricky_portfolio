@@ -20,10 +20,9 @@ type FormErrors = Partial<Record<keyof FormState, string>>;
 const EMPTY: FormState = { firstName: "", lastName: "", email: "", subject: "", message: "" };
 
 /* ── Shared field styles ─────────────────────────────────────── */
-const inputBase =
-  "w-full glass-input px-3 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground/50 outline-none transition-all duration-200";
+const inputBase = "apple-input";
 const labelBase =
-  "block text-[0.72rem] font-bold tracking-[0.08em] uppercase text-muted-foreground mb-1.5";
+  "block text-[0.72rem] font-semibold tracking-[0.04em] uppercase text-muted-foreground mb-1.5";
 const errorMsg = "mt-1 text-[0.72rem] text-destructive font-medium";
 
 /* ── Validation ──────────────────────────────────────────────── */
@@ -82,7 +81,7 @@ function FormField({ label, error, touched, children }: FormFieldProps) {
   );
 }
 
-const inputError = "border-[var(--accent)]";
+const inputError = "border-destructive";
 
 /* ── Component ───────────────────────────────────────────────── */
 export default function Contact() {
@@ -147,7 +146,7 @@ export default function Contact() {
         </div>
 
         {/* Form card */}
-        <div className="w-full max-w-lg glass-card rounded-2xl p-6 md:p-10">
+        <div className="w-full max-w-lg apple-card shadow-[0_2px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.4)] p-6 md:p-10">
 
           {success ? (
             <div className="flex flex-col items-center text-center py-8">
@@ -234,7 +233,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center gap-2 bg-foreground text-background px-10 py-3 rounded-full text-sm font-semibold tracking-[0.06em] transition-all duration-200 hover:opacity-90 hover:-translate-y-px active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+                  className="inline-flex items-center justify-center gap-2 bg-foreground text-background px-10 py-3 rounded-full text-sm font-semibold tracking-[0.02em] transition-opacity duration-200 hover:opacity-80 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <>
