@@ -1,23 +1,21 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
+import { Linkedin, Instagram } from "lucide-react";
 import Layout from "../components/Layout";
-import { profile, bio } from "../data/homeData";
+import { profile, bio, social, domainTags } from "../data/homeData";
 
 function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
 }
 
-const pillBadges = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TRANSFORMATION"];
-
-/* ── Design tokens ───────────────────────────────────────────── */
-const btnPrimary =
-  "inline-flex items-center justify-center bg-foreground text-background px-7 py-3 rounded-full text-[0.72rem] font-semibold tracking-[0.04em] min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:opacity-80 transition-opacity duration-200 active:scale-[0.97] cursor-pointer focus-visible:outline-none";
-const btnSecondary =
-  "inline-flex items-center justify-center border border-border bg-transparent text-foreground px-7 py-3 rounded-full text-[0.72rem] font-semibold tracking-[0.04em] min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:bg-secondary transition-colors duration-200 active:scale-[0.97] cursor-pointer focus-visible:outline-none";
+const socialIcons: Record<string, React.FC<{ size?: number; strokeWidth?: number }>> = {
+  linkedin:  Linkedin,
+  instagram: Instagram,
+};
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
-  const [willAnimate, setWillAnimate] = useState(false);
+  const [willAnimate, setWillAnimate]   = useState(false);
 
   useEffect(() => {
     setWillAnimate(true);
@@ -29,116 +27,115 @@ export default function Home() {
     <Layout>
       <div className={`flex-1 flex flex-col ${willAnimate ? "will-animate" : ""} ${heroRevealed ? "is-revealed" : ""}`}>
 
-        {/* ── Hero Section ─────────────────────────────────────────
-            Desktop: two-column (profile card | hero text), vertically
-            centered. Mobile: single-column stack.
-        ─────────────────────────────────────────────────────────── */}
         <section
-          className="flex-1 flex items-center px-5 sm:px-6 md:px-12 py-8 md:py-10 relative hero-gradient"
+          className="flex-1 flex items-center px-5 md:px-12 py-10 md:py-0 hero-gradient"
           aria-label="Hero"
         >
+          <div className="w-full max-w-5xl mx-auto grid md:grid-cols-[320px_1fr] gap-8 md:gap-14 items-center">
 
+            {/* ── Profile Card ───────────────────────────────── */}
+            <div className="reveal-item w-full max-w-sm mx-auto md:mx-0" style={stagger(0)}>
+              <div className="apple-card overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.07)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
 
-          {/* Inner wrapper: stack on mobile, two-col grid on desktop */}
-          <div className="relative w-full max-w-5xl mx-auto md:ml-[18%] flex flex-col items-stretch md:flex-row gap-5 md:gap-10">
-
-            {/* ── Profile Card ───────────────────────────────────── */}
-            <div
-              className="reveal-item group w-full max-w-[420px] mx-auto md:w-[280px] md:max-w-none md:mx-0 md:shrink-0 flex flex-col"
-              style={stagger(0)}
-            >
-              <div className="relative">
-                <div className="relative apple-card w-full flex flex-col overflow-hidden transition-transform duration-300 ease-out group-hover:-translate-y-1 shadow-[0_2px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.4)]">
-
-                  {/* Top section */}
-                  <div className="flex flex-col items-center pt-8 pb-6 px-6">
-
-                    {/* Profile photo */}
-                    <div className="w-32 h-32 rounded-full overflow-hidden ring-[1.5px] ring-border bg-muted shrink-0">
-                      <img
-                        src={profile.photo}
-                        alt={`${profile.name} – ${profile.title}`}
-                        className="w-full h-full object-cover scale-110"
-                        loading="eager"
-                        width="128"
-                        height="128"
-                      />
-                    </div>
-
-                    {/* Name */}
-                    <p
-                      className="font-bold text-foreground leading-tight text-center mt-4 text-[1.35rem]"
-                      style={{ fontFamily: "var(--font-heading)" }}
-                    >
-                      {profile.name}
-                    </p>
-
-                    {/* Subtitle */}
-                    <p className="text-[0.65rem] font-bold tracking-[0.14em] uppercase text-muted-foreground mt-1 text-center">
-                      LEAD PRODUCT MANAGER
-                    </p>
-
-                    {/* Divider */}
-                    <div className="mt-3 rounded-full bg-border" style={{ width: "40px", height: "1.5px" }} />
-
-                    {/* Pill badges */}
-                    <div className="flex flex-wrap gap-1.5 justify-center mt-4">
-                      {pillBadges.map((badge) => (
-                        <span
-                          key={badge}
-                          className="px-2.5 py-0.5 rounded-full text-[0.54rem] font-semibold tracking-[0.04em] uppercase bg-secondary text-muted-foreground"
-                        >
-                          {badge}
-                        </span>
-                      ))}
-                    </div>
-
-                  </div>
-
+                {/* Photo */}
+                <div className="w-full aspect-square overflow-hidden bg-secondary">
+                  <img
+                    src={profile.photo}
+                    alt={profile.name}
+                    className="w-full h-full object-cover object-top"
+                    loading="eager"
+                  />
                 </div>
-              </div>
-            </div>
 
-            {/* ── Hero Text ──────────────────────────────────────── */}
-            <div className="min-w-0 max-w-[580px] md:flex-1 md:flex md:flex-col">
-              <div className="md:flex-1 md:flex md:flex-col md:justify-start">
+                {/* Info block */}
+                <div className="px-5 py-4">
+                  <p className="font-bold text-[1.05rem] text-foreground leading-tight">
+                    {profile.name}
+                  </p>
+                  <p className="text-[0.75rem] text-muted-foreground mt-0.5 tracking-wide">
+                    {profile.title}
+                  </p>
 
-                {/* Left-border accent — mobile only */}
-                <div className="md:contents">
+                  {/* Divider */}
+                  <div className="my-3 border-t border-border" />
 
-                  {/* Primary headline */}
-                  <h1
-                    className="reveal-item font-black tracking-[-0.03em] leading-tight text-foreground mb-3"
-                    style={{ ...stagger(1), fontSize: "clamp(1.25rem, 3.5vw, 2rem)" }}
-                  >
-                    Building digital products that move businesses forward.
-                  </h1>
-
-                  {/* Bio paragraphs */}
-                  <div className="reveal-item" style={stagger(2)}>
-                    {bio.map((paragraph, i) => (
-                      <p
-                        key={i}
-                        className={`text-[0.9rem] md:text-sm text-subtle leading-relaxed${i > 0 ? " mt-2" : ""}`}
+                  {/* Domain tags */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {domainTags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2.5 py-0.5 rounded-full bg-secondary text-[0.6rem] font-semibold tracking-[0.04em] uppercase text-muted-foreground"
                       >
-                        {paragraph}
-                      </p>
+                        {tag}
+                      </span>
                     ))}
                   </div>
 
-                  {/* CTA buttons */}
-                  <div className="reveal-item flex flex-col sm:flex-row gap-3 mt-5" style={stagger(3)}>
-                    <Link href="/resume" className="w-full sm:w-auto">
-                      <button className={btnPrimary}>Resume</button>
-                    </Link>
-                    <Link href="/contact" className="w-full sm:w-auto">
-                      <button className={btnSecondary}>Let's Talk</button>
-                    </Link>
-                  </div>
+                  {/* Divider */}
+                  <div className="my-3 border-t border-border" />
 
+                  {/* Social links */}
+                  <div className="flex items-center gap-4">
+                    {social.map(({ href, label, icon }) => {
+                      const Icon = socialIcons[icon];
+                      return (
+                        <a
+                          key={label}
+                          href={href}
+                          aria-label={label}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-muted-foreground hover:text-foreground transition-colors duration-200"
+                        >
+                          <Icon size={17} strokeWidth={1.75} />
+                        </a>
+                      );
+                    })}
+                    <span className="ml-auto text-[0.68rem] text-muted-foreground">
+                      Jakarta, ID
+                    </span>
+                  </div>
                 </div>
 
               </div>
+            </div>
+
+            {/* ── Hero Text ──────────────────────────────────── */}
+            <div className="flex flex-col gap-5">
+
+              <div className="reveal-item" style={stagger(1)}>
+                <p className="text-[0.7rem] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-3">
+                  Portfolio
+                </p>
+                <h1
+                  className="font-black text-foreground leading-[1.08] tracking-[-0.03em]"
+                  style={{ fontSize: "clamp(1.6rem, 4vw, 2.6rem)" }}
+                >
+                  {bio[0].split(".")[0]}.
+                </h1>
+              </div>
+
+              <div className="reveal-item space-y-3" style={stagger(2)}>
+                {bio.map((paragraph, i) => (
+                  <p key={i} className="text-[0.92rem] text-subtle leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+
+              <div className="reveal-item flex flex-wrap gap-3" style={stagger(3)}>
+                <Link href="/resume">
+                  <button className="inline-flex items-center justify-center bg-foreground text-background px-7 py-2.5 rounded-full text-[0.78rem] font-semibold tracking-[0.02em] hover:opacity-80 transition-opacity duration-200 active:scale-[0.97] min-h-[42px]">
+                    View Resume
+                  </button>
+                </Link>
+                <Link href="/contact">
+                  <button className="inline-flex items-center justify-center border border-border text-foreground px-7 py-2.5 rounded-full text-[0.78rem] font-semibold tracking-[0.02em] hover:bg-secondary transition-colors duration-200 active:scale-[0.97] min-h-[42px]">
+                    Let's Talk
+                  </button>
+                </Link>
+              </div>
+
             </div>
 
           </div>
