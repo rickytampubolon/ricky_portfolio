@@ -62,103 +62,138 @@
   --font-size-body: clamp(0.875rem, 1.5vw + 0.4rem, 1rem);
 
   /* ── Light Mode ─────────────────────────────────────────── */
-  --hero-slab: #F2F2F2;
-  --background: #FAFAFA;
-  --foreground: #1A1A1A;
-  --card: #FFFFFF;
-  --card-foreground: #1A1A1A;
-  --popover: #FFFFFF;
-  --popover-foreground: #1A1A1A;
-  --primary: #1A1A1A;
+  --hero-slab: #F0F0F8;
+  --background: #F5F5FA;
+  --foreground: #0D0D12;
+  --card: rgba(255,255,255,0.72);
+  --card-foreground: #0D0D12;
+  --popover: rgba(255,255,255,0.92);
+  --popover-foreground: #0D0D12;
+  --primary: #0D0D12;
   --primary-foreground: #FFFFFF;
-  --secondary: #F4F4F4;
-  --secondary-foreground: #555555;
-  --muted: #EFEFEF;
-  --muted-foreground: #888888;
-  --accent: #3A3A3A;
+  --secondary: rgba(240,240,250,0.8);
+  --secondary-foreground: #44445A;
+  --muted: rgba(230,230,245,0.7);
+  --muted-foreground: #7777AA;
+  --accent: #5B5BF6;
   --accent-foreground: #FFFFFF;
-  --destructive: #1A1A1A;
+  --destructive: #E03060;
   --destructive-foreground: #FFFFFF;
-  --border: #E8E8E8;
-  --input: #E8E8E8;
-  --ring: #1A1A1A;
-  --chart-1: #1A1A1A;
-  --chart-2: #555555;
-  --chart-3: #888888;
-  --chart-4: #BBBBBB;
-  --chart-5: #DDDDDD;
-  --sidebar: #FAFAFA;
-  --sidebar-foreground: #1A1A1A;
-  --sidebar-primary: #1A1A1A;
+  --border: rgba(160,160,210,0.25);
+  --input: rgba(160,160,210,0.2);
+  --ring: #5B5BF6;
+  --chart-1: #5B5BF6;
+  --chart-2: #A78BFA;
+  --chart-3: #38BDF8;
+  --chart-4: #FB7185;
+  --chart-5: #34D399;
+  --sidebar: rgba(245,245,250,0.9);
+  --sidebar-foreground: #0D0D12;
+  --sidebar-primary: #5B5BF6;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #3A3A3A;
+  --sidebar-accent: #5B5BF6;
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: #E8E8E8;
-  --sidebar-ring: #1A1A1A;
+  --sidebar-border: rgba(160,160,210,0.2);
+  --sidebar-ring: #5B5BF6;
+  /* ── Glass tokens ──────────────────────────────────────── */
+  --glass-bg: rgba(255,255,255,0.55);
+  --glass-border: rgba(255,255,255,0.65);
+  --glass-shadow: 0 8px 32px rgba(80,80,180,0.10), inset 0 1px 0 rgba(255,255,255,0.8);
+  --glass-blur: blur(24px) saturate(180%);
+  --gradient-mesh:
+    radial-gradient(ellipse at 15% 25%, rgba(120,100,255,0.22) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 10%, rgba(255,100,200,0.15) 0%, transparent 45%),
+    radial-gradient(ellipse at 5%  80%, rgba(56,189,248,0.18)  0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(52,211,153,0.12)  0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(251,113,133,0.08) 0%, transparent 60%),
+    #F5F5FA;
 }
 
 .dark {
-  --surface: #1A1A1A;     /* section/banner backgrounds in dark mode */
-  --subtle: #AAAAAA;      /* secondary body text in dark mode */
-  --primary: #E0E0E0;
-  --primary-foreground: #121212;
-  --sidebar-primary: #E0E0E0;
-  --sidebar-primary-foreground: #121212;
-  --background: #121212;
-  --foreground: #E0E0E0;
-  --card: #1E1E1E;
-  --card-foreground: #E0E0E0;
-  --popover: #1E1E1E;
-  --popover-foreground: #E0E0E0;
-  --secondary: #2A2A2A;
-  --secondary-foreground: #E0E0E0;
-  --muted: #2A2A2A;
-  --muted-foreground: #888888;
-  --accent: #AAAAAA;
-  --accent-foreground: #121212;
-  --destructive: #E0E0E0;
-  --destructive-foreground: #121212;
-  --border: #2C2C2C;
-  --input: #2C2C2C;
-  --ring: #E0E0E0;
-  --chart-1: #E0E0E0;
-  --chart-2: #AAAAAA;
-  --chart-3: #777777;
-  --chart-4: #444444;
-  --chart-5: #222222;
-  --sidebar: #1E1E1E;
-  --sidebar-foreground: #E0E0E0;
-  --sidebar-accent: #AAAAAA;
-  --sidebar-accent-foreground: #121212;
-  --sidebar-border: #2C2C2C;
-  --sidebar-ring: #E0E0E0;
+  --surface: rgba(18,18,30,0.95);
+  --subtle: #A0A0C0;
+  --primary: #E8E8FF;
+  --primary-foreground: #0A0A14;
+  --sidebar-primary: #7B7BFF;
+  --sidebar-primary-foreground: #FFFFFF;
+  --background: #0A0A14;
+  --foreground: #E8E8FF;
+  --card: rgba(255,255,255,0.05);
+  --card-foreground: #E8E8FF;
+  --popover: rgba(20,20,40,0.92);
+  --popover-foreground: #E8E8FF;
+  --secondary: rgba(255,255,255,0.07);
+  --secondary-foreground: #C0C0E0;
+  --muted: rgba(255,255,255,0.06);
+  --muted-foreground: #7070A0;
+  --accent: #7B7BFF;
+  --accent-foreground: #FFFFFF;
+  --destructive: #FF6080;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255,255,255,0.10);
+  --input: rgba(255,255,255,0.08);
+  --ring: #7B7BFF;
+  --chart-1: #7B7BFF;
+  --chart-2: #C084FC;
+  --chart-3: #38BDF8;
+  --chart-4: #FB7185;
+  --chart-5: #34D399;
+  --sidebar: rgba(10,10,20,0.9);
+  --sidebar-foreground: #E8E8FF;
+  --sidebar-accent: #7B7BFF;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: rgba(255,255,255,0.08);
+  --sidebar-ring: #7B7BFF;
+  /* ── Glass tokens (dark) ──────────────────────────────── */
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.12);
+  --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.07);
+  --glass-blur: blur(24px) saturate(160%);
+  --gradient-mesh:
+    radial-gradient(ellipse at 15% 25%, rgba(120,100,255,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 10%, rgba(200,80,255,0.20) 0%, transparent 45%),
+    radial-gradient(ellipse at 5%  80%, rgba(56,189,248,0.22)  0%, transparent 50%),
+    radial-gradient(ellipse at 90% 80%, rgba(52,211,153,0.15)  0%, transparent 45%),
+    radial-gradient(ellipse at 50% 50%, rgba(251,113,133,0.10) 0%, transparent 60%),
+    #0A0A14;
 }
 
 /* ── Native prefers-color-scheme fallback (no-JS environments) ─
    When JS hasn't toggled the .dark class yet, honor the OS setting. */
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
-    --primary: #E0E0E0;
-    --primary-foreground: #121212;
-    --background: #121212;
-    --foreground: #E0E0E0;
-    --card: #1E1E1E;
-    --card-foreground: #E0E0E0;
-    --popover: #1E1E1E;
-    --popover-foreground: #E0E0E0;
-    --secondary: #2A2A2A;
-    --secondary-foreground: #E0E0E0;
-    --muted: #2A2A2A;
-    --muted-foreground: #888888;
-    --accent: #AAAAAA;
-    --accent-foreground: #121212;
-    --border: #2C2C2C;
-    --input: #2C2C2C;
-    --ring: #E0E0E0;
-    --destructive: #E0E0E0;
-    --destructive-foreground: #121212;
-    --surface: #1A1A1A;
-    --subtle: #AAAAAA;
+    --surface: rgba(18,18,30,0.95);
+    --subtle: #A0A0C0;
+    --primary: #E8E8FF;
+    --primary-foreground: #0A0A14;
+    --background: #0A0A14;
+    --foreground: #E8E8FF;
+    --card: rgba(255,255,255,0.05);
+    --card-foreground: #E8E8FF;
+    --popover: rgba(20,20,40,0.92);
+    --popover-foreground: #E8E8FF;
+    --secondary: rgba(255,255,255,0.07);
+    --secondary-foreground: #C0C0E0;
+    --muted: rgba(255,255,255,0.06);
+    --muted-foreground: #7070A0;
+    --accent: #7B7BFF;
+    --accent-foreground: #FFFFFF;
+    --border: rgba(255,255,255,0.10);
+    --input: rgba(255,255,255,0.08);
+    --ring: #7B7BFF;
+    --destructive: #FF6080;
+    --destructive-foreground: #FFFFFF;
+    --glass-bg: rgba(255,255,255,0.05);
+    --glass-border: rgba(255,255,255,0.12);
+    --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.07);
+    --glass-blur: blur(24px) saturate(160%);
+    --gradient-mesh:
+      radial-gradient(ellipse at 15% 25%, rgba(120,100,255,0.35) 0%, transparent 50%),
+      radial-gradient(ellipse at 85% 10%, rgba(200,80,255,0.20) 0%, transparent 45%),
+      radial-gradient(ellipse at 5%  80%, rgba(56,189,248,0.22)  0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, rgba(52,211,153,0.15)  0%, transparent 45%),
+      radial-gradient(ellipse at 50% 50%, rgba(251,113,133,0.10) 0%, transparent 60%),
+      #0A0A14;
   }
 }
 
@@ -183,6 +218,24 @@ html.theme-transitioning *::after {
 }
 .animate-scroll-pulse {
   animation: scroll-pulse 2s ease-in-out infinite;
+}
+
+/* ── Liquid Glass float animation ────────────────────────────── */
+@keyframes glass-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+.animate-glass-float {
+  animation: glass-float 6s ease-in-out infinite;
+}
+
+/* ── Glow pulse ──────────────────────────────────────────────── */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
 }
 
 @layer base {
@@ -299,25 +352,66 @@ html.theme-transitioning *::after {
     transform: translateY(0);
   }
 
-  /* ── Profile card depth-shadow block ────────────────────── */
-  /* Neutral offset shadow in light mode; near-surface tone in dark mode */
-  .card-depth-shadow {
-    background-color: #D0D0D0;
-  }
-  .dark .card-depth-shadow {
-    background-color: #2C2C2C;
+  /* ── Glass card utility ──────────────────────────────────── */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
   }
 
-  /* ── Hero section gradient background ───────────────────── */
+  /* ── Glass nav bar ───────────────────────────────────────── */
+  .glass-nav {
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(32px) saturate(200%);
+    -webkit-backdrop-filter: blur(32px) saturate(200%);
+    border-bottom: 1px solid rgba(255,255,255,0.55);
+  }
+  .dark .glass-nav {
+    background: rgba(10,10,20,0.65);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  /* ── Glass input ─────────────────────────────────────────── */
+  .glass-input {
+    background: rgba(255,255,255,0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(160,160,210,0.3);
+    border-radius: 0.6rem;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .glass-input:focus {
+    background: rgba(255,255,255,0.6);
+    border-color: var(--accent);
+    outline: none;
+  }
+  .dark .glass-input {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+  .dark .glass-input:focus {
+    background: rgba(255,255,255,0.08);
+    border-color: var(--accent);
+  }
+
+  /* ── Profile card depth-shadow block ────────────────────── */
+  .card-depth-shadow {
+    background: linear-gradient(135deg, rgba(120,100,255,0.3), rgba(56,189,248,0.2));
+    filter: blur(2px);
+  }
+  .dark .card-depth-shadow {
+    background: linear-gradient(135deg, rgba(120,100,255,0.4), rgba(56,189,248,0.25));
+    filter: blur(2px);
+  }
+
+  /* ── Hero / page gradient mesh background ───────────────── */
   .hero-gradient {
-    background:
-      radial-gradient(ellipse at 10% 55%, hsla(215, 100%, 93%, 0.55) 0%, transparent 52%),
-      radial-gradient(ellipse at 88% 12%, hsla(35,  100%, 92%, 0.50) 0%, transparent 46%),
-      radial-gradient(ellipse at 65% 88%, hsla(260,  80%, 94%, 0.40) 0%, transparent 42%),
-      radial-gradient(ellipse at 70% 40%, #FFFFFF 0%, #EDEDED 100%);
+    background: var(--gradient-mesh);
   }
   .dark .hero-gradient {
-    background: #121212;
+    background: var(--gradient-mesh);
   }
 
   /* Skip reveal animation when OS reduce-motion is on */

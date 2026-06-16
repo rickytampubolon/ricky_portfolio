@@ -10,12 +10,10 @@ function stagger(n: number) {
 const pillBadges = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TRANSFORMATION"];
 
 /* ── Design tokens ───────────────────────────────────────────── */
-// Pill-shaped primary CTA: filled
 const btnPrimary =
-  "inline-flex items-center justify-center bg-primary text-primary-foreground border border-primary px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:opacity-90 hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.22)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.12)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
-// Secondary CTA: outline — border-2 + rest-state shadow preserve visual weight at all times
+  "inline-flex items-center justify-center px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:-translate-y-[2px] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 text-white";
 const btnSecondary =
-  "inline-flex items-center justify-center border-2 border-primary text-foreground bg-transparent px-7 py-3 rounded-[4px] text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap shadow-[0_1px_6px_rgba(0,0,0,0.07)] dark:shadow-[0_1px_6px_rgba(0,0,0,0.25)] hover:bg-primary hover:text-primary-foreground hover:-translate-y-[2px] hover:shadow-[0_6px_18px_rgba(0,0,0,0.14)] dark:hover:shadow-[0_6px_18px_rgba(255,255,255,0.08)] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2";
+  "inline-flex items-center justify-center px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:-translate-y-[2px] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 text-foreground glass-card hover:border-white/40";
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
@@ -49,36 +47,34 @@ export default function Home() {
               className="reveal-item group w-full max-w-[420px] mx-auto md:w-[280px] md:max-w-none md:mx-0 md:shrink-0 flex flex-col"
               style={stagger(0)}
             >
-              {/* Depth-effect wrapper */}
-              <div className="relative" style={{ paddingBottom: "8px", paddingRight: "8px" }}>
-                {/* Shadow block behind the card — shifts on hover for a parallax depth feel */}
+              {/* Glow behind card */}
+              <div className="relative">
                 <div
-                  className="absolute rounded-2xl card-depth-shadow transition-transform duration-300 ease-out group-hover:translate-x-[3px] group-hover:translate-y-[3px]"
-                  style={{
-                    top: "8px",
-                    left: "8px",
-                    right: "0",
-                    bottom: "0",
-                  }}
+                  className="absolute inset-0 rounded-3xl opacity-40 blur-2xl pointer-events-none animate-glow-pulse"
+                  style={{ background: "linear-gradient(135deg, rgba(123,123,255,0.5), rgba(56,189,248,0.4), rgba(251,113,133,0.3))" }}
                 />
 
-                {/* Card itself — lifts on hover */}
-                <div className="relative bg-card dark:bg-card border border-border rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.10)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.45)] w-full flex flex-col overflow-hidden transition-all duration-300 ease-out group-hover:-translate-y-[3px] group-hover:shadow-[0_16px_48px_rgba(0,0,0,0.15)] dark:group-hover:shadow-[0_16px_48px_rgba(0,0,0,0.55)]">
+                {/* Glass card */}
+                <div className="relative glass-card rounded-3xl w-full flex flex-col overflow-hidden transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_24px_60px_rgba(123,123,255,0.25)]">
 
-                  {/* Top section: photo + name + subtitle + divider + pills + buttons */}
+                  {/* Top section */}
                   <div className="flex flex-col items-center pt-8 pb-6 px-6">
 
-                    {/* Profile photo */}
-                    <div className="w-32 h-32 rounded-full overflow-hidden ring-[2px] ring-border bg-muted shrink-0">
-                      <img
-                        src={profile.photo}
-                        alt={`${profile.name} – ${profile.title}`}
-                        className="w-full h-full object-cover scale-110"
-                        style={{ filter: "grayscale(100%)" }}
-                        loading="eager"
-                        width="128"
-                        height="128"
-                      />
+                    {/* Profile photo with gradient ring */}
+                    <div
+                      className="p-[2px] rounded-full shrink-0"
+                      style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8, #FB7185)" }}
+                    >
+                      <div className="w-32 h-32 rounded-full overflow-hidden bg-muted">
+                        <img
+                          src={profile.photo}
+                          alt={`${profile.name} – ${profile.title}`}
+                          className="w-full h-full object-cover scale-110"
+                          loading="eager"
+                          width="128"
+                          height="128"
+                        />
+                      </div>
                     </div>
 
                     {/* Name */}
@@ -94,13 +90,13 @@ export default function Home() {
                       LEAD PRODUCT MANAGER
                     </p>
 
-                    {/* Short centered divider */}
+                    {/* Gradient divider */}
                     <div
+                      className="mt-3 rounded-full"
                       style={{
                         width: "48px",
                         height: "2px",
-                        marginTop: "10px",
-                        backgroundColor: "var(--foreground)",
+                        background: "linear-gradient(90deg, #7B7BFF, #38BDF8)",
                       }}
                     />
 
@@ -109,13 +105,12 @@ export default function Home() {
                       {pillBadges.map((badge) => (
                         <span
                           key={badge}
-                          className="px-2.5 py-0.5 rounded-full border border-border bg-muted text-[0.54rem] font-bold tracking-[0.06em] uppercase text-muted-foreground"
+                          className="px-2.5 py-0.5 rounded-full text-[0.54rem] font-bold tracking-[0.06em] uppercase glass-card text-muted-foreground"
                         >
                           {badge}
                         </span>
                       ))}
                     </div>
-
 
                   </div>
 
@@ -153,7 +148,12 @@ export default function Home() {
                   {/* CTA buttons */}
                   <div className="reveal-item flex flex-col sm:flex-row gap-3 mt-5" style={stagger(3)}>
                     <Link href="/resume" className="w-full sm:w-auto">
-                      <button className={btnPrimary}>Resume</button>
+                      <button
+                        className={btnPrimary}
+                        style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)", boxShadow: "0 4px 20px rgba(123,123,255,0.4)" }}
+                      >
+                        Resume
+                      </button>
                     </Link>
                     <Link href="/contact" className="w-full sm:w-auto">
                       <button className={btnSecondary}>Let's Talk</button>

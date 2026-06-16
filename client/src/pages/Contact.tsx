@@ -21,7 +21,7 @@ const EMPTY: FormState = { firstName: "", lastName: "", email: "", subject: "", 
 
 /* ── Shared field styles ─────────────────────────────────────── */
 const inputBase =
-  "w-full bg-transparent border-b-2 border-border py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground/50 outline-none transition-colors duration-200 focus:border-primary";
+  "w-full glass-input px-3 py-2.5 text-[0.92rem] text-foreground placeholder:text-muted-foreground/50 outline-none transition-all duration-200";
 const labelBase =
   "block text-[0.72rem] font-bold tracking-[0.08em] uppercase text-muted-foreground mb-1.5";
 const errorMsg = "mt-1 text-[0.72rem] text-destructive font-medium";
@@ -82,7 +82,7 @@ function FormField({ label, error, touched, children }: FormFieldProps) {
   );
 }
 
-const inputError = "border-b-primary focus:border-b-primary";
+const inputError = "border-[var(--accent)]";
 
 /* ── Component ───────────────────────────────────────────────── */
 export default function Contact() {
@@ -133,11 +133,11 @@ export default function Contact() {
 
   return (
     <Layout>
-      <div className="grow shrink-0 bg-surface flex flex-col items-center justify-start py-8 md:py-14 px-4">
+      <div className="grow shrink-0 flex flex-col items-center justify-start py-8 md:py-14 px-4">
 
         {/* Heading */}
         <div className="flex items-center justify-center gap-3 mb-7 md:mb-10 w-full max-w-lg">
-          <div className="w-[9px] h-[9px] bg-primary rounded-[2px] shrink-0" />
+          <div className="w-[9px] h-[9px] rounded-full shrink-0" style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)" }} />
           <h1
             className="font-black tracking-[-0.03em] text-foreground leading-none"
             style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
@@ -147,7 +147,7 @@ export default function Contact() {
         </div>
 
         {/* Form card */}
-        <div className="w-full max-w-lg bg-card rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.08)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)] border border-border p-6 md:p-10">
+        <div className="w-full max-w-lg glass-card rounded-2xl p-6 md:p-10">
 
           {success ? (
             <div className="flex flex-col items-center text-center py-8">
@@ -234,7 +234,8 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center gap-2 bg-primary text-primary-foreground px-10 py-3 rounded-full text-sm font-semibold tracking-[0.06em] hover:opacity-90 transition-all duration-200 shadow-[0_4px_14px_rgba(0,0,0,0.18)] hover:-translate-y-px active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+                  className="inline-flex items-center justify-center gap-2 text-white px-10 py-3 rounded-full text-sm font-semibold tracking-[0.06em] transition-all duration-200 hover:-translate-y-px active:scale-[0.97] disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
+                  style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)", boxShadow: "0 4px 20px rgba(123,123,255,0.4)" }}
                 >
                   {loading ? (
                     <>

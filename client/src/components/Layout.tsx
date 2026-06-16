@@ -93,16 +93,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="sm:h-screen sm:overflow-hidden bg-background dark:bg-surface text-foreground flex flex-col">
+    <div className="sm:h-screen sm:overflow-hidden text-foreground flex flex-col" style={{ background: "var(--gradient-mesh)", backgroundAttachment: "fixed" }}>
 
       {/* ── Sticky Header ─────────────────────────────────────── */}
       <header
-        className={`sticky top-0 left-0 right-0 z-50 bg-background/96 dark:bg-surface/96 backdrop-blur-sm transition-shadow duration-300 ${scrolled ? "shadow-[0_1px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_1px_12px_rgba(0,0,0,0.4)]" : ""}`}
+        className={`sticky top-0 left-0 right-0 z-50 glass-nav transition-shadow duration-300 ${scrolled ? "shadow-[0_4px_24px_rgba(80,80,180,0.12)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.5)]" : ""}`}
       >
         {/* Desktop header */}
         <div className="hidden sm:flex h-14 items-center justify-between px-5 md:px-12">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-[9px] h-[9px] bg-primary rounded-[2px] shrink-0" />
+            <div className="w-[10px] h-[10px] rounded-full shrink-0" style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)" }} />
             <span className="font-bold text-foreground leading-none" style={{ fontSize: "1.4rem" }}>
               {profile.name}
             </span>
@@ -143,7 +143,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="flex sm:hidden items-start justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5">
             <div className="flex items-center gap-2">
-              <div className="w-[10px] h-[10px] bg-primary rounded-[2px] shrink-0 mt-0.5" />
+              <div className="w-[10px] h-[10px] rounded-full shrink-0 mt-0.5" style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)" }} />
               <span className="font-black text-[1.45rem] text-foreground leading-tight tracking-[-0.02em]">
                 {profile.name}
               </span>
@@ -174,18 +174,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        className={`sm:hidden fixed inset-0 z-[100] bg-background dark:bg-surface flex flex-col transition-opacity duration-300 ${
+        className={`sm:hidden fixed inset-0 z-[100] flex flex-col transition-opacity duration-300 ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         style={{
           transform: mobileOpen ? "translateY(0)" : "translateY(-8px)",
           transition: "opacity 0.3s ease, transform 0.3s ease",
+          background: "var(--gradient-mesh)",
+          backdropFilter: "blur(32px) saturate(180%)",
+          WebkitBackdropFilter: "blur(32px) saturate(180%)",
         }}
       >
         <div className="flex items-center justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5" onClick={() => setMobileOpen(false)}>
             <div className="flex items-center gap-2">
-              <div className="w-[10px] h-[10px] bg-primary rounded-[2px] shrink-0 mt-0.5" />
+              <div className="w-[10px] h-[10px] rounded-full shrink-0 mt-0.5" style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)" }} />
               <span className="font-black text-[1.45rem] text-foreground leading-tight tracking-[-0.02em]">
                 {profile.name}
               </span>
@@ -241,9 +244,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           window.scrollTo({ top: 0, behavior: "smooth" });
         }}
         aria-label="Scroll to top"
-        className={`sm:hidden fixed bottom-5 right-5 z-50 w-11 h-11 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-[0_4px_16px_rgba(0,0,0,0.2)] transition-all duration-300 ${
+        className={`sm:hidden fixed bottom-5 right-5 z-50 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 ${
           scrolled ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
+        style={{
+          background: "linear-gradient(135deg, #7B7BFF, #38BDF8)",
+          color: "#fff",
+          boxShadow: "0 4px 20px rgba(123,123,255,0.5)",
+        }}
       >
         <ArrowUp size={18} />
       </button>
@@ -253,7 +261,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
 
         {/* Footer */}
-        <footer className="shrink-0 bg-background dark:bg-surface border-t border-border">
+        <footer className="shrink-0 glass-nav border-t border-border/40">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between px-5 md:px-12 pt-8 pb-6 sm:pt-6 sm:pb-4 gap-5 sm:gap-0">
 
             <div className="order-first sm:order-last flex flex-col sm:flex-row gap-5 sm:gap-8 md:gap-14">
