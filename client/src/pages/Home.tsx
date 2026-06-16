@@ -11,9 +11,9 @@ const pillBadges = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TR
 
 /* ── Design tokens ───────────────────────────────────────────── */
 const btnPrimary =
-  "inline-flex items-center justify-center bg-foreground text-background px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:-translate-y-[2px] hover:opacity-90 transition-all duration-300 ease-in-out active:scale-[0.97] cursor-pointer focus-visible:outline-none";
+  "inline-flex items-center justify-center bg-foreground text-background px-7 py-3 rounded-full text-[0.72rem] font-semibold tracking-[0.04em] min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:opacity-80 transition-opacity duration-200 active:scale-[0.97] cursor-pointer focus-visible:outline-none";
 const btnSecondary =
-  "inline-flex items-center justify-center px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:-translate-y-[2px] transition-all duration-300 ease-in-out active:scale-[0.97] cursor-pointer focus-visible:outline-none text-foreground glass-card";
+  "inline-flex items-center justify-center border border-border bg-transparent text-foreground px-7 py-3 rounded-full text-[0.72rem] font-semibold tracking-[0.04em] min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:bg-secondary transition-colors duration-200 active:scale-[0.97] cursor-pointer focus-visible:outline-none";
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
@@ -48,8 +48,7 @@ export default function Home() {
               style={stagger(0)}
             >
               <div className="relative">
-                {/* Glass card */}
-                <div className="relative glass-card rounded-3xl w-full flex flex-col overflow-hidden transition-all duration-500 ease-out group-hover:-translate-y-2">
+                <div className="relative apple-card w-full flex flex-col overflow-hidden transition-transform duration-300 ease-out group-hover:-translate-y-1 shadow-[0_2px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.4)]">
 
                   {/* Top section */}
                   <div className="flex flex-col items-center pt-8 pb-6 px-6">
@@ -87,7 +86,7 @@ export default function Home() {
                       {pillBadges.map((badge) => (
                         <span
                           key={badge}
-                          className="px-2.5 py-0.5 rounded-full text-[0.54rem] font-bold tracking-[0.06em] uppercase glass-card text-muted-foreground"
+                          className="px-2.5 py-0.5 rounded-full text-[0.54rem] font-semibold tracking-[0.04em] uppercase bg-secondary text-muted-foreground"
                         >
                           {badge}
                         </span>

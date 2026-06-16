@@ -45,143 +45,123 @@
 }
 
 :root {
-  --radius: 0.75rem;
-  /* ── Semantic surface & subtle tokens ───────────────────── */
-  --surface: #F2F2F2;     /* section/banner backgrounds, elevated areas */
-  --subtle: #555555;      /* secondary body text */
-  /* ── Font stacks ─────────────────────────────────────────── */
-  --font-sans: "Montserrat", "Avenir Next", "Avenir", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-heading: "Montserrat", "Avenir Next", "Avenir", sans-serif;
+  --radius: 1rem;
+
+  /* ── Font stacks ───────────────────────────────────────────── */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Montserrat", sans-serif;
+  --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Montserrat", sans-serif;
   --font-body-serif: "Lora", "Georgia", "Times New Roman", serif;
 
-  /* ── Fluid typography scale (compact, above-fold friendly) ── */
-  /* H1 deliberately smaller to keep hero content within 100vh on desktop */
+  /* ── Fluid typography ──────────────────────────────────────── */
   --font-size-h1: clamp(1.5rem, 5vw, 2.8rem);
   --font-size-h2: clamp(1.3rem, 3.5vw, 2.1rem);
   --font-size-h3: clamp(1.05rem, 2.5vw, 1.3rem);
   --font-size-body: clamp(0.875rem, 1.5vw + 0.4rem, 1rem);
 
-  /* ── Light Mode ─────────────────────────────────────────── */
-  --hero-slab: #F0F0F8;
-  --background: #F5F5FA;
-  --foreground: #0D0D12;
-  --card: rgba(255,255,255,0.72);
-  --card-foreground: #0D0D12;
-  --popover: rgba(255,255,255,0.92);
-  --popover-foreground: #0D0D12;
-  --primary: #0D0D12;
-  --primary-foreground: #FFFFFF;
-  --secondary: rgba(240,240,250,0.8);
-  --secondary-foreground: #44445A;
-  --muted: rgba(230,230,245,0.7);
-  --muted-foreground: #7777AA;
-  --accent: #5B5BF6;
-  --accent-foreground: #FFFFFF;
-  --destructive: #E03060;
+  /* ── Apple Light ───────────────────────────────────────────── */
+  --background:           #FFFFFF;
+  --surface:              #F5F5F7;
+  --subtle:               #6E6E73;
+  --hero-slab:            #F5F5F7;
+  --foreground:           #1D1D1F;
+  --card:                 #FFFFFF;
+  --card-foreground:      #1D1D1F;
+  --popover:              #FFFFFF;
+  --popover-foreground:   #1D1D1F;
+  --primary:              #1D1D1F;
+  --primary-foreground:   #FFFFFF;
+  --secondary:            #F5F5F7;
+  --secondary-foreground: #1D1D1F;
+  --muted:                #F5F5F7;
+  --muted-foreground:     #6E6E73;
+  --accent:               #1D1D1F;
+  --accent-foreground:    #FFFFFF;
+  --destructive:          #FF3B30;
   --destructive-foreground: #FFFFFF;
-  --border: rgba(160,160,210,0.25);
-  --input: rgba(160,160,210,0.2);
-  --ring: #5B5BF6;
-  --chart-1: #5B5BF6;
-  --chart-2: #A78BFA;
-  --chart-3: #38BDF8;
-  --chart-4: #FB7185;
-  --chart-5: #34D399;
-  --sidebar: rgba(245,245,250,0.9);
-  --sidebar-foreground: #0D0D12;
-  --sidebar-primary: #5B5BF6;
+  --border:               #D2D2D7;
+  --input:                #F5F5F7;
+  --ring:                 #1D1D1F;
+  --chart-1: #1D1D1F;
+  --chart-2: #6E6E73;
+  --chart-3: #8E8E93;
+  --chart-4: #AEAEB2;
+  --chart-5: #D2D2D7;
+  --sidebar:              #FFFFFF;
+  --sidebar-foreground:   #1D1D1F;
+  --sidebar-primary:      #1D1D1F;
   --sidebar-primary-foreground: #FFFFFF;
-  --sidebar-accent: #5B5BF6;
+  --sidebar-accent:       #1D1D1F;
   --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: rgba(160,160,210,0.2);
-  --sidebar-ring: #5B5BF6;
-  /* ── Glass tokens ──────────────────────────────────────── */
-  --glass-bg: rgba(255,255,255,0.55);
-  --glass-border: rgba(255,255,255,0.65);
-  --glass-shadow: 0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.9);
-  --glass-blur: blur(24px) saturate(180%);
-  --gradient-mesh: #F7F7F9;
+  --sidebar-border:       #D2D2D7;
+  --sidebar-ring:         #1D1D1F;
 }
 
 .dark {
-  --surface: rgba(18,18,30,0.95);
-  --subtle: #A0A0C0;
-  --primary: #E8E8FF;
-  --primary-foreground: #0A0A14;
-  --sidebar-primary: #7B7BFF;
-  --sidebar-primary-foreground: #FFFFFF;
-  --background: #0A0A14;
-  --foreground: #E8E8FF;
-  --card: rgba(255,255,255,0.05);
-  --card-foreground: #E8E8FF;
-  --popover: rgba(20,20,40,0.92);
-  --popover-foreground: #E8E8FF;
-  --secondary: rgba(255,255,255,0.07);
-  --secondary-foreground: #C0C0E0;
-  --muted: rgba(255,255,255,0.06);
-  --muted-foreground: #7070A0;
-  --accent: #7B7BFF;
-  --accent-foreground: #FFFFFF;
-  --destructive: #FF6080;
+  --background:           #000000;
+  --surface:              #1C1C1E;
+  --subtle:               #86868B;
+  --foreground:           #F5F5F7;
+  --card:                 #1C1C1E;
+  --card-foreground:      #F5F5F7;
+  --popover:              #1C1C1E;
+  --popover-foreground:   #F5F5F7;
+  --primary:              #F5F5F7;
+  --primary-foreground:   #000000;
+  --secondary:            #2C2C2E;
+  --secondary-foreground: #F5F5F7;
+  --muted:                #2C2C2E;
+  --muted-foreground:     #86868B;
+  --accent:               #F5F5F7;
+  --accent-foreground:    #000000;
+  --destructive:          #FF453A;
   --destructive-foreground: #FFFFFF;
-  --border: rgba(255,255,255,0.10);
-  --input: rgba(255,255,255,0.08);
-  --ring: #7B7BFF;
-  --chart-1: #7B7BFF;
-  --chart-2: #C084FC;
-  --chart-3: #38BDF8;
-  --chart-4: #FB7185;
-  --chart-5: #34D399;
-  --sidebar: rgba(10,10,20,0.9);
-  --sidebar-foreground: #E8E8FF;
-  --sidebar-accent: #7B7BFF;
-  --sidebar-accent-foreground: #FFFFFF;
-  --sidebar-border: rgba(255,255,255,0.08);
-  --sidebar-ring: #7B7BFF;
-  /* ── Glass tokens (dark) ──────────────────────────────── */
-  --glass-bg: rgba(255,255,255,0.05);
-  --glass-border: rgba(255,255,255,0.12);
-  --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.07);
-  --glass-blur: blur(24px) saturate(160%);
-  --gradient-mesh: #0C0C0F;
+  --border:               #3A3A3C;
+  --input:                #2C2C2E;
+  --ring:                 #F5F5F7;
+  --chart-1: #F5F5F7;
+  --chart-2: #86868B;
+  --chart-3: #636366;
+  --chart-4: #48484A;
+  --chart-5: #3A3A3C;
+  --sidebar:              #1C1C1E;
+  --sidebar-foreground:   #F5F5F7;
+  --sidebar-primary:      #F5F5F7;
+  --sidebar-primary-foreground: #000000;
+  --sidebar-accent:       #F5F5F7;
+  --sidebar-accent-foreground: #000000;
+  --sidebar-border:       #3A3A3C;
+  --sidebar-ring:         #F5F5F7;
 }
 
-/* ── Native prefers-color-scheme fallback (no-JS environments) ─
-   When JS hasn't toggled the .dark class yet, honor the OS setting. */
 @media (prefers-color-scheme: dark) {
   :root:not(.light) {
-    --surface: rgba(18,18,30,0.95);
-    --subtle: #A0A0C0;
-    --primary: #E8E8FF;
-    --primary-foreground: #0A0A14;
-    --background: #0A0A14;
-    --foreground: #E8E8FF;
-    --card: rgba(255,255,255,0.05);
-    --card-foreground: #E8E8FF;
-    --popover: rgba(20,20,40,0.92);
-    --popover-foreground: #E8E8FF;
-    --secondary: rgba(255,255,255,0.07);
-    --secondary-foreground: #C0C0E0;
-    --muted: rgba(255,255,255,0.06);
-    --muted-foreground: #7070A0;
-    --accent: #7B7BFF;
-    --accent-foreground: #FFFFFF;
-    --border: rgba(255,255,255,0.10);
-    --input: rgba(255,255,255,0.08);
-    --ring: #7B7BFF;
-    --destructive: #FF6080;
+    --background:           #000000;
+    --surface:              #1C1C1E;
+    --subtle:               #86868B;
+    --foreground:           #F5F5F7;
+    --card:                 #1C1C1E;
+    --card-foreground:      #F5F5F7;
+    --popover:              #1C1C1E;
+    --popover-foreground:   #F5F5F7;
+    --primary:              #F5F5F7;
+    --primary-foreground:   #000000;
+    --secondary:            #2C2C2E;
+    --secondary-foreground: #F5F5F7;
+    --muted:                #2C2C2E;
+    --muted-foreground:     #86868B;
+    --accent:               #F5F5F7;
+    --accent-foreground:    #000000;
+    --destructive:          #FF453A;
     --destructive-foreground: #FFFFFF;
-    --glass-bg: rgba(255,255,255,0.05);
-    --glass-border: rgba(255,255,255,0.12);
-    --glass-shadow: 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.07);
-    --glass-blur: blur(24px) saturate(160%);
-    --gradient-mesh: #0C0C0F;
+    --border:               #3A3A3C;
+    --input:                #2C2C2E;
+    --ring:                 #F5F5F7;
+    --destructive:          #FF453A;
+    --destructive-foreground: #FFFFFF;
   }
 }
 
-/* ── Smooth dark-mode colour transition ───────────────────────
-   Applied only while the toggle animates, then removed so that
-   hover transitions work normally at all other times.          */
+/* ── Smooth dark-mode colour transition ─────────────────────── */
 html.theme-transitioning,
 html.theme-transitioning *,
 html.theme-transitioning *::before,
@@ -193,7 +173,7 @@ html.theme-transitioning *::after {
     box-shadow 0.4s ease !important;
 }
 
-/* ── Scroll indicator pulse animation ────────────────────────── */
+/* ── Scroll indicator pulse ─────────────────────────────────── */
 @keyframes scroll-pulse {
   0%, 100% { opacity: 0.35; transform: translateY(0); }
   50%       { opacity: 0.75; transform: translateY(5px); }
@@ -202,32 +182,10 @@ html.theme-transitioning *::after {
   animation: scroll-pulse 2s ease-in-out infinite;
 }
 
-/* ── Liquid Glass float animation ────────────────────────────── */
-@keyframes glass-float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-6px); }
-}
-.animate-glass-float {
-  animation: glass-float 6s ease-in-out infinite;
-}
-
-/* ── Glow pulse ──────────────────────────────────────────────── */
-@keyframes glow-pulse {
-  0%, 100% { opacity: 0.5; }
-  50%       { opacity: 1; }
-}
-.animate-glow-pulse {
-  animation: glow-pulse 3s ease-in-out infinite;
-}
-
 @layer base {
-  html {
-    scroll-behavior: smooth;
-  }
+  html { scroll-behavior: smooth; }
 
-  * {
-    @apply border-border outline-ring/50;
-  }
+  * { @apply border-border outline-ring/50; }
 
   body {
     @apply bg-background text-foreground;
@@ -237,34 +195,25 @@ html.theme-transitioning *::after {
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* ── Typographic scale ────────────────────────────────────── */
   h1 {
     font-family: var(--font-heading);
     font-size: var(--font-size-h1);
     font-weight: 800;
     line-height: 1.05;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    letter-spacing: -0.02em;
   }
   h2 {
     font-family: var(--font-heading);
     font-size: var(--font-size-h2);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.1;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
+    letter-spacing: -0.02em;
   }
   h3 {
     font-family: var(--font-heading);
     font-size: var(--font-size-h3);
-    font-weight: 700;
+    font-weight: 600;
     line-height: 1.2;
-    letter-spacing: 0.03em;
-  }
-
-  /* ── Fast tap: remove 300ms delay on mobile ───────────────── */
-  button, a {
-    touch-action: manipulation;
   }
   h4 {
     font-family: var(--font-heading);
@@ -278,25 +227,22 @@ html.theme-transitioning *::after {
     letter-spacing: 0.005em;
   }
 
+  button, a { touch-action: manipulation; }
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
   [type="submit"]:not(:disabled),
-  [type="reset"]:not(:disabled),
   a[href],
-  select:not(:disabled),
-  input[type="checkbox"]:not(:disabled),
-  input[type="radio"]:not(:disabled) {
+  select:not(:disabled) {
     @apply cursor-pointer;
   }
 }
 
 @layer components {
-  /* Fluid heading helpers — reference CSS variables so clamp() is always live */
   .fluid-h2 { font-size: var(--font-size-h2); }
   .fluid-h3 { font-size: var(--font-size-h3); }
 
-  /* Serif body text for long-form reading content */
   .font-body-serif {
     font-family: var(--font-body-serif);
     line-height: 1.85;
@@ -311,92 +257,73 @@ html.theme-transitioning *::after {
     max-width: 800px;
   }
 
-  .flex {
-    min-height: 0;
-    min-width: 0;
-  }
+  .flex { min-height: 0; min-width: 0; }
 
-  /* ── Staggered reveal animations ────────────────────────── */
-  /* reveal-item is visible by default (progressive enhancement).
-     The .will-animate class is added by JS immediately on mount
-     to opt-in to the animation — content stays visible if JS fails. */
+  /* ── Staggered reveal ────────────────────────────────────── */
   .will-animate .reveal-item {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(16px);
     transition:
       opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
       transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     transition-delay: calc(var(--stagger, 0) * 80ms);
   }
-
   .is-revealed .reveal-item {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* ── Glass card utility ──────────────────────────────────── */
-  .glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    -webkit-backdrop-filter: var(--glass-blur);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+  /* ── Apple-style card ────────────────────────────────────── */
+  .apple-card {
+    background-color: var(--card);
+    border-radius: 1.25rem;
+    border: 1px solid var(--border);
+  }
+  .dark .apple-card {
+    background-color: var(--card);
+    border-color: var(--border);
   }
 
-  /* ── Glass nav bar ───────────────────────────────────────── */
-  .glass-nav {
-    background: rgba(255,255,255,0.72);
-    backdrop-filter: blur(32px) saturate(200%);
-    -webkit-backdrop-filter: blur(32px) saturate(200%);
-    border-bottom: 1px solid rgba(255,255,255,0.55);
+  /* ── Apple-style nav ─────────────────────────────────────── */
+  .apple-nav {
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--border);
   }
-  .dark .glass-nav {
-    background: rgba(10,10,20,0.65);
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+  .dark .apple-nav {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-bottom-color: var(--border);
   }
 
-  /* ── Glass input ─────────────────────────────────────────── */
-  .glass-input {
-    background: rgba(255,255,255,0.4);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(160,160,210,0.3);
-    border-radius: 0.6rem;
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .glass-input:focus {
-    background: rgba(255,255,255,0.6);
-    border-color: var(--accent);
+  /* ── Apple-style input ───────────────────────────────────── */
+  .apple-input {
+    width: 100%;
+    background-color: var(--secondary);
+    border: 1.5px solid transparent;
+    border-radius: 0.75rem;
+    padding: 0.65rem 0.875rem;
+    font-size: 0.95rem;
+    color: var(--foreground);
     outline: none;
+    transition: border-color 0.2s ease;
   }
-  .dark .glass-input {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-  .dark .glass-input:focus {
-    background: rgba(255,255,255,0.08);
-    border-color: var(--accent);
+  .apple-input::placeholder { color: var(--muted-foreground); }
+  .apple-input:focus { border-color: var(--foreground); }
+
+  /* ── Hero background ─────────────────────────────────────── */
+  .hero-gradient {
+    background-color: var(--background);
   }
 
-  /* ── Profile card depth-shadow block ────────────────────── */
+  /* ── Profile card shadow block ───────────────────────────── */
   .card-depth-shadow {
-    background: rgba(0,0,0,0.08);
-    filter: blur(2px);
+    background-color: var(--border);
   }
   .dark .card-depth-shadow {
-    background: rgba(255,255,255,0.04);
-    filter: blur(2px);
+    background-color: var(--border);
   }
 
-  /* ── Hero / page gradient mesh background ───────────────── */
-  .hero-gradient {
-    background: var(--gradient-mesh);
-  }
-  .dark .hero-gradient {
-    background: var(--gradient-mesh);
-  }
-
-  /* Skip reveal animation when OS reduce-motion is on */
   @media (prefers-reduced-motion: reduce) {
     .will-animate .reveal-item {
       opacity: 1;
@@ -406,16 +333,6 @@ html.theme-transitioning *::after {
   }
 
   @media (min-width: 640px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .container {
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
+    .container { padding-left: 2rem; padding-right: 2rem; }
   }
 }
