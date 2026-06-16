@@ -33,7 +33,7 @@ export default function Home() {
           className="flex-1 flex items-center px-5 md:px-12 py-10 md:py-0 hero-gradient"
           aria-label="Hero"
         >
-          <div className="w-full max-w-5xl mx-auto grid md:grid-cols-[260px_1fr] gap-8 md:gap-14 items-center">
+          <div className="w-full max-w-5xl mx-auto grid md:grid-cols-[300px_1fr] gap-8 md:gap-14 items-center">
 
             {/* ── Profile Card ───────────────────────────────── */}
             <div className="reveal-item w-full max-w-sm mx-auto md:mx-0" style={stagger(0)}>
