@@ -62,11 +62,11 @@ export default function Home() {
                   <div className="my-3 border-t border-border" />
 
                   {/* Domain tags */}
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1 overflow-hidden" style={{ maxHeight: "3.2rem" }}>
                     {domainTags.map((tag) => (
                       <span
                         key={tag}
-                        className="px-2.5 py-0.5 rounded-full bg-secondary text-[0.6rem] font-semibold tracking-[0.04em] uppercase text-muted-foreground"
+                        className="px-2 py-px rounded-full bg-secondary text-[0.55rem] font-semibold tracking-[0.03em] uppercase text-muted-foreground leading-5"
                       >
                         {tag}
                       </span>
