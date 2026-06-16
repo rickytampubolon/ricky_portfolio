@@ -255,7 +255,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
         {/* Footer */}
         <footer className="shrink-0 bg-background border-t border-border">
-          <div className="flex items-center justify-between px-5 md:px-12 py-3">
+          <div className="flex items-center justify-between px-5 md:px-12 py-5">
 
             <span className="flex items-center gap-2 text-[0.72rem] text-muted-foreground">
               <span>© {new Date().getFullYear()} {profile.name}</span>
