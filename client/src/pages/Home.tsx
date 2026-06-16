@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import { Link } from "wouter";
-import { Linkedin, Instagram } from "lucide-react";
 import Layout from "../components/Layout";
-import { profile, bio, social, domainTags, headline } from "../data/homeData";
+import { profile, bio, domainTags, headline } from "../data/homeData";
 
 function stagger(n: number) {
   return { "--stagger": n } as React.CSSProperties;
 }
 
-const socialIcons: Record<string, React.FC<{ size?: number; strokeWidth?: number }>> = {
-  linkedin:  Linkedin,
-  instagram: Instagram,
-};
+const companies = [
+  { name: "Traveloka",      logo: "/traveloka-logo.png" },
+  { name: "Tokopedia",      logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png" },
+  { name: "Shopee",         logo: "https://www.google.com/s2/favicons?domain=shopee.co.id&sz=256" },
+  { name: "GovTech Edu",    logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/cJhNVtPdbOHZIgCZ.png" },
+  { name: "Green SM",       logo: "https://www.google.com/s2/favicons?domain=xanhsm.com&sz=256" },
+];
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
@@ -74,26 +76,17 @@ export default function Home() {
                   {/* Divider */}
                   <div className="my-3 border-t border-border" />
 
-                  {/* Social links */}
-                  <div className="flex items-center gap-4">
-                    {social.map(({ href, label, icon }) => {
-                      const Icon = socialIcons[icon];
-                      return (
-                        <a
-                          key={label}
-                          href={href}
-                          aria-label={label}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-muted-foreground hover:text-foreground transition-colors duration-200"
-                        >
-                          <Icon size={17} strokeWidth={1.75} />
-                        </a>
-                      );
-                    })}
-                    <span className="ml-auto text-[0.68rem] text-muted-foreground">
-                      Jakarta, ID
-                    </span>
+                  {/* Company logos */}
+                  <div className="flex items-center justify-between">
+                    {companies.map(({ name, logo }) => (
+                      <img
+                        key={name}
+                        src={logo}
+                        alt={name}
+                        title={name}
+                        className="w-5 h-5 object-contain grayscale opacity-50"
+                      />
+                    ))}
                   </div>
                 </div>
 
