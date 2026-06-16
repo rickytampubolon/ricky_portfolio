@@ -44,7 +44,7 @@ export default function Home() {
                   <img
                     src={profile.photo}
                     alt={profile.name}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-center"
                     loading="eager"
                   />
                 </div>
