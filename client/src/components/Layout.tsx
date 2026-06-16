@@ -102,7 +102,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Desktop header */}
         <div className="hidden sm:flex h-14 items-center justify-between px-5 md:px-12">
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="w-[10px] h-[10px] rounded-full shrink-0" style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)" }} />
+            <div className="w-[10px] h-[10px] rounded-full shrink-0" className="bg-foreground" />
             <span className="font-bold text-foreground leading-none" style={{ fontSize: "1.4rem" }}>
               {profile.name}
             </span>
@@ -143,7 +143,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="flex sm:hidden items-start justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5">
             <div className="flex items-center gap-2">
-              <div className="w-[10px] h-[10px] rounded-full shrink-0 mt-0.5" style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)" }} />
+              <div className="w-[10px] h-[10px] rounded-full shrink-0 mt-0.5" className="bg-foreground" />
               <span className="font-black text-[1.45rem] text-foreground leading-tight tracking-[-0.02em]">
                 {profile.name}
               </span>
@@ -188,7 +188,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="flex items-center justify-between px-5 pt-3 pb-2.5">
           <Link href="/" className="flex flex-col gap-0.5" onClick={() => setMobileOpen(false)}>
             <div className="flex items-center gap-2">
-              <div className="w-[10px] h-[10px] rounded-full shrink-0 mt-0.5" style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)" }} />
+              <div className="w-[10px] h-[10px] rounded-full shrink-0 mt-0.5" className="bg-foreground" />
               <span className="font-black text-[1.45rem] text-foreground leading-tight tracking-[-0.02em]">
                 {profile.name}
               </span>
@@ -247,11 +247,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         className={`sm:hidden fixed bottom-5 right-5 z-50 w-11 h-11 rounded-full flex items-center justify-center transition-all duration-300 ${
           scrolled ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-4 pointer-events-none"
         }`}
-        style={{
-          background: "linear-gradient(135deg, #7B7BFF, #38BDF8)",
-          color: "#fff",
-          boxShadow: "0 4px 20px rgba(123,123,255,0.5)",
-        }}
+        style={{ background: "var(--foreground)", color: "var(--background)" }}
       >
         <ArrowUp size={18} />
       </button>

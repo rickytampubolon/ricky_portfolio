@@ -11,9 +11,9 @@ const pillBadges = ["LOGISTICS", "FULFILLMENT", "ELECTRIC MOBILITY", "DIGITAL TR
 
 /* ── Design tokens ───────────────────────────────────────────── */
 const btnPrimary =
-  "inline-flex items-center justify-center px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:-translate-y-[2px] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 text-white";
+  "inline-flex items-center justify-center bg-foreground text-background px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:-translate-y-[2px] hover:opacity-90 transition-all duration-300 ease-in-out active:scale-[0.97] cursor-pointer focus-visible:outline-none";
 const btnSecondary =
-  "inline-flex items-center justify-center px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:-translate-y-[2px] transition-all duration-300 ease-in-out active:scale-[0.97] active:translate-y-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 text-foreground glass-card hover:border-white/40";
+  "inline-flex items-center justify-center px-7 py-3 rounded-full text-[0.72rem] font-bold tracking-[0.12em] uppercase min-h-[44px] min-w-[100px] w-full sm:w-auto whitespace-nowrap hover:-translate-y-[2px] transition-all duration-300 ease-in-out active:scale-[0.97] cursor-pointer focus-visible:outline-none text-foreground glass-card";
 
 export default function Home() {
   const [heroRevealed, setHeroRevealed] = useState(false);
@@ -47,34 +47,23 @@ export default function Home() {
               className="reveal-item group w-full max-w-[420px] mx-auto md:w-[280px] md:max-w-none md:mx-0 md:shrink-0 flex flex-col"
               style={stagger(0)}
             >
-              {/* Glow behind card */}
               <div className="relative">
-                <div
-                  className="absolute inset-0 rounded-3xl opacity-40 blur-2xl pointer-events-none animate-glow-pulse"
-                  style={{ background: "linear-gradient(135deg, rgba(123,123,255,0.5), rgba(56,189,248,0.4), rgba(251,113,133,0.3))" }}
-                />
-
                 {/* Glass card */}
-                <div className="relative glass-card rounded-3xl w-full flex flex-col overflow-hidden transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_24px_60px_rgba(123,123,255,0.25)]">
+                <div className="relative glass-card rounded-3xl w-full flex flex-col overflow-hidden transition-all duration-500 ease-out group-hover:-translate-y-2">
 
                   {/* Top section */}
                   <div className="flex flex-col items-center pt-8 pb-6 px-6">
 
-                    {/* Profile photo with gradient ring */}
-                    <div
-                      className="p-[2px] rounded-full shrink-0"
-                      style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8, #FB7185)" }}
-                    >
-                      <div className="w-32 h-32 rounded-full overflow-hidden bg-muted">
-                        <img
-                          src={profile.photo}
-                          alt={`${profile.name} – ${profile.title}`}
-                          className="w-full h-full object-cover scale-110"
-                          loading="eager"
-                          width="128"
-                          height="128"
-                        />
-                      </div>
+                    {/* Profile photo */}
+                    <div className="w-32 h-32 rounded-full overflow-hidden ring-[1.5px] ring-border bg-muted shrink-0">
+                      <img
+                        src={profile.photo}
+                        alt={`${profile.name} – ${profile.title}`}
+                        className="w-full h-full object-cover scale-110"
+                        loading="eager"
+                        width="128"
+                        height="128"
+                      />
                     </div>
 
                     {/* Name */}
@@ -90,15 +79,8 @@ export default function Home() {
                       LEAD PRODUCT MANAGER
                     </p>
 
-                    {/* Gradient divider */}
-                    <div
-                      className="mt-3 rounded-full"
-                      style={{
-                        width: "48px",
-                        height: "2px",
-                        background: "linear-gradient(90deg, #7B7BFF, #38BDF8)",
-                      }}
-                    />
+                    {/* Divider */}
+                    <div className="mt-3 rounded-full bg-border" style={{ width: "40px", height: "1.5px" }} />
 
                     {/* Pill badges */}
                     <div className="flex flex-wrap gap-1.5 justify-center mt-4">
@@ -148,12 +130,7 @@ export default function Home() {
                   {/* CTA buttons */}
                   <div className="reveal-item flex flex-col sm:flex-row gap-3 mt-5" style={stagger(3)}>
                     <Link href="/resume" className="w-full sm:w-auto">
-                      <button
-                        className={btnPrimary}
-                        style={{ background: "linear-gradient(135deg, #7B7BFF, #38BDF8)", boxShadow: "0 4px 20px rgba(123,123,255,0.4)" }}
-                      >
-                        Resume
-                      </button>
+                      <button className={btnPrimary}>Resume</button>
                     </Link>
                     <Link href="/contact" className="w-full sm:w-auto">
                       <button className={btnSecondary}>Let's Talk</button>
