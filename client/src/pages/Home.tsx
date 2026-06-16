@@ -104,9 +104,6 @@ export default function Home() {
             <div className="flex flex-col gap-5">
 
               <div className="reveal-item" style={stagger(1)}>
-                <p className="text-[0.7rem] font-semibold tracking-[0.12em] uppercase text-muted-foreground mb-3">
-                  Portfolio
-                </p>
                 <h1
                   className="font-black text-foreground leading-[1.08] tracking-[-0.03em]"
                   style={{ fontSize: "clamp(1.6rem, 4vw, 2.6rem)" }}
