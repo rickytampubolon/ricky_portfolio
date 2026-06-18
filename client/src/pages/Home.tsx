@@ -13,16 +13,16 @@ const companies = [
 export default function Home() {
   return (
     <Layout>
-      <div className="flex-1 flex flex-col" style={{ background: "radial-gradient(ellipse at 72% 45%, #d8d8db 0%, #f5f5f7 40%, #ffffff 70%)" }}>
+      <div className="flex-1 flex flex-col hero-bg">
 
         {/* ── Hero ─────────────────────────────────────────────── */}
-        <section className="flex-1 flex items-center px-6 sm:px-10 md:px-14 py-10 md:py-0">
+        <section className="flex-1 px-6 sm:px-10 md:px-14 py-10 md:flex md:items-center md:py-0">
           <div className="w-full max-w-4xl mx-auto">
 
             <div className="grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8 md:gap-14 items-center">
 
               {/* ── Profile card ─────────────────────────────── */}
-              <div className="w-full max-w-[300px] mx-auto md:mx-0">
+              <div className="w-full max-w-[300px] mx-auto md:mx-0 order-2 md:order-1">
                 <div className="apple-card overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.07)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
 
                   {/* Photo */}
@@ -93,7 +93,7 @@ export default function Home() {
               </div>
 
               {/* ── Text block ───────────────────────────────── */}
-              <div className="flex flex-col gap-5">
+              <div className="flex flex-col gap-5 order-1 md:order-2">
                 <h1
                   className="font-black leading-[1.07] tracking-[-0.03em] text-foreground"
                   style={{ fontSize: "clamp(1.9rem, 4vw, 3.2rem)" }}
@@ -110,7 +110,7 @@ export default function Home() {
                     </button>
                   </Link>
                   <Link href="/contact">
-                    <button className="border-2 border-navy text-navy dark:border-white dark:text-white px-8 py-2.5 rounded-full text-[0.82rem] font-semibold tracking-[0.02em] hover:bg-navy hover:text-white dark:hover:bg-white dark:hover:text-navy transition-all active:scale-[0.97] min-h-[42px]">
+                    <button className="border-2 border-navy text-navy dark:border-foreground dark:text-foreground px-8 py-2.5 rounded-full text-[0.82rem] font-semibold tracking-[0.02em] hover:bg-navy hover:text-white dark:hover:bg-foreground dark:hover:text-background transition-all duration-200 active:scale-[0.97] min-h-[42px]">
                       Let's Talk
                     </button>
                   </Link>

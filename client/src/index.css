@@ -165,8 +165,10 @@ html.theme-transitioning *::before,
 html.theme-transitioning *::after {
   transition:
     background-color 0.4s ease,
+    background 0.4s ease,
     border-color 0.4s ease,
     color 0.35s ease,
+    fill 0.35s ease,
     box-shadow 0.4s ease !important;
 }
 
@@ -274,6 +276,13 @@ html.theme-transitioning *::after {
 
   /* ── Hero background ─────────────────────────────────────── */
   .hero-gradient { background-color: var(--background); }
+
+  .hero-bg {
+    background: radial-gradient(ellipse at 72% 45%, #d8d8db 0%, #f5f5f7 40%, #ffffff 70%);
+  }
+  .dark .hero-bg {
+    background: radial-gradient(ellipse at 72% 45%, #2c2c2e 0%, #1a1a1c 40%, #000000 70%);
+  }
 
   /* ── Navy sidebar ────────────────────────────────────────── */
   .bg-navy  { background-color: var(--navy); }
