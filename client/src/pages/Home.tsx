@@ -15,7 +15,7 @@ export default function Home() {
     <Layout>
       <div className="flex-1 flex flex-col hero-bg">
 
-        <section className="flex-1 px-6 py-10 md:flex md:items-center md:py-0 md:px-10">
+        <section className="px-6 py-10 md:flex-1 md:flex md:items-center md:py-0 md:px-10">
           <div className="w-full max-w-[820px] mx-auto grid grid-cols-1 md:grid-cols-[260px_1fr] gap-9 md:gap-12 md:items-start">
 
             {/* ── Profile card ─────────────────────────────── */}
@@ -34,19 +34,19 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="px-5 py-4">
+                <div className="px-5 py-4 text-center">
                   <p className="font-bold text-[0.95rem] text-foreground leading-tight">
                     {profile.name}
                   </p>
                   <p className="text-[0.72rem] text-muted-foreground mt-0.5">
-                    {profile.title}
+                    Lead Product Manager at Green SM Indonesia
                   </p>
 
                   <div className="my-3 border-t border-border" />
 
-                  <div className="space-y-1">
+                  <div className="space-y-1 flex flex-col items-center">
                     {[domainTags.slice(0, 2), domainTags.slice(2)].map((row, r) => (
-                      <div key={r} className="flex gap-1">
+                      <div key={r} className="flex gap-1 justify-center">
                         {row.map((tag, i) => (
                           <span
                             key={tag}
@@ -61,24 +61,6 @@ export default function Home() {
                         ))}
                       </div>
                     ))}
-                  </div>
-
-                  <div className="my-3 border-t border-border" />
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      {companies.map(({ name, logo }) => (
-                        <div key={name} className="w-4 h-4 flex items-center justify-center shrink-0">
-                          <img
-                            src={logo}
-                            alt={name}
-                            title={name}
-                            className="max-w-full max-h-full object-contain grayscale opacity-60"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                    <span className="text-[0.65rem] text-muted-foreground">Jakarta, ID</span>
                   </div>
                 </div>
 
@@ -105,6 +87,24 @@ export default function Home() {
                     Let's Talk
                   </button>
                 </Link>
+              </div>
+
+              {/* ── Experience bar ───────────────────────────── */}
+              <div className="apple-card px-4 py-3 flex items-center gap-3 mt-1">
+                <span className="text-[0.72rem] font-semibold text-muted-foreground shrink-0">Experience</span>
+                <div className="w-px h-4 bg-border shrink-0" />
+                <div className="flex items-center gap-3 flex-wrap">
+                  {companies.map(({ name, logo }) => (
+                    <div key={name} className="w-6 h-6 flex items-center justify-center shrink-0">
+                      <img
+                        src={logo}
+                        alt={name}
+                        title={name}
+                        className="max-w-full max-h-full object-contain grayscale opacity-50"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
