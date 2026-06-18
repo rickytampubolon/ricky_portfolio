@@ -13,7 +13,7 @@ const companies = [
 export default function Home() {
   return (
     <Layout>
-      <div className="min-h-full flex flex-col">
+      <div className="min-h-full flex flex-col" style={{ background: "radial-gradient(ellipse at 75% 40%, #e8e8ea 0%, #ffffff 60%)" }}>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section className="flex-1 flex items-center px-6 sm:px-10 md:px-14 py-10 md:py-0">
@@ -91,9 +91,9 @@ export default function Home() {
               </div>
 
               {/* ── Text block ───────────────────────────────── */}
-              <div>
+              <div className="flex flex-col gap-5">
                 <h1
-                  className="font-black leading-[1.07] tracking-[-0.03em] text-foreground mb-5"
+                  className="font-black leading-[1.07] tracking-[-0.03em] text-foreground"
                   style={{ fontSize: "clamp(1.9rem, 4vw, 3.2rem)" }}
                 >
                   {headline}
@@ -101,25 +101,23 @@ export default function Home() {
                 <p className="text-[0.9rem] sm:text-[0.95rem] text-subtle leading-relaxed">
                   {bio[0]}
                 </p>
+                <div className="flex flex-wrap gap-3 pt-1">
+                  <Link href="/resume">
+                    <button className="bg-navy text-white px-8 py-2.5 rounded-full text-[0.82rem] font-semibold tracking-[0.02em] hover:opacity-80 transition-opacity active:scale-[0.97] min-h-[42px] shadow-sm">
+                      View Resume
+                    </button>
+                  </Link>
+                  <Link href="/contact">
+                    <button className="border-2 border-navy text-navy dark:border-white dark:text-white px-8 py-2.5 rounded-full text-[0.82rem] font-semibold tracking-[0.02em] hover:bg-navy hover:text-white dark:hover:bg-white dark:hover:text-navy transition-all active:scale-[0.97] min-h-[42px]">
+                      Let's Talk
+                    </button>
+                  </Link>
+                </div>
               </div>
 
             </div>
           </div>
         </section>
-
-        {/* ── CTA buttons ──────────────────────────────────────── */}
-        <div className="shrink-0 flex justify-center gap-4 px-6 py-8">
-          <Link href="/resume">
-            <button className="bg-navy text-white px-9 py-3 rounded-full text-[0.82rem] font-semibold tracking-[0.02em] hover:opacity-80 transition-opacity active:scale-[0.97] min-h-[46px] shadow-sm">
-              View Resume
-            </button>
-          </Link>
-          <Link href="/contact">
-            <button className="border-2 border-navy text-navy dark:border-white dark:text-white px-9 py-3 rounded-full text-[0.82rem] font-semibold tracking-[0.02em] hover:bg-navy hover:text-white dark:hover:bg-white dark:hover:text-navy transition-all active:scale-[0.97] min-h-[46px]">
-              Let's Talk
-            </button>
-          </Link>
-        </div>
 
       </div>
     </Layout>
