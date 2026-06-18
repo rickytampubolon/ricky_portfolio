@@ -15,11 +15,11 @@ export default function Home() {
     <Layout>
       <div className="flex-1 flex flex-col hero-bg">
 
-        <section className="px-6 py-10 md:flex-1 md:flex md:items-center md:py-0 md:px-10">
-          <div className="w-full max-w-[820px] mx-auto grid grid-cols-1 md:grid-cols-[260px_1fr] gap-9 md:gap-12 md:items-start">
+        <section className="px-5 py-6 md:flex-1 md:flex md:items-center md:py-0 md:px-10">
+          <div className="w-full max-w-[820px] mx-auto grid grid-cols-1 md:grid-cols-[260px_1fr] gap-6 md:gap-12 md:items-start">
 
             {/* ── Profile card ─────────────────────────────── */}
-            <div className="w-full max-w-[260px] mx-auto md:mx-0 order-2 md:order-1">
+            <div className="w-full max-w-[260px] mx-auto md:mx-0 order-1 md:order-1">
               <div className="apple-card overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
 
                 <div className="flex justify-center pt-7 pb-2 px-5 bg-card">
@@ -68,10 +68,10 @@ export default function Home() {
             </div>
 
             {/* ── Text block ───────────────────────────────── */}
-            <div className="flex flex-col gap-4 order-1 md:order-2">
+            <div className="flex flex-col gap-3 order-2 md:order-2">
               <h1
                 className="font-black leading-[1.08] tracking-[-0.03em] text-foreground"
-                style={{ fontSize: "clamp(1.5rem, 2.4vw, 2.2rem)" }}
+                style={{ fontSize: "clamp(1.75rem, 3vw, 2.6rem)" }}
               >
                 {headline}
               </h1>
