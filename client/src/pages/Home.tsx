@@ -15,7 +15,7 @@ export default function Home() {
     <Layout>
       <div className="flex-1 flex flex-col hero-bg">
 
-        <section className="flex-1 px-6 py-10 md:flex md:items-center md:py-0 md:px-10">
+        <section className="px-6 py-10 md:flex-1 md:flex md:items-center md:py-0 md:px-10">
           <div className="w-full max-w-[820px] mx-auto grid grid-cols-1 md:grid-cols-[260px_1fr] gap-9 md:gap-12 md:items-start">
 
             {/* ── Profile card ─────────────────────────────── */}
