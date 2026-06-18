@@ -62,24 +62,6 @@ export default function Home() {
                       </div>
                     ))}
                   </div>
-
-                  <div className="my-3 border-t border-border" />
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                      {companies.map(({ name, logo }) => (
-                        <div key={name} className="w-4 h-4 flex items-center justify-center shrink-0">
-                          <img
-                            src={logo}
-                            alt={name}
-                            title={name}
-                            className="max-w-full max-h-full object-contain grayscale opacity-60"
-                          />
-                        </div>
-                      ))}
-                    </div>
-                    <span className="text-[0.65rem] text-muted-foreground">Jakarta, ID</span>
-                  </div>
                 </div>
 
               </div>
@@ -105,6 +87,24 @@ export default function Home() {
                     Let's Talk
                   </button>
                 </Link>
+              </div>
+
+              {/* ── Experience bar ───────────────────────────── */}
+              <div className="apple-card px-4 py-3 flex items-center gap-3 mt-1">
+                <span className="text-[0.72rem] font-semibold text-muted-foreground shrink-0">Experience</span>
+                <div className="w-px h-4 bg-border shrink-0" />
+                <div className="flex items-center gap-3 flex-wrap">
+                  {companies.map(({ name, logo }) => (
+                    <div key={name} className="w-6 h-6 flex items-center justify-center shrink-0">
+                      <img
+                        src={logo}
+                        alt={name}
+                        title={name}
+                        className="max-w-full max-h-full object-contain grayscale opacity-50"
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
