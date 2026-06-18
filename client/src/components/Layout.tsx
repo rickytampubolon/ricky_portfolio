@@ -1,8 +1,21 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram, Sun, Moon, X, Menu, Mail, ArrowUp, type LucideProps } from "lucide-react";
+import { Linkedin, Instagram, Sun, Moon, X, Menu, Mail, ArrowUp, MapPin, type LucideProps } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect, useRef } from "react";
 import { profile, social } from "../data/homeData";
+
+function LiveClock() {
+  const [time, setTime] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <span className="tabular-nums">
+      {time.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })}
+    </span>
+  );
+}
 
 /* ── Nav config ──────────────────────────────────────────────── */
 type NavLink =
@@ -67,15 +80,16 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="flex h-screen overflow-hidden bg-background text-foreground">
 
       {/* ── Desktop Sidebar ───────────────────────────────────── */}
-      <aside className="hidden md:flex w-[220px] shrink-0 flex-col bg-navy fixed inset-y-0 left-0 z-40 px-6 py-8">
+      <aside className="hidden md:flex w-[220px] shrink-0 flex-col bg-navy fixed inset-y-0 left-0 z-40 px-6 py-6">
 
-        {/* Brand */}
-        <Link href="/" className="flex items-center gap-2.5 mb-12">
+        {/* Brand + theme toggle */}
+        <div className="flex items-center gap-2.5 mb-8">
           <div className="w-[9px] h-[9px] rounded-full bg-mint shrink-0" />
-          <span className="text-white font-black text-[1.05rem] leading-tight tracking-[-0.01em]">
+          <span className="text-white font-black text-[1.05rem] leading-tight tracking-[-0.01em] flex-1">
             {profile.name}
           </span>
-        </Link>
+          <ThemeToggle className="text-white/35 hover:text-white/70" />
+        </div>
 
         {/* Nav links */}
         <nav className="flex flex-col gap-0.5 flex-1" role="navigation" aria-label="Primary navigation">
@@ -83,7 +97,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             link.soon ? (
               <span
                 key={link.label}
-                className="flex items-center gap-2.5 pl-4 border-l-2 border-transparent py-2.5 text-[0.88rem] font-semibold text-white/25 cursor-default select-none"
+                className="flex items-center gap-2.5 pl-4 border-l-2 border-transparent py-2 text-[0.88rem] font-semibold text-white/25 cursor-default select-none"
               >
                 {link.label}
                 <span className="text-[0.52rem] px-1.5 py-0.5 rounded-full bg-white/10 text-white/25 uppercase tracking-wide font-bold">
@@ -95,7 +109,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 key={link.href}
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
-                className={`flex items-center pl-4 border-l-2 py-2.5 text-[0.88rem] font-semibold transition-all duration-150 rounded-r-lg ${
+                className={`flex items-center pl-4 border-l-2 py-2 text-[0.88rem] font-semibold transition-all duration-150 rounded-r-lg ${
                   isActive(link.href)
                     ? "border-mint text-white bg-white/10"
                     : "border-transparent text-white/45 hover:text-white hover:bg-white/5 hover:border-white/20"
@@ -107,15 +121,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           )}
         </nav>
 
-        {/* Social + theme + copyright */}
-        <div>
-          <div className="flex items-center gap-1 mb-4">
+        {/* Location + clock + social + copyright */}
+        <div className="space-y-3">
+          <div className="flex flex-col gap-0.5">
+            <div className="flex items-center gap-1.5 text-white/35">
+              <MapPin size={11} strokeWidth={1.75} />
+              <span className="text-[0.62rem]">Jakarta, Indonesia</span>
+            </div>
+            <span className="text-[0.62rem] text-white/25 pl-[19px]">
+              <LiveClock />
+            </span>
+          </div>
+          <div className="flex items-center gap-1">
             <a
               href={`mailto:${profile.email}`}
               aria-label="Email"
-              className="text-white/35 hover:text-mint transition-colors duration-200 min-w-[32px] min-h-[32px] flex items-center justify-center"
+              className="text-white/35 hover:text-mint transition-colors duration-200 min-w-[30px] min-h-[30px] flex items-center justify-center"
             >
-              <Mail size={15} strokeWidth={1.75} />
+              <Mail size={14} strokeWidth={1.75} />
             </a>
             {social.map(({ href, label, icon }) => {
               const Icon = socialIcons[icon];
@@ -126,15 +149,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/35 hover:text-mint transition-colors duration-200 min-w-[32px] min-h-[32px] flex items-center justify-center"
+                  className="text-white/35 hover:text-mint transition-colors duration-200 min-w-[30px] min-h-[30px] flex items-center justify-center"
                 >
-                  <Icon size={15} strokeWidth={1.75} />
+                  <Icon size={14} strokeWidth={1.75} />
                 </a>
               );
             })}
-            <ThemeToggle className="ml-auto text-white/35 hover:text-white/70" />
           </div>
-          <p className="text-[0.62rem] text-white/20 select-none">
+          <p className="text-[0.58rem] text-white/20 select-none">
             © {new Date().getFullYear()} {profile.name}
           </p>
         </div>
