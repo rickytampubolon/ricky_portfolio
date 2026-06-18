@@ -278,10 +278,12 @@ html.theme-transitioning *::after {
   .hero-gradient { background-color: var(--background); }
 
   .hero-bg {
-    background: radial-gradient(ellipse at 72% 45%, #d8d8db 0%, #f5f5f7 40%, #ffffff 70%);
+    background:
+      radial-gradient(ellipse at 28% 50%, #c0c0c5 0%, #d8d8dc 25%, #ebebee 55%, #ffffff 85%);
   }
   .dark .hero-bg {
-    background: radial-gradient(ellipse at 72% 45%, #2c2c2e 0%, #1a1a1c 40%, #000000 70%);
+    background:
+      radial-gradient(ellipse at 28% 50%, #2e2e32 0%, #1e1e22 25%, #0e0e12 55%, #000000 85%);
   }
 
   /* ── Navy sidebar ────────────────────────────────────────── */

@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram, Sun, Moon, X, Menu, Mail, type LucideProps } from "lucide-react";
+import { Linkedin, Instagram, Sun, Moon, X, Menu, Mail, ArrowUp, type LucideProps } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 import { useState, useEffect, useRef } from "react";
 import { profile, social } from "../data/homeData";
@@ -39,8 +39,9 @@ function ThemeToggle({ className }: { className?: string }) {
 
 /* ── Layout ──────────────────────────────────────────────────── */
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const [location]   = useLocation();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [location]    = useLocation();
+  const [mobileOpen,  setMobileOpen]  = useState(false);
+  const [scrolled,    setScrolled]    = useState(false);
   const mainRef = useRef<HTMLElement>(null);
 
   useEffect(() => { setMobileOpen(false); }, [location]);
@@ -49,6 +50,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
+
+  /* Scroll-to-top visibility */
+  useEffect(() => {
+    const el = mainRef.current;
+    if (!el) return;
+    const onScroll = () => setScrolled(el.scrollTop > 280);
+    el.addEventListener("scroll", onScroll, { passive: true });
+    return () => el.removeEventListener("scroll", onScroll);
+  }, []);
 
   const isActive = (href: string) =>
     href === "/" ? location === "/" : location.startsWith(href);
@@ -235,7 +245,53 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         className="flex-1 md:ml-[220px] flex flex-col overflow-y-auto pt-14 md:pt-0"
       >
         {children}
+
+        {/* ── Mobile footer ──────────────────────────────────── */}
+        <footer className="md:hidden shrink-0 border-t border-border bg-background px-5 py-4">
+          <div className="flex items-center justify-between">
+            <span className="text-[0.7rem] text-muted-foreground select-none">
+              © {new Date().getFullYear()} {profile.name}
+            </span>
+            <div className="flex items-center gap-1">
+              <a
+                href={`mailto:${profile.email}`}
+                aria-label="Email"
+                className="text-muted-foreground hover:text-mint transition-colors duration-200 min-w-[36px] min-h-[36px] flex items-center justify-center"
+              >
+                <Mail size={16} strokeWidth={1.75} />
+              </a>
+              {social.map(({ href, label, icon }) => {
+                const Icon = socialIcons[icon];
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-muted-foreground hover:text-mint transition-colors duration-200 min-w-[36px] min-h-[36px] flex items-center justify-center"
+                  >
+                    <Icon size={16} strokeWidth={1.75} />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </footer>
       </main>
+
+      {/* ── Mobile scroll-to-top ───────────────────────────────── */}
+      <button
+        onClick={() => mainRef.current?.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Scroll to top"
+        className={`md:hidden fixed bottom-[68px] right-5 z-50 w-11 h-11 rounded-full flex items-center justify-center bg-navy text-white shadow-lg transition-all duration-300 ${
+          scrolled
+            ? "opacity-100 translate-y-0 pointer-events-auto"
+            : "opacity-0 translate-y-3 pointer-events-none"
+        }`}
+      >
+        <ArrowUp size={17} />
+      </button>
 
     </div>
   );
