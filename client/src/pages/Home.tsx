@@ -2,23 +2,10 @@ import { Link } from "wouter";
 import Layout from "../components/Layout";
 import { profile, bio, headline } from "../data/homeData";
 
-/* ── Company list for marquee ────────────────────────────────── */
-const companies = [
-  "Traveloka",
-  "Tokopedia",
-  "Shopee",
-  "GovTech Edu",
-  "Green SM",
-];
-
-/* Duplicate 4× so the loop feels seamless at any viewport width */
-const marqueeItems = [...companies, ...companies, ...companies, ...companies];
-
-/* ── Page ────────────────────────────────────────────────────── */
 export default function Home() {
   return (
     <Layout>
-      <div className="min-h-full flex flex-col dot-bg">
+      <div className="min-h-full flex flex-col">
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section className="flex-1 flex items-center px-6 sm:px-10 md:px-14 py-10 md:py-0">
@@ -66,22 +53,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Company marquee ──────────────────────────────────── */}
-        <div className="bg-navy overflow-hidden py-[18px] shrink-0">
-          <div className="animate-ticker flex items-center" style={{ width: "max-content" }}>
-            {marqueeItems.map((name, i) => (
-              <div key={i} className="flex items-center shrink-0">
-                <span className="text-white/55 text-[0.82rem] font-semibold tracking-wide whitespace-nowrap px-7">
-                  {name}
-                </span>
-                <span className="text-white/20 text-[0.6rem]">◆</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
         {/* ── CTA buttons ──────────────────────────────────────── */}
-        <div className="shrink-0 flex justify-center gap-4 px-6 py-8 dot-bg">
+        <div className="shrink-0 flex justify-center gap-4 px-6 py-8">
           <Link href="/resume">
             <button className="bg-navy text-white px-9 py-3 rounded-full text-[0.82rem] font-semibold tracking-[0.02em] hover:opacity-80 transition-opacity active:scale-[0.97] min-h-[46px] shadow-sm">
               View Resume
