@@ -57,8 +57,9 @@
   --font-size-h3: clamp(1.05rem, 2.5vw, 1.3rem);
   --font-size-body: clamp(0.875rem, 1.5vw + 0.4rem, 1rem);
 
-  /* ── Palette: black · white · gray · #5BADA6 ── */
+  /* ── Palette: black · white · gray · #5BADA6 · navy ── */
   --mint:                 #5BADA6;
+  --navy:                 #1B2844;
 
   /* Light */
   --background:           #FFFFFF;
@@ -274,8 +275,35 @@ html.theme-transitioning *::after {
   /* ── Hero background ─────────────────────────────────────── */
   .hero-gradient { background-color: var(--background); }
 
+  /* ── Navy sidebar ────────────────────────────────────────── */
+  .bg-navy  { background-color: var(--navy); }
+  .text-navy { color: var(--navy); }
+  .border-navy { border-color: var(--navy); }
+
+  /* ── Dot background ──────────────────────────────────────── */
+  .dot-bg {
+    background-color: var(--background);
+    background-image: radial-gradient(circle, #d1d5db 1.5px, transparent 1.5px);
+    background-size: 24px 24px;
+  }
+  .dark .dot-bg {
+    background-image: radial-gradient(circle, #2c2c2e 1.5px, transparent 1.5px);
+  }
+
+  /* ── Marquee / ticker ────────────────────────────────────── */
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  .animate-ticker {
+    animation: ticker 35s linear infinite;
+    will-change: transform;
+  }
+  .animate-ticker:hover { animation-play-state: paused; }
+
   @media (prefers-reduced-motion: reduce) {
     .will-animate .reveal-item { opacity: 1; transform: none; transition: none; }
+    .animate-ticker { animation: none; }
   }
 
   @media (min-width: 640px) {
