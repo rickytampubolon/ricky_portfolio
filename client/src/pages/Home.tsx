@@ -93,13 +93,7 @@ export default function Home() {
               >
                 {headline}
               </h1>
-              <div className="flex flex-col gap-3">
-                {bio.map((p, i) => (
-                  <p key={i} className="text-[0.88rem] text-subtle leading-relaxed">
-                    {p}
-                  </p>
-                ))}
-              </div>
+              <p className="text-[0.88rem] text-subtle leading-relaxed">{bio[0]}</p>
               <div className="flex flex-wrap gap-3 pt-1">
                 <Link href="/resume">
                   <button className="bg-foreground text-background px-7 py-2.5 rounded-full text-[0.8rem] font-semibold tracking-[0.02em] hover:opacity-75 transition-opacity duration-200 active:scale-[0.97] min-h-[40px]">
