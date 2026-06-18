@@ -23,17 +23,19 @@ export default function Home() {
 
               {/* ── Profile card ─────────────────────────────── */}
               <div className="w-full max-w-[300px] mx-auto md:mx-0">
-                <div className="apple-card overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.07)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)] border-t-2" style={{ borderTopColor: "var(--mint)" }}>
+                <div className="apple-card overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.07)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
 
                   {/* Photo */}
-                  <div className="w-full overflow-hidden bg-secondary" style={{ aspectRatio: "6/5" }}>
-                    <img
-                      src={profile.photo}
-                      alt={profile.name}
-                      className="w-full h-full object-cover"
-                      style={{ objectPosition: "center 30%" }}
-                      loading="eager"
-                    />
+                  <div className="flex justify-center pt-7 pb-3 px-6 bg-card">
+                    <div className="w-36 h-36 rounded-full overflow-hidden ring-[5px] ring-border shrink-0">
+                      <img
+                        src={profile.photo}
+                        alt={profile.name}
+                        className="w-full h-full object-cover"
+                        style={{ objectPosition: "center 20%" }}
+                        loading="eager"
+                      />
+                    </div>
                   </div>
 
                   {/* Info block */}
