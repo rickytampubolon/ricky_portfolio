@@ -13,7 +13,7 @@ const companies = [
 export default function Home() {
   return (
     <Layout>
-      <div className="min-h-full flex flex-col" style={{ background: "radial-gradient(ellipse at 75% 40%, #e8e8ea 0%, #ffffff 60%)" }}>
+      <div className="flex-1 flex flex-col" style={{ background: "radial-gradient(ellipse at 72% 45%, #d8d8db 0%, #f5f5f7 40%, #ffffff 70%)" }}>
 
         {/* ── Hero ─────────────────────────────────────────────── */}
         <section className="flex-1 flex items-center px-6 sm:px-10 md:px-14 py-10 md:py-0">
