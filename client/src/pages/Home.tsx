@@ -34,19 +34,19 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="px-5 py-4">
+                <div className="px-5 py-4 text-center">
                   <p className="font-bold text-[0.95rem] text-foreground leading-tight">
                     {profile.name}
                   </p>
                   <p className="text-[0.72rem] text-muted-foreground mt-0.5">
-                    {profile.title}
+                    Lead Product Manager at Green SM Indonesia
                   </p>
 
                   <div className="my-3 border-t border-border" />
 
-                  <div className="space-y-1">
+                  <div className="space-y-1 flex flex-col items-center">
                     {[domainTags.slice(0, 2), domainTags.slice(2)].map((row, r) => (
-                      <div key={r} className="flex gap-1">
+                      <div key={r} className="flex gap-1 justify-center">
                         {row.map((tag, i) => (
                           <span
                             key={tag}
