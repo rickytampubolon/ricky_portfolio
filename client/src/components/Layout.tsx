@@ -271,7 +271,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
 
         {/* ── Mobile footer ──────────────────────────────────── */}
-        <footer className="md:hidden shrink-0 border-t border-border bg-background px-5 py-4">
+        <footer className="md:hidden shrink-0 border-t border-border bg-surface px-5 py-4">
           <div className="flex items-center justify-between">
             <span className="text-[0.7rem] text-muted-foreground select-none">
               © {new Date().getFullYear()} {profile.name}
