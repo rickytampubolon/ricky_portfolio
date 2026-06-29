@@ -21,9 +21,9 @@ export const domainTags = [
   "DIGITAL TRANSFORMATION",
 ];
 
-export const headline = "I build digital products that turn complex problems into real value.";
+export const headline = "I build digital products that create real business impact.";
 
 export const bio = [
-  "My path into product started with a simple curiosity about how systems work and why some products earn people's trust while others do not. A background in engineering and QA gave me an eye for the details that make or break an experience, and over the past six years I have shaped products across electric mobility, logistics, and education.",
+  "I'm a Product Manager with 6+ years of experience across electric mobility, logistics, and education. I turn complex business challenges into simple, scalable digital solutions.",
   "Today I lead product for Green SM Indonesia, owning strategy from early discovery through launch and keeping local needs aligned with the bigger regional and global picture. I care most about clear thinking, sharp priorities, and products that feel obvious once they exist.",
 ];
