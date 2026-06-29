@@ -1,122 +1,51 @@
 import { Link } from "wouter";
 import Layout from "../components/Layout";
-import { profile, bio, domainTags, headline } from "../data/homeData";
-
-const companies = [
-  { name: "Traveloka",   logo: "/traveloka-logo.png" },
-  { name: "Tokopedia",   logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/ZYnBvsLmQkohgFkj.png" },
-  { name: "Shopee",      logo: "https://www.google.com/s2/favicons?domain=shopee.co.id&sz=256" },
-  { name: "GovTech Edu", logo: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663308270135/cJhNVtPdbOHZIgCZ.png" },
-  { name: "Green SM",    logo: "https://www.google.com/s2/favicons?domain=xanhsm.com&sz=256" },
-];
+import { profile, bio, headline } from "../data/homeData";
 
 export default function Home() {
   return (
     <Layout>
-      {/* grow shrink-0: matches other pages so mobile content scrolls properly */}
-      <div className="grow shrink-0 flex flex-col md:flex-1">
+      <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-center px-6 md:px-24 lg:px-32 py-20 max-w-5xl mx-auto">
 
-        <section className="px-5 py-8 md:flex-1 md:flex md:items-center md:py-0 md:px-10">
-          <div className="w-full max-w-[820px] mx-auto grid grid-cols-1 md:grid-cols-[260px_1fr] gap-6 md:gap-12 md:items-start">
+        <p
+          className="font-mono text-mint text-sm mb-5"
+          style={{ animationDelay: "0ms" }}
+        >
+          Hi, my name is
+        </p>
 
-            {/* ── Profile — card frame only on desktop ─────── */}
-            <div className="w-full md:max-w-[260px] md:mx-0 order-1">
-              <div className="
-                apple-card overflow-hidden
-                shadow-[0_2px_16px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.5)]
-                max-md:bg-transparent max-md:border-0 max-md:shadow-none max-md:rounded-none max-md:overflow-visible
-              ">
+        <h1
+          className="font-black text-foreground leading-[1.05] tracking-[-0.02em] mb-3"
+          style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}
+        >
+          {profile.name}.
+        </h1>
 
-                <div className="flex justify-center pt-7 pb-2 px-5 bg-card max-md:bg-transparent max-md:pt-4 max-md:pb-2 max-md:px-0">
-                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-[4px] ring-border shrink-0">
-                    <img
-                      src={profile.photo}
-                      alt={profile.name}
-                      className="w-full h-full object-cover"
-                      style={{ objectPosition: "center 20%" }}
-                      loading="eager"
-                    />
-                  </div>
-                </div>
+        <h2
+          className="font-black text-subtle leading-[1.1] tracking-[-0.02em] mb-8"
+          style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
+        >
+          {headline}
+        </h2>
 
-                <div className="px-5 py-4 text-center max-md:px-0 max-md:pt-3 max-md:pb-0">
-                  <p className="font-bold text-[0.95rem] text-foreground leading-tight">
-                    {profile.name}
-                  </p>
-                  <p className="text-[0.72rem] text-muted-foreground mt-0.5">
-                    Lead Product Manager at Green SM Indonesia
-                  </p>
+        <p className="text-subtle text-[0.95rem] leading-relaxed max-w-lg mb-10">
+          {bio[0]}
+        </p>
 
-                  <div className="my-3 border-t border-border" />
+        <div className="flex flex-wrap gap-4">
+          <Link href="/resume">
+            <button className="border border-mint text-mint font-mono text-sm px-8 py-4 rounded hover:bg-mint/10 transition-colors duration-200 active:scale-[0.97]">
+              View Resume
+            </button>
+          </Link>
+          <Link href="/contact">
+            <button className="border border-mint text-mint font-mono text-sm px-8 py-4 rounded hover:bg-mint/10 transition-colors duration-200 active:scale-[0.97]">
+              Get In Touch
+            </button>
+          </Link>
+        </div>
 
-                  <div className="space-y-1 flex flex-col items-center">
-                    {[domainTags.slice(0, 2), domainTags.slice(2)].map((row, r) => (
-                      <div key={r} className="flex gap-1 justify-center">
-                        {row.map((tag, i) => (
-                          <span
-                            key={tag}
-                            className={`px-1.5 py-px rounded-full text-[0.48rem] font-semibold uppercase tracking-normal leading-5 whitespace-nowrap ${
-                              r === 0 && i === 0
-                                ? "bg-mint-subtle text-mint"
-                                : "bg-secondary text-muted-foreground"
-                            }`}
-                          >
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            {/* ── Text block ───────────────────────────────── */}
-            <div className="flex flex-col gap-3 order-2">
-              <h1
-                className="font-black leading-[1.08] tracking-[-0.03em] text-foreground"
-                style={{ fontSize: "clamp(1.75rem, 3vw, 2.6rem)" }}
-              >
-                {headline}
-              </h1>
-              <p className="text-[0.88rem] text-subtle leading-relaxed">{bio[0]}</p>
-              <div className="flex flex-wrap gap-3 pt-1">
-                <Link href="/resume">
-                  <button className="bg-foreground text-background px-7 py-2.5 rounded-full text-[0.8rem] font-semibold tracking-[0.02em] hover:opacity-75 transition-opacity duration-200 active:scale-[0.97] min-h-[40px]">
-                    View Resume
-                  </button>
-                </Link>
-                <Link href="/contact">
-                  <button className="border border-foreground text-foreground px-7 py-2.5 rounded-full text-[0.8rem] font-semibold tracking-[0.02em] hover:bg-foreground hover:text-background transition-all duration-200 active:scale-[0.97] min-h-[40px]">
-                    Let's Talk
-                  </button>
-                </Link>
-              </div>
-
-              {/* ── Experience bar ───────────────────────────── */}
-              <div className="apple-card px-4 py-3 flex items-center gap-3">
-                <span className="text-[0.72rem] font-semibold text-muted-foreground shrink-0">Experience</span>
-                <div className="w-px h-4 bg-border shrink-0" />
-                <div className="flex items-center gap-3 flex-wrap">
-                  {companies.map(({ name, logo }) => (
-                    <div key={name} className="w-6 h-6 flex items-center justify-center shrink-0">
-                      <img
-                        src={logo}
-                        alt={name}
-                        title={name}
-                        className="max-w-full max-h-full object-contain grayscale opacity-50"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-      </div>
+      </section>
     </Layout>
   );
 }
