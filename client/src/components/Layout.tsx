@@ -43,9 +43,9 @@ function ThemeToggle({ className }: { className?: string }) {
     <button
       onClick={toggleTheme}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className={`transition-colors duration-200 min-w-[36px] min-h-[36px] flex items-center justify-center ${className ?? ""}`}
+      className={`transition-colors duration-200 min-w-[26px] min-h-[26px] flex items-center justify-center ${className ?? ""}`}
     >
-      {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+      {theme === "dark" ? <Sun size={13} /> : <Moon size={13} />}
     </button>
   );
 }
@@ -83,12 +83,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <aside className="hidden md:flex w-[220px] shrink-0 flex-col bg-navy fixed inset-y-0 left-0 z-40 px-6 py-6">
 
         {/* Brand + theme toggle */}
-        <div className="flex items-center gap-2.5 mb-8">
-          <div className="w-[9px] h-[9px] rounded-full bg-mint shrink-0" />
-          <span className="text-white font-black text-[1.05rem] leading-tight tracking-[-0.01em] flex-1">
-            {profile.name}
-          </span>
-          <ThemeToggle className="text-white/35 hover:text-white/70" />
+        <div className="flex items-center gap-2 mb-8">
+          <Link href="/" className="flex items-center gap-2 min-w-0 flex-1">
+            <div className="w-[8px] h-[8px] rounded-full bg-mint shrink-0" />
+            <span className="text-white font-black text-[0.95rem] leading-tight tracking-[-0.01em] whitespace-nowrap">
+              {profile.name}
+            </span>
+          </Link>
+          <ThemeToggle className="shrink-0 text-white/35 hover:text-white/70" />
         </div>
 
         {/* Nav links */}
@@ -126,7 +128,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="flex flex-col gap-0.5">
             <div className="flex items-center gap-1.5 text-white/35">
               <MapPin size={11} strokeWidth={1.75} />
-              <span className="text-[0.62rem]">Jakarta, Indonesia</span>
+              <span className="text-[0.62rem]">Jakarta, Indonesia 🇮🇩</span>
             </div>
             <span className="text-[0.62rem] text-white/25 pl-[19px]">
               <LiveClock />
@@ -165,8 +167,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       {/* ── Mobile header ─────────────────────────────────────── */}
       <header className="md:hidden fixed top-0 left-0 right-0 z-50 h-14 flex items-center justify-between px-5 bg-navy">
         <Link href="/" className="flex items-center gap-2">
-          <div className="w-[9px] h-[9px] rounded-full bg-mint shrink-0" />
-          <span className="font-black text-[1.0rem] text-white leading-none tracking-[-0.01em]">
+          <div className="w-[8px] h-[8px] rounded-full bg-mint shrink-0" />
+          <span className="font-black text-[0.95rem] text-white leading-none tracking-[-0.01em] whitespace-nowrap">
             {profile.name}
           </span>
         </Link>
@@ -269,7 +271,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {children}
 
         {/* ── Mobile footer ──────────────────────────────────── */}
-        <footer className="md:hidden shrink-0 border-t border-border bg-background px-5 py-4">
+        <footer className="md:hidden shrink-0 border-t border-border bg-surface px-5 py-4">
           <div className="flex items-center justify-between">
             <span className="text-[0.7rem] text-muted-foreground select-none">
               © {new Date().getFullYear()} {profile.name}

@@ -13,17 +13,22 @@ const companies = [
 export default function Home() {
   return (
     <Layout>
-      <div className="flex-1 flex flex-col hero-bg">
+      {/* grow shrink-0: matches other pages so mobile content scrolls properly */}
+      <div className="grow shrink-0 flex flex-col md:flex-1">
 
-        <section className="px-5 py-6 md:flex-1 md:flex md:items-center md:py-0 md:px-10">
+        <section className="px-5 py-8 md:flex-1 md:flex md:items-center md:py-0 md:px-10">
           <div className="w-full max-w-[820px] mx-auto grid grid-cols-1 md:grid-cols-[260px_1fr] gap-6 md:gap-12 md:items-start">
 
-            {/* ── Profile card ─────────────────────────────── */}
-            <div className="w-full max-w-[260px] mx-auto md:mx-0 order-1 md:order-1">
-              <div className="apple-card overflow-hidden shadow-[0_2px_16px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.5)]">
+            {/* ── Profile — card frame only on desktop ─────── */}
+            <div className="w-full md:max-w-[260px] md:mx-0 order-1">
+              <div className="
+                apple-card overflow-hidden
+                shadow-[0_2px_16px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.5)]
+                max-md:bg-transparent max-md:border-0 max-md:shadow-none max-md:rounded-none max-md:overflow-visible
+              ">
 
-                <div className="flex justify-center pt-7 pb-2 px-5 bg-card">
-                  <div className="w-32 h-32 rounded-full overflow-hidden ring-[4px] ring-border shrink-0">
+                <div className="flex justify-center pt-7 pb-2 px-5 bg-card max-md:bg-transparent max-md:pt-4 max-md:pb-2 max-md:px-0">
+                  <div className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden ring-[4px] ring-border shrink-0">
                     <img
                       src={profile.photo}
                       alt={profile.name}
@@ -34,7 +39,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="px-5 py-4 text-center">
+                <div className="px-5 py-4 text-center max-md:px-0 max-md:pt-3 max-md:pb-0">
                   <p className="font-bold text-[0.95rem] text-foreground leading-tight">
                     {profile.name}
                   </p>
@@ -68,7 +73,7 @@ export default function Home() {
             </div>
 
             {/* ── Text block ───────────────────────────────── */}
-            <div className="flex flex-col gap-3 order-2 md:order-2">
+            <div className="flex flex-col gap-3 order-2">
               <h1
                 className="font-black leading-[1.08] tracking-[-0.03em] text-foreground"
                 style={{ fontSize: "clamp(1.75rem, 3vw, 2.6rem)" }}
@@ -90,7 +95,7 @@ export default function Home() {
               </div>
 
               {/* ── Experience bar ───────────────────────────── */}
-              <div className="apple-card px-4 py-3 flex items-center gap-3 mt-1">
+              <div className="apple-card px-4 py-3 flex items-center gap-3">
                 <span className="text-[0.72rem] font-semibold text-muted-foreground shrink-0">Experience</span>
                 <div className="w-px h-4 bg-border shrink-0" />
                 <div className="flex items-center gap-3 flex-wrap">

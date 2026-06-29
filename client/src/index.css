@@ -277,13 +277,19 @@ html.theme-transitioning *::after {
   /* ── Hero background ─────────────────────────────────────── */
   .hero-gradient { background-color: var(--background); }
 
-  /* Light mode: warm sand-to-white radial from card side */
+  /* Light mode: warm taupe-to-white radial from card side */
   .hero-bg {
     background:
-      radial-gradient(ellipse at 20% 55%, #ddd8d0 0%, #e4dfd8 18%, #edeae4 38%, #f4f2ee 60%, #faf9f7 80%, #ffffff 100%);
+      radial-gradient(ellipse at 16% 50%, #a89e94 0%, #bdb4aa 10%, #cdc5bc 22%, #dbd5cd 36%, #e7e2dc 52%, #f1ede8 68%, #f8f6f3 83%, #ffffff 100%);
+  }
+  @media (max-width: 767px) {
+    .hero-bg {
+      background:
+        radial-gradient(ellipse at 50% 22%, #b0a89e 0%, #c4bcb4 12%, #d4cec8 26%, #e0dcd7 42%, #ecE8e3 58%, #f5f3ef 74%, #faf8f6 88%, #ffffff 100%);
+    }
   }
   .dark .hero-bg {
-    background-color: var(--background);
+    background: var(--background);
   }
 
   /* ── Navy sidebar ────────────────────────────────────────── */
