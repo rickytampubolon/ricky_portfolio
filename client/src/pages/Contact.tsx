@@ -22,7 +22,7 @@ const EMPTY: FormState = { firstName: "", lastName: "", email: "", subject: "", 
 /* ── Shared field styles ─────────────────────────────────────── */
 const inputBase = "apple-input";
 const labelBase =
-  "block text-[0.72rem] font-semibold tracking-[0.04em] uppercase text-muted-foreground mb-1.5";
+  "block text-[0.68rem] font-mono tracking-[0.08em] uppercase text-mint mb-1.5";
 const errorMsg = "mt-1 text-[0.72rem] text-destructive font-medium";
 
 /* ── Validation ──────────────────────────────────────────────── */
@@ -73,7 +73,7 @@ function FormField({ label, error, touched, children }: FormFieldProps) {
   return (
     <div>
       <label className={labelBase}>
-        {label} <span className="text-muted-foreground">*</span>
+        {label} <span className="text-mint/50">*</span>
       </label>
       {children}
       {hasError && <p className={errorMsg}>{error}</p>}
@@ -132,32 +132,35 @@ export default function Contact() {
 
   return (
     <Layout>
-      <div className="grow shrink-0 flex flex-col items-center justify-start py-8 md:py-14 px-4">
+      <div className="px-6 md:px-16 lg:px-24 py-16 md:py-20 max-w-4xl mx-auto">
 
-        {/* Heading */}
-        <div className="flex items-center justify-center gap-3 mb-7 md:mb-10 w-full max-w-lg">
-          <div className="w-[9px] h-[9px] rounded-full bg-mint shrink-0" />
+        {/* ── Page intro ─────────────────────────────────────── */}
+        <div className="mb-12">
+          <p className="font-mono text-mint text-sm mb-3">04. Contact</p>
           <h1
-            className="font-black tracking-[-0.03em] text-foreground leading-none"
-            style={{ fontSize: "clamp(1.6rem, 5vw, 2.8rem)" }}
+            className="font-black tracking-[-0.03em] text-foreground leading-none mb-3"
+            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
           >
-            Let's talk
+            Let's talk.
           </h1>
+          <p className="text-subtle text-[0.88rem] max-w-md">
+            Have a project, opportunity, or just want to say hello? Send me a message.
+          </p>
         </div>
 
-        {/* Form card */}
-        <div className="w-full max-w-lg apple-card shadow-[0_2px_20px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.4)] p-6 md:p-10">
+        {/* ── Form card ──────────────────────────────────────── */}
+        <div className="w-full max-w-lg apple-card p-6 md:p-10">
 
           {success ? (
             <div className="flex flex-col items-center text-center py-8">
-              <CheckCircle size={48} className="text-foreground mb-4" strokeWidth={1.5} />
+              <CheckCircle size={48} className="text-mint mb-4" strokeWidth={1.5} />
               <h2 className="text-xl font-bold text-foreground mb-2">Message sent!</h2>
               <p className="text-[0.9rem] text-muted-foreground mb-6">
                 Thanks for reaching out. I'll get back to you as soon as possible.
               </p>
               <button
                 onClick={() => setSuccess(false)}
-                className="text-[0.82rem] font-semibold text-foreground hover:underline"
+                className="text-[0.82rem] font-mono text-mint hover:underline"
               >
                 Send another message
               </button>
@@ -165,7 +168,7 @@ export default function Contact() {
           ) : (
             <form onSubmit={onSubmit} noValidate className="space-y-5">
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <FormField label="First Name" error={errors.firstName} touched={touched.firstName}>
                   <input
                     type="text"
@@ -229,21 +232,21 @@ export default function Contact() {
                 <p className="text-[0.82rem] text-destructive font-medium">{submitErr}</p>
               )}
 
-              <div className="pt-2 flex justify-center">
+              <div className="pt-2 flex justify-start">
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center gap-2 bg-foreground text-background px-10 py-3 rounded-full text-sm font-semibold tracking-[0.02em] transition-opacity duration-200 hover:opacity-75 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center justify-center gap-2 border border-mint text-mint font-mono text-sm px-10 py-3 rounded hover:bg-mint/10 transition-colors duration-200 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <>
-                      <span className="w-4 h-4 border-2 border-primary-foreground/40 border-t-primary-foreground rounded-full animate-spin" />
+                      <span className="w-4 h-4 border-2 border-mint/40 border-t-mint rounded-full animate-spin" />
                       Sending…
                     </>
                   ) : (
                     <>
                       <Send size={14} />
-                      Send
+                      Send Message
                     </>
                   )}
                 </button>
@@ -253,9 +256,9 @@ export default function Contact() {
           )}
         </div>
 
-        <p className="mt-5 text-[0.75rem] text-muted-foreground text-center">
+        <p className="mt-6 text-[0.75rem] text-muted-foreground">
           Or email me directly at{" "}
-          <a href={`mailto:${profile.email}`} className="text-foreground hover:underline">
+          <a href={`mailto:${profile.email}`} className="text-mint hover:underline font-mono">
             {profile.email}
           </a>
         </p>
