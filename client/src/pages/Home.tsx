@@ -13,14 +13,14 @@ export default function Home() {
 
         <h1
           className="font-black leading-[1.02] tracking-[-0.02em] mb-3"
-          style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--white)" }}
+          style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: "var(--white)" }}
         >
           {profile.name}.
         </h1>
 
         <h2
           className="font-black leading-[1.05] tracking-[-0.02em] mb-8"
-          style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--light-slate)" }}
+          style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)", color: "var(--slate)" }}
         >
           {headline}
         </h2>

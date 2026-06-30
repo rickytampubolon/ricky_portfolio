@@ -143,7 +143,7 @@ export default function Resume() {
 
         {/* ── Page intro ─────────────────────────────────────── */}
         <div className="mb-10 md:mb-14">
-          <p className="font-mono text-mint text-sm mb-3">Resume</p>
+          <p className="font-mono text-mint text-sm mb-3">02. Resume</p>
           <h1
             className="font-black tracking-[-0.03em] leading-none text-foreground mb-3"
             style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
