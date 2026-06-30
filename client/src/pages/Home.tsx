@@ -26,7 +26,7 @@ export default function Home() {
         </h2>
 
         <p
-          className="text-base leading-[1.7] mb-12 max-w-[480px]"
+          className="text-base leading-[1.7] mb-12 max-w-[620px]"
           style={{ color: "var(--slate)" }}
         >
           {bio[0]}
