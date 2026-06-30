@@ -25,12 +25,12 @@ export const fullTimeExp: ExperienceItem[] = [
   {
     id: 1,
     title: "Lead Country Product Manager – ID Market",
-    company: "GSM – Xanh SM",
+    company: "GSM – Green SM",
     companyImage: "https://www.google.com/s2/favicons?domain=xanhsm.com&sz=256",
     period: "2025 – Present",
     current: true,
     highlights: [
-      "Led Indonesia market entry and growth for Xanh SM's digital ecosystem, building a localized product roadmap that supported operational scale and service quality for drivers and riders nationwide.",
+      "Led Indonesia market entry and growth for Green SM's digital ecosystem, building a localized product roadmap that supported operational scale and service quality for drivers and riders nationwide.",
       "Owned end-to-end product strategy and the national roadmap, balancing aggressive growth targets with local operational realities, user behavior, and priorities from global headquarters.",
       "Oversaw the full product ecosystem including driver and rider apps, corporate dashboard, and internal operational tools, using behavioral data and performance metrics to drive reliability improvements.",
       "Drove market localization across pricing logic, payment flows with local providers, loyalty program design, and fleet management customization for Indonesian operational patterns.",
