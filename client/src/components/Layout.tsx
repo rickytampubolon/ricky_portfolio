@@ -1,21 +1,7 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram, X, Menu, Mail, MapPin, type LucideProps } from "lucide-react";
+import { Linkedin, Instagram, X, Menu, Mail, type LucideProps } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { profile, social } from "../data/homeData";
-
-/* ── Live clock ──────────────────────────────────────────────── */
-function LiveClock() {
-  const [time, setTime] = useState(() => new Date());
-  useEffect(() => {
-    const id = setInterval(() => setTime(new Date()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  return (
-    <span className="tabular-nums">
-      {time.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })}
-    </span>
-  );
-}
 
 /* ── Nav config ──────────────────────────────────────────────── */
 type NavLink =
@@ -98,34 +84,18 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Link>
             )
           )}
-
-          {/* Location + clock */}
-          <div className="ml-4 flex items-center gap-1.5 text-muted-foreground font-mono text-[0.72rem]">
-            <MapPin size={11} strokeWidth={1.75} className="text-mint shrink-0" />
-            <span>Jakarta, Indonesia</span>
-            <span className="text-foreground/20 mx-0.5">·</span>
-            <LiveClock />
-          </div>
         </nav>
 
-        {/* Mobile: location + clock + hamburger */}
-        <div className="md:hidden flex items-center gap-2">
-          <div className="flex items-center gap-1 text-[0.62rem] font-mono text-muted-foreground leading-none">
-            <MapPin size={9} strokeWidth={1.75} className="text-mint shrink-0" />
-            <span>Jakarta</span>
-            <span className="text-foreground/25">·</span>
-            <LiveClock />
-          </div>
-          <button
-            onClick={() => setMobileOpen((o) => !o)}
-            aria-label="Open navigation menu"
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-nav"
-            className="text-foreground min-w-[44px] min-h-[44px] flex items-center justify-center"
-          >
-            <Menu size={21} />
-          </button>
-        </div>
+        {/* Mobile: hamburger */}
+        <button
+          onClick={() => setMobileOpen((o) => !o)}
+          aria-label="Open navigation menu"
+          aria-expanded={mobileOpen}
+          aria-controls="mobile-nav"
+          className="md:hidden text-foreground min-w-[44px] min-h-[44px] flex items-center justify-center"
+        >
+          <Menu size={21} />
+        </button>
       </header>
 
       {/* ── Mobile navigation overlay ──────────────────────────── */}
@@ -183,10 +153,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </nav>
 
         <div className="px-6 py-8 flex flex-col items-center gap-4">
-          <div className="flex items-center gap-1.5 text-muted-foreground font-mono text-xs">
-            <MapPin size={11} strokeWidth={1.75} className="text-mint" />
-            <span>Jakarta, Indonesia · <LiveClock /></span>
-          </div>
           <div className="flex items-center gap-5">
             <a href={`mailto:${profile.email}`} className="text-subtle hover:text-mint transition-colors">
               <Mail size={18} strokeWidth={1.75} />
