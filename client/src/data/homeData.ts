@@ -24,6 +24,6 @@ export const domainTags = [
 export const headline = "I build products that drive growth.";
 
 export const bio = [
-  "I'm a Product Manager with 6+ years of experience across electric mobility, logistics, and education. I turn complex business challenges into simple, scalable digital solutions.",
+  "I have spent the last 6 years as a Product Manager working in electric mobility, logistics, and fulfillment. My work is about taking complex business needs and building them into simple, scalable digital tools.",
   "Today I lead product for Green SM Indonesia, owning strategy from early discovery through launch and keeping local needs aligned with the bigger regional and global picture. I care most about clear thinking, sharp priorities, and products that feel obvious once they exist.",
 ];

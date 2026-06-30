@@ -8,22 +8,15 @@ export default function Home() {
       <section className="min-h-[calc(100vh-8rem)] md:min-h-[calc(100vh-4rem)] flex flex-col justify-center py-14 md:py-20 px-6 md:pl-28 lg:pl-40 md:pr-12">
 
         <p className="font-mono text-mint text-sm mb-4 tracking-wide">
-          Hi, my name is
+          Hi there, I'm
         </p>
 
         <h1
-          className="font-black leading-[1.02] tracking-[-0.02em] mb-3"
+          className="font-black leading-[1.02] tracking-[-0.02em] mb-8"
           style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--white)" }}
         >
           {profile.name}.
         </h1>
-
-        <h2
-          className="font-black leading-[1.05] tracking-[-0.02em] mb-10"
-          style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", color: "var(--lightest-slate)" }}
-        >
-          {headline}
-        </h2>
 
         <p
           className="text-base leading-[1.7] mb-12 max-w-[480px]"
