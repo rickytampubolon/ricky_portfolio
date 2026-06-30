@@ -189,7 +189,6 @@
     background-color: color-mix(in srgb, var(--background) 90%, transparent);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
   }
 
   /* ── Navy / background fill ──────────────────────────────── */
