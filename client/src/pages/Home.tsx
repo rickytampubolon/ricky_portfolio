@@ -34,7 +34,7 @@ export default function Home() {
 
         <div className="flex flex-wrap gap-4">
           <Link href="/resume">
-            <button className="border border-mint text-mint font-mono text-[0.85rem] px-7 py-5 rounded hover:bg-mint/10 transition-colors duration-200 active:scale-[0.97]">
+            <button className="bg-mint text-navy font-mono text-[0.85rem] font-semibold px-7 py-5 rounded hover:bg-mint/80 transition-colors duration-200 active:scale-[0.97]">
               View Resume
             </button>
           </Link>
