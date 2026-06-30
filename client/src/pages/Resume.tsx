@@ -126,15 +126,13 @@ export default function Resume() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
-    const main = document.querySelector("main");
-    if (!main) return;
-    const onScroll = () => setShowScrollTop(main.scrollTop > 300);
-    main.addEventListener("scroll", onScroll, { passive: true });
-    return () => main.removeEventListener("scroll", onScroll);
+    const onScroll = () => setShowScrollTop(window.scrollY > 300);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const scrollToTop = () => {
-    document.querySelector("main")?.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
