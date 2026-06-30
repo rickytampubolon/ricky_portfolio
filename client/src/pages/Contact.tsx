@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, ArrowUp } from "lucide-react";
 import { profile } from "../data/homeData";
 
 const WEB3FORMS_ACCESS_KEY =
@@ -85,6 +85,20 @@ const inputError = "border-destructive";
 
 /* ── Component ───────────────────────────────────────────────── */
 export default function Contact() {
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const main = document.querySelector("main");
+    if (!main) return;
+    const onScroll = () => setShowScrollTop(main.scrollTop > 300);
+    main.addEventListener("scroll", onScroll, { passive: true });
+    return () => main.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    document.querySelector("main")?.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const [form,      setForm]     = useState<FormState>(EMPTY);
   const [errors,    setErrors]   = useState<FormErrors>({});
   const [touched,   setTouched]  = useState<Partial<Record<keyof FormState, boolean>>>({});
@@ -264,6 +278,15 @@ export default function Contact() {
         </p>
 
       </div>
+      <button
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+        className={`fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full border border-mint text-mint hover:bg-mint/10 transition-all duration-300 ${
+          showScrollTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-3"
+        }`}
+      >
+        <ArrowUp size={16} />
+      </button>
     </Layout>
   );
 }
