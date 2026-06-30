@@ -132,10 +132,10 @@ export default function Contact() {
 
   return (
     <Layout>
-      <div className="px-6 md:px-16 lg:px-24 py-16 md:py-20 max-w-4xl mx-auto">
+      <div className="px-5 md:px-16 lg:px-24 py-10 md:py-20 max-w-4xl mx-auto">
 
         {/* ── Page intro ─────────────────────────────────────── */}
-        <div className="mb-12">
+        <div className="mb-8 md:mb-12">
           <p className="font-mono text-mint text-sm mb-3">04. Contact</p>
           <h1
             className="font-black tracking-[-0.03em] text-foreground leading-none mb-3"
@@ -149,7 +149,7 @@ export default function Contact() {
         </div>
 
         {/* ── Form card ──────────────────────────────────────── */}
-        <div className="w-full max-w-lg apple-card p-6 md:p-10">
+        <div className="w-full max-w-lg apple-card p-5 md:p-10">
 
           {success ? (
             <div className="flex flex-col items-center text-center py-8">

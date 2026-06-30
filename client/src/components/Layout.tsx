@@ -1,7 +1,21 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram, X, Menu, Mail, type LucideProps } from "lucide-react";
+import { Linkedin, Instagram, X, Menu, Mail, MapPin, type LucideProps } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { profile, social } from "../data/homeData";
+
+/* ── Live clock ──────────────────────────────────────────────── */
+function LiveClock() {
+  const [time, setTime] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <span className="tabular-nums">
+      {time.toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: false })}
+    </span>
+  );
+}
 
 /* ── Nav config ──────────────────────────────────────────────── */
 type NavLink =
@@ -44,8 +58,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12 top-nav-bg">
         {/* Logo */}
         <Link href="/" className="mr-auto">
-          <div className="w-10 h-10 rounded border border-mint flex items-center justify-center hover:bg-mint/10 transition-colors duration-200">
-            <span className="text-mint font-mono font-bold text-sm">RH</span>
+          <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-mint hover:ring-offset-2 hover:ring-offset-background transition-all duration-200">
+            <img
+              src={profile.photo}
+              alt={profile.name}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "center 20%" }}
+            />
           </div>
         </Link>
 
@@ -80,17 +99,23 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             )
           )}
 
-          {/* Resume button */}
-          <a
-            href="/resume"
-            className="ml-3 border border-mint text-mint font-mono text-[0.8rem] px-4 py-2 rounded hover:bg-mint/10 transition-colors duration-200"
-          >
-            Resume
-          </a>
+          {/* Location + clock */}
+          <div className="ml-4 flex items-center gap-1.5 text-muted-foreground font-mono text-[0.72rem]">
+            <MapPin size={11} strokeWidth={1.75} className="text-mint shrink-0" />
+            <span>Jakarta, Indonesia</span>
+            <span className="text-foreground/20 mx-0.5">·</span>
+            <LiveClock />
+          </div>
         </nav>
 
-        {/* Mobile hamburger */}
-        <div className="md:hidden">
+        {/* Mobile: location + clock + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <div className="flex items-center gap-1 text-[0.62rem] font-mono text-muted-foreground leading-none">
+            <MapPin size={9} strokeWidth={1.75} className="text-mint shrink-0" />
+            <span>Jakarta</span>
+            <span className="text-foreground/25">·</span>
+            <LiveClock />
+          </div>
           <button
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Open navigation menu"
@@ -155,27 +180,26 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </Link>
             )
           )}
-
-          <a
-            href="/resume"
-            className="mt-4 border border-mint text-mint font-mono text-sm px-8 py-3 rounded hover:bg-mint/10 transition-colors duration-200"
-          >
-            Resume
-          </a>
         </nav>
 
-        <div className="px-6 py-8 flex items-center justify-center gap-5">
-          <a href={`mailto:${profile.email}`} className="text-subtle hover:text-mint transition-colors">
-            <Mail size={18} strokeWidth={1.75} />
-          </a>
-          {social.map(({ href, label, icon }) => {
-            const Icon = socialIcons[icon];
-            return (
-              <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-mint transition-colors">
-                <Icon size={18} strokeWidth={1.75} />
-              </a>
-            );
-          })}
+        <div className="px-6 py-8 flex flex-col items-center gap-4">
+          <div className="flex items-center gap-1.5 text-muted-foreground font-mono text-xs">
+            <MapPin size={11} strokeWidth={1.75} className="text-mint" />
+            <span>Jakarta, Indonesia · <LiveClock /></span>
+          </div>
+          <div className="flex items-center gap-5">
+            <a href={`mailto:${profile.email}`} className="text-subtle hover:text-mint transition-colors">
+              <Mail size={18} strokeWidth={1.75} />
+            </a>
+            {social.map(({ href, label, icon }) => {
+              const Icon = socialIcons[icon];
+              return (
+                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-mint transition-colors">
+                  <Icon size={18} strokeWidth={1.75} />
+                </a>
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -206,21 +230,54 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="w-px h-24 bg-subtle/40 mt-1" />
       </div>
 
-      {/* ── Right email rail (desktop only) ───────────────────── */}
+      {/* ── Right copyright rail (desktop only) ───────────────── */}
       <div className="hidden md:flex fixed bottom-0 right-8 z-40 flex-col items-center gap-4">
-        <a
-          href={`mailto:${profile.email}`}
-          className="text-subtle hover:text-mint transition-colors duration-200 font-mono text-xs tracking-widest"
+        <span
+          className="text-muted-foreground font-mono text-xs tracking-widest select-none"
           style={{ writingMode: "vertical-rl" }}
         >
-          {profile.email}
-        </a>
+          © {new Date().getFullYear()} {profile.name}
+        </span>
         <div className="w-px h-24 bg-subtle/40 mt-1" />
       </div>
 
       {/* ── Main content ───────────────────────────────────────── */}
-      <main ref={mainRef} className="pt-16">
-        {children}
+      <main ref={mainRef} className="pt-16 flex flex-col min-h-screen">
+        <div className="flex-1">
+          {children}
+        </div>
+
+        {/* ── Mobile footer ────────────────────────────────────── */}
+        <footer className="md:hidden shrink-0 border-t border-border px-6 py-4 mt-auto">
+          <div className="flex items-center justify-between">
+            <p className="text-[0.68rem] font-mono text-muted-foreground select-none">
+              © {new Date().getFullYear()} {profile.name}
+            </p>
+            <div className="flex items-center">
+              <a
+                href={`mailto:${profile.email}`}
+                aria-label="Email"
+                className="text-subtle hover:text-mint transition-colors duration-200 min-w-[40px] min-h-[40px] flex items-center justify-center"
+              >
+                <Mail size={16} strokeWidth={1.75} />
+              </a>
+              {social.map(({ href, label, icon }) => {
+                const Icon = socialIcons[icon];
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-subtle hover:text-mint transition-colors duration-200 min-w-[40px] min-h-[40px] flex items-center justify-center"
+                  >
+                    <Icon size={16} strokeWidth={1.75} />
+                  </a>
+                );
+              })}
+            </div>
+        </footer>
       </main>
 
     </div>

@@ -21,7 +21,7 @@ export const domainTags = [
   "DIGITAL TRANSFORMATION",
 ];
 
-export const headline = "I build digital products that create real business impact.";
+export const headline = "I build products that drive growth.";
 
 export const bio = [
   "I'm a Product Manager with 6+ years of experience across electric mobility, logistics, and education. I turn complex business challenges into simple, scalable digital solutions.",
