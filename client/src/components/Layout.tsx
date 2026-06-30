@@ -1,6 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram, Sun, Moon, X, Menu, Mail, type LucideProps } from "lucide-react";
-import { useTheme } from "../contexts/ThemeContext";
+import { Linkedin, Instagram, X, Menu, Mail, type LucideProps } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { profile, social } from "../data/homeData";
 
@@ -21,21 +20,6 @@ const socialIcons: Record<string, React.FC<LucideProps>> = {
   linkedin:  Linkedin,
   instagram: Instagram,
 };
-
-/* ── Theme toggle ────────────────────────────────────────────── */
-function ThemeToggle({ className }: { className?: string }) {
-  const { theme, toggleTheme } = useTheme();
-  if (!toggleTheme) return null;
-  return (
-    <button
-      onClick={toggleTheme}
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      className={`transition-colors duration-200 min-w-[26px] min-h-[26px] flex items-center justify-center ${className ?? ""}`}
-    >
-      {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
-    </button>
-  );
-}
 
 /* ── Layout ──────────────────────────────────────────────────── */
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -73,7 +57,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 key={link.label}
                 className="px-4 py-2 text-[0.82rem] font-mono text-foreground/25 cursor-default select-none flex items-center gap-1.5"
               >
-                <span className="text-mint text-[0.72rem]">{link.num}</span>
+                <span className="text-mint/40 text-[0.72rem]">{link.num}</span>
                 {link.label}
                 <span className="text-[0.48rem] px-1.5 py-0.5 rounded border border-foreground/15 text-foreground/25 uppercase tracking-wide font-bold ml-1">
                   Soon
@@ -103,13 +87,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           >
             Resume
           </a>
-
-          <ThemeToggle className="ml-3 text-subtle hover:text-foreground" />
         </nav>
 
-        {/* Mobile controls */}
-        <div className="md:hidden flex items-center gap-1">
-          <ThemeToggle className="text-subtle hover:text-foreground" />
+        {/* Mobile hamburger */}
+        <div className="md:hidden">
           <button
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Open navigation menu"
@@ -157,7 +138,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 key={link.label}
                 className="flex flex-col items-center text-foreground/25 cursor-default select-none"
               >
-                <span className="text-mint font-mono text-xs mb-1">{link.num}</span>
+                <span className="text-mint/40 font-mono text-xs mb-1">{link.num}</span>
                 <span className="font-bold text-2xl">{link.label}</span>
               </span>
             ) : (
@@ -238,10 +219,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* ── Main content ───────────────────────────────────────── */}
-      <main
-        ref={mainRef}
-        className="pt-16"
-      >
+      <main ref={mainRef} className="pt-16">
         {children}
       </main>
 
