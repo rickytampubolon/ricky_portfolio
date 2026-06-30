@@ -15,20 +15,20 @@ export default function Home() {
         </p>
 
         <h1
-          className="font-black text-foreground leading-[1.05] tracking-[-0.02em] mb-3"
-          style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)" }}
+          className="font-black leading-[1.05] tracking-[-0.02em] mb-3"
+          style={{ fontSize: "clamp(2.5rem, 8vw, 5rem)", color: "var(--white)" }}
         >
           {profile.name}.
         </h1>
 
         <h2
-          className="font-black text-subtle leading-[1.1] tracking-[-0.02em] mb-8"
-          style={{ fontSize: "clamp(2rem, 6vw, 4rem)" }}
+          className="font-black leading-[1.1] tracking-[-0.02em] mb-8"
+          style={{ fontSize: "clamp(2rem, 6vw, 4rem)", color: "var(--lightest-slate)" }}
         >
           {headline}
         </h2>
 
-        <p className="text-subtle text-[0.95rem] leading-relaxed max-w-lg mb-10">
+        <p className="text-[0.95rem] leading-relaxed max-w-lg mb-10" style={{ color: "var(--slate)" }}>
           {bio[0]}
         </p>
 
