@@ -64,7 +64,7 @@
   --font-size-body: clamp(0.875rem, 1.2vw + 0.4rem, 1rem);
 
   /* ── Named palette ──────────────────────────────────────────── */
-  --navy:           #0a192f;
+  --navy:           #061129;
   --light-navy:     #112240;
   --lightest-navy:  #233554;
   --slate:          #8892b0;
