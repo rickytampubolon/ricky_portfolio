@@ -242,7 +242,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* ── Mobile footer ────────────────────────────────────── */}
-        <footer className="md:hidden shrink-0 border-t border-border px-6 py-4 mt-auto">
+        <footer className="md:hidden shrink-0 border-t border-border px-6 py-4 mt-auto space-y-3">
+          {/* Location + clock */}
+          <div className="flex items-center gap-1.5 text-[0.68rem] font-mono text-muted-foreground">
+            <MapPin size={10} strokeWidth={1.75} className="text-mint shrink-0" />
+            <span>Jakarta, Indonesia</span>
+            <span className="text-foreground/25 mx-0.5">·</span>
+            <LiveClock />
+          </div>
+          {/* Copyright + socials */}
           <div className="flex items-center justify-between">
             <p className="text-[0.68rem] font-mono text-muted-foreground select-none">
               © {new Date().getFullYear()} {profile.name}
