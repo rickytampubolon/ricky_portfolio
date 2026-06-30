@@ -44,8 +44,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12 top-nav-bg">
         {/* Logo */}
         <Link href="/" className="mr-auto">
-          <div className="w-10 h-10 rounded border border-mint flex items-center justify-center hover:bg-mint/10 transition-colors duration-200">
-            <span className="text-mint font-mono font-bold text-sm">RH</span>
+          <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-mint hover:ring-offset-2 hover:ring-offset-background transition-all duration-200">
+            <img
+              src={profile.photo}
+              alt={profile.name}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: "center 20%" }}
+            />
           </div>
         </Link>
 
