@@ -231,7 +231,7 @@ export default function Resume() {
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        className={`fixed bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full border border-mint text-mint hover:bg-mint/10 transition-all duration-300 ${
+        className={`fixed bottom-20 md:bottom-6 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full border border-mint text-mint hover:bg-mint/10 transition-all duration-300 ${
           showScrollTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-3"
         }`}
       >
