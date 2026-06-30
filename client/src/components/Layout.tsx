@@ -236,8 +236,43 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </div>
 
       {/* ── Main content ───────────────────────────────────────── */}
-      <main ref={mainRef} className="pt-16">
-        {children}
+      <main ref={mainRef} className="pt-16 flex flex-col min-h-screen">
+        <div className="flex-1">
+          {children}
+        </div>
+
+        {/* ── Mobile footer ────────────────────────────────────── */}
+        <footer className="md:hidden shrink-0 border-t border-border px-6 py-4 mt-auto">
+          <div className="flex items-center justify-between">
+            <p className="text-[0.68rem] font-mono text-muted-foreground select-none">
+              © {new Date().getFullYear()} {profile.name}
+            </p>
+            <div className="flex items-center">
+              <a
+                href={`mailto:${profile.email}`}
+                aria-label="Email"
+                className="text-subtle hover:text-mint transition-colors duration-200 min-w-[40px] min-h-[40px] flex items-center justify-center"
+              >
+                <Mail size={16} strokeWidth={1.75} />
+              </a>
+              {social.map(({ href, label, icon }) => {
+                const Icon = socialIcons[icon];
+                return (
+                  <a
+                    key={label}
+                    href={href}
+                    aria-label={label}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-subtle hover:text-mint transition-colors duration-200 min-w-[40px] min-h-[40px] flex items-center justify-center"
+                  >
+                    <Icon size={16} strokeWidth={1.75} />
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </footer>
       </main>
 
     </div>

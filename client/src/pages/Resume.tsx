@@ -140,10 +140,10 @@ export default function Resume() {
 
   return (
     <Layout>
-      <div className="px-6 md:px-16 lg:px-24 py-16 md:py-20 max-w-4xl mx-auto">
+      <div className="px-5 md:px-16 lg:px-24 py-10 md:py-20 max-w-4xl mx-auto">
 
         {/* ── Page intro ─────────────────────────────────────── */}
-        <div className="mb-14">
+        <div className="mb-10 md:mb-14">
           <p className="font-mono text-mint text-sm mb-3">02. Resume</p>
           <h1
             className="font-black tracking-[-0.03em] leading-none text-foreground mb-3"

@@ -5,7 +5,7 @@ import { profile, bio, headline } from "../data/homeData";
 export default function Home() {
   return (
     <Layout>
-      <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-center py-20 px-6 md:pl-28 lg:pl-40 md:pr-12">
+      <section className="min-h-[calc(100vh-8rem)] md:min-h-[calc(100vh-4rem)] flex flex-col justify-center py-14 md:py-20 px-6 md:pl-28 lg:pl-40 md:pr-12">
 
         <p className="font-mono text-mint text-sm mb-4 tracking-wide">
           Hi, my name is
