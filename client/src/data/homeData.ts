@@ -24,6 +24,6 @@ export const domainTags = [
 export const headline = "I lead products from idea to impact.";
 
 export const bio = [
-  "I have spent the last 6 years as a Product Manager working in electric mobility, logistics, and fulfillment. My work is about taking complex business needs and building them into simple, scalable digital tools.",
+  "I have spent the last 6 years as a Product Manager working in electric mobility, logistics, and fulfillment. My work is about taking complex business needs and building them into simple, scalable digital tools that people actually use and that move the business forward.",
   "Today I lead product for Green SM Indonesia, owning strategy from early discovery through launch and keeping local needs aligned with the bigger regional and global picture. I care most about clear thinking, sharp priorities, and products that feel obvious once they exist.",
 ];
