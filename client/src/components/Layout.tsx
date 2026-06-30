@@ -108,8 +108,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         </nav>
 
-        {/* Mobile hamburger */}
-        <div className="md:hidden">
+        {/* Mobile: location + clock + hamburger */}
+        <div className="md:hidden flex items-center gap-2">
+          <div className="flex items-center gap-1 text-[0.62rem] font-mono text-muted-foreground leading-none">
+            <MapPin size={9} strokeWidth={1.75} className="text-mint shrink-0" />
+            <span>Jakarta</span>
+            <span className="text-foreground/25">·</span>
+            <LiveClock />
+          </div>
           <button
             onClick={() => setMobileOpen((o) => !o)}
             aria-label="Open navigation menu"
@@ -242,15 +248,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* ── Mobile footer ────────────────────────────────────── */}
-        <footer className="md:hidden shrink-0 border-t border-border px-6 py-4 mt-auto space-y-3">
-          {/* Location + clock */}
-          <div className="flex items-center gap-1.5 text-[0.68rem] font-mono text-muted-foreground">
-            <MapPin size={10} strokeWidth={1.75} className="text-mint shrink-0" />
-            <span>Jakarta, Indonesia</span>
-            <span className="text-foreground/25 mx-0.5">·</span>
-            <LiveClock />
-          </div>
-          {/* Copyright + socials */}
+        <footer className="md:hidden shrink-0 border-t border-border px-6 py-4 mt-auto">
           <div className="flex items-center justify-between">
             <p className="text-[0.68rem] font-mono text-muted-foreground select-none">
               © {new Date().getFullYear()} {profile.name}
@@ -279,7 +277,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 );
               })}
             </div>
-          </div>
         </footer>
       </main>
 
