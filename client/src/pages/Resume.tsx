@@ -27,10 +27,9 @@ function CompanyLogo({ src, alt, className }: { src: string; alt: string; classN
 }
 
 /* ── Section heading ─────────────────────────────────────────── */
-function SectionHeader({ num, title }: { num: string; title: string }) {
+function SectionHeader({ title }: { title: string }) {
   return (
     <div className="flex items-center gap-3 mb-6">
-      <span className="text-mint font-mono text-sm">{num}</span>
       <h2 className="font-black tracking-[-0.025em] text-foreground text-xl md:text-[1.7rem]">{title}</h2>
       <div className="flex-1 h-px bg-border ml-2" />
     </div>
@@ -144,7 +143,7 @@ export default function Resume() {
 
         {/* ── Page intro ─────────────────────────────────────── */}
         <div className="mb-10 md:mb-14">
-          <p className="font-mono text-mint text-sm mb-3">02. Resume</p>
+          <p className="font-mono text-mint text-sm mb-3">Resume</p>
           <h1
             className="font-black tracking-[-0.03em] leading-none text-foreground mb-3"
             style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
@@ -158,7 +157,7 @@ export default function Resume() {
 
         {/* ── Experience ─────────────────────────────────────── */}
         <section className="mb-12">
-          <SectionHeader num="01." title="Experience" />
+          <SectionHeader title="Experience" />
           <div className="space-y-2.5">
             {fullTimeExp.map((exp) => (
               <ExpRow
@@ -173,7 +172,7 @@ export default function Resume() {
 
         {/* ── Internships & Part-time ─────────────────────────── */}
         <section className="mb-12">
-          <SectionHeader num="02." title="Internships & Part-time" />
+          <SectionHeader title="Internships & Part-time" />
           <div className="space-y-2.5">
             {partTimeAndInternships.map((item) => (
               <ExpRow
@@ -188,7 +187,7 @@ export default function Resume() {
 
         {/* ── Education ──────────────────────────────────────── */}
         <section className="mb-12">
-          <SectionHeader num="03." title="Education" />
+          <SectionHeader title="Education" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {education.map((edu) => (
               <div key={edu.degree} className="apple-card p-6 flex gap-4 items-start">
@@ -211,7 +210,7 @@ export default function Resume() {
 
         {/* ── Skills ─────────────────────────────────────────── */}
         <section>
-          <SectionHeader num="04." title="Skills" />
+          <SectionHeader title="Skills" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {Object.entries(skills).map(([category, items]) => (
               <div key={category} className="apple-card p-6">
