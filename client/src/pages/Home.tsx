@@ -20,7 +20,7 @@ export default function Home() {
 
         <h2
           className="font-black leading-[1.05] tracking-[-0.02em] mb-8"
-          style={{ fontSize: "clamp(1.6rem, 4vw, 2.8rem)", color: "var(--lightest-slate)" }}
+          style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", color: "var(--lightest-slate)" }}
         >
           {headline}
         </h2>
