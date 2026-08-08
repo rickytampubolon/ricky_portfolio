@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Layout from "../components/Layout";
 import { ChevronDown, ArrowUp } from "lucide-react";
 import { fullTimeExp, partTimeAndInternships, education, skills, type ExperienceItem } from "../data/resumeData";
+import { resumeIntro } from "../data/homeData";
 
 /* ── Company logo with initial fallback ──────────────────────── */
 function CompanyLogo({ src, alt, className }: { src: string; alt: string; className?: string }) {
@@ -154,7 +155,7 @@ export default function Resume() {
             Work Experience
           </h1>
           <p className="text-subtle text-[0.88rem] max-w-xl">
-            Lead Product Manager · 7+ years across logistics, fulfillment, electric mobility, and digital transformation.
+            {resumeIntro}
           </p>
         </div>
 

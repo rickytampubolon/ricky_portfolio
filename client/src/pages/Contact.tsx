@@ -163,7 +163,7 @@ export default function Contact() {
         </div>
 
         {/* ── Form card ──────────────────────────────────────── */}
-        <div className="w-full max-w-lg apple-card p-5 md:p-10">
+        <div className="w-full apple-card p-5 md:p-10">
 
           {success ? (
             <div className="flex flex-col items-center text-center py-8">
