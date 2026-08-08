@@ -46,10 +46,19 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   const isScrollPage = location === "/resume" || location === "/contact";
   const [atBottom, setAtBottom] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches
+  );
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1024px)");
+    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
 
   useEffect(() => {
     setAtBottom(false);
-    if (location !== "/resume" && location !== "/contact") return;
     const check = () => {
       const total = document.documentElement.scrollHeight;
       const visible = window.innerHeight;
@@ -61,7 +70,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => window.removeEventListener("scroll", check);
   }, [location]);
 
-  const footerVisible = !isScrollPage || atBottom;
+  // Desktop home page: always show footer (page is non-scrollable).
+  // All other cases (mobile all pages, desktop scroll pages): show only at bottom.
+  const footerVisible = (isDesktop && !isScrollPage) || atBottom;
 
   const isActive = (href: string) =>
     href === "/" ? location === "/" : location.startsWith(href);
