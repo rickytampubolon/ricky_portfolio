@@ -3,12 +3,12 @@ import Layout from "../components/Layout";
 import { profile } from "../data/homeData";
 
 const sectors = ["Electric Mobility", "Logistics", "Fulfillment", "Ed-Tech"];
-const careerPath = ["Traveloka", "Tokopedia", "Shopee", "GSM"];
+const careerPath = ["Traveloka", "Tokopedia", "Shopee", "GovTech", "Green SM"];
 
 export default function Home() {
   return (
     <Layout>
-      <section className="min-h-[calc(100vh-8rem)] md:min-h-[calc(100vh-4rem)] flex flex-col justify-center py-14 md:py-20 px-6 md:px-12 lg:px-20 relative">
+      <section className="min-h-[calc(100vh-7.5rem)] flex flex-col justify-center py-14 md:py-20 px-6 md:px-12 lg:px-20 relative">
 
         {/* Background glow — top left */}
         <div
@@ -144,7 +144,7 @@ export default function Home() {
                     <span key={co} className="flex items-center gap-1.5">
                       <span
                         className="text-[0.8rem]"
-                        style={{ color: co === "GSM" ? "var(--mint)" : "var(--light-slate)" }}
+                        style={{ color: co === "Green SM" ? "var(--mint)" : "var(--light-slate)" }}
                       >
                         {co}
                       </span>
