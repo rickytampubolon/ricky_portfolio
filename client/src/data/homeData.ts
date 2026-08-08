@@ -17,9 +17,8 @@ export const social = [
 export const headline = "I lead products from idea to impact.";
 
 export const bio =
-  "I have spent the last 6 years working across electric mobility, e-commerce logistics, " +
-  "fulfillment, and ed-tech, taking complex business needs and building them into simple, " +
-  "scalable digital tools.";
+  "I bring clarity to complex problems, align teams around the right opportunities, " +
+  "and turn ideas into products that deliver measurable impact.";
 
 export const sectors = ["Electric Mobility", "Logistics", "Fulfillment", "Ed-Tech"];
 

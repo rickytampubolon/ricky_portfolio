@@ -83,10 +83,6 @@ export default function Home() {
                     {profile.name}
                   </p>
                   <p className="text-[0.75rem] text-muted-foreground">Jakarta, Indonesia</p>
-                  <div className="flex items-center gap-1.5 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-mint animate-pulse" />
-                    <span className="text-[0.7rem] text-mint">Open to work</span>
-                  </div>
                 </div>
               </div>
 
