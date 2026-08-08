@@ -18,7 +18,9 @@ export const headline = "I lead products from idea to impact.";
 
 export const bio =
   "I bring clarity to complex problems, align teams around the right opportunities, " +
-  "and turn ideas into products that deliver measurable impact.";
+  "and turn ideas into products that deliver measurable impact. From defining what's worth " +
+  "solving to shaping the product direction and driving execution, I connect user needs, " +
+  "business goals, and technology to turn ambiguity into products that create real value.";
 
 export const sectors = ["Electric Mobility", "Logistics", "Fulfillment", "Ed-Tech"];
 
