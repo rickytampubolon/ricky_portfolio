@@ -115,11 +115,13 @@
   * { @apply border-border outline-ring/50; }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
     font-family: var(--font-sans);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(180deg, #0d1e34 0%, var(--navy) 35%) fixed;
+    background-color: var(--navy);
   }
 
   h1 { font-family: var(--font-heading); font-size: var(--font-size-h1); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
@@ -186,9 +188,9 @@
 
   /* ── Nav (used for top fixed bar) ───────────────────────── */
   .top-nav-bg {
-    background-color: color-mix(in srgb, var(--background) 90%, transparent);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background-color: color-mix(in srgb, #0d1e34 85%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
   }
 
   /* ── Navy / background fill ──────────────────────────────── */
