@@ -127,17 +127,17 @@ export default function Home() {
                 <p className="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-muted-foreground/50 mb-2.5">
                   Career Path
                 </p>
-                <div className="flex items-center gap-1.5 flex-wrap">
+                <div className="flex items-center gap-1 overflow-hidden">
                   {careerPath.map((co, i) => (
-                    <span key={co} className="flex items-center gap-1.5">
+                    <span key={co} className="flex items-center gap-1 shrink-0">
                       <span
-                        className="text-[0.8rem]"
+                        className="text-[0.75rem]"
                         style={{ color: co === "Green SM" ? "var(--mint)" : "var(--light-slate)" }}
                       >
                         {co}
                       </span>
                       {i < careerPath.length - 1 && (
-                        <span className="text-foreground/25 text-[0.8rem]" aria-hidden="true">→</span>
+                        <span className="text-foreground/25 text-[0.75rem]" aria-hidden="true">→</span>
                       )}
                     </span>
                   ))}
