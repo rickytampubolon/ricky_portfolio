@@ -91,7 +91,7 @@ export default function Home() {
                   <p className="font-bold text-[0.95rem]" style={{ color: "var(--white)" }}>
                     {profile.name}
                   </p>
-                  <p className="text-[0.75rem] text-muted-foreground">Jakarta, Indonesia</p>
+                  <p className="text-[0.75rem] text-mint">🇮🇩 Jakarta, Indonesia</p>
                 </div>
               </div>
 
@@ -100,7 +100,7 @@ export default function Home() {
               {/* Stats */}
               <div className="grid grid-cols-2 gap-3 mb-5">
                 {[
-                  { value: "6+", label: "Years experience" },
+                  { value: "7+", label: "Years experience" },
                   { value: "4",  label: "Industries led"   },
                 ].map(({ value, label }) => (
                   <div key={label} className="rounded-xl p-4" style={{ background: "var(--lightest-navy)" }}>

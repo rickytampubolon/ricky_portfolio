@@ -154,7 +154,7 @@ export default function Resume() {
             Work Experience
           </h1>
           <p className="text-subtle text-[0.88rem] max-w-xl">
-            Lead Product Manager · 6+ years across logistics, fulfillment, electric mobility, and digital transformation.
+            Lead Product Manager · 7+ years across logistics, fulfillment, electric mobility, and digital transformation.
           </p>
         </div>
 
