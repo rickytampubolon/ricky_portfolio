@@ -8,7 +8,7 @@ const careerPath = ["Traveloka", "Tokopedia", "Shopee", "GSM"];
 export default function Home() {
   return (
     <Layout>
-      <section className="min-h-[calc(100vh-8rem)] md:min-h-[calc(100vh-4rem)] flex flex-col justify-center py-14 md:py-20 px-6 md:px-12 lg:px-20 relative overflow-hidden">
+      <section className="min-h-[calc(100vh-8rem)] md:min-h-[calc(100vh-4rem)] flex flex-col justify-center py-14 md:py-20 px-6 md:px-12 lg:px-20 relative">
 
         {/* Background glow — top left */}
         <div

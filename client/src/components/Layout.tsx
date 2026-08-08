@@ -38,19 +38,21 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     href === "/" ? location === "/" : location.startsWith(href);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
 
       {/* ── Fixed top nav ─────────────────────────────────────── */}
       <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12 top-nav-bg">
-        {/* Logo */}
+
+        {/* Logo — text only */}
         <Link href="/" className="mr-auto">
-          <div className="w-10 h-10 rounded-full overflow-hidden ring-2 ring-mint hover:ring-offset-2 hover:ring-offset-background transition-all duration-200">
-            <img
-              src={profile.photo}
-              alt={profile.name}
-              className="w-full h-full object-cover"
-              style={{ objectPosition: "center 20%" }}
-            />
+          <div className="flex items-center gap-2.5 group">
+            <span className="w-2 h-2 rounded-sm bg-mint shrink-0 group-hover:scale-110 transition-transform duration-200" />
+            <span
+              className="font-bold text-[0.92rem] tracking-tight transition-colors duration-200 group-hover:text-mint"
+              style={{ color: "var(--white)" }}
+            >
+              {profile.name}
+            </span>
           </div>
         </Link>
 
@@ -169,42 +171,44 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      {/* ── Left social rail (desktop only) ───────────────────── */}
-      <div className="hidden md:flex fixed bottom-0 left-8 z-40 flex-col items-center gap-4">
-        <a
-          href={`mailto:${profile.email}`}
-          aria-label="Email"
-          className="text-subtle hover:text-mint transition-colors duration-200"
-        >
-          <Mail size={17} strokeWidth={1.75} />
-        </a>
-        {social.map(({ href, label, icon }) => {
-          const Icon = socialIcons[icon];
-          return (
-            <a
-              key={label}
-              href={href}
-              aria-label={label}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-subtle hover:text-mint transition-colors duration-200"
-            >
-              <Icon size={17} strokeWidth={1.75} />
-            </a>
-          );
-        })}
-        <div className="w-px h-24 bg-subtle/40 mt-1" />
-      </div>
+      {/* ── Left rail — social (top) + copyright (bottom), desktop only ── */}
+      <div className="hidden md:flex fixed top-16 bottom-0 left-8 z-40 flex-col items-center py-6">
+        {/* Social icons at top */}
+        <div className="flex flex-col items-center gap-4">
+          <a
+            href={`mailto:${profile.email}`}
+            aria-label="Email"
+            className="text-subtle hover:text-mint transition-colors duration-200"
+          >
+            <Mail size={17} strokeWidth={1.75} />
+          </a>
+          {social.map(({ href, label, icon }) => {
+            const Icon = socialIcons[icon];
+            return (
+              <a
+                key={label}
+                href={href}
+                aria-label={label}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-subtle hover:text-mint transition-colors duration-200"
+              >
+                <Icon size={17} strokeWidth={1.75} />
+              </a>
+            );
+          })}
+        </div>
 
-      {/* ── Right copyright rail (desktop only) ───────────────── */}
-      <div className="hidden md:flex fixed bottom-0 right-8 z-40 flex-col items-center gap-4">
+        {/* Flexible vertical line */}
+        <div className="flex-1 w-px bg-subtle/40 my-4" />
+
+        {/* Copyright at bottom */}
         <span
           className="text-muted-foreground font-mono text-xs tracking-widest select-none"
           style={{ writingMode: "vertical-rl" }}
         >
           © {new Date().getFullYear()} {profile.name}
         </span>
-        <div className="w-px h-24 bg-subtle/40 mt-1" />
       </div>
 
       {/* ── Main content ───────────────────────────────────────── */}
