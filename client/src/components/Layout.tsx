@@ -35,6 +35,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
+    onScroll(); // check immediately on mount
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -90,7 +91,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       {/* ── Fixed top nav ─────────────────────────────────────── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12 transition-all duration-300 ${scrolled ? "top-nav-bg" : ""}`}
+        className={`fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12 transition-colors duration-300 ${scrolled ? "top-nav-bg" : ""}`}
         style={scrolled ? undefined : { background: "transparent" }}
       >
 
