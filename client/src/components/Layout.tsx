@@ -41,7 +41,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen text-foreground">
 
       {/* ── Fixed top nav ─────────────────────────────────────── */}
-      <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12 top-nav-bg">
+      <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12" style={{ background: "transparent" }}>
 
         {/* Logo — text only */}
         <Link href="/" className="mr-auto">
@@ -173,13 +173,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 
       {/* ── Main content ───────────────────────────────────────── */}
-      <main ref={mainRef} className="pt-16 flex flex-col min-h-screen">
+      <main ref={mainRef} className="pt-16 pb-14 flex flex-col min-h-screen">
         <div className="flex-1">
           {children}
         </div>
 
         {/* ── Footer ───────────────────────────────────────────── */}
-        <footer className="shrink-0 border-t border-border/40 px-6 md:px-12 py-4 mt-auto">
+        <footer className="fixed bottom-0 left-0 right-0 z-40 px-6 md:px-12 py-4" style={{ background: "transparent" }}>
           <div className="flex items-center justify-between">
             <p className="text-[0.68rem] font-mono text-muted-foreground select-none">
               © {new Date().getFullYear()} {profile.name}
