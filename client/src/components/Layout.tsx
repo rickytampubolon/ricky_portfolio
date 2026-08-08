@@ -51,7 +51,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen text-foreground">
 
       {/* ── Fixed top nav ─────────────────────────────────────── */}
-      <header className="top-nav-bg fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12">
+      <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12" style={{ background: "transparent" }}>
 
         {/* Logo — text only */}
         <Link href="/" className="mr-auto">
