@@ -14,6 +14,7 @@
   --color-light-slate:    var(--light-slate);
   --color-lightest-slate: var(--lightest-slate);
   --color-mint:           var(--mint);
+  --color-white:          var(--white);
   /* Semantic tokens */
   --color-surface: var(--surface);
   --color-subtle: var(--subtle);
@@ -58,12 +59,13 @@
   --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
   --font-mono: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
 
-  --font-size-h1: clamp(2rem, 6vw, 4rem);
+  --font-size-h1: clamp(2rem, 5vw, 3.5rem);
   --font-size-h2: clamp(1.6rem, 4vw, 2.8rem);
   --font-size-h3: clamp(1.1rem, 2vw, 1.4rem);
   --font-size-body: clamp(0.875rem, 1.2vw + 0.4rem, 1rem);
 
   /* ── Named palette ──────────────────────────────────────────── */
+  --darker-navy:    #0d1e34;
   --navy:           #061129;
   --light-navy:     #112240;
   --lightest-navy:  #233554;
@@ -120,7 +122,7 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(180deg, #0d1e34 0%, var(--navy) 35%) fixed;
+    background: linear-gradient(180deg, var(--darker-navy) 0%, var(--navy) 35%) fixed;
     background-color: var(--navy);
   }
 
@@ -188,7 +190,7 @@
 
   /* ── Nav (used for top fixed bar) ───────────────────────── */
   .top-nav-bg {
-    background-color: color-mix(in srgb, #0d1e34 85%, transparent);
+    background-color: color-mix(in srgb, var(--darker-navy) 85%, transparent);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
   }

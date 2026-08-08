@@ -13,7 +13,7 @@ export default function Home() {
         {/* Background glow — top left */}
         <div
           className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full pointer-events-none"
-          style={{ background: "radial-gradient(circle, rgba(100,255,218,0.07) 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, color-mix(in srgb, var(--mint) 7%, transparent) 0%, transparent 70%)" }}
         />
 
         <div className="max-w-6xl w-full mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
@@ -53,11 +53,11 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <Link href="/resume">
                 <button className="bg-white text-navy font-bold text-[0.88rem] px-8 py-3 rounded-full hover:bg-white/90 transition-colors duration-200 active:scale-[0.97]">
-                  View Résumé
+                  View Resume
                 </button>
               </Link>
               <Link href="/contact">
-                <button className="border border-foreground/25 text-foreground text-[0.88rem] px-8 py-3 rounded-full hover:bg-white/5 transition-colors duration-200 active:scale-[0.97]">
+                <button className="border border-foreground/25 text-foreground text-[0.88rem] px-8 py-3 rounded-full hover:bg-foreground/5 transition-colors duration-200 active:scale-[0.97]">
                   Get in Touch
                 </button>
               </Link>
@@ -66,14 +66,11 @@ export default function Home() {
 
           {/* ── Right — Profile card ──────────────────────────── */}
           <div className="w-full lg:w-[400px] shrink-0">
-            <div
-              className="rounded-2xl border border-white/10 p-6 relative overflow-hidden"
-              style={{ background: "var(--light-navy)" }}
-            >
+            <div className="apple-card rounded-2xl border-border/30 p-6 relative overflow-hidden">
               {/* Card glow — top right */}
               <div
                 className="absolute -top-10 -right-10 w-56 h-56 rounded-full pointer-events-none"
-                style={{ background: "radial-gradient(circle, rgba(100,255,218,0.12) 0%, transparent 70%)" }}
+                style={{ background: "radial-gradient(circle, color-mix(in srgb, var(--mint) 12%, transparent) 0%, transparent 70%)" }}
               />
 
               {/* Profile row */}
