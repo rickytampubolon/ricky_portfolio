@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Layout from "../components/Layout";
 import { Send, CheckCircle, ArrowUp } from "lucide-react";
 import { profile } from "../data/homeData";
@@ -62,17 +62,18 @@ async function submitForm(data: FormState): Promise<void> {
 
 /* ── FormField ───────────────────────────────────────────────── */
 interface FormFieldProps {
+  id:       string;
   label:    string;
   error?:   string;
   touched?: boolean;
   children: React.ReactNode;
 }
 
-function FormField({ label, error, touched, children }: FormFieldProps) {
+function FormField({ id, label, error, touched, children }: FormFieldProps) {
   const hasError = touched && error;
   return (
     <div>
-      <label className={labelBase}>
+      <label htmlFor={id} className={labelBase}>
         {label} <span className="text-mint/50">*</span>
       </label>
       {children}
@@ -103,6 +104,7 @@ export default function Contact() {
   const [loading,   setLoading]  = useState(false);
   const [success,   setSuccess]  = useState(false);
   const [submitErr, setSubmitErr] = useState<string | null>(null);
+  const submitting = useRef(false);
 
   const update = (field: keyof FormState, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
@@ -118,6 +120,7 @@ export default function Contact() {
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting.current) return;
     const allTouched = Object.fromEntries(
       (Object.keys(form) as (keyof FormState)[]).map((k) => [k, true])
     );
@@ -126,6 +129,7 @@ export default function Contact() {
     setErrors(errs);
     if (Object.keys(errs).length > 0) return;
 
+    submitting.current = true;
     setLoading(true);
     setSubmitErr(null);
     try {
@@ -138,6 +142,7 @@ export default function Contact() {
       const msg = err instanceof Error ? err.message : "Unknown error";
       setSubmitErr(`Something went wrong: ${msg}. Please try again or email me directly.`);
     } finally {
+      submitting.current = false;
       setLoading(false);
     }
   };
@@ -178,8 +183,9 @@ export default function Contact() {
             <form onSubmit={onSubmit} noValidate className="space-y-5">
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <FormField label="First Name" error={errors.firstName} touched={touched.firstName}>
+                <FormField id="firstName" label="First Name" error={errors.firstName} touched={touched.firstName}>
                   <input
+                    id="firstName"
                     type="text"
                     placeholder="John"
                     value={form.firstName}
@@ -189,8 +195,9 @@ export default function Contact() {
                     autoComplete="given-name"
                   />
                 </FormField>
-                <FormField label="Last Name" error={errors.lastName} touched={touched.lastName}>
+                <FormField id="lastName" label="Last Name" error={errors.lastName} touched={touched.lastName}>
                   <input
+                    id="lastName"
                     type="text"
                     placeholder="Doe"
                     value={form.lastName}
@@ -202,8 +209,9 @@ export default function Contact() {
                 </FormField>
               </div>
 
-              <FormField label="Email" error={errors.email} touched={touched.email}>
+              <FormField id="email" label="Email" error={errors.email} touched={touched.email}>
                 <input
+                  id="email"
                   type="email"
                   placeholder="john@example.com"
                   value={form.email}
@@ -214,8 +222,9 @@ export default function Contact() {
                 />
               </FormField>
 
-              <FormField label="Subject" error={errors.subject} touched={touched.subject}>
+              <FormField id="subject" label="Subject" error={errors.subject} touched={touched.subject}>
                 <input
+                  id="subject"
                   type="text"
                   placeholder="How can I help you?"
                   value={form.subject}
@@ -226,8 +235,9 @@ export default function Contact() {
                 />
               </FormField>
 
-              <FormField label="Message" error={errors.message} touched={touched.message}>
+              <FormField id="message" label="Message" error={errors.message} touched={touched.message}>
                 <textarea
+                  id="message"
                   rows={5}
                   placeholder="Tell me about your project, opportunity, or just say hello…"
                   value={form.message}
@@ -276,7 +286,9 @@ export default function Contact() {
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        className={`fixed bottom-16 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full border border-mint text-mint hover:bg-mint/10 transition-all duration-300 ${
+        tabIndex={showScrollTop ? 0 : -1}
+        aria-hidden={!showScrollTop}
+        className={`fixed bottom-24 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full border border-mint text-mint hover:bg-mint/10 transition-all duration-300 ${
           showScrollTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-3"
         }`}
       >

@@ -1,9 +1,6 @@
 import { Link } from "wouter";
 import Layout from "../components/Layout";
-import { profile } from "../data/homeData";
-
-const sectors = ["Electric Mobility", "Logistics", "Fulfillment", "Ed-Tech"];
-const careerPath = ["Traveloka", "Tokopedia", "Shopee", "GovTech", "Green SM"];
+import { profile, bio, sectors, careerPath } from "../data/homeData";
 
 export default function Home() {
   return (
@@ -25,7 +22,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-foreground/20 mb-8">
               <span className="w-1.5 h-1.5 rounded-full bg-mint shrink-0" />
               <span className="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-foreground/60">
-                Lead Country Product Manager
+                {profile.title}
               </span>
             </div>
 
@@ -44,9 +41,7 @@ export default function Home() {
               className="text-[0.93rem] leading-[1.75] mb-10 max-w-[520px]"
               style={{ color: "var(--slate)" }}
             >
-              I have spent the last 6 years working across electric mobility, e-commerce logistics,
-              fulfillment, and ed-tech, taking complex business needs and building them into simple,
-              scalable digital tools.
+              {bio}
             </p>
 
             {/* Buttons */}
@@ -146,7 +141,7 @@ export default function Home() {
                         {co}
                       </span>
                       {i < careerPath.length - 1 && (
-                        <span className="text-foreground/25 text-[0.8rem]">→</span>
+                        <span className="text-foreground/25 text-[0.8rem]" aria-hidden="true">→</span>
                       )}
                     </span>
                   ))}

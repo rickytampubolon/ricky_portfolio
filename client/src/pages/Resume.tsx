@@ -47,11 +47,16 @@ function ExpRow({ item, isOpen, onToggle }: {
 }) {
   const typeBadge = "type" in item ? item.type : null;
   const isCurrent = "current" in item && item.current;
+  const panelId = `exp-panel-${item.id}`;
+  const buttonId = `exp-btn-${item.id}`;
 
   return (
     <div className="apple-card overflow-hidden">
       <button
+        id={buttonId}
         onClick={onToggle}
+        aria-expanded={isOpen}
+        aria-controls={panelId}
         className="w-full flex items-start gap-3 p-4 sm:p-5 text-left hover:bg-secondary/50 transition-colors"
       >
         {/* Logo */}
@@ -94,6 +99,9 @@ function ExpRow({ item, isOpen, onToggle }: {
 
       {/* Expanded bullets */}
       <div
+        id={panelId}
+        role="region"
+        aria-labelledby={buttonId}
         style={{
           maxHeight: isOpen ? "2000px" : "0px",
           overflow: "hidden",
@@ -107,7 +115,7 @@ function ExpRow({ item, isOpen, onToggle }: {
           <ul className="space-y-1.5">
             {item.highlights.map((h, i) => (
               <li key={i} className="flex gap-2 text-[0.8rem] sm:text-[0.84rem] text-subtle leading-relaxed">
-                <span className="text-mint mt-0.5 shrink-0">▹</span>
+                <span className="text-mint mt-0.5 shrink-0" aria-hidden="true">▹</span>
                 <span>{h}</span>
               </li>
             ))}
@@ -193,7 +201,10 @@ export default function Resume() {
                   <p className="font-bold text-[0.92rem] text-foreground leading-snug mb-0.5">
                     {edu.degree}
                   </p>
-                  <p className="text-[0.8rem] text-muted-foreground mb-2">{edu.school}</p>
+                  <p className="text-[0.8rem] text-muted-foreground mb-0.5">{edu.school}</p>
+                  {edu.detail && (
+                    <p className="text-[0.75rem] text-muted-foreground/60 mb-2">{edu.detail}</p>
+                  )}
                   <span className="inline-block text-[0.62rem] font-mono uppercase tracking-[0.1em] px-2.5 py-1 rounded border border-mint/30 text-mint/70">
                     {edu.date}
                   </span>
@@ -228,7 +239,9 @@ export default function Resume() {
       <button
         onClick={scrollToTop}
         aria-label="Scroll to top"
-        className={`fixed bottom-16 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full border border-mint text-mint hover:bg-mint/10 transition-all duration-300 ${
+        tabIndex={showScrollTop ? 0 : -1}
+        aria-hidden={!showScrollTop}
+        className={`fixed bottom-24 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full border border-mint text-mint hover:bg-mint/10 transition-all duration-300 ${
           showScrollTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-3"
         }`}
       >

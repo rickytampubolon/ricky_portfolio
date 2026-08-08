@@ -15,7 +15,7 @@ function Router() {
   useAnalytics();
 
   return (
-    <Suspense fallback={null}>
+    <Suspense fallback={<div style={{ minHeight: "100vh", backgroundColor: "var(--navy)" }} />}>
       <Switch>
         <Route path="/"         component={Home} />
         <Route path="/resume"   component={Resume} />

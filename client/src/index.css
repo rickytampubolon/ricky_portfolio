@@ -155,8 +155,6 @@
     max-width: 900px;
   }
 
-  .flex { min-height: 0; min-width: 0; }
-
   /* ── Card ────────────────────────────────────────────────── */
   .apple-card {
     background-color: var(--card);

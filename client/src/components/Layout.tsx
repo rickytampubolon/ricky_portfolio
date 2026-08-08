@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Linkedin, Instagram, X, Menu, Mail, type LucideProps } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { profile, social } from "../data/homeData";
 
 /* ── Nav config ──────────────────────────────────────────────── */
@@ -25,13 +25,23 @@ const socialIcons: Record<string, React.FC<LucideProps>> = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location]   = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const mainRef = useRef<HTMLElement>(null);
 
-  useEffect(() => { setMobileOpen(false); }, [location]);
+  useEffect(() => {
+    setMobileOpen(false);
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [location]);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileOpen) setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    return () => document.removeEventListener("keydown", onKeyDown);
   }, [mobileOpen]);
 
   const isActive = (href: string) =>
@@ -41,7 +51,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen text-foreground">
 
       {/* ── Fixed top nav ─────────────────────────────────────── */}
-      <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12" style={{ background: "transparent" }}>
+      <header className="top-nav-bg fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12">
 
         {/* Logo — text only */}
         <Link href="/" className="mr-auto">
@@ -91,7 +101,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         {/* Mobile: hamburger */}
         <button
           onClick={() => setMobileOpen((o) => !o)}
-          aria-label="Open navigation menu"
+          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
           aria-expanded={mobileOpen}
           aria-controls="mobile-nav"
           className="md:hidden text-foreground min-w-[44px] min-h-[44px] flex items-center justify-center"
@@ -173,7 +183,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 
       {/* ── Main content ───────────────────────────────────────── */}
-      <main ref={mainRef} className="pt-16 pb-14 flex flex-col min-h-screen">
+      <main className="pt-16 pb-24 flex flex-col min-h-screen">
         <div className="flex-1">
           {children}
         </div>
