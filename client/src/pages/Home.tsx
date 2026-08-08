@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "wouter";
+import { ArrowUp } from "lucide-react";
 import Layout from "../components/Layout";
 import { profile, bio, sectors, careerPath } from "../data/homeData";
 
@@ -8,6 +9,16 @@ export default function Home() {
     document.documentElement.classList.add("no-scroll");
     return () => document.documentElement.classList.remove("no-scroll");
   }, []);
+
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowScrollTop(window.scrollY > 300);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <Layout>
@@ -158,6 +169,17 @@ export default function Home() {
 
         </div>
       </section>
+      <button
+        onClick={scrollToTop}
+        aria-label="Scroll to top"
+        tabIndex={showScrollTop ? 0 : -1}
+        aria-hidden={!showScrollTop}
+        className={`lg:hidden fixed bottom-24 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full border border-mint text-mint hover:bg-mint/10 transition-all duration-300 ${
+          showScrollTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-3"
+        }`}
+      >
+        <ArrowUp size={16} />
+      </button>
     </Layout>
   );
 }
