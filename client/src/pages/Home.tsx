@@ -53,7 +53,7 @@ export default function Home() {
             <div className="flex flex-wrap gap-3">
               <Link href="/resume">
                 <button className="bg-white text-navy font-bold text-[0.88rem] px-8 py-3 rounded-full hover:bg-white/90 transition-colors duration-200 active:scale-[0.97]">
-                  View Résumé
+                  View Resume
                 </button>
               </Link>
               <Link href="/contact">
