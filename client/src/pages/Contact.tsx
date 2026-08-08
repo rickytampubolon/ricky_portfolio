@@ -88,7 +88,7 @@ export default function Contact() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setShowScrollTop(window.scrollY > 100);
+    const onScroll = () => setShowScrollTop(window.scrollY > 300);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -147,15 +147,12 @@ export default function Contact() {
       <div className="px-5 md:px-16 lg:px-24 py-10 md:py-20 max-w-4xl mx-auto">
 
         {/* ── Page intro ─────────────────────────────────────── */}
-        <div className="mb-8 md:mb-12">
+        <div className="mb-10 md:mb-14">
           <p className="font-mono text-mint text-sm mb-3">04. Contact</p>
-          <h1
-            className="font-black tracking-[-0.03em] text-foreground leading-none mb-3"
-            style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
-          >
+          <h1 className="font-black tracking-[-0.03em] text-foreground leading-none mb-3">
             Let's talk.
           </h1>
-          <p className="text-subtle text-[0.88rem] max-w-md">
+          <p className="text-subtle text-[0.88rem] max-w-xl">
             Have a project, opportunity, or just want to say hello? Send me a message.
           </p>
         </div>
@@ -248,7 +245,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center gap-2 border border-mint text-mint font-mono text-sm px-10 py-3 rounded hover:bg-mint/10 transition-colors duration-200 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="inline-flex items-center justify-center gap-2 border border-mint text-mint text-[0.88rem] px-8 py-3 rounded-full hover:bg-mint/10 transition-colors duration-200 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? (
                     <>
