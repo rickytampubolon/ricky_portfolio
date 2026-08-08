@@ -189,16 +189,16 @@ export const education: EducationItem[] = [
   {
     degree: "Master of Business Administration",
     school: "Bandung Institute of Technology",
-    schoolImage: "/itb-logo.svg",
-    date: "August 2026",
-    detail: "SBM ITB · Bandung, Indonesia",
+    schoolImage: "https://www.google.com/s2/favicons?domain=itb.ac.id&sz=256",
+    date: "Aug 2026",
+    detail: "",
   },
   {
     degree: "Bachelor of Informatics",
     school: "Del Institute of Technology",
-    schoolImage: "/itdel-logo.svg",
+    schoolImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThY4yORALIvsjHi1T6lhDZogLcYcnjLfSZPQ&s",
     date: "Sep 2019",
-    detail: "Laguboti, North Sumatra, Indonesia",
+    detail: "",
   },
 ];
 

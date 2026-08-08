@@ -201,10 +201,7 @@ export default function Resume() {
                   <p className="font-bold text-[0.92rem] text-foreground leading-snug mb-0.5">
                     {edu.degree}
                   </p>
-                  <p className="text-[0.8rem] text-muted-foreground mb-0.5">{edu.school}</p>
-                  {edu.detail && (
-                    <p className="text-[0.75rem] text-muted-foreground/60 mb-2">{edu.detail}</p>
-                  )}
+                  <p className="text-[0.8rem] text-muted-foreground mb-2">{edu.school}</p>
                   <span className="inline-block text-[0.62rem] font-mono uppercase tracking-[0.1em] px-2.5 py-1 rounded border border-mint/30 text-mint/70">
                     {edu.date}
                   </span>

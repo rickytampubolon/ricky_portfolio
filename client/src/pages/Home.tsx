@@ -1,11 +1,17 @@
+import { useEffect } from "react";
 import { Link } from "wouter";
 import Layout from "../components/Layout";
 import { profile, bio, sectors, careerPath } from "../data/homeData";
 
 export default function Home() {
+  useEffect(() => {
+    document.documentElement.classList.add("no-scroll");
+    return () => document.documentElement.classList.remove("no-scroll");
+  }, []);
+
   return (
     <Layout>
-      <section className="min-h-[calc(100vh-7.5rem)] flex flex-col justify-center py-14 md:py-20 px-6 md:px-12 lg:px-20 relative">
+      <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-center py-10 md:py-20 px-6 md:px-12 lg:px-20 relative overflow-hidden">
 
         {/* Background glow — top left */}
         <div
@@ -13,13 +19,16 @@ export default function Home() {
           style={{ background: "radial-gradient(circle, color-mix(in srgb, var(--mint) 7%, transparent) 0%, transparent 70%)" }}
         />
 
-        <div className="max-w-6xl w-full mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+        <div className="max-w-6xl w-full mx-auto flex flex-col lg:flex-row items-center gap-8 lg:gap-16">
 
           {/* ── Left ─────────────────────────────────────────── */}
           <div className="flex-1 min-w-0">
 
             {/* Role badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-foreground/20 mb-8">
+            <div
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-foreground/20 mb-8 ent-fade-up"
+              style={{ animationDelay: "0ms" }}
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-mint shrink-0" />
               <span className="font-mono text-[0.65rem] uppercase tracking-[0.15em] text-foreground/60">
                 {profile.title}
@@ -28,8 +37,8 @@ export default function Home() {
 
             {/* Headline */}
             <h1
-              className="font-black leading-[1.05] tracking-[-0.02em] mb-6"
-              style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", color: "var(--white)" }}
+              className="font-black leading-[1.05] tracking-[-0.02em] mb-6 ent-fade-up"
+              style={{ fontSize: "clamp(2.4rem, 5vw, 4rem)", color: "var(--white)", animationDelay: "100ms" }}
             >
               I lead{" "}
               <span style={{ color: "var(--mint)" }}>products</span>
@@ -38,14 +47,14 @@ export default function Home() {
 
             {/* Bio */}
             <p
-              className="text-[0.93rem] leading-[1.75] mb-10 max-w-[520px]"
-              style={{ color: "var(--slate)" }}
+              className="text-[0.93rem] leading-[1.75] mb-10 max-w-[520px] ent-fade-up"
+              style={{ color: "var(--slate)", animationDelay: "200ms" }}
             >
               {bio}
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 ent-fade-up" style={{ animationDelay: "300ms" }}>
               <Link href="/resume">
                 <button className="bg-white text-navy font-bold text-[0.88rem] px-8 py-3 rounded-full hover:bg-white/90 transition-colors duration-200 active:scale-[0.97]">
                   View Resume
@@ -60,7 +69,7 @@ export default function Home() {
           </div>
 
           {/* ── Right — Profile card ──────────────────────────── */}
-          <div className="w-full lg:w-[400px] shrink-0">
+          <div className="w-full lg:w-[400px] shrink-0 ent-fade-right" style={{ animationDelay: "400ms" }}>
             <div className="apple-card rounded-2xl border-border/30 p-6 relative overflow-hidden">
               {/* Card glow — top right */}
               <div
