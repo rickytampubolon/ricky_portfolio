@@ -136,9 +136,9 @@ export default function Home() {
                 <p className="text-[0.6rem] font-mono uppercase tracking-[0.15em] text-muted-foreground/50 mb-2.5">
                   Career Path
                 </p>
-                <div className="flex items-center gap-1 overflow-hidden">
+                <div className="flex items-center gap-x-1 gap-y-1 flex-wrap">
                   {careerPath.map((co, i) => (
-                    <span key={co} className="flex items-center gap-1 shrink-0">
+                    <span key={co} className="flex items-center gap-1">
                       <span
                         className="text-[0.75rem]"
                         style={{ color: co === "Green SM" ? "var(--mint)" : "var(--light-slate)" }}
