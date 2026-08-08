@@ -171,45 +171,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </div>
 
-      {/* ── Left rail — social (top) + copyright (bottom), desktop only ── */}
-      <div className="hidden md:flex fixed top-16 bottom-0 left-8 z-40 flex-col items-center py-6">
-        {/* Social icons at top */}
-        <div className="flex flex-col items-center gap-4">
-          <a
-            href={`mailto:${profile.email}`}
-            aria-label="Email"
-            className="text-subtle hover:text-mint transition-colors duration-200"
-          >
-            <Mail size={17} strokeWidth={1.75} />
-          </a>
-          {social.map(({ href, label, icon }) => {
-            const Icon = socialIcons[icon];
-            return (
-              <a
-                key={label}
-                href={href}
-                aria-label={label}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-subtle hover:text-mint transition-colors duration-200"
-              >
-                <Icon size={17} strokeWidth={1.75} />
-              </a>
-            );
-          })}
-        </div>
-
-        {/* Flexible vertical line */}
-        <div className="flex-1 w-px bg-subtle/40 my-4" />
-
-        {/* Copyright at bottom */}
-        <span
-          className="text-muted-foreground font-mono text-xs tracking-widest select-none"
-          style={{ writingMode: "vertical-rl" }}
-        >
-          © {new Date().getFullYear()} {profile.name}
-        </span>
-      </div>
 
       {/* ── Main content ───────────────────────────────────────── */}
       <main ref={mainRef} className="pt-16 flex flex-col min-h-screen">
@@ -217,8 +178,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {children}
         </div>
 
-        {/* ── Mobile footer ────────────────────────────────────── */}
-        <footer className="md:hidden shrink-0 border-t border-border px-6 py-4 mt-auto">
+        {/* ── Footer ───────────────────────────────────────────── */}
+        <footer className="shrink-0 border-t border-border/40 px-6 md:px-12 py-4 mt-auto">
           <div className="flex items-center justify-between">
             <p className="text-[0.68rem] font-mono text-muted-foreground select-none">
               © {new Date().getFullYear()} {profile.name}
