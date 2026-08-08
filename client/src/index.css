@@ -189,9 +189,10 @@
 
   /* ── Nav (used for top fixed bar) ───────────────────────── */
   .top-nav-bg {
-    background-color: color-mix(in srgb, var(--darker-navy) 85%, transparent);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
+    background-color: color-mix(in srgb, var(--darker-navy) 60%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid color-mix(in srgb, var(--mint) 8%, transparent);
   }
 
   /* ── Navy / background fill ──────────────────────────────── */

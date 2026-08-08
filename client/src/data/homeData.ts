@@ -23,8 +23,8 @@ export const bio =
   "business goals, and technology to turn ambiguity into products that create real value.";
 
 export const resumeIntro =
-  "Lead Product Manager with experience at Green SM, Tokopedia, Shopee, and Traveloka. " +
-  "Specialising in logistics, fulfillment, and electric mobility.";
+  "Lead Product Manager with 7 years of experience building and scaling digital products " +
+  "across logistics, fulfillment, and electric mobility.";
 
 export const sectors = ["Electric Mobility", "Logistics", "Fulfillment", "Ed-Tech"];
 
