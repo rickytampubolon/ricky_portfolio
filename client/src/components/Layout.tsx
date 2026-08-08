@@ -44,6 +44,25 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [mobileOpen]);
 
+  const isScrollPage = location === "/resume" || location === "/contact";
+  const [atBottom, setAtBottom] = useState(false);
+
+  useEffect(() => {
+    setAtBottom(false);
+    if (location !== "/resume" && location !== "/contact") return;
+    const check = () => {
+      const total = document.documentElement.scrollHeight;
+      const visible = window.innerHeight;
+      if (total <= visible + 10) { setAtBottom(true); return; }
+      setAtBottom(window.scrollY + visible >= total - 60);
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    return () => window.removeEventListener("scroll", check);
+  }, [location]);
+
+  const footerVisible = !isScrollPage || atBottom;
+
   const isActive = (href: string) =>
     href === "/" ? location === "/" : location.startsWith(href);
 
@@ -189,7 +208,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         </div>
 
         {/* ── Footer ───────────────────────────────────────────── */}
-        <footer className="fixed bottom-0 left-0 right-0 z-40 px-6 md:px-12 py-4" style={{ background: "transparent" }}>
+        <footer
+          className={`fixed bottom-0 left-0 right-0 z-40 px-6 md:px-12 py-4 transition-all duration-300 ${
+            footerVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
+          style={{ background: "transparent" }}
+        >
           <div className="flex items-center justify-between">
             <p className="text-[0.68rem] font-mono text-muted-foreground select-none">
               © {new Date().getFullYear()} {profile.name}
