@@ -25,11 +25,19 @@ const socialIcons: Record<string, React.FC<LucideProps>> = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [location]   = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled,   setScrolled]   = useState(false);
 
   useEffect(() => {
     setMobileOpen(false);
+    setScrolled(false);
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [location]);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -81,7 +89,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen text-foreground">
 
       {/* ── Fixed top nav ─────────────────────────────────────── */}
-      <header className="fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12" style={{ background: "transparent" }}>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12 transition-all duration-300 ${scrolled ? "top-nav-bg" : ""}`}
+        style={scrolled ? undefined : { background: "transparent" }}
+      >
 
         {/* Logo — text only */}
         <Link href="/" className="mr-auto">
