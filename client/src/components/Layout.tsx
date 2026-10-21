@@ -4,9 +4,9 @@ import { profile, social } from "../data/homeData";
 import Logo from "./Logo";
 
 const navLinks = [
-  { label: "Experience", href: "#experience" },
-  { label: "Education",  href: "#education"  },
-  { label: "Contact",    href: "#contact"    },
+  { label: "Experience", href: "/#experience" },
+  { label: "Education",  href: "/#education"  },
+  { label: "Contact",    href: "/#contact"    },
 ];
 
 export default function Layout({ children, title }: { children: React.ReactNode; title?: string }) {
@@ -35,9 +35,10 @@ export default function Layout({ children, title }: { children: React.ReactNode;
 
   return (
     <div id="top" className="min-h-screen flex flex-col">
+      <a href="#main" className="skip-link">Skip to content</a>
       <div className="w-full max-w-4xl mx-auto px-6 flex-1 flex flex-col">
         <header className="h-24 flex items-center justify-between gap-4">
-          <a href="#top" aria-label={`${profile.name}, back to top`} className="shrink-0 hover:opacity-70 transition-opacity">
+          <a href="/#top" aria-label={`${profile.name}, back to top`} className="shrink-0 hover:opacity-70 transition-opacity">
             <Logo size={44} />
           </a>
 
@@ -75,7 +76,7 @@ export default function Layout({ children, title }: { children: React.ReactNode;
           </div>
         </header>
 
-        <main className="flex-1 flex flex-col">{children}</main>
+        <main id="main" className="flex-1 flex flex-col">{children}</main>
 
         <footer className="py-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-1 text-[0.9rem] text-subtle">
           <p>© {new Date().getFullYear()} {profile.name}</p>

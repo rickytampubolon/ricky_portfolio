@@ -1,4 +1,6 @@
 import { useState, useRef } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { profile, social } from "../data/homeData";
 
 const WEB3FORMS_ACCESS_KEY =
   import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "012cebc9-d8fb-4c62-9879-3b3bc071f3b4";
@@ -137,7 +139,7 @@ export default function ContactSection() {
       setErrors({});
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Unknown error";
-      setSubmitErr(`The message was not sent (${msg}). Try again, or email me directly.`);
+      setSubmitErr(msg);
     } finally {
       submitting.current = false;
       setLoading(false);
@@ -147,9 +149,22 @@ export default function ContactSection() {
   return (
     <section id="contact" aria-labelledby="contact-label" className="card md:col-span-2 !p-6 md:!p-8">
       <h2 id="contact-label" className="chip">Say hello</h2>
-      <div className="mt-8">
-        <p className="text-[1.6rem] font-medium tracking-tight mb-7">Have a role or a project in mind?</p>
+      <div className="mt-8 grid md:grid-cols-[1fr_1.5fr] gap-x-14 gap-y-8">
+        <div>
+          <p className="text-[0.9rem] text-subtle mb-3">Or find me on</p>
+          <ul>
+            {social.map(({ href, label }) => (
+              <li key={label} className="border-t border-border last:border-b">
+                <a href={href} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between min-h-14 text-[1.15rem]">
+                  {label}
+                  <ArrowUpRight size={18} strokeWidth={1.6} className="text-subtle group-hover:text-foreground transition-colors" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
 
+        <div>
         {success ? (
           <div role="status" className="py-2">
             <p className="text-[1.25rem] font-medium mb-2">Message sent</p>
@@ -177,7 +192,12 @@ export default function ContactSection() {
               value={form.message} error={shown("message")}
               onChange={(v) => update("message", v)} onBlur={() => blur("message")} />
 
-            {submitErr && <p role="alert" className="text-[0.9rem] text-destructive">{submitErr}</p>}
+            {submitErr && (
+              <p role="alert" className="text-[0.9rem] text-destructive">
+                The message was not sent ({submitErr}). Try again, or email me at{" "}
+                <a href={`mailto:${profile.email}`} className="underline underline-offset-2">{profile.email}</a>.
+              </p>
+            )}
 
             <button
               type="submit"
@@ -188,6 +208,7 @@ export default function ContactSection() {
             </button>
           </form>
         )}
+        </div>
       </div>
     </section>
   );

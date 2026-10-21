@@ -43,6 +43,15 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url("/fonts/geist-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   --radius: 0.25rem;
 
@@ -120,6 +129,13 @@
 
   :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; border-radius: 2px; }
 
+  .skip-link {
+    position: absolute; left: 1rem; top: -4rem; z-index: 100;
+    background: var(--ink); color: var(--paper);
+    padding: 0.75rem 1.25rem; border-radius: 999px; transition: top 0.15s ease;
+  }
+  .skip-link:focus { top: 1rem; }
+
   ::selection { background: var(--ink); color: var(--paper); }
 }
 
@@ -174,7 +190,7 @@
   .field {
     width: 100%;
     background: var(--paper);
-    border: 1px solid #d4d4d4;
+    border: 1px solid #8a8a8a;
     border-radius: 0.875rem;
     padding: 0.8rem 1rem;
     min-height: 3rem;
@@ -183,7 +199,7 @@
     transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
   textarea.field { resize: vertical; }
-  .field:hover { border-color: #a3a3a3; }
+  .field:hover { border-color: #525252; }
   .field:focus-visible { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(8,8,8,0.12); }
   .field-error, .field-error:hover { border-color: var(--destructive); }
 
