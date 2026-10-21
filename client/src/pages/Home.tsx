@@ -6,10 +6,30 @@ import ContactSection from "./Contact";
 const fog = "text-[color:var(--fog)]";
 
 export default function Home() {
-  // The page is lazy-loaded, so honour a #section in the URL once it has rendered.
   useEffect(() => {
-    const id = window.location.hash.slice(1);
-    if (id) document.getElementById(id)?.scrollIntoView();
+    // Jump to a section, then clean the hash out of the address bar. Otherwise a saved or
+    // autocompleted "rickyhlmn.com/#contact" would reopen the site scrolled to the bottom.
+    const go = (id: string) => {
+      const el = document.getElementById(id);
+      if (!el) return false;
+      el.scrollIntoView();
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+      return true;
+    };
+
+    // The page is lazy-loaded, so honour a #section in the URL once it has rendered.
+    const initial = window.location.hash.slice(1);
+    if (initial) go(initial);
+
+    const onClick = (e: MouseEvent) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = (e.target as Element).closest("a");
+      const href = a?.getAttribute("href");
+      if (!href || !/^\/?#./.test(href)) return;
+      if (go(href.replace(/^\/?#/, ""))) e.preventDefault();
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
   }, []);
 
   return (

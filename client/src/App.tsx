@@ -22,7 +22,7 @@ function Router() {
     <Suspense fallback={<div style={{ minHeight: "100vh", backgroundColor: "var(--paper)" }} />}>
       <Switch>
         <Route path="/"         component={Home} />
-        <Route path="/resume"   component={() => <ToSection id="resume" />} />
+        <Route path="/resume"   component={() => <ToSection id="experience" />} />
         <Route path="/contact"  component={() => <ToSection id="contact" />} />
         <Route path="/404"      component={NotFound} />
         <Route component={NotFound} />
