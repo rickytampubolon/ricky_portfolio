@@ -1,274 +1,96 @@
-import { Link, useLocation } from "wouter";
-import { Linkedin, Instagram, X, Menu, Mail, type LucideProps } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Menu, X } from "lucide-react";
 import { profile, social } from "../data/homeData";
+import Logo from "./Logo";
 
-/* ── Nav config ──────────────────────────────────────────────── */
-type NavLink =
-  | { label: string; href: string; num: string; soon?: never }
-  | { label: string; href?: never;  num: string; soon: true  };
-
-const navLinks: NavLink[] = [
-  { num: "01.", label: "About",   href: "/"        },
-  { num: "02.", label: "Resume",  href: "/resume"  },
-  { num: "03.", label: "Work",    soon: true       },
-  { num: "04.", label: "Contact", href: "/contact" },
+const navLinks = [
+  { label: "Experience", href: "/#experience" },
+  { label: "Education",  href: "/#education"  },
+  { label: "Contact",    href: "/#contact"    },
 ];
 
-/* ── Icon map ────────────────────────────────────────────────── */
-const socialIcons: Record<string, React.FC<LucideProps>> = {
-  linkedin:  Linkedin,
-  instagram: Instagram,
-};
-
-/* ── Layout ──────────────────────────────────────────────────── */
-export default function Layout({ children }: { children: React.ReactNode }) {
-  const [location]   = useLocation();
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled,   setScrolled]   = useState(false);
+export default function Layout({ children, title }: { children: React.ReactNode; title?: string }) {
+  const [open, setOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMobileOpen(false);
-    setScrolled(false);
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, [location]);
+    document.title = title
+      ? `${title} | ${profile.name}`
+      : `${profile.name} | ${profile.title}`;
+  }, [title]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    onScroll(); // check immediately on mount
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
-  }, [mobileOpen]);
-
-  useEffect(() => {
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && mobileOpen) setMobileOpen(false);
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onClick = (e: MouseEvent) => {
+      if (!menuRef.current?.contains(e.target as Node)) setOpen(false);
     };
-    document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
-  }, [mobileOpen]);
-
-  const isScrollPage = location === "/resume" || location === "/contact";
-  const [atBottom, setAtBottom] = useState(false);
-  const [isDesktop, setIsDesktop] = useState(
-    () => typeof window !== "undefined" && window.matchMedia("(min-width: 1024px)").matches
-  );
-
-  useEffect(() => {
-    const mq = window.matchMedia("(min-width: 1024px)");
-    const handler = (e: MediaQueryListEvent) => setIsDesktop(e.matches);
-    mq.addEventListener("change", handler);
-    return () => mq.removeEventListener("change", handler);
-  }, []);
-
-  useEffect(() => {
-    setAtBottom(false);
-    const check = () => {
-      const total = document.documentElement.scrollHeight;
-      const visible = window.innerHeight;
-      if (total <= visible + 10) { setAtBottom(true); return; }
-      setAtBottom(window.scrollY + visible >= total - 60);
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("mousedown", onClick);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("mousedown", onClick);
     };
-    check();
-    window.addEventListener("scroll", check, { passive: true });
-    return () => window.removeEventListener("scroll", check);
-  }, [location]);
-
-  // Desktop home page: always show footer (page is non-scrollable).
-  // All other cases (mobile all pages, desktop scroll pages): show only at bottom.
-  const footerVisible = (isDesktop && !isScrollPage) || atBottom;
-
-  const isActive = (href: string) =>
-    href === "/" ? location === "/" : location.startsWith(href);
+  }, [open]);
 
   return (
-    <div className="min-h-screen text-foreground">
+    <div id="top" className="min-h-screen flex flex-col">
+      <a href="#main" className="skip-link">Skip to content</a>
+      <div className="w-full max-w-4xl mx-auto px-6 flex-1 flex flex-col">
+        <header className="h-24 flex items-center justify-between gap-4">
+          <a href="/#top" aria-label={`${profile.name}, back to top`} className="shrink-0 hover:opacity-70 transition-opacity">
+            <Logo size={44} />
+          </a>
 
-      {/* ── Fixed top nav ─────────────────────────────────────── */}
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 h-16 flex items-center px-6 md:px-12 transition-colors duration-300 ${scrolled ? "top-nav-bg" : ""}`}
-        style={scrolled ? undefined : { background: "transparent" }}
-      >
-
-        {/* Logo — text only */}
-        <Link href="/" className="mr-auto">
-          <div className="flex items-center gap-2.5 group">
-            <span className="w-2 h-2 rounded-sm bg-mint shrink-0 group-hover:scale-110 transition-transform duration-200" />
-            <span
-              className="font-bold text-[0.92rem] tracking-tight transition-colors duration-200 group-hover:text-mint"
-              style={{ color: "var(--white)" }}
-            >
-              {profile.name}
-            </span>
-          </div>
-        </Link>
-
-        {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-1" role="navigation" aria-label="Primary navigation">
-          {navLinks.map((link) =>
-            link.soon ? (
-              <span
-                key={link.label}
-                className="px-4 py-2 text-[0.82rem] font-mono text-foreground/25 cursor-default select-none flex items-center gap-1.5"
-              >
-                <span className="text-mint/40 text-[0.72rem]">{link.num}</span>
-                {link.label}
-                <span className="text-[0.48rem] px-1.5 py-0.5 rounded border border-foreground/15 text-foreground/25 uppercase tracking-wide font-bold ml-1">
-                  Soon
-                </span>
-              </span>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={isActive(link.href) ? "page" : undefined}
-                className={`px-4 py-2 text-[0.82rem] font-mono transition-colors duration-200 flex items-center gap-1.5 ${
-                  isActive(link.href)
-                    ? "text-mint"
-                    : "text-subtle hover:text-mint"
-                }`}
-              >
-                <span className="text-mint text-[0.72rem]">{link.num}</span>
-                {link.label}
-              </Link>
-            )
-          )}
-        </nav>
-
-        {/* Mobile: hamburger */}
-        <button
-          onClick={() => setMobileOpen((o) => !o)}
-          aria-label={mobileOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={mobileOpen}
-          aria-controls="mobile-nav"
-          className="md:hidden text-foreground min-w-[44px] min-h-[44px] flex items-center justify-center"
-        >
-          <Menu size={21} />
-        </button>
-      </header>
-
-      {/* ── Mobile navigation overlay ──────────────────────────── */}
-      <div
-        id="mobile-nav"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation menu"
-        className={`md:hidden fixed inset-0 z-[100] bg-surface flex flex-col transition-all duration-300 ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
-        style={{
-          transform: mobileOpen ? "translateX(0)" : "translateX(100%)",
-          transition: "opacity 0.3s ease, transform 0.3s ease",
-        }}
-      >
-        <div className="flex items-center justify-end px-5 h-16">
-          <button
-            onClick={() => setMobileOpen(false)}
-            aria-label="Close navigation menu"
-            className="text-foreground min-w-[44px] min-h-[44px] flex items-center justify-center"
-          >
-            <X size={22} />
-          </button>
-        </div>
-
-        <nav
-          role="navigation"
-          aria-label="Mobile navigation"
-          className="flex flex-col items-center justify-center flex-1 gap-6"
-        >
-          {navLinks.map((link) =>
-            link.soon ? (
-              <span
-                key={link.label}
-                className="flex flex-col items-center text-foreground/25 cursor-default select-none"
-              >
-                <span className="text-mint/40 font-mono text-xs mb-1">{link.num}</span>
-                <span className="font-bold text-2xl">{link.label}</span>
-              </span>
-            ) : (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={isActive(link.href) ? "page" : undefined}
-                className={`flex flex-col items-center transition-colors duration-200 ${
-                  isActive(link.href) ? "text-mint" : "text-foreground/60 hover:text-mint"
-                }`}
-              >
-                <span className="text-mint font-mono text-xs mb-1">{link.num}</span>
-                <span className="font-bold text-2xl">{link.label}</span>
-              </Link>
-            )
-          )}
-        </nav>
-
-        <div className="px-6 py-8 flex flex-col items-center gap-4">
-          <div className="flex items-center gap-5">
-            <a href={`mailto:${profile.email}`} className="text-subtle hover:text-mint transition-colors">
-              <Mail size={18} strokeWidth={1.75} />
-            </a>
-            {social.map(({ href, label, icon }) => {
-              const Icon = socialIcons[icon];
-              return (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="text-subtle hover:text-mint transition-colors">
-                  <Icon size={18} strokeWidth={1.75} />
-                </a>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-
-      {/* ── Main content ───────────────────────────────────────── */}
-      <main className="pt-16 pb-24 flex flex-col min-h-screen">
-        <div className="flex-1">
-          {children}
-        </div>
-
-        {/* ── Footer ───────────────────────────────────────────── */}
-        <footer
-          className={`fixed bottom-0 left-0 right-0 z-40 px-6 md:px-12 py-4 transition-all duration-300 ${
-            footerVisible ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          }`}
-          style={{ background: "transparent" }}
-        >
-          <div className="flex items-center justify-between">
-            <p className="text-[0.68rem] font-mono text-muted-foreground select-none">
-              © {new Date().getFullYear()} {profile.name}
-            </p>
-            <div className="flex items-center">
-              <a
-                href={`mailto:${profile.email}`}
-                aria-label="Email"
-                className="text-subtle hover:text-mint transition-colors duration-200 min-w-[40px] min-h-[40px] flex items-center justify-center"
-              >
-                <Mail size={16} strokeWidth={1.75} />
+          {/* Desktop: links are one tap away, no menu needed */}
+          <nav aria-label="Primary" className="hidden md:flex items-center gap-1 shrink-0">
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} className="rounded-full px-4 min-h-11 inline-flex items-center text-[0.92rem] text-subtle hover:text-foreground hover:bg-card transition-colors">
+                {l.label}
               </a>
-              {social.map(({ href, label, icon }) => {
-                const Icon = socialIcons[icon];
-                return (
-                  <a
-                    key={label}
-                    href={href}
-                    aria-label={label}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-subtle hover:text-mint transition-colors duration-200 min-w-[40px] min-h-[40px] flex items-center justify-center"
-                  >
-                    <Icon size={16} strokeWidth={1.75} />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
-        </footer>
-      </main>
+            ))}
+          </nav>
 
+          {/* Mobile: round menu button */}
+          <div ref={menuRef} className="relative shrink-0 md:hidden">
+            <button
+              onClick={() => setOpen((o) => !o)}
+              aria-label={open ? "Close menu" : "Open menu"}
+              aria-expanded={open}
+              aria-controls="site-menu"
+              className="card !p-0 !rounded-full w-12 h-12 grid place-items-center"
+            >
+              {open ? <X size={18} strokeWidth={1.8} /> : <Menu size={18} strokeWidth={1.8} />}
+            </button>
+
+            {open && (
+              <nav id="site-menu" aria-label="Menu" className="card !p-2 !rounded-2xl absolute right-0 top-14 w-52 z-50">
+                {navLinks.map((l) => (
+                  <a key={l.href} href={l.href} onClick={() => setOpen(false)}
+                     className="flex items-center min-h-11 rounded-xl px-4 text-[0.95rem] hover:bg-secondary transition-colors">
+                    {l.label}
+                  </a>
+                ))}
+              </nav>
+            )}
+          </div>
+        </header>
+
+        <main id="main" className="flex-1 flex flex-col">{children}</main>
+
+        <footer className="py-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-1 text-[0.9rem] text-subtle">
+          <p>© {new Date().getFullYear()} {profile.name}</p>
+          <ul className="flex items-center gap-2">
+            {social.map(({ href, label }) => (
+              <li key={label}>
+                <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-11 px-3 hover:text-foreground transition-colors">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </footer>
+      </div>
     </div>
   );
 }
