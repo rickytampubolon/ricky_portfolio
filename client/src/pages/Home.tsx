@@ -14,7 +14,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <section className="pt-8 md:pt-14 pb-14 md:pb-20 reveal">
+      <section className="hero-screen pt-4 md:pt-8 pb-12 md:pb-16 reveal">
         <h1 className="text-[clamp(2.25rem,6.2vw,3.6rem)] font-semibold tracking-[-0.04em] leading-[1.22]">
           <span className="block leading-[1.5] mb-[-0.14em]">
           Hi, I'm{" "}
@@ -37,7 +37,7 @@ export default function Home() {
           </span>
         </h1>
 
-        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+        <div className="hero-cta mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
           <a
             href="#contact"
             className="bg-foreground text-background rounded-full px-8 min-h-14 inline-flex items-center text-[1.05rem] font-medium hover:bg-foreground/85 transition-colors active:scale-[0.98]"
