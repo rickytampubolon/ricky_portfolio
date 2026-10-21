@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import Layout from "../components/Layout";
 import ExperienceSection from "./Resume";
 import ContactSection from "./Contact";
-import { tagline, subline, stats } from "../data/homeData";
+import { tagline, subline } from "../data/homeData";
 
 export default function Home() {
   // The page is lazy-loaded, so honour a #section in the URL once it has rendered.
@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <Layout>
       {/* ── Hero ───────────────────────────────────────────── */}
-      <section className="px-6 md:px-12 pt-10 md:pt-20 pb-24 md:pb-36">
+      <section className="px-6 md:px-12 pt-10 md:pt-20 pb-24 md:pb-40">
         <div className="grid md:grid-cols-2 gap-x-16 gap-y-12 max-w-6xl">
           <div className="reveal">
             <span aria-hidden="true" className="tile w-14 h-14 rounded-full grid place-items-center text-[0.95rem] font-semibold mb-10 md:mb-14">
@@ -38,15 +38,6 @@ export default function Home() {
             </p>
           </div>
         </div>
-
-        <dl className="mt-20 md:mt-28 grid grid-cols-3 gap-4 max-w-2xl">
-          {stats.map((s) => (
-            <div key={s.label} className="tile rounded-2xl px-5 py-6">
-              <dd className="font-display text-[clamp(2.25rem,5vw,3.5rem)] leading-none">{s.value}</dd>
-              <dt className="mt-3 text-[0.82rem] text-muted-foreground">{s.label}</dt>
-            </div>
-          ))}
-        </dl>
       </section>
 
       <ExperienceSection />
