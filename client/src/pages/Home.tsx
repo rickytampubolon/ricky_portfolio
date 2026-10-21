@@ -53,14 +53,19 @@ export default function Home() {
           <span className="text-[color:var(--cyan-text)]">Green SM.</span>
         </h1>
 
-        <div className="hero-cta mt-10 flex flex-wrap items-center gap-x-7 gap-y-5">
-          <a
-            href="#contact"
-            className="bg-foreground text-background rounded-full px-8 min-h-14 inline-flex items-center text-[1.125rem] font-medium hover:bg-foreground/85 transition-colors active:scale-[0.98]"
-          >
-            Get in touch
-          </a>
-          <p className="inline-flex items-center gap-2.5 text-subtle text-base">
+        <div className="hero-cta mt-10">
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+            <a
+              href="#contact"
+              className="bg-foreground text-background rounded-full px-8 min-h-14 inline-flex items-center text-[1.125rem] font-medium hover:bg-foreground/85 transition-colors active:scale-[0.98]"
+            >
+              Get in touch
+            </a>
+            <p className="text-base leading-snug max-w-xs">
+              Have a role or a project in mind? Send me a message.
+            </p>
+          </div>
+          <p className="mt-6 inline-flex items-center gap-2.5 text-subtle text-base">
             <span aria-hidden="true" className="inline-block w-2.5 h-2.5 rounded-full" style={{ background: "var(--cyan)", boxShadow: "0 0 0 4px color-mix(in srgb, var(--cyan) 28%, transparent)" }} />
             Open to opportunities
           </p>
