@@ -24,5 +24,8 @@ export const sectors = ["Electric mobility", "Logistics", "Fulfillment", "Educat
 export const stats = [
   { value: "7",  label: "Years building products" },
   { value: "4",  label: "Industries" },
-  { value: "5",  label: "Companies led from" },
+  { value: "5",  label: "Companies" },
 ];
+
+export const tagline = "Lead Country Product Manager based in Jakarta, Indonesia.";
+export const subline = "Building digital products across mobility, logistics and education.";

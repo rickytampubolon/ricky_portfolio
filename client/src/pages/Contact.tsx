@@ -134,16 +134,14 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="px-6 md:px-12 py-20 md:py-32 border-t border-border">
-      <div className="max-w-2xl w-full">
+    <section id="contact" className="bg-secondary px-6 md:px-12 py-20 md:py-28">
+      <div className="max-w-2xl w-full mx-auto">
 
-        <h2 className="font-display text-[clamp(2.75rem,10vw,8rem)] leading-none mb-8">Let's talk.</h2>
-        <p className="text-muted-foreground mb-12 md:mb-16 max-w-md">
-          Have a project or an opportunity in mind? Send a message and I'll reply soon.
-        </p>
+        <p className="text-muted-foreground text-center mb-3">Have a project?</p>
+        <h2 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] text-center mb-12">Let's talk with me</h2>
 
         {/* ── Form card ──────────────────────────────────────── */}
-        <div className="w-full">
+        <div className="w-full tile rounded-3xl p-6 md:p-10">
 
           {success ? (
             <div role="status" className="py-4">

@@ -1,10 +1,31 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Instagram, Linkedin, Mail } from "lucide-react";
 import { profile, social } from "../data/homeData";
 
 const navLinks = [
-  { label: "Resume",  href: "#resume"  },
-  { label: "Contact", href: "#contact" },
+  { label: "Experience", href: "#experience" },
+  { label: "Education",  href: "#education"  },
+  { label: "Skills",     href: "#skills"     },
+  { label: "Contact",    href: "#contact"    },
 ];
+
+const icons = { LinkedIn: Linkedin, Instagram };
+
+/* Live Jakarta time, shown in the header */
+function JakartaClock() {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const time = now.toLocaleTimeString("en-US", { timeZone: "Asia/Jakarta", hour: "numeric", minute: "2-digit", second: "2-digit" });
+  return (
+    <div className="leading-tight text-[0.78rem]">
+      <p className="text-muted-foreground">Jakarta, Indonesia</p>
+      <p className="font-medium tabular-nums">{time}</p>
+    </div>
+  );
+}
 
 export default function Layout({ children, title }: { children: React.ReactNode; title?: string }) {
   useEffect(() => {
@@ -15,35 +36,54 @@ export default function Layout({ children, title }: { children: React.ReactNode;
 
   return (
     <div id="top" className="min-h-screen flex flex-col">
-      <header className="px-6 md:px-12 h-20 flex items-center justify-between">
-        <a href="#top" className="text-[0.95rem] font-medium tracking-tight">
-          {profile.name}
+      <header className="px-6 md:px-12 h-24 flex items-center gap-6 md:gap-10">
+        <a href="#top" aria-label={`${profile.name}, back to top`} className="w-10 h-10 rounded-xl bg-foreground text-background grid place-items-center text-[0.8rem] font-semibold tracking-tight shrink-0">
+          RH
         </a>
-        <nav aria-label="Primary" className="flex items-center gap-7 text-[0.95rem]">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="py-2 text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {link.label}
-            </a>
+
+        <nav aria-label="Primary" className="hidden md:flex items-center gap-8 text-[0.92rem]">
+          {navLinks.map((l) => (
+            <a key={l.href} href={l.href} className="py-2 hover:text-muted-foreground transition-colors">{l.label}</a>
           ))}
         </nav>
+
+        <div className="ml-auto flex items-center gap-4 md:gap-6">
+          <div className="hidden sm:block"><JakartaClock /></div>
+          <a href="#contact" className="bg-foreground text-background rounded-xl px-5 py-2.5 text-[0.9rem] hover:bg-foreground/85 transition-colors active:scale-[0.98]">
+            Talk with me
+          </a>
+        </div>
       </header>
+
+      {/* Social rail, desktop only */}
+      <aside aria-label="Social links" className="hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-40 flex-col gap-3">
+        {social.map(({ href, label }) => {
+          const Icon = icons[label];
+          return (
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+               className="tile w-11 h-11 rounded-full grid place-items-center hover:bg-foreground hover:text-background transition-colors">
+              <Icon size={17} strokeWidth={1.6} />
+            </a>
+          );
+        })}
+        <a href={`mailto:${profile.email}`} aria-label="Email"
+           className="tile w-11 h-11 rounded-full grid place-items-center hover:bg-foreground hover:text-background transition-colors">
+          <Mail size={17} strokeWidth={1.6} />
+        </a>
+      </aside>
 
       <main className="flex-1 flex flex-col">{children}</main>
 
-      <footer className="px-6 md:px-12 py-8 flex flex-wrap items-center justify-between gap-x-6 gap-y-2 text-[0.85rem] text-muted-foreground">
-        <p>© {new Date().getFullYear()} {profile.name}</p>
-        <div className="flex items-center gap-6">
-          <a href={`mailto:${profile.email}`} className="hover:text-foreground transition-colors py-2">Email</a>
-          {social.map(({ href, label }) => (
-            <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors py-2">
-              {label}
-            </a>
+      <footer className="px-6 md:px-12 py-8 flex flex-wrap items-center justify-between gap-x-8 gap-y-3 text-[0.85rem]">
+        <p className="flex items-center gap-4">
+          <span className="font-semibold">{profile.name}</span>
+          <span className="text-muted-foreground">{profile.title}</span>
+        </p>
+        <nav aria-label="Footer" className="flex items-center gap-6 text-muted-foreground">
+          {navLinks.map((l) => (
+            <a key={l.href} href={l.href} className="hover:text-foreground transition-colors py-2">{l.label}</a>
           ))}
-        </div>
+        </nav>
       </footer>
     </div>
   );

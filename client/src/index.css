@@ -46,16 +46,16 @@
 :root {
   --radius: 0.25rem;
 
-  --font-sans: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* ── Monochrome scale ───────────────────────────────────────── */
-  --paper:  #fafaf9;
+  --paper:  #ffffff;
   --ink:    #0a0a0a;
   --graphite: #525252;   /* 7.5:1 on paper */
   --ash:    #737373;     /* 4.7:1 on paper */
-  --line:   #e5e5e3;
-  --wash:   #f0f0ee;
+  --line:   #e6e6e3;
+  --wash:   #f4f4f1;
 
   /* ── Semantic design tokens ──────────────────────────────────── */
   --background:           var(--paper);
@@ -108,7 +108,7 @@
     overflow-x: hidden;
   }
 
-  h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.02em; line-height: 1.05; }
+  h1, h2, h3 { font-family: var(--font-serif); font-weight: 300; letter-spacing: -0.03em; line-height: 1.1; }
 
   a, button { touch-action: manipulation; }
   button:not(:disabled), a[href] { cursor: pointer; }
@@ -119,7 +119,7 @@
 }
 
 @layer components {
-  .font-display { font-family: var(--font-serif); font-weight: 400; letter-spacing: -0.02em; }
+  .font-display { font-family: var(--font-serif); font-weight: 300; letter-spacing: -0.035em; }
 
   /* Underlined text link, the only link style on the site */
   .link {
@@ -131,6 +131,13 @@
     transition: text-decoration-color 0.2s ease;
   }
   .link:hover { text-decoration-color: var(--ink); }
+
+  /* White tile used for logos, icon buttons and cards */
+  .tile {
+    background: #fff;
+    border: 1px solid var(--line);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
 
   .apple-input {
     width: 100%;
