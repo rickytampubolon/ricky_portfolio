@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import { profile } from "../data/homeData";
 
 const WEB3FORMS_ACCESS_KEY =
@@ -84,13 +84,6 @@ const inputError = "border-destructive";
 
 /* ── Component ───────────────────────────────────────────────── */
 export default function ContactSection() {
-  const [now, setNow] = useState(() => new Date());
-  useEffect(() => {
-    const id = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  const localTime = now.toLocaleTimeString("en-US", { timeZone: "Asia/Jakarta", hour: "numeric", minute: "2-digit", second: "2-digit" });
-
   const [form,      setForm]     = useState<FormState>(EMPTY);
   const [errors,    setErrors]   = useState<FormErrors>({});
   const [touched,   setTouched]  = useState<Partial<Record<keyof FormState, boolean>>>({});
@@ -141,17 +134,16 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="bg-secondary px-6 md:px-12 py-20 md:py-28">
-      <div className="max-w-2xl w-full mx-auto">
-
-        <p className="text-muted-foreground text-center mb-3">Have a project?</p>
-        <h2 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] text-center mb-3">Let's talk with me</h2>
-        <p className="text-center text-[0.85rem] text-muted-foreground mb-12">
-          My local time <span className="font-medium text-foreground">{localTime}</span>
+    <section id="contact" aria-labelledby="contact-label" className="card md:col-span-2 !p-6 md:!p-8">
+      <span id="contact-label" className="chip">Say hello</span>
+      <div className="mt-8">
+        <h2 className="text-[1.6rem] font-medium tracking-tight mb-2">Have a project in mind?</h2>
+        <p className="text-muted-foreground text-[0.92rem] mb-8 max-w-md">
+          Send a message and I'll reply soon.
         </p>
 
         {/* ── Form card ──────────────────────────────────────── */}
-        <div className="w-full tile rounded-3xl p-6 md:p-10">
+        <div className="w-full">
 
           {success ? (
             <div role="status" className="py-4">
@@ -162,7 +154,7 @@ export default function ContactSection() {
               </button>
             </div>
           ) : (
-            <form onSubmit={onSubmit} noValidate className="space-y-8">
+            <form onSubmit={onSubmit} noValidate className="space-y-5">
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <FormField id="firstName" label="First Name" error={errors.firstName} touched={touched.firstName}>
@@ -191,6 +183,7 @@ export default function ContactSection() {
                 </FormField>
               </div>
 
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <FormField id="email" label="Email" error={errors.email} touched={touched.email}>
                 <input
                   id="email"
@@ -216,11 +209,12 @@ export default function ContactSection() {
                   autoComplete="off"
                 />
               </FormField>
+              </div>
 
               <FormField id="message" label="Message" error={errors.message} touched={touched.message}>
                 <textarea
                   id="message"
-                  rows={4}
+                  rows={3}
                   placeholder=""
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
@@ -247,7 +241,7 @@ export default function ContactSection() {
           )}
         </div>
 
-        <p className="mt-10 text-[0.9rem] text-muted-foreground">
+        <p className="mt-8 text-[0.88rem] text-muted-foreground">
           Or email me directly at{" "}
           <a href={`mailto:${profile.email}`} className="link">
             {profile.email}

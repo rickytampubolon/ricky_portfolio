@@ -1,11 +1,12 @@
-/* Brand mark: soft hexagon with the RH monogram. Same shape as public/favicon.svg */
+/* Brand mark: rounded triangle outline with a dot. Same shape as public/favicon.svg */
 export default function Logo({ size = 44 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true" focusable="false">
-      <polygon points="24,5 41,14.5 41,33.5 24,43 7,33.5 7,14.5" fill="currentColor" stroke="currentColor" strokeWidth="7" strokeLinejoin="round" />
-      <text x="24" y="30.5" textAnchor="middle" fontWeight="800" fontSize="18" letterSpacing="-1.6" fill="var(--paper)" style={{ fontFamily: "var(--font-sans)" }}>
-        RH
-      </text>
+    <svg width={size} height={size} viewBox="0 0 48 48" aria-hidden="true" focusable="false" fill="none">
+      <path
+        d="M24 9.5c1.9 0 3.4 1 4.4 2.7l11 18.3c2 3.3-.4 7.5-4.3 7.5H12.9c-3.9 0-6.3-4.2-4.3-7.5l11-18.3c1-1.7 2.5-2.7 4.4-2.7Z"
+        stroke="currentColor" strokeWidth="4.5" strokeLinejoin="round"
+      />
+      <circle cx="41" cy="40" r="2.6" fill="currentColor" />
     </svg>
   );
 }

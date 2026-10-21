@@ -50,19 +50,19 @@
   --font-serif: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* ── Monochrome scale ───────────────────────────────────────── */
-  --paper:  #ffffff;
+  --paper:  #f6f6f5;
   --ink:    #0a0a0a;
   --graphite: #525252;   /* 7.5:1 on paper */
   --ash:    #737373;     /* 4.7:1 on paper */
-  --line:   #e6e6e3;
-  --wash:   #f4f4f1;
+  --line:   #e4e4e1;
+  --wash:   #ececea;
 
   /* ── Semantic design tokens ──────────────────────────────────── */
   --background:           var(--paper);
   --surface:              var(--paper);
   --foreground:           var(--ink);
   --subtle:               var(--graphite);
-  --card:                 var(--paper);
+  --card:                 #ffffff;
   --card-foreground:      var(--ink);
   --popover:              var(--paper);
   --popover-foreground:   var(--ink);
@@ -99,7 +99,9 @@
   * { @apply border-border outline-ring/50; }
 
   body {
-    @apply text-foreground bg-background;
+    @apply text-foreground;
+    background: radial-gradient(1200px 600px at 85% -10%, #ffffff 0%, transparent 60%), var(--paper);
+    background-attachment: fixed;
     font-family: var(--font-sans);
     font-size: 1rem;
     line-height: 1.6;
@@ -131,6 +133,29 @@
     transition: text-decoration-color 0.2s ease;
   }
   .link:hover { text-decoration-color: var(--ink); }
+
+  /* Bento card: white, very round, lifted by a soft shadow */
+  .card {
+    background: #fff;
+    border-radius: 1.75rem;
+    border: 1px solid rgba(255,255,255,0.9);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 14px 32px -18px rgba(0,0,0,0.14);
+    padding: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Small white label pinned to a card's top-left */
+  .chip {
+    display: inline-flex;
+    background: #fff;
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 4px 10px -4px rgba(0,0,0,0.12);
+    position: relative;
+    z-index: 2;
+  }
 
   /* White tile used for logos, icon buttons and cards */
   .tile {

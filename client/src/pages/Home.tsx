@@ -1,9 +1,10 @@
 import { useEffect } from "react";
 import Layout from "../components/Layout";
 import Logo from "../components/Logo";
-import ExperienceSection from "./Resume";
+import { ExperienceCard, EducationCard, IndustriesCard, MapCard } from "./Bento";
 import ContactSection from "./Contact";
-import { tagline, subline } from "../data/homeData";
+
+const muted = "text-foreground/30";
 
 export default function Home() {
   // The page is lazy-loaded, so honour a #section in the URL once it has rendered.
@@ -14,35 +15,42 @@ export default function Home() {
 
   return (
     <Layout>
-      {/* ── Hero ───────────────────────────────────────────── */}
-      <section className="px-6 md:px-12 pt-10 md:pt-20 pb-24 md:pb-40">
-        <div className="grid md:grid-cols-2 gap-x-16 gap-y-12 max-w-6xl">
-          <div className="reveal">
-            <span aria-hidden="true" className="tile w-14 h-14 rounded-full grid place-items-center mb-10 md:mb-14">
-              <Logo size={34} />
-            </span>
-            <h1 className="font-display text-[clamp(2.75rem,6.5vw,5rem)] leading-[1.05]">
-              Hello! I'm<br />Ricky Halomoan
-            </h1>
-          </div>
+      <section className="pt-8 md:pt-14 pb-14 md:pb-20 reveal">
+        <h1 className="text-[clamp(2.25rem,6.2vw,3.6rem)] font-semibold tracking-[-0.04em] leading-[1.22]">
+          Hi, I'm{" "}
+          <span
+            aria-hidden="true"
+            className="card !p-0 !rounded-[1.1rem] inline-grid place-items-center align-middle w-[1.55em] h-[1.55em] mx-1 -translate-y-[0.06em]"
+          >
+            <Logo size={44} />
+          </span>
+          Ricky Halomoan!
+          <br />
+          <span className={muted}>I'm a </span>Lead Country Product Manager
+          <br />
+          <span className={muted}>at </span>Green SM.
+        </h1>
 
-          <div className="reveal md:pt-[5.5rem]" style={{ animationDelay: "120ms" }}>
-            <p className="font-display text-[clamp(1.5rem,2.6vw,2.1rem)] leading-snug max-w-md">{tagline}</p>
-            <p className="mt-5 text-muted-foreground max-w-sm">{subline}</p>
-            <p className="mt-9 flex flex-wrap gap-3">
-              <a href="#contact" className="bg-foreground text-background rounded-xl px-6 py-3 text-[0.95rem] hover:bg-foreground/85 transition-colors active:scale-[0.98]">
-                Talk with me
-              </a>
-              <a href="#experience" className="tile rounded-xl px-6 py-3 text-[0.95rem] hover:bg-secondary transition-colors active:scale-[0.98]">
-                See my experience
-              </a>
-            </p>
-          </div>
+        <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+          <a
+            href="#contact"
+            className="bg-foreground text-background rounded-full px-8 py-4 text-[1.05rem] font-medium hover:bg-foreground/85 transition-colors active:scale-[0.98]"
+          >
+            Get in touch
+          </a>
+          <p className="text-[1.05rem] leading-snug max-w-xs">
+            Feel free to look around and reach out. I'd love to connect!
+          </p>
         </div>
       </section>
 
-      <ExperienceSection />
-      <ContactSection />
+      <div className="grid gap-5 md:grid-cols-3 pb-4">
+        <ExperienceCard />
+        <EducationCard />
+        <IndustriesCard />
+        <MapCard />
+        <ContactSection />
+      </div>
     </Layout>
   );
 }

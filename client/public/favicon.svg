@@ -1,4 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="Ricky Halomoan">
-  <polygon points="24,5 41,14.5 41,33.5 24,43 7,33.5 7,14.5" fill="#0a0a0a" stroke="#0a0a0a" stroke-width="7" stroke-linejoin="round"/>
-  <text x="24" y="30.5" text-anchor="middle" font-family="Geist, Arial Black, Arial, sans-serif" font-weight="800" font-size="18" letter-spacing="-1.6" fill="#fff">RH</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <rect width="48" height="48" rx="11" fill="#f6f6f5"/>
+  <path d="M24 9.5c1.9 0 3.4 1 4.4 2.7l11 18.3c2 3.3-.4 7.5-4.3 7.5H12.9c-3.9 0-6.3-4.2-4.3-7.5l11-18.3c1-1.7 2.5-2.7 4.4-2.7Z" stroke="#0a0a0a" stroke-width="4.5" stroke-linejoin="round"/>
+  <circle cx="41" cy="40" r="2.6" fill="#0a0a0a"/>
 </svg>
