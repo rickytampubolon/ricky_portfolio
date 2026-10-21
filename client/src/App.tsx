@@ -15,7 +15,7 @@ function Router() {
   useAnalytics();
 
   return (
-    <Suspense fallback={<div style={{ minHeight: "100vh", backgroundColor: "var(--navy)" }} />}>
+    <Suspense fallback={<div style={{ minHeight: "100vh", backgroundColor: "var(--paper)" }} />}>
       <Switch>
         <Route path="/"         component={Home} />
         <Route path="/resume"   component={Resume} />
@@ -36,7 +36,7 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider defaultTheme="dark">
+      <ThemeProvider defaultTheme="light">
         <TooltipProvider>
           <Toaster />
           <Router />

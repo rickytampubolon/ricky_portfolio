@@ -1,6 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Layout from "../components/Layout";
-import { Send, CheckCircle, ArrowUp } from "lucide-react";
 import { profile } from "../data/homeData";
 
 const WEB3FORMS_ACCESS_KEY =
@@ -22,8 +21,8 @@ const EMPTY: FormState = { firstName: "", lastName: "", email: "", subject: "", 
 /* ── Shared field styles ─────────────────────────────────────── */
 const inputBase = "apple-input";
 const labelBase =
-  "block text-[0.68rem] font-mono tracking-[0.08em] uppercase text-mint mb-1.5";
-const errorMsg = "mt-1 text-[0.72rem] text-destructive font-medium";
+  "block text-[0.9rem] text-muted-foreground mb-1";
+const errorMsg = "mt-1 text-[0.85rem] text-destructive";
 
 /* ── Validation ──────────────────────────────────────────────── */
 function validate(fields: FormState): FormErrors {
@@ -74,7 +73,7 @@ function FormField({ id, label, error, touched, children }: FormFieldProps) {
   return (
     <div>
       <label htmlFor={id} className={labelBase}>
-        {label} <span className="text-mint/50">*</span>
+        {label}
       </label>
       {children}
       {hasError && <p className={errorMsg}>{error}</p>}
@@ -86,18 +85,6 @@ const inputError = "border-destructive";
 
 /* ── Component ───────────────────────────────────────────────── */
 export default function Contact() {
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setShowScrollTop(window.scrollY > 300);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   const [form,      setForm]     = useState<FormState>(EMPTY);
   const [errors,    setErrors]   = useState<FormErrors>({});
   const [touched,   setTouched]  = useState<Partial<Record<keyof FormState, boolean>>>({});
@@ -148,46 +135,34 @@ export default function Contact() {
   };
 
   return (
-    <Layout>
-      <div className="px-5 md:px-16 lg:px-24 py-10 md:py-20 max-w-4xl mx-auto">
+    <Layout title="Contact">
+      <div className="px-6 md:px-12 pt-8 md:pt-16 pb-16 max-w-2xl w-full">
 
-        {/* ── Page intro ─────────────────────────────────────── */}
-        <div className="mb-10 md:mb-14">
-          <p className="font-mono text-mint text-sm mb-3">04. Contact</p>
-          <h1 className="font-black tracking-[-0.03em] text-foreground leading-none mb-3">
-            Let's talk.
-          </h1>
-          <p className="text-subtle text-[0.88rem] max-w-xl">
-            Have a project, opportunity, or just want to say hello? Send me a message.
-          </p>
-        </div>
+        <h1 className="font-display text-[clamp(2.75rem,8vw,5.5rem)] mb-6">Contact</h1>
+        <p className="text-muted-foreground mb-12 md:mb-16 max-w-md">
+          Have a project or an opportunity in mind? Send a message and I'll reply soon.
+        </p>
 
         {/* ── Form card ──────────────────────────────────────── */}
-        <div className="w-full apple-card p-5 md:p-10">
+        <div className="w-full">
 
           {success ? (
-            <div className="flex flex-col items-center text-center py-8">
-              <CheckCircle size={48} className="text-mint mb-4" strokeWidth={1.5} />
-              <h2 className="text-xl font-bold text-foreground mb-2">Message sent!</h2>
-              <p className="text-[0.9rem] text-muted-foreground mb-6">
-                Thanks for reaching out. I'll get back to you as soon as possible.
-              </p>
-              <button
-                onClick={() => setSuccess(false)}
-                className="text-[0.82rem] font-mono text-mint hover:underline"
-              >
+            <div role="status" className="py-4">
+              <h2 className="font-display text-3xl mb-3">Message sent</h2>
+              <p className="text-muted-foreground mb-6">Thanks for reaching out. I'll get back to you soon.</p>
+              <button onClick={() => setSuccess(false)} className="link py-2">
                 Send another message
               </button>
             </div>
           ) : (
-            <form onSubmit={onSubmit} noValidate className="space-y-5">
+            <form onSubmit={onSubmit} noValidate className="space-y-8">
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <FormField id="firstName" label="First Name" error={errors.firstName} touched={touched.firstName}>
                   <input
                     id="firstName"
                     type="text"
-                    placeholder="John"
+                    placeholder=""
                     value={form.firstName}
                     onChange={(e) => update("firstName", e.target.value)}
                     onBlur={() => blur("firstName")}
@@ -199,7 +174,7 @@ export default function Contact() {
                   <input
                     id="lastName"
                     type="text"
-                    placeholder="Doe"
+                    placeholder=""
                     value={form.lastName}
                     onChange={(e) => update("lastName", e.target.value)}
                     onBlur={() => blur("lastName")}
@@ -213,7 +188,7 @@ export default function Contact() {
                 <input
                   id="email"
                   type="email"
-                  placeholder="john@example.com"
+                  placeholder=""
                   value={form.email}
                   onChange={(e) => update("email", e.target.value)}
                   onBlur={() => blur("email")}
@@ -226,7 +201,7 @@ export default function Contact() {
                 <input
                   id="subject"
                   type="text"
-                  placeholder="How can I help you?"
+                  placeholder=""
                   value={form.subject}
                   onChange={(e) => update("subject", e.target.value)}
                   onBlur={() => blur("subject")}
@@ -238,8 +213,8 @@ export default function Contact() {
               <FormField id="message" label="Message" error={errors.message} touched={touched.message}>
                 <textarea
                   id="message"
-                  rows={5}
-                  placeholder="Tell me about your project, opportunity, or just say hello…"
+                  rows={4}
+                  placeholder=""
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
                   onBlur={() => blur("message")}
@@ -255,19 +230,9 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={loading}
-                  className="inline-flex items-center justify-center gap-2 border border-mint text-mint text-[0.88rem] px-8 py-3 rounded-full hover:bg-mint/10 transition-colors duration-200 active:scale-[0.97] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-foreground text-background px-8 py-3 rounded-full text-[0.95rem] hover:bg-foreground/85 transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  {loading ? (
-                    <>
-                      <span className="w-4 h-4 border-2 border-mint/40 border-t-mint rounded-full animate-spin" />
-                      Sending…
-                    </>
-                  ) : (
-                    <>
-                      <Send size={14} />
-                      Send Message
-                    </>
-                  )}
+                  {loading ? "Sending…" : "Send message"}
                 </button>
               </div>
 
@@ -275,25 +240,14 @@ export default function Contact() {
           )}
         </div>
 
-        <p className="mt-6 text-[0.75rem] text-muted-foreground">
+        <p className="mt-10 text-[0.9rem] text-muted-foreground">
           Or email me directly at{" "}
-          <a href={`mailto:${profile.email}`} className="text-mint hover:underline font-mono">
+          <a href={`mailto:${profile.email}`} className="link">
             {profile.email}
           </a>
         </p>
 
       </div>
-      <button
-        onClick={scrollToTop}
-        aria-label="Scroll to top"
-        tabIndex={showScrollTop ? 0 : -1}
-        aria-hidden={!showScrollTop}
-        className={`fixed bottom-24 right-6 z-50 w-10 h-10 flex items-center justify-center rounded-full border border-mint text-mint hover:bg-mint/10 transition-all duration-300 ${
-          showScrollTop ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none translate-y-3"
-        }`}
-      >
-        <ArrowUp size={16} />
-      </button>
     </Layout>
   );
 }

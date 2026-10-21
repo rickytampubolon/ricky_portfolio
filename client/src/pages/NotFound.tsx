@@ -1,26 +1,17 @@
 import { Link } from "wouter";
 import Layout from "../components/Layout";
-import { AlertCircle } from "lucide-react";
 
 export default function NotFound() {
   return (
-    <Layout>
-      <div className="min-h-[calc(100vh-10rem)] flex items-center justify-center px-6">
-        <div className="text-center max-w-md">
-          <div className="flex justify-center mb-6">
-            <AlertCircle size={56} className="text-mint/50" strokeWidth={1.5} />
-          </div>
-          <h1 className="font-black text-5xl tracking-[-0.03em] text-foreground mb-3">404</h1>
-          <h2 className="text-xl font-semibold text-foreground mb-4">Page Not Found</h2>
-          <p className="text-[0.9rem] text-muted-foreground mb-8 leading-relaxed">
-            Sorry, the page you're looking for doesn't exist or has been moved.
-          </p>
-          <Link href="/">
-            <button className="inline-flex items-center gap-2 border border-mint text-mint text-[0.88rem] px-8 py-3 rounded-full hover:bg-mint/10 transition-colors duration-200 active:scale-[0.97]">
-              Go Home
-            </button>
-          </Link>
-        </div>
+    <Layout title="Page not found">
+      <div className="flex-1 flex flex-col justify-center px-6 md:px-12 pb-24">
+        <h1 className="font-display text-[clamp(3.5rem,13vw,9rem)] leading-[0.95]">404</h1>
+        <p className="mt-6 text-muted-foreground max-w-sm">
+          This page doesn't exist or has moved.
+        </p>
+        <p className="mt-6">
+          <Link href="/" className="link py-2">Back to home</Link>
+        </p>
       </div>
     </Layout>
   );
