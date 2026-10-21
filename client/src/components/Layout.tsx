@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Menu, X } from "lucide-react";
-import { profile, social } from "../data/homeData";
+import { profile } from "../data/homeData";
 import Logo from "./Logo";
 
 /* Live Jakarta time. Rendered as text only, so it is not announced every second. */
@@ -97,17 +97,8 @@ export default function Layout({ children, title }: { children: React.ReactNode;
 
         <main id="main" className="flex-1 flex flex-col">{children}</main>
 
-        <footer className="py-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-1 text-[0.9rem] text-subtle">
+        <footer className="py-10 text-[0.9rem] text-subtle">
           <p>© {new Date().getFullYear()} {profile.name}</p>
-          <ul className="flex items-center gap-2">
-            {social.map(({ href, label }) => (
-              <li key={label}>
-                <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-11 px-3 hover:text-foreground transition-colors">
-                  {label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </footer>
       </div>
     </div>
