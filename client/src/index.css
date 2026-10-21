@@ -203,6 +203,22 @@
   .field:focus-visible { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(8,8,8,0.12); }
   .field-error, .field-error:hover { border-color: var(--destructive); }
 
+  /* First screen: the greeting fills the visible area, so the first card starts below the fold.
+     svh = the smallest viewport (browser toolbars showing), so nothing is cut on phones. */
+  .hero-screen {
+    min-height: calc(100vh - 6rem);
+    min-height: calc(100svh - 6rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Short phones (e.g. 320x568): tighten so the greeting still fits one screen */
+  @media (max-height: 640px) {
+    .hero-screen h1 { font-size: 2rem !important; }
+    .hero-screen .hero-cta { margin-top: 1.5rem !important; }
+  }
+
   /* One page-load reveal, used on the home page only */
   .reveal { animation: reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
 
