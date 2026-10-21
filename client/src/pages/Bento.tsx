@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { experience, earlier, education } from "../data/resumeData";
-import { sectors } from "../data/homeData";
 
 const timeline = [...experience, ...earlier];
 
@@ -47,19 +46,6 @@ function EducationCard() {
   );
 }
 
-function IndustriesCard() {
-  return (
-    <section aria-labelledby="ind-label" className="card h-[19rem]">
-      <span id="ind-label" className="chip">Industries</span>
-      <ul className="mt-8 space-y-2.5">
-        {sectors.map((s) => (
-          <li key={s} className="text-[1.4rem] leading-tight font-medium tracking-tight">{s}</li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
 /* Line-art city card with a live local clock */
 function MapCard() {
   const [now, setNow] = useState(() => new Date());
@@ -94,4 +80,4 @@ function MapCard() {
   );
 }
 
-export { ExperienceCard, EducationCard, IndustriesCard, MapCard };
+export { ExperienceCard, EducationCard, MapCard };

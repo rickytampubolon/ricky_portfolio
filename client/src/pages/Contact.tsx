@@ -134,13 +134,10 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" aria-labelledby="contact-label" className="card md:col-span-2 !p-6 md:!p-8">
+    <section id="contact" aria-labelledby="contact-label" className="card !p-6 md:!p-8">
       <span id="contact-label" className="chip">Say hello</span>
       <div className="mt-8">
-        <h2 className="text-[1.6rem] font-medium tracking-tight mb-2">Have a project in mind?</h2>
-        <p className="text-muted-foreground text-[0.92rem] mb-8 max-w-md">
-          Send a message and I'll reply soon.
-        </p>
+        <h2 className="text-[1.6rem] font-medium tracking-tight mb-7">Have a project in mind?</h2>
 
         {/* ── Form card ──────────────────────────────────────── */}
         <div className="w-full">
@@ -214,7 +211,7 @@ export default function ContactSection() {
               <FormField id="message" label="Message" error={errors.message} touched={touched.message}>
                 <textarea
                   id="message"
-                  rows={3}
+                  rows={2}
                   placeholder=""
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
@@ -240,13 +237,6 @@ export default function ContactSection() {
             </form>
           )}
         </div>
-
-        <p className="mt-8 text-[0.88rem] text-muted-foreground">
-          Or email me directly at{" "}
-          <a href={`mailto:${profile.email}`} className="link">
-            {profile.email}
-          </a>
-        </p>
 
       </div>
     </section>

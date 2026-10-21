@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Layout from "../components/Layout";
 import Logo from "../components/Logo";
-import { ExperienceCard, EducationCard, IndustriesCard, MapCard } from "./Bento";
+import { ExperienceCard, EducationCard, MapCard } from "./Bento";
 import ContactSection from "./Contact";
 
 const muted = "text-foreground/30";
@@ -44,10 +44,9 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="grid gap-5 md:grid-cols-3 pb-4">
+      <div className="grid gap-5 md:grid-cols-2 pb-4">
         <ExperienceCard />
         <EducationCard />
-        <IndustriesCard />
         <MapCard />
         <ContactSection />
       </div>
