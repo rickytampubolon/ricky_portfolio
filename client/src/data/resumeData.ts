@@ -9,12 +9,12 @@ export interface Role {
 }
 
 export const experience: Role[] = [
-  { title: "Lead Country Product Manager, Indonesia", company: "Green SM",                      period: "2025 – Now"  },
-  { title: "Senior Product Manager",                  company: "INA Digital Edu, Ministry of Education", period: "2024 – 2025" },
-  { title: "Lead Product, SPX Xpress",                company: "Shopee",                        period: "2024"        },
-  { title: "Product Manager II, Fulfillment",         company: "Tokopedia & GoTo Logistics",    period: "2022 – 2024" },
-  { title: "Quality Engineer",                        company: "Traveloka",                     period: "2020 – 2022" },
-  { title: "QA Engineer",                             company: "Ice House",                     period: "2019 – 2020" },
+  { title: "Lead Country Product Manager, Indonesia Market", company: "Green SM",                      period: "2025 – Now"  },
+  { title: "Senior Product Manager, Performance Evaluation (Rumah Pendidikan)",                  company: "INA Digital Edu, Ministry of Education", period: "2024 – 2025" },
+  { title: "Product Lead, Implementation (SPX Xpress)",                company: "Shopee",                        period: "2024"        },
+  { title: "Product Manager II, Fulfillment (Dilayani Tokopedia)",         company: "Tokopedia & GoTo Logistics",    period: "2022 – 2024" },
+  { title: "Quality Engineer, Accommodation (Hotel)",                        company: "Traveloka",                     period: "2020 – 2022" },
+  { title: "QA Engineer, Taxi Group",                             company: "Ice House",                     period: "2019 – 2020" },
 ];
 
 export const earlier: Role[] = [
