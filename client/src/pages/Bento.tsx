@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { experience, earlier, education } from "../data/resumeData";
 
 const timeline = [...experience, ...earlier];
@@ -46,38 +45,4 @@ function EducationCard() {
   );
 }
 
-/* Line-art city card with a live local clock */
-function MapCard() {
-  const [now, setNow] = useState(() => new Date());
-  useEffect(() => {
-    const id = setInterval(() => setNow(new Date()), 1000);
-    return () => clearInterval(id);
-  }, []);
-  const time = now.toLocaleTimeString("en-US", { timeZone: "Asia/Jakarta", hour: "numeric", minute: "2-digit", second: "2-digit" });
-
-  return (
-    <section aria-labelledby="map-label" className="card min-h-[19rem] !p-0 flex flex-col">
-      <span id="map-label" className="chip absolute left-5 top-5">Map</span>
-      <svg aria-hidden="true" viewBox="0 0 300 200" className="absolute inset-x-0 top-0 w-full h-full text-foreground" preserveAspectRatio="xMidYMid slice" fill="none" stroke="currentColor">
-        <g strokeWidth="0.6" opacity="0.35">
-          {Array.from({ length: 13 }).map((_, i) => <line key={`v${i}`} x1={i * 25} y1="0" x2={i * 25 + 40} y2="200" />)}
-          {Array.from({ length: 9 }).map((_, i) => <line key={`h${i}`} x1="0" y1={i * 25} x2="300" y2={i * 25 - 22} />)}
-        </g>
-        <g strokeWidth="1.1" opacity="0.8">
-          <path d="M-10 120 C60 95 90 140 150 100 S250 70 310 90" />
-          <path d="M40 -10 C70 50 60 110 110 210" />
-          <path d="M190 -10 C200 40 170 90 215 210" />
-        </g>
-        <circle cx="150" cy="100" r="5" fill="currentColor" stroke="none" />
-        <circle cx="150" cy="100" r="13" strokeWidth="0.8" opacity="0.5" />
-      </svg>
-      <div className="mt-auto relative px-4 pb-5 pt-24 text-center bg-gradient-to-t from-white via-white/95 to-transparent">
-        <p className="text-[1.45rem] tracking-[0.28em] font-light">JAKARTA</p>
-        <p className="text-[0.62rem] tracking-[0.35em] text-muted-foreground mt-1">INDONESIA</p>
-        <p className="text-[0.72rem] text-muted-foreground mt-3 tabular-nums">{time}</p>
-      </div>
-    </section>
-  );
-}
-
-export { ExperienceCard, EducationCard, MapCard };
+export { ExperienceCard, EducationCard };

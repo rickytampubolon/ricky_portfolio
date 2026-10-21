@@ -134,7 +134,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" aria-labelledby="contact-label" className="card !p-6 md:!p-8">
+    <section id="contact" aria-labelledby="contact-label" className="card md:col-span-2 !p-6 md:!p-8">
       <span id="contact-label" className="chip">Say hello</span>
       <div className="mt-8">
         <h2 className="text-[1.6rem] font-medium tracking-tight mb-7">Have a project in mind?</h2>
@@ -211,7 +211,7 @@ export default function ContactSection() {
               <FormField id="message" label="Message" error={errors.message} touched={touched.message}>
                 <textarea
                   id="message"
-                  rows={2}
+                  rows={3}
                   placeholder=""
                   value={form.message}
                   onChange={(e) => update("message", e.target.value)}
