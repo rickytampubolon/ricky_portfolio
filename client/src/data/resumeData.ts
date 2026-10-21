@@ -17,14 +17,6 @@ export const experience: Role[] = [
   { title: "QA Engineer, Taxi Group",                             company: "Ice House",                     period: "2019 – 2020" },
 ];
 
-export const earlier: Role[] = [
-  { title: "QA Engineer, part-time", company: "SehatQ",             period: "2022 – 2023" },
-  { title: "QA Engineer, part-time", company: "SiCepat",            period: "2021 – 2022" },
-  { title: "QA Engineer, intern",    company: "GoTo Group (Moka)",  period: "2019"        },
-  { title: "QA Engineer, intern",    company: "Grab",               period: "2019"        },
-  { title: "QA Engineer, intern",    company: "DANA Indonesia",     period: "2018"        },
-];
-
 export const education: Role[] = [
   { title: "Master of Business Administration", company: "Bandung Institute of Technology", period: "2026" },
   { title: "Bachelor of Informatics",           company: "Del Institute of Technology",     period: "2019" },

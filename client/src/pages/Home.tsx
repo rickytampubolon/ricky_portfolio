@@ -53,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="grid gap-5 md:grid-cols-2 pb-4">
+      <div className="grid gap-5 md:grid-cols-2 pb-4 items-start">
         <ExperienceCard />
         <EducationCard />
         <ContactSection />

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { experience, earlier, education } from "../data/resumeData";
+import { experience, education } from "../data/resumeData";
 
-const timeline = [...experience, ...earlier];
-const PREVIEW = 5;
+const timeline = experience;
+const PREVIEW = 6;
 
 /* Vertical timeline: latest roles first, the rest on request */
 function ExperienceCard() {
