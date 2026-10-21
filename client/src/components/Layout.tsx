@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { Instagram, Linkedin, Mail, Plus } from "lucide-react";
 import { profile, social } from "../data/homeData";
+import Logo from "./Logo";
 
 const navLinks = [
   { label: "Experience", href: "#experience" },
@@ -37,8 +38,8 @@ export default function Layout({ children, title }: { children: React.ReactNode;
   return (
     <div id="top" className="min-h-screen flex flex-col">
       <header className="px-6 md:px-12 h-24 flex items-center gap-6 md:gap-10">
-        <a href="#top" aria-label={`${profile.name}, back to top`} className="w-10 h-10 rounded-xl bg-foreground text-background grid place-items-center text-[0.8rem] font-semibold tracking-tight shrink-0">
-          RH
+        <a href="#top" aria-label={`${profile.name}, back to top`} className="shrink-0 hover:opacity-80 transition-opacity">
+          <Logo size={46} />
         </a>
 
         <nav aria-label="Primary" className="hidden md:flex items-center gap-8 text-[0.92rem]">
@@ -47,10 +48,16 @@ export default function Layout({ children, title }: { children: React.ReactNode;
           ))}
         </nav>
 
-        <div className="ml-auto flex items-center gap-4 md:gap-6">
-          <div className="hidden sm:block"><JakartaClock /></div>
-          <a href="#contact" className="bg-foreground text-background rounded-xl px-5 py-2.5 text-[0.9rem] hover:bg-foreground/85 transition-colors active:scale-[0.98]">
-            Talk with me
+        <div className="ml-auto flex items-center gap-3">
+          <div className="hidden sm:block mr-3"><JakartaClock /></div>
+          {social.map(({ href, label }) => (
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+               className="hidden lg:inline-flex bg-secondary text-muted-foreground rounded-xl px-5 py-2.5 text-[0.9rem] hover:text-foreground transition-colors">
+              {label}
+            </a>
+          ))}
+          <a href="#contact" aria-label="Contact me" className="bg-foreground text-background rounded-xl w-11 h-11 grid place-items-center hover:bg-foreground/85 transition-colors active:scale-[0.97]">
+            <Plus size={16} strokeWidth={2.2} />
           </a>
         </div>
       </header>

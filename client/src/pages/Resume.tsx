@@ -1,4 +1,14 @@
-import { experience, earlier, education, skills, type Role } from "../data/resumeData";
+import { ArrowUpRight, BarChart3, Compass, Map, Rocket, Search, Users, type LucideIcon } from "lucide-react";
+import { experience, earlier, education, type Role } from "../data/resumeData";
+
+const helpAreas: { label: string; icon: LucideIcon }[] = [
+  { label: "Product strategy",       icon: Compass   },
+  { label: "Roadmapping",            icon: Map       },
+  { label: "User research",          icon: Search    },
+  { label: "Product metrics",        icon: BarChart3 },
+  { label: "Go-to-market",           icon: Rocket    },
+  { label: "Stakeholder management", icon: Users     },
+];
 
 /* Initial in a white tile, in place of external company logos */
 function Mark({ name }: { name: string }) {
@@ -55,16 +65,26 @@ export default function ExperienceSection() {
       </section>
 
       <section id="skills" className="px-6 md:px-12 py-20 md:py-28">
-        <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 max-w-6xl items-start">
-          <div>
-            <Heading>Experience across products and industries</Heading>
-            <p className="text-muted-foreground max-w-sm">
-              Mobility, logistics, fulfillment and education.
-            </p>
+        <div className="max-w-6xl">
+          <div className="flex items-center justify-between gap-4 mb-10">
+            <h2 className="font-display text-[clamp(1.9rem,3.2vw,2.5rem)]">I can help you with</h2>
+            <a href="#contact" className="bg-secondary rounded-xl px-5 py-2.5 text-[0.9rem] hover:bg-foreground hover:text-background transition-colors shrink-0">
+              Talk with me
+            </a>
           </div>
-          <ul className="flex flex-wrap gap-2.5">
-            {skills.map((s) => (
-              <li key={s} className="tile rounded-full px-5 py-2.5 text-[0.92rem]">{s}</li>
+          <ul>
+            {helpAreas.map(({ label, icon: Icon }) => (
+              <li key={label} className="border-t border-border last:border-b">
+                <a href="#contact" className="group flex items-center gap-4 py-6">
+                  <span aria-hidden="true" className="tile w-11 h-11 rounded-xl grid place-items-center shrink-0">
+                    <Icon size={18} strokeWidth={1.6} />
+                  </span>
+                  <span className="font-display text-[clamp(1.4rem,2.4vw,1.85rem)]">{label}</span>
+                  <span aria-hidden="true" className="ml-auto tile w-9 h-9 rounded-full grid place-items-center group-hover:bg-foreground group-hover:text-background transition-colors">
+                    <ArrowUpRight size={15} strokeWidth={1.8} />
+                  </span>
+                </a>
+              </li>
             ))}
           </ul>
         </div>

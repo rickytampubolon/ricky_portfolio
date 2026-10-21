@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Layout from "../components/Layout";
+import Logo from "../components/Logo";
 import ExperienceSection from "./Resume";
 import ContactSection from "./Contact";
 import { tagline, subline } from "../data/homeData";
@@ -17,8 +18,8 @@ export default function Home() {
       <section className="px-6 md:px-12 pt-10 md:pt-20 pb-24 md:pb-40">
         <div className="grid md:grid-cols-2 gap-x-16 gap-y-12 max-w-6xl">
           <div className="reveal">
-            <span aria-hidden="true" className="tile w-14 h-14 rounded-full grid place-items-center text-[0.95rem] font-semibold mb-10 md:mb-14">
-              RH
+            <span aria-hidden="true" className="tile w-14 h-14 rounded-full grid place-items-center mb-10 md:mb-14">
+              <Logo size={34} />
             </span>
             <h1 className="font-display text-[clamp(2.75rem,6.5vw,5rem)] leading-[1.05]">
               Hello! I'm<br />Ricky Halomoan

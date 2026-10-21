@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { profile } from "../data/homeData";
 
 const WEB3FORMS_ACCESS_KEY =
@@ -84,6 +84,13 @@ const inputError = "border-destructive";
 
 /* ── Component ───────────────────────────────────────────────── */
 export default function ContactSection() {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const localTime = now.toLocaleTimeString("en-US", { timeZone: "Asia/Jakarta", hour: "numeric", minute: "2-digit", second: "2-digit" });
+
   const [form,      setForm]     = useState<FormState>(EMPTY);
   const [errors,    setErrors]   = useState<FormErrors>({});
   const [touched,   setTouched]  = useState<Partial<Record<keyof FormState, boolean>>>({});
@@ -138,7 +145,10 @@ export default function ContactSection() {
       <div className="max-w-2xl w-full mx-auto">
 
         <p className="text-muted-foreground text-center mb-3">Have a project?</p>
-        <h2 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] text-center mb-12">Let's talk with me</h2>
+        <h2 className="font-display text-[clamp(2.5rem,6vw,4.25rem)] text-center mb-3">Let's talk with me</h2>
+        <p className="text-center text-[0.85rem] text-muted-foreground mb-12">
+          My local time <span className="font-medium text-foreground">{localTime}</span>
+        </p>
 
         {/* ── Form card ──────────────────────────────────────── */}
         <div className="w-full tile rounded-3xl p-6 md:p-10">
