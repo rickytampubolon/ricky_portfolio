@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import Layout from "../components/Layout";
-import Logo from "../components/Logo";
 import { ExperienceCard, EducationCard } from "./Bento";
 import ContactSection from "./Contact";
 
@@ -18,12 +17,14 @@ export default function Home() {
       <section className="pt-8 md:pt-14 pb-14 md:pb-20 reveal">
         <h1 className="text-[clamp(2.25rem,6.2vw,3.6rem)] font-semibold tracking-[-0.04em] leading-[1.22]">
           Hi, I'm{" "}
-          <span
-            aria-hidden="true"
-            className="card !p-0 !rounded-[1.1rem] inline-grid place-items-center align-middle w-[1.55em] h-[1.55em] mx-1 -translate-y-[0.06em]"
-          >
-            <Logo size={44} />
-          </span>
+          <img
+            src="/ricky.jpg"
+            alt="Ricky Halomoan"
+            width={160}
+            height={160}
+            className="inline-block align-middle w-[1.55em] h-[1.55em] mx-1 -translate-y-[0.06em] rounded-[1.1rem] object-cover bg-card"
+            style={{ boxShadow: "0 0 0 3px #fff, 0 1px 2px rgba(0,0,0,0.06), 0 14px 30px -12px rgba(0,0,0,0.3)" }}
+          />
           Ricky Halomoan!
           <br />
           <span className={muted}>I'm a </span>Lead Country Product Manager
