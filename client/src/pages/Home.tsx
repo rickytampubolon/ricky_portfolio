@@ -4,7 +4,7 @@ import Logo from "../components/Logo";
 import { ExperienceCard, EducationCard } from "./Bento";
 import ContactSection from "./Contact";
 
-const muted = "text-foreground/30";
+const muted = "text-[color:var(--fog)]";
 
 export default function Home() {
   // The page is lazy-loaded, so honour a #section in the URL once it has rendered.
@@ -28,7 +28,7 @@ export default function Home() {
           <br />
           <span className={muted}>I'm a </span>Lead Country Product Manager
           <br />
-          <span className={muted}>at </span>Green SM.
+          <span className={muted}>at </span><span className="text-[color:var(--orange)]">Green SM.</span>
         </h1>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">

@@ -50,19 +50,21 @@
   --font-serif: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
 
   /* ── Monochrome scale ───────────────────────────────────────── */
-  --paper:  #f6f6f5;
-  --ink:    #0a0a0a;
+  --paper:  #f8f8f8;
+  --ink:    #080808;
   --graphite: #525252;   /* 7.5:1 on paper */
   --ash:    #737373;     /* 4.7:1 on paper */
-  --line:   #e4e4e1;
-  --wash:   #ececea;
+  --line:   #e8e8e8;
+  --fog:    #b4b4b4;   /* de-emphasised words in the greeting */
+  --orange: #f47117;   /* single accent: logo dot and employer name */
+  --wash:   #f0f0f0;
 
   /* ── Semantic design tokens ──────────────────────────────────── */
   --background:           var(--paper);
   --surface:              var(--paper);
   --foreground:           var(--ink);
   --subtle:               var(--graphite);
-  --card:                 #ffffff;
+  --card:                 #fdfdfd;
   --card-foreground:      var(--ink);
   --popover:              var(--paper);
   --popover-foreground:   var(--ink);
@@ -136,7 +138,7 @@
 
   /* Bento card: white, very round, lifted by a soft shadow */
   .card {
-    background: #fff;
+    background: #fdfdfd;
     border-radius: 1.75rem;
     border: 1px solid rgba(255,255,255,0.9);
     box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 14px 32px -18px rgba(0,0,0,0.14);
