@@ -56,7 +56,9 @@
   --ash:    #737373;     /* 4.7:1 on paper */
   --line:   #e8e8e8;
   --fog:    #b4b4b4;   /* de-emphasised words in the greeting */
-  --orange: #f47117;   /* single accent: logo dot and employer name */
+  --orange: #f47117;   /* logo dot */
+  --cyan:   #0891b2;   /* employer name, 3.7:1 on the page background */
+  --live:   #22d17b;   /* "open to work" status dot */
   --wash:   #f0f0f0;
 
   /* ── Semantic design tokens ──────────────────────────────────── */

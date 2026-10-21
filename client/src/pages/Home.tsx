@@ -28,7 +28,11 @@ export default function Home() {
           <br />
           <span className={muted}>I'm a </span>Lead Country Product Manager
           <br />
-          <span className={muted}>at </span><span className="text-[color:var(--orange)]">Green SM.</span>
+          <span className={muted}>at </span><span className="text-[color:var(--cyan)]">Green SM.</span>
+          <span className="inline-flex items-center gap-2.5 align-middle ml-3 rounded-full border border-border bg-card px-4 py-2 text-[1rem] font-normal tracking-normal leading-none -translate-y-[0.1em]">
+            <span aria-hidden="true" className="w-3 h-3 rounded-full" style={{ background: "var(--live)", boxShadow: "0 0 0 4px color-mix(in srgb, var(--live) 25%, transparent)" }} />
+            Open to work
+          </span>
         </h1>
 
         <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
