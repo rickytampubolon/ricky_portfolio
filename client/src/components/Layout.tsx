@@ -3,6 +3,22 @@ import { Menu, X } from "lucide-react";
 import { profile, social } from "../data/homeData";
 import Logo from "./Logo";
 
+/* Live Jakarta time. Rendered as text only, so it is not announced every second. */
+function JakartaClock() {
+  const [now, setNow] = useState(() => new Date());
+  useEffect(() => {
+    const id = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(id);
+  }, []);
+  const time = now.toLocaleTimeString("en-US", { timeZone: "Asia/Jakarta", hour: "numeric", minute: "2-digit", second: "2-digit" });
+  return (
+    <div className="leading-tight text-[0.85rem]">
+      <p className="text-subtle">Jakarta, Indonesia</p>
+      <p className="font-medium tabular-nums" aria-hidden="true">{time}</p>
+    </div>
+  );
+}
+
 const navLinks = [
   { label: "Experience", href: "/#experience" },
   { label: "Education",  href: "/#education"  },
@@ -38,9 +54,12 @@ export default function Layout({ children, title }: { children: React.ReactNode;
       <a href="#main" className="skip-link">Skip to content</a>
       <div className="w-full max-w-4xl mx-auto px-6 flex-1 flex flex-col">
         <header className="h-24 flex items-center justify-between gap-4">
-          <a href="/#top" aria-label={`${profile.name}, back to top`} className="shrink-0 hover:opacity-70 transition-opacity">
-            <Logo size={44} />
-          </a>
+          <div className="flex items-center gap-4 min-w-0">
+            <a href="/#top" aria-label={`${profile.name}, back to top`} className="shrink-0 hover:opacity-70 transition-opacity">
+              <Logo size={44} />
+            </a>
+            <JakartaClock />
+          </div>
 
           {/* Desktop: links are one tap away, no menu needed */}
           <nav aria-label="Primary" className="hidden md:flex items-center gap-1 shrink-0">
