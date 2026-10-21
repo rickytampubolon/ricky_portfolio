@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import { profile } from "../data/homeData";
 
 const WEB3FORMS_ACCESS_KEY =
   import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "012cebc9-d8fb-4c62-9879-3b3bc071f3b4";
@@ -9,45 +8,40 @@ interface FormState {
   firstName: string;
   lastName:  string;
   email:     string;
-  subject:   string;
   message:   string;
 }
 
-type FormErrors = Partial<Record<keyof FormState, string>>;
+type Field = keyof FormState;
+type FormErrors = Partial<Record<Field, string>>;
 
-const EMPTY: FormState = { firstName: "", lastName: "", email: "", subject: "", message: "" };
-
-/* ── Shared field styles ─────────────────────────────────────── */
-const inputBase = "apple-input";
-const labelBase =
-  "block text-[0.9rem] text-muted-foreground mb-1";
-const errorMsg = "mt-1 text-[0.85rem] text-destructive";
+const EMPTY: FormState = { firstName: "", lastName: "", email: "", message: "" };
+const ORDER: Field[] = ["firstName", "lastName", "email", "message"];
 
 /* ── Validation ──────────────────────────────────────────────── */
 function validate(fields: FormState): FormErrors {
   const errors: FormErrors = {};
-  if (!fields.firstName.trim()) errors.firstName = "First name is required.";
-  if (!fields.lastName.trim())  errors.lastName  = "Last name is required.";
+  if (!fields.firstName.trim()) errors.firstName = "Enter your first name.";
+  if (!fields.lastName.trim())  errors.lastName  = "Enter your last name.";
   if (!fields.email.trim()) {
-    errors.email = "Email is required.";
+    errors.email = "Enter your email address.";
   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) {
-    errors.email = "Please enter a valid email address.";
+    errors.email = "Enter a valid email address, like name@example.com.";
   }
-  if (!fields.subject.trim()) errors.subject = "Subject is required.";
-  if (!fields.message.trim()) errors.message = "Message is required.";
+  if (!fields.message.trim()) errors.message = "Write a short message.";
   return errors;
 }
 
 /* ── Submit handler ──────────────────────────────────────────── */
 async function submitForm(data: FormState): Promise<void> {
+  const name = `${data.firstName} ${data.lastName}`;
   const res = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
     body: JSON.stringify({
       access_key: WEB3FORMS_ACCESS_KEY,
-      name:    `${data.firstName} ${data.lastName}`,
+      name,
       email:   data.email,
-      subject: data.subject || `New message from ${data.firstName} ${data.lastName}`,
+      subject: `New message from ${name}`,
       message: data.message,
     }),
   });
@@ -58,62 +52,79 @@ async function submitForm(data: FormState): Promise<void> {
   }
 }
 
-/* ── FormField ───────────────────────────────────────────────── */
-interface FormFieldProps {
-  id:       string;
-  label:    string;
-  error?:   string;
-  touched?: boolean;
-  children: React.ReactNode;
+/* ── Labelled field with an inline, announced error ──────────── */
+interface FieldProps {
+  id:        Field;
+  label:     string;
+  error?:    string;
+  multiline?: boolean;
+  type?:     string;
+  autoComplete?: string;
+  value:     string;
+  onChange:  (value: string) => void;
+  onBlur:    () => void;
 }
 
-function FormField({ id, label, error, touched, children }: FormFieldProps) {
-  const hasError = touched && error;
+function TextField({ id, label, error, multiline, type = "text", autoComplete, value, onChange, onBlur }: FieldProps) {
+  const errId = `${id}-error`;
+  const shared = {
+    id,
+    value,
+    required: true,
+    "aria-required": true as const,
+    "aria-invalid": error ? true : undefined,
+    "aria-describedby": error ? errId : undefined,
+    autoComplete,
+    onBlur,
+    className: `field ${error ? "field-error" : ""}`,
+  };
   return (
     <div>
-      <label htmlFor={id} className={labelBase}>
-        {label}
-      </label>
-      {children}
-      {hasError && <p className={errorMsg}>{error}</p>}
+      <label htmlFor={id} className="block text-[0.9rem] text-subtle mb-1.5">{label}</label>
+      {multiline ? (
+        <textarea {...shared} rows={4} onChange={(e) => onChange(e.target.value)} />
+      ) : (
+        <input {...shared} type={type} onChange={(e) => onChange(e.target.value)} />
+      )}
+      {error && <p id={errId} className="mt-1.5 text-[0.85rem] text-destructive">{error}</p>}
     </div>
   );
 }
 
-const inputError = "border-destructive";
-
 /* ── Component ───────────────────────────────────────────────── */
 export default function ContactSection() {
-  const [form,      setForm]     = useState<FormState>(EMPTY);
-  const [errors,    setErrors]   = useState<FormErrors>({});
-  const [touched,   setTouched]  = useState<Partial<Record<keyof FormState, boolean>>>({});
-  const [loading,   setLoading]  = useState(false);
-  const [success,   setSuccess]  = useState(false);
+  const [form,      setForm]      = useState<FormState>(EMPTY);
+  const [errors,    setErrors]    = useState<FormErrors>({});
+  const [touched,   setTouched]   = useState<Partial<Record<Field, boolean>>>({});
+  const [loading,   setLoading]   = useState(false);
+  const [success,   setSuccess]   = useState(false);
   const [submitErr, setSubmitErr] = useState<string | null>(null);
   const submitting = useRef(false);
 
-  const update = (field: keyof FormState, value: string) => {
-    setForm((prev) => ({ ...prev, [field]: value }));
-    if (touched[field]) {
-      setErrors(validate({ ...form, [field]: value }));
-    }
+  const update = (field: Field, value: string) => {
+    const next = { ...form, [field]: value };
+    setForm(next);
+    if (touched[field]) setErrors(validate(next));
   };
 
-  const blur = (field: keyof FormState) => {
+  const blur = (field: Field) => {
     setTouched((prev) => ({ ...prev, [field]: true }));
     setErrors(validate(form));
   };
 
+  const shown = (field: Field) => (touched[field] ? errors[field] : undefined);
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (submitting.current) return;
-    const allTouched = Object.fromEntries(
-      (Object.keys(form) as (keyof FormState)[]).map((k) => [k, true])
-    );
-    setTouched(allTouched);
+    setTouched(Object.fromEntries(ORDER.map((k) => [k, true])));
     const errs = validate(form);
     setErrors(errs);
-    if (Object.keys(errs).length > 0) return;
+    const firstBad = ORDER.find((k) => errs[k]);
+    if (firstBad) {
+      document.getElementById(firstBad)?.focus();
+      return;
+    }
 
     submitting.current = true;
     setLoading(true);
@@ -126,7 +137,7 @@ export default function ContactSection() {
       setErrors({});
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Unknown error";
-      setSubmitErr(`Something went wrong: ${msg}. Please try again or email me directly.`);
+      setSubmitErr(`The message was not sent (${msg}). Try again, or email me directly.`);
     } finally {
       submitting.current = false;
       setLoading(false);
@@ -135,109 +146,48 @@ export default function ContactSection() {
 
   return (
     <section id="contact" aria-labelledby="contact-label" className="card md:col-span-2 !p-6 md:!p-8">
-      <span id="contact-label" className="chip">Say hello</span>
+      <h2 id="contact-label" className="chip">Say hello</h2>
       <div className="mt-8">
-        <h2 className="text-[1.6rem] font-medium tracking-tight mb-7">Have a project in mind?</h2>
+        <p className="text-[1.6rem] font-medium tracking-tight mb-7">Have a role or a project in mind?</p>
 
-        {/* ── Form card ──────────────────────────────────────── */}
-        <div className="w-full">
-
-          {success ? (
-            <div role="status" className="py-4">
-              <h2 className="font-display text-3xl mb-3">Message sent</h2>
-              <p className="text-muted-foreground mb-6">Thanks for reaching out. I'll get back to you soon.</p>
-              <button onClick={() => setSuccess(false)} className="link py-2">
-                Send another message
-              </button>
+        {success ? (
+          <div role="status" className="py-2">
+            <p className="text-[1.25rem] font-medium mb-2">Message sent</p>
+            <p className="text-subtle mb-5">Thanks for reaching out. I'll reply soon.</p>
+            <button onClick={() => setSuccess(false)} className="link inline-flex items-center min-h-11">
+              Send another message
+            </button>
+          </div>
+        ) : (
+          <form onSubmit={onSubmit} noValidate className="space-y-5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <TextField id="firstName" label="First name" autoComplete="given-name"
+                value={form.firstName} error={shown("firstName")}
+                onChange={(v) => update("firstName", v)} onBlur={() => blur("firstName")} />
+              <TextField id="lastName" label="Last name" autoComplete="family-name"
+                value={form.lastName} error={shown("lastName")}
+                onChange={(v) => update("lastName", v)} onBlur={() => blur("lastName")} />
             </div>
-          ) : (
-            <form onSubmit={onSubmit} noValidate className="space-y-5">
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <FormField id="firstName" label="First Name" error={errors.firstName} touched={touched.firstName}>
-                  <input
-                    id="firstName"
-                    type="text"
-                    placeholder=""
-                    value={form.firstName}
-                    onChange={(e) => update("firstName", e.target.value)}
-                    onBlur={() => blur("firstName")}
-                    className={`${inputBase} ${touched.firstName && errors.firstName ? inputError : ""}`}
-                    autoComplete="given-name"
-                  />
-                </FormField>
-                <FormField id="lastName" label="Last Name" error={errors.lastName} touched={touched.lastName}>
-                  <input
-                    id="lastName"
-                    type="text"
-                    placeholder=""
-                    value={form.lastName}
-                    onChange={(e) => update("lastName", e.target.value)}
-                    onBlur={() => blur("lastName")}
-                    className={`${inputBase} ${touched.lastName && errors.lastName ? inputError : ""}`}
-                    autoComplete="family-name"
-                  />
-                </FormField>
-              </div>
+            <TextField id="email" label="Email" type="email" autoComplete="email"
+              value={form.email} error={shown("email")}
+              onChange={(v) => update("email", v)} onBlur={() => blur("email")} />
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              <FormField id="email" label="Email" error={errors.email} touched={touched.email}>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder=""
-                  value={form.email}
-                  onChange={(e) => update("email", e.target.value)}
-                  onBlur={() => blur("email")}
-                  className={`${inputBase} ${touched.email && errors.email ? inputError : ""}`}
-                  autoComplete="email"
-                />
-              </FormField>
+            <TextField id="message" label="Message" multiline
+              value={form.message} error={shown("message")}
+              onChange={(v) => update("message", v)} onBlur={() => blur("message")} />
 
-              <FormField id="subject" label="Subject" error={errors.subject} touched={touched.subject}>
-                <input
-                  id="subject"
-                  type="text"
-                  placeholder=""
-                  value={form.subject}
-                  onChange={(e) => update("subject", e.target.value)}
-                  onBlur={() => blur("subject")}
-                  className={`${inputBase} ${touched.subject && errors.subject ? inputError : ""}`}
-                  autoComplete="off"
-                />
-              </FormField>
-              </div>
+            {submitErr && <p role="alert" className="text-[0.9rem] text-destructive">{submitErr}</p>}
 
-              <FormField id="message" label="Message" error={errors.message} touched={touched.message}>
-                <textarea
-                  id="message"
-                  rows={3}
-                  placeholder=""
-                  value={form.message}
-                  onChange={(e) => update("message", e.target.value)}
-                  onBlur={() => blur("message")}
-                  className={`${inputBase} resize-none ${touched.message && errors.message ? inputError : ""}`}
-                />
-              </FormField>
-
-              {submitErr && (
-                <p className="text-[0.82rem] text-destructive font-medium">{submitErr}</p>
-              )}
-
-              <div className="pt-2 flex justify-start">
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="bg-foreground text-background px-8 py-3 rounded-full text-[0.95rem] hover:bg-foreground/85 transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  {loading ? "Sending…" : "Send message"}
-                </button>
-              </div>
-
-            </form>
-          )}
-        </div>
-
+            <button
+              type="submit"
+              disabled={loading}
+              className="bg-foreground text-background px-8 min-h-12 rounded-full text-[0.95rem] font-medium hover:bg-foreground/85 transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+            >
+              {loading ? "Sending…" : "Send message"}
+            </button>
+          </form>
+        )}
       </div>
     </section>
   );

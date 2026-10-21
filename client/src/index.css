@@ -55,10 +55,9 @@
   --graphite: #525252;   /* 7.5:1 on paper */
   --ash:    #737373;     /* 4.7:1 on paper */
   --line:   #e8e8e8;
-  --fog:    #b4b4b4;   /* de-emphasised words in the greeting */
-  --orange: #f47117;   /* logo dot */
-  --cyan:   #2dccd3;   /* Green SM brand color (CMYK 75 0 2) */
-  --live:   #22d17b;   /* "open to work" status dot */
+  --fog:    #888888;   /* de-emphasised greeting words, 3.3:1 on the page (large text) */
+  --cyan:   #2dccd3;   /* Green SM brand color: dots, underline, focus accents */
+  --cyan-text: #08959c; /* same hue, dark enough for large text (3.4:1) */
   --wash:   #f0f0f0;
 
   /* ── Semantic design tokens ──────────────────────────────────── */
@@ -142,7 +141,7 @@
   .card {
     background: #fdfdfd;
     border-radius: 1.75rem;
-    border: 1px solid rgba(255,255,255,0.9);
+    border: 1px solid rgba(0,0,0,0.05);
     box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 14px 32px -18px rgba(0,0,0,0.14);
     padding: 1.25rem;
     position: relative;
@@ -154,7 +153,10 @@
     background: #fff;
     border-radius: 999px;
     padding: 0.4rem 0.9rem;
-    font-size: 0.8rem;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    letter-spacing: 0;
+    font-size: 0.85rem;
     line-height: 1.2;
     box-shadow: 0 1px 2px rgba(0,0,0,0.06), 0 4px 10px -4px rgba(0,0,0,0.12);
     position: relative;
@@ -168,20 +170,22 @@
     box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   }
 
-  .apple-input {
+  /* Boxed text field: obvious affordance, 48px tall */
+  .field {
     width: 100%;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid var(--ink);
-    border-radius: 0;
-    padding: 0.6rem 0;
+    background: var(--paper);
+    border: 1px solid #d4d4d4;
+    border-radius: 0.875rem;
+    padding: 0.8rem 1rem;
+    min-height: 3rem;
     font-size: 1rem;
     color: var(--ink);
-    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
   }
-  .apple-input::placeholder { color: var(--ash); }
-  .apple-input:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
-  .apple-input.border-destructive { border-bottom-color: var(--destructive); }
+  textarea.field { resize: vertical; }
+  .field:hover { border-color: #a3a3a3; }
+  .field:focus-visible { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(8,8,8,0.12); }
+  .field-error, .field-error:hover { border-color: var(--destructive); }
 
   /* One page-load reveal, used on the home page only */
   .reveal { animation: reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }

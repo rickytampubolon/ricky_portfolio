@@ -3,7 +3,7 @@ import { Menu, X } from "lucide-react";
 import { profile, social } from "../data/homeData";
 import Logo from "./Logo";
 
-const menuLinks = [
+const navLinks = [
   { label: "Experience", href: "#experience" },
   { label: "Education",  href: "#education"  },
   { label: "Contact",    href: "#contact"    },
@@ -41,36 +41,40 @@ export default function Layout({ children, title }: { children: React.ReactNode;
             <a href="#top" aria-label={`${profile.name}, back to top`} className="shrink-0 hover:opacity-70 transition-opacity">
               <Logo size={44} />
             </a>
-            <a href={`mailto:${profile.email}`} className="link text-[0.95rem] truncate">{profile.email}</a>
+            <a href={`mailto:${profile.email}`} title={profile.email} className="link text-[0.95rem] truncate inline-flex items-center min-h-11">
+              {profile.email}
+            </a>
           </div>
 
-          <div ref={menuRef} className="relative shrink-0">
+          {/* Desktop: links are one tap away, no menu needed */}
+          <nav aria-label="Primary" className="hidden md:flex items-center gap-1 shrink-0">
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} className="rounded-full px-4 min-h-11 inline-flex items-center text-[0.92rem] text-subtle hover:text-foreground hover:bg-card transition-colors">
+                {l.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Mobile: round menu button */}
+          <div ref={menuRef} className="relative shrink-0 md:hidden">
             <button
               onClick={() => setOpen((o) => !o)}
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
               aria-controls="site-menu"
-              className="card !p-0 !rounded-full w-12 h-12 grid place-items-center hover:scale-105 transition-transform"
+              className="card !p-0 !rounded-full w-12 h-12 grid place-items-center"
             >
               {open ? <X size={18} strokeWidth={1.8} /> : <Menu size={18} strokeWidth={1.8} />}
             </button>
 
             {open && (
               <nav id="site-menu" aria-label="Menu" className="card !p-2 !rounded-2xl absolute right-0 top-14 w-52 z-50">
-                {[...menuLinks, ...social.map((s) => ({ label: s.label, href: s.href }))].map((l) => {
-                  const external = l.href.startsWith("http");
-                  return (
-                    <a
-                      key={l.label}
-                      href={l.href}
-                      onClick={() => setOpen(false)}
-                      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                      className="block rounded-xl px-4 py-2.5 text-[0.92rem] hover:bg-secondary transition-colors"
-                    >
-                      {l.label}
-                    </a>
-                  );
-                })}
+                {navLinks.map((l) => (
+                  <a key={l.href} href={l.href} onClick={() => setOpen(false)}
+                     className="flex items-center min-h-11 rounded-xl px-4 text-[0.95rem] hover:bg-secondary transition-colors">
+                    {l.label}
+                  </a>
+                ))}
               </nav>
             )}
           </div>
@@ -78,9 +82,17 @@ export default function Layout({ children, title }: { children: React.ReactNode;
 
         <main className="flex-1 flex flex-col">{children}</main>
 
-        <footer className="py-10 flex flex-wrap items-center justify-between gap-2 text-[0.85rem] text-muted-foreground">
+        <footer className="py-10 flex flex-wrap items-center justify-between gap-x-6 gap-y-1 text-[0.9rem] text-subtle">
           <p>© {new Date().getFullYear()} {profile.name}</p>
-          <p>{profile.title}</p>
+          <ul className="flex items-center gap-2">
+            {social.map(({ href, label }) => (
+              <li key={label}>
+                <a href={href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-11 px-3 hover:text-foreground transition-colors">
+                  {label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </footer>
       </div>
     </div>
