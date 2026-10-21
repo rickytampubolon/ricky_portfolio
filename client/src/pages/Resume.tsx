@@ -1,10 +1,9 @@
-import Layout from "../components/Layout";
 import { experience, earlier, education, skills, type Role } from "../data/resumeData";
 
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="grid md:grid-cols-[10rem_1fr] gap-x-10 gap-y-4 py-10 border-t border-border">
-      <h2 className="text-muted-foreground text-[0.95rem] font-sans tracking-normal">{title}</h2>
+      <h3 className="text-muted-foreground text-[0.95rem] font-sans tracking-normal">{title}</h3>
       <div>{children}</div>
     </section>
   );
@@ -26,11 +25,11 @@ function Rows({ items }: { items: Role[] }) {
   );
 }
 
-export default function Resume() {
+export default function ResumeSection() {
   return (
-    <Layout title="Resume">
-      <div className="px-6 md:px-12 pt-8 md:pt-16 pb-16 max-w-4xl w-full">
-        <h1 className="font-display text-[clamp(2.75rem,8vw,5.5rem)] mb-14 md:mb-20">Resume</h1>
+    <section id="resume" className="px-6 md:px-12 py-20 md:py-32">
+      <div className="max-w-4xl w-full">
+        <h2 className="font-display text-[clamp(2.75rem,8vw,5.5rem)] mb-14 md:mb-20">Resume</h2>
 
         <Section title="Experience"><Rows items={experience} /></Section>
         <Section title="Earlier"><Rows items={earlier} /></Section>
@@ -39,6 +38,6 @@ export default function Resume() {
           <p className="leading-relaxed max-w-lg">{skills.join(", ")}.</p>
         </Section>
       </div>
-    </Layout>
+    </section>
   );
 }

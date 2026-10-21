@@ -7,9 +7,13 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { useAnalytics } from "./hooks/useAnalytics";
 
 const Home     = lazy(() => import("./pages/Home"));
-const Resume   = lazy(() => import("./pages/Resume"));
-const Contact  = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+
+/* Old /resume and /contact links land on the matching section of the single page */
+function ToSection({ id }: { id: string }) {
+  window.location.replace(`/#${id}`);
+  return null;
+}
 
 function Router() {
   useAnalytics();
@@ -18,9 +22,8 @@ function Router() {
     <Suspense fallback={<div style={{ minHeight: "100vh", backgroundColor: "var(--paper)" }} />}>
       <Switch>
         <Route path="/"         component={Home} />
-        <Route path="/resume"   component={Resume} />
-        <Route path="/contact"  component={Contact} />
-        <Route path="/projects" component={NotFound} />
+        <Route path="/resume"   component={() => <ToSection id="resume" />} />
+        <Route path="/contact"  component={() => <ToSection id="contact" />} />
         <Route path="/404"      component={NotFound} />
         <Route component={NotFound} />
       </Switch>

@@ -1,8 +1,16 @@
-import { Link } from "wouter";
+import { useEffect } from "react";
 import Layout from "../components/Layout";
+import ResumeSection from "./Resume";
+import ContactSection from "./Contact";
 import { profile, intro, careerPath, sectors, stats } from "../data/homeData";
 
 export default function Home() {
+  // The page is lazy-loaded, so honour a #section in the URL once it has rendered.
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (id) document.getElementById(id)?.scrollIntoView();
+  }, []);
+
   return (
     <Layout>
       {/* ── Hero ───────────────────────────────────────────── */}
@@ -12,7 +20,7 @@ export default function Home() {
         {/* soft grey light, top right */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute -top-40 -right-40 w-[46rem] h-[46rem] rounded-full"
+          className="pointer-events-none absolute top-24 -right-48 w-[40rem] h-[40rem] rounded-full"
           style={{ background: "radial-gradient(circle, rgba(0,0,0,0.06) 0%, transparent 65%)" }}
         />
         <div className="relative max-w-6xl">
@@ -28,12 +36,12 @@ export default function Home() {
             <div className="space-y-6">
               <p className="text-muted-foreground leading-relaxed max-w-sm">{intro}</p>
               <p className="flex gap-3">
-                <Link href="/resume" className="bg-foreground text-background px-7 py-3 rounded-full text-[0.95rem] hover:bg-foreground/85 transition-colors active:scale-[0.98]">
+                <a href="#resume" className="bg-foreground text-background px-7 py-3 rounded-full text-[0.95rem] hover:bg-foreground/85 transition-colors active:scale-[0.98]">
                   View resume
-                </Link>
-                <Link href="/contact" className="border border-foreground px-7 py-3 rounded-full text-[0.95rem] hover:bg-foreground hover:text-background transition-colors active:scale-[0.98]">
+                </a>
+                <a href="#contact" className="border border-foreground px-7 py-3 rounded-full text-[0.95rem] hover:bg-foreground hover:text-background transition-colors active:scale-[0.98]">
                   Contact
-                </Link>
+                </a>
               </p>
             </div>
           </div>
@@ -71,14 +79,8 @@ export default function Home() {
         </p>
       </section>
 
-      {/* ── Closing line ───────────────────────────────────── */}
-      <section className="px-6 md:px-12 py-20 md:py-32">
-        <Link href="/contact" className="group inline-block font-display text-[clamp(2.75rem,10vw,8rem)] leading-none">
-          <span className="border-b border-transparent group-hover:border-foreground transition-colors duration-300">
-            Let's talk.
-          </span>
-        </Link>
-      </section>
+      <ResumeSection />
+      <ContactSection />
     </Layout>
   );
 }

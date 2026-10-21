@@ -1,19 +1,12 @@
-import { Link, useLocation } from "wouter";
 import { useEffect } from "react";
 import { profile, social } from "../data/homeData";
 
 const navLinks = [
-  { label: "Resume",  href: "/resume"  },
-  { label: "Contact", href: "/contact" },
+  { label: "Resume",  href: "#resume"  },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Layout({ children, title }: { children: React.ReactNode; title?: string }) {
-  const [location] = useLocation();
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, [location]);
-
   useEffect(() => {
     document.title = title
       ? `${title} | ${profile.name}`
@@ -21,25 +14,20 @@ export default function Layout({ children, title }: { children: React.ReactNode;
   }, [title]);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div id="top" className="min-h-screen flex flex-col">
       <header className="px-6 md:px-12 h-20 flex items-center justify-between">
-        <Link href="/" className="text-[0.95rem] font-medium tracking-tight">
+        <a href="#top" className="text-[0.95rem] font-medium tracking-tight">
           {profile.name}
-        </Link>
+        </a>
         <nav aria-label="Primary" className="flex items-center gap-7 text-[0.95rem]">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.href}
               href={link.href}
-              aria-current={location.startsWith(link.href) ? "page" : undefined}
-              className={`py-2 transition-colors ${
-                location.startsWith(link.href)
-                  ? "text-foreground underline underline-offset-[0.4em] decoration-1"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
+              className="py-2 text-muted-foreground hover:text-foreground transition-colors"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
         </nav>
       </header>

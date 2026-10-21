@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import Layout from "../components/Layout";
 import { profile } from "../data/homeData";
 
 const WEB3FORMS_ACCESS_KEY =
@@ -84,7 +83,7 @@ function FormField({ id, label, error, touched, children }: FormFieldProps) {
 const inputError = "border-destructive";
 
 /* ── Component ───────────────────────────────────────────────── */
-export default function Contact() {
+export default function ContactSection() {
   const [form,      setForm]     = useState<FormState>(EMPTY);
   const [errors,    setErrors]   = useState<FormErrors>({});
   const [touched,   setTouched]  = useState<Partial<Record<keyof FormState, boolean>>>({});
@@ -135,10 +134,10 @@ export default function Contact() {
   };
 
   return (
-    <Layout title="Contact">
-      <div className="px-6 md:px-12 pt-8 md:pt-16 pb-16 max-w-2xl w-full">
+    <section id="contact" className="px-6 md:px-12 py-20 md:py-32 border-t border-border">
+      <div className="max-w-2xl w-full">
 
-        <h1 className="font-display text-[clamp(2.75rem,8vw,5.5rem)] mb-6">Contact</h1>
+        <h2 className="font-display text-[clamp(2.75rem,10vw,8rem)] leading-none mb-8">Let's talk.</h2>
         <p className="text-muted-foreground mb-12 md:mb-16 max-w-md">
           Have a project or an opportunity in mind? Send a message and I'll reply soon.
         </p>
@@ -248,6 +247,6 @@ export default function Contact() {
         </p>
 
       </div>
-    </Layout>
+    </section>
   );
 }
