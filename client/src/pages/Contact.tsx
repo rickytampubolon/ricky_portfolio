@@ -82,13 +82,13 @@ function TextField({ id, label, error, multiline, type = "text", autoComplete, v
   };
   return (
     <div>
-      <label htmlFor={id} className="block text-base text-subtle mb-1.5">{label}</label>
+      <label htmlFor={id} className="block text-[0.9rem] text-subtle mb-1.5">{label}</label>
       {multiline ? (
         <textarea {...shared} rows={4} onChange={(e) => onChange(e.target.value)} />
       ) : (
         <input {...shared} type={type} onChange={(e) => onChange(e.target.value)} />
       )}
-      {error && <p id={errId} className="mt-1.5 text-[0.8125rem] text-destructive">{error}</p>}
+      {error && <p id={errId} className="mt-1.5 text-[0.85rem] text-destructive">{error}</p>}
     </div>
   );
 }
@@ -151,11 +151,11 @@ export default function ContactSection() {
       <h2 id="contact-label" className="chip">Say hello</h2>
       <div className="mt-8 grid md:grid-cols-[1fr_1.5fr] gap-x-14 gap-y-8">
         <div>
-          <p className="text-base text-subtle mb-3">Or find me on</p>
+          <p className="text-[0.9rem] text-subtle mb-3">Or find me on</p>
           <ul>
             {social.map(({ href, label }) => (
               <li key={label} className="border-t border-border last:border-b">
-                <a href={href} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between min-h-14 text-[1.125rem]">
+                <a href={href} target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between min-h-14 text-[1.15rem]">
                   {label}
                   <ArrowUpRight size={18} strokeWidth={1.6} className="text-subtle group-hover:text-foreground transition-colors" />
                 </a>
@@ -167,7 +167,7 @@ export default function ContactSection() {
         <div>
         {success ? (
           <div role="status" className="py-2">
-            <p className="text-[1.125rem] font-medium mb-2">Message sent</p>
+            <p className="text-[1.25rem] font-medium mb-2">Message sent</p>
             <p className="text-subtle mb-5">Thanks for reaching out. I'll reply soon.</p>
             <button onClick={() => setSuccess(false)} className="link inline-flex items-center min-h-11">
               Send another message
@@ -193,7 +193,7 @@ export default function ContactSection() {
               onChange={(v) => update("message", v)} onBlur={() => blur("message")} />
 
             {submitErr && (
-              <p role="alert" className="text-base text-destructive">
+              <p role="alert" className="text-[0.9rem] text-destructive">
                 The message was not sent ({submitErr}). Try again, or email me at{" "}
                 <a href={`mailto:${profile.email}`} className="underline underline-offset-2">{profile.email}</a>.
               </p>
@@ -202,7 +202,7 @@ export default function ContactSection() {
             <button
               type="submit"
               disabled={loading}
-              className="bg-foreground text-background px-8 min-h-12 rounded-full text-base font-medium hover:bg-foreground/85 transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-foreground text-background px-8 min-h-12 rounded-full text-[0.95rem] font-medium hover:bg-foreground/85 transition-colors active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? "Sending…" : "Send message"}
             </button>
