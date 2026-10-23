@@ -12,7 +12,7 @@ function JakartaClock() {
   }, []);
   const time = now.toLocaleTimeString("en-US", { timeZone: "Asia/Jakarta", hour: "numeric", minute: "2-digit", second: "2-digit" });
   return (
-    <div className="leading-tight text-[0.8125rem]">
+    <div className="leading-tight text-[0.85rem]">
       <p className="text-subtle">Jakarta, Indonesia</p>
       <p className="font-medium tabular-nums" aria-hidden="true">{time}</p>
     </div>
@@ -64,7 +64,7 @@ export default function Layout({ children, title }: { children: React.ReactNode;
           {/* Desktop: links are one tap away, no menu needed */}
           <nav aria-label="Primary" className="hidden md:flex items-center gap-1 shrink-0">
             {navLinks.map((l) => (
-              <a key={l.href} href={l.href} className="rounded-full px-4 min-h-11 inline-flex items-center text-base text-subtle hover:text-foreground hover:bg-card transition-colors">
+              <a key={l.href} href={l.href} className="rounded-full px-4 min-h-11 inline-flex items-center text-[0.92rem] text-subtle hover:text-foreground hover:bg-card transition-colors">
                 {l.label}
               </a>
             ))}
@@ -86,7 +86,7 @@ export default function Layout({ children, title }: { children: React.ReactNode;
               <nav id="site-menu" aria-label="Menu" className="card !p-2 !rounded-2xl absolute right-0 top-14 w-52 z-50">
                 {navLinks.map((l) => (
                   <a key={l.href} href={l.href} onClick={() => setOpen(false)}
-                     className="flex items-center min-h-11 rounded-xl px-4 text-base hover:bg-secondary transition-colors">
+                     className="flex items-center min-h-11 rounded-xl px-4 text-[0.95rem] hover:bg-secondary transition-colors">
                     {l.label}
                   </a>
                 ))}
@@ -97,7 +97,7 @@ export default function Layout({ children, title }: { children: React.ReactNode;
 
         <main id="main" className="flex-1 flex flex-col">{children}</main>
 
-        <footer className="py-10 text-[0.8125rem] text-subtle">
+        <footer className="py-10 text-[0.9rem] text-subtle">
           <p>© {new Date().getFullYear()} {profile.name}</p>
         </footer>
       </div>
