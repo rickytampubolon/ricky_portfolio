@@ -5,13 +5,56 @@
 
 declare function gtag(...args: unknown[]): void;
 
+/** True when the owner opted out (?notrack=1) or the visitor looks like a bot.
+ *  The flag is set by a small inline script in index.html. */
+export function isTrackingDisabled(): boolean {
+  return (window as unknown as Record<string, unknown>)["ga-disable-G-6HCZ3FP6S0"] === true;
+}
+
 export function track(name: string, params: Record<string, unknown> = {}) {
-  if (typeof gtag === "undefined") return;
+  if (typeof gtag === "undefined" || isTrackingDisabled()) return;
   try {
     gtag("event", name, params);
   } catch {
     /* analytics must never break the page */
   }
+}
+
+/* ── JavaScript error reporting ──────────────────────────────
+   Sends only a short message, the file name and the page path.
+   Capped per page load, and errors from browser extensions or
+   other origins are ignored. */
+export function initErrorTracking(): () => void {
+  let sent = 0;
+  const MAX = 5;
+
+  const report = (message: string, file = "", line = 0) => {
+    if (sent >= MAX) return;
+    if (!message || message === "Script error." || message.includes("ResizeObserver loop")) return;
+    sent += 1;
+    track("js_error", {
+      message: message.slice(0, 150),
+      file: file.split("/").pop()?.split("?")[0],
+      line,
+      page_path: window.location.pathname + window.location.hash,
+    });
+  };
+
+  const onError = (e: ErrorEvent) => {
+    if (e.filename && !e.filename.startsWith(window.location.origin)) return;
+    report(e.message, e.filename, e.lineno);
+  };
+  const onRejection = (e: PromiseRejectionEvent) => {
+    const r = e.reason;
+    report(r instanceof Error ? r.message : String(r ?? ""));
+  };
+
+  window.addEventListener("error", onError);
+  window.addEventListener("unhandledrejection", onRejection);
+  return () => {
+    window.removeEventListener("error", onError);
+    window.removeEventListener("unhandledrejection", onRejection);
+  };
 }
 
 /* ── Traffic source (first touch of the session) ─────────────── */

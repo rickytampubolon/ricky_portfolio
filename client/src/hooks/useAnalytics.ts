@@ -1,6 +1,6 @@
 import { useEffect, useCallback } from "react";
 import { useLocation } from "wouter";
-import { track, getAttribution } from "../lib/analytics";
+import { track, getAttribution, initErrorTracking } from "../lib/analytics";
 
 const SECTIONS = ["experience", "education", "contact"];
 const SCROLL_STEPS = [25, 50, 75, 100];
@@ -9,6 +9,9 @@ const SCROLL_STEPS = [25, 50, 75, 100];
  *  and outbound link clicks. Also exposes trackClick. */
 export function useAnalytics() {
   const [location] = useLocation();
+
+  /* JavaScript errors */
+  useEffect(() => initErrorTracking(), []);
 
   /* Page view + where the visitor came from */
   useEffect(() => {
