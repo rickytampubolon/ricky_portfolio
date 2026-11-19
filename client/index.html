@@ -83,6 +83,22 @@
       ]
     }
     </script>
+    <!-- Skip analytics for the site owner and for bots.
+         Open /?notrack=1 once in a browser to exclude it, /?notrack=0 to count it again. -->
+    <script>
+      (function () {
+        try {
+          var q = new URLSearchParams(window.location.search).get('notrack');
+          if (q === '1') localStorage.setItem('notrack', '1');
+          if (q === '0') localStorage.removeItem('notrack');
+          var bot = navigator.webdriver ||
+            /bot|crawl|spider|headless|lighthouse|prerender|preview/i.test(navigator.userAgent);
+          if (bot || localStorage.getItem('notrack') === '1') {
+            window['ga-disable-G-6HCZ3FP6S0'] = true;
+          }
+        } catch (e) {}
+      })();
+    </script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6HCZ3FP6S0"></script>
     <script>
