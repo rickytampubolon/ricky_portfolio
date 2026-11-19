@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { profile, social } from "../data/homeData";
+import { track, getAttribution } from "../lib/analytics";
 
 const WEB3FORMS_ACCESS_KEY =
   import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "012cebc9-d8fb-4c62-9879-3b3bc071f3b4";
@@ -36,6 +37,7 @@ function validate(fields: FormState): FormErrors {
 /* ── Submit handler ──────────────────────────────────────────── */
 async function submitForm(data: FormState): Promise<void> {
   const name = `${data.firstName} ${data.lastName}`;
+  const a = getAttribution();
   const res = await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -45,6 +47,11 @@ async function submitForm(data: FormState): Promise<void> {
       email:   data.email,
       subject: `New message from ${name}`,
       message: data.message,
+      /* where this visitor came from, shown in the notification email */
+      source:   a.source,
+      medium:   a.medium,
+      campaign: a.campaign ?? "",
+      referrer: a.referrer ?? "",
     }),
   });
   const json = await res.json();
@@ -103,7 +110,13 @@ export default function ContactSection() {
   const [submitErr, setSubmitErr] = useState<string | null>(null);
   const submitting = useRef(false);
 
+  const started = useRef(false);
+
   const update = (field: Field, value: string) => {
+    if (!started.current) {
+      started.current = true;
+      track("form_start", { form: "contact" });
+    }
     const next = { ...form, [field]: value };
     setForm(next);
     if (touched[field]) setErrors(validate(next));
@@ -133,12 +146,15 @@ export default function ContactSection() {
     setSubmitErr(null);
     try {
       await submitForm(form);
+      track("form_submit", { form: "contact", traffic_source: getAttribution().source });
+      started.current = false;
       setSuccess(true);
       setForm(EMPTY);
       setTouched({});
       setErrors({});
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Unknown error";
+      track("form_error", { form: "contact" });
       setSubmitErr(msg);
     } finally {
       submitting.current = false;
